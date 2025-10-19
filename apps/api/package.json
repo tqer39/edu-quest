@@ -1,5 +1,5 @@
 {
-  "name": "@mathquest/api",
+  "name": "@edu-quest/api",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,8 +9,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mathquest/app": "workspace:*",
-    "@mathquest/domain": "workspace:*",
+    "@edu-quest/app": "workspace:*",
+    "@edu-quest/domain": "workspace:*",
     "@hono/node-server": "^1.11.0",
     "hono": "^4.4.3"
   },

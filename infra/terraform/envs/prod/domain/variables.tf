@@ -1,7 +1,7 @@
 variable "root_domain" {
-  description = "取得するルートドメイン (例: mathquest.app)"
+  description = "取得するルートドメイン (例: edu-quest.app)"
   type        = string
-  default     = "mathquest.app"
+  default     = "edu-quest.app"
 }
 
 variable "gcp_project_id" {
@@ -29,7 +29,7 @@ variable "cloudflare_account_id" {
 variable "dev_subdomain_target" {
   description = "dev サブドメインの転送先 (Workers/Pages の URL など)"
   type        = string
-  default     = "mathquest-dev.pages.dev"
+  default     = "edu-quest-dev.pages.dev"
 }
 
 # Contact

@@ -1,5 +1,5 @@
 {
-  "name": "mathquest",
+  "name": "edu-quest",
   "private": true,
   "packageManager": "pnpm@10.18.3",
   "workspaces": [
@@ -7,20 +7,20 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "pnpm --filter @mathquest/domain run build && pnpm --filter @mathquest/app run build && pnpm --filter @mathquest/api run build && pnpm --filter @mathquest/web run build",
-    "dev:api": "pnpm --filter @mathquest/api run dev",
-    "dev:web": "pnpm --filter @mathquest/web run dev",
-    "dev:edge": "pnpm --filter @mathquest/domain run build && pnpm --filter @mathquest/edge run dev",
-    "clean": "pnpm --filter @mathquest/domain run clean && pnpm --filter @mathquest/app run clean && pnpm --filter @mathquest/api run clean && pnpm --filter @mathquest/web run clean",
-    "test": "pnpm --filter @mathquest/domain test && pnpm --filter @mathquest/edge test",
-    "test:watch": "pnpm --filter @mathquest/domain run test:watch",
-    "test:coverage": "pnpm --filter @mathquest/domain run test:coverage",
+    "build": "pnpm --filter @edu-quest/domain run build && pnpm --filter @edu-quest/app run build && pnpm --filter @edu-quest/api run build && pnpm --filter @edu-quest/web run build",
+    "dev:api": "pnpm --filter @edu-quest/api run dev",
+    "dev:web": "pnpm --filter @edu-quest/web run dev",
+    "dev:edge": "pnpm --filter @edu-quest/domain run build && pnpm --filter @edu-quest/edge run dev",
+    "clean": "pnpm --filter @edu-quest/domain run clean && pnpm --filter @edu-quest/app run clean && pnpm --filter @edu-quest/api run clean && pnpm --filter @edu-quest/web run clean",
+    "test": "pnpm --filter @edu-quest/domain test && pnpm --filter @edu-quest/edge test",
+    "test:watch": "pnpm --filter @edu-quest/domain run test:watch",
+    "test:coverage": "pnpm --filter @edu-quest/domain run test:coverage",
     "format": "pre-commit run prettier --all-files",
     "format:staged": "pre-commit run prettier",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
     "check": "biome check .",
-    "drizzle:generate": "pnpm --filter @mathquest/edge run drizzle:generate"
+    "drizzle:generate": "pnpm --filter @edu-quest/edge run drizzle:generate"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.5",

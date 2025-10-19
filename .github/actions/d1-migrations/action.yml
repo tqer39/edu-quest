@@ -36,4 +36,4 @@ runs:
         apiToken: ${{ inputs.apiToken }}
         accountId: ${{ inputs.accountId }}
         workingDirectory: apps/edge
-        command: d1 migrations apply mathquest --env ${{ inputs.environment }}
+        command: d1 migrations apply edu-quest --env ${{ inputs.environment }}

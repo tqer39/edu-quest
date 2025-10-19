@@ -27,7 +27,7 @@ concurrency:
 env:
   AWS_ACCOUNT_ID: '072693953877'
   AWS_ENV_NAME: prod
-  OIDC_IAM_ROLE: portfolio-mathquest-terraform-deploy-prod
+  OIDC_IAM_ROLE: portfolio-edu-quest-terraform-deploy-prod
   CHECK_DIFF: ${{ inputs.CHECK_DIFF || github.event.inputs.CHECK_DIFF || '_false' }}
 
 jobs:
@@ -163,7 +163,7 @@ jobs:
           chmod +x ./.github/scripts/delete_pr_comments.sh
           ./.github/scripts/delete_pr_comments.sh \
             "tqer39" \
-            "mathquest" \
+            "edu-quest" \
             "${{ env.AWS_ENV_NAME }}" \
             "${{ github.event.pull_request.number }}" \
             "${{ secrets.GITHUB_TOKEN }}"

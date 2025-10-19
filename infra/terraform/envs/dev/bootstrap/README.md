@@ -22,7 +22,7 @@
 ```hcl
 cloudflare_api_token   = "cf-xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 cloudflare_account_id  = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-turnstile_allowed_domains = ["dev.mathquest.app"] # 開発環境で Turnstile を利用する場合
+turnstile_allowed_domains = ["dev.edu-quest.app"] # 開発環境で Turnstile を利用する場合
 ```
 
 Turnstile の利用を見送る場合は `turnstile_allowed_domains = []` のままで構いません。
@@ -33,7 +33,7 @@ Turnstile の利用を見送る場合は `turnstile_allowed_domains = []` のま
 
 認証は以下のいずれかで行ってください。
 
-- `AWS_PROFILE=mathquest-dev` のようにプロファイルを切り替える
+- `AWS_PROFILE=eduquest-dev` のようにプロファイルを切り替える
 - `AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY` / `AWS_SESSION_TOKEN` を直接エクスポートする
 
 ## 実行手順

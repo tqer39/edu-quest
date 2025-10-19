@@ -5,14 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "6.17.0"
     }
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "5.11.0"
-    }
   }
   backend "s3" {
     bucket  = "terraform-tfstate-tqer39-072693953877-ap-northeast-1"
-    key     = "mathquest/infra/terraform/envs/dev/dev-bootstrap.tfstate"
+    key     = "edu-quest/infra/terraform/envs/dev/dev-bootstrap.tfstate"
     encrypt = true
     region  = "ap-northeast-1"
   }

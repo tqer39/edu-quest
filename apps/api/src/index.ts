@@ -2,8 +2,8 @@ import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import { cors } from 'hono/cors';
 import { serveStatic } from '@hono/node-server/serve-static';
-import type { Mode } from '@mathquest/domain';
-import { generateQuestion, checkAnswer as check } from '@mathquest/domain';
+import type { Mode } from '@edu-quest/domain';
+import { generateQuestion, checkAnswer as check } from '@edu-quest/domain';
 
 const app = new Hono();
 

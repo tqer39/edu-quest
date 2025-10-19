@@ -10,11 +10,11 @@ const MODULE_SOURCE = `
   }
 
   function initializeStartPage() {
-  const STORAGE_KEY = 'mathquest:progress:v1';
-  const SOUND_STORAGE_KEY = 'mathquest:sound-enabled';
-  const WORKING_STORAGE_KEY = 'mathquest:show-working';
-  const QUESTION_COUNT_STORAGE_KEY = 'mathquest:question-count-default';
-  const SESSION_STORAGE_KEY = 'mathquest:pending-session';
+  const STORAGE_KEY = 'edu-quest:progress:v1';
+  const SOUND_STORAGE_KEY = 'edu-quest:sound-enabled';
+  const WORKING_STORAGE_KEY = 'edu-quest:show-working';
+  const QUESTION_COUNT_STORAGE_KEY = 'edu-quest:question-count-default';
+  const SESSION_STORAGE_KEY = 'edu-quest:pending-session';
 
   const getJSON = (id) => {
     const el = document.getElementById(id);
