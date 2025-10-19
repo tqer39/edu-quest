@@ -109,7 +109,7 @@ button {
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
 .status-bar {

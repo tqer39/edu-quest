@@ -539,18 +539,22 @@ export const Sudoku: FC<{ currentUser: CurrentUser | null }> = ({
 
           <div class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
             <div id="sudoku-grid" class="sudoku-grid">
-              {Array.from({ length: 81 }).map((_, i) => (
-                <input
-                  key={i}
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={1}
-                  class="sudoku-cell"
-                  data-index={i}
-                  data-row={Math.floor(i / 9)}
-                  data-col={i % 9}
-                />
-              ))}
+              {Array.from({ length: 81 }).map((_, i) => {
+                const row = Math.floor(i / 9);
+                const col = i % 9;
+                return (
+                  <input
+                    key={`${row}-${col}`}
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={1}
+                    class="sudoku-cell"
+                    data-index={i}
+                    data-row={row}
+                    data-col={col}
+                  />
+                );
+              })}
             </div>
           </div>
 
