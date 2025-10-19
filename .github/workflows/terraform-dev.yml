@@ -23,6 +23,11 @@ on:
         options:
           - '_true'
           - '_false'
+      RUN_APPLY:
+        description: 'Apply実行フラグ（falseの場合はplanのみ）'
+        required: true
+        type: boolean
+        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -33,6 +38,7 @@ env:
   AWS_ENV_NAME: dev
   OIDC_IAM_ROLE: portfolio-edu-quest-terraform-deploy-dev
   CHECK_DIFF: ${{ inputs.CHECK_DIFF || github.event.inputs.CHECK_DIFF || '_false' }}
+  RUN_APPLY: ${{ inputs.RUN_APPLY || github.event.inputs.RUN_APPLY || 'false' }}
 
 jobs:
   set-matrix:
@@ -89,7 +95,7 @@ jobs:
           env: ${{ env.AWS_ENV_NAME }}
 
       - name: Terraform Apply
-        if: env.TF_PLAN_STATUS == 'has-diff' && contains(fromJSON('["push", "workflow_dispatch"]'), github.event_name)
+        if: env.TF_PLAN_STATUS == 'has-diff' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && env.RUN_APPLY == 'true'))
         uses: ./.github/actions/terraform-apply
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
