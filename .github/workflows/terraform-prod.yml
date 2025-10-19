@@ -58,8 +58,6 @@ jobs:
           echo "Tag '$TAG' is valid SemVer format"
 
   set-matrix:
-    needs: [validate-semver]
-    if: always() && (needs.validate-semver.result == 'success' || needs.validate-semver.result == 'skipped')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:

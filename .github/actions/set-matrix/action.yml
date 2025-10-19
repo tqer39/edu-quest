@@ -18,17 +18,21 @@ runs:
   steps:
     - name: pull_request
       if: github.event_name == 'pull_request'
+      env:
+        AWS_ENV_NAME: ${{ inputs.AWS_ENV_NAME }}
+        BASE_REF: ${{ github.base_ref }}
+        HEAD_REF: ${{ github.head_ref }}
       run: |
         # pull_request の場合は処理対象を絞る
-        declare -a deploy_pipelines=($(cat ./.github/workflows/deploy_pipeline/${{ env.AWS_ENV_NAME }}))
+        declare -a deploy_pipelines=($(cat ./.github/workflows/deploy_pipeline/${AWS_ENV_NAME}))
         declare -a temp=()
         chmod +x ./.github/scripts/check_for_changes_in_terraform_files.sh
 
         for pipeline in "${deploy_pipelines[@]}"; do
           if ! ./.github/scripts/check_for_changes_in_terraform_files.sh \
-            "infra/terraform/envs/${{ env.AWS_ENV_NAME }}/${pipeline}" \
-            "${{ github.base_ref }}" \
-            "${{ github.head_ref }}" ; then
+            "infra/terraform/envs/${AWS_ENV_NAME}/${pipeline}" \
+            "${BASE_REF}" \
+            "${HEAD_REF}" ; then
             echo "No changes in $pipeline"
           else
             # 処理対象のデプロイパイプラインを追加
@@ -40,11 +44,13 @@ runs:
         echo "joined_array=$(echo "[${joined_array%,}]")" >> $GITHUB_ENV
       shell: bash
 
-    - name: push
-      if: github.event_name == 'push'
+    - name: push or manual
+      if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch'
+      env:
+        AWS_ENV_NAME: ${{ inputs.AWS_ENV_NAME }}
       run: |
-        # push の場合は全て処理対象とする
-        declare -a deploy_pipelines=($(cat ./.github/workflows/deploy_pipeline/${{ env.AWS_ENV_NAME }}))
+        # push, workflow_dispatch, repository_dispatch の場合は全て処理対象とする
+        declare -a deploy_pipelines=($(cat ./.github/workflows/deploy_pipeline/${AWS_ENV_NAME}))
         joined_array=$(printf "\"%s\"," "${deploy_pipelines[@]}")
         echo "joined_array=$(echo "[${joined_array%,}]")" >> $GITHUB_ENV
       shell: bash
