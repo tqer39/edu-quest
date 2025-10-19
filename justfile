@@ -37,21 +37,21 @@ lint:
 
 # Run specific prek hook
 lint-hook hook:
-    prek run --hook {{hook}}
+    prek run {{hook}}
 
 # Fix common formatting issues
 fix:
-    prek run --hook end-of-file-fixer --all-files
-    prek run --hook trailing-whitespace --all-files
-    prek run --hook markdownlint-cli2 --all-files
+    prek run end-of-file-fixer --all-files
+    prek run trailing-whitespace --all-files
+    prek run markdownlint-cli2 --all-files
 
 # Format all supported files with Prettier (via prek hook)
 format:
-    prek run --hook prettier --all-files
+    prek run prettier --all-files
 
 # Format only staged files (typical git commit flow)
 format-staged:
-    prek run --hook prettier
+    prek run prettier
 
 # Clean prek cache (if any)
 clean:
