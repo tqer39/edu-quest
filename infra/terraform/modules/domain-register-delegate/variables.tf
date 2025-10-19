@@ -1,5 +1,5 @@
 variable "root_domain" {
-  description = "取得・運用するルートドメイン名 (例: mathquest.app)"
+  description = "取得・運用するルートドメイン名 (例: edu-quest.app)"
   type        = string
 }
 

@@ -23,8 +23,8 @@
 ```hcl
 cloudflare_account_id   = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 turnstile_allowed_domains = [
-  "mathquest.app",
-  "www.mathquest.app",
+  "edu-quest.app",
+  "www.edu-quest.app",
 ]
 ```
 

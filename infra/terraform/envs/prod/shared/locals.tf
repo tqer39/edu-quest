@@ -8,11 +8,11 @@ locals {
   # tflint-ignore: terraform_unused_declarations
   organization = "tqer39"
   # tflint-ignore: terraform_unused_declarations
-  prefix = "mathquest"
+  prefix = "edu-quest"
   # tflint-ignore: terraform_unused_declarations
   repository_owner = "tqer39"
   # tflint-ignore: terraform_unused_declarations
-  repository_name = "mathquest"
+  repository_name = "edu-quest"
   # tflint-ignore: terraform_unused_declarations
   region = {
     apne1 = "ap-northeast-1"
@@ -24,7 +24,7 @@ locals {
   base_tags = {
     "env"        = local.app_env_name
     "IaC"        = "Terraform"
-    "product"    = "mathquest"
+    "product"    = "edu-quest"
     "repository" = "${local.repository_owner}/${local.repository_name}"
   }
 

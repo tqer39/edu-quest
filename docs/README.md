@@ -1,8 +1,8 @@
-# MathQuest Document Overview
+# EduQuest Document Overview
 
-MathQuest is an arithmetic practice platform for elementary school students. It features a Hono-based SSR app running on Cloudflare Workers and a shared domain logic managed in a monorepo with pnpm workspaces.
+EduQuest is an arithmetic practice platform for elementary school students. It features a Hono-based SSR app running on Cloudflare Workers and a shared domain logic managed in a monorepo with pnpm workspaces.
 
-The start screen allows users to select grade level, calculation type, and theme presets (e.g., "Addition up to 20" or "Subtraction up to 50"), and to toggle the number of questions, sound effects, and the display of intermediate steps. The play screen includes a keypad UI, a countdown sequence, streak display, and progress saving via local storage. Question generation and grading are handled by `@mathquest/domain` and are reused by the API layer (`/apis/quiz`).
+The start screen allows users to select grade level, calculation type, and theme presets (e.g., "Addition up to 20" or "Subtraction up to 50"), and to toggle the number of questions, sound effects, and the display of intermediate steps. The play screen includes a keypad UI, a countdown sequence, streak display, and progress saving via local storage. Question generation and grading are handled by `@edu-quest/domain` and are reused by the API layer (`/apis/quiz`).
 
 ## Quick Start
 
@@ -65,5 +65,5 @@ just status
 
 - `AGENTS.md`: Overall design and module dependencies.
 - `docs/local-dev.md`: Procedures for setting up a local validation environment.
-- `docs/mathquest-architecture.md`: Detailed architecture design.
+- `docs/eduquest-architecture.md`: Detailed architecture design.
 - `docs/math-quiz.md`: Specifications for the old standalone mini-game.

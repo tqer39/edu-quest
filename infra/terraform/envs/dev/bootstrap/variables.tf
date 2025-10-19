@@ -7,7 +7,7 @@ variable "cloudflare_account_id" {
 variable "project_slug" {
   description = "リソース命名の基点となるスラッグ"
   type        = string
-  default     = "mathquest"
+  default     = "edu-quest"
 }
 
 variable "d1_database_name" {

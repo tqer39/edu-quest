@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
-import type { ExtraStep, Mode } from '@mathquest/domain';
-import { formatQuestion } from '@mathquest/domain';
+import type { ExtraStep, Mode } from '@edu-quest/domain';
+import { formatQuestion } from '@edu-quest/domain';
 import type { Env } from '../../env';
 import {
   generateQuizQuestion,

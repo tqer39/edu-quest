@@ -14,7 +14,7 @@ terraform {
 
   backend "s3" {
     bucket  = "terraform-tfstate-tqer39-072693953877-ap-northeast-1"
-    key     = "mathquest/infra/terraform/envs/prod/prod-bootstrap.tfstate"
+    key     = "edu-quest/infra/terraform/envs/prod/prod-bootstrap.tfstate"
     encrypt = true
     region  = "ap-northeast-1"
   }

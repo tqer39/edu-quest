@@ -7,7 +7,7 @@ variable "cloudflare_account_id" {
 variable "project_slug" {
   description = "リソース命名の基点となるスラッグ"
   type        = string
-  default     = "mathquest"
+  default     = "edu-quest"
 }
 
 variable "d1_database_name" {
@@ -20,8 +20,8 @@ variable "turnstile_allowed_domains" {
   description = "Turnstile を許可するドメイン一覧"
   type        = list(string)
   default = [
-    "mathquest.app",
-    "www.mathquest.app",
+    "edu-quest.app",
+    "www.edu-quest.app",
   ]
 }
 

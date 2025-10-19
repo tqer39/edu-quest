@@ -17,8 +17,8 @@
   - `just dev-node`
   - API: <http://localhost:8787> / Web: <http://localhost:8788>
 - 個別起動（手動）
-  - 別ターミナル1: `pnpm --filter @mathquest/api run dev`
-  - 別ターミナル2: `pnpm --filter @mathquest/web run dev`
+  - 別ターミナル1: `pnpm --filter @edu-quest/api run dev`
+  - 別ターミナル2: `pnpm --filter @edu-quest/web run dev`
 - 動作確認
   - ヘルスチェック: `curl http://localhost:8787/healthz`
   - ブラウザで Web を開く: <http://localhost:8788>
@@ -28,7 +28,7 @@
 Wrangler を使って Cloudflare Workers をローカル実行します。KV/D1 もローカルでエミュレート可能です。
 
 - 起動
-  - `pnpm --filter @mathquest/edge run dev`
+  - `pnpm --filter @edu-quest/edge run dev`
   - または `just dev-edge`
   - Wrangler が表示するローカル URL にアクセス
   - ローカルモードでは `--live-reload` を有効化しているため、ソース更新時にブラウザも自動でリロードされます。
@@ -41,7 +41,7 @@ Wrangler を使って Cloudflare Workers をローカル実行します。KV/D1 
   - `wrangler kv namespace create KV_IDEMPOTENCY`
   - `wrangler dev` 実行時はプレビュー用 namespace が自動で割り当てられますが、明示的に作成して `wrangler.toml` の `kv_namespaces` に id を設定することも可能です。
 - D1 のローカル準備（任意）
-  - DB 作成: `wrangler d1 create mathquest`
+  - DB 作成: `wrangler d1 create eduquest`
   - 生成された `database_id` を `apps/edge/wrangler.toml` の `d1_databases` に反映
   - マイグレーション適用: `wrangler d1 migrations apply DB --local --config apps/edge/wrangler.toml`
     - `DB` は `wrangler.toml` の `binding` 名を指し、`--config` で設定ファイルを指定することで `infra/migrations` 配下の SQL が適用されます。
@@ -53,7 +53,7 @@ Wrangler を使って Cloudflare Workers をローカル実行します。KV/D1 
 ## よくある質問（FAQ）
 
 - ポートを変えたい
-  - API: `PORT=8080 pnpm --filter @mathquest/api run dev`
+  - API: `PORT=8080 pnpm --filter @edu-quest/api run dev`
   - Web 側の API 呼び先は `apps/web/public/main.js` の `http://localhost:8787` を合わせてください。
 - CORS でエラーになる
   - API 側（`apps/api`）は CORS を許可済みですが、URL を確認してください。

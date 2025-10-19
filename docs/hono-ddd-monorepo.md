@@ -19,10 +19,10 @@
   - Homebrew 経由のツール導入 → mise によるツール（node/pnpm 等）導入 → pre-commit 設定
 - 依存関係のインストール（ルート）: `pnpm install`
 - ビルド: `pnpm run build`
-- API 起動: `pnpm --filter @mathquest/api run dev` → <http://localhost:8787>
-- Web 起動: `pnpm --filter @mathquest/web run dev` → <http://localhost:8788>
+- API 起動: `pnpm --filter @edu-quest/api run dev` → <http://localhost:8787>
+- Web 起動: `pnpm --filter @edu-quest/web run dev` → <http://localhost:8788>
   - Web は API を `http://localhost:8787` に呼びます。両方起動してください。
-- Edge-SSR 起動（Workers）: `pnpm --filter @mathquest/edge run dev` → Wrangler のURLにアクセス
+- Edge-SSR 起動（Workers）: `pnpm --filter @edu-quest/edge run dev` → Wrangler のURLにアクセス
   - KV/D1 は wrangler.toml のバインディングを環境に合わせて設定してください。
 
 ## API 概要

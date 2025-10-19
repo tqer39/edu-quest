@@ -102,15 +102,15 @@ rulesync args='':
 dev-node:
     @echo "Starting API (8787) and Web (8788)..."
     bash -lc 'set -euo pipefail; \
-      (pnpm --filter @mathquest/api run dev & pid_api=$!; \
-       pnpm --filter @mathquest/web run dev & pid_web=$!; \
+      (pnpm --filter @edu-quest/api run dev & pid_api=$!; \
+       pnpm --filter @edu-quest/web run dev & pid_web=$!; \
        trap "kill $$pid_api $$pid_web 2>/dev/null || true" INT TERM EXIT; \
        wait)'
 
 # Run Edge SSR (Cloudflare Workers via Wrangler)
 dev-edge:
     @echo "Starting Edge SSR (Wrangler dev)..."
-    pnpm --filter @mathquest/edge run dev
+    pnpm --filter @edu-quest/edge run dev
 
 # Cloudflare D1 (local) utilities
 d1-local-migrate:

@@ -1,6 +1,6 @@
-# mathquest: Wireframes
+# eduquest: Wireframes
 
-Below are the wireframes for the main screens of mathquest. This is the structural backbone of the UI; the final design will incorporate richer colors, illustrations, and animations.
+Below are the wireframes for the main screens of eduquest. This is the structural backbone of the UI; the final design will incorporate richer colors, illustrations, and animations.
 
 ## 1. Top Page (Home Screen)
 
