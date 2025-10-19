@@ -16,9 +16,9 @@ This document provides a comprehensive guide for AI assistants (like Gemini, Cla
 This file is the central hub. For detailed information, please refer to the specific documents below.
 
 - **[Project Overview](./docs/README.md):** Quick start, repository structure, and frequently used commands.
-- **[Architecture Design](./docs/eduquest-architecture.md):** In-depth explanation of the layered architecture, module configuration, data flow, and technology stack.
+- **[Architecture Design](./docs/edu-quest-architecture.md):** In-depth explanation of the layered architecture, module configuration, data flow, and technology stack.
 - **[UI/UX Design Concept](./docs/ux-design-concept.md):** The design philosophy, target users, visual theme, color palette, and gamification strategy.
-- **[Wireframes](./docs/eduquest-wireframe.md):** Structural blueprints for the main application screens (Home, Stage Select, Game, Results, etc.).
+- **[Wireframes](./docs/edu-quest-wireframe.md):** Structural blueprints for the main application screens (Home, Stage Select, Game, Results, etc.).
 - **[Local Development](./docs/local-dev.md):** Guide for setting up and running the project locally.
 - **[AI Assistant Rules](./docs/AI_RULES.md):** Common rules and guidelines for AI assistants contributing to this repository.
 - **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.

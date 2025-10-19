@@ -88,5 +88,5 @@ just status
 
 - `AGENTS.md`: Overall design and module dependencies.
 - `docs/local-dev.md`: Procedures for setting up a local validation environment.
-- `docs/eduquest-architecture.md`: Detailed architecture design.
+- `docs/edu-quest-architecture.md`: Detailed architecture design.
 - `docs/math-quiz.md`: Specifications for the old standalone mini-game.
