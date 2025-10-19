@@ -32,7 +32,22 @@ just tf -chdir=dev/bootstrap apply -auto-approve
 
 これにより、開発環境用の Cloudflare リソースが作成されます。
 
-前提
+### 3. 本番環境用 Terraform Bootstrap の実行（オプション）
+
+開発環境のセットアップ後、本番環境用の Cloudflare リソースも初期化する場合は、以下の手順を実行します。
+
+```shell
+just tf -chdir=prod/bootstrap init -reconfigure
+just tf -chdir=prod/bootstrap validate
+just tf -chdir=prod/bootstrap plan
+just tf -chdir=prod/bootstrap apply -auto-approve
+```
+
+これにより、本番環境用の Cloudflare リソースが作成されます。
+
+**注意**: 本番環境のリソースを作成する場合は、適切な権限とアカウント設定が必要です。
+
+## 前提条件
 
 - pnpm がインストール済み（`pnpm --version`）
 - Cloudflare Wrangler が mise 経由で導入済み（`mise install` 後に `wrangler --version` が通ること）
