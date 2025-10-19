@@ -17,6 +17,16 @@ The repository uses the following tools:
 
 ### Setup
 
+**Important**: Before running `make bootstrap`, you need to set up Cloudflare credentials:
+
+```bash
+# Add Cloudflare credentials (required before make bootstrap)
+cf-vault add edu-quest
+cf-vault list
+```
+
+Then proceed with the standard setup:
+
 ```bash
 # 1. Install Homebrew (macOS/Linux)
 make bootstrap

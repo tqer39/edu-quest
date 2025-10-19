@@ -5,6 +5,18 @@
 - Node ローカル（簡易）: `apps/api` + `apps/web` をローカルで起動
 - Edge-SSR（Cloudflare Workers エミュレーション）: `apps/edge` を Wrangler で起動
 
+## 初期セットアップ（必須）
+
+**重要**: `make bootstrap` を実行する前に、Cloudflare の認証情報を設定する必要があります。
+
+```shell
+# まず権限を追加
+cf-vault add edu-quest
+cf-vault list
+```
+
+これにより、ローカル開発環境で Cloudflare リソースへのアクセスが可能になります。
+
 前提
 
 - pnpm がインストール済み（`pnpm --version`）

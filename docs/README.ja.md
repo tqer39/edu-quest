@@ -17,6 +17,16 @@ EduQuest は小学生向けの算数練習プラットフォームです。Cloud
 
 ### セットアップ
 
+**重要**: `make bootstrap` を実行する前に、Cloudflare の認証情報を設定する必要があります：
+
+```bash
+# Cloudflare 認証情報を追加（make bootstrap の前に必須）
+cf-vault add edu-quest
+cf-vault list
+```
+
+その後、通常のセットアップを進めます：
+
 ```bash
 # 1. Homebrew の導入（macOS/Linux）
 make bootstrap
