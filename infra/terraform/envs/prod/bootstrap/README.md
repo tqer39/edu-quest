@@ -14,7 +14,7 @@
 - AWS アカウント（`ap-northeast-1` リージョンで IAM 操作が可能な権限）
 - AWS CLI が認証済み (`AWS_PROFILE` もしくは `AWS_ACCESS_KEY_ID` などを設定)
 - Cloudflare アカウント（D1 / Workers KV / Turnstile を作成できる API Token）
-- Terraform 1.13.3
+- Terraform 1.13.4
 
 ## 変数の設定
 
