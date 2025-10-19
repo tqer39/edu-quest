@@ -7,7 +7,9 @@
 
 ## 初期セットアップ（必須）
 
-**重要**: `make bootstrap` を実行する前に、Cloudflare の認証情報を設定する必要があります。
+**重要**: `make bootstrap` を実行する前に、以下の手順を実行する必要があります。
+
+### 1. Cloudflare 認証情報の設定
 
 ```shell
 # まず権限を追加
@@ -16,6 +18,19 @@ cf-vault list
 ```
 
 これにより、ローカル開発環境で Cloudflare リソースへのアクセスが可能になります。
+
+### 2. Terraform Bootstrap の実行
+
+Cloudflare リソース（D1、KV、Turnstile など）をローカル開発環境用に初期化します。
+
+```shell
+just tf -chdir=dev/bootstrap init -reconfigure
+just tf -chdir=dev/bootstrap validate
+just tf -chdir=dev/bootstrap plan
+just tf -chdir=dev/bootstrap apply -auto-approve
+```
+
+これにより、開発環境用の Cloudflare リソースが作成されます。
 
 前提
 

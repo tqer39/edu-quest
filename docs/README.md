@@ -17,7 +17,9 @@ The repository uses the following tools:
 
 ### Setup
 
-**Important**: Before running `make bootstrap`, you need to set up Cloudflare credentials:
+**Important**: Before running `make bootstrap`, you need to complete the following steps:
+
+#### 1. Set up Cloudflare credentials
 
 ```bash
 # Add Cloudflare credentials (required before make bootstrap)
@@ -25,7 +27,18 @@ cf-vault add edu-quest
 cf-vault list
 ```
 
-Then proceed with the standard setup:
+#### 2. Initialize Terraform Bootstrap
+
+Set up Cloudflare resources (D1, KV, Turnstile, etc.) for the development environment:
+
+```bash
+just tf -chdir=dev/bootstrap init -reconfigure
+just tf -chdir=dev/bootstrap validate
+just tf -chdir=dev/bootstrap plan
+just tf -chdir=dev/bootstrap apply -auto-approve
+```
+
+#### 3. Proceed with the standard setup
 
 ```bash
 # 1. Install Homebrew (macOS/Linux)

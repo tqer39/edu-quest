@@ -17,7 +17,9 @@ EduQuest は小学生向けの算数練習プラットフォームです。Cloud
 
 ### セットアップ
 
-**重要**: `make bootstrap` を実行する前に、Cloudflare の認証情報を設定する必要があります：
+**重要**: `make bootstrap` を実行する前に、以下の手順を完了する必要があります：
+
+#### 1. Cloudflare 認証情報の設定
 
 ```bash
 # Cloudflare 認証情報を追加（make bootstrap の前に必須）
@@ -25,7 +27,18 @@ cf-vault add edu-quest
 cf-vault list
 ```
 
-その後、通常のセットアップを進めます：
+#### 2. Terraform Bootstrap の実行
+
+開発環境用の Cloudflare リソース（D1、KV、Turnstile など）を初期化します：
+
+```bash
+just tf -chdir=dev/bootstrap init -reconfigure
+just tf -chdir=dev/bootstrap validate
+just tf -chdir=dev/bootstrap plan
+just tf -chdir=dev/bootstrap apply -auto-approve
+```
+
+#### 3. 通常のセットアップを進める
 
 ```bash
 # 1. Homebrew の導入（macOS/Linux）
