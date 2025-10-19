@@ -1,10 +1,10 @@
 # リリースワークフロー
 
-このドキュメントでは、MathQuest プロジェクトのリリースワークフローについて説明します。
+このドキュメントでは、EduQuest プロジェクトのリリースワークフローについて説明します。
 
 ## 概要
 
-MathQuest では、以下の 2 つのワークフローを使用してリリースを管理しています：
+EduQuest では、以下の 2 つのワークフローを使用してリリースを管理しています：
 
 1. **Create Release** (`.github/workflows/create-release.yml`): GitHub Release を作成する
 2. **Terraform - prod** (`.github/workflows/terraform-prod.yml`): GitHub Release をトリガーに本番環境へデプロイする

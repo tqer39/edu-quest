@@ -1,5 +1,5 @@
-import type { Mode, Question, QuizConfig } from '@mathquest/domain';
-import { checkAnswer as check, generateQuestion } from '@mathquest/domain';
+import type { Mode, Question, QuizConfig } from '@edu-quest/domain';
+import { checkAnswer as check, generateQuestion } from '@edu-quest/domain';
 
 export type StartQuizInput = {
   mode: Mode;

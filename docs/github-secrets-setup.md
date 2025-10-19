@@ -48,7 +48,7 @@ prod 環境の Terraform デプロイで使用する GitHub Secrets の設定方
 1. **GCP Console で確認**:
 
    ```bash
-   gcloud domains registrations search-domains mathquest.app
+   gcloud domains registrations search-domains edu-quest.app
    ```
 
 2. **Cloud Domains Pricing ページ**:
@@ -165,10 +165,10 @@ echo "GCP_WORKLOAD_IDENTITY_PROVIDER: ${WORKLOAD_IDENTITY_PROVIDER}"
 gcloud iam service-accounts add-iam-policy-binding "${SERVICE_ACCOUNT}" \
   --project="${GCP_PROJECT_ID}" \
   --role="roles/iam.workloadIdentityUser" \
-  --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github/attribute.repository/YOUR_GITHUB_USERNAME/mathquest"
+  --member="principalSet://iam.googleapis.com/projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/github/attribute.repository/YOUR_GITHUB_USERNAME/eduquest"
 ```
 
-**重要**: `YOUR_GITHUB_USERNAME/mathquest` を実際のリポジトリパスに置き換えてください。
+**重要**: `YOUR_GITHUB_USERNAME/eduquest` を実際のリポジトリパスに置き換えてください。
 
 #### 6. GitHub Secrets に登録
 

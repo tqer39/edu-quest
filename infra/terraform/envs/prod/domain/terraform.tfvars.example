@@ -2,7 +2,7 @@
 # 本番環境では GitHub Secrets を使用します
 
 gcp_project_id = "gcp-project-id"
-root_domain    = "mathquest.app"
+root_domain    = "edu-quest.app"
 
 # Cloudflare
 cloudflare_account_id = "your-cloudflare-account-id"

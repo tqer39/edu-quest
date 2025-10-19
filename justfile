@@ -26,8 +26,6 @@ setup:
     @if command -v pnpm >/dev/null 2>&1; then \
         echo "→ Installing JS dependencies with pnpm..."; \
         pnpm install; \
-        echo "→ Approving builds..."; \
-        pnpm approve-builds; \
     else \
         echo "⚠ pnpm not found. Install pnpm (npm install -g pnpm) してから再実行してください。"; \
     fi
@@ -39,21 +37,21 @@ lint:
 
 # Run specific prek hook
 lint-hook hook:
-    prek run --hook {{hook}}
+    prek run {{hook}}
 
 # Fix common formatting issues
 fix:
-    prek run --hook end-of-file-fixer --all-files
-    prek run --hook trailing-whitespace --all-files
-    prek run --hook markdownlint-cli2 --all-files
+    prek run end-of-file-fixer --all-files
+    prek run trailing-whitespace --all-files
+    prek run markdownlint-cli2 --all-files
 
 # Format all supported files with Prettier (via prek hook)
 format:
-    prek run --hook prettier --all-files
+    prek run prettier --all-files
 
 # Format only staged files (typical git commit flow)
 format-staged:
-    prek run --hook prettier
+    prek run prettier
 
 # Clean prek cache (if any)
 clean:
@@ -102,15 +100,15 @@ rulesync args='':
 dev-node:
     @echo "Starting API (8787) and Web (8788)..."
     bash -lc 'set -euo pipefail; \
-      (pnpm --filter @mathquest/api run dev & pid_api=$!; \
-       pnpm --filter @mathquest/web run dev & pid_web=$!; \
+      (pnpm --filter @edu-quest/api run dev & pid_api=$!; \
+       pnpm --filter @edu-quest/web run dev & pid_web=$!; \
        trap "kill $$pid_api $$pid_web 2>/dev/null || true" INT TERM EXIT; \
        wait)'
 
 # Run Edge SSR (Cloudflare Workers via Wrangler)
 dev-edge:
     @echo "Starting Edge SSR (Wrangler dev)..."
-    pnpm --filter @mathquest/edge run dev
+    pnpm --filter @edu-quest/edge run dev
 
 # Cloudflare D1 (local) utilities
 d1-local-migrate:

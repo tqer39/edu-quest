@@ -4,6 +4,6 @@ variable "cloudflare_account_id" {
 }
 
 variable "zone_domain" {
-  description = "作成するサブドメインの Zone 名（例: dev.mathquest.app）"
+  description = "作成するサブドメインの Zone 名（例: dev.edu-quest.app）"
   type        = string
 }

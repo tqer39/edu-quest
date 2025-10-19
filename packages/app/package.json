@@ -1,5 +1,5 @@
 {
-  "name": "@mathquest/app",
+  "name": "@edu-quest/app",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -16,7 +16,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@mathquest/domain": "workspace:*"
+    "@edu-quest/domain": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.5.0"

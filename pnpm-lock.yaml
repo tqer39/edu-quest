@@ -23,9 +23,12 @@ importers:
       '@mathquest/app':
         specifier: workspace:*
         version: link:../../packages/app
-      '@mathquest/domain':
+      '@edu-quest/domain':
         specifier: workspace:*
         version: link:../../packages/domain
+      '@hono/node-server':
+        specifier: ^1.11.0
+        version: 1.19.5(hono@4.9.11)
       hono:
         specifier: ^4.4.3
         version: 4.10.1
@@ -36,7 +39,7 @@ importers:
 
   apps/edge:
     dependencies:
-      '@mathquest/domain':
+      '@edu-quest/domain':
         specifier: workspace:*
         version: link:../../packages/domain
       drizzle-orm:
@@ -80,7 +83,7 @@ importers:
 
   packages/app:
     dependencies:
-      '@mathquest/domain':
+      '@edu-quest/domain':
         specifier: workspace:*
         version: link:../domain
     devDependencies:

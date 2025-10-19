@@ -121,5 +121,5 @@ terraform-cf: ## Run terraform via cf-vault + aws-vault (ARGS="-chdir=... plan")
 	  esac; \
 	done; \
 	NORMALIZED="$${NORMALIZED# }"; \
-	echo "→ cf-vault exec mathquest -- aws-vault exec portfolio -- terraform $$NORMALIZED"; \
-	cf-vault exec mathquest -- aws-vault exec portfolio -- terraform $$NORMALIZED
+	echo "→ cf-vault exec edu-quest -- aws-vault exec portfolio -- terraform $$NORMALIZED"; \
+	cf-vault exec edu-quest -- aws-vault exec portfolio -- terraform $$NORMALIZED

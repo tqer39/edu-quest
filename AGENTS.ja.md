@@ -2,15 +2,15 @@
 
 ## 概要
 
-MathQuestは小学生向けの算数学習プラットフォームで、Cloudflare Workers上で動作するHonoベースのSSRアプリケーションです。monorepoアーキテクチャを採用し、Edge Runtime、API/フロントエンドパッケージ、Terraform管理のインフラストラクチャを一つのリポジトリで管理しています。
+EduQuestは小学生向けの算数学習プラットフォームで、Cloudflare Workers上で動作するHonoベースのSSRアプリケーションです。monorepoアーキテクチャを採用し、Edge Runtime、API/フロントエンドパッケージ、Terraform管理のインフラストラクチャを一つのリポジトリで管理しています。
 
 ## 現在の主要機能
 
 - **スタート画面（`/start`）**
   - 学年（小1〜小6）、計算種類（たし算・ひき算・かけ算・四則演算）、テーマプリセット（例: 「たし算 20 まで」「ひき算 50 まで」）を選択。
   - 効果音・途中式表示のトグル、問題数（本番: 10/20/30、開発モード: 1 問のデバッグオプション）を切り替え。
-  - `mathquest:progress:v1`（解答数/正解数/最後の学年）、`mathquest:sound-enabled`、`mathquest:show-working`、`mathquest:question-count-default` に設定を保存。
-  - 選択内容は `mathquest:pending-session` として `sessionStorage` に退避し、プレイ画面へシームレスに引き継ぎ。
+  - `eduquest:progress:v1`（解答数/正解数/最後の学年）、`eduquest:sound-enabled`、`eduquest:show-working`、`eduquest:question-count-default` に設定を保存。
+  - 選択内容は `eduquest:pending-session` として `sessionStorage` に退避し、プレイ画面へシームレスに引き継ぎ。
 - **プレイ画面（`/play`）**
   - 3 秒カウントダウン後に問題を表示。テンキー UI、ストリーク表示、途中式のトグル、サウンド再生を実装。
   - `/apis/quiz/generate` で新しい問題を取得し、`/apis/quiz/verify` で採点。正解時は進捗をローカルストレージへ反映。
@@ -19,8 +19,8 @@ MathQuestは小学生向けの算数学習プラットフォームで、Cloudfla
   - `generateQuizQuestion` は学年・テーマに応じて `generateGradeOneQuestion` や複数項目の加減算ロジックを選択。
   - `verifyAnswer` はクライアントから渡された途中式 (`extras`) を含む問題を評価し、正解値と正誤を返却。
 - **共有ロジック**
-  - `@mathquest/domain` が全ての問題生成・採点ロジックを提供。学年別テーマや複数ステップ計算を純関数として実装。
-  - `@mathquest/app` が出題回数や正解数のカウントを担当し、UI から副作用を切り離してテストしやすい構造にしている。
+  - `@edu-quest/domain` が全ての問題生成・採点ロジックを提供。学年別テーマや複数ステップ計算を純関数として実装。
+  - `@edu-quest/app` が出題回数や正解数のカウントを担当し、UI から副作用を切り離してテストしやすい構造にしている。
 
 ## システムアーキテクチャ
 
@@ -47,8 +47,8 @@ graph TB
     end
 
     subgraph "Domain Layer"
-        DomainLogic[Domain Logic<br/>@mathquest/domain]
-        AppLogic[App Logic<br/>@mathquest/app]
+        DomainLogic[Domain Logic<br/>@edu-quest/domain]
+        AppLogic[App Logic<br/>@edu-quest/app]
     end
 
     subgraph "Infrastructure"
@@ -82,14 +82,14 @@ graph TB
 ```mermaid
 graph LR
     subgraph "Apps"
-        Edge[@mathquest/edge]
-        API[@mathquest/api]
-        Web[@mathquest/web]
+        Edge[@edu-quest/edge]
+        API[@edu-quest/api]
+        Web[@edu-quest/web]
     end
 
     subgraph "Packages"
-        Domain[@mathquest/domain]
-        App[@mathquest/app]
+        Domain[@edu-quest/domain]
+        App[@edu-quest/app]
     end
 
     Edge --> App
@@ -104,7 +104,7 @@ graph LR
 ### ディレクトリ構造
 
 ```text
-mathquest/
+eduquest/
 ├── apps/                    # アプリケーション群
 │   ├── edge/               # Cloudflare Workers エッジアプリ（メイン）
 │   │   ├── src/
@@ -143,17 +143,17 @@ pnpm workspacesによるmonorepo構成：
 
 - **apps/**: 実行可能なアプリケーション
 
-  - `@mathquest/edge`: Cloudflare Workers上のメインアプリ（SSR + BFF API）
-  - `@mathquest/api`: Node.js開発用APIサーバー
-  - `@mathquest/web`: Hono開発用Webサーバー
+  - `@edu-quest/edge`: Cloudflare Workers上のメインアプリ（SSR + BFF API）
+  - `@edu-quest/api`: Node.js開発用APIサーバー
+  - `@edu-quest/web`: Hono開発用Webサーバー
 
 - **packages/**: 共有ライブラリ
-  - `@mathquest/domain`: ドメインロジック（問題生成、計算ルール）
-  - `@mathquest/app`: アプリケーションロジック（クイズ管理、回答検証）
+  - `@edu-quest/domain`: ドメインロジック（問題生成、計算ルール）
+  - `@edu-quest/app`: アプリケーションロジック（クイズ管理、回答検証）
 
 ## 主要機能モジュール
 
-### 1. ドメイン層（@mathquest/domain）
+### 1. ドメイン層（@edu-quest/domain）
 
 **責務**: 算数問題の生成と計算ロジック
 
@@ -175,7 +175,7 @@ pnpm workspacesによるmonorepo構成：
 
 **ファイル**: `packages/domain/src/index.ts:1-223`
 
-### 2. アプリケーション層（@mathquest/app）
+### 2. アプリケーション層（@edu-quest/app）
 
 **責務**: クイズセッションの管理と状態管理
 
@@ -192,7 +192,7 @@ pnpm workspacesによるmonorepo構成：
 
 **ファイル**: `packages/app/src/index.ts:1-32`
 
-### 3. エッジアプリケーション（@mathquest/edge）
+### 3. エッジアプリケーション（@edu-quest/edge）
 
 #### 3.1 エントリーポイント（`src/index.tsx`）
 
@@ -341,12 +341,12 @@ pnpm workspacesによるmonorepo構成：
 pnpm build
 ```
 
-1. `@mathquest/domain` のビルド（ドメインロジック）
-2. `@mathquest/app` のビルド（アプリケーションロジック）
-3. `@mathquest/api` のビルド
-4. `@mathquest/web` のビルド
+1. `@edu-quest/domain` のビルド（ドメインロジック）
+2. `@edu-quest/app` のビルド（アプリケーションロジック）
+3. `@edu-quest/api` のビルド
+4. `@edu-quest/web` のビルド
 
-※ `@mathquest/edge`はWranglerが直接TypeScriptをバンドル
+※ `@edu-quest/edge`はWranglerが直接TypeScriptをバンドル
 
 ### 開発サーバー
 
@@ -385,7 +385,7 @@ sequenceDiagram
     Browser->>LocalStorage: load progress/settings
     User->>Browser: 学年・テーマ・設定を選択
     Browser->>LocalStorage: save progress & defaults
-    Browser->>Browser: sessionStorage.setItem('mathquest:pending-session')
+    Browser->>Browser: sessionStorage.setItem('eduquest:pending-session')
     User->>Browser: れんしゅうをはじめる
     Browser->>EdgeApp: Navigate to /play
 ```
@@ -400,7 +400,7 @@ sequenceDiagram
     participant UseCase
     participant Domain
 
-    Browser->>SessionStorage: read mathquest:pending-session
+    Browser->>SessionStorage: read eduquest:pending-session
     SessionStorage-->>Browser: 設定（mode/max/grade/theme）
     Browser->>QuizAPI: POST /apis/quiz/generate
     QuizAPI->>UseCase: generateQuizQuestion(mode, max, gradeId, themeId)

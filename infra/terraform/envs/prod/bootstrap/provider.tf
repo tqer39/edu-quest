@@ -6,5 +6,3 @@ provider "aws" {
     })
   }
 }
-
-provider "cloudflare" {}
