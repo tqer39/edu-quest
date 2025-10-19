@@ -5,10 +5,6 @@ terraform {
       source  = "hashicorp/aws"
       version = "6.16.0"
     }
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "5.11.0"
-    }
   }
   backend "s3" {
     bucket  = "terraform-tfstate-tqer39-072693953877-ap-northeast-1"
