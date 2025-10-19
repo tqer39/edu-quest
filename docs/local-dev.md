@@ -21,7 +21,7 @@ cf-vault list
 
 ### 2. Terraform Bootstrap の実行
 
-Cloudflare リソース（D1、KV、Turnstile など）をローカル開発環境用に初期化します。
+AWS リソース（IAM ロールなど）を初期化します。
 
 ```shell
 just tf -chdir=dev/bootstrap init -reconfigure
@@ -30,11 +30,28 @@ just tf -chdir=dev/bootstrap plan
 just tf -chdir=dev/bootstrap apply -auto-approve
 ```
 
+これにより、開発環境用の AWS リソースが作成されます。
+
+### 3. Terraform Databases の実行
+
+Cloudflare リソース（D1、KV、Turnstile など）を初期化します。
+
+**重要**: Bootstrap の実行後、5〜10分待ってから実行してください。これは、Cloudflare API のレート制限を回避するためです。
+
+```shell
+just tf -chdir=dev/databases init -reconfigure
+just tf -chdir=dev/databases validate
+just tf -chdir=dev/databases plan
+just tf -chdir=dev/databases apply -auto-approve
+```
+
 これにより、開発環境用の Cloudflare リソースが作成されます。
 
-### 3. 本番環境用 Terraform Bootstrap の実行（オプション）
+### 4. 本番環境用 Terraform の実行（オプション）
 
-開発環境のセットアップ後、本番環境用の Cloudflare リソースも初期化する場合は、以下の手順を実行します。
+開発環境のセットアップ後、本番環境用のリソースも初期化する場合は、以下の手順を実行します。
+
+#### 4.1. Bootstrap（AWS リソース）
 
 ```shell
 just tf -chdir=prod/bootstrap init -reconfigure
@@ -43,7 +60,18 @@ just tf -chdir=prod/bootstrap plan
 just tf -chdir=prod/bootstrap apply -auto-approve
 ```
 
-これにより、本番環境用の Cloudflare リソースが作成されます。
+#### 4.2. Databases（Cloudflare リソース）
+
+**重要**: Bootstrap の実行後、5〜10分待ってから実行してください。
+
+```shell
+just tf -chdir=prod/databases init -reconfigure
+just tf -chdir=prod/databases validate
+just tf -chdir=prod/databases plan
+just tf -chdir=prod/databases apply -auto-approve
+```
+
+これにより、本番環境用のリソースが作成されます。
 
 **注意**: 本番環境のリソースを作成する場合は、適切な権限とアカウント設定が必要です。
 
