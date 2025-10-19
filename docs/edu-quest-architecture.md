@@ -1,8 +1,8 @@
-# mathquest: Architecture Design and Project Structure
+# eduquest: Architecture Design and Project Structure
 
 ## 1. Purpose
 
-MathQuest is a learning service that provides arithmetic practice experiences for elementary school students. It uses Hono for SSR on Cloudflare Workers and offers grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix"). Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
+EduQuest is a learning service that provides arithmetic practice experiences for elementary school students. It uses Hono for SSR on Cloudflare Workers and offers grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix"). Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
 
 ## 2. Architecture Overview
 
@@ -31,14 +31,14 @@ Dependencies between layers are organized with inward-pointing arrows centered o
 ```mermaid
 graph LR
     subgraph "Apps"
-        Edge[@mathquest/edge]
-        API[@mathquest/api]
-        Web[@mathquest/web]
+        Edge[@edu-quest/edge]
+        API[@edu-quest/api]
+        Web[@edu-quest/web]
     end
 
     subgraph "Packages"
-        Domain[@mathquest/domain]
-        App[@mathquest/app]
+        Domain[@edu-quest/domain]
+        App[@edu-quest/app]
     end
 
     Edge --> App
@@ -48,17 +48,17 @@ graph LR
     App --> Domain
 ```
 
-- `@mathquest/edge`: The production Cloudflare Workers app. It embeds presets as JSON on the start screen, and a client script configures the dynamic UI (theme selection, progress saving, sound effect/show-working toggles).
-- `@mathquest/api` / `@mathquest/web`: Node + Hono servers for local validation without Workers. Useful for checking domain/API logic or for Storybook-like purposes.
-- `@mathquest/app`: Handles the calculation of quiz progress objects (current question number, correct count, etc.), allowing the UI to manage state transitions without side effects.
-- `@mathquest/domain`: The rules for generating calculation problems. When a grade-level theme is specified, it calls composite logic like `generateGradeOneQuestion`. For inverse arithmetic problems, it uses `generateInverseQuestion`.
+- `@edu-quest/edge`: The production Cloudflare Workers app. It embeds presets as JSON on the start screen, and a client script configures the dynamic UI (theme selection, progress saving, sound effect/show-working toggles).
+- `@edu-quest/api` / `@edu-quest/web`: Node + Hono servers for local validation without Workers. Useful for checking domain/API logic or for Storybook-like purposes.
+- `@edu-quest/app`: Handles the calculation of quiz progress objects (current question number, correct count, etc.), allowing the UI to manage state transitions without side effects.
+- `@edu-quest/domain`: The rules for generating calculation problems. When a grade-level theme is specified, it calls composite logic like `generateGradeOneQuestion`. For inverse arithmetic problems, it uses `generateInverseQuestion`.
 
 ## 4. Directory Structure
 
 The actual repository structure is as follows:
 
 ```txt
-mathquest/
+eduquest/
 ├── apps/
 │   ├── edge/                    # Cloudflare Workers SSR App
 │   │   ├── src/
@@ -87,15 +87,15 @@ mathquest/
 
 1.  The `/start` page is rendered via SSR. The server embeds the grade list, calculation types, and theme presets as JSON into a `<script type="application/json">` tag.
 2.  The client script (`start.client.ts`) initializes and restores the following state from local storage:
-    - `mathquest:progress:v1`: Total answers, correct answers, last selected grade/theme.
-    - `mathquest:sound-enabled` / `mathquest:show-working`: UI toggles.
-    - `mathquest:question-count-default`: Default number of questions.
+    - `eduquest:progress:v1`: Total answers, correct answers, last selected grade/theme.
+    - `eduquest:sound-enabled` / `eduquest:show-working`: UI toggles.
+    - `eduquest:question-count-default`: Default number of questions.
 3.  When a grade is selected, it filters calculation types from `gradeCalculationTypes` and narrows down theme buttons by the minimum target grade.
 4.  Pressing "Start Practice" saves the selected settings to session storage and navigates to `/play`.
 
 ### Play Screen
 
-1.  On screen load, settings are restored from `mathquest:pending-session` to update display labels.
+1.  On screen load, settings are restored from `eduquest:pending-session` to update display labels.
 2.  After a 3-second countdown via `countdown-overlay`, it fetches a question by POSTing to `/apis/quiz/generate`.
 3.  The user's answer is sent to `/apis/quiz/verify`, which displays the correctness and the right answer. If correct, the streak is incremented, and progress in local storage is updated.
 4.  When the remaining questions reach zero, a result card is displayed, providing a path back to the start screen.
@@ -109,7 +109,7 @@ mathquest/
   - Input: Question object + answer value
   - Output: Correctness judgment and the correct value
 
-The API utilizes the logic from `@mathquest/domain` via `apps/edge/src/application/usecases/quiz.ts`. This ensures that the same specification for questions is generated on both the UI and API sides, and tests can be written at the use-case level.
+The API utilizes the logic from `@edu-quest/domain` via `apps/edge/src/application/usecases/quiz.ts`. This ensures that the same specification for questions is generated on both the UI and API sides, and tests can be written at the use-case level.
 
 ### Inverse Arithmetic Problems
 

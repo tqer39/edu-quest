@@ -1,10 +1,10 @@
 terraform {
-  required_version = "1.13.3"
+  required_version = "1.13.4"
 
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "7.6.0"
+      version = "7.7.0"
     }
     cloudflare = {
       source  = "cloudflare/cloudflare"
@@ -18,7 +18,7 @@ terraform {
 
   backend "s3" {
     bucket  = "terraform-tfstate-tqer39-072693953877-ap-northeast-1"
-    key     = "mathquest/infra/terraform/envs/prod/prod-domain.tfstate"
+    key     = "edu-quest/infra/terraform/envs/prod/prod-domain.tfstate"
     encrypt = true
     region  = "ap-northeast-1"
   }

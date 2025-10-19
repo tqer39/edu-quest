@@ -16,8 +16,8 @@ const MODULE_SOURCE = `
       9: { size: 9, boxRows: 3, boxCols: 3 }
     };
 
-    const SOUND_STORAGE_KEY = 'mathquest:sound-enabled';
-    const COUNTDOWN_STORAGE_KEY = 'mathquest:countdown-enabled';
+    const SOUND_STORAGE_KEY = 'edu-quest:sound-enabled';
+    const COUNTDOWN_STORAGE_KEY = 'edu-quest:countdown-enabled';
     let currentGridSize = 9;
     let soundEnabled = true;
     let countdownEnabled = true;

@@ -18,7 +18,7 @@ runs:
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 10.18.2
+        version: 10.18.3
 
     - name: Setup Node.js
       uses: actions/setup-node@v6
@@ -36,4 +36,4 @@ runs:
         apiToken: ${{ inputs.apiToken }}
         accountId: ${{ inputs.accountId }}
         workingDirectory: apps/edge
-        command: d1 migrations apply mathquest --env ${{ inputs.environment }}
+        command: d1 migrations apply edu-quest --env ${{ inputs.environment }}

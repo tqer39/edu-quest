@@ -1,8 +1,8 @@
-# mathquest: アーキテクチャ設計とプロジェクト構造
+# eduquest: アーキテクチャ設計とプロジェクト構造
 
 ## 1. 目的
 
-MathQuest は小学生向けの算数練習体験を提供する学習サービスです。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習（「たし算 20 まで」「たし算・ひき算ミックス」など）を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
+EduQuest は小学生向けの算数練習体験を提供する学習サービスです。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習（「たし算 20 まで」「たし算・ひき算ミックス」など）を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
 
 ## 2. アーキテクチャ概要
 
@@ -31,14 +31,14 @@ MathQuest は小学生向けの算数練習体験を提供する学習サービ�
 ```mermaid
 graph LR
     subgraph "Apps"
-        Edge[@mathquest/edge]
-        API[@mathquest/api]
-        Web[@mathquest/web]
+        Edge[@edu-quest/edge]
+        API[@edu-quest/api]
+        Web[@edu-quest/web]
     end
 
     subgraph "Packages"
-        Domain[@mathquest/domain]
-        App[@mathquest/app]
+        Domain[@edu-quest/domain]
+        App[@edu-quest/app]
     end
 
     Edge --> App
@@ -48,17 +48,17 @@ graph LR
     App --> Domain
 ```
 
-- `@mathquest/edge`: 本番用 Cloudflare Workers アプリ。スタート画面でプリセットを JSON 埋め込みし、クライアントスクリプトが動的 UI（テーマ選択、進捗保存、効果音/途中式トグル）を構成します。
-- `@mathquest/api` / `@mathquest/web`: Workers を利用しないローカル検証用の Node + Hono サーバー。ドメイン/API ロジックの動作確認や Storybook 的な用途に活用できます。
-- `@mathquest/app`: クイズ進行オブジェクト（現在の問題番号、正解数など）の計算を担い、UI 側は副作用レスに状態遷移を扱えます。
-- `@mathquest/domain`: 計算問題の生成規則。学年別テーマ指定時は `generateGradeOneQuestion` などの複合ロジックを呼び出し、逆算問題の場合は `generateInverseQuestion` を使用します。
+- `@edu-quest/edge`: 本番用 Cloudflare Workers アプリ。スタート画面でプリセットを JSON 埋め込みし、クライアントスクリプトが動的 UI（テーマ選択、進捗保存、効果音/途中式トグル）を構成します。
+- `@edu-quest/api` / `@edu-quest/web`: Workers を利用しないローカル検証用の Node + Hono サーバー。ドメイン/API ロジックの動作確認や Storybook 的な用途に活用できます。
+- `@edu-quest/app`: クイズ進行オブジェクト（現在の問題番号、正解数など）の計算を担い、UI 側は副作用レスに状態遷移を扱えます。
+- `@edu-quest/domain`: 計算問題の生成規則。学年別テーマ指定時は `generateGradeOneQuestion` などの複合ロジックを呼び出し、逆算問題の場合は `generateInverseQuestion` を使用します。
 
 ## 4. ディレクトリ構造
 
 実際のリポジトリ構成は以下の通りです。
 
 ```txt
-mathquest/
+eduquest/
 ├── apps/
 │   ├── edge/                    # Cloudflare Workers SSR アプリ
 │   │   ├── src/
@@ -87,15 +87,15 @@ mathquest/
 
 1. `/start` を SSR でレンダリング。サーバー側で学年一覧・計算種別・テーマプリセットを JSON として `<script type="application/json">` へ埋め込み。
 2. クライアントスクリプト (`start.client.ts`) が初期化し、ローカルストレージから以下の状態を復元：
-   - `mathquest:progress:v1`: 総解答数・正解数・最後に選択した学年/テーマ。
-   - `mathquest:sound-enabled` / `mathquest:show-working`: UI トグル。
-   - `mathquest:question-count-default`: 初期問題数。
+   - `eduquest:progress:v1`: 総解答数・正解数・最後に選択した学年/テーマ。
+   - `eduquest:sound-enabled` / `eduquest:show-working`: UI トグル。
+   - `eduquest:question-count-default`: 初期問題数。
 3. 学年選択に応じて `gradeCalculationTypes` から計算種別をフィルタリングし、テーマボタンも最小対象学年で絞り込み。
 4. 「れんしゅうをはじめる」を押すと選択内容をセッションストレージへ保存し、`/play` に遷移。
 
 ### プレイ画面
 
-1. 画面読み込み時に `mathquest:pending-session` から設定を復元し、表示ラベルを更新。
+1. 画面読み込み時に `eduquest:pending-session` から設定を復元し、表示ラベルを更新。
 2. `countdown-overlay` で 3 秒カウントダウン後、`/apis/quiz/generate` に POST して問題を取得。
 3. ユーザー回答を `/apis/quiz/verify` に送信し、正誤と正しい答えを表示。正解時はストリークを加算し、ローカルストレージの進捗を更新。
 4. 残り問題数が 0 になると結果カードを表示し、スタート画面への導線を提示。
@@ -109,7 +109,7 @@ mathquest/
   - 入力: 問題オブジェクト + 解答値
   - 出力: 正誤判定と正解値
 
-API は `apps/edge/src/application/usecases/quiz.ts` を経由し、`@mathquest/domain` のロジックを利用します。これにより UI 側と API 側で同一仕様の問題が生成され、テストもユースケース単位で記述できます。
+API は `apps/edge/src/application/usecases/quiz.ts` を経由し、`@edu-quest/domain` のロジックを利用します。これにより UI 側と API 側で同一仕様の問題が生成され、テストもユースケース単位で記述できます。
 
 ### 逆算問題（ぎゃくさん）
 

@@ -1,8 +1,8 @@
-# MathQuest ドキュメント概要
+# EduQuest ドキュメント概要
 
-MathQuest は小学生向けの算数練習プラットフォームです。Cloudflare Workers 上で動作する Hono ベースの SSR アプリと、共有ドメインロジックを pnpm ワークスペースで管理するモノレポ構成になっています。
+EduQuest は小学生向けの算数練習プラットフォームです。Cloudflare Workers 上で動作する Hono ベースの SSR アプリと、共有ドメインロジックを pnpm ワークスペースで管理するモノレポ構成になっています。
 
-スタート画面では学年・計算分野・テーマプリセット（例: 「たし算 20 まで」や「ひき算 50 まで」）を選択し、問題数や効果音・途中式の表示を切り替えられます。プレイ画面はテンキー付き UI とカウントダウン演出、ストリーク表示、ローカルストレージによる進捗保存を備えています。問題生成と採点は `@mathquest/domain` が担当し、API 層（`/apis/quiz`）からも再利用されます。
+スタート画面では学年・計算分野・テーマプリセット（例: 「たし算 20 まで」や「ひき算 50 まで」）を選択し、問題数や効果音・途中式の表示を切り替えられます。プレイ画面はテンキー付き UI とカウントダウン演出、ストリーク表示、ローカルストレージによる進捗保存を備えています。問題生成と採点は `@edu-quest/domain` が担当し、API 層（`/apis/quiz`）からも再利用されます。
 
 ## クイックスタート
 
@@ -16,6 +16,29 @@ MathQuest は小学生向けの算数練習プラットフォームです。Clou
 - **pnpm**: JavaScript/TypeScript ワークスペース管理
 
 ### セットアップ
+
+**重要**: `make bootstrap` を実行する前に、以下の手順を完了する必要があります：
+
+#### 1. Cloudflare 認証情報の設定
+
+```bash
+# Cloudflare 認証情報を追加（make bootstrap の前に必須）
+cf-vault add edu-quest
+cf-vault list
+```
+
+#### 2. Terraform Bootstrap の実行
+
+開発環境用の Cloudflare リソース（D1、KV、Turnstile など）を初期化します：
+
+```bash
+just tf -chdir=dev/bootstrap init -reconfigure
+just tf -chdir=dev/bootstrap validate
+just tf -chdir=dev/bootstrap plan
+just tf -chdir=dev/bootstrap apply -auto-approve
+```
+
+#### 3. 通常のセットアップを進める
 
 ```bash
 # 1. Homebrew の導入（macOS/Linux）
@@ -65,5 +88,5 @@ just status
 
 - `AGENTS.md`: 全体設計とモジュール依存関係
 - `docs/local-dev.md`: ローカル検証環境の構築手順
-- `docs/mathquest アーキテクチャ設計とプロジェクト構造.md`: 詳細なアーキテクチャ設計
+- `docs/eduquest アーキテクチャ設計とプロジェクト構造.md`: 詳細なアーキテクチャ設計
 - `docs/math-quiz.md`: 旧スタンドアロン版ミニゲームの仕様

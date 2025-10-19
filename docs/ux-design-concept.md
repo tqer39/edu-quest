@@ -1,8 +1,8 @@
-# mathquest: UI/UX Design Concept
+# eduquest: UI/UX Design Concept
 
 ## 1. Design Philosophy
 
-The UI/UX design for "mathquest" is built around the core concept: "Play becomes learning, and learning becomes an adventure." We aim to balance the fun that captivates elementary school students with the effectiveness of learning arithmetic. The design emphasizes the following three principles:
+The UI/UX design for "eduquest" is built around the core concept: "Play becomes learning, and learning becomes an adventure." We aim to balance the fun that captivates elementary school students with the effectiveness of learning arithmetic. The design emphasizes the following three principles:
 
 - **Fun and Intuition:** Provide an intuitive and enjoyable interface that allows children to understand how to play just by touching it, without needing to read instructions.
 - **Positive Feedback:** Focus on positive feedback that praises the effort put in, not just the results of right or wrong answers, to foster children's self-esteem.
