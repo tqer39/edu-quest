@@ -16,7 +16,7 @@ module "domain_register_delegate" {
   yearly_price_currency = var.yearly_price_currency
   yearly_price_units    = var.yearly_price_units
 
-  create_domain_registration = false
+  create_domain_registration = true
 }
 
 # 有効化順の依存（保守的に明示）
