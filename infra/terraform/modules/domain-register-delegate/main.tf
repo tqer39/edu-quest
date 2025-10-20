@@ -32,6 +32,9 @@ resource "google_clouddomains_registration" "root" {
   domain_name = var.root_domain
   location    = "global"
 
+  # .app ドメインは HSTS preload が必須
+  domain_notices = ["HSTS_PRELOADED"]
+
   yearly_price {
     currency_code = var.yearly_price_currency
     units         = var.yearly_price_units
