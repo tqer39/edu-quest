@@ -146,3 +146,10 @@ runs:
         SLACK_USERNAME: github-bot
         SLACK_ICON_EMOJI: ':x:'
         SLACK_WEBHOOK: ${{ inputs.SLACK_WEBHOOK }}
+
+    - name: Fail workflow on Terraform error
+      if: steps.terraform-plan.outputs.exitcode == '1'
+      run: |
+        echo "::error::Terraform plan failed with errors. Check the logs above for details."
+        exit 1
+      shell: bash
