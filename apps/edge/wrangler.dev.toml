@@ -1,0 +1,39 @@
+# Development environment configuration
+# This file is used for deployments to the dev environment
+# Deploy with: pnpm wrangler deploy --config wrangler.dev.toml
+
+name = "edu-quest-edge-dev"
+main = "src/index.tsx"
+compatibility_date = "2024-09-01"
+
+[[routes]]
+pattern = "dev.edu-quest.app/*"
+zone_name = "edu-quest.app"
+
+[[kv_namespaces]]
+binding = "KV_FREE_TRIAL"
+id = "708cc49ba4f24860a47d7eb94262f15c"
+
+[[kv_namespaces]]
+binding = "KV_AUTH_SESSION"
+id = "4b1521c78ca546ada52d545df2c20eb5"
+
+[[kv_namespaces]]
+binding = "KV_RATE_LIMIT"
+id = "1a760a59ea6b450a95877007bdd0e74d"
+
+[[kv_namespaces]]
+binding = "KV_IDEMPOTENCY"
+id = "3cc58d16540d4cd6825b636c9d40ae73"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "edu_quest_dev_db"
+database_id = "f3ca35b4-433c-4beb-98f4-702c67123d12"
+migrations_dir = "../../infra/migrations"
+
+[vars]
+DEFAULT_LANG = "ja"
+AUTH_BASE_URL = "https://dev.edu-quest.app"
+AUTH_EMAIL_FROM = "EduQuest Dev <no-reply@dev.edu-quest.app>"
+# RESEND_API_KEY is provided via environment variable for security

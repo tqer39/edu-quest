@@ -43,6 +43,6 @@ runs:
         apiToken: ${{ inputs.apiToken }}
         accountId: ${{ inputs.accountId }}
         workingDirectory: apps/edge
-        command: deploy --env ${{ inputs.environment }}
+        command: deploy --config wrangler.${{ inputs.environment }}.toml
       env:
         RESEND_API_KEY: ${{ inputs.resendApiKey }}

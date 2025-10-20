@@ -36,4 +36,4 @@ runs:
         apiToken: ${{ inputs.apiToken }}
         accountId: ${{ inputs.accountId }}
         workingDirectory: apps/edge
-        command: d1 migrations apply edu-quest --env ${{ inputs.environment }}
+        command: d1 migrations apply DB --config wrangler.${{ inputs.environment }}.toml --remote

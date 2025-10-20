@@ -1,4 +1,8 @@
-name = "edu-quest-edge"
+# Local development configuration
+# This file is used for local development with `pnpm wrangler dev`
+# For dev/prod deployments, use wrangler.dev.toml and wrangler.prod.toml
+
+name = "edu-quest-edge-local"
 main = "src/index.tsx"
 compatibility_date = "2024-09-01"
 
@@ -24,82 +28,12 @@ preview_id = "kv_idempotency_preview"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "edu-quest"
+database_name = "edu-quest-local"
 database_id = "d1_edu-quest_id"
 migrations_dir = "../../infra/migrations"
 
 [vars]
 DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://edu-quest.local"
-AUTH_EMAIL_FROM = "MathQuest <no-reply@edu-quest.local>"
+AUTH_EMAIL_FROM = "EduQuest Local <no-reply@edu-quest.local>"
 RESEND_API_KEY = "test_resend_key"
-
-# Dev environment configuration
-[env.dev]
-name = "edu-quest-edge-dev"
-
-[[env.dev.routes]]
-pattern = "dev.edu-quest.app/*"
-zone_name = "edu-quest.app"
-
-[[env.dev.kv_namespaces]]
-binding = "KV_FREE_TRIAL"
-id = "708cc49ba4f24860a47d7eb94262f15c"
-
-[[env.dev.kv_namespaces]]
-binding = "KV_AUTH_SESSION"
-id = "4b1521c78ca546ada52d545df2c20eb5"
-
-[[env.dev.kv_namespaces]]
-binding = "KV_RATE_LIMIT"
-id = "1a760a59ea6b450a95877007bdd0e74d"
-
-[[env.dev.kv_namespaces]]
-binding = "KV_IDEMPOTENCY"
-id = "3cc58d16540d4cd6825b636c9d40ae73"
-
-[[env.dev.d1_databases]]
-binding = "DB"
-database_name = "edu_quest_dev_db"
-database_id = "f3ca35b4-433c-4beb-98f4-702c67123d12"
-migrations_dir = "../../infra/migrations"
-
-[env.dev.vars]
-DEFAULT_LANG = "ja"
-AUTH_BASE_URL = "https://dev.edu-quest.app"
-AUTH_EMAIL_FROM = "EduQuest Dev <no-reply@dev.edu-quest.app>"
-
-# Production environment configuration
-[env.prod]
-name = "edu-quest-edge-prod"
-
-[[env.prod.routes]]
-pattern = "edu-quest.app/*"
-zone_name = "edu-quest.app"
-
-[[env.prod.kv_namespaces]]
-binding = "KV_FREE_TRIAL"
-id = "9e96bfb978e4411e8dada58d74c8f6ac"
-
-[[env.prod.kv_namespaces]]
-binding = "KV_AUTH_SESSION"
-id = "72311ad3106f4b7aa79233e560fd2d7e"
-
-[[env.prod.kv_namespaces]]
-binding = "KV_RATE_LIMIT"
-id = "3493634f5ac54aa3bef159ea722f957f"
-
-[[env.prod.kv_namespaces]]
-binding = "KV_IDEMPOTENCY"
-id = "c0b55cee41894486a72f02cce59faf95"
-
-[[env.prod.d1_databases]]
-binding = "DB"
-database_name = "edu_quest_prod_db"
-database_id = "6da8b3d3-fdfd-46ed-a9f1-b1f12239a1a7"
-migrations_dir = "../../infra/migrations"
-
-[env.prod.vars]
-DEFAULT_LANG = "ja"
-AUTH_BASE_URL = "https://edu-quest.app"
-AUTH_EMAIL_FROM = "EduQuest <no-reply@edu-quest.app>"
