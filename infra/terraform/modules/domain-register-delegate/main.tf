@@ -41,7 +41,9 @@ resource "google_clouddomains_registration" "root" {
   }
 
   contact_settings {
-    privacy = "PRIVATE_CONTACT_DATA"
+    # .app ドメインは PRIVATE_CONTACT_DATA をサポートしていない
+    # REDACTED_CONTACT_DATA: WHOIS で連絡先情報が編集される
+    privacy = "REDACTED_CONTACT_DATA"
 
     registrant_contact {
       email        = local.contact.email_address
