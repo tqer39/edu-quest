@@ -44,31 +44,30 @@ zone_name = "edu-quest.app"
 
 [[env.dev.kv_namespaces]]
 binding = "KV_FREE_TRIAL"
-id = "19a8ab05aeb44a3c97430a75eddcd0d5"
+id = "708cc49ba4f24860a47d7eb94262f15c"
 
 [[env.dev.kv_namespaces]]
 binding = "KV_AUTH_SESSION"
-id = "a16061d6460f48e1bd548086d87117c7"
+id = "4b1521c78ca546ada52d545df2c20eb5"
 
 [[env.dev.kv_namespaces]]
 binding = "KV_RATE_LIMIT"
-id = "0a38dbe37d2045959b1378d6753ae578"
+id = "1a760a59ea6b450a95877007bdd0e74d"
 
 [[env.dev.kv_namespaces]]
 binding = "KV_IDEMPOTENCY"
-id = "bd6817f1566949a6a8bcddc778fb39ff"
+id = "3cc58d16540d4cd6825b636c9d40ae73"
 
 [[env.dev.d1_databases]]
 binding = "DB"
-database_name = "edu_quest_dev"
-database_id = "adf4b67c-e006-452d-894e-582e7f21494d"
+database_name = "edu_quest_dev_db"
+database_id = "f3ca35b4-433c-4beb-98f4-702c67123d12"
 migrations_dir = "../../infra/migrations"
 
 [env.dev.vars]
 DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://dev.edu-quest.app"
 AUTH_EMAIL_FROM = "EduQuest Dev <no-reply@dev.edu-quest.app>"
-RESEND_API_KEY = "test_resend_key"
 
 # Production environment configuration
 [env.prod]
@@ -80,30 +79,27 @@ zone_name = "edu-quest.app"
 
 [[env.prod.kv_namespaces]]
 binding = "KV_FREE_TRIAL"
-id = "a663b8d50e4d40abbd7e423aa0b6aa56"
+id = "9e96bfb978e4411e8dada58d74c8f6ac"
 
 [[env.prod.kv_namespaces]]
 binding = "KV_AUTH_SESSION"
-id = "f8d63e0474e74c06a943b0016f8ee023"
+id = "72311ad3106f4b7aa79233e560fd2d7e"
 
 [[env.prod.kv_namespaces]]
 binding = "KV_RATE_LIMIT"
-id = "fb7747e9479b44a5a873d8d032b95b61"
+id = "3493634f5ac54aa3bef159ea722f957f"
 
 [[env.prod.kv_namespaces]]
 binding = "KV_IDEMPOTENCY"
-id = "19ecf07a219c406dbba125a5469e663f"
+id = "c0b55cee41894486a72f02cce59faf95"
 
 [[env.prod.d1_databases]]
 binding = "DB"
-database_name = "edu_quest_prod"
-# TODO: Update with actual prod D1 database ID from Cloudflare Dashboard
-database_id = "PLACEHOLDER_PROD_D1_DATABASE_ID"
+database_name = "edu_quest_prod_db"
+database_id = "6da8b3d3-fdfd-46ed-a9f1-b1f12239a1a7"
 migrations_dir = "../../infra/migrations"
 
 [env.prod.vars]
 DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://edu-quest.app"
 AUTH_EMAIL_FROM = "EduQuest <no-reply@edu-quest.app>"
-# TODO: Update with actual Resend API key for production
-RESEND_API_KEY = "PLACEHOLDER_RESEND_API_KEY"

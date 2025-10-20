@@ -11,6 +11,9 @@ inputs:
   environment:
     description: 'Wrangler environment name to deploy to (dev or prod)'
     required: true
+  resendApiKey:
+    description: 'Resend API key for email sending'
+    required: true
 
 runs:
   using: 'composite'
@@ -41,3 +44,5 @@ runs:
         accountId: ${{ inputs.accountId }}
         workingDirectory: apps/edge
         command: deploy --env ${{ inputs.environment }}
+      env:
+        RESEND_API_KEY: ${{ inputs.resendApiKey }}

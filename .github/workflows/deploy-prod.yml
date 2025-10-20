@@ -21,3 +21,4 @@ jobs:
           environment: prod
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          resendApiKey: ${{ secrets.RESEND_API_KEY_PROD }}
