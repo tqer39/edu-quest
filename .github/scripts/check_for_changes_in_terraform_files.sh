@@ -33,11 +33,31 @@ function is_changed () {
   compare_path="$(echo "$2" | sed -e "s/\.\///g")" # "./" を削除
   echo "\$changed_file: ${changed_file}"
   echo "\$compare_path: ${compare_path}/*.*"
+
+  # 1. 変更されたファイルが compare_path 配下にある場合
   if [[ $1 =~ ${compare_path}/.*\..*$ ]]; then
     echo "デプロイパイプラインで使用しているリソースが変更されたので処理対象です。"
     exit 0
   fi
-  tf_files=$(find "${compare_path}" -type f -name "*.tf")
+
+  # 2. 変更されたファイルがモジュール配下にある場合、そのモジュールを使用しているかチェック
+  if [[ $1 =~ infra/terraform/modules/ ]]; then
+    # モジュールのパスを取得（例: infra/terraform/modules/domain-register-delegate）
+    module_dir=$(echo "$1" | sed -E 's|(infra/terraform/modules/[^/]+).*|\1|')
+    echo "モジュールの変更を検出: ${module_dir}"
+
+    # compare_path 配下の .tf ファイルでこのモジュールを使用しているかチェック
+    tf_files=$(find "${compare_path}" -type f -name "*.tf" 2>/dev/null)
+    for tf_file in $tf_files; do
+      if grep -q "source.*${module_dir}" "${tf_file}"; then
+        echo "モジュール ${module_dir} を ${tf_file} で使用しているため処理対象です。"
+        exit 0
+      fi
+    done
+  fi
+
+  # 3. compare_path 配下の .tf ファイルが参照しているモジュールの変更をチェック
+  tf_files=$(find "${compare_path}" -type f -name "*.tf" 2>/dev/null)
   for tf_file in $tf_files; do
     if [[ "${tf_file}" =~ .*(provider|terraform)\.tf$ ]]; then
       # echo "[debug] ${tf_file}: provider.tf, terraform.tf は対象外。"
@@ -54,10 +74,12 @@ function is_changed () {
 
     for module_path in $module_paths; do
       cd "${compare_path}" || exit 2
-      abs_source_path="$(realpath -e "${module_path}")"
+      abs_source_path="$(realpath -e "${module_path}" 2>/dev/null)"
       cd - > /dev/null || exit 2
-      # 再帰処理で追跡
-      is_changed "${changed_file}" "${abs_source_path}"
+      if [ -n "${abs_source_path}" ]; then
+        # 再帰処理で追跡
+        is_changed "${changed_file}" "${abs_source_path}"
+      fi
     done
   done
   return 1
