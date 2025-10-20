@@ -29,11 +29,11 @@ fi
 # 戻り値
 # 1: 処理対象外
 function is_changed () {
-  changed_file="$2"
+  changed_file="$1"
   compare_path="$(echo "$2" | sed -e "s/\.\///g")" # "./" を削除
   echo "\$changed_file: ${changed_file}"
   echo "\$compare_path: ${compare_path}/*.*"
-  if [[ $2 =~ ${compare_path}/.*\..*$ ]]; then
+  if [[ $1 =~ ${compare_path}/.*\..*$ ]]; then
     echo "デプロイパイプラインで使用しているリソースが変更されたので処理対象です。"
     exit 0
   fi
