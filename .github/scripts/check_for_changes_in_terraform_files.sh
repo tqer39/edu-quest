@@ -42,15 +42,16 @@ function is_changed () {
 
   # 2. 変更されたファイルがモジュール配下にある場合、そのモジュールを使用しているかチェック
   if [[ $1 =~ infra/terraform/modules/ ]]; then
-    # モジュールのパスを取得（例: infra/terraform/modules/domain-register-delegate）
-    module_dir=$(echo "$1" | sed -E 's|(infra/terraform/modules/[^/]+).*|\1|')
-    echo "モジュールの変更を検出: ${module_dir}"
+    # モジュール名を取得（例: domain-register-delegate）
+    module_name=$(echo "$1" | sed -E 's|infra/terraform/modules/([^/]+).*|\1|')
+    echo "モジュールの変更を検出: ${module_name}"
 
     # compare_path 配下の .tf ファイルでこのモジュールを使用しているかチェック
+    # 相対パス (例: ../../../modules/domain-register-delegate) でマッチ
     tf_files=$(find "${compare_path}" -type f -name "*.tf" 2>/dev/null)
     for tf_file in $tf_files; do
-      if grep -q "source.*${module_dir}" "${tf_file}"; then
-        echo "モジュール ${module_dir} を ${tf_file} で使用しているため処理対象です。"
+      if grep -q "source.*modules/${module_name}" "${tf_file}"; then
+        echo "モジュール ${module_name} を ${tf_file} で使用しているため処理対象です。"
         exit 0
       fi
     done
