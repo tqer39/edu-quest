@@ -1,0 +1,43 @@
+name: 'Deploy to Cloudflare Workers'
+description: 'Build and deploy the application to Cloudflare Workers via Wrangler'
+
+inputs:
+  apiToken:
+    description: 'Cloudflare API token'
+    required: true
+  accountId:
+    description: 'Cloudflare account ID'
+    required: true
+  environment:
+    description: 'Wrangler environment name to deploy to (dev or prod)'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10.18.3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: 22
+        cache: pnpm
+
+    - name: Install dependencies
+      run: pnpm install --no-frozen-lockfile
+      shell: bash
+
+    - name: Build domain package
+      run: pnpm --filter @edu-quest/domain build
+      shell: bash
+
+    - name: Deploy to Cloudflare Workers
+      uses: cloudflare/wrangler-action@v3
+      with:
+        apiToken: ${{ inputs.apiToken }}
+        accountId: ${{ inputs.accountId }}
+        workingDirectory: apps/edge
+        command: deploy --env ${{ inputs.environment }}

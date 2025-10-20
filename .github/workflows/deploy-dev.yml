@@ -1,0 +1,27 @@
+name: Deploy to Dev
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/edge/**'
+      - 'packages/**'
+      - '.github/workflows/deploy-dev.yml'
+      - '.github/actions/wrangler-deploy/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    name: Deploy to dev environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Deploy to Cloudflare Workers
+        uses: ./.github/actions/wrangler-deploy
+        with:
+          environment: dev
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

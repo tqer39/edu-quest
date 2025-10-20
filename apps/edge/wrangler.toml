@@ -33,3 +33,77 @@ DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://edu-quest.local"
 AUTH_EMAIL_FROM = "MathQuest <no-reply@edu-quest.local>"
 RESEND_API_KEY = "test_resend_key"
+
+# Dev environment configuration
+[env.dev]
+name = "edu-quest-edge-dev"
+
+[[env.dev.routes]]
+pattern = "dev.edu-quest.app/*"
+zone_name = "edu-quest.app"
+
+[[env.dev.kv_namespaces]]
+binding = "KV_FREE_TRIAL"
+id = "19a8ab05aeb44a3c97430a75eddcd0d5"
+
+[[env.dev.kv_namespaces]]
+binding = "KV_AUTH_SESSION"
+id = "a16061d6460f48e1bd548086d87117c7"
+
+[[env.dev.kv_namespaces]]
+binding = "KV_RATE_LIMIT"
+id = "0a38dbe37d2045959b1378d6753ae578"
+
+[[env.dev.kv_namespaces]]
+binding = "KV_IDEMPOTENCY"
+id = "bd6817f1566949a6a8bcddc778fb39ff"
+
+[[env.dev.d1_databases]]
+binding = "DB"
+database_name = "edu_quest_dev"
+database_id = "adf4b67c-e006-452d-894e-582e7f21494d"
+migrations_dir = "../../infra/migrations"
+
+[env.dev.vars]
+DEFAULT_LANG = "ja"
+AUTH_BASE_URL = "https://dev.edu-quest.app"
+AUTH_EMAIL_FROM = "EduQuest Dev <no-reply@dev.edu-quest.app>"
+RESEND_API_KEY = "test_resend_key"
+
+# Production environment configuration
+[env.prod]
+name = "edu-quest-edge-prod"
+
+[[env.prod.routes]]
+pattern = "edu-quest.app/*"
+zone_name = "edu-quest.app"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_FREE_TRIAL"
+id = "a663b8d50e4d40abbd7e423aa0b6aa56"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_AUTH_SESSION"
+id = "f8d63e0474e74c06a943b0016f8ee023"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_RATE_LIMIT"
+id = "fb7747e9479b44a5a873d8d032b95b61"
+
+[[env.prod.kv_namespaces]]
+binding = "KV_IDEMPOTENCY"
+id = "19ecf07a219c406dbba125a5469e663f"
+
+[[env.prod.d1_databases]]
+binding = "DB"
+database_name = "edu_quest_prod"
+# TODO: Update with actual prod D1 database ID from Cloudflare Dashboard
+database_id = "PLACEHOLDER_PROD_D1_DATABASE_ID"
+migrations_dir = "../../infra/migrations"
+
+[env.prod.vars]
+DEFAULT_LANG = "ja"
+AUTH_BASE_URL = "https://edu-quest.app"
+AUTH_EMAIL_FROM = "EduQuest <no-reply@edu-quest.app>"
+# TODO: Update with actual Resend API key for production
+RESEND_API_KEY = "PLACEHOLDER_RESEND_API_KEY"
