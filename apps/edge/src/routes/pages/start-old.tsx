@@ -335,14 +335,9 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
       </section>
     </div>
 
-    {renderStartClientScript(
-      gradePresets,
-      calculationTypes,
-      gradeLevels,
-      {
-        ...gradeCalculationTypes,
-        default: gradeCalculationTypes['grade-1'] ?? [],
-      }
-    )}
+    {renderStartClientScript(gradePresets, calculationTypes, gradeLevels, {
+      ...gradeCalculationTypes,
+      default: gradeCalculationTypes['grade-1'] ?? [],
+    })}
   </div>
 );
