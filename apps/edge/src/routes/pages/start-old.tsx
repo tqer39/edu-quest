@@ -6,6 +6,7 @@ import {
   calculationTypes,
   practiceThemes,
   gradePresets,
+  gradeCalculationTypes,
 } from './grade-presets';
 import { renderStartClientScript } from './start.client';
 
@@ -334,6 +335,14 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
       </section>
     </div>
 
-    {renderStartClientScript(gradePresets, calculationTypes, gradeLevels)}
+    {renderStartClientScript(
+      gradePresets,
+      calculationTypes,
+      gradeLevels,
+      {
+        ...gradeCalculationTypes,
+        default: gradeCalculationTypes['grade-1'] ?? [],
+      }
+    )}
   </div>
 );
