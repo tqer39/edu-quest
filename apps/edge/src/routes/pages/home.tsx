@@ -5,15 +5,15 @@ const HomeNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
     <div class="flex items-center gap-3">
       <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-base font-bold text-[var(--mq-primary-strong)]">
-        MQ
+        EQ
       </span>
       <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-        MathQuest
+        EduQuest
       </span>
     </div>
     <div class="flex items-center gap-3 sm:gap-4">
       <p class="hidden text-sm font-medium text-[#5e718a] sm:block">
-        小学生の算数を、遊ぶように練習しよう
+        小学生の学びを、遊ぶように楽しもう
       </p>
       {currentUser ? (
         <>
@@ -45,6 +45,70 @@ const HomeNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   </nav>
 );
 
+type QuestCardProps = {
+  title: string;
+  description: string;
+  icon: string;
+  href: string;
+  available: boolean;
+  themeColor: {
+    primary: string;
+    primaryStrong: string;
+    primarySoft: string;
+    outline: string;
+  };
+};
+
+const QuestCard: FC<QuestCardProps> = ({
+  title,
+  description,
+  icon,
+  href,
+  available,
+  themeColor,
+}) => (
+  <a
+    href={available ? href : '#'}
+    class={`group flex flex-col gap-4 rounded-3xl border p-6 shadow-lg transition ${
+      available
+        ? 'hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
+        : 'cursor-not-allowed opacity-60'
+    }`}
+    style={`border-color: ${
+      themeColor.outline
+    }; background: linear-gradient(to bottom right, white, ${
+      themeColor.primarySoft
+    }); ${available ? `--focus-outline-color: ${themeColor.primary};` : ''}`}
+  >
+    <div class="flex items-center gap-4">
+      <span
+        class="inline-flex h-16 w-16 items-center justify-center rounded-2xl text-3xl"
+        style={`background-color: ${themeColor.primarySoft};`}
+      >
+        {icon}
+      </span>
+      <div class="flex-1">
+        <h2 class="text-2xl font-bold text-[var(--mq-ink)]">{title}</h2>
+        {!available && (
+          <span class="text-xs font-semibold uppercase tracking-wider text-[#9ca3af]">
+            Coming Soon
+          </span>
+        )}
+      </div>
+    </div>
+    <p class="text-sm text-[#5e718a]">{description}</p>
+    {available && (
+      <div
+        class="mt-2 flex items-center gap-2 text-sm font-semibold transition group-hover:gap-3"
+        style={`color: ${themeColor.primaryStrong};`}
+      >
+        はじめる
+        <span class="text-lg">→</span>
+      </div>
+    )}
+  </a>
+);
+
 export const Home: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser,
 }) => (
@@ -61,50 +125,58 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
   >
     <HomeNav currentUser={currentUser} />
 
-    <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-8 text-[var(--mq-ink)] shadow-xl lg:flex-row lg:items-center lg:justify-between">
+    <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-8 text-[var(--mq-ink)] shadow-xl">
       <div class="space-y-4">
         <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#6c7c90]">
-          じぶんのペースで算数練習
+          じぶんのペースで楽しく学習
         </p>
-        <h1 class="text-3xl font-extrabold sm:text-4xl">MathQuest</h1>
+        <h1 class="text-3xl font-extrabold sm:text-4xl">EduQuest</h1>
         <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-          匿名のまま「すぐにはじめる」を押して学年を選ぶだけ。学習記録はブラウザに保存され、会員登録をすればクラウドにも同期できます。
+          小学生向けの学習プラットフォーム。算数、漢字、時計の読み方など、様々な学びを遊ぶように楽しめます。
         </p>
-        <ul class="space-y-1 text-sm text-[#4f6076]">
-          <li>・学年別のおすすめ単元からスタート</li>
-          <li>・効果音や途中式の表示などをまとめてカスタマイズ</li>
-          <li>・3,2,1,Go! のカウントダウンで集中モードに突入</li>
-        </ul>
       </div>
-      <a
-        href="/start"
-        class="inline-flex items-center justify-center rounded-2xl bg-[var(--mq-primary)] px-6 py-3 text-lg font-semibold text-[var(--mq-ink)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary-strong)]"
-      >
-        すぐにはじめる
-      </a>
     </header>
 
-    <section class="grid gap-6 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-8 text-[var(--mq-ink)] shadow-lg md:grid-cols-3">
-      <div class="space-y-2">
-        <h2 class="text-xl font-semibold">学年プリセット</h2>
-        <p class="text-sm text-[#5e718a]">
-          1年生から6年生まで、学習指導要領をベースにした単元プリセットを用意しています。学年にあわせた難易度からスタートしましょう。
-        </p>
-      </div>
-      <div class="space-y-2">
-        <h2 class="text-xl font-semibold">カスタム設定</h2>
-        <p class="text-sm text-[#5e718a]">
-          効果音・途中式・集中モードの ON/OFF と初期問題数を 1
-          画面でまとめて調整できます。設定はブラウザに保存され、次回も引き継がれます。
-        </p>
-      </div>
-      <div class="space-y-2">
-        <h2 class="text-xl font-semibold">集中して解く</h2>
-        <p class="text-sm text-[#5e718a]">
-          設定が完了したら 3,2,1,Go!
-          のカウントダウンで集中タイムへ。テンキーと途中式表示で、紙を使わなくても手軽に練習できます。
-        </p>
-      </div>
+    <section class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <QuestCard
+        title="MathQuest"
+        description="算数の四則演算を楽しく練習。学年別のプリセットや、逆算問題など、多彩な問題で計算力をアップ。"
+        icon="🔢"
+        href="/math"
+        available={true}
+        themeColor={{
+          primary: '#6B9BD1',
+          primaryStrong: '#3B7AC7',
+          primarySoft: '#D6E4F5',
+          outline: 'rgba(107, 155, 209, 0.45)',
+        }}
+      />
+      <QuestCard
+        title="KanjiQuest"
+        description="小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。"
+        icon="📝"
+        href="/kanji"
+        available={false}
+        themeColor={{
+          primary: '#9B7EC8',
+          primaryStrong: '#7B5DB8',
+          primarySoft: '#E5DDF5',
+          outline: 'rgba(155, 126, 200, 0.45)',
+        }}
+      />
+      <QuestCard
+        title="ClockQuest"
+        description="時計の読み方をマスター。アナログ時計とデジタル時計の両方を練習できます。"
+        icon="🕐"
+        href="/clock"
+        available={false}
+        themeColor={{
+          primary: '#F5A85F',
+          primaryStrong: '#E88D3D',
+          primarySoft: '#FEE9D5',
+          outline: 'rgba(245, 168, 95, 0.45)',
+        }}
+      />
     </section>
   </div>
 );

@@ -2,7 +2,13 @@
 
 ## 1. Purpose
 
-EduQuest is a learning service that provides arithmetic practice experiences for elementary school students. It uses Hono for SSR on Cloudflare Workers and offers grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix"). Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
+EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Currently featuring MathQuest for arithmetic practice, with KanjiQuest (kanji learning) and ClockQuest (time-reading) planned for future releases. Built with Hono for SSR on Cloudflare Workers, it offers grade-level presets and themed exercises. Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
+
+### Quest Modules
+
+- **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix")
+- **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
+- **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
 
 ## 2. Architecture Overview
 
@@ -22,7 +28,8 @@ EduQuest is a learning service that provides arithmetic practice experiences for
 - **Infrastructure Layer (`apps/edge/src/infrastructure`)**
   - D1 connection via Drizzle ORM, KV bindings, and environment variable management.
 - **Interface Layer (`apps/edge/src/routes`)**
-  - Pages (start, play, home), BFF API (`/apis/quiz/generate`, `/apis/quiz/verify`), and client-side interaction logic.
+  - Pages: EduQuest hub (`/`), Quest-specific pages (`/math`, `/kanji`, `/clock`), and practice screens (`/math/start`, `/math/play`)
+  - BFF API (`/apis/quiz/generate`, `/apis/quiz/verify`), and client-side interaction logic.
 
 Dependencies between layers are organized with inward-pointing arrows centered on the domain layer. This allows the domain logic to be reused as-is for UI modifications or the addition of new delivery channels (e.g., a dedicated API UI).
 
@@ -83,22 +90,37 @@ eduquest/
 
 ## 5. Use Cases and Data Flow
 
-### Start Screen
+### EduQuest Hub (`/`)
 
-1.  The `/start` page is rendered via SSR. The server embeds the grade list, calculation types, and theme presets as JSON into a `<script type="application/json">` tag.
+1.  The homepage displays available Quest modules as cards with theme colors:
+    - **MathQuest** (blue theme): Available for use
+    - **KanjiQuest** (purple theme): Coming Soon
+    - **ClockQuest** (orange theme): Coming Soon
+2.  Users can navigate to a specific Quest by clicking the "はじめる" (Start) button.
+3.  Each Quest has its own dedicated color scheme applied via CSS variables.
+
+### MathQuest Top Page (`/math`)
+
+1.  Displays MathQuest-specific information and features (grade presets, customization options, focus mode).
+2.  Users can click "算数をはじめる" (Start Math) to navigate to `/math/start`.
+3.  Theme color is blue (#6B9BD1).
+
+### MathQuest Start Screen (`/math/start`)
+
+1.  The page is rendered via SSR. The server embeds the grade list, calculation types, and theme presets as JSON into a `<script type="application/json">` tag.
 2.  The client script (`start.client.ts`) initializes and restores the following state from local storage:
     - `eduquest:progress:v1`: Total answers, correct answers, last selected grade/theme.
     - `eduquest:sound-enabled` / `eduquest:show-working`: UI toggles.
     - `eduquest:question-count-default`: Default number of questions.
 3.  When a grade is selected, it filters calculation types from `gradeCalculationTypes` and narrows down theme buttons by the minimum target grade.
-4.  Pressing "Start Practice" saves the selected settings to session storage and navigates to `/play`.
+4.  Pressing "Start Practice" saves the selected settings to session storage and navigates to `/math/play`.
 
-### Play Screen
+### MathQuest Play Screen (`/math/play`)
 
 1.  On screen load, settings are restored from `eduquest:pending-session` to update display labels.
 2.  After a 3-second countdown via `countdown-overlay`, it fetches a question by POSTing to `/apis/quiz/generate`.
 3.  The user's answer is sent to `/apis/quiz/verify`, which displays the correctness and the right answer. If correct, the streak is incremented, and progress in local storage is updated.
-4.  When the remaining questions reach zero, a result card is displayed, providing a path back to the start screen.
+4.  When the remaining questions reach zero, a result card is displayed, providing a path back to `/math/start`.
 
 ### API Layer
 

@@ -5,8 +5,12 @@ import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
 import { i18n } from './middlewares/i18n';
+import { seoControl } from './middlewares/seo-control';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
+import { MathHome } from './routes/pages/math-home';
+import { KanjiHome } from './routes/pages/kanji-home';
+import { ClockHome } from './routes/pages/clock-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -21,9 +25,74 @@ app.use('*', logger());
 app.use('*', secureHeaders());
 app.use('*', prettyJSON());
 app.use('*', i18n());
+app.use('*', seoControl());
 
 // Avoid noisy errors for favicon requests during local dev
 app.get('/favicon.ico', (c) => c.body(null, 204));
+
+// Robots.txt - dev環境では全てのクローラーをブロック
+app.get('/robots.txt', (c) => {
+  const environment = c.env.ENVIRONMENT;
+  const isDev = environment === 'dev';
+
+  if (isDev) {
+    // dev環境: すべてのクローラーをブロック
+    return c.text(
+      `User-agent: *
+Disallow: /
+
+# Block all search engines and LLM crawlers
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /`,
+      200,
+      { 'Content-Type': 'text/plain' }
+    );
+  } else {
+    // production環境: クローリングを許可
+    return c.text(
+      `User-agent: *
+Allow: /
+
+# Block LLM crawlers in production
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+Sitemap: https://edu-quest.app/sitemap.xml`,
+      200,
+      { 'Content-Type': 'text/plain' }
+    );
+  }
+});
 
 // Simple health endpoint for手動確認
 app.get('/hello', (c) => c.text('Hello World'));
@@ -33,8 +102,14 @@ app.use(
   '*',
   jsxRenderer<{ title?: string; description?: string }>((props, c) => {
     const lang = c.get('lang') ?? 'ja';
+    const environment = c.env.ENVIRONMENT;
     return (
-      <Document lang={lang} title={props.title} description={props.description}>
+      <Document
+        lang={lang}
+        title={props.title}
+        description={props.description}
+        environment={environment}
+      >
         {props.children}
       </Document>
     );
@@ -44,13 +119,25 @@ app.use(
 // Public top
 app.get('/', async (c) =>
   c.render(<Home currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | じぶんのペースで楽しく算数練習',
+    title: 'EduQuest | じぶんのペースで楽しく学習',
     description:
-      '学年別の単元から選んで算数を練習。匿名で始めて、記録を残したくなったら会員登録できる学習アプリです。',
+      '学年別の単元から選んで学習。匿名で始めて、記録を残したくなったら会員登録できる学習アプリです。',
   })
 );
 
-app.get('/start', async (c) =>
+// MathQuest routes
+app.get('/math', async (c) =>
+  c.render(
+    <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 算数を楽しく学ぼう',
+      description:
+        '学年別の算数問題で計算力をアップ。たし算・ひき算・かけ算・わり算を楽しく練習しよう。',
+    }
+  )
+);
+
+app.get('/math/start', async (c) =>
   c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
     title: 'MathQuest | 設定ウィザード',
     description:
@@ -58,13 +145,41 @@ app.get('/start', async (c) =>
   })
 );
 
-app.get('/play', async (c) =>
+app.get('/math/play', async (c) =>
   c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
     title: 'MathQuest | 練習セッション',
     description:
       '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
   })
 );
+
+// KanjiQuest routes (Coming soon)
+app.get('/kanji', async (c) =>
+  c.render(
+    <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'KanjiQuest | 漢字を楽しく学ぼう（準備中）',
+      description:
+        '小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。',
+    }
+  )
+);
+
+// ClockQuest routes (Coming soon)
+app.get('/clock', async (c) =>
+  c.render(
+    <ClockHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'ClockQuest | 時計の読み方をマスターしよう（準備中）',
+      description:
+        'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
+    }
+  )
+);
+
+// Backward compatibility: redirect old routes to /math/*
+app.get('/start', (c) => c.redirect('/math/start', 301));
+app.get('/play', (c) => c.redirect('/math/play', 301));
 
 app.get('/sudoku', (c) =>
   c.render(<Sudoku currentUser={resolveCurrentUser(c.env, c.req.raw)} />, {
@@ -117,7 +232,7 @@ app.get('/auth/login', (c) => {
       redirect={redirect}
     />,
     {
-      title: 'MathQuest | ログイン',
+      title: 'EduQuest | ログイン',
       description:
         'メールアドレス宛にログインリンクを送信して、学習記録をクラウドに同期できます。',
     }

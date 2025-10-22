@@ -17,7 +17,7 @@ export const Login: FC<LoginPageProps> = ({
     <div class="w-full max-w-md space-y-6 rounded-3xl border border-[var(--mq-outline)] bg-white p-8 text-[var(--mq-ink)] shadow-xl">
       <header class="space-y-2 text-center">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#6c7c90]">
-          MathQuest
+          EduQuest
         </p>
         <h1 class="text-2xl font-bold">メールリンクでログイン</h1>
         <p class="text-sm text-[#5e718a]">
@@ -56,7 +56,7 @@ export const Login: FC<LoginPageProps> = ({
             required
             value={email ?? ''}
             class="w-full rounded-2xl border border-[var(--mq-outline)] px-4 py-3 text-sm text-[var(--mq-ink)] shadow-sm focus:border-[var(--mq-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--mq-primary-soft)]"
-            placeholder="example@mathquest.jp"
+            placeholder="example@email.com"
           />
         </label>
         <button

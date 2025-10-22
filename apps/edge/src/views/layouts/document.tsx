@@ -5,16 +5,19 @@ export type DocumentProps = {
   lang: 'ja' | 'en';
   title?: string;
   description?: string;
+  environment?: string;
   children?: JSX.Element | JSX.Element[];
 };
 
 export const Document: FC<DocumentProps> = ({
   lang,
-  title = 'MathQuest',
-  description = '毎日の算数練習をもっと楽しく。MathQuest で学年別の問題にチャレンジしよう。',
+  title = 'EduQuest',
+  description = '毎日の学習をもっと楽しく。EduQuest で学年別の問題にチャレンジしよう。',
+  environment,
   children,
 }) => {
   const year = new Date().getFullYear();
+  const isDev = environment === 'dev';
   return html`
     <!doctype html>
     <html lang=${lang} class="scroll-smooth">
@@ -23,6 +26,12 @@ export const Document: FC<DocumentProps> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>${title}</title>
         <meta name="description" content=${description} />
+        ${isDev
+          ? html`<meta
+              name="robots"
+              content="noindex, nofollow, noarchive, nosnippet"
+            />`
+          : ''}
         <link
           rel="icon"
           type="image/svg+xml"
@@ -108,14 +117,14 @@ export const Document: FC<DocumentProps> = ({
             class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-[#5e718a] sm:flex-row sm:items-center sm:justify-between"
           >
             <a
-              href="https://github.com/tqer39/mathquest"
+              href="https://github.com/tqer39/edu-quest"
               class="inline-flex items-center gap-2 font-semibold text-[var(--mq-primary-strong)] transition hover:-translate-y-0.5 hover:text-[var(--mq-ink)]"
               target="_blank"
               rel="noreferrer"
             >
               GitHub Repository
             </a>
-            <span>© ${year} MathQuest</span>
+            <span>© ${year} EduQuest</span>
           </div>
         </footer>
       </body>

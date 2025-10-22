@@ -33,6 +33,7 @@ database_id = "f3ca35b4-433c-4beb-98f4-702c67123d12"
 migrations_dir = "../../infra/migrations"
 
 [vars]
+ENVIRONMENT = "dev"
 DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://dev.edu-quest.app"
 AUTH_EMAIL_FROM = "EduQuest Dev <no-reply@dev.edu-quest.app>"

@@ -6,6 +6,7 @@ export type Env = {
   KV_RATE_LIMIT: KVNamespace;
   KV_IDEMPOTENCY: KVNamespace;
   DB: D1Database;
+  ENVIRONMENT?: string;
   DEFAULT_LANG: string;
   USE_MOCK_USER?: string;
   AUTH_BASE_URL?: string;

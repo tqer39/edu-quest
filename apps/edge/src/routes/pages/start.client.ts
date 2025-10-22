@@ -562,7 +562,7 @@ const MODULE_SOURCE = `
             console.warn('failed to write session storage', e);
           }
 
-          window.location.href = '/play';
+          window.location.href = '/math/play';
         }
       });
     }

@@ -4,17 +4,31 @@
 
 EduQuestは小学生向けの算数学習プラットフォームで、Cloudflare Workers上で動作するHonoベースのSSRアプリケーションです。monorepoアーキテクチャを採用し、Edge Runtime、API/フロントエンドパッケージ、Terraform管理のインフラストラクチャを一つのリポジトリで管理しています。
 
+## Quest モジュール構成
+
+EduQuest は複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。
+
+- **MathQuest** (`/math`) - 算数練習。学年別プリセットとテーマ練習を提供（利用可能）
+- **KanjiQuest** (`/kanji`) - 学年別に整理された漢字学習（準備中）
+- **ClockQuest** (`/clock`) - アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
+
 ## 現在の主要機能
 
-- **スタート画面（`/start`）**
-  - 学年（小1〜小6）、計算種類（たし算・ひき算・かけ算・四則演算）、テーマプリセット（例: 「たし算 20 まで」「ひき算 50 まで」）を選択。
-  - 効果音・途中式表示のトグル、問題数（本番: 10/20/30、開発モード: 1 問のデバッグオプション）を切り替え。
-  - `eduquest:progress:v1`（解答数/正解数/最後の学年）、`eduquest:sound-enabled`、`eduquest:show-working`、`eduquest:question-count-default` に設定を保存。
-  - 選択内容は `eduquest:pending-session` として `sessionStorage` に退避し、プレイ画面へシームレスに引き継ぎ。
-- **プレイ画面（`/play`）**
-  - 3 秒カウントダウン後に問題を表示。テンキー UI、ストリーク表示、途中式のトグル、サウンド再生を実装。
-  - `/apis/quiz/generate` で新しい問題を取得し、`/apis/quiz/verify` で採点。正解時は進捗をローカルストレージへ反映。
-  - ラウンド完了時は結果カードで正答数・経過時間を提示し、スタート画面への導線を表示。
+- **ハブページ（`/`）**
+  - 利用可能な Quest モジュールをテーマカラー付きカードで表示
+  - 各 Quest への遷移ボタンを配置
+- **MathQuest トップページ（`/math`）**
+  - MathQuest 固有の情報と機能（学年プリセット、カスタマイズオプション、集中モード）を表示
+  - 「算数をはじめる」ボタンから `/math/start` へ遷移
+- **MathQuest スタート画面（`/math/start`）**
+  - 学年（小1〜小6）、計算種類（たし算・ひき算・かけ算・四則演算）、テーマプリセット（例: 「たし算 20 まで」「ひき算 50 まで」）を選択
+  - 効果音・途中式表示のトグル、問題数（本番: 10/20/30、開発モード: 1 問のデバッグオプション）を切り替え
+  - `eduquest:progress:v1`（解答数/正解数/最後の学年）、`eduquest:sound-enabled`、`eduquest:show-working`、`eduquest:question-count-default` に設定を保存
+  - 選択内容は `eduquest:pending-session` として `sessionStorage` に退避し、プレイ画面へシームレスに引き継ぎ
+- **MathQuest プレイ画面（`/math/play`）**
+  - 3 秒カウントダウン後に問題を表示。テンキー UI、ストリーク表示、途中式のトグル、サウンド再生を実装
+  - `/apis/quiz/generate` で新しい問題を取得し、`/apis/quiz/verify` で採点。正解時は進捗をローカルストレージへ反映
+  - ラウンド完了時は結果カードで正答数・経過時間を提示し、スタート画面への導線を表示
 - **ユースケース / API**
   - `generateQuizQuestion` は学年・テーマに応じて `generateGradeOneQuestion` や複数項目の加減算ロジックを選択。
   - `verifyAnswer` はクライアントから渡された途中式 (`extras`) を含む問題を評価し、正解値と正誤を返却。
@@ -57,7 +71,7 @@ graph TB
     end
 
     subgraph "Routes"
-        Pages[Pages<br/>home, start, play]
+        Pages[Pages<br/>home, math-home, start, play]
         APIs[APIs<br/>/apis/quiz]
     end
 
@@ -207,15 +221,25 @@ pnpm workspacesによるmonorepo構成：
 
 - **Pages**:
 
-  - `/`: ホーム（Home）
-  - `/start`: 設定ウィザード（Start）
-  - `/play`: 練習セッション（Play）
+  - `/`: EduQuest ハブ（Quest 選択ポータル）
+  - `/math`: MathQuest トップページ
+  - `/math/start`: MathQuest 設定ウィザード
+  - `/math/play`: MathQuest 練習セッション
+  - `/kanji`: KanjiQuest トップページ（準備中）
+  - `/clock`: ClockQuest トップページ（準備中）
+
+- **Backward Compatibility**:
+
+  - `/start` → `/math/start`（301 リダイレクト）
+  - `/play` → `/math/play`（301 リダイレクト）
 
 - **Auth**:
 
   - `/auth/guest-login`: ゲストログイン
+  - `/auth/login`: ログインページ
+  - `/auth/login/email`: メールログイン処理
+  - `/auth/callback`: ログインコールバック
   - `/auth/logout`: ログアウト
-  - `/auth/signin`: サインインページ（ダミー）
 
 - **API**:
   - `/apis/quiz`: クイズ関連API
@@ -468,6 +492,66 @@ sequenceDiagram
 3. **AIチューター**: 問題の難易度調整や個別最適化
 4. **マルチプレイ**: リアルタイム対戦機能
 5. **学年別コンテンツ拡充**: 2年生以上の単元追加
+
+## マルチ Quest アーキテクチャ
+
+**EduQuest** は複数の教科に対応する学習プラットフォームで、専門化された「Quest」モジュールを通じて様々な教育コンテンツを提供します。シンプルさと統一されたユーザー体験のため、**サブディレクトリベースのルーティング構造**を採用しています。
+
+### Quest モジュール
+
+現在サポートおよび今後サポート予定の Quest モジュール：
+
+- **MathQuest** (`/math`) - 学年別プリセットとテーマ練習を提供する算数練習（利用可能）
+- **KanjiQuest** (`/kanji`) - 学年別に整理された漢字学習（準備中）
+- **ClockQuest** (`/clock`) - アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
+
+### URL 構造
+
+**サブディレクトリベースのルーティング：**
+
+```text
+ドメイン構造:
+  dev.edu-quest.app (開発環境)
+  edu-quest.app (本番環境)
+
+ルート構造:
+  /                    → EduQuest ハブ（Quest 選択ポータル）
+  /math                → MathQuest トップページ
+  /math/start          → MathQuest 設定ウィザード
+  /math/play           → MathQuest 練習セッション
+  /kanji               → KanjiQuest トップページ（準備中）
+  /clock               → ClockQuest トップページ（準備中）
+```
+
+**後方互換性：**
+
+- `/start` → `/math/start`（301 リダイレクト）
+- `/play` → `/math/play`（301 リダイレクト）
+
+### 設計原則
+
+- **サブディレクトリルーティング**: サブドメイン方式と比較してシンプルなインフラ、統一されたセッション、優れた SEO
+- **テーマカスタマイズ**: 各 Quest モジュールは CSS 変数による独自の配色スキーム
+  - MathQuest: 青系テーマ (#6B9BD1)
+  - KanjiQuest: 紫系テーマ (#9B7EC8)
+  - ClockQuest: オレンジ系テーマ (#F5A85F)
+- **共有ドメインロジック**: すべての Quest モジュールは `@edu-quest/domain` と `@edu-quest/app` パッケージを再利用
+- **一貫した UX**: すべての Quest モジュール間で統一されたナビゲーションと認証
+
+### 命名規則
+
+```text
+ブランド:     EduQuest
+ドメイン:     dev.edu-quest.app (開発), edu-quest.app (本番)
+パッケージ:   @edu-quest/*
+ルート:
+  - ポータル:  /
+  - 算数:      /math, /math/start, /math/play
+  - 漢字:      /kanji（準備中）
+  - 時計:      /clock（準備中）
+```
+
+**AI アシスタントへの注意**: 新しい Quest モジュールや機能を実装する際は、教科固有のロジックを適切に分離しつつ、共通機能（問題生成パターン、回答検証など）については共有ドメインロジックを活用してください。
 
 ## 参考リンク
 

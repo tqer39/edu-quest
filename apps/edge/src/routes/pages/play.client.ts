@@ -121,7 +121,7 @@ const MODULE_SOURCE = `
 
   const session = loadSession();
   if (!session && gradePresets.length === 0) {
-    window.location.href = '/start';
+    window.location.href = '/math/start';
     return;
   }
 
@@ -224,7 +224,7 @@ const MODULE_SOURCE = `
 
   const activeSession = loadSession();
   if (!activeSession) {
-    window.location.href = '/start';
+    window.location.href = '/math/start';
     return;
   }
 
@@ -1235,13 +1235,13 @@ const MODULE_SOURCE = `
 
   if (endBtn) {
     endBtn.addEventListener('click', () => {
-      window.location.href = '/start';
+      window.location.href = '/math/start';
     });
   }
 
   if (endResultBtn) {
     endResultBtn.addEventListener('click', () => {
-      window.location.href = '/start';
+      window.location.href = '/math/start';
     });
   }
 
