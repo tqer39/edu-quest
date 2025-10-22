@@ -59,7 +59,7 @@ graph TB
     end
 
     subgraph "Routes"
-        Pages[Pages<br/>home, start, play]
+        Pages[Pages<br/>home, math-home, start, play]
         APIs[APIs<br/>/apis/quiz]
     end
 
@@ -120,81 +120,62 @@ The project is a monorepo managed with pnpm workspaces.
 6.  **Verify:** Run `just lint` and any relevant tests to ensure your changes are correct and don't break anything.
 7.  **Update Documentation:** If you change any behavior, tool, or workflow, update the corresponding documentation.
 
-## 6. Future Roadmap: EduQuest Migration
+## 6. Multi-Quest Architecture
 
-**IMPORTANT:** This project is planned to evolve from **MathQuest** (math-focused) to **EduQuest** (multi-subject learning platform).
+**EduQuest** is a multi-subject learning platform that provides various educational content through specialized "Quest" modules. The platform uses a **subdirectory-based routing structure** for simplicity and unified user experience.
 
-### 6.1. Vision
+### 6.1. Quest Modules
 
-Transform the current math-only application into a comprehensive educational platform supporting multiple subjects:
+The platform currently supports and plans to support the following Quest modules:
 
-- 算数クエスト (Math Quest) - Current focus
-- 漢字クエスト (Kanji Quest) - Planned
-- ひらがなクエスト (Kana Quest) - Planned
+- **MathQuest** (`/math`) - Arithmetic practice with grade-level presets and themed exercises (Available)
+- **KanjiQuest** (`/kanji`) - Kanji learning organized by grade level (Coming Soon)
+- **ClockQuest** (`/clock`) - Time-reading practice with analog and digital clocks (Coming Soon)
 
-### 6.2. Migration Strategy
+### 6.2. URL Structure
 
-**Domain Structure:**
+**Subdirectory-based routing:**
 
 ```text
-Current: mathquest.app
-Future:  edu-quest.app (portal)
-         ├── math.edu-quest.app (math app)
-         ├── kanji.edu-quest.app (kanji app)
-         └── kana.edu-quest.app (kana app)
+Domain Structure:
+  dev.edu-quest.app (development)
+  edu-quest.app (production)
+
+Route Structure:
+  /                    → EduQuest hub (Quest selection portal)
+  /math                → MathQuest landing page
+  /math/start          → MathQuest configuration wizard
+  /math/play           → MathQuest practice session
+  /kanji               → KanjiQuest landing page (Coming Soon)
+  /clock               → ClockQuest landing page (Coming Soon)
 ```
 
-**Key Principles:**
+**Backward Compatibility:**
 
-- **Subdomain Isolation:** Each subject app runs on its own subdomain
-- **Shared Portal:** Main domain hosts the subject selection portal
-- **Gradual Migration:** Phased approach to minimize disruption
-- **Code Reusability:** Extract common logic into shared packages
+- `/start` → `/math/start` (301 redirect)
+- `/play` → `/math/play` (301 redirect)
 
-### 6.3. Migration Phases
+### 6.3. Design Principles
 
-#### Phase 1: Domain Acquisition & Infrastructure (Now)
+- **Subdirectory Routing:** Simpler infrastructure, unified sessions, and better SEO compared to subdomain approach
+- **Theme Customization:** Each Quest module has its own color scheme applied via CSS variables
+  - MathQuest: Blue theme (#6B9BD1)
+  - KanjiQuest: Purple theme (#9B7EC8)
+  - ClockQuest: Orange theme (#F5A85F)
+- **Shared Domain Logic:** All Quest modules reuse `@edu-quest/domain` and `@edu-quest/app` packages
+- **Consistent UX:** Unified navigation and authentication across all Quest modules
 
-- Acquire `edu-quest.app` domain
-- Set up DNS with wildcard SSL
-- Configure Cloudflare Workers routing
-
-#### Phase 2: MathQuest Migration
-
-- Move current app to `math.edu-quest.app`
-- Redirect `mathquest.app` → `math.edu-quest.app` (301)
-- Maintain full backward compatibility
-
-#### Phase 3: Portal Development
-
-- Create simple landing page at `edu-quest.app`
-- Subject selection interface
-- Unified authentication system
-
-#### Phase 4: Architecture Refactoring
-
-- Extract `@eduquest/core` from `@mathquest/domain`
-- Rename packages: `@mathquest/*` → `@eduquest/*`
-- Abstract database schema for multi-subject support
-
-#### Phase 5: New Subject Apps
-
-- Implement `kanji.edu-quest.app`
-- Implement `kana.edu-quest.app`
-
-For detailed migration plan, see **[EduQuest Migration Plan](./docs/eduquest-migration.md)**.
-
-### 6.4. Naming Conventions (Future)
+### 6.4. Naming Conventions
 
 ```text
 Brand:       EduQuest
-Domain:      edu-quest.app
-Packages:    @eduquest/*
-Apps:
-  - Portal:  edu-quest.app
-  - Math:    math.edu-quest.app (formerly MathQuest)
-  - Kanji:   kanji.edu-quest.app
-  - Kana:    kana.edu-quest.app
+Domains:     dev.edu-quest.app (dev), edu-quest.app (prod)
+Packages:    @edu-quest/*
+Routes:
+  - Portal:  /
+  - Math:    /math, /math/start, /math/play
+  - Kanji:   /kanji (Coming Soon)
+  - Clock:   /clock (Coming Soon)
 ```
 
-**Note to AI Assistants:** When making architectural decisions, consider the future multi-subject structure. Avoid hardcoding math-specific logic where it can be abstracted.
+**Note to AI Assistants:** When implementing new Quest modules or features, ensure that subject-specific logic is properly isolated while leveraging shared domain logic for common functionality (question generation patterns, answer verification, etc.).
