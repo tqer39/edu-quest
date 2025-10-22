@@ -197,7 +197,7 @@ export class BetterAuthService {
 
     if (!user) {
       const generatedId = `usr_${randomToken(16)}`;
-      const displayName = normalizedEmail.split('@')[0] || 'MathQuest ユーザー';
+      const displayName = normalizedEmail.split('@')[0] || 'EduQuest ユーザー';
       const grade: CurrentUser['grade'] = '小3';
       const avatarColor = pickAvatar(normalizedEmail);
 
@@ -336,9 +336,9 @@ export class BetterAuthService {
       body: JSON.stringify({
         from,
         to: [email],
-        subject: 'MathQuest ログインリンク',
-        text: `MathQuestへのログインリンクです。\n\n以下のURLを30分以内に開いてログインを完了してください。\n${loginUrl}\n\nもしこのメールに心当たりがない場合は破棄してください。`,
-        html: `<p>MathQuestへのログインリンクです。</p><p>以下のボタンを30分以内にクリックしてください。</p><p><a href="${loginUrl}" style="display:inline-block;padding:12px 20px;border-radius:8px;background:#2563eb;color:white;text-decoration:none;font-weight:bold;">MathQuestにログインする</a></p><p>もしこのメールに心当たりがない場合は破棄してください。</p>`,
+        subject: 'EduQuest ログインリンク',
+        text: `EduQuestへのログインリンクです。\n\n以下のURLを30分以内に開いてログインを完了してください。\n${loginUrl}\n\nもしこのメールに心当たりがない場合は破棄してください。`,
+        html: `<p>EduQuestへのログインリンクです。</p><p>以下のボタンを30分以内にクリックしてください。</p><p><a href="${loginUrl}" style="display:inline-block;padding:12px 20px;border-radius:8px;background:#2563eb;color:white;text-decoration:none;font-weight:bold;">EduQuestにログインする</a></p><p>もしこのメールに心当たりがない場合は破棄してください。</p>`,
       }),
     });
 

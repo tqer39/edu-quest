@@ -232,7 +232,7 @@ app.get('/auth/login', (c) => {
       redirect={redirect}
     />,
     {
-      title: 'MathQuest | ログイン',
+      title: 'EduQuest | ログイン',
       description:
         'メールアドレス宛にログインリンクを送信して、学習記録をクラウドに同期できます。',
     }
