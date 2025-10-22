@@ -81,8 +81,9 @@ export const generateQuestion = (config: QuizConfig): Question => {
   let b: number;
 
   if (op === '+') {
-    a = randInt(config.max);
-    // 5% probability for 0, 95% probability for 1 or higher
+    // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+    const minA = Math.random() < 0.05 ? 0 : 1;
+    a = randIntInclusive(minA, config.max);
     const minB = Math.random() < 0.05 ? 0 : 1;
     const maxB = config.max - a;
     b = maxB >= minB ? randIntInclusive(minB, maxB) : 0;
@@ -116,8 +117,9 @@ export const generateSingleOperationQuestion = (
     let a: number;
     let b: number;
     if (mode === 'add') {
-      a = randInt(max);
-      // 5% probability for 0, 95% probability for 1 or higher
+      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+      const minA = Math.random() < 0.05 ? 0 : 1;
+      a = randIntInclusive(minA, max);
       const minB = Math.random() < 0.05 ? 0 : 1;
       const maxB = max - a;
       b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
@@ -222,8 +224,9 @@ export const generateGradeOneQuestion = (
   // 二項演算のパターン
   const binaryPatterns = [
     () => {
-      const a = randInt(max);
-      // 5% probability for 0, 95% probability for 1 or higher
+      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+      const minA = Math.random() < 0.05 ? 0 : 1;
+      const a = randIntInclusive(minA, max);
       const minB = Math.random() < 0.05 ? 0 : 1;
       const maxB = max - a;
       const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
@@ -239,8 +242,9 @@ export const generateGradeOneQuestion = (
   // 三項演算のパターン
   const ternaryPatterns = [
     () => {
-      const a = randInt(max);
-      // 5% probability for 0, 95% probability for 1 or higher
+      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+      const minA = Math.random() < 0.05 ? 0 : 1;
+      const a = randIntInclusive(minA, max);
       const minB = Math.random() < 0.05 ? 0 : 1;
       const maxB = max - a;
       const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
@@ -254,8 +258,9 @@ export const generateGradeOneQuestion = (
       });
     },
     () => {
-      const a = randInt(max);
-      // 5% probability for 0, 95% probability for 1 or higher
+      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+      const minA = Math.random() < 0.05 ? 0 : 1;
+      const a = randIntInclusive(minA, max);
       const minB = Math.random() < 0.05 ? 0 : 1;
       const maxB = max - a;
       const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
@@ -281,8 +286,9 @@ export const generateGradeOneQuestion = (
       });
     },
     () => {
-      const a = randInt(max);
-      // 5% probability for 0, 95% probability for 1 or higher
+      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+      const minA = Math.random() < 0.05 ? 0 : 1;
+      const a = randIntInclusive(minA, max);
       const minB = Math.random() < 0.05 ? 0 : 1;
       const maxB = max - a;
       const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
@@ -325,8 +331,9 @@ export const generateGradeOneQuestion = (
   }
 
   if (!question) {
-    const fallbackA = randInt(max);
-    // 5% probability for 0, 95% probability for 1 or higher
+    // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
+    const minA = Math.random() < 0.05 ? 0 : 1;
+    const fallbackA = randIntInclusive(minA, max);
     const minB = Math.random() < 0.05 ? 0 : 1;
     const maxB = max - fallbackA;
     const fallbackB = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
