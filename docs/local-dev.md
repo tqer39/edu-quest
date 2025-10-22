@@ -1,27 +1,27 @@
-# ローカル検証環境の作り方
+# Local Development Environments
 
-本リポジトリは 2 つのローカル開発モードを用意しています。
+The repository provides two primary local development modes:
 
-- Node ローカル（簡易）: `apps/api` + `apps/web` をローカルで起動
-- Edge-SSR（Cloudflare Workers エミュレーション）: `apps/edge` を Wrangler で起動
+- **Node local (lightweight):** run `apps/api` and `apps/web` locally.
+- **Edge SSR (Cloudflare Workers emulation):** run `apps/edge` via Wrangler.
 
-## 初期セットアップ（必須）
+## Initial Setup (required)
 
-**重要**: `make bootstrap` を実行する前に、以下の手順を実行する必要があります。
+**Important:** Complete the following steps before running `make bootstrap`.
 
-### 1. Cloudflare 認証情報の設定
+### 1. Configure Cloudflare credentials
 
 ```shell
-# まず権限を追加
+# Grant access first
 cf-vault add edu-quest
 cf-vault list
 ```
 
-これにより、ローカル開発環境で Cloudflare リソースへのアクセスが可能になります。
+This enables local access to Cloudflare resources.
 
-### 2. Terraform Bootstrap の実行
+### 2. Run the Terraform bootstrap
 
-AWS リソース（IAM ロールなど）を初期化します。
+Initialize the AWS resources (IAM roles, etc.).
 
 ```shell
 just tf -chdir=dev/bootstrap init -reconfigure
@@ -30,13 +30,13 @@ just tf -chdir=dev/bootstrap plan
 just tf -chdir=dev/bootstrap apply -auto-approve
 ```
 
-これにより、開発環境用の AWS リソースが作成されます。
+These commands provision the AWS resources for the development environment.
 
-### 3. Terraform Databases の実行
+### 3. Run the Terraform databases stack
 
-Cloudflare リソース（D1、KV、Turnstile など）を初期化します。
+Initialize Cloudflare resources (D1, KV, Turnstile, etc.).
 
-**重要**: Bootstrap の実行後、5〜10分待ってから実行してください。これは、Cloudflare API のレート制限を回避するためです。
+**Important:** Wait 5–10 minutes after the bootstrap step to avoid Cloudflare API rate limits.
 
 ```shell
 just tf -chdir=dev/databases init -reconfigure
@@ -45,13 +45,13 @@ just tf -chdir=dev/databases plan
 just tf -chdir=dev/databases apply -auto-approve
 ```
 
-これにより、開発環境用の Cloudflare リソースが作成されます。
+This provisions the Cloudflare resources for development.
 
-### 4. 本番環境用 Terraform の実行（オプション）
+### 4. Optional: provision production Terraform stacks
 
-開発環境のセットアップ後、本番環境用のリソースも初期化する場合は、以下の手順を実行します。
+After the development environment is ready, you can optionally initialize the production resources.
 
-#### 4.1. Bootstrap（AWS リソース）
+#### 4.1 Bootstrap (AWS resources)
 
 ```shell
 just tf -chdir=prod/bootstrap init -reconfigure
@@ -60,9 +60,9 @@ just tf -chdir=prod/bootstrap plan
 just tf -chdir=prod/bootstrap apply -auto-approve
 ```
 
-#### 4.2. Databases（Cloudflare リソース）
+#### 4.2 Databases (Cloudflare resources)
 
-**重要**: Bootstrap の実行後、5〜10分待ってから実行してください。
+**Important:** Wait 5–10 minutes after the bootstrap step.
 
 ```shell
 just tf -chdir=prod/databases init -reconfigure
@@ -71,70 +71,101 @@ just tf -chdir=prod/databases plan
 just tf -chdir=prod/databases apply -auto-approve
 ```
 
-これにより、本番環境用のリソースが作成されます。
+Ensure you have the correct permissions and accounts before provisioning production infrastructure.
 
-**注意**: 本番環境のリソースを作成する場合は、適切な権限とアカウント設定が必要です。
+## Prerequisites
 
-## 前提条件
+- pnpm is installed (`pnpm --version`).
+- Cloudflare Wrangler is installed via mise (`wrangler --version` succeeds after `mise install`).
+- Install dependencies on first run: `pnpm install` from the repository root.
 
-- pnpm がインストール済み（`pnpm --version`）
-- Cloudflare Wrangler が mise 経由で導入済み（`mise install` 後に `wrangler --version` が通ること）
-- 初回は依存導入: ルートで `pnpm install`
+## 1) Node local mode (fastest)
 
-## 1) Node ローカルモード（最短）
+- **Recommended:** `just dev-node`
+  - API: <http://localhost:8787>
+  - Web: <http://localhost:8788>
+- **Manual launch:**
+  - Terminal A: `pnpm --filter @edu-quest/api run dev`
+  - Terminal B: `pnpm --filter @edu-quest/web run dev`
+  - The web app expects the API at `http://localhost:8787`; update the client endpoint if you change the port.
+- **Smoke tests:**
+  - Health check: `curl http://localhost:8787/healthz`
+  - Open the web app at <http://localhost:8788>
 
-- 一括起動（Just 推奨）
-  - `just dev-node`
-  - API: <http://localhost:8787> / Web: <http://localhost:8788>
-- 個別起動（手動）
-  - 別ターミナル1: `pnpm --filter @edu-quest/api run dev`
-  - 別ターミナル2: `pnpm --filter @edu-quest/web run dev`
-- 動作確認
-  - ヘルスチェック: `curl http://localhost:8787/healthz`
-  - ブラウザで Web を開く: <http://localhost:8788>
+## 2) Edge SSR (Workers) mode
 
-## 2) Edge-SSR（Workers）モード
+Wrangler emulates Cloudflare Workers locally, including KV and D1.
 
-Wrangler を使って Cloudflare Workers をローカル実行します。KV/D1 もローカルでエミュレート可能です。
-
-- 起動
+- **Start the dev server**
   - `pnpm --filter @edu-quest/edge run dev`
-  - または `just dev-edge`
-  - Wrangler が表示するローカル URL にアクセス
-  - ローカルモードでは `--live-reload` を有効化しているため、ソース更新時にブラウザも自動でリロードされます。
-  - Wrangler のデバッグログは `apps/edge/.wrangler/logs/` に保存されます（リポジトリ外への書き込みを避けるため）。
-  - ログイン検証は Better Auth を経由せず、デフォルトでモックユーザーが使用されます（`USE_MOCK_USER=false` で無効化可能）。
-- KV のローカル準備（任意）
+  - or `just dev-edge`
+  - Visit the local URL shown by Wrangler.
+  - Live reload is enabled in local mode, so the browser refreshes automatically when files change.
+  - Wrangler stores debug logs under `apps/edge/.wrangler/logs/` to avoid writing outside the repository.
+  - Authentication defaults to a mock user without Better Auth; set `USE_MOCK_USER=false` to disable the mock.
+
+- **Prepare KV namespaces (optional)**
   - `wrangler kv namespace create KV_FREE_TRIAL`
   - `wrangler kv namespace create KV_AUTH_SESSION`
   - `wrangler kv namespace create KV_RATE_LIMIT`
   - `wrangler kv namespace create KV_IDEMPOTENCY`
-  - `wrangler dev` 実行時はプレビュー用 namespace が自動で割り当てられますが、明示的に作成して `wrangler.toml` の `kv_namespaces` に id を設定することも可能です。
-- D1 のローカル準備（任意）
-  - DB 作成: `wrangler d1 create eduquest`
-  - 生成された `database_id` を `apps/edge/wrangler.toml` の `d1_databases` に反映
-  - マイグレーション適用: `wrangler d1 migrations apply DB --local --config apps/edge/wrangler.toml`
-    - `DB` は `wrangler.toml` の `binding` 名を指し、`--config` で設定ファイルを指定することで `infra/migrations` 配下の SQL が適用されます。
-    - `--local` フラグにより、ローカル SQLite ファイルに対してマイグレーションが実行されるため、Wrangler のプレビュー環境に影響を与えません。
-  - スキーマ変更時は `pnpm drizzle:generate` で SQL を生成し、上記コマンドで適用
-- データ永続化（開発用）
-  - `wrangler dev --persist` を使うと KV/D1 のローカルデータを `.wrangler` ディレクトリに保持できます。
+  - When you run `wrangler dev`, preview namespaces are created automatically, but you can define them explicitly and wire the IDs in `wrangler.toml` if preferred.
 
-## よくある質問（FAQ）
+- **Prepare D1 (optional)**
+  - Create the database: `wrangler d1 create eduquest`
+  - Copy the generated `database_id` into the `d1_databases` section of `apps/edge/wrangler.toml`.
+  - Apply migrations: `wrangler d1 migrations apply DB --local --config apps/edge/wrangler.toml`
+    - `DB` refers to the `binding` name defined in `wrangler.toml`. Using `--config` runs the SQL files under `infra/migrations`.
+    - The `--local` flag ensures migrations run against the local SQLite instance, leaving the remote preview untouched.
+  - When the schema changes, run `pnpm drizzle:generate` to create SQL files and apply them with the command above.
 
-- ポートを変えたい
+- **Persist data locally (optional)**
+  - Run `wrangler dev --persist` to keep KV/D1 data under the `.wrangler` directory.
+  - Wrangler also stores preview data under `~/.wrangler/state/`; delete the directory if you need a clean slate.
+
+## Recommended commands
+
+Run these before opening a PR:
+
+- `just lint`
+- `pnpm test` (if the workspace contains tests)
+- `pnpm typecheck`
+
+## Frequently Asked Questions (FAQ)
+
+- **Change the ports**
   - API: `PORT=8080 pnpm --filter @edu-quest/api run dev`
-  - Web 側の API 呼び先は `apps/web/public/main.js` の `http://localhost:8787` を合わせてください。
-- CORS でエラーになる
-  - API 側（`apps/api`）は CORS を許可済みですが、URL を確認してください。
-- pre-commit が失敗する
-  - `just lint` で詳細を確認。ファイル整形や辞書（`cspell.json`）の単語追加を行ってください。
+  - Update the API base URL in `apps/web/public/main.js` to match the new port.
+- **CORS errors**
+  - The API already enables CORS; confirm the request origin and URL are correct.
+- **pre-commit hook failures**
+  - Run `just lint` for details and fix formatting issues or add new words to `cspell.json` as needed.
 
-## コード整形（Prettier）
+## Formatting with Prettier
 
-- すべての対象ファイルを整形
-  - `just format`
-- ステージ済みのみ整形（コミット前など）
-  - `just format-staged`
+- Format all supported files: `just format`
+- Format staged files only: `just format-staged`
 
-pre-commit の Prettier フックを拡張しており、`js/ts/tsx/json/css/html/md/yaml` が対象です。
+The extended Prettier hook covers `js/ts/tsx/json/css/html/md/yaml` files through pre-commit.
+
+## Troubleshooting
+
+### Wrangler cannot authenticate
+
+- Re-run `cf-vault add edu-quest` and confirm credentials with `cf-vault list`.
+- Ensure `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` are present in the environment.
+
+### D1 migrations fail locally
+
+- Confirm the `database_id` in `wrangler.toml` matches the local database.
+- Delete `apps/edge/.wrangler/state/` and rerun the migrations.
+
+### KV namespaces not found
+
+- Run `wrangler kv namespace list` to verify the namespace IDs.
+- Update the IDs in `wrangler.toml` if they changed.
+
+## Related documentation
+
+- [GitHub Secrets Setup](./github-secrets-setup.md)
+- [Release Workflow](./release-workflow.md)
