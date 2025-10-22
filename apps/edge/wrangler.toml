@@ -33,6 +33,7 @@ database_id = "d1_edu-quest_id"
 migrations_dir = "../../infra/migrations"
 
 [vars]
+ENVIRONMENT = "local"
 DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://edu-quest.local"
 AUTH_EMAIL_FROM = "EduQuest Local <no-reply@edu-quest.local>"

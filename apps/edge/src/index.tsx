@@ -5,6 +5,7 @@ import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
 import { i18n } from './middlewares/i18n';
+import { seoControl } from './middlewares/seo-control';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
 import { Start } from './routes/pages/start';
@@ -21,9 +22,74 @@ app.use('*', logger());
 app.use('*', secureHeaders());
 app.use('*', prettyJSON());
 app.use('*', i18n());
+app.use('*', seoControl());
 
 // Avoid noisy errors for favicon requests during local dev
 app.get('/favicon.ico', (c) => c.body(null, 204));
+
+// Robots.txt - dev環境では全てのクローラーをブロック
+app.get('/robots.txt', (c) => {
+  const environment = c.env.ENVIRONMENT;
+  const isDev = environment === 'dev';
+
+  if (isDev) {
+    // dev環境: すべてのクローラーをブロック
+    return c.text(
+      `User-agent: *
+Disallow: /
+
+# Block all search engines and LLM crawlers
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /`,
+      200,
+      { 'Content-Type': 'text/plain' }
+    );
+  } else {
+    // production環境: クローリングを許可
+    return c.text(
+      `User-agent: *
+Allow: /
+
+# Block LLM crawlers in production
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+Sitemap: https://edu-quest.app/sitemap.xml`,
+      200,
+      { 'Content-Type': 'text/plain' }
+    );
+  }
+});
 
 // Simple health endpoint for手動確認
 app.get('/hello', (c) => c.text('Hello World'));
@@ -33,8 +99,14 @@ app.use(
   '*',
   jsxRenderer<{ title?: string; description?: string }>((props, c) => {
     const lang = c.get('lang') ?? 'ja';
+    const environment = c.env.ENVIRONMENT;
     return (
-      <Document lang={lang} title={props.title} description={props.description}>
+      <Document
+        lang={lang}
+        title={props.title}
+        description={props.description}
+        environment={environment}
+      >
         {props.children}
       </Document>
     );
@@ -44,9 +116,9 @@ app.use(
 // Public top
 app.get('/', async (c) =>
   c.render(<Home currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | じぶんのペースで楽しく算数練習',
+    title: 'EduQuest | じぶんのペースで楽しく学習',
     description:
-      '学年別の単元から選んで算数を練習。匿名で始めて、記録を残したくなったら会員登録できる学習アプリです。',
+      '学年別の単元から選んで学習。匿名で始めて、記録を残したくなったら会員登録できる学習アプリです。',
   })
 );
 
