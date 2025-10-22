@@ -8,6 +8,9 @@ import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
+import { MathHome } from './routes/pages/math-home';
+import { KanjiHome } from './routes/pages/kanji-home';
+import { ClockHome } from './routes/pages/clock-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -123,6 +126,17 @@ app.get('/', async (c) =>
 );
 
 // MathQuest routes
+app.get('/math', async (c) =>
+  c.render(
+    <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 算数を楽しく学ぼう',
+      description:
+        '学年別の算数問題で計算力をアップ。たし算・ひき算・かけ算・わり算を楽しく練習しよう。',
+    }
+  )
+);
+
 app.get('/math/start', async (c) =>
   c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
     title: 'MathQuest | 設定ウィザード',
@@ -137,6 +151,30 @@ app.get('/math/play', async (c) =>
     description:
       '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
   })
+);
+
+// KanjiQuest routes (Coming soon)
+app.get('/kanji', async (c) =>
+  c.render(
+    <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'KanjiQuest | 漢字を楽しく学ぼう（準備中）',
+      description:
+        '小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。',
+    }
+  )
+);
+
+// ClockQuest routes (Coming soon)
+app.get('/clock', async (c) =>
+  c.render(
+    <ClockHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'ClockQuest | 時計の読み方をマスターしよう（準備中）',
+      description:
+        'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
+    }
+  )
 );
 
 // Backward compatibility: redirect old routes to /math/*
