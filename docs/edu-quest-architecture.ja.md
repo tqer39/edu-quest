@@ -2,7 +2,13 @@
 
 ## 1. 目的
 
-EduQuest は小学生向けの算数練習体験を提供する学習サービスです。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習（「たし算 20 まで」「たし算・ひき算ミックス」など）を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
+EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。現在は算数練習の MathQuest を提供しており、将来的に漢字学習の KanjiQuest や時計の読み方を学ぶ ClockQuest を追加予定です。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
+
+### Quest モジュール
+
+- **MathQuest** (`/math`): 学年別プリセットとテーマ練習（「たし算 20 まで」「たし算・ひき算ミックス」など）を提供する算数練習
+- **KanjiQuest** (`/kanji`): 学年別に整理された漢字学習（準備中）
+- **ClockQuest** (`/clock`): アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
 ## 2. アーキテクチャ概要
 
@@ -22,7 +28,8 @@ EduQuest は小学生向けの算数練習体験を提供する学習サービ�
 - **インフラストラクチャ層 (`apps/edge/src/infrastructure`)**
   - Drizzle ORM による D1 接続、KV バインディング、環境変数管理。
 - **インターフェース層 (`apps/edge/src/routes`)**
-  - ページ（スタート・プレイ・ホーム）、BFF API (`/apis/quiz/generate`, `/apis/quiz/verify`)、クライアントサイドのインタラクションロジック。
+  - ページ: EduQuest ハブ (`/`)、Quest 専用ページ (`/math`, `/kanji`, `/clock`)、練習画面 (`/math/start`, `/math/play`)
+  - BFF API (`/apis/quiz/generate`, `/apis/quiz/verify`)、クライアントサイドのインタラクションロジック。
 
 レイヤー間の依存はドメイン層を中心とした内向き矢印となるよう整理しており、UI 改修や新しいデリバリーチャネル追加（例: API 専用の UI）でもドメインロジックをそのまま流用できます。
 
@@ -83,22 +90,37 @@ eduquest/
 
 ## 5. ユースケースとデータフロー
 
-### スタート画面
+### EduQuest ハブ (`/`)
 
-1. `/start` を SSR でレンダリング。サーバー側で学年一覧・計算種別・テーマプリセットを JSON として `<script type="application/json">` へ埋め込み。
+1. トップページでは、利用可能な Quest モジュールをテーマカラー付きのカードで表示：
+   - **MathQuest**（青系テーマ）: 利用可能
+   - **KanjiQuest**（紫系テーマ）: 準備中
+   - **ClockQuest**（オレンジ系テーマ）: 準備中
+2. 「はじめる」ボタンをクリックして、各 Quest に遷移できます。
+3. 各 Quest は CSS 変数で独自のカラースキームが適用されています。
+
+### MathQuest トップページ (`/math`)
+
+1. MathQuest 固有の情報と機能（学年プリセット、カスタマイズオプション、集中モード）を表示。
+2. 「算数をはじめる」をクリックすると `/math/start` に遷移。
+3. テーマカラーは青系（#6B9BD1）。
+
+### MathQuest スタート画面 (`/math/start`)
+
+1. SSR でレンダリング。サーバー側で学年一覧・計算種別・テーマプリセットを JSON として `<script type="application/json">` へ埋め込み。
 2. クライアントスクリプト (`start.client.ts`) が初期化し、ローカルストレージから以下の状態を復元：
    - `eduquest:progress:v1`: 総解答数・正解数・最後に選択した学年/テーマ。
    - `eduquest:sound-enabled` / `eduquest:show-working`: UI トグル。
    - `eduquest:question-count-default`: 初期問題数。
 3. 学年選択に応じて `gradeCalculationTypes` から計算種別をフィルタリングし、テーマボタンも最小対象学年で絞り込み。
-4. 「れんしゅうをはじめる」を押すと選択内容をセッションストレージへ保存し、`/play` に遷移。
+4. 「れんしゅうをはじめる」を押すと選択内容をセッションストレージへ保存し、`/math/play` に遷移。
 
-### プレイ画面
+### MathQuest プレイ画面 (`/math/play`)
 
 1. 画面読み込み時に `eduquest:pending-session` から設定を復元し、表示ラベルを更新。
 2. `countdown-overlay` で 3 秒カウントダウン後、`/apis/quiz/generate` に POST して問題を取得。
 3. ユーザー回答を `/apis/quiz/verify` に送信し、正誤と正しい答えを表示。正解時はストリークを加算し、ローカルストレージの進捗を更新。
-4. 残り問題数が 0 になると結果カードを表示し、スタート画面への導線を提示。
+4. 残り問題数が 0 になると結果カードを表示し、`/math/start` への導線を提示。
 
 ### API レイヤー
 
