@@ -10,36 +10,36 @@ Add the following secrets to the GitHub repository.
 
 ### GCP
 
-| Secret name                      | Description                                                    | Example                                                        |
-| -------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `GCP_PROJECT_ID`                 | GCP project ID                                                 | `portfolio`                                                    |
-| `GCP_WORKLOAD_IDENTITY_PROVIDER` | GCP Workload Identity Provider (used for GitHub Actions OIDC)  | `projects/123456789/locations/global/workloadIdentityPools/github/providers/github` |
-| `GCP_SERVICE_ACCOUNT`            | Service account that runs Terraform                           | `terraform@your-project.iam.gserviceaccount.com`               |
+| Secret name                      | Description                                                   | Example                                                                             |
+| -------------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `GCP_PROJECT_ID`                 | GCP project ID                                                | `portfolio`                                                                         |
+| `GCP_WORKLOAD_IDENTITY_PROVIDER` | GCP Workload Identity Provider (used for GitHub Actions OIDC) | `projects/123456789/locations/global/workloadIdentityPools/github/providers/github` |
+| `GCP_SERVICE_ACCOUNT`            | Service account that runs Terraform                           | `terraform@your-project.iam.gserviceaccount.com`                                    |
 
 ### Cloudflare
 
-| Secret name             | Description                                         | Example                |
-| ----------------------- | --------------------------------------------------- | ---------------------- |
-| `CLOUDFLARE_API_TOKEN`  | Cloudflare API token (requires access to Workers/D1/KV) | `your-api-token`       |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID                               | `your-account-id`      |
+| Secret name             | Description                                             | Example           |
+| ----------------------- | ------------------------------------------------------- | ----------------- |
+| `CLOUDFLARE_API_TOKEN`  | Cloudflare API token (requires access to Workers/D1/KV) | `your-api-token`  |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID                                   | `your-account-id` |
 
 ### Domain registration contact info
 
-| Secret name                     | Description                               | Example                                   |
-| ------------------------------ | ----------------------------------------- | ----------------------------------------- |
-| `CONTACT_COUNTRY_CODE`         | Country code (ISO 3166-1 alpha-2)         | `JP`                                      |
-| `CONTACT_POSTAL_CODE`          | Postal code                               | `1234567`                                 |
-| `CONTACT_ADMINISTRATIVE_AREA`  | State / prefecture                        | `Tokyo`                                   |
-| `CONTACT_LOCALITY`             | City                                      | `Shibuya`                                 |
-| `CONTACT_ADDRESS_LINES`        | Street address (comma separated)          | `1-2-3 Example Street,Building Name`      |
-| `CONTACT_RECIPIENT`            | Recipient name                            | `Your Name`                               |
-| `CONTACT_EMAIL`                | Email address                             | `your-email@example.com`                  |
-| `CONTACT_PHONE`                | Phone number in E.164 format              | `+81.312345678`                           |
+| Secret name                   | Description                       | Example                              |
+| ----------------------------- | --------------------------------- | ------------------------------------ |
+| `CONTACT_COUNTRY_CODE`        | Country code (ISO 3166-1 alpha-2) | `JP`                                 |
+| `CONTACT_POSTAL_CODE`         | Postal code                       | `1234567`                            |
+| `CONTACT_ADMINISTRATIVE_AREA` | State / prefecture                | `Tokyo`                              |
+| `CONTACT_LOCALITY`            | City                              | `Shibuya`                            |
+| `CONTACT_ADDRESS_LINES`       | Street address (comma separated)  | `1-2-3 Example Street,Building Name` |
+| `CONTACT_RECIPIENT`           | Recipient name                    | `Your Name`                          |
+| `CONTACT_EMAIL`               | Email address                     | `your-email@example.com`             |
+| `CONTACT_PHONE`               | Phone number in E.164 format      | `+81.312345678`                      |
 
 ### Domain pricing info
 
-| Secret name             | Description                     | Example |
-| ----------------------- | ------------------------------- | ------- |
+| Secret name             | Description                      | Example |
+| ----------------------- | -------------------------------- | ------- |
 | `YEARLY_PRICE_CURRENCY` | Currency code for the annual fee | `USD`   |
 | `YEARLY_PRICE_UNITS`    | Annual price (integer portion)   | `12`    |
 
