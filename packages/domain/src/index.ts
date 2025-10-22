@@ -82,7 +82,10 @@ export const generateQuestion = (config: QuizConfig): Question => {
 
   if (op === '+') {
     a = randInt(config.max);
-    b = randIntInclusive(0, config.max - a);
+    // 5% probability for 0, 95% probability for 1 or higher
+    const minB = Math.random() < 0.05 ? 0 : 1;
+    const maxB = config.max - a;
+    b = maxB >= minB ? randIntInclusive(minB, maxB) : 0;
   } else if (op === '-') {
     a = randInt(config.max);
     b = randInt(config.max);
@@ -114,7 +117,10 @@ export const generateSingleOperationQuestion = (
     let b: number;
     if (mode === 'add') {
       a = randInt(max);
-      b = clampIntInclusive(0, max - a);
+      // 5% probability for 0, 95% probability for 1 or higher
+      const minB = Math.random() < 0.05 ? 0 : 1;
+      const maxB = max - a;
+      b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
     } else {
       a = randInt(max);
       b = clampIntInclusive(0, a);
@@ -217,7 +223,10 @@ export const generateGradeOneQuestion = (
   const binaryPatterns = [
     () => {
       const a = randInt(max);
-      const b = clampIntInclusive(0, max - a);
+      // 5% probability for 0, 95% probability for 1 or higher
+      const minB = Math.random() < 0.05 ? 0 : 1;
+      const maxB = max - a;
+      const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
       return finalizeGradeOneQuestion({ a, b, op: '+' });
     },
     () => {
@@ -231,7 +240,10 @@ export const generateGradeOneQuestion = (
   const ternaryPatterns = [
     () => {
       const a = randInt(max);
-      const b = clampIntInclusive(0, max - a);
+      // 5% probability for 0, 95% probability for 1 or higher
+      const minB = Math.random() < 0.05 ? 0 : 1;
+      const maxB = max - a;
+      const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
       const remaining = Math.max(0, max - (a + b));
       const c = remaining > 0 ? pickNonZero(0, remaining) : 0;
       return finalizeGradeOneQuestion({
@@ -243,7 +255,10 @@ export const generateGradeOneQuestion = (
     },
     () => {
       const a = randInt(max);
-      const b = clampIntInclusive(0, max - a);
+      // 5% probability for 0, 95% probability for 1 or higher
+      const minB = Math.random() < 0.05 ? 0 : 1;
+      const maxB = max - a;
+      const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
       const total = a + b;
       const c = total > 0 ? pickNonZero(0, total) : 0;
       return finalizeGradeOneQuestion({
@@ -267,7 +282,10 @@ export const generateGradeOneQuestion = (
     },
     () => {
       const a = randInt(max);
-      const b = clampIntInclusive(0, max - a);
+      // 5% probability for 0, 95% probability for 1 or higher
+      const minB = Math.random() < 0.05 ? 0 : 1;
+      const maxB = max - a;
+      const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
       const sum = a + b;
       const remaining = Math.max(0, max - sum);
       const c = remaining > 0 ? pickNonZero(0, remaining) : 0;
@@ -308,7 +326,10 @@ export const generateGradeOneQuestion = (
 
   if (!question) {
     const fallbackA = randInt(max);
-    const fallbackB = clampIntInclusive(0, max - fallbackA);
+    // 5% probability for 0, 95% probability for 1 or higher
+    const minB = Math.random() < 0.05 ? 0 : 1;
+    const maxB = max - fallbackA;
+    const fallbackB = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
     question = finalizeGradeOneQuestion({
       a: fallbackA,
       b: fallbackB,
