@@ -1047,6 +1047,7 @@ const MODULE_SOURCE = `
     state.sessionActive = false;
     state.awaitingAdvance = false;
     refreshKeypadState();
+    refreshSubmitButtonState();
     setSkipButtonEnabled(false);
     if (resultCorrectEl) resultCorrectEl.textContent = String(state.sessionCorrect);
     if (resultTotalEl) resultTotalEl.textContent = String(state.sessionAnswered);
