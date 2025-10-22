@@ -51,6 +51,12 @@ type QuestCardProps = {
   icon: string;
   href: string;
   available: boolean;
+  themeColor: {
+    primary: string;
+    primaryStrong: string;
+    primarySoft: string;
+    outline: string;
+  };
 };
 
 const QuestCard: FC<QuestCardProps> = ({
@@ -59,17 +65,26 @@ const QuestCard: FC<QuestCardProps> = ({
   icon,
   href,
   available,
+  themeColor,
 }) => (
   <a
     href={available ? href : '#'}
-    class={`group flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-6 shadow-lg transition ${
+    class={`group flex flex-col gap-4 rounded-3xl border p-6 shadow-lg transition ${
       available
-        ? 'hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]'
+        ? 'hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
         : 'cursor-not-allowed opacity-60'
     }`}
+    style={`border-color: ${
+      themeColor.outline
+    }; background: linear-gradient(to bottom right, white, ${
+      themeColor.primarySoft
+    }); ${available ? `--focus-outline-color: ${themeColor.primary};` : ''}`}
   >
     <div class="flex items-center gap-4">
-      <span class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-3xl">
+      <span
+        class="inline-flex h-16 w-16 items-center justify-center rounded-2xl text-3xl"
+        style={`background-color: ${themeColor.primarySoft};`}
+      >
         {icon}
       </span>
       <div class="flex-1">
@@ -83,7 +98,10 @@ const QuestCard: FC<QuestCardProps> = ({
     </div>
     <p class="text-sm text-[#5e718a]">{description}</p>
     {available && (
-      <div class="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)] transition group-hover:gap-3">
+      <div
+        class="mt-2 flex items-center gap-2 text-sm font-semibold transition group-hover:gap-3"
+        style={`color: ${themeColor.primaryStrong};`}
+      >
         はじめる
         <span class="text-lg">→</span>
       </div>
@@ -126,6 +144,12 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         icon="🔢"
         href="/math"
         available={true}
+        themeColor={{
+          primary: '#6B9BD1',
+          primaryStrong: '#3B7AC7',
+          primarySoft: '#D6E4F5',
+          outline: 'rgba(107, 155, 209, 0.45)',
+        }}
       />
       <QuestCard
         title="KanjiQuest"
@@ -133,6 +157,12 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         icon="📝"
         href="/kanji"
         available={false}
+        themeColor={{
+          primary: '#9B7EC8',
+          primaryStrong: '#7B5DB8',
+          primarySoft: '#E5DDF5',
+          outline: 'rgba(155, 126, 200, 0.45)',
+        }}
       />
       <QuestCard
         title="ClockQuest"
@@ -140,6 +170,12 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         icon="🕐"
         href="/clock"
         available={false}
+        themeColor={{
+          primary: '#F5A85F',
+          primaryStrong: '#E88D3D',
+          primarySoft: '#FEE9D5',
+          outline: 'rgba(245, 168, 95, 0.45)',
+        }}
       />
     </section>
   </div>

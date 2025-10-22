@@ -58,6 +58,7 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
   <div
     id="math-home-root"
     class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
+    style="--mq-primary: #6B9BD1; --mq-primary-strong: #3B7AC7; --mq-primary-soft: #D6E4F5; --mq-accent: #9FC5E8; --mq-outline: rgba(107, 155, 209, 0.45);"
     data-user-state={
       currentUser
         ? currentUser.id.startsWith('guest-')

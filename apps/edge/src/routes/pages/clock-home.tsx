@@ -4,7 +4,10 @@ import type { CurrentUser } from '../../application/session/current-user';
 export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser,
 }) => (
-  <div class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24">
+  <div
+    class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
+    style="--mq-primary: #F5A85F; --mq-primary-strong: #E88D3D; --mq-primary-soft: #FEE9D5; --mq-accent: #FFCC99; --mq-outline: rgba(245, 168, 95, 0.45);"
+  >
     <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
       <div class="flex items-center gap-3">
         <a href="/" class="flex items-center gap-3 transition hover:opacity-80">
