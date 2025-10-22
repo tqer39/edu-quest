@@ -1,0 +1,24 @@
+name: Deploy to Production
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  deploy-prod:
+    name: Deploy to production environment
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Deploy to Cloudflare Workers
+        uses: ./.github/actions/wrangler-deploy
+        with:
+          environment: prod
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          resendApiKey: ${{ secrets.RESEND_API_KEY_PROD }}

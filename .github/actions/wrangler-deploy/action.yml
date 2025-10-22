@@ -1,5 +1,5 @@
-name: 'Apply D1 migrations'
-description: 'Run pnpm install and apply Cloudflare D1 migrations via Wrangler'
+name: 'Deploy to Cloudflare Workers'
+description: 'Build and deploy the application to Cloudflare Workers via Wrangler'
 
 inputs:
   apiToken:
@@ -9,7 +9,10 @@ inputs:
     description: 'Cloudflare account ID'
     required: true
   environment:
-    description: 'Wrangler environment name to apply migrations against'
+    description: 'Wrangler environment name to deploy to (dev or prod)'
+    required: true
+  resendApiKey:
+    description: 'Resend API key for email sending'
     required: true
 
 runs:
@@ -30,10 +33,16 @@ runs:
       run: pnpm install --no-frozen-lockfile
       shell: bash
 
-    - name: Apply migrations
+    - name: Build domain package
+      run: pnpm --filter @edu-quest/domain build
+      shell: bash
+
+    - name: Deploy to Cloudflare Workers
       uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ inputs.apiToken }}
         accountId: ${{ inputs.accountId }}
         workingDirectory: apps/edge
-        command: d1 migrations apply DB --config wrangler.${{ inputs.environment }}.toml --remote
+        command: deploy --config wrangler.${{ inputs.environment }}.toml
+      env:
+        RESEND_API_KEY: ${{ inputs.resendApiKey }}

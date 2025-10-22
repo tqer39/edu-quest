@@ -1,4 +1,8 @@
-name = "edu-quest-edge"
+# Local development configuration
+# This file is used for local development with `pnpm wrangler dev`
+# For dev/prod deployments, use wrangler.dev.toml and wrangler.prod.toml
+
+name = "edu-quest-edge-local"
 main = "src/index.tsx"
 compatibility_date = "2024-09-01"
 
@@ -24,12 +28,12 @@ preview_id = "kv_idempotency_preview"
 
 [[d1_databases]]
 binding = "DB"
-database_name = "edu-quest"
+database_name = "edu-quest-local"
 database_id = "d1_edu-quest_id"
 migrations_dir = "../../infra/migrations"
 
 [vars]
 DEFAULT_LANG = "ja"
 AUTH_BASE_URL = "https://edu-quest.local"
-AUTH_EMAIL_FROM = "MathQuest <no-reply@edu-quest.local>"
+AUTH_EMAIL_FROM = "EduQuest Local <no-reply@edu-quest.local>"
 RESEND_API_KEY = "test_resend_key"
