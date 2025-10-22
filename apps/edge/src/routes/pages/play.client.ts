@@ -1002,6 +1002,16 @@ const MODULE_SOURCE = `
   };
 
   const nextQuestion = async () => {
+    // 前の問題を保存
+    const previousQuestion = state.currentQuestion ? {
+      a: state.currentQuestion.a,
+      b: state.currentQuestion.b,
+      op: state.currentQuestion.op,
+      extras: state.currentQuestion.extras,
+      isInverse: state.currentQuestion.isInverse,
+      inverseSide: state.currentQuestion.inverseSide,
+    } : undefined;
+
     state.awaitingAdvance = false;
     state.userAnswer = null;
     refreshKeypadState();
@@ -1023,6 +1033,7 @@ const MODULE_SOURCE = `
         max,
         terms: state.theme?.terms || null,
         customConfig,
+        previousQuestion,
       });
       state.currentQuestion = question;
       state.answerBuffer = '';

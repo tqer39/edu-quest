@@ -16,10 +16,60 @@ export type GenerateQuizInput = {
     terms?: number;
     max?: number;
   };
+  previousQuestion?: {
+    a: number;
+    b: number;
+    op: '+' | '-' | '×';
+    extras?: ExtraStep[];
+    isInverse?: boolean;
+    inverseSide?: 'left' | 'right';
+  };
 };
 
 const randomInt = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
+
+/**
+ * 2つの問題が同一かどうかを判定する
+ * 同一の基準: a, b, op, extras, isInverse, inverseSide が全て一致
+ */
+const isSameQuestion = (
+  q1: Pick<Question, 'a' | 'b' | 'op'> & {
+    extras?: readonly ExtraStep[] | ExtraStep[];
+    isInverse?: boolean;
+    inverseSide?: 'left' | 'right';
+  },
+  q2: Pick<Question, 'a' | 'b' | 'op'> & {
+    extras?: readonly ExtraStep[] | ExtraStep[];
+    isInverse?: boolean;
+    inverseSide?: 'left' | 'right';
+  }
+): boolean => {
+  // 基本的な値の比較
+  if (q1.a !== q2.a || q1.b !== q2.b || q1.op !== q2.op) {
+    return false;
+  }
+
+  // 逆算問題の比較
+  if (q1.isInverse !== q2.isInverse || q1.inverseSide !== q2.inverseSide) {
+    return false;
+  }
+
+  // extras の比較
+  const extras1 = q1.extras;
+  const extras2 = q2.extras;
+
+  if (!extras1 && !extras2) return true;
+  if (!extras1 || !extras2) return false;
+  if (extras1.length !== extras2.length) return false;
+
+  return extras1.every(
+    (step, idx) =>
+      extras2[idx] &&
+      step.op === extras2[idx].op &&
+      step.value === extras2[idx].value
+  );
+};
 
 const clauseAddQuestion = (values: number[], op: '+' | '-' = '+') => {
   if (values.length < 2) {
@@ -177,34 +227,53 @@ export const generateQuizQuestion = (input: GenerateQuizInput = {}) => {
   const max = typeof input.max === 'number' && input.max > 0 ? input.max : 20;
   const terms = input.terms;
 
-  // カスタム設定の場合
-  if (mode === 'custom' && input.customConfig) {
-    const customOps = input.customConfig.operations ?? [];
-    const customTerms = input.customConfig.terms ?? 2;
-    const customMax = input.customConfig.max ?? max;
-    return generateCustomQuestion(customOps, customTerms, customMax);
+  const generateNewQuestion = (): Question => {
+    // カスタム設定の場合
+    if (mode === 'custom' && input.customConfig) {
+      const customOps = input.customConfig.operations ?? [];
+      const customTerms = input.customConfig.terms ?? 2;
+      const customMax = input.customConfig.max ?? max;
+      return generateCustomQuestion(customOps, customTerms, customMax);
+    }
+
+    if (input.gradeId === 'grade-1') {
+      return generateGradeOneQuestion(max, terms);
+    }
+    switch (input.gradeId) {
+      case 'practice-add-three':
+        return generateAdditionMulti(3, max);
+      case 'practice-add-four':
+        return generateAdditionMulti(4, max);
+      case 'practice-add-mixed-digits':
+        return generateOneDigitPlusTwoDigit();
+      case 'practice-sub-double-digit':
+        return generateDoubleDigitSubtraction();
+      case 'practice-mix-three':
+        return generateAddSubMix(3, max);
+      case 'practice-mix-four':
+        return generateAddSubMix(4, max);
+      default:
+        break;
+    }
+    return generateQuestion({ mode, max, terms });
+  };
+
+  // 前の問題と同じ場合は、最大10回まで再生成を試みる
+  const maxRetries = 10;
+  let question = generateNewQuestion();
+
+  if (input.previousQuestion) {
+    let retries = 0;
+    while (
+      isSameQuestion(question, input.previousQuestion) &&
+      retries < maxRetries
+    ) {
+      question = generateNewQuestion();
+      retries += 1;
+    }
   }
 
-  if (input.gradeId === 'grade-1') {
-    return generateGradeOneQuestion(max, terms);
-  }
-  switch (input.gradeId) {
-    case 'practice-add-three':
-      return generateAdditionMulti(3, max);
-    case 'practice-add-four':
-      return generateAdditionMulti(4, max);
-    case 'practice-add-mixed-digits':
-      return generateOneDigitPlusTwoDigit();
-    case 'practice-sub-double-digit':
-      return generateDoubleDigitSubtraction();
-    case 'practice-mix-three':
-      return generateAddSubMix(3, max);
-    case 'practice-mix-four':
-      return generateAddSubMix(4, max);
-    default:
-      break;
-  }
-  return generateQuestion({ mode, max, terms });
+  return question;
 };
 
 export type VerifyAnswerInput = {

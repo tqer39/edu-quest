@@ -21,6 +21,14 @@ quiz.post('/questions/next', async (c) => {
       terms?: number;
       max?: number;
     };
+    previousQuestion?: {
+      a: number;
+      b: number;
+      op: '+' | '-' | '×';
+      extras?: ExtraStep[];
+      isInverse?: boolean;
+      inverseSide?: 'left' | 'right';
+    };
   };
   const question = generateQuizQuestion({
     mode: body.mode,
@@ -28,6 +36,7 @@ quiz.post('/questions/next', async (c) => {
     gradeId: body.gradeId,
     terms: body.terms,
     customConfig: body.customConfig,
+    previousQuestion: body.previousQuestion,
   });
   const expression = formatQuestion(question);
   return c.json({ question: { ...question, expression } });
