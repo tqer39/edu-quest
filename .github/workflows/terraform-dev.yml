@@ -115,7 +115,7 @@ jobs:
 
   delete-pr-comments:
     needs: [terraform-dev]
-    if: contains(fromJSON('["pull_request"]'), github.event_name)
+    if: always() && github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

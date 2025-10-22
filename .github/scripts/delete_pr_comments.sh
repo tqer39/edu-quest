@@ -11,7 +11,8 @@ REPOSITORY="$2"
 ENV_NAME="$3"
 PULL_REQUEST_NUMBER="$4"
 GITHUB_TOKEN="$5"
-SEARCH_STRING=".*No\ changes.*Target.*${ENV_NAME}/.*"
+# Match comments containing "No changes" and the environment path (e.g., "dev/bootstrap")
+SEARCH_STRING=".*No\ changes.*${ENV_NAME}/.*"
 
 if [ -z "${GITHUB_TOKEN}" ]; then
   echo "GITHUB_TOKEN is empty."
