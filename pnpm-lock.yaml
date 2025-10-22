@@ -25,10 +25,10 @@ importers:
         version: link:../../packages/domain
       '@hono/node-server':
         specifier: ^1.11.0
-        version: 1.19.5(hono@4.9.11)
+        version: 1.19.5(hono@4.10.2)
       hono:
         specifier: ^4.4.3
-        version: 4.9.11
+        version: 4.10.2
     devDependencies:
       typescript:
         specifier: ^5.5.0
@@ -44,7 +44,7 @@ importers:
         version: 0.44.6(@cloudflare/workers-types@4.20251011.0)
       hono:
         specifier: ^4.4.3
-        version: 4.9.11
+        version: 4.10.2
     devDependencies:
       '@cloudflare/workers-types':
         specifier: ^4.20250923.0
@@ -66,10 +66,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^1.11.0
-        version: 1.19.5(hono@4.9.11)
+        version: 1.19.5(hono@4.10.2)
       hono:
         specifier: ^4.4.3
-        version: 4.9.11
+        version: 4.10.2
     devDependencies:
       '@types/node':
         specifier: ^22.7.5
@@ -1254,8 +1254,8 @@ packages:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
 
-  hono@4.9.11:
-    resolution: {integrity: sha512-MyJ4xop3boTyXl8bJBh4i20AAZTLM3AXUJphyrUb0CpgTKYb1N703z53XiKUKchGUpcPqiiYkiLOXA3kqK3icA==}
+  hono@4.10.2:
+    resolution: {integrity: sha512-p6fyzl+mQo6uhESLxbF5WlBOAJMDh36PljwlKtP5V1v09NxlqGru3ShK+4wKhSuhuYf8qxMmrivHOa/M7q0sMg==}
     engines: {node: '>=16.9.0'}
 
   html-escaper@2.0.2:
@@ -1937,9 +1937,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.4':
     optional: true
 
-  '@hono/node-server@1.19.5(hono@4.9.11)':
+  '@hono/node-server@1.19.5(hono@4.10.2)':
     dependencies:
-      hono: 4.9.11
+      hono: 4.10.2
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -2430,7 +2430,7 @@ snapshots:
 
   has-flag@4.0.0: {}
 
-  hono@4.9.11: {}
+  hono@4.10.2: {}
 
   html-escaper@2.0.2: {}
 
