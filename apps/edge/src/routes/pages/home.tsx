@@ -5,15 +5,15 @@ const HomeNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
     <div class="flex items-center gap-3">
       <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-base font-bold text-[var(--mq-primary-strong)]">
-        MQ
+        EQ
       </span>
       <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-        MathQuest
+        EduQuest
       </span>
     </div>
     <div class="flex items-center gap-3 sm:gap-4">
       <p class="hidden text-sm font-medium text-[#5e718a] sm:block">
-        小学生の算数を、遊ぶように練習しよう
+        小学生の学びを、遊ぶように楽しもう
       </p>
       {currentUser ? (
         <>
@@ -64,9 +64,9 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
     <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-8 text-[var(--mq-ink)] shadow-xl lg:flex-row lg:items-center lg:justify-between">
       <div class="space-y-4">
         <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#6c7c90]">
-          じぶんのペースで算数練習
+          じぶんのペースで楽しく学習
         </p>
-        <h1 class="text-3xl font-extrabold sm:text-4xl">MathQuest</h1>
+        <h1 class="text-3xl font-extrabold sm:text-4xl">EduQuest</h1>
         <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
           匿名のまま「すぐにはじめる」を押して学年を選ぶだけ。学習記録はブラウザに保存され、会員登録をすればクラウドにも同期できます。
         </p>
@@ -77,7 +77,7 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         </ul>
       </div>
       <a
-        href="/start"
+        href="/math/start"
         class="inline-flex items-center justify-center rounded-2xl bg-[var(--mq-primary)] px-6 py-3 text-lg font-semibold text-[var(--mq-ink)] shadow-lg transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-strong)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary-strong)]"
       >
         すぐにはじめる

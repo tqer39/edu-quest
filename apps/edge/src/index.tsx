@@ -122,7 +122,8 @@ app.get('/', async (c) =>
   })
 );
 
-app.get('/start', async (c) =>
+// MathQuest routes
+app.get('/math/start', async (c) =>
   c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
     title: 'MathQuest | 設定ウィザード',
     description:
@@ -130,13 +131,17 @@ app.get('/start', async (c) =>
   })
 );
 
-app.get('/play', async (c) =>
+app.get('/math/play', async (c) =>
   c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
     title: 'MathQuest | 練習セッション',
     description:
       '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
   })
 );
+
+// Backward compatibility: redirect old routes to /math/*
+app.get('/start', (c) => c.redirect('/math/start', 301));
+app.get('/play', (c) => c.redirect('/math/play', 301));
 
 app.get('/sudoku', (c) =>
   c.render(<Sudoku currentUser={resolveCurrentUser(c.env, c.req.raw)} />, {

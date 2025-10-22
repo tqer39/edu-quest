@@ -355,7 +355,7 @@ export const Sudoku: FC<{ currentUser: CurrentUser | null }> = ({
         <span class="text-lg font-semibold">数独で遊ぼう</span>
       </div>
       <a
-        href="/start"
+        href="/math/start"
         class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
       >
         やめる
