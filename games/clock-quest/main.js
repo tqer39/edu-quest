@@ -83,7 +83,8 @@ const describeDuration = (seconds, includeSeconds) => {
   return `${mins}ふん`;
 };
 
-const toSeconds = (time) => time.hour * 3600 + time.minute * 60 + (time.second ?? 0);
+const toSeconds = (time) =>
+  time.hour * 3600 + time.minute * 60 + (time.second ?? 0);
 
 const secondsToTime = (totalSeconds) => {
   const s = Math.max(0, totalSeconds) % (12 * 3600);
@@ -95,7 +96,8 @@ const secondsToTime = (totalSeconds) => {
 
 const randomTime = (settings) => {
   const hour = randInt(11);
-  const minute = settings.minuteStep * randInt(Math.floor(59 / settings.minuteStep));
+  const minute =
+    settings.minuteStep * randInt(Math.floor(59 / settings.minuteStep));
   const second = settings.allowSeconds ? randInt(59) : 0;
   return { hour, minute, second };
 };
@@ -169,7 +171,11 @@ const setHandRotation = (hand, degrees) => {
 };
 
 const updateAnalogClock = (time, showSeconds) => {
-  const hourDeg = (toDisplayHour(time.hour) % 12 + time.minute / 60 + (time.second ?? 0) / 3600) * 30;
+  const hourDeg =
+    ((toDisplayHour(time.hour) % 12) +
+      time.minute / 60 +
+      (time.second ?? 0) / 3600) *
+    30;
   const minuteDeg = (time.minute + (time.second ?? 0) / 60) * 6;
   const secondDeg = (time.second ?? 0) * 6;
   setHandRotation(handHour, hourDeg);
@@ -238,16 +244,25 @@ const renderAnswerInputs = (question) => {
     );
     if (question.includeSeconds) {
       answerInputs.append(
-        makeNumberControl('answerSecond', 'なんびょう', 'びょう', { min: 0, max: 59 })
+        makeNumberControl('answerSecond', 'なんびょう', 'びょう', {
+          min: 0,
+          max: 59,
+        })
       );
     }
   } else {
     answerInputs.append(
-      makeNumberControl('answerMinutes', 'なんぷん', 'ふん', { min: 0, max: 300 })
+      makeNumberControl('answerMinutes', 'なんぷん', 'ふん', {
+        min: 0,
+        max: 300,
+      })
     );
     if (question.includeSeconds) {
       answerInputs.append(
-        makeNumberControl('answerSeconds', 'なんびょう', 'びょう', { min: 0, max: 59 })
+        makeNumberControl('answerSeconds', 'なんびょう', 'びょう', {
+          min: 0,
+          max: 59,
+        })
       );
     }
   }
@@ -291,7 +306,10 @@ const presentQuestion = (question) => {
 
 const questionAnswerText = (question) => {
   if (question.type === 'read-time') {
-    return `せいかいは ${describeTime(question.time, question.includeSeconds)} だよ。`;
+    return `せいかいは ${describeTime(
+      question.time,
+      question.includeSeconds
+    )} だよ。`;
   }
   return `せいかいは ${describeDuration(
     question.diffSeconds,
@@ -305,7 +323,8 @@ const durationAnswer = (question) => {
   const minutes = minutesInput.value.trim();
   if (minutes === '') return null;
   const mins = Number(minutes);
-  if (!Number.isFinite(mins) || mins < 0 || !Number.isInteger(mins)) return null;
+  if (!Number.isFinite(mins) || mins < 0 || !Number.isInteger(mins))
+    return null;
   let seconds = 0;
   if (question.includeSeconds) {
     const secondsInput = document.getElementById('answerSeconds');
@@ -416,7 +435,9 @@ const markCorrect = () => {
 };
 
 const markWrong = () => {
-  feedbackEl.textContent = `ちがうよ… ${questionAnswerText(state.currentQuestion)}`;
+  feedbackEl.textContent = `ちがうよ… ${questionAnswerText(
+    state.currentQuestion
+  )}`;
   feedbackEl.classList.add('ng');
   setTimeout(() => nextQuestion(), 900);
 };
@@ -424,7 +445,9 @@ const markWrong = () => {
 const skipQuestion = () => {
   if (!state.currentQuestion) return;
   clearFeedback();
-  feedbackEl.textContent = `スキップ！ ${questionAnswerText(state.currentQuestion)}`;
+  feedbackEl.textContent = `スキップ！ ${questionAnswerText(
+    state.currentQuestion
+  )}`;
   feedbackEl.classList.add('ng');
   setTimeout(() => nextQuestion(), 600);
 };
@@ -437,7 +460,8 @@ const finishGame = () => {
   finalTotalEl.textContent = String(state.total);
   finalTimeEl.textContent = elapsed;
   const ratio = state.correct / state.total;
-  if (ratio === 1) finalMessageEl.textContent = 'パーフェクト！とけいマスター！';
+  if (ratio === 1)
+    finalMessageEl.textContent = 'パーフェクト！とけいマスター！';
   else if (ratio >= 0.7) finalMessageEl.textContent = 'とてもよくできました！';
   else finalMessageEl.textContent = 'じかんをよむれんしゅうをつづけよう。';
   gameSection.classList.add('hidden');
