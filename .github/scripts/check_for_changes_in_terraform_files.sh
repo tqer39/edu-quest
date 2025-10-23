@@ -28,11 +28,27 @@ fi
 # ----------------------------------
 # 戻り値
 # 1: 処理対象外
+function is_terraform_related_file () {
+  case "$1" in
+    *.tf|*.tfvars|*.tfvars.json|*.terraform.lock.hcl|*.tfbackend)
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
 function is_changed () {
   changed_file="$1"
   compare_path="$(echo "$2" | sed -e "s/\.\///g")" # "./" を削除
   echo "\$changed_file: ${changed_file}"
   echo "\$compare_path: ${compare_path}/*.*"
+
+  if ! is_terraform_related_file "${changed_file}"; then
+    echo "Terraform 関連ファイルではないため処理対象外です。"
+    return 1
+  fi
 
   # 1. 変更されたファイルが compare_path 配下にある場合
   if [[ $1 =~ ${compare_path}/.*\..*$ ]]; then
