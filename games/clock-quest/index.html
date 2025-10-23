@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClockQuest</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>ClockQuest</h1>
+        <p class="tagline">
+          アナログとデジタルの時計をよんで、じこくやじかんのさをとくれんしゅうゲームだよ！
+        </p>
+      </header>
+
+      <section id="setup" class="panel">
+        <h2>れんしゅうのじゅんび</h2>
+        <form id="setupForm" class="form-grid">
+          <label class="field">
+            <span>むずかしさ</span>
+            <select id="difficulty">
+              <option value="easy">やさしい（5ふん刻み）</option>
+              <option value="normal">ふつう（1ふん刻み）</option>
+              <option value="hard">むずかしい（びょうまで）</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>もんだいのかず</span>
+            <select id="questionCount">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="15">15</option>
+            </select>
+          </label>
+          <button id="startBtn" class="primary" type="submit">スタート！</button>
+        </form>
+      </section>
+
+      <section id="game" class="panel hidden" aria-live="polite">
+        <div class="status-bar">
+          <span>もんだい <span id="qIndex">0</span> / <span id="qTotal">0</span></span>
+          <span>せいかい <span id="correctCount">0</span></span>
+          <span>じかん <span id="elapsed">0.0</span> 秒</span>
+        </div>
+        <div class="display-area">
+          <div id="analogWrapper" class="clock-wrapper hidden">
+            <div class="clock" aria-hidden="true">
+              <div class="dial dial-hours"></div>
+              <div class="dial dial-minutes"></div>
+              <div class="hand hand-hour" id="handHour"></div>
+              <div class="hand hand-minute" id="handMinute"></div>
+              <div class="hand hand-second" id="handSecond"></div>
+              <div class="center-dot"></div>
+            </div>
+            <p class="display-caption">アナログ時計</p>
+          </div>
+          <div id="digitalWrapper" class="digital-wrapper hidden">
+            <div class="digital" id="digitalClock">--:--</div>
+            <p class="display-caption">デジタル表示</p>
+          </div>
+        </div>
+        <p id="questionText" class="question-text"></p>
+        <form id="answerForm" class="answer-form">
+          <div id="answerInputs" class="answer-inputs"></div>
+          <div class="actions">
+            <button id="submitBtn" class="primary" type="submit">こたえる</button>
+            <button id="skipBtn" type="button">スキップ</button>
+            <button id="endBtn" type="button">おしまい</button>
+          </div>
+        </form>
+        <p id="feedback" class="feedback" role="status"></p>
+      </section>
+
+      <section id="result" class="panel hidden">
+        <h2>けっか</h2>
+        <p>せいかい <span id="finalCorrect">0</span> / <span id="finalTotal">0</span></p>
+        <p>かかったじかん <span id="finalTime">0.0</span> 秒</p>
+        <p id="finalMessage" class="final-message"></p>
+        <div class="actions">
+          <button id="againBtn" class="primary" type="button">もういちど</button>
+          <button id="backBtn" type="button">はじめにもどる</button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

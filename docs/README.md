@@ -89,6 +89,7 @@ just status
 - `docs/`: Design and operational documents.
 - `infra/`: Terraform and D1 migrations.
 - `games/math-quiz`: The old browser-based game (static HTML/JS).
+- `games/clock-quest`: A prototype ClockQuest trainer with analog & digital clocks (static HTML/JS).
 
 ## Related Documents
 

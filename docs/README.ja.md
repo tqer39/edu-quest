@@ -89,6 +89,7 @@ just status
 - `docs/`: 設計・運用ドキュメント。
 - `infra/`: Terraform と D1 マイグレーション。
 - `games/math-quiz`: 旧ブラウザ版ゲーム（静的 HTML/JS）。
+- `games/clock-quest`: アナログとデジタルの時計でれんしゅうできる ClockQuest 試作版（静的 HTML/JS）。
 
 ## 関連ドキュメント
 

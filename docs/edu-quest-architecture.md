@@ -85,7 +85,9 @@ eduquest/
 │   ├── terraform/               # Terraform configuration
 │   └── migrations/              # D1 schema
 ├── docs/                        # Documents
-└── games/math-quiz/             # Old standalone game
+└── games/
+    ├── math-quiz/              # Old standalone game
+    └── clock-quest/            # ClockQuest prototype with analog/digital drills
 ```
 
 ## 5. Use Cases and Data Flow

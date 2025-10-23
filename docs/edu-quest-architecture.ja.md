@@ -85,7 +85,9 @@ eduquest/
 │   ├── terraform/               # Terraform 構成
 │   └── migrations/              # D1 スキーマ
 ├── docs/                        # ドキュメント群
-└── games/math-quiz/             # 旧スタンドアロン版ゲーム
+└── games/
+    ├── math-quiz/              # 旧スタンドアロン版ゲーム
+    └── clock-quest/            # アナログ・デジタル時計れんしゅうの試作版
 ```
 
 ## 5. ユースケースとデータフロー
