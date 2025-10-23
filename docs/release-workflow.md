@@ -1,91 +1,90 @@
-# リリースワークフロー
+# Release Workflow
 
-このドキュメントでは、EduQuest プロジェクトのリリースワークフローについて説明します。
+This document explains how the EduQuest project manages releases.
 
-## 概要
+## Overview
 
-EduQuest では、以下の 2 つのワークフローを使用してリリースを管理しています：
+EduQuest relies on two GitHub Actions workflows:
 
-1. **Create Release** (`.github/workflows/create-release.yml`): GitHub Release を作成する
-2. **Terraform - prod** (`.github/workflows/terraform-prod.yml`): GitHub Release をトリガーに本番環境へデプロイする
+1. **Create Release** (`.github/workflows/create-release.yml`): creates the GitHub Release.
+2. **Terraform - prod** (`.github/workflows/terraform-prod.yml`): deploys to production when a release is published.
 
-## リリースの作成手順
+## How to Create a Release
 
-### 1. Create Release ワークフローを実行
+### 1. Run the "Create Release" workflow
 
-GitHub Actions の UI から手動で実行します：
+Trigger the workflow manually from the GitHub Actions UI:
 
-1. GitHub リポジトリの **Actions** タブを開く
-2. 左側のワークフロー一覧から **Create Release** を選択
-3. **Run workflow** ボタンをクリック
-4. バージョンアップの種類を選択:
-   - **major**: メジャーバージョンアップ（例: v1.0.0 → v2.0.0）
-   - **minor**: マイナーバージョンアップ（例: v1.0.0 → v1.1.0）
-   - **patch**: パッチバージョンアップ（例: v1.0.0 → v1.0.1）
-5. **Run workflow** ボタンをクリックして実行
+1. Open the **Actions** tab of the repository.
+2. Select **Create Release** from the list on the left.
+3. Click **Run workflow**.
+4. Choose the release type:
+   - **major**: breaking changes (e.g., `v1.0.0` → `v2.0.0`)
+   - **minor**: backward-compatible feature additions (e.g., `v1.0.0` → `v1.1.0`)
+   - **patch**: backward-compatible bug fixes (e.g., `v1.0.0` → `v1.0.1`)
+5. Click **Run workflow** to start the job.
 
-### 2. ワークフローの動作
+### 2. What the workflow does
 
-Create Release ワークフローは以下の処理を自動的に実行します：
+The Create Release workflow performs the following steps automatically:
 
-1. **最新タグの取得**: 既存の SemVer 形式のタグ（`v*.*.*`）から最新バージョンを取得
-   - タグが存在しない場合は `v0.0.0` を初期値として使用
-2. **次バージョンの計算**: 選択したバージョンアップの種類に基づいて新しいバージョンを計算
-3. **リリースノートの生成**:
-   - 初回リリース: 全コミット履歴を含める
-   - 2 回目以降: 前回のタグからの差分のみ含める
-4. **GitHub Release の作成**: 計算されたバージョンとリリースノートで GitHub Release を作成
+1. **Fetch the latest tag:** finds the most recent SemVer tag (`v*.*.*`). Uses `v0.0.0` if no tags exist.
+2. **Calculate the next version:** increments the version according to the selected release type.
+3. **Generate release notes:**
+   - First release: includes the entire commit history.
+   - Subsequent releases: includes only commits since the previous tag.
+4. **Publish the GitHub Release:** creates the release with the computed version and notes.
 
-### 3. 本番環境へのデプロイ
+### 3. Deploy to production
 
-GitHub Release が作成されると、`repository_dispatch` イベントを使用して **Terraform - prod** ワークフローが自動的にトリガーされます：
+When the release is created, the workflow triggers **Terraform - prod** via a `repository_dispatch` event:
 
-1. SemVer 形式のバリデーション
-2. Terraform の差分確認（plan）
-3. 差分がある場合、本番環境へ自動デプロイ（apply）
+1. Validate the SemVer tag.
+2. Run `terraform plan` to detect infrastructure changes.
+3. Run `terraform apply` when differences are found.
 
-**注**: `terraform-prod.yml` は以下のイベントでトリガーされます:
+**Note:** `.github/workflows/terraform-prod.yml` also runs under these conditions:
 
-- `push: tags: v*.*.*` - SemVer 形式のタグが直接プッシュされたとき（デプロイ実行）
-- `repository_dispatch: types: [release-created]` - `create-release.yml` からのトリガー（デプロイ実行）
-- `pull_request: branches: main` - main ブランチへの PR（plan のみ）
-- `workflow_dispatch` - 手動実行
+- `push` with tags matching `v*.*.*` (deploys automatically).
+- `repository_dispatch` with type `release-created` (fired by the Create Release workflow).
+- `pull_request` targeting `main` (plan only).
+- `workflow_dispatch` (manual trigger).
 
-**重要**: GitHub Actions の `GITHUB_TOKEN` で作成されたタグは、他のワークフローをトリガーしないため、`create-release.yml` は `repository_dispatch` イベントを使用して明示的に `terraform-prod.yml` をトリガーします。
+**Important:** Tags created by the default `GITHUB_TOKEN` do not trigger other workflows. The Create Release workflow therefore fires a `repository_dispatch` event explicitly to start `terraform-prod.yml`.
 
-## バージョニング規則
+## Versioning Rules
 
-このプロジェクトでは [Semantic Versioning 2.0.0](https://semver.org/) に従います：
+EduQuest follows [Semantic Versioning 2.0.0](https://semver.org/):
 
-- **MAJOR**: 互換性のない API の変更
-- **MINOR**: 後方互換性のある機能の追加
-- **PATCH**: 後方互換性のあるバグ修正
+- **MAJOR:** backward-incompatible API changes.
+- **MINOR:** backward-compatible feature additions.
+- **PATCH:** backward-compatible bug fixes.
 
-### バージョン形式
+### Version format
 
-- 形式: `vMAJOR.MINOR.PATCH`
-- 例: `v1.2.3`
-- プレリリース版: `v1.2.3-alpha.1`（現在は未サポート）
+- Format: `vMAJOR.MINOR.PATCH`
+- Example: `v1.2.3`
+- Pre-releases such as `v1.2.3-alpha.1` are currently unsupported.
 
-## トラブルシューティング
+## Troubleshooting
 
-### タグが正しく作成されない
+### Tags are not created
 
-- ワークフローログを確認して、エラーメッセージを確認してください
-- GitHub の権限設定で `contents: write` が許可されていることを確認してください
+- Inspect the workflow logs for error messages.
+- Confirm the GitHub Actions token has `contents: write` permission.
 
-### リリースノートが空
+### Release notes are empty
 
-- 前回のリリースから変更がない場合、"No changes since last release" と表示されます
-- 新しいコミットを追加してから再度ワークフローを実行してください
+- If there are no commits since the previous release, GitHub displays "No changes since last release".
+- Push new commits and rerun the workflow.
 
-### Terraform デプロイが失敗する
+### Terraform deployment fails
 
-- **Terraform - prod** ワークフローのログを確認してください
-- インフラストラクチャの設定や、必要な Secrets が正しく設定されているか確認してください
-- 詳細は `docs/github-secrets-setup.md` を参照してください
+- Review the **Terraform - prod** workflow logs.
+- Ensure infrastructure configuration and GitHub Secrets are correct.
+- See `docs/github-secrets-setup.md` for secret configuration details.
 
-## 関連ドキュメント
+## Related Documentation
 
-- [GitHub Secrets セットアップ](./github-secrets-setup.md)
-- [ローカル開発環境](./local-dev.md)
+- [GitHub Secrets Setup](./github-secrets-setup.md)
+- [Local Development Environments](./local-dev.md)
