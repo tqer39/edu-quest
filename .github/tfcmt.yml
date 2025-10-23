@@ -1,0 +1,78 @@
+---
+# tfcmt configuration
+# https://suzuki-shunsuke.github.io/tfcmt/config
+
+embedded_var_names:
+  - target
+
+ci:
+  pr:
+    - when_parse_error:
+        color: '#d73a4a'
+        template: |
+          ## Terraform `{{ .Command }}` Failed ({{ .Vars.target }})
+
+          <details><summary>Show details</summary>
+
+          ```
+          {{ .CombinedOutput }}
+          ```
+
+          </details>
+
+    - when_plan_has_error:
+        color: '#d73a4a'
+        template: |
+          ## Terraform `{{ .Command }}` Failed ({{ .Vars.target }})
+
+          <details><summary>Show Output</summary>
+
+          ```
+          {{ .CombinedOutput }}
+          ```
+
+          </details>
+
+    - when_plan_has_diff:
+        color: '#d4c5f9'
+        template: |
+          ## Terraform `{{ .Command }}` ({{ .Vars.target }})
+
+          <details><summary>Show Output</summary>
+
+          {{ .FormattedPlanOutput }}
+
+          </details>
+
+    - when_plan_no_diff:
+        color: '#28a745'
+        template: |
+          ## Terraform `{{ .Command }}` ({{ .Vars.target }})
+
+          No changes. Your infrastructure matches the configuration.
+
+    - when_apply_has_error:
+        color: '#d73a4a'
+        template: |
+          ## Terraform `{{ .Command }}` Failed ({{ .Vars.target }})
+
+          <details><summary>Show Output</summary>
+
+          ```
+          {{ .CombinedOutput }}
+          ```
+
+          </details>
+
+    - when_apply_no_error:
+        color: '#28a745'
+        template: |
+          ## Terraform `{{ .Command }}` Succeeded ({{ .Vars.target }})
+
+          <details><summary>Show Output</summary>
+
+          ```
+          {{ .CombinedOutput }}
+          ```
+
+          </details>
