@@ -97,6 +97,7 @@ Ensure you have the correct permissions and accounts before provisioning product
 Wrangler emulates Cloudflare Workers locally, including KV and D1.
 
 - **Start the dev server**
+
   - `pnpm --filter @edu-quest/edge run dev`
   - or `just dev-edge`
   - Visit the local URL shown by Wrangler.
@@ -105,6 +106,7 @@ Wrangler emulates Cloudflare Workers locally, including KV and D1.
   - Authentication defaults to a mock user without Better Auth; set `USE_MOCK_USER=false` to disable the mock.
 
 - **Prepare KV namespaces (optional)**
+
   - `wrangler kv namespace create KV_FREE_TRIAL`
   - `wrangler kv namespace create KV_AUTH_SESSION`
   - `wrangler kv namespace create KV_RATE_LIMIT`
@@ -112,6 +114,7 @@ Wrangler emulates Cloudflare Workers locally, including KV and D1.
   - When you run `wrangler dev`, preview namespaces are created automatically, but you can define them explicitly and wire the IDs in `wrangler.toml` if preferred.
 
 - **Prepare D1 (optional)**
+
   - Create the database: `wrangler d1 create eduquest`
   - Copy the generated `database_id` into the `d1_databases` section of `apps/edge/wrangler.toml`.
   - Apply migrations: `wrangler d1 migrations apply DB --local --config apps/edge/wrangler.toml`
