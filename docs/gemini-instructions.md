@@ -1,11 +1,13 @@
-# Gemini Code Assist 用メモ
+# Notes for Gemini Code Assist
 
-現時点でリポジトリ内の標準ファイルを自動で取り込む公式仕様は確認できていません。必要に応じて以下の共通ルール（`docs/AI_RULES.ja.md`）をワークスペースのカスタム指示へ貼り付けてください。
+At the moment there is no official feature that automatically imports standard repository files. When necessary, copy the shared guidelines from `docs/AI_RULES.md` into the workspace-specific instructions.
 
-- 日本語で回答
-- 最小差分・既存スタイル順守
-- `just lint` 準拠
-- 主要コマンド: `brew bundle install` → `just setup` / `just lint` / `just fix`
-- ルール同期（任意）: `just rulesync -- --check` / `just rulesync -- apply`
+Recommended defaults:
 
-詳細: `docs/AI_RULES.ja.md` / `AGENTS.md`
+- Reply in English (or Japanese if explicitly requested).
+- Keep diffs minimal and follow the existing style.
+- Ensure all changes pass `just lint`.
+- Primary commands: `brew bundle install` → `just setup` / `just lint` / `just fix`.
+- Optional rule sync: `just rulesync -- --check` / `just rulesync -- apply`.
+
+Refer to `docs/AI_RULES.md` and `AGENTS.md` for more details.

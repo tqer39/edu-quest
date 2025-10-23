@@ -104,6 +104,7 @@
     "textlintcache",
     "textlintignore",
     "textlintrc",
+    "tfbackend",
     "tfcmt",
     "tflint",
     "tfstate",

@@ -1,0 +1,56 @@
+name: '💬 Support & Questions'
+description: Ask questions about usage or clarify uncertainties.
+labels: [question]
+title: '[Question] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧩 What would you like to know?
+        Organizing your question helps us provide better answers faster.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      description: Select the most relevant category.
+      options:
+        - Usage & Operations
+        - Specification Clarification
+        - Development Environment & Setup
+        - API / Data Integration
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Describe what you want to know, including background and current difficulties.
+      placeholder: 'Example: Is there a way to fix problem difficulty in EduQuest stage settings?'
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: What You've Tried
+      description: List documentation you've checked or steps you've already tried to avoid duplicate answers.
+      placeholder: 'Example: I reviewed docs/local-dev.md and re-ran setup, but the error persists.'
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Reference Information
+      description: Include screenshots, logs, or related issues if available.
+      placeholder: 'Example: This seems similar to the discussion in #312.'
+  - type: checkboxes
+    id: urgency
+    attributes:
+      label: Urgency
+      options:
+        - label: Need answer soon (deadline approaching)
+        - label: No rush
+  - type: input
+    id: contact
+    attributes:
+      label: Alternative Contact (Optional)
+      description: Provide non-GitHub contact info if needed.
+      placeholder: 'Example: Discord: user#1234'

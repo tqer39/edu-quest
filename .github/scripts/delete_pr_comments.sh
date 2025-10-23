@@ -11,8 +11,10 @@ REPOSITORY="$2"
 ENV_NAME="$3"
 PULL_REQUEST_NUMBER="$4"
 GITHUB_TOKEN="$5"
-# Match comments containing "No changes" and the environment path (e.g., "dev/bootstrap")
-SEARCH_STRING=".*No\ changes.*${ENV_NAME}/.*"
+# Match comments containing both "No changes" and the environment path (e.g., "dev/bootstrap")
+# Note: The order doesn't matter - we check for both patterns separately
+NO_CHANGES_PATTERN="No\ changes"
+ENV_PATH_PATTERN="${ENV_NAME}/"
 
 if [ -z "${GITHUB_TOKEN}" ]; then
   echo "GITHUB_TOKEN is empty."
@@ -85,8 +87,9 @@ function delete_comments() {
     node_id=$(echo "${comment}" | base64 -di | jq -r '.id')
     comment_body=$(echo "${comment}" | base64 -di | jq -r '.body')
 
-    if [[ "${comment_body}" =~ $SEARCH_STRING ]]; then
-      echo "node_id: ${node_id}"
+    # Check if comment contains both "No changes" and the environment path
+    if [[ "${comment_body}" =~ $NO_CHANGES_PATTERN ]] && [[ "${comment_body}" =~ $ENV_PATH_PATTERN ]]; then
+      echo "Deleting comment with node_id: ${node_id}"
       delete_comment "${node_id}"
     fi
   done

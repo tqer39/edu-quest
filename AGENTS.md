@@ -24,6 +24,12 @@ This file is the central hub. For detailed information, please refer to the spec
 - **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.
 - **[rulesync Guide](./docs/RULESYNC.md):** How to use the `rulesync` tool to keep configuration files up-to-date.
 
+### 2.1. Documentation Localization Policy
+
+- English files use the `.md` extension.
+- Japanese translations use the matching filename with the `.ja.md` extension.
+- Every document must have both English and Japanese versions. If you add or update content in one language, mirror the change in the counterpart file.
+
 ## 3. System Architecture
 
 ### 3.1. High-Level Diagram

@@ -1,42 +1,42 @@
-# 算数クイズ（小学生向け）
+# Math Quiz (Elementary School)
 
-シンプルなブラウザ用の算数ゲームです。たし算・ひき算・かけ算・ミックスから選べて、数の範囲や問題数も調整できます。テンキー付きでタッチ操作もしやすく、小学校低〜中学年向けを想定しています。
+This is a simple browser-based arithmetic game. Learners can choose addition, subtraction, multiplication, or a mixed mode, and customize the number range and number of questions. The interface includes an on-screen keypad so it works well on touch devices. The target audience is lower to middle elementary school grades.
 
-## 特長
+## Features
 
-- 出題: たし算 / ひき算 / かけ算 / ミックス
-- 範囲: `0〜10` / `0〜20` / `0〜100`
-- 問題数: 5 / 10 / 20（デフォルトは10）
-- フィードバック: 正誤の即時表示、簡単なアニメーション
-- タイマー: ラウンドの経過時間を表示
-- 入力: キーボード or 画面テンキー
+- Question types: addition / subtraction / multiplication / mixed
+- Number ranges: `0–10` / `0–20` / `0–100`
+- Question counts: 5 / 10 / 20 (10 by default)
+- Feedback: immediate correct/incorrect indicators with light animations
+- Timer: displays the elapsed time for the round
+- Input: physical keyboard or on-screen keypad
 
-## 使い方
+## How to Use
 
-1. `games/math-quiz/index.html` をブラウザで開きます。
-   - macOS などで簡易サーバを使う場合は、プロジェクト直下で以下のように起動して `http://localhost:8000/games/math-quiz/` を開きます。
+1. Open `games/math-quiz/index.html` in a browser.
+   - If you prefer to start a quick local server (for example on macOS), run it from the project root and then open `http://localhost:8000/games/math-quiz/`.
      - Python: `python3 -m http.server 8000`
-2. 画面上部のセレクトボックスで「出題」「数の大きさ」「問題数」を選び、「スタート」を押します。
-3. 表示された式に答えを入力して「こたえる」を押すか、Enter キーを押します。テンキーのボタンでも入力できます。
-4. 10問（設定による）解き終えると結果画面が表示されます。「もういちど」で同じ設定のまま再挑戦できます。
+2. Use the select boxes at the top of the page to choose the question type, number range, and number of problems, then click **Start**.
+3. Enter the answer for each expression and press **Answer** or hit the Enter key. You can also tap the on-screen keypad buttons.
+4. After solving all 10 questions (or the amount you configured), the results screen appears. Click **Try Again** to repeat with the same settings.
 
-## ファイル構成
+## File Structure
 
 - `games/math-quiz/`
-  - `index.html`: 画面と要素の定義
-  - `styles.css`: レイアウトと見た目
-  - `main.js`: 出題ロジック、採点、UI 操作
+  - `index.html`: screen layout and elements
+  - `styles.css`: layout and visual design
+  - `main.js`: question generation, scoring, and UI interactions
 
-## 開発メモ
+## Development Notes
 
-- 本リポジトリは整形・Lint が中心のボイラープレートです。必要に応じて `just setup` 実行後、PR 前に `just lint` を実行し、マークダウンやスタイルが整っていることを確認してください。
-- かけ算はやや難易度を下げるため、出題時の値を少し小さめにしています。
-- 引き算は負の答えを避けています。
+- This repository mainly provides formatting and linting boilerplate. After running `just setup`, execute `just lint` before opening a PR to confirm Markdown and styles are tidy.
+- Multiplication questions bias toward slightly smaller values to keep difficulty manageable.
+- Subtraction questions avoid negative answers.
 
-## 今後の拡張アイデア
+## Future Enhancement Ideas
 
-- 制限時間モード（時間内に何問解けるか）
-- 読み上げ（音声案内）や効果音の追加
-- 苦手問題の復習（間違えた問題を後半で再出題）
-- 記録の保存（ローカルストレージ）
-- 割り算の追加、文章題の導入
+- Timed mode (solve as many problems as possible within a limit)
+- Voice guidance or sound effects
+- Review mode that replays questions the learner answered incorrectly
+- Save results locally (for example, via localStorage)
+- Add division and introductory word problems
