@@ -53,4 +53,4 @@ body:
     attributes:
       label: 追加で連絡が必要な場合
       description: GitHub以外の連絡先があれば記載してください（任意）。
-      placeholder: 例）Discord: user#1234
+      placeholder: '例）Discord: user#1234'
