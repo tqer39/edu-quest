@@ -26,3 +26,20 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           resendApiKey: ${{ secrets.RESEND_API_KEY_DEV }}
+
+      - name: Slack Notification (failure)
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: '#edu-quest-dev'
+          SLACK_COLOR: danger
+          SLACK_TITLE: 'Deploy to Dev failed'
+          SLACK_MESSAGE: |
+            Dev環境へのデプロイが失敗しました。ログを確認して対応をお願いします。
+            workflow: ${{ github.workflow }}
+            job: ${{ github.job }}
+            run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SLACK_LINK_NAMES: 'true'
+          SLACK_USERNAME: github-bot
+          SLACK_ICON_EMOJI: ':x:'
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_DEV }}
