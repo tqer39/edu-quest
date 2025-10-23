@@ -1,32 +1,6 @@
-export type Mode =
-  | 'add'
-  | 'sub'
-  | 'mul'
-  | 'add-sub-mix'
-  | 'mix'
-  | 'add-inverse'
-  | 'sub-inverse';
+import type { ExtraStep, Mode, Question, QuizConfig } from './types';
 
-export type QuizConfig = {
-  mode: Mode;
-  max: number;
-  terms?: 2 | 3 | null; // 2: 二項のみ, 3: 三項のみ, null: 混在
-};
-
-export type ExtraStep = {
-  op: '+' | '-';
-  value: number;
-};
-
-export type Question = {
-  a: number;
-  b: number;
-  op: '+' | '-' | '×';
-  extras?: readonly ExtraStep[];
-  answer: number;
-  isInverse?: boolean;
-  inverseSide?: 'left' | 'right';
-};
+export type { ExtraStep, Mode, Question, QuizConfig };
 
 const pick = <T>(arr: readonly T[]): T =>
   arr[Math.floor(Math.random() * arr.length)];
@@ -436,6 +410,18 @@ export const formatQuestion = (
   }
   return parts.join(' ');
 };
+
+export {
+  createDifficultyContextFromQuestion,
+  deriveDifficultyFromQuestion,
+  deriveDifficultyProfile,
+} from './difficulty';
+
+export type {
+  DifficultyContext,
+  DifficultyCreature,
+  DifficultyProfile,
+} from './difficulty';
 
 export const generateInverseQuestion = (
   max: number,

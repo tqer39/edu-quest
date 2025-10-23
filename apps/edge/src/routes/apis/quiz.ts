@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import type { ExtraStep, Mode } from '@edu-quest/domain';
-import { formatQuestion } from '@edu-quest/domain';
+import { deriveDifficultyFromQuestion, formatQuestion } from '@edu-quest/domain';
 import type { Env } from '../../env';
 import {
   generateQuizQuestion,
@@ -114,6 +114,32 @@ quiz.post('/answers/check', async (c) => {
     answer: correctAnswer,
   });
 
+  const fallbackMax = Math.max(
+    Math.abs(baseQuestion.a),
+    Math.abs(baseQuestion.b),
+    Math.abs(correctAnswer),
+    ...((extras ?? []).map((step) => Math.abs(step.value)))
+  );
+
+  const configuredMax =
+    typeof payload.max === 'number' && payload.max > 0
+      ? payload.max
+      : fallbackMax;
+
+  const difficultyProfile = deriveDifficultyFromQuestion({
+    question: {
+      a: baseQuestion.a,
+      b: baseQuestion.b,
+      op: baseQuestion.op,
+      extras,
+      answer: correctAnswer,
+      isInverse,
+      inverseSide,
+    },
+    mode: payload.mode ?? 'mix',
+    max: configuredMax,
+  });
+
   const db = createDb(c.env);
   try {
     await db.insert(schema.quizResults).values({
@@ -128,6 +154,11 @@ quiz.post('/answers/check', async (c) => {
       isCorrect: ok,
       expression,
       extrasJson: JSON.stringify(extras ?? []),
+      difficultyId: difficultyProfile.id,
+      difficultyValue: difficultyProfile.value,
+      creatureId: difficultyProfile.creature.id,
+      creatureName: difficultyProfile.creature.name,
+      creatureEmoji: difficultyProfile.creature.emoji,
     });
   } catch (error) {
     console.error('failed to persist quiz result', error);

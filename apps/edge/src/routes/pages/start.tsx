@@ -348,6 +348,13 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
                 <p class="text-sm font-semibold text-[var(--mq-ink)]">
                   {preset.description}
                 </p>
+                <div class="mt-3 flex items-center justify-between text-xs font-semibold text-[#5e718a]">
+                  <span>
+                    <span aria-hidden="true">{preset.difficulty.creature.emoji}</span>{' '}
+                    {preset.difficulty.creature.name}
+                  </span>
+                  <span>Lv {preset.difficulty.value}</span>
+                </div>
               </button>
             ))}
           </div>
