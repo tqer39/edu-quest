@@ -17,20 +17,34 @@ const MODULE_SOURCE = `
     const QUESTION_COUNT_STORAGE_KEY = 'edu-quest:question-count-default';
     const SESSION_STORAGE_KEY = 'edu-quest:pending-session';
 
-    const getJSON = (id) => {
+    const getJSON = (id, fallback = []) => {
       const el = document.getElementById(id);
-      if (!el) return [];
+      if (!el) return fallback;
       try {
-        return JSON.parse(el.textContent || '[]');
+        const parsed = JSON.parse(el.textContent || 'null');
+        return parsed ?? fallback;
       } catch (e) {
-        console.warn('failed to parse presets', e);
-        return [];
+        console.warn('failed to parse JSON', e);
+        return fallback;
       }
     };
 
-    const presets = getJSON('grade-presets');
-    const calculationTypes = getJSON('calculation-types');
-    const gradeLevels = getJSON('grade-levels');
+    const presets = getJSON('grade-presets', []);
+    const calculationTypes = getJSON('calculation-types', []);
+    const gradeLevels = getJSON('grade-levels', []);
+    const gradeCalculationTypesMap = getJSON('grade-calculation-types', {});
+
+    const fallbackCalcTypeIds = Array.isArray(calculationTypes)
+      ? calculationTypes
+          .map((calcType) => (typeof calcType?.id === 'string' ? calcType.id : null))
+          .filter((id) => id !== null)
+      : [];
+
+    const defaultCalcTypeIds = Array.isArray(gradeCalculationTypesMap.default)
+      ? gradeCalculationTypesMap.default
+      : Array.isArray(gradeCalculationTypesMap['grade-1'])
+        ? gradeCalculationTypesMap['grade-1']
+        : fallbackCalcTypeIds;
 
     // 状態管理
     const state = {
@@ -205,24 +219,16 @@ const MODULE_SOURCE = `
     function renderCalculationTypes() {
       if (!calcTypeGrid) return;
 
-      const gradeCalculationTypes = {
-        'grade-1': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-custom'],
-        'grade-2': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-custom'],
-        'grade-3': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-mul', 'calc-custom'],
-        'grade-4': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-mul', 'calc-div', 'calc-custom'],
-        'grade-5': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-mul', 'calc-div', 'calc-mix', 'calc-custom'],
-        'grade-6': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-mul', 'calc-div', 'calc-mix', 'calc-custom'],
-      };
+      const availableCalcTypeIds =
+        state.selectedGrade && Array.isArray(gradeCalculationTypesMap[state.selectedGrade])
+          ? gradeCalculationTypesMap[state.selectedGrade]
+          : defaultCalcTypeIds;
 
-      // 学年が選択されている場合はその学年の計算種類、未選択の場合は小1の計算種類
-      const defaultCalcTypes = ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-add-inverse', 'calc-sub-inverse', 'calc-custom'];
-      const availableCalcTypes = state.selectedGrade
-        ? gradeCalculationTypes[state.selectedGrade] || defaultCalcTypes
-        : defaultCalcTypes;
-
-      const availableTypes = calculationTypes.filter(calcType =>
-        availableCalcTypes.includes(calcType.id)
-      );
+      const availableTypes = Array.isArray(calculationTypes)
+        ? calculationTypes.filter((calcType) =>
+            availableCalcTypeIds.includes(calcType.id)
+          )
+        : [];
 
       renderCalculationTypeButtons(availableTypes);
     }
@@ -606,7 +612,8 @@ const MODULE_SOURCE = `
 export const renderStartClientScript = (
   presets: readonly GradePreset[],
   calculationTypes: unknown,
-  gradeLevels: unknown
+  gradeLevels: unknown,
+  gradeCalculationTypes: unknown
 ) => html`
   <script id="grade-presets" type="application/json">
     ${raw(JSON.stringify(presets))}
@@ -616,6 +623,9 @@ export const renderStartClientScript = (
   </script>
   <script id="grade-levels" type="application/json">
     ${raw(JSON.stringify(gradeLevels))}
+  </script>
+  <script id="grade-calculation-types" type="application/json">
+    ${raw(JSON.stringify(gradeCalculationTypes))}
   </script>
   <script type="module">
     ${raw(MODULE_SOURCE)};
