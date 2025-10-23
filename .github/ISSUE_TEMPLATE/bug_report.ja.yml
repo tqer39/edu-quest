@@ -1,0 +1,83 @@
+name: '🐞 バグ報告'
+description: 不具合の詳細を報告して、迅速な解決につなげましょう。
+labels: [bug]
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧭 概要
+        問題の内容と影響範囲がひと目でわかるように、以下の項目を埋めてください。
+  - type: input
+    id: summary
+    attributes:
+      label: バグの概要
+      description: 何が起きているのかを一言で教えてください。
+      placeholder: 例）ステージ選択画面で科目名が表示されない
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 影響度
+      description: 発生頻度や影響範囲を踏まえて選択してください。
+      options:
+        - 🔴 クリティカル（利用不能）
+        - 🟠 高（主要機能に支障）
+        - 🟡 中（回避策あり）
+        - 🟢 低（軽微な不具合）
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 本来期待する挙動
+      description: 正常な場合にどう動くべきか、画面の状態やメッセージも含めて記載してください。
+      placeholder: 例）ステージ選択カードに学年名とサブタイトルが表示される
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の挙動
+      description: 実際に何が起こっているのか、スクリーンショットやログがあれば添付してください。
+      placeholder: 例）サブタイトルが空白で、ブラウザコンソールにエラーが表示される
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 再現手順
+      description: 発生手順を番号付きで記載してください。スクリーンショットや動画リンクがあると助かります。
+      placeholder: |
+        1. MathQuest にログイン
+        2. ステージ2-3を選択
+        3. 「スタート」をクリック
+        4. エラーが表示される
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 発生環境
+      description: ブラウザやOS、接続環境などを記載してください。
+      placeholder: 例）Chrome 124 / macOS 14.3 / 回線：家庭用Wi-Fi
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 事前確認
+      options:
+        - label: 最新版に更新しても問題が再現する
+          required: true
+        - label: 既存のIssue・ディスカッションを確認済み
+          required: false
+        - label: 関連するログやスクリーンショットを添付した
+          required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: 備考・関連情報
+      description: 関連するPull Requestや調査結果があれば記載してください。
+      placeholder: 例）#123 に類似の問題があります

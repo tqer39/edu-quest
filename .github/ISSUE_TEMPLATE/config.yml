@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 Documentation Portal / ドキュメントポータル
+    url: https://github.com/tqer39/edu-quest/tree/main/docs
+    about: Official documentation including design philosophy and setup guides. / 設計思想やセットアップ手順などの公式ドキュメントはこちら。
+  - name: 🤝 Contributor Guide / コントリビューターガイド
+    url: https://github.com/tqer39/edu-quest/blob/main/docs/AI_RULES.md
+    about: Check project participation rules and development workflow. / プロジェクトへの参加ルールや開発フローを確認してください。

@@ -1,0 +1,56 @@
+name: '💬 サポート・質問'
+description: 使い方の質問や、迷っている点を整理するためのテンプレートです。
+labels: [question]
+title: '[Question] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧩 知りたいことを教えてください
+        相談したい内容を整理すると、より早く適切な回答を得られます。
+  - type: dropdown
+    id: topic
+    attributes:
+      label: トピック
+      description: 該当するカテゴリを選択してください。
+      options:
+        - 利用方法・操作
+        - 仕様の確認
+        - 開発環境・セットアップ
+        - API / データ連携
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: 相談内容
+      description: 知りたいこと、背景、困っている状況を具体的に記載してください。
+      placeholder: 例）MathQuestのステージ設定で、問題の難易度を固定する方法はありますか？
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: 試したこと・調査状況
+      description: すでに確認したドキュメントや試した手順を記載すると、回答の重複を防げます。
+      placeholder: 例）docs/local-dev.mdを参照してセットアップをやり直しましたが、エラーが解消しませんでした。
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: 参考情報
+      description: スクリーンショット、ログ、関連Issueなどがあれば記載してください。
+      placeholder: 例）#312 の議論に似ているように思います。
+  - type: checkboxes
+    id: urgency
+    attributes:
+      label: 緊急度
+      options:
+        - label: 早めに回答が欲しい（期限が近い）
+        - label: 時間に余裕あり
+  - type: input
+    id: contact
+    attributes:
+      label: 追加で連絡が必要な場合
+      description: GitHub以外の連絡先があれば記載してください（任意）。
+      placeholder: '例）Discord: user#1234'
