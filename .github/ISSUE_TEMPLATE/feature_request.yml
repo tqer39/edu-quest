@@ -1,68 +1,68 @@
-name: '🚀 機能追加リクエスト'
-description: 新しい体験や改善アイデアを提案しましょう。
+name: '🚀 Feature Request'
+description: Propose new features or improvements for EduQuest.
 labels: [enhancement]
 title: '[Feature] '
 body:
   - type: markdown
     attributes:
       value: |
-        ## ✨ 目指す体験
-        アイデアの背景や実現したい姿を共有してください。利用者にどんな価値を届けたいかがポイントです。
+        ## ✨ Desired Experience
+        Share your idea and the value it would bring to users.
   - type: input
     id: summary
     attributes:
-      label: 提案の概要
-      description: どのような機能・改善かを一文でまとめてください。
-      placeholder: 例）ステージごとの進捗率を可視化するサマリーカード
+      label: Feature Summary
+      description: Summarize the feature or improvement in one sentence.
+      placeholder: 'Example: Progress summary card showing completion rate per stage'
     validations:
       required: true
   - type: textarea
     id: goal
     attributes:
-      label: ユーザーストーリー
-      description: '「誰が・何のために・どうしたいか」を「〜として、〜したい。なぜなら〜だからだ。」の形式で記載してください。'
-      placeholder: 例）小学生の保護者として、子どもの学習状況を一目で把握したい。なぜなら復習のサポートをしたいからだ。
+      label: User Story
+      description: 'Describe "who, why, and what" in the format: "As a [user type], I want [goal] because [reason]."'
+      placeholder: "Example: As a parent of an elementary student, I want to see my child's learning progress at a glance because I want to support their review sessions."
     validations:
       required: true
   - type: textarea
     id: details
     attributes:
-      label: 詳細アイデア
-      description: 具体的な画面案、シナリオ、必要なデータなどを記載してください。図やリンクを添付しても構いません。
-      placeholder: 例）ダッシュボードに進捗リングと直近の達成ミッション一覧を表示する
+      label: Detailed Idea
+      description: Provide specifics like screen mockups, scenarios, or required data. Diagrams and links are welcome.
+      placeholder: 'Example: Display a progress ring and recent achievement list on the dashboard'
     validations:
       required: true
   - type: dropdown
     id: priority
     attributes:
-      label: 期待する優先度
+      label: Expected Priority
       options:
-        - 🟥 ASAP（直近のリリースで必要）
-        - 🟧 高（1〜2スプリント内に実現したい）
-        - 🟨 中（タイミングが合えば進めたい）
-        - 🟩 低（アイデアの共有段階）
-      description: 背景の事情があれば備考に記載してください。
+        - 🟥 ASAP (Needed for next release)
+        - 🟧 High (1-2 sprints)
+        - 🟨 Medium (When timing allows)
+        - 🟩 Low (Sharing an idea)
+      description: Add context in notes if needed.
     validations:
       required: true
   - type: textarea
     id: metrics
     attributes:
-      label: 成功指標・評価方法
-      description: 実装後に効果を測る指標や、ユーザーからのフィードバック方法を教えてください。
-      placeholder: 例）ステージ完了率が10%向上する、保護者アンケートの満足度
+      label: Success Metrics
+      description: How will we measure success? What user feedback should we look for?
+      placeholder: 'Example: Stage completion rate increases by 10%, positive parent survey feedback'
   - type: textarea
     id: related
     attributes:
-      label: 関連する情報
-      description: 参考リンク、既存のIssue、調査資料などがあれば記載してください。
-      placeholder: '例）#256（学習履歴API整備）、Figmaモック: https://...'
+      label: Related Information
+      description: Reference links, existing issues, or research materials.
+      placeholder: 'Example: #256 (Learning history API), Figma mockup: https://...'
   - type: checkboxes
     id: collaboration
     attributes:
-      label: コラボレーション希望
-      description: 実装や検証に協力できる内容があれば教えてください。
+      label: Collaboration Interests
+      description: Let us know if you can help with implementation or testing.
       options:
-        - label: 仕様策定や要件定義に参加できる
-        - label: デザインレビューを行える
-        - label: 実装（コード）に貢献できる
-        - label: ユーザーテストに協力できる
+        - label: Can participate in specification and requirements definition
+        - label: Can perform design review
+        - label: Can contribute to implementation (code)
+        - label: Can help with user testing
