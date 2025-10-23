@@ -1,7 +1,7 @@
-name: "🚀 機能追加リクエスト"
+name: '🚀 機能追加リクエスト'
 description: 新しい体験や改善アイデアを提案しましょう。
 labels: [enhancement]
-title: "[Feature] "
+title: '[Feature] '
 body:
   - type: markdown
     attributes:
@@ -55,7 +55,7 @@ body:
     attributes:
       label: 関連する情報
       description: 参考リンク、既存のIssue、調査資料などがあれば記載してください。
-      placeholder: 例）#256（学習履歴API整備）、Figmaモック: https://...
+      placeholder: '例）#256（学習履歴API整備）、Figmaモック: https://...'
   - type: checkboxes
     id: collaboration
     attributes:

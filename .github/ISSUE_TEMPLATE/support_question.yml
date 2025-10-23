@@ -1,7 +1,7 @@
-name: "💬 サポート・質問"
+name: '💬 サポート・質問'
 description: 使い方の質問や、迷っている点を整理するためのテンプレートです。
 labels: [question]
-title: "[Question] "
+title: '[Question] '
 body:
   - type: markdown
     attributes:
