@@ -1,0 +1,83 @@
+name: '🐞 Bug Report'
+description: Report a bug to help us improve EduQuest.
+labels: [bug]
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🧭 Overview
+        Please fill out the following information to help us understand and fix the issue.
+  - type: input
+    id: summary
+    attributes:
+      label: Bug Summary
+      description: Briefly describe what's happening.
+      placeholder: 'Example: Subject name not displayed on stage selection screen'
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: Select based on frequency and impact.
+      options:
+        - 🔴 Critical (Service unavailable)
+        - 🟠 High (Major feature affected)
+        - 🟡 Medium (Workaround available)
+        - 🟢 Low (Minor issue)
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: Describe what should happen normally, including screen state and messages.
+      placeholder: 'Example: Stage selection card should display grade name and subtitle'
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: Describe what actually happens. Include screenshots or logs if available.
+      placeholder: 'Example: Subtitle is blank and browser console shows errors'
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: List the steps to reproduce the issue. Screenshots or video links are helpful.
+      placeholder: |
+        1. Log in to EduQuest
+        2. Select Stage 2-3
+        3. Click "Start"
+        4. Error appears
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Specify browser, OS, and network conditions.
+      placeholder: 'Example: Chrome 124 / macOS 14.3 / Network: Home Wi-Fi'
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-checks
+      options:
+        - label: Issue still occurs on the latest version
+          required: true
+        - label: Checked existing issues and discussions
+          required: false
+        - label: Attached relevant logs or screenshots
+          required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Include related Pull Requests or investigation findings.
+      placeholder: 'Example: Similar issue in #123'
