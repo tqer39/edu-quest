@@ -3,7 +3,9 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockDifficulty } from '@edu-quest/domain';
 import { getDifficultyDescription } from '@edu-quest/domain';
 
-const ClockNav: FC<{ currentUser: CurrentUser | null }> = () => (
+const ClockNav: FC<{ currentUser: CurrentUser | null }> = ({
+  currentUser: _currentUser,
+}) => (
   <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
     <div class="flex items-center gap-3">
       <a href="/" class="flex items-center gap-3 transition hover:opacity-80">
@@ -26,17 +28,15 @@ const ClockNav: FC<{ currentUser: CurrentUser | null }> = () => (
 
 type DifficultyCardProps = {
   difficulty: ClockDifficulty;
-  onSelect: (difficulty: ClockDifficulty) => void;
 };
 
-const DifficultyCard: FC<DifficultyCardProps> = ({ difficulty, onSelect }) => {
+const DifficultyCard: FC<DifficultyCardProps> = ({ difficulty }) => {
   const description = getDifficultyDescription(difficulty);
   const stars = '★'.repeat(difficulty);
 
   return (
-    <button
-      type="button"
-      onClick={() => onSelect(difficulty)}
+    <a
+      href={`/clock/start?difficulty=${difficulty}`}
       class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
     >
       <div class="text-2xl font-bold text-[var(--mq-ink)]">
@@ -44,12 +44,12 @@ const DifficultyCard: FC<DifficultyCardProps> = ({ difficulty, onSelect }) => {
       </div>
       <div class="text-lg text-[var(--mq-primary-strong)]">{stars}</div>
       <div class="text-sm text-[#5e718a]">{description}</div>
-    </button>
+    </a>
   );
 };
 
 export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
-  currentUser,
+  currentUser: _currentUser,
 }) => {
   const difficulties: ClockDifficulty[] = [1, 2, 3, 4, 5];
 
@@ -58,7 +58,7 @@ export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
       class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
       style="--mq-primary: #F5A85F; --mq-primary-strong: #E88D3D; --mq-primary-soft: #FEE9D5; --mq-accent: #FFCC99; --mq-outline: rgba(245, 168, 95, 0.45);"
     >
-      <ClockNav currentUser={currentUser} />
+      <ClockNav currentUser={_currentUser} />
 
       <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
         <span class="text-6xl">🕐</span>
@@ -78,14 +78,7 @@ export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
         </h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {difficulties.map((difficulty) => (
-            <DifficultyCard
-              key={difficulty}
-              difficulty={difficulty}
-              onSelect={(d) => {
-                // TODO: クイズ開始ロジックを実装
-                alert(`レベル ${d} を選択しました（実装予定）`);
-              }}
-            />
+            <DifficultyCard key={difficulty} difficulty={difficulty} />
           ))}
         </div>
       </section>

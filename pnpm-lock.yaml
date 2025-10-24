@@ -36,6 +36,9 @@ importers:
 
   apps/edge:
     dependencies:
+      '@edu-quest/app':
+        specifier: workspace:*
+        version: link:../../packages/app
       '@edu-quest/domain':
         specifier: workspace:*
         version: link:../../packages/domain
