@@ -58,55 +58,27 @@ export const ClockQuiz: FC<ClockQuizProps> = ({
             <AnalogClock hours={hours} minutes={minutes} />
           </div>
 
-          {/* 答え入力フォーム */}
-          <form method="POST" class="flex flex-col gap-4">
-            <div class="flex items-center justify-center gap-4">
-              <div class="flex flex-col gap-2">
-                <label
-                  for="hours-input"
-                  class="text-sm font-semibold text-[var(--mq-ink)]"
-                >
-                  時
-                </label>
-                <input
-                  id="hours-input"
-                  name="hours"
-                  type="number"
-                  min="1"
-                  max="12"
-                  required
-                  class="w-20 rounded-2xl border-2 border-[var(--mq-outline)] px-4 py-3 text-center text-2xl font-bold text-[var(--mq-ink)] transition focus:border-[var(--mq-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--mq-primary-soft)]"
-                  autofocus
-                />
-              </div>
-              <div class="flex flex-col gap-2">
-                <label
-                  for="minutes-input"
-                  class="text-sm font-semibold text-[var(--mq-ink)]"
-                >
-                  分
-                </label>
-                <input
-                  id="minutes-input"
-                  name="minutes"
-                  type="number"
-                  min="0"
-                  max="59"
-                  value="0"
-                  required
-                  class="w-20 rounded-2xl border-2 border-[var(--mq-outline)] px-4 py-3 text-center text-2xl font-bold text-[var(--mq-ink)] transition focus:border-[var(--mq-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--mq-primary-soft)]"
-                  readonly
-                />
-              </div>
+          {/* 答え入力ボタン */}
+          <div class="flex flex-col gap-6">
+            <p class="text-center text-sm font-semibold text-[var(--mq-ink)]">
+              何時ですか？
+            </p>
+            <div class="grid grid-cols-3 gap-3">
+              {/* biome-ignore lint/suspicious/noArrayIndexKey: Static buttons 1-12, never reorders */}
+              {Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
+                <form method="POST" key={hour}>
+                  <input type="hidden" name="hours" value={hour} />
+                  <input type="hidden" name="minutes" value="0" />
+                  <button
+                    type="submit"
+                    class="w-full rounded-2xl border-2 border-[var(--mq-outline)] bg-white px-6 py-4 text-2xl font-bold text-[var(--mq-ink)] shadow-md transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:bg-[var(--mq-primary-soft)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                  >
+                    {hour}時
+                  </button>
+                </form>
+              ))}
             </div>
-
-            <button
-              type="submit"
-              class="mt-4 rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-            >
-              答える
-            </button>
-          </form>
+          </div>
         </div>
 
         {/* ヒント */}
