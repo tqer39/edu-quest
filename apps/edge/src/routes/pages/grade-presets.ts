@@ -1,3 +1,6 @@
+import { deriveDifficultyProfile } from '@edu-quest/domain';
+import type { DifficultyProfile, Mode } from '@edu-quest/domain';
+
 export const gradeLevels = [
   {
     id: 'grade-1',
@@ -30,6 +33,66 @@ export const gradeLevels = [
     description: '小学6年生',
   },
 ] as const;
+
+type GradeId = (typeof gradeLevels)[number]['id'];
+
+type RawPracticeTheme = {
+  id: string;
+  label: string;
+  description: string;
+  mode: Mode;
+  max: number;
+  minGrade: GradeId;
+  terms?: 2 | 3;
+};
+
+export type PracticeTheme = RawPracticeTheme & {
+  difficulty: DifficultyProfile;
+};
+
+const inferTerms = (theme: RawPracticeTheme) => {
+  if (typeof theme.terms === 'number') {
+    return theme.terms;
+  }
+  if (theme.mode === 'add-sub-mix') {
+    return 3;
+  }
+  return 2;
+};
+
+const inferOperationsCount = (theme: RawPracticeTheme) => {
+  if (typeof theme.terms === 'number') {
+    return theme.terms - 1;
+  }
+  if (theme.mode === 'add-sub-mix' || theme.mode === 'mix') {
+    return 2;
+  }
+  return 1;
+};
+
+const createTheme = (theme: RawPracticeTheme): PracticeTheme => {
+  const terms = inferTerms(theme);
+  const operationsCount = inferOperationsCount(theme);
+  const includesMultiplication = theme.mode === 'mul' || theme.mode === 'mix';
+  const includesDivision = theme.mode === 'div' || theme.mode === 'mix';
+  const includesInverse = theme.mode.includes('inverse');
+
+  const difficulty = deriveDifficultyProfile({
+    mode: theme.mode,
+    max: theme.max,
+    terms,
+    operationsCount,
+    highestOperand: theme.max,
+    includesMultiplication,
+    includesDivision,
+    includesInverse,
+  });
+
+  return { ...theme, difficulty };
+};
+
+const defineThemes = <T extends readonly RawPracticeTheme[]>(themes: T) =>
+  themes.map((theme) => createTheme(theme)) as readonly PracticeTheme[];
 
 export const calculationTypes = [
   {
@@ -183,7 +246,7 @@ export const getAvailableThemes = (
   });
 };
 
-export const practiceThemes = [
+const rawPracticeThemes = [
   // 小1向け - たし算（10以下・二項）
   {
     id: 'practice-add-10-2',
@@ -808,7 +871,9 @@ export const practiceThemes = [
     minGrade: 'grade-3',
     terms: 2 as const,
   },
-] as const;
+] as const satisfies readonly RawPracticeTheme[];
+
+export const practiceThemes = defineThemes(rawPracticeThemes);
 
 // 学年と計算種類の組み合わせから実際の練習設定を生成する関数
 export const createPracticeSession = (

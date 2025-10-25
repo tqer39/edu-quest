@@ -14,6 +14,11 @@ export const quizResults = sqliteTable('quiz_results', {
   isCorrect: integer('is_correct', { mode: 'boolean' }).notNull(),
   expression: text('expression').notNull().default(''),
   extrasJson: text('extras_json').notNull().default('[]'),
+  difficultyId: text('difficulty_id').notNull().default(''),
+  difficultyValue: integer('difficulty_value').notNull().default(0),
+  creatureId: text('creature_id').notNull().default(''),
+  creatureName: text('creature_name').notNull().default(''),
+  creatureEmoji: text('creature_emoji').notNull().default(''),
   answeredAt: text('answered_at')
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
