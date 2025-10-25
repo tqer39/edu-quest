@@ -1,0 +1,35 @@
+name: 'Cleanup Terraform PR Comments and Labels'
+description: 'Delete no-changes comments and labels for a specific Terraform environment'
+
+inputs:
+  environment:
+    description: 'Environment name (dev or prod)'
+    required: true
+  prNumber:
+    description: 'Pull request number'
+    required: true
+  githubToken:
+    description: 'GitHub token for API access'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Delete no-changes comments
+      env:
+        GH_TOKEN: ${{ inputs.githubToken }}
+      shell: bash
+      run: |
+        # Delete comments containing "No changes" for this environment
+        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .id' | \
+          xargs -I {} gh api -X DELETE /repos/${{ github.repository }}/issues/comments/{} || true
+
+    - name: Remove no-changes labels
+      env:
+        GH_TOKEN: ${{ inputs.githubToken }}
+      shell: bash
+      run: |
+        # Remove labels with /no-changes suffix for this environment
+        gh pr view ${{ inputs.prNumber }} --json labels --jq '.labels[].name' | \
+          grep "^${{ inputs.environment }}/.*no-changes$" | \
+          xargs -I {} gh pr edit ${{ inputs.prNumber }} --remove-label "{}" || true
