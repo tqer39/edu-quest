@@ -29,17 +29,11 @@ jobs:
 
       - name: Slack Notification (failure)
         if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: '#ntf_gh_private-lab'
-          SLACK_COLOR: danger
-          SLACK_TITLE: 'Deploy to Dev failed'
-          SLACK_MESSAGE: |
-            <!subteam^U0RFFAK9U> 確認してください。
-            workflow: ${{ github.workflow }}
-            job: ${{ github.job }}
-            run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          SLACK_LINK_NAMES: 'true'
-          SLACK_USERNAME: github-bot
-          SLACK_ICON_EMOJI: ':x:'
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_DEV }}
+        uses: ./.github/actions/slack-deploy-failure
+        with:
+          environment: dev
+          slackChannel: '#edu-quest-dev'
+          slackWebhook: ${{ secrets.SLACK_WEBHOOK_DEV }}
+          workflowName: ${{ github.workflow }}
+          jobName: ${{ github.job }}
+          runUrl: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
