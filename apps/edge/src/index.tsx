@@ -11,12 +11,20 @@ import { Home } from './routes/pages/home';
 import { MathHome } from './routes/pages/math-home';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { ClockHome } from './routes/pages/clock-home';
+import { ClockQuiz } from './routes/pages/clock-quiz';
+import { ClockResults } from './routes/pages/clock-results';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
 import { Login } from './routes/pages/login';
 import { BetterAuthService } from './application/auth/service';
 import { resolveCurrentUser } from './application/session/current-user';
+import {
+  startClockQuizSession,
+  submitClockAnswer,
+} from './application/usecases/clock-quiz';
+import type { ClockQuizSession } from './application/usecases/clock-quiz';
+import type { ClockDifficulty } from '@edu-quest/domain';
 import { Document } from './views/layouts/document';
 
 const app = new Hono<{ Bindings: Env; Variables: { lang: 'ja' | 'en' } }>();
@@ -165,17 +173,172 @@ app.get('/kanji', async (c) =>
   )
 );
 
-// ClockQuest routes (Coming soon)
+// ClockQuest routes
 app.get('/clock', async (c) =>
   c.render(
     <ClockHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
-      title: 'ClockQuest | 時計の読み方をマスターしよう（準備中）',
+      title: 'ClockQuest | 時計の読み方をマスターしよう',
       description:
         'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
     }
   )
 );
+
+// ClockQuest: 難易度選択してクイズ開始
+app.get('/clock/start', async (c) => {
+  const difficultyParam = c.req.query('difficulty');
+  const difficulty = Number(difficultyParam) as ClockDifficulty;
+
+  // 難易度のバリデーション
+  if (!difficulty || difficulty < 1 || difficulty > 5) {
+    return c.redirect('/clock', 302);
+  }
+
+  // クイズセッションを開始（10問固定）
+  const session = startClockQuizSession(difficulty, 10);
+
+  // セッション情報をクッキーに保存
+  const maxAge = 60 * 30; // 30分
+  const response = c.redirect('/clock/quiz', 302);
+  response.headers.append(
+    'Set-Cookie',
+    `clock_quiz_session=${encodeURIComponent(
+      JSON.stringify(session)
+    )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+  );
+
+  return response;
+});
+
+// ClockQuest: クイズ画面（現在の問題を表示）
+app.get('/clock/quiz', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/clock_quiz_session=([^;]+)/);
+
+  if (!sessionMatch) {
+    return c.redirect('/clock', 302);
+  }
+
+  try {
+    const session: ClockQuizSession = JSON.parse(
+      decodeURIComponent(sessionMatch[1])
+    );
+
+    return c.render(
+      <ClockQuiz
+        currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+        hours={session.currentQuestion.hours}
+        minutes={session.currentQuestion.minutes}
+        questionNumber={session.quiz.index + 1}
+        totalQuestions={session.quiz.config.total}
+        score={session.quiz.correct}
+        difficulty={session.quiz.config.difficulty}
+      />,
+      {
+        title: `ClockQuest | レベル${session.quiz.config.difficulty}`,
+        description: '時計の読み方クイズに挑戦中',
+      }
+    );
+  } catch (error) {
+    console.error('Failed to parse clock quiz session:', error);
+    return c.redirect('/clock', 302);
+  }
+});
+
+// ClockQuest: 回答を送信
+app.post('/clock/quiz', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/clock_quiz_session=([^;]+)/);
+
+  if (!sessionMatch) {
+    return c.redirect('/clock', 302);
+  }
+
+  try {
+    const session: ClockQuizSession = JSON.parse(
+      decodeURIComponent(sessionMatch[1])
+    );
+    const body = await c.req.parseBody();
+
+    const hours = Number(body.hours);
+    const minutes = Number(body.minutes);
+
+    // 回答をチェック
+    const result = submitClockAnswer(session, { hours, minutes });
+
+    // クイズ終了時は結果画面へ
+    if (!result.nextSession) {
+      const maxAge = 60 * 30; // 30分
+      const response = c.redirect('/clock/results', 302);
+      // 結果情報をクッキーに保存
+      response.headers.append(
+        'Set-Cookie',
+        `clock_quiz_result=${encodeURIComponent(
+          JSON.stringify({
+            score: session.quiz.correct,
+            total: session.quiz.config.total,
+            difficulty: session.quiz.config.difficulty,
+          })
+        )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+      );
+      // セッションクッキーをクリア
+      response.headers.append(
+        'Set-Cookie',
+        'clock_quiz_session=; Path=/; Max-Age=0'
+      );
+      return response;
+    }
+
+    // 次の問題へ
+    const maxAge = 60 * 30; // 30分
+    const response = c.redirect('/clock/quiz', 302);
+    response.headers.append(
+      'Set-Cookie',
+      `clock_quiz_session=${encodeURIComponent(
+        JSON.stringify(result.nextSession)
+      )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+    );
+    return response;
+  } catch (error) {
+    console.error('Failed to process clock quiz answer:', error);
+    return c.redirect('/clock', 302);
+  }
+});
+
+// ClockQuest: 結果画面
+app.get('/clock/results', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const resultMatch = cookies.match(/clock_quiz_result=([^;]+)/);
+
+  if (!resultMatch) {
+    return c.redirect('/clock', 302);
+  }
+
+  try {
+    const result: {
+      score: number;
+      total: number;
+      difficulty: ClockDifficulty;
+    } = JSON.parse(decodeURIComponent(resultMatch[1]));
+
+    return c.render(
+      <ClockResults
+        currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+        score={result.score}
+        total={result.total}
+        difficulty={result.difficulty}
+      />,
+      {
+        title: `ClockQuest | 結果発表`,
+        description: `${result.score}/${result.total}問正解しました！`,
+      }
+    );
+  } catch (error) {
+    console.error('Failed to parse clock quiz result:', error);
+    return c.redirect('/clock', 302);
+  }
+});
 
 // Backward compatibility: redirect old routes to /math/*
 app.get('/start', (c) => c.redirect('/math/start', 301));

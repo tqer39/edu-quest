@@ -437,6 +437,9 @@ export const formatQuestion = (
   return parts.join(' ');
 };
 
+// ClockQuest exports
+export * from './clock-quest';
+
 export const generateInverseQuestion = (
   max: number,
   terms?: 2 | 3 | null

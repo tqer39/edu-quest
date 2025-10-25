@@ -8,6 +8,33 @@ The UI/UX design for "eduquest" is built around the core concept: "Play becomes 
 - **Positive Feedback:** Focus on positive feedback that praises the effort put in, not just the results of right or wrong answers, to foster children's self-esteem.
 - **Realizing Growth:** Incorporate designs that allow players to visually feel their own growth through level-ups, item collection, and encounters with characters, thereby sustaining their motivation to learn.
 
+### 1.1. Answer Input Interface Standard
+
+**EduQuest uses button-based answer input across all quest types (MathQuest, ClockQuest, KanjiQuest).**
+
+This is a fundamental UX principle for the entire platform:
+
+- **Input Method:** Large, tappable buttons instead of text/number input fields
+- **Target Device:** Optimized for tablets and touchscreen devices commonly used in elementary education
+- **Accessibility:** Eliminates keyboard input barriers for young learners
+- **Consistency:** Same interaction pattern across all content types
+
+**Benefits:**
+
+- No input validation errors (wrong characters, IME issues)
+- Immediate visual feedback on selection
+- Prevents frustration from typing mistakes
+- Better engagement with tactile interaction
+- Mobile-first design philosophy
+
+**Implementation Examples:**
+
+- **MathQuest:** Number pad (0-9) for arithmetic answers
+- **ClockQuest:** Hour buttons (1-12) for time reading
+- **KanjiQuest:** Multiple choice buttons for character selection
+
+This standard ensures a consistent, frustration-free learning experience for all elementary school students.
+
 ## 2. Target Users
 
 - **Primary Target:** Lower elementary school students in Japan (Grades 1-3)

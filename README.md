@@ -1,71 +1,99 @@
-# MathQuest
+# EduQuest Document Overview
 
-MathQuest is an elementary-school math learning platform built on a Hono-based SSR application that targets Cloudflare Workers.
-The repository bundles the edge runtime, supporting API/frontend packages, and Terraform-managed infrastructure so the team can
-iterate on product, platform, and operations from a single mono-repo.
+EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Built with Hono for SSR on Cloudflare Workers, it features a shared domain logic managed in a monorepo with pnpm workspaces.
+
+## Quest Modules
+
+- **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises. Users can select calculation types, toggle settings (sound effects, intermediate steps), and practice with a keypad UI.
+- **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
+- **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
+
+The platform features an EduQuest hub page (`/`) where users can navigate to each Quest module. Question generation and grading are handled by `@edu-quest/domain` and are reused by the API layer (`/apis/quiz`).
 
 ## Quick Start
 
 ### Prerequisites
 
-This project relies on a small toolchain:
+The repository uses the following tools:
 
-- **Homebrew** (macOS/Linux): System-level development tools (mise, just, git, pre-commit, uv, etc.)
-- **mise**: Installs the runtime tool versions declared in `.tool-versions` (Node.js 22, pnpm 10, Terraform, Wrangler)
-- **just**: Task runner that wires the setup/lint/dev workflows
-- **pnpm**: JavaScript package manager used across the workspace (installed via mise during `just setup`)
+- **Homebrew**: Manages system-level development tools for macOS/Linux.
+- **mise**: Manages versions of the execution environment, such as Node.js, pnpm, and Wrangler.
+- **just**: A task runner for bundling setup and linting commands.
+- **pnpm**: Manages the JavaScript/TypeScript workspace.
 
 ### Setup
 
+**Important**: Before running `make bootstrap`, you need to complete the following steps:
+
+#### 1. Set up Cloudflare credentials
+
 ```bash
-# 1. (macOS/Linux) Install Homebrew and Brewfile packages
+# Add Cloudflare credentials (required before make bootstrap)
+cf-vault add edu-quest
+cf-vault list
+```
+
+#### 2. Initialize Terraform Bootstrap
+
+Set up Cloudflare resources (D1, KV, Turnstile, etc.) for the development environment:
+
+```bash
+just tf -chdir=dev/bootstrap init -reconfigure
+just tf -chdir=dev/bootstrap validate
+just tf -chdir=dev/bootstrap plan
+just tf -chdir=dev/bootstrap apply -auto-approve
+```
+
+#### 3. Proceed with the standard setup
+
+```bash
+# 1. Install Homebrew (macOS/Linux)
 make bootstrap
 
-# 2. Install language/toolchain versions and JS dependencies via mise + pnpm
+# 2. Set up dependent tools and npm packages together
 just setup
 ```
 
-If Homebrew is already installed you can skip `make bootstrap` and instead run:
+If you already have Homebrew, run `brew bundle install` before `just setup`.
+
+### Frequently Used Commands
 
 ```bash
-brew bundle install
-just setup
-```
-
-### Available Commands
-
-```bash
-# Show all available tasks
+# List all available just tasks
 just help
 
-# Run code quality checks
+# Run code quality checks (biome, cspell, vitest, etc.)
 just lint
 
-# Fix common formatting issues
+# Apply automatic formatting
 just fix
 
-# Clean pre-commit cache
+# Clear the pre-commit cache
 just clean
 
-# Update development tools
-just update-brew  # Update Homebrew packages
-just update       # Update mise-managed tools
-just update-hooks # Update pre-commit hooks
+# Update runtimes and CLIs
+just update-brew
+just update
+just update-hooks
 
-# Show mise status
+# Check mise status
 just status
 ```
 
-## Tool Responsibilities
+## Repository Structure
 
-This setup clearly separates tool responsibilities:
+- `apps/edge`: The Hono SSR app that runs on Cloudflare Workers. It contains the start/play screens in `routes/pages` and the question generation/grading API in `routes/apis/quiz.ts`.
+- `apps/api` / `apps/web`: A Node server and web front-end for local development. Used for validation without Workers.
+- `packages/domain`: The logic for question generation and grading. It also defines multi-step problems for different grade levels (e.g., addition then subtraction).
+- `packages/app`: Manages quiz progression (question order, correct answer count, etc.) using the domain logic.
+- `docs/`: Design and operational documents.
+- `infra/`: Terraform and D1 migrations.
+- `games/math-quiz`: The old browser-based game (static HTML/JS).
+- `games/clock-quest`: A prototype ClockQuest trainer with analog & digital clocks (static HTML/JS).
 
-- **brew**: System-level development tools (git, pre-commit, mise, just, uv, rulesync, cf-vault, aws-vault)
-- **mise**: Installs runtime tools defined in `.tool-versions` (Node.js, pnpm, Terraform, Wrangler)
-- **pnpm**: Manages JavaScript/TypeScript workspaces under `apps/` and `packages/`
-- **uv**: Python package and project management (used for supporting scripts)
-- **pre-commit**: Runs all linting/formatting hooks automatically (no need to install each hook manually)
+## Related Documents
 
-## Optional: rulesync
-
-If you want to synchronize common config files from an external rules repository, see `docs/RULESYNC.ja.md` for setup and usage.
+- `AGENTS.md`: Overall design and module dependencies.
+- `docs/local-dev.md`: Procedures for setting up a local validation environment.
+- `docs/edu-quest-architecture.md`: Detailed architecture design.
+- `docs/math-quiz.md`: Specifications for the old standalone mini-game.
