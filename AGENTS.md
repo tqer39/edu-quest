@@ -24,7 +24,11 @@ This file is the central hub. For detailed information, please refer to the spec
 - **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.
 - **[rulesync Guide](./docs/RULESYNC.md):** How to use the `rulesync` tool to keep configuration files up-to-date.
 
-### 2.1. Documentation Localization Policy
+### 2.1. Quest-Specific Design Documents
+
+- **[KanjiQuest Design](./docs/kanji-quest-design.md):** Comprehensive design document for the Kanji learning quest ([日本語版](./docs/kanji-quest-design.ja.md))
+
+### 2.2. Documentation Localization Policy
 
 - English files use the `.md` extension.
 - Japanese translations use the matching filename with the `.ja.md` extension.
