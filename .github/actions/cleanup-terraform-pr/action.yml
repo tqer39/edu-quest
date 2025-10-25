@@ -21,8 +21,29 @@ runs:
       shell: bash
       run: |
         # Delete comments containing "No changes" for this environment
-        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .databaseId' | \
-          xargs -I {} gh api -X DELETE /repos/${{ github.repository }}/issues/comments/{} || true
+        echo "Looking for comments containing 'No changes' and '${{ inputs.environment }}/'"
+
+        # Debug: Show all comment bodies that contain "No changes"
+        echo "All comments with 'No changes':"
+        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes")) | {id: .databaseId, bodyPreview: .body[0:200]}'
+
+        # Get matching comment IDs
+        COMMENT_IDS=$(gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .databaseId')
+
+        if [ -z "$COMMENT_IDS" ]; then
+          echo "No matching comments found to delete"
+        else
+          echo "Found comment IDs to delete:"
+          echo "$COMMENT_IDS"
+
+          # Delete each comment
+          echo "$COMMENT_IDS" | while read -r comment_id; do
+            if [ -n "$comment_id" ]; then
+              echo "Deleting comment ID: $comment_id"
+              gh api -X DELETE /repos/${{ github.repository }}/issues/comments/$comment_id || echo "Failed to delete comment $comment_id"
+            fi
+          done
+        fi
 
     - name: Remove no-changes labels
       env:
