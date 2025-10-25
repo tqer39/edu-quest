@@ -23,21 +23,20 @@ runs:
         # Delete comments containing "No changes" for this environment
         echo "Looking for comments containing 'No changes' and '${{ inputs.environment }}/'"
 
-        # Debug: Show available fields in comments
-        echo "Debug: Available fields in first comment:"
-        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[0] | keys'
-
-        # Debug: Show all comment info
-        echo "All comments with 'No changes':"
-        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes")) | {id: .id, url: .url, bodyPreview: .body[0:150]}'
-
-        # Get comment URLs for deletion (using REST API endpoint from comment URL)
+        # Get comment URLs and extract comment IDs
         echo "Attempting to delete comments..."
         gh pr view ${{ inputs.prNumber }} --json comments --jq -r '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .url' | \
           while read -r comment_url; do
             if [ -n "$comment_url" ]; then
-              echo "Deleting comment: $comment_url"
-              gh api -X DELETE "$comment_url" || echo "Failed to delete comment at $comment_url"
+              # Extract comment ID from URL (format: https://github.com/owner/repo/pull/123#issuecomment-456789)
+              comment_id=$(echo "$comment_url" | grep -oP 'issuecomment-\K\d+')
+
+              if [ -n "$comment_id" ]; then
+                echo "Deleting comment ID: $comment_id (from URL: $comment_url)"
+                gh api -X DELETE "/repos/${{ github.repository }}/issues/comments/$comment_id" || echo "Failed to delete comment $comment_id"
+              else
+                echo "Could not extract comment ID from URL: $comment_url"
+              fi
             fi
           done
 
