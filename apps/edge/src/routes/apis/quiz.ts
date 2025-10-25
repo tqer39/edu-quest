@@ -1,6 +1,9 @@
 import { Hono } from 'hono';
 import type { ExtraStep, Mode } from '@edu-quest/domain';
-import { deriveDifficultyFromQuestion, formatQuestion } from '@edu-quest/domain';
+import {
+  deriveDifficultyFromQuestion,
+  formatQuestion,
+} from '@edu-quest/domain';
 import type { Env } from '../../env';
 import {
   generateQuizQuestion,
@@ -118,7 +121,7 @@ quiz.post('/answers/check', async (c) => {
     Math.abs(baseQuestion.a),
     Math.abs(baseQuestion.b),
     Math.abs(correctAnswer),
-    ...((extras ?? []).map((step) => Math.abs(step.value)))
+    ...(extras ?? []).map((step) => Math.abs(step.value))
   );
 
   const configuredMax =

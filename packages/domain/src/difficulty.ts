@@ -23,14 +23,26 @@ export type DifficultyContext = {
   includesInverse?: boolean;
 };
 
-const creatureTiers: readonly { threshold: number; creature: DifficultyCreature }[] = [
+const creatureTiers: readonly {
+  threshold: number;
+  creature: DifficultyCreature;
+}[] = [
   { threshold: 180, creature: { id: 'chick', name: 'ひよこ', emoji: '🐥' } },
   { threshold: 220, creature: { id: 'kitten', name: 'こねこ', emoji: '🐱' } },
-  { threshold: 260, creature: { id: 'red-panda', name: 'レッサーパンダ', emoji: '🦊' } },
-  { threshold: 320, creature: { id: 'cottontail', name: 'ふわふわうさぎ', emoji: '🐰' } },
+  {
+    threshold: 260,
+    creature: { id: 'red-panda', name: 'レッサーパンダ', emoji: '🦊' },
+  },
+  {
+    threshold: 320,
+    creature: { id: 'cottontail', name: 'ふわふわうさぎ', emoji: '🐰' },
+  },
   { threshold: 380, creature: { id: 'fawn', name: 'こじか', emoji: '🦌' } },
   { threshold: 450, creature: { id: 'cub', name: 'こぐま', emoji: '🐻' } },
-  { threshold: 520, creature: { id: 'otter', name: 'こつめかわうそ', emoji: '🦦' } },
+  {
+    threshold: 520,
+    creature: { id: 'otter', name: 'こつめかわうそ', emoji: '🦦' },
+  },
 ];
 
 const selectCreature = (difficultyValue: number): DifficultyCreature => {
@@ -103,7 +115,11 @@ export const deriveDifficultyProfile = (
   const capWeight = Math.min(160, Math.log2(context.max + 4) * 18);
 
   const difficultyValue =
-    base + operationWeight + rangeWeight + capWeight + computeModeBonus(context);
+    base +
+    operationWeight +
+    rangeWeight +
+    capWeight +
+    computeModeBonus(context);
 
   const normalized = normalizeValue(difficultyValue);
   const creature = selectCreature(normalized);
@@ -124,13 +140,11 @@ export const deriveDifficultyProfile = (
   };
 };
 
-export const createDifficultyContextFromQuestion = (
-  params: {
-    question: Question;
-    mode: Mode;
-    max: number;
-  }
-): DifficultyContext => {
+export const createDifficultyContextFromQuestion = (params: {
+  question: Question;
+  mode: Mode;
+  max: number;
+}): DifficultyContext => {
   const extrasCount = params.question.extras?.length ?? 0;
   const terms = extrasCount + 2;
   const operationsCount = extrasCount + 1;
@@ -138,7 +152,7 @@ export const createDifficultyContextFromQuestion = (
     Math.abs(params.question.a),
     Math.abs(params.question.b),
     Math.abs(params.question.answer),
-    ...((params.question.extras ?? []).map((step) => Math.abs(step.value)))
+    ...(params.question.extras ?? []).map((step) => Math.abs(step.value))
   );
   const includesMultiplication =
     params.question.op === '×' || params.mode === 'mul';
