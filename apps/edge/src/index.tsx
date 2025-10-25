@@ -8,8 +8,6 @@ import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
-import { MathHome } from './routes/pages/math-home';
-import { KanjiHome } from './routes/pages/kanji-home';
 import { ClockHome } from './routes/pages/clock-home';
 import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
@@ -134,16 +132,7 @@ app.get('/', async (c) =>
 );
 
 // MathQuest routes
-app.get('/math', async (c) =>
-  c.render(
-    <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
-    {
-      title: 'MathQuest | 算数を楽しく学ぼう',
-      description:
-        '学年別の算数問題で計算力をアップ。たし算・ひき算・かけ算・わり算を楽しく練習しよう。',
-    }
-  )
-);
+app.get('/math', (c) => c.redirect('/math/start', 302));
 
 app.get('/math/start', async (c) =>
   c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
@@ -162,16 +151,7 @@ app.get('/math/play', async (c) =>
 );
 
 // KanjiQuest routes (Coming soon)
-app.get('/kanji', async (c) =>
-  c.render(
-    <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
-    {
-      title: 'KanjiQuest | 漢字を楽しく学ぼう（準備中）',
-      description:
-        '小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。',
-    }
-  )
-);
+app.get('/kanji', (c) => c.redirect('/', 302));
 
 // ClockQuest routes
 app.get('/clock', async (c) =>

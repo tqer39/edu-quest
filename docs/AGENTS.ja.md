@@ -71,7 +71,7 @@ graph TB
     end
 
     subgraph "Routes"
-        Pages[Pages<br/>home, math-home, start, play]
+        Pages[Pages<br/>home, start, play]
         APIs[APIs<br/>/apis/quiz]
     end
 
