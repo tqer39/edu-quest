@@ -163,7 +163,10 @@ export const Play: FC<{ currentUser: CurrentUser | null }> = ({
               >
                 こたえを送信すると、計算の流れがここに出るよ。
               </p>
-              <div id="working-steps" class="mt-3 max-h-32 overflow-y-auto text-sm"></div>
+              <div
+                id="working-steps"
+                class="mt-3 max-h-32 overflow-y-auto text-sm"
+              ></div>
             </div>
           </div>
         </section>
