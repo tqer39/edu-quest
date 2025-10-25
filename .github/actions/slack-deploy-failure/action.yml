@@ -5,9 +5,6 @@ inputs:
   environment:
     description: 'Environment name (dev or prod)'
     required: true
-  slackChannel:
-    description: 'Slack channel to send notification to'
-    required: true
   slackWebhook:
     description: 'Slack webhook URL'
     required: true
@@ -28,7 +25,7 @@ runs:
       uses: rtCamp/action-slack-notify@v2
       shell: bash
       env:
-        SLACK_CHANNEL: ${{ inputs.slackChannel }}
+        SLACK_CHANNEL: '#edu-quest-${{ inputs.environment }}'
         SLACK_COLOR: danger
         SLACK_TITLE: 'Deploy to ${{ inputs.environment }} failed'
         SLACK_MESSAGE: |

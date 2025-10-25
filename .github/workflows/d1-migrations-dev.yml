@@ -26,7 +26,6 @@ jobs:
         uses: ./.github/actions/slack-deploy-failure
         with:
           environment: dev
-          slackChannel: '#edu-quest-dev'
           slackWebhook: ${{ secrets.SLACK_WEBHOOK_DEV }}
           workflowName: ${{ github.workflow }}
           jobName: ${{ github.job }}

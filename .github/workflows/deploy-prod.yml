@@ -26,8 +26,7 @@ jobs:
         if: failure()
         uses: ./.github/actions/slack-deploy-failure
         with:
-          environment: production
-          slackChannel: '#edu-quest-dev'
+          environment: prod
           slackWebhook: ${{ secrets.SLACK_WEBHOOK_PROD }}
           workflowName: ${{ github.workflow }}
           jobName: ${{ github.job }}
