@@ -7,9 +7,12 @@ import type { Env } from './env';
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { quiz } from './routes/apis/quiz';
+import { kanjiQuiz } from './routes/apis/kanji';
 import { Home } from './routes/pages/home';
 import { MathHome } from './routes/pages/math-home';
 import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiStart } from './routes/pages/kanji-start';
+import { KanjiPlay } from './routes/pages/kanji-play';
 import { ClockHome } from './routes/pages/clock-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
@@ -153,14 +156,36 @@ app.get('/math/play', async (c) =>
   })
 );
 
-// KanjiQuest routes (Coming soon)
+// KanjiQuest routes
 app.get('/kanji', async (c) =>
   c.render(
     <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
-      title: 'KanjiQuest | 漢字を楽しく学ぼう（準備中）',
+      title: 'KanjiQuest | 漢字を楽しく学ぼう',
       description:
-        '小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。',
+        '学年を選んで漢字クイズに挑戦。読み当てや穴あき問題で楽しく漢字力をアップしよう。',
+    }
+  )
+);
+
+app.get('/kanji/start', async (c) =>
+  c.render(
+    <KanjiStart currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'KanjiQuest | クイズ設定',
+      description:
+        '学年と出題形式、問題数を選んで自分だけの漢字クイズを準備しよう。読み当てや穴あき問題をまとめて設定できます。',
+    }
+  )
+);
+
+app.get('/kanji/play', async (c) =>
+  c.render(
+    <KanjiPlay currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'KanjiQuest | 漢字クイズ',
+      description:
+        '選んだ設定で漢字クイズをプレイ。読みの選択や文章の穴あき問題に挑戦して漢字力をのばそう。',
     }
   )
 );
@@ -328,5 +353,6 @@ app.get('/auth/logout', async (c) => {
 
 // BFF API
 app.route('/apis/quiz', quiz);
+app.route('/apis/kanji', kanjiQuiz);
 
 export default app;

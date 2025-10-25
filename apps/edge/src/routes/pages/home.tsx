@@ -156,7 +156,7 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         description="小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。"
         icon="📝"
         href="/kanji"
-        available={false}
+        available={true}
         themeColor={{
           primary: '#9B7EC8',
           primaryStrong: '#7B5DB8',

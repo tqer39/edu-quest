@@ -1,9 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 
-export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
-  currentUser,
-}) => (
+export const ClockHome: FC<{ currentUser: CurrentUser | null }> = () => (
   <div
     class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
     style="--mq-primary: #F5A85F; --mq-primary-strong: #E88D3D; --mq-primary-soft: #FEE9D5; --mq-accent: #FFCC99; --mq-outline: rgba(245, 168, 95, 0.45);"

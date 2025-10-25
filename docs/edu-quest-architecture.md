@@ -2,12 +2,12 @@
 
 ## 1. Purpose
 
-EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Currently featuring MathQuest for arithmetic practice, with KanjiQuest (kanji learning) and ClockQuest (time-reading) planned for future releases. Built with Hono for SSR on Cloudflare Workers, it offers grade-level presets and themed exercises. Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
+EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Currently featuring MathQuest for arithmetic practice and KanjiQuest for kanji learning, with ClockQuest (time-reading) planned for future releases. Built with Hono for SSR on Cloudflare Workers, it offers grade-level presets and themed exercises. Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
 
 ### Quest Modules
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix")
-- **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
+- **KanjiQuest** (`/kanji`): Kanji learning organized by grade level with reading and fill-in-the-blank quizzes
 - **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
 
 ## 2. Architecture Overview
@@ -94,7 +94,7 @@ eduquest/
 
 1.  The homepage displays available Quest modules as cards with theme colors:
     - **MathQuest** (blue theme): Available for use
-    - **KanjiQuest** (purple theme): Coming Soon
+    - **KanjiQuest** (purple theme): Live
     - **ClockQuest** (orange theme): Coming Soon
 2.  Users can navigate to a specific Quest by clicking the "はじめる" (Start) button.
 3.  Each Quest has its own dedicated color scheme applied via CSS variables.

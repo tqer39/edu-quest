@@ -135,7 +135,7 @@ The project is a monorepo managed with pnpm workspaces.
 The platform currently supports and plans to support the following Quest modules:
 
 - **MathQuest** (`/math`) - Arithmetic practice with grade-level presets and themed exercises (Available)
-- **KanjiQuest** (`/kanji`) - Kanji learning organized by grade level (Coming Soon)
+- **KanjiQuest** (`/kanji`) - Kanji learning organized by grade level with reading and fill-in-the-blank quizzes
 - **ClockQuest** (`/clock`) - Time-reading practice with analog and digital clocks (Coming Soon)
 
 ### 6.2. URL Structure
@@ -152,7 +152,7 @@ Route Structure:
   /math                → MathQuest landing page
   /math/start          → MathQuest configuration wizard
   /math/play           → MathQuest practice session
-  /kanji               → KanjiQuest landing page (Coming Soon)
+  /kanji               → KanjiQuest landing page
   /clock               → ClockQuest landing page (Coming Soon)
 ```
 
@@ -180,7 +180,7 @@ Packages:    @edu-quest/*
 Routes:
   - Portal:  /
   - Math:    /math, /math/start, /math/play
-  - Kanji:   /kanji (Coming Soon)
+  - Kanji:   /kanji
   - Clock:   /clock (Coming Soon)
 ```
 
