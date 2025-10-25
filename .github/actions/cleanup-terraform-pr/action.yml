@@ -23,27 +23,23 @@ runs:
         # Delete comments containing "No changes" for this environment
         echo "Looking for comments containing 'No changes' and '${{ inputs.environment }}/'"
 
-        # Debug: Show all comment bodies that contain "No changes"
+        # Debug: Show available fields in comments
+        echo "Debug: Available fields in first comment:"
+        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[0] | keys'
+
+        # Debug: Show all comment info
         echo "All comments with 'No changes':"
-        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes")) | {id: .databaseId, bodyPreview: .body[0:200]}'
+        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes")) | {id: .id, url: .url, bodyPreview: .body[0:150]}'
 
-        # Get matching comment IDs
-        COMMENT_IDS=$(gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .databaseId')
-
-        if [ -z "$COMMENT_IDS" ]; then
-          echo "No matching comments found to delete"
-        else
-          echo "Found comment IDs to delete:"
-          echo "$COMMENT_IDS"
-
-          # Delete each comment
-          echo "$COMMENT_IDS" | while read -r comment_id; do
-            if [ -n "$comment_id" ]; then
-              echo "Deleting comment ID: $comment_id"
-              gh api -X DELETE /repos/${{ github.repository }}/issues/comments/$comment_id || echo "Failed to delete comment $comment_id"
+        # Get comment URLs for deletion (using REST API endpoint from comment URL)
+        echo "Attempting to delete comments..."
+        gh pr view ${{ inputs.prNumber }} --json comments --jq -r '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .url' | \
+          while read -r comment_url; do
+            if [ -n "$comment_url" ]; then
+              echo "Deleting comment: $comment_url"
+              gh api -X DELETE "$comment_url" || echo "Failed to delete comment at $comment_url"
             fi
           done
-        fi
 
     - name: Remove no-changes labels
       env:
