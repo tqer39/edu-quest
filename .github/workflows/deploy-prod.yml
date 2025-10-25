@@ -10,7 +10,6 @@ jobs:
   deploy-prod:
     name: Deploy to production environment
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -25,17 +24,10 @@ jobs:
 
       - name: Slack Notification (failure)
         if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_CHANNEL: '#ntf_gh_private-lab'
-          SLACK_COLOR: danger
-          SLACK_TITLE: 'Deploy to Production failed'
-          SLACK_MESSAGE: |
-            <!subteam^U0RFFAK9U> 確認してください。
-            workflow: ${{ github.workflow }}
-            job: ${{ github.job }}
-            run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          SLACK_LINK_NAMES: 'true'
-          SLACK_USERNAME: github-bot
-          SLACK_ICON_EMOJI: ':x:'
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_PROD }}
+        uses: ./.github/actions/slack-deploy-failure
+        with:
+          environment: prod
+          slackWebhook: ${{ secrets.SLACK_WEBHOOK_PROD }}
+          workflowName: ${{ github.workflow }}
+          jobName: ${{ github.job }}
+          runUrl: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

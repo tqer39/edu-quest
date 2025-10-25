@@ -37,6 +37,10 @@ runs:
       run: pnpm --filter @edu-quest/domain build
       shell: bash
 
+    - name: Build app package
+      run: pnpm --filter @edu-quest/app build
+      shell: bash
+
     - name: Deploy to Cloudflare Workers
       uses: cloudflare/wrangler-action@v3
       with:

@@ -20,3 +20,13 @@ jobs:
           environment: dev
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Slack Notification (failure)
+        if: failure()
+        uses: ./.github/actions/slack-deploy-failure
+        with:
+          environment: dev
+          slackWebhook: ${{ secrets.SLACK_WEBHOOK_DEV }}
+          workflowName: ${{ github.workflow }}
+          jobName: ${{ github.job }}
+          runUrl: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

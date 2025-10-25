@@ -1,0 +1,76 @@
+name: 'Cleanup Terraform PR Comments and Labels'
+description: 'Delete no-changes comments and labels for a specific Terraform environment'
+
+inputs:
+  environment:
+    description: 'Environment name (dev or prod)'
+    required: true
+  prNumber:
+    description: 'Pull request number'
+    required: true
+  githubToken:
+    description: 'GitHub token for API access'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Delete no-changes comments
+      env:
+        GITHUB_TOKEN: ${{ inputs.githubToken }}
+      shell: bash
+      run: |
+        # Delete comments containing "No changes" for this environment using GraphQL
+        echo "Looking for comments containing 'No changes' and '${{ inputs.environment }}/'"
+
+        # GraphQL query to get PR comments
+        QUERY='query($owner: String!, $repo: String!, $prNumber: Int!) {
+          repository(owner: $owner, name: $repo) {
+            pullRequest(number: $prNumber) {
+              comments(first: 100) {
+                nodes {
+                  id
+                  body
+                }
+              }
+            }
+          }
+        }'
+
+        # Get repository owner and name
+        REPO_OWNER=$(echo "${{ github.repository }}" | cut -d'/' -f1)
+        REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+
+        # Execute GraphQL query
+        RESPONSE=$(curl -s -H "Authorization: bearer $GITHUB_TOKEN" \
+          -X POST \
+          -d "{\"query\":\"$(echo $QUERY | tr '\n' ' ')\",\"variables\":{\"owner\":\"$REPO_OWNER\",\"repo\":\"$REPO_NAME\",\"prNumber\":${{ inputs.prNumber }}}}" \
+          https://api.github.com/graphql)
+
+        # Extract and delete matching comments
+        echo "$RESPONSE" | jq -r '.data.repository.pullRequest.comments.nodes[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .id' | \
+          while IFS= read -r comment_id; do
+            if [ -n "$comment_id" ]; then
+              echo "Deleting comment with node ID: $comment_id"
+
+              # GraphQL mutation to delete comment
+              MUTATION='mutation($id: ID!) { deleteIssueComment(input: {id: $id}) { clientMutationId } }'
+
+              curl -s -H "Authorization: bearer $GITHUB_TOKEN" \
+                -X POST \
+                -d "{\"query\":\"$(echo $MUTATION | tr '\n' ' ')\",\"variables\":{\"id\":\"$comment_id\"}}" \
+                https://api.github.com/graphql
+
+              echo "Deleted comment: $comment_id"
+            fi
+          done
+
+    - name: Remove no-changes labels
+      env:
+        GH_TOKEN: ${{ inputs.githubToken }}
+      shell: bash
+      run: |
+        # Remove labels with /no-changes suffix for this environment
+        gh pr view ${{ inputs.prNumber }} --json labels --jq '.labels[].name' | \
+          grep "^${{ inputs.environment }}/.*no-changes$" | \
+          xargs -I {} gh pr edit ${{ inputs.prNumber }} --remove-label "{}" || true

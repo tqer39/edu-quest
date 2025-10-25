@@ -1,0 +1,39 @@
+name: 'Notify Slack on Deploy Failure'
+description: 'Send a Slack notification when deployment fails'
+
+inputs:
+  environment:
+    description: 'Environment name (dev or prod)'
+    required: true
+  slackWebhook:
+    description: 'Slack webhook URL'
+    required: true
+  workflowName:
+    description: 'GitHub workflow name'
+    required: true
+  jobName:
+    description: 'GitHub job name'
+    required: true
+  runUrl:
+    description: 'GitHub Actions run URL'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Notify Slack
+      uses: rtCamp/action-slack-notify@v2
+      shell: bash
+      env:
+        SLACK_CHANNEL: '#edu-quest-${{ inputs.environment }}'
+        SLACK_COLOR: danger
+        SLACK_TITLE: 'Deploy to ${{ inputs.environment }} failed'
+        SLACK_MESSAGE: |
+          <!channel> 確認してください。
+          workflow: ${{ inputs.workflowName }}
+          job: ${{ inputs.jobName }}
+          run: ${{ inputs.runUrl }}
+        SLACK_LINK_NAMES: 'true'
+        SLACK_USERNAME: github-bot
+        SLACK_ICON_EMOJI: ':x:'
+        SLACK_WEBHOOK: ${{ inputs.slackWebhook }}
