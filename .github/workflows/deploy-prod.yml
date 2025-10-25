@@ -10,7 +10,6 @@ jobs:
   deploy-prod:
     name: Deploy to production environment
     runs-on: ubuntu-latest
-    environment: production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
