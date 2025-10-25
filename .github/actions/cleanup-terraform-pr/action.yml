@@ -21,7 +21,7 @@ runs:
       shell: bash
       run: |
         # Delete comments containing "No changes" for this environment
-        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .id' | \
+        gh pr view ${{ inputs.prNumber }} --json comments --jq '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .databaseId' | \
           xargs -I {} gh api -X DELETE /repos/${{ github.repository }}/issues/comments/{} || true
 
     - name: Remove no-changes labels
