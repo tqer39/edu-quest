@@ -108,6 +108,7 @@ The project is a monorepo managed with pnpm workspaces.
 - **Convention over Configuration:** Adhere to the established project conventions.
 - **Linting is Law:** All code must pass linting checks (`just lint`) before submission.
 - **Minimal Changes:** Make small, focused commits. Avoid unrelated refactoring.
+- **No Automatic Git Operations:** **NEVER** execute `git add`, `git commit`, or `git push` automatically. Always wait for explicit user approval before making any Git operations.
 
 ### 4.2. Key Commands
 
