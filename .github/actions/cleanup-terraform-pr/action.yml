@@ -23,22 +23,36 @@ runs:
         # Delete comments containing "No changes" for this environment
         echo "Looking for comments containing 'No changes' and '${{ inputs.environment }}/'"
 
-        # Get comment URLs and extract comment IDs
-        echo "Attempting to delete comments..."
-        gh pr view ${{ inputs.prNumber }} --json comments --jq -r '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .url' | \
-          while read -r comment_url; do
+        # Get all matching comment URLs
+        COMMENT_URLS=$(gh pr view ${{ inputs.prNumber }} --json comments --jq -r '.comments[] | select(.body | contains("No changes") and contains("${{ inputs.environment }}/")) | .url')
+
+        if [ -z "$COMMENT_URLS" ]; then
+          echo "No matching comments found to delete"
+        else
+          echo "Found comment URLs:"
+          echo "$COMMENT_URLS"
+          echo ""
+
+          # Process each comment URL
+          echo "$COMMENT_URLS" | while IFS= read -r comment_url; do
             if [ -n "$comment_url" ]; then
+              echo "Processing URL: $comment_url"
+
               # Extract comment ID from URL (format: https://github.com/owner/repo/pull/123#issuecomment-456789)
-              comment_id=$(echo "$comment_url" | grep -oP 'issuecomment-\K\d+')
+              comment_id=$(echo "$comment_url" | sed -n 's/.*#issuecomment-\([0-9]*\).*/\1/p')
 
               if [ -n "$comment_id" ]; then
-                echo "Deleting comment ID: $comment_id (from URL: $comment_url)"
-                gh api -X DELETE "/repos/${{ github.repository }}/issues/comments/$comment_id" || echo "Failed to delete comment $comment_id"
+                echo "Extracted comment ID: $comment_id"
+                API_PATH="/repos/${{ github.repository }}/issues/comments/${comment_id}"
+                echo "API path: $API_PATH"
+                gh api -X DELETE "$API_PATH" && echo "Successfully deleted comment $comment_id" || echo "Failed to delete comment $comment_id"
               else
                 echo "Could not extract comment ID from URL: $comment_url"
               fi
+              echo ""
             fi
           done
+        fi
 
     - name: Remove no-changes labels
       env:
