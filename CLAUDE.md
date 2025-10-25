@@ -110,6 +110,40 @@ The project is a monorepo managed with pnpm workspaces.
 - `just fix`: Applies automatic formatting and fixes.
 - `pnpm dev:edge`: Starts the main application for local development.
 
+### 4.3. UI/UX Guidelines
+
+#### Answer Input Method
+
+**IMPORTANT: EduQuest uses button-based answer input across all content types (math, time, kanji).**
+
+- **DO NOT use** standard browser input controls (text input, number input, select, etc.) for answer submission
+- **USE** dedicated answer buttons that users can click/tap to submit their answers
+- **Reasons:**
+  - Target users are elementary school students who may struggle with keyboard input
+  - Better mobile/tablet experience with large, tappable buttons
+  - Prevents input validation issues and IME-related problems
+  - Provides immediate visual feedback on user interaction
+  - Consistent UX across all quest types
+
+**Examples:**
+
+- ✅ **MathQuest**: Number pad buttons (0-9) for numeric answers
+- ✅ **ClockQuest**: Hour buttons (1-12) for time selection
+- ✅ **KanjiQuest**: Multiple choice buttons for character selection
+- ❌ **DO NOT**: `<input type="number">` or `<input type="text">`
+
+**Implementation Pattern:**
+
+```tsx
+// Each button is a separate form for SSR compatibility
+<form method="POST">
+  <input type="hidden" name="answer" value={answer} />
+  <button type="submit">答えボタン</button>
+</form>
+```
+
+This approach maintains SSR compatibility while providing an optimal user experience for young learners.
+
 ## 5. How to Contribute
 
 1.  **Understand the Goal:** Read the user's request carefully.

@@ -18,6 +18,15 @@ This document outlines project-specific instructions to ensure consistent behavi
 - Reference files with inline code for paths (e.g., `src/app.ts:42`).
 - Keep lengthy explanations concise. Organize key points with bullet points and short headings as needed.
 
+### UI/UX Rules for EduQuest
+
+**Answer Input Interface:**
+
+- **DO NOT use** standard browser input controls (`<input type="text">`, `<input type="number">`, `<select>`, etc.) for quiz answer submission
+- **USE** button-based answer input for all quest types (MathQuest, ClockQuest, KanjiQuest)
+- **Implementation:** Each answer option should be a separate `<button>` within a `<form>` with hidden inputs for SSR compatibility
+- **Reason:** Target users are elementary school students; button-based input prevents keyboard/IME issues and provides better mobile/tablet UX
+
 ## Command Execution Guidelines
 
 - If local validation is possible, use the minimum necessary commands to confirm functionality.

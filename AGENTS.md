@@ -116,6 +116,53 @@ The project is a monorepo managed with pnpm workspaces.
 - `just fix`: Applies automatic formatting and fixes.
 - `pnpm dev:edge`: Starts the main application for local development.
 
+### 4.3. UI/UX Guidelines
+
+#### Answer Input Method
+
+**CRITICAL: EduQuest uses button-based answer input across all content types (math, time, kanji).**
+
+This is a fundamental platform-wide design decision that MUST be followed for all Quest implementations:
+
+**Requirements:**
+
+- **DO NOT use** standard browser input controls (`<input type="text">`, `<input type="number">`, `<select>`, etc.) for quiz answer submission
+- **USE** dedicated answer buttons that users can click/tap to submit their answers
+- **Implementation:** Each answer option should be a separate `<button>` within a `<form>` with hidden inputs for SSR compatibility
+
+**Rationale:**
+
+- **Target Audience:** Elementary school students (grades 1-4) who may struggle with keyboard input
+- **Device Optimization:** Better mobile/tablet experience with large, tappable buttons
+- **UX Benefits:**
+  - Prevents input validation errors and IME-related issues
+  - Provides immediate visual feedback on user interaction
+  - Eliminates typing mistakes and frustration
+  - Consistent interaction pattern across all Quest types
+
+**Examples by Quest Type:**
+
+- ✅ **MathQuest**: Number pad buttons (0-9) for numeric answers
+- ✅ **ClockQuest**: Hour buttons (1-12) for time selection
+- ✅ **KanjiQuest**: Multiple choice buttons for character selection
+- ❌ **NEVER**: `<input type="number">`, `<input type="text">`, or other text input fields
+
+**Implementation Pattern:**
+
+```tsx
+// Each button is a separate form for SSR compatibility
+{
+  Array.from({ length: 10 }, (_, i) => (
+    <form method="POST" key={i}>
+      <input type="hidden" name="answer" value={i} />
+      <button type="submit">{i}</button>
+    </form>
+  ));
+}
+```
+
+This approach maintains SSR compatibility while providing an optimal user experience for young learners.
+
 ## 5. How to Contribute
 
 1.  **Understand the Goal:** Read the user's request carefully.
