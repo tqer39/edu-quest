@@ -169,7 +169,7 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         description="時計の読み方をマスター。アナログ時計とデジタル時計の両方を練習できます。"
         icon="🕐"
         href="/clock"
-        available={false}
+        available={true}
         themeColor={{
           primary: '#F5A85F',
           primaryStrong: '#E88D3D',

@@ -29,3 +29,6 @@ export const checkAnswer = (quiz: Quiz, q: Question, value: number) => {
   if (ok) quiz.correct += 1;
   return ok;
 };
+
+// ClockQuest exports
+export * from './clock-quest';
