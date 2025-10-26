@@ -1,5 +1,14 @@
-# Created by https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform
-# Edit at https://www.toptal.com/developers/gitignore?templates=vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform
+# Created by https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform,cypressio
+# Edit at https://www.toptal.com/developers/gitignore?templates=vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform,cypressio
+
+### CypressIO ###
+# gitignore template for the CypressIO, browser test framework
+# website: https://www.cypress.io/
+
+cypress/results/*
+cypress/reports/*
+cypress/screenshots/*
+cypress/videos/*
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -490,9 +499,6 @@ crash.*.log
 *.tfvars
 *.tfvars.json
 
-# Allow example tfvars files
-!*.tfvars.example
-
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
 override.tf
@@ -575,11 +581,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform
+# End of https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform,cypressio
+
+# Wrangler
 .wrangler/
 apps/edge/.wrangler/
-
-# Cypress
-cypress/screenshots/
-cypress/videos/
-cypress/downloads/
