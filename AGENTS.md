@@ -237,6 +237,50 @@ Current E2E test coverage (16 tests):
 - Browser back button navigation
 - Legacy URL redirects
 
+#### Code Coverage
+
+The project uses **Codecov** to track and visualize test coverage metrics:
+
+**Local Coverage Reports:**
+
+```bash
+# Generate coverage reports for all packages
+pnpm test:coverage
+
+# View coverage reports
+open packages/domain/coverage/index.html
+open apps/edge/coverage/index.html
+```
+
+**CI/CD Integration:**
+
+Coverage reports are automatically uploaded to Codecov on:
+
+- Push to `main` branch
+- Pull request creation/updates
+
+The workflow (`.github/workflows/codecov.yml`):
+
+1. Runs unit tests with coverage enabled
+2. Generates lcov reports for each package
+3. Uploads coverage data to Codecov
+4. Codecov comments on PRs with coverage diff
+
+**Configuration:**
+
+- **`codecov.yml`**: Project-level Codecov settings
+  - Project coverage target: auto (1% threshold)
+  - Patch coverage target: auto (1% threshold)
+  - Ignore paths: tests, node_modules, infra, docs, games, cypress
+- **Vitest configs**: Coverage provider (v8), reporters (text, json, html, lcov)
+
+**Important Notes:**
+
+- Coverage reports use the **v8** provider (faster than c8/istanbul)
+- **lcov** format is required for Codecov integration
+- `CODECOV_TOKEN` secret must be configured in repository settings
+- Coverage comments appear automatically on pull requests
+
 ### 4.4. UI/UX Guidelines
 
 #### Answer Input Method
