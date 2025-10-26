@@ -1,0 +1,52 @@
+---
+name: Code Coverage
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      # Setup mise for Node.js and pnpm
+      - uses: jdx/mise-action@v3
+        with:
+          version: 2025.9.13
+          cache: true
+
+      - run: mise install
+
+      # Install pnpm dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Build required packages
+      - name: Build domain package
+        run: pnpm --filter @edu-quest/domain run build
+
+      # Run tests with coverage for all packages
+      - name: Run tests with coverage
+        run: pnpm test:coverage
+
+      # Upload coverage to Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: |
+            ./packages/domain/coverage/lcov.info
+            ./apps/edge/coverage/lcov.info
+          flags: unit-tests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+          verbose: true
