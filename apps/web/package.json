@@ -9,11 +9,11 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@hono/node-server": "^1.11.0",
-    "hono": "^4.4.3"
+    "@hono/node-server": "1.19.5",
+    "hono": "4.10.3"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
-    "typescript": "^5.5.0"
+    "@types/node": "22.18.12",
+    "typescript": "5.9.3"
   }
 }

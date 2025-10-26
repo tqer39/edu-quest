@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: ^2.2.5
+        specifier: 2.3.0
         version: 2.3.0
       '@types/node':
-        specifier: ^22.18.12
+        specifier: 22.18.12
         version: 22.18.12
       cypress:
-        specifier: ^15.5.0
+        specifier: 15.5.0
         version: 15.5.0
       wrangler:
-        specifier: '4'
+        specifier: 4.45.0
         version: 4.45.0(@cloudflare/workers-types@4.20251014.0)
 
   apps/api:
@@ -30,14 +30,14 @@ importers:
         specifier: workspace:*
         version: link:../../packages/domain
       '@hono/node-server':
-        specifier: ^1.11.0
+        specifier: 1.19.5
         version: 1.19.5(hono@4.10.3)
       hono:
-        specifier: ^4.4.3
+        specifier: 4.10.3
         version: 4.10.3
     devDependencies:
       typescript:
-        specifier: ^5.5.0
+        specifier: 5.9.3
         version: 5.9.3
 
   apps/edge:
@@ -49,42 +49,42 @@ importers:
         specifier: workspace:*
         version: link:../../packages/domain
       drizzle-orm:
-        specifier: ^0.44.0
+        specifier: 0.44.7
         version: 0.44.7(@cloudflare/workers-types@4.20251014.0)
       hono:
-        specifier: ^4.4.3
+        specifier: 4.10.3
         version: 4.10.3
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: ^4.20250923.0
+        specifier: 4.20251014.0
         version: 4.20251014.0
       drizzle-kit:
-        specifier: ^0.31.0
+        specifier: 0.31.5
         version: 0.31.5
       typescript:
-        specifier: ^5.5.0
+        specifier: 5.9.3
         version: 5.9.3
       vitest:
-        specifier: ^4.0.0
+        specifier: 4.0.3
         version: 4.0.3(@types/node@22.18.12)
       wrangler:
-        specifier: ^4.0.0
+        specifier: 4.45.0
         version: 4.45.0(@cloudflare/workers-types@4.20251014.0)
 
   apps/web:
     dependencies:
       '@hono/node-server':
-        specifier: ^1.11.0
+        specifier: 1.19.5
         version: 1.19.5(hono@4.10.3)
       hono:
-        specifier: ^4.4.3
+        specifier: 4.10.3
         version: 4.10.3
     devDependencies:
       '@types/node':
-        specifier: ^22.7.5
+        specifier: 22.18.12
         version: 22.18.12
       typescript:
-        specifier: ^5.5.0
+        specifier: 5.9.3
         version: 5.9.3
 
   packages/app:
@@ -94,19 +94,19 @@ importers:
         version: link:../domain
     devDependencies:
       typescript:
-        specifier: ^5.5.0
+        specifier: 5.9.3
         version: 5.9.3
 
   packages/domain:
     devDependencies:
       '@vitest/coverage-v8':
-        specifier: ^4.0.0
+        specifier: 4.0.3
         version: 4.0.3(vitest@4.0.3(@types/node@22.18.12))
       typescript:
-        specifier: ^5.5.0
+        specifier: 5.9.3
         version: 5.9.3
       vitest:
-        specifier: ^4.0.0
+        specifier: 4.0.3
         version: 4.0.3(@types/node@22.18.12)
 
 packages:
@@ -2925,8 +2925,8 @@ snapshots:
     dependencies:
       '@drizzle-team/brocli': 0.10.2
       '@esbuild-kit/esm-loader': 2.6.5
-      esbuild: 0.25.4
-      esbuild-register: 3.6.0(esbuild@0.25.4)
+      esbuild: 0.25.11
+      esbuild-register: 3.6.0(esbuild@0.25.11)
     transitivePeerDependencies:
       - supports-color
 
@@ -2975,10 +2975,10 @@ snapshots:
       has-tostringtag: 1.0.2
       hasown: 2.0.2
 
-  esbuild-register@3.6.0(esbuild@0.25.4):
+  esbuild-register@3.6.0(esbuild@0.25.11):
     dependencies:
       debug: 4.4.3(supports-color@8.1.1)
-      esbuild: 0.25.4
+      esbuild: 0.25.11
     transitivePeerDependencies:
       - supports-color
 
