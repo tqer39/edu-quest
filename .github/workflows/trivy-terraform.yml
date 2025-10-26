@@ -1,0 +1,120 @@
+---
+name: Trivy Terraform Security Scan
+
+on:
+  pull_request:
+    paths:
+      - 'infra/terraform/**'
+      - '.github/workflows/trivy-terraform.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'infra/terraform/**'
+      - '.github/workflows/trivy-terraform.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  trivy-terraform-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      security-events: write # For uploading SARIF results
+      pull-requests: write # For PR comments
+
+    steps:
+      - uses: actions/checkout@v5
+
+      # Setup mise for Trivy
+      - uses: jdx/mise-action@v3
+        with:
+          version: 2025.9.13
+          cache: true
+
+      - name: Install Trivy
+        run: mise install
+
+      - name: Run Trivy for Terraform
+        run: |
+          trivy config infra/terraform \
+            --severity CRITICAL,HIGH,MEDIUM \
+            --format table \
+            --exit-code 0
+
+      - name: Run Trivy for Terraform (SARIF for GitHub Security)
+        run: |
+          trivy config infra/terraform \
+            --severity CRITICAL,HIGH,MEDIUM \
+            --format sarif \
+            --output trivy-results.sarif \
+            --exit-code 0
+
+      - name: Upload Trivy results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif
+          category: trivy-terraform
+
+      - name: Comment on PR with Trivy results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { execSync } = require('child_process');
+
+            // Run Trivy again to get formatted output for PR comment
+            let trivyOutput;
+            try {
+              trivyOutput = execSync('trivy config infra/terraform --severity CRITICAL,HIGH,MEDIUM --format table', { encoding: 'utf-8' });
+            } catch (error) {
+              trivyOutput = error.stdout || 'Failed to run Trivy scan';
+            }
+
+            const body = `## Trivy Terraform Security Scan Results
+
+            <details><summary>Show Scan Results</summary>
+
+            \`\`\`
+            ${trivyOutput}
+            \`\`\`
+
+            </details>
+
+            🔍 Full results are available in the [Security tab](https://github.com/${{ github.repository }}/security/code-scanning).
+            `;
+
+            // Find existing comment
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const botComment = comments.find(comment =>
+              comment.user.type === 'Bot' &&
+              comment.body.includes('Trivy Terraform Security Scan Results')
+            );
+
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: body
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: body
+              });
+            }
