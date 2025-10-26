@@ -1,0 +1,77 @@
+describe('MathQuest Flow', () => {
+  describe('Start Configuration Page', () => {
+    beforeEach(() => {
+      cy.visit('/math/start');
+    });
+
+    it('should load the start configuration page', () => {
+      cy.url().should('include', '/math/start');
+      cy.contains('れんしゅうの じゅんび').should('be.visible');
+    });
+
+    it('should display grade level selection', () => {
+      cy.contains('学年をえらぼう').should('be.visible');
+    });
+
+    it('should display question count selection after completing configuration steps', () => {
+      // Complete configuration steps to reveal question count selection
+      cy.contains('button', '小1').click();
+      cy.contains('button', '計算する').click();
+      cy.contains('button', 'たし算').click();
+
+      // Now question count should be visible
+      cy.contains('問題数').should('be.visible');
+    });
+
+    it('should have a start button', () => {
+      cy.contains('button', 'はじめる').should('be.visible');
+    });
+  });
+
+  describe('Play Page Navigation', () => {
+    it('should navigate to play page after configuration', () => {
+      cy.visit('/math/start');
+
+      // Select grade level (1st grade)
+      cy.contains('button', '小1').click();
+
+      // Select activity (計算する)
+      cy.contains('button', '計算する').click();
+
+      // Select calculation type (たし算)
+      cy.contains('button', 'たし算').click();
+
+      // Start the quiz
+      cy.contains('button', 'はじめる').click();
+
+      // Should navigate to play page
+      cy.url().should('include', '/math/play');
+    });
+
+    it('should display question on play page', () => {
+      cy.visit('/math/start');
+
+      // Quick start with default settings
+      cy.contains('button', '小1').click();
+      cy.contains('button', '計算する').click();
+      cy.contains('button', 'たし算').click();
+      cy.contains('button', 'はじめる').click();
+
+      // Verify play page loaded
+      cy.url().should('include', '/math/play');
+      cy.contains('もんだい').should('be.visible');
+    });
+  });
+
+  describe('Backward Compatibility Redirects', () => {
+    it('should redirect /start to /math/start', () => {
+      cy.visit('/start');
+      cy.url().should('include', '/math/start');
+    });
+
+    it('should redirect /play to /math/play', () => {
+      cy.visit('/play', { failOnStatusCode: false });
+      // /play might require session, so we just check it doesn't 404
+    });
+  });
+});

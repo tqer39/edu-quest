@@ -51,10 +51,18 @@ just tf -chdir=dev/bootstrap apply -auto-approve
 make bootstrap
 
 # 2. Set up dependent tools and npm packages together
+# This also installs Cypress binary automatically
 just setup
 ```
 
 If you already have Homebrew, run `brew bundle install` before `just setup`.
+
+**Note:** The `just setup` command automatically installs:
+
+- mise tools (Node.js, pnpm, etc.)
+- pnpm (if not already installed)
+- All npm dependencies
+- Cypress binary for E2E testing
 
 ### Frequently Used Commands
 
@@ -78,6 +86,115 @@ just update-hooks
 
 # Check mise status
 just status
+
+# Run E2E tests with Cypress (headless)
+just e2e
+
+# Open Cypress test runner (interactive)
+just e2e-open
+```
+
+## Testing
+
+### Unit Tests
+
+The project uses Vitest for unit testing:
+
+```bash
+# Run all unit tests
+pnpm test
+
+# Run unit tests in watch mode
+pnpm test:watch
+
+# Generate coverage report
+pnpm test:coverage
+```
+
+### E2E Tests
+
+The project uses Cypress for end-to-end testing to verify screen transitions and user flows.
+
+#### Running E2E Tests
+
+##### Option 1: Manual (recommended for development)
+
+```bash
+# 1. Start the Cloudflare Workers dev server in a separate terminal
+pnpm dev:edge
+# This starts the server on http://localhost:8788
+
+# 2. Run E2E tests in headless mode
+just e2e
+
+# OR open Cypress test runner (interactive mode)
+just e2e-open
+```
+
+##### Option 2: Automatic (for CI or quick testing)
+
+```bash
+# Automatically start dev server and run E2E tests
+just e2e-ci
+```
+
+This command will:
+
+1. Start the Cloudflare Workers dev server in the background
+2. Wait for the server to be ready (max 30 seconds)
+3. Run all E2E tests
+4. Automatically shut down the server when done
+
+**Important Notes:**
+
+- **E2E tests MUST run against `@edu-quest/edge` (Cloudflare Workers), NOT `@edu-quest/web`**
+- `@edu-quest/web` is a placeholder Node.js server without actual application routes
+- All application routes (/, /math, /math/start, /math/play, etc.) exist only in `@edu-quest/edge`
+- The `just e2e` and `just e2e-open` commands check if the server is running on `http://localhost:8788`
+- **Always use `pnpm dev:edge` to start the server for E2E testing**
+
+**E2E Test Coverage:**
+
+- Navigation flows between pages (Home → MathQuest → Start → Play → Results)
+- ClockQuest navigation
+- Backward navigation (browser back button)
+- Legacy URL redirects (`/start` → `/math/start`, `/play` → `/math/play`)
+
+#### CI/CD Integration
+
+E2E tests run automatically in GitHub Actions on:
+
+- Push to `main` branch
+- Pull request creation/updates
+
+The CI workflow (`.github/workflows/e2e.yml`) performs the following:
+
+1. Installs `just` command runner
+2. Sets up mise (Node.js, pnpm, etc.)
+3. Installs pnpm dependencies
+4. Installs Cypress binary
+5. Builds required packages (`@edu-quest/domain`, `@edu-quest/app`)
+6. Runs `just e2e-ci` (automatic server management)
+7. Uploads screenshots and videos on failure
+
+#### Viewing Test Failure Screenshots
+
+When E2E tests fail in CI:
+
+1. Go to the failed workflow run in GitHub Actions
+2. Scroll to the bottom of the page
+3. Download the `cypress-screenshots` artifact (if available)
+4. Download the `cypress-videos` artifact (if video recording is enabled)
+5. Review the screenshots/videos to diagnose the issue
+
+Screenshot files are organized by test file and test name:
+
+```text
+cypress/screenshots/
+├── math-quest-flow.cy.ts/
+│   └── MathQuest Flow -- Start Configuration Page -- should load (failed).png
+└── navigation.cy.ts/
+    └── EduQuest Navigation -- Home Page -- should load (failed).png
 ```
 
 ## Repository Structure

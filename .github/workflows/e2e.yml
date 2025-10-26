@@ -1,0 +1,68 @@
+---
+name: E2E Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+
+      # Install just command runner
+      - uses: extractions/setup-just@v2
+
+      # Setup mise for Node.js and pnpm
+      - uses: jdx/mise-action@v3
+        with:
+          version: 2025.9.13
+          cache: true
+
+      - run: mise install
+
+      # Install pnpm dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # Install Cypress binary (cached by Cypress GitHub Action)
+      - name: Install Cypress binary
+        run: pnpm exec cypress install
+
+      # Build required packages (domain and app are required for edge app)
+      - name: Build domain and app packages
+        run: |
+          pnpm --filter @edu-quest/domain run build
+          pnpm --filter @edu-quest/app run build
+
+      # Run E2E tests with automatic server management
+      - name: Run E2E tests
+        run: just e2e-ci
+
+      # Upload screenshots on failure
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+
+      # Upload videos on failure (if enabled)
+      - name: Upload videos
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore

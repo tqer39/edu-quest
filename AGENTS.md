@@ -30,9 +30,42 @@ This file is the central hub. For detailed information, please refer to the spec
 
 ### 2.2. Documentation Localization Policy
 
+**File Naming Convention:**
+
 - English files use the `.md` extension.
 - Japanese translations use the matching filename with the `.ja.md` extension.
-- Every document must have both English and Japanese versions. If you add or update content in one language, mirror the change in the counterpart file.
+- Both files must exist in the same directory.
+
+**Synchronization Requirement:**
+
+- **CRITICAL**: When you modify any `.md` file, you **MUST** also update the corresponding `.{locale}.md` file in the same directory.
+- This applies to **ALL** documentation files, including:
+  - Project documentation (AGENTS.md, README.md, CONTRIBUTING.md, etc.)
+  - Technical documentation (docs/\*.md)
+  - Design documents (docs/edu-quest-\*.md, docs/\*-quest-design.md)
+  - Workflow documentation (docs/RULESYNC.md, docs/AI_RULES.md, etc.)
+
+**Workflow:**
+
+1. Identify if a localized version exists: Check for `{filename}.{locale}.md` in the same directory.
+2. Update the English version (`.md` file).
+3. Update the localized version (`.{locale}.md` file) with equivalent content.
+4. If the localized version doesn't exist yet, create it.
+
+**Example:**
+
+```bash
+# When updating AGENTS.md, also update AGENTS.ja.md
+# When updating docs/README.md, also update docs/README.ja.md
+# When updating docs/edu-quest-architecture.md, also update docs/edu-quest-architecture.ja.md
+```
+
+**Note to AI Assistants:**
+
+- Always check for sibling localized files before completing documentation updates.
+- Use `ls` or `find` to verify localized versions exist.
+- If you're unsure about the translation, ask the user for guidance.
+- Maintaining documentation parity is critical for our bilingual user base.
 
 ## 3. System Architecture
 
@@ -120,8 +153,91 @@ The project is a monorepo managed with pnpm workspaces.
 - `just lint`: Runs all code quality checks.
 - `just fix`: Applies automatic formatting and fixes.
 - `pnpm dev:edge`: Starts the main application for local development.
+- `just e2e`: Runs E2E tests (requires dev server running).
+- `just e2e-ci`: Runs E2E tests with automatic server management.
 
-### 4.3. UI/UX Guidelines
+### 4.3. Testing
+
+#### Unit Tests
+
+The project uses **Vitest** for unit testing:
+
+```bash
+# Run all unit tests
+pnpm test
+
+# Run unit tests in watch mode
+pnpm test:watch
+
+# Generate coverage report
+pnpm test:coverage
+```
+
+#### E2E Tests
+
+The project uses **Cypress** for end-to-end testing to verify screen transitions and user flows.
+
+**Local Development:**
+
+```bash
+# 1. Start the Cloudflare Workers dev server in a separate terminal
+pnpm dev:edge
+
+# 2. Run E2E tests in headless mode
+just e2e
+
+# OR open Cypress test runner (interactive mode)
+just e2e-open
+```
+
+**Automatic Mode (CI or quick testing):**
+
+```bash
+# Automatically start dev server, run tests, and shut down
+just e2e-ci
+```
+
+**Important Notes:**
+
+- E2E tests **MUST** run against `@edu-quest/edge` (Cloudflare Workers), **NOT** `@edu-quest/web`
+- `@edu-quest/web` is a placeholder Node.js server without actual application routes
+- All application routes exist only in `@edu-quest/edge`
+- Always use `pnpm dev:edge` to start the server for E2E testing
+
+**CI/CD:**
+
+E2E tests run automatically on:
+
+- Push to `main` branch
+- Pull request creation/updates
+
+The CI workflow (`.github/workflows/e2e.yml`):
+
+1. Installs dependencies and builds required packages
+2. Starts the dev server in the background
+3. Runs all E2E tests
+4. Uploads screenshots and videos on failure
+
+**Viewing Test Results:**
+
+When tests fail in CI, screenshots are uploaded as GitHub Artifacts:
+
+1. Go to the failed workflow run
+2. Scroll to the bottom of the page
+3. Download the `cypress-screenshots` artifact
+4. Review the screenshots to diagnose the issue
+
+**Test Coverage:**
+
+Current E2E test coverage (16 tests):
+
+- Navigation flows (home → MathQuest → ClockQuest)
+- MathQuest configuration wizard
+- Page transitions and loading
+- Browser back button navigation
+- Legacy URL redirects
+
+### 4.4. UI/UX Guidelines
 
 #### Answer Input Method
 

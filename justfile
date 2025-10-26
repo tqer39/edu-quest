@@ -27,8 +27,13 @@ setup:
         echo "→ Installing JS dependencies with pnpm..."; \
         pnpm install; \
     else \
-        echo "⚠ pnpm not found. Install pnpm (npm install -g pnpm) してから再実行してください。"; \
+        echo "⚠ pnpm not found. Installing pnpm automatically..."; \
+        npm install -g pnpm; \
+        echo "→ Installing JS dependencies with pnpm..."; \
+        pnpm install; \
     fi
+    @echo "→ Installing Cypress binary..."
+    @pnpm exec cypress install
     @echo "Setup complete!"
 
 # Run prek hooks on all files
@@ -70,7 +75,10 @@ install:
         echo "→ Installing JS dependencies with pnpm..."; \
         pnpm install; \
     else \
-        echo "⚠ pnpm not found. Install pnpm (npm install -g pnpm) してから再実行してください。"; \
+        echo "⚠ pnpm not found. Installing pnpm automatically..."; \
+        npm install -g pnpm; \
+        echo "→ Installing JS dependencies with pnpm..."; \
+        pnpm install; \
     fi
 
 # Update mise tools
@@ -110,6 +118,58 @@ dev-edge:
     @echo "Starting Edge SSR (Wrangler dev)..."
     pnpm --filter @edu-quest/edge run dev
 
+# Run E2E tests with Cypress (headless)
+e2e:
+    @echo "Running E2E tests with Cypress..."
+    @echo "Checking if dev server is running on http://localhost:8788..."
+    @if curl -s http://localhost:8788 > /dev/null 2>&1; then \
+        echo "✓ Dev server is running"; \
+        pnpm run test:e2e; \
+    else \
+        echo "✗ Dev server is not running on http://localhost:8788"; \
+        echo ""; \
+        echo "Please start the dev server first:"; \
+        echo "  pnpm dev:edge"; \
+        echo ""; \
+        echo "Then run this command again."; \
+        exit 1; \
+    fi
+
+# Open Cypress test runner (interactive)
+e2e-open:
+    @echo "Opening Cypress test runner..."
+    @echo "Checking if dev server is running on http://localhost:8788..."
+    @if curl -s http://localhost:8788 > /dev/null 2>&1; then \
+        echo "✓ Dev server is running"; \
+        pnpm run test:e2e:open; \
+    else \
+        echo "✗ Dev server is not running on http://localhost:8788"; \
+        echo ""; \
+        echo "Please start the dev server first:"; \
+        echo "  pnpm dev:edge"; \
+        echo ""; \
+        echo "Then run this command again."; \
+        exit 1; \
+    fi
+
+# Start dev server and run E2E tests (for CI or quick testing)
+e2e-ci:
+    @echo "Starting dev server and running E2E tests..."
+    @bash -c 'set -euo pipefail; \
+      pnpm --filter @edu-quest/edge run dev & pid_edge=$$!; \
+      trap "kill $$pid_edge 2>/dev/null || true" INT TERM EXIT; \
+      echo "Waiting for dev server to start..."; \
+      for i in {1..30}; do \
+        if curl -s http://localhost:8788 > /dev/null 2>&1; then \
+          echo "✓ Dev server is ready"; \
+          pnpm run test:e2e; \
+          exit 0; \
+        fi; \
+        sleep 1; \
+      done; \
+      echo "✗ Dev server failed to start within 30 seconds"; \
+      exit 1'
+
 # Cloudflare D1 (local) utilities
 d1-local-migrate:
     @echo "Applying local D1 migrations..."
@@ -131,8 +191,10 @@ js-install:
         echo "Installing JS dependencies with pnpm..."; \
         pnpm install; \
     else \
-        echo "⚠ pnpm not found. npm install -g pnpm などで導入してください"; \
-        exit 1; \
+        echo "⚠ pnpm not found. Installing pnpm automatically..."; \
+        npm install -g pnpm; \
+        echo "Installing JS dependencies with pnpm..."; \
+        pnpm install; \
     fi
 
 # Wrap terraform with convenient -chdir handling
