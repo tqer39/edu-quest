@@ -32,3 +32,6 @@ export const checkAnswer = (quiz: Quiz, q: Question, value: number) => {
 
 // ClockQuest exports
 export * from './clock-quest';
+
+// KanjiQuest exports
+export * from './kanji-quest';

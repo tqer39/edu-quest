@@ -11,6 +11,9 @@ import { Home } from './routes/pages/home';
 import { ClockHome } from './routes/pages/clock-home';
 import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
+import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiQuiz } from './routes/pages/kanji-quiz';
+import { KanjiResults } from './routes/pages/kanji-results';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -22,7 +25,13 @@ import {
   submitClockAnswer,
 } from './application/usecases/clock-quiz';
 import type { ClockQuizSession } from './application/usecases/clock-quiz';
-import type { ClockDifficulty } from '@edu-quest/domain';
+import {
+  startKanjiQuizSession,
+  submitKanjiQuizAnswer,
+  getKanjiSessionResult,
+} from './application/usecases/kanji-quiz';
+import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
+import type { ClockDifficulty, KanjiGrade } from '@edu-quest/domain';
 import { Document } from './views/layouts/document';
 
 const app = new Hono<{ Bindings: Env; Variables: { lang: 'ja' | 'en' } }>();
@@ -150,8 +159,184 @@ app.get('/math/play', async (c) =>
   })
 );
 
-// KanjiQuest routes (Coming soon)
-app.get('/kanji', (c) => c.redirect('/', 302));
+// KanjiQuest routes
+app.get('/kanji', async (c) =>
+  c.render(
+    <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'KanjiQuest | 漢字の読み方をマスターしよう',
+      description: '小学校で習う漢字の読み方を練習。楽しく漢字を覚えられます。',
+    }
+  )
+);
+
+// KanjiQuest: 学年選択してクイズ開始
+app.get('/kanji/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const grade = Number(gradeParam) as KanjiGrade;
+
+  // 学年のバリデーション
+  if (!grade || grade < 1 || grade > 6) {
+    return c.redirect('/kanji', 302);
+  }
+
+  // クイズセッションを開始（10問固定）
+  const session = startKanjiQuizSession(grade, 10);
+
+  // セッション情報をクッキーに保存
+  const maxAge = 60 * 30; // 30分
+  const response = c.redirect('/kanji/quiz', 302);
+  response.headers.append(
+    'Set-Cookie',
+    `kanji_quiz_session=${encodeURIComponent(
+      JSON.stringify(session)
+    )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+  );
+
+  return response;
+});
+
+// KanjiQuest: クイズ画面（現在の問題を表示）
+app.get('/kanji/quiz', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/kanji_quiz_session=([^;]+)/);
+
+  if (!sessionMatch) {
+    return c.redirect('/kanji', 302);
+  }
+
+  try {
+    const session: KanjiQuizSession = JSON.parse(
+      decodeURIComponent(sessionMatch[1])
+    );
+
+    if (!session.currentQuestion) {
+      return c.redirect('/kanji', 302);
+    }
+
+    return c.render(
+      <KanjiQuiz
+        currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+        question={session.currentQuestion}
+        questionNumber={session.quiz.index + 1}
+        totalQuestions={session.quiz.questions.length}
+        score={session.quiz.correct}
+        grade={session.quiz.config.grade}
+      />,
+      {
+        title: `KanjiQuest | ${session.quiz.config.grade}年生`,
+        description: '漢字の読み方クイズに挑戦中',
+      }
+    );
+  } catch (error) {
+    console.error('Failed to parse kanji quiz session:', error);
+    return c.redirect('/kanji', 302);
+  }
+});
+
+// KanjiQuest: 回答を送信
+app.post('/kanji/quiz', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/kanji_quiz_session=([^;]+)/);
+
+  if (!sessionMatch) {
+    return c.redirect('/kanji', 302);
+  }
+
+  try {
+    const session: KanjiQuizSession = JSON.parse(
+      decodeURIComponent(sessionMatch[1])
+    );
+    const body = await c.req.parseBody();
+
+    const answer = String(body.answer);
+
+    // 回答をチェック
+    const result = submitKanjiQuizAnswer(session, answer);
+
+    // クイズが終了した場合
+    if (!result.nextSession) {
+      const quizResult = getKanjiSessionResult(session);
+
+      // クッキーをクリア
+      const response = c.redirect('/kanji/results', 302);
+      response.headers.append(
+        'Set-Cookie',
+        `kanji_quiz_result=${encodeURIComponent(
+          JSON.stringify(quizResult)
+        )}; Path=/; Max-Age=300; SameSite=Lax; HttpOnly`
+      );
+      response.headers.append(
+        'Set-Cookie',
+        'kanji_quiz_session=; Path=/; Max-Age=0'
+      );
+      return response;
+    }
+
+    // 次の問題へ
+    const maxAge = 60 * 30; // 30分
+    const response = c.redirect('/kanji/quiz', 302);
+    response.headers.append(
+      'Set-Cookie',
+      `kanji_quiz_session=${encodeURIComponent(
+        JSON.stringify(result.nextSession)
+      )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+    );
+
+    return response;
+  } catch (error) {
+    console.error('Failed to process kanji quiz answer:', error);
+    return c.redirect('/kanji', 302);
+  }
+});
+
+// KanjiQuest: 結果画面
+app.get('/kanji/results', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const resultMatch = cookies.match(/kanji_quiz_result=([^;]+)/);
+  const sessionMatch = cookies.match(/kanji_quiz_session=([^;]+)/);
+
+  if (!resultMatch && !sessionMatch) {
+    return c.redirect('/kanji', 302);
+  }
+
+  try {
+    let result: ReturnType<typeof getKanjiSessionResult>;
+    let grade: number;
+
+    if (resultMatch) {
+      result = JSON.parse(decodeURIComponent(resultMatch[1]));
+      // 結果から学年を推測（クッキーに保存していない場合）
+      // TODO: 結果に学年情報も含めるように改善
+      grade = 1;
+    } else if (sessionMatch) {
+      const session: KanjiQuizSession = JSON.parse(
+        decodeURIComponent(sessionMatch[1])
+      );
+      result = getKanjiSessionResult(session);
+      grade = session.quiz.config.grade;
+    } else {
+      return c.redirect('/kanji', 302);
+    }
+
+    return c.render(
+      <KanjiResults
+        currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+        score={result.correctAnswers}
+        total={result.totalQuestions}
+        grade={grade}
+        message={result.message}
+      />,
+      {
+        title: 'KanjiQuest | 結果',
+        description: `漢字クイズの結果: ${result.score}点`,
+      }
+    );
+  } catch (error) {
+    console.error('Failed to parse kanji quiz result:', error);
+    return c.redirect('/kanji', 302);
+  }
+});
 
 // ClockQuest routes
 app.get('/clock', async (c) =>
