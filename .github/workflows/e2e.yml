@@ -21,7 +21,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       # Install just command runner
-      - uses: extractions/setup-just@v2
+      - uses: extractions/setup-just@v3
 
       # Setup mise for Node.js and pnpm
       - uses: jdx/mise-action@v3
