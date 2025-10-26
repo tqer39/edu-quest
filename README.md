@@ -160,6 +160,43 @@ This command will:
 - Backward navigation (browser back button)
 - Legacy URL redirects (`/start` → `/math/start`, `/play` → `/math/play`)
 
+#### CI/CD Integration
+
+E2E tests run automatically in GitHub Actions on:
+
+- Push to `main` branch
+- Pull request creation/updates
+
+The CI workflow (`.github/workflows/e2e.yml`) performs the following:
+
+1. Installs `just` command runner
+2. Sets up mise (Node.js, pnpm, etc.)
+3. Installs pnpm dependencies
+4. Installs Cypress binary
+5. Builds required packages (`@edu-quest/domain`, `@edu-quest/app`)
+6. Runs `just e2e-ci` (automatic server management)
+7. Uploads screenshots and videos on failure
+
+#### Viewing Test Failure Screenshots
+
+When E2E tests fail in CI:
+
+1. Go to the failed workflow run in GitHub Actions
+2. Scroll to the bottom of the page
+3. Download the `cypress-screenshots` artifact (if available)
+4. Download the `cypress-videos` artifact (if video recording is enabled)
+5. Review the screenshots/videos to diagnose the issue
+
+Screenshot files are organized by test file and test name:
+
+```text
+cypress/screenshots/
+├── math-quest-flow.cy.ts/
+│   └── MathQuest Flow -- Start Configuration Page -- should load (failed).png
+└── navigation.cy.ts/
+    └── EduQuest Navigation -- Home Page -- should load (failed).png
+```
+
 ## Repository Structure
 
 - `apps/edge`: The Hono SSR app that runs on Cloudflare Workers. It contains the start/play screens in `routes/pages` and the question generation/grading API in `routes/apis/quiz.ts`.
