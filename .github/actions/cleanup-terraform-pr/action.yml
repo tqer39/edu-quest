@@ -64,13 +64,3 @@ runs:
               echo "Deleted comment: $comment_id"
             fi
           done
-
-    - name: Remove no-changes labels
-      env:
-        GH_TOKEN: ${{ inputs.githubToken }}
-      shell: bash
-      run: |
-        # Remove labels with /no-changes suffix for this environment
-        gh pr view ${{ inputs.prNumber }} --json labels --jq '.labels[].name' | \
-          grep "^${{ inputs.environment }}/.*no-changes$" | \
-          xargs -I {} gh pr edit ${{ inputs.prNumber }} --remove-label "{}" || true
