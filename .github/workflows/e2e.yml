@@ -39,9 +39,11 @@ jobs:
       - name: Install Cypress binary
         run: pnpm exec cypress install
 
-      # Build domain package (required for edge app)
-      - name: Build domain package
-        run: pnpm --filter @edu-quest/domain run build
+      # Build required packages (domain and app are required for edge app)
+      - name: Build domain and app packages
+        run: |
+          pnpm --filter @edu-quest/domain run build
+          pnpm --filter @edu-quest/app run build
 
       # Run E2E tests with automatic server management
       - name: Run E2E tests
