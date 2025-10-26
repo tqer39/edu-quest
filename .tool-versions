@@ -1,5 +1,5 @@
-nodejs 22
+nodejs 22.19.0
 pnpm 10.19.0
 terraform 1.13.4
-trivy latest
-npm:wrangler latest
+trivy 0.67.2
+npm:wrangler 4.40.3
