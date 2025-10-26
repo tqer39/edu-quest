@@ -12,16 +12,16 @@
     "types": "wrangler types"
   },
   "dependencies": {
-    "hono": "^4.4.3",
+    "hono": "4.10.3",
     "@edu-quest/domain": "workspace:*",
     "@edu-quest/app": "workspace:*",
-    "drizzle-orm": "^0.44.0"
+    "drizzle-orm": "0.44.7"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250923.0",
-    "wrangler": "^4.0.0",
-    "typescript": "^5.5.0",
-    "vitest": "^4.0.0",
-    "drizzle-kit": "^0.31.0"
+    "@cloudflare/workers-types": "4.20251014.0",
+    "wrangler": "4.45.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.3",
+    "drizzle-kit": "0.31.5"
   }
 }
