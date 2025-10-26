@@ -145,11 +145,13 @@ This command will:
 3. Run all E2E tests
 4. Automatically shut down the server when done
 
-**Note:**
+**Important Notes:**
 
-- E2E tests run against the Cloudflare Workers environment (`@edu-quest/edge`)
-- The `just e2e` and `just e2e-open` commands will check if the dev server is running and display a helpful error message if it's not
-- The server runs on `http://localhost:8788`
+- **E2E tests MUST run against `@edu-quest/edge` (Cloudflare Workers), NOT `@edu-quest/web`**
+- `@edu-quest/web` is a placeholder Node.js server without actual application routes
+- All application routes (/, /math, /math/start, /math/play, etc.) exist only in `@edu-quest/edge`
+- The `just e2e` and `just e2e-open` commands check if the server is running on `http://localhost:8788`
+- **Always use `pnpm dev:edge` to start the server for E2E testing**
 
 **E2E Test Coverage:**
 

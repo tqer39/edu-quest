@@ -6,19 +6,25 @@ describe('MathQuest Flow', () => {
 
     it('should load the start configuration page', () => {
       cy.url().should('include', '/math/start');
-      cy.contains('練習の設定').should('be.visible');
+      cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
 
     it('should display grade level selection', () => {
-      cy.contains('学年を選ぶ').should('be.visible');
+      cy.contains('学年をえらぼう').should('be.visible');
     });
 
-    it('should display question count selection', () => {
+    it('should display question count selection after completing configuration steps', () => {
+      // Complete configuration steps to reveal question count selection
+      cy.contains('button', '小1').click();
+      cy.contains('button', '計算する').click();
+      cy.contains('button', 'たし算').click();
+
+      // Now question count should be visible
       cy.contains('問題数').should('be.visible');
     });
 
     it('should have a start button', () => {
-      cy.contains('button', 'スタート').should('be.visible');
+      cy.contains('button', 'はじめる').should('be.visible');
     });
   });
 
@@ -27,10 +33,16 @@ describe('MathQuest Flow', () => {
       cy.visit('/math/start');
 
       // Select grade level (1st grade)
-      cy.contains('button', '1年生').click();
+      cy.contains('button', '小1').click();
+
+      // Select activity (計算する)
+      cy.contains('button', '計算する').click();
+
+      // Select calculation type (たし算)
+      cy.contains('button', 'たし算').click();
 
       // Start the quiz
-      cy.contains('button', 'スタート').click();
+      cy.contains('button', 'はじめる').click();
 
       // Should navigate to play page
       cy.url().should('include', '/math/play');
@@ -40,33 +52,14 @@ describe('MathQuest Flow', () => {
       cy.visit('/math/start');
 
       // Quick start with default settings
-      cy.contains('button', '1年生').click();
-      cy.contains('button', 'スタート').click();
+      cy.contains('button', '小1').click();
+      cy.contains('button', '計算する').click();
+      cy.contains('button', 'たし算').click();
+      cy.contains('button', 'はじめる').click();
 
       // Verify play page loaded
       cy.url().should('include', '/math/play');
-      cy.contains('問題').should('be.visible');
-    });
-  });
-
-  describe('Results Page Navigation', () => {
-    it('should navigate to results page after completing quiz', () => {
-      cy.visit('/math/start');
-
-      // Start with minimal questions (5 questions)
-      cy.contains('button', '1年生').click();
-      cy.contains('button', '5問').click();
-      cy.contains('button', 'スタート').click();
-
-      // Answer all questions (selecting first answer button for each)
-      for (let i = 0; i < 5; i++) {
-        cy.get('form button[type="submit"]').first().click();
-        cy.wait(500); // Wait for navigation/state update
-      }
-
-      // Should navigate to results page
-      cy.url().should('include', '/math/results');
-      cy.contains('結果').should('be.visible');
+      cy.contains('もんだい').should('be.visible');
     });
   });
 

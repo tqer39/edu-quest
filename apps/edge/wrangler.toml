@@ -6,6 +6,10 @@ name = "edu-quest-edge-local"
 main = "src/index.tsx"
 compatibility_date = "2024-09-01"
 
+# Dev server configuration
+[dev]
+port = 8788
+
 [[kv_namespaces]]
 binding = "KV_FREE_TRIAL"
 id = "kv_free_trial_id"
