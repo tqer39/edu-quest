@@ -30,9 +30,42 @@ This file is the central hub. For detailed information, please refer to the spec
 
 ### 2.2. Documentation Localization Policy
 
+**File Naming Convention:**
+
 - English files use the `.md` extension.
 - Japanese translations use the matching filename with the `.ja.md` extension.
-- Every document must have both English and Japanese versions. If you add or update content in one language, mirror the change in the counterpart file.
+- Both files must exist in the same directory.
+
+**Synchronization Requirement:**
+
+- **CRITICAL**: When you modify any `.md` file, you **MUST** also update the corresponding `.{locale}.md` file in the same directory.
+- This applies to **ALL** documentation files, including:
+  - Project documentation (AGENTS.md, README.md, CONTRIBUTING.md, etc.)
+  - Technical documentation (docs/\*.md)
+  - Design documents (docs/edu-quest-\*.md, docs/\*-quest-design.md)
+  - Workflow documentation (docs/RULESYNC.md, docs/AI_RULES.md, etc.)
+
+**Workflow:**
+
+1. Identify if a localized version exists: Check for `{filename}.{locale}.md` in the same directory.
+2. Update the English version (`.md` file).
+3. Update the localized version (`.{locale}.md` file) with equivalent content.
+4. If the localized version doesn't exist yet, create it.
+
+**Example:**
+
+```bash
+# When updating AGENTS.md, also update AGENTS.ja.md
+# When updating docs/README.md, also update docs/README.ja.md
+# When updating docs/edu-quest-architecture.md, also update docs/edu-quest-architecture.ja.md
+```
+
+**Note to AI Assistants:**
+
+- Always check for sibling localized files before completing documentation updates.
+- Use `ls` or `find` to verify localized versions exist.
+- If you're unsure about the translation, ask the user for guidance.
+- Maintaining documentation parity is critical for our bilingual user base.
 
 ## 3. System Architecture
 
