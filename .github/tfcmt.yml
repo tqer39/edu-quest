@@ -46,7 +46,6 @@ ci:
 
     - when_plan_no_diff:
         color: '#28a745'
-        disable_label: true
         template: |
           ## Terraform `{{ .Command }}` ({{ .Vars.target }})
 
