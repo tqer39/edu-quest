@@ -578,3 +578,8 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform
 .wrangler/
 apps/edge/.wrangler/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
