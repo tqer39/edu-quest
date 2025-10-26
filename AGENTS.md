@@ -281,6 +281,58 @@ The workflow (`.github/workflows/codecov.yml`):
 - `CODECOV_TOKEN` secret must be configured in repository settings
 - Coverage comments appear automatically on pull requests
 
+#### Security Scanning
+
+The project uses **Trivy** for security scanning of Terraform infrastructure code:
+
+**Local Security Scans:**
+
+```bash
+# Scan all Terraform configurations
+mise exec trivy -- trivy config infra/terraform --severity CRITICAL,HIGH,MEDIUM
+
+# Scan with custom configuration
+trivy config infra/terraform
+```
+
+**CI/CD Integration:**
+
+Security scans run automatically on:
+
+- Pull requests that modify Terraform files
+- Push to `main` branch
+
+The workflow (`.github/workflows/trivy-terraform.yml`):
+
+1. Installs Trivy via mise
+2. Scans all Terraform configurations
+3. Uploads results to GitHub Security tab (SARIF format)
+4. Comments on PRs with scan results
+
+**Configuration:**
+
+- **`trivy.yaml`**: Project-level Trivy settings
+  - Severity levels: CRITICAL, HIGH, MEDIUM
+  - Scan types: config, secret
+  - Skip directories: .git, .terraform, node_modules
+- **`.trivyignore`**: Ignored security checks with justification
+
+**Pre-commit Hook:**
+
+Trivy security scan runs automatically before commits that modify Terraform files:
+
+```bash
+# Manual run
+pre-commit run trivy-terraform --all-files
+```
+
+**Important Notes:**
+
+- Trivy replaces the legacy tfsec tool (tfsec is now part of Trivy)
+- Scans detect misconfigurations, secrets, and security issues
+- Results are uploaded to GitHub Security for tracking
+- Use `.trivyignore` to suppress false positives with justification
+
 ### 4.4. UI/UX Guidelines
 
 #### Answer Input Method

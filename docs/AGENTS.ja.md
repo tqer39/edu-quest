@@ -490,6 +490,58 @@ open apps/edge/coverage/index.html
 - リポジトリ設定で `CODECOV_TOKEN` シークレットを設定する必要があります
 - カバレッジコメントはプルリクエストに自動的に表示されます
 
+#### セキュリティスキャン
+
+プロジェクトは **Trivy** を使用して Terraform インフラストラクチャコードのセキュリティスキャンを行います:
+
+**ローカルでのセキュリティスキャン:**
+
+```bash
+# すべての Terraform 設定をスキャン
+mise exec trivy -- trivy config infra/terraform --severity CRITICAL,HIGH,MEDIUM
+
+# カスタム設定でスキャン
+trivy config infra/terraform
+```
+
+**CI/CD 統合:**
+
+セキュリティスキャンは以下のタイミングで自動実行されます:
+
+- Terraform ファイルを変更したプルリクエスト
+- `main` ブランチへのプッシュ
+
+ワークフロー (`.github/workflows/trivy-terraform.yml`):
+
+1. mise 経由で Trivy をインストール
+2. すべての Terraform 設定をスキャン
+3. 結果を GitHub Security タブにアップロード (SARIF フォーマット)
+4. プルリクエストにスキャン結果をコメント
+
+**設定:**
+
+- **`trivy.yaml`**: プロジェクトレベルの Trivy 設定
+  - 重要度レベル: CRITICAL, HIGH, MEDIUM
+  - スキャンタイプ: config, secret
+  - スキップディレクトリ: .git, .terraform, node_modules
+- **`.trivyignore`**: 正当な理由で無視するセキュリティチェック
+
+**Pre-commit フック:**
+
+Terraform ファイルを変更するコミット前に自動的に Trivy セキュリティスキャンが実行されます:
+
+```bash
+# 手動実行
+pre-commit run trivy-terraform --all-files
+```
+
+**重要事項:**
+
+- Trivy は従来の tfsec ツールを置き換えます (tfsec は現在 Trivy の一部です)
+- スキャンは設定ミス、シークレット、セキュリティ問題を検出します
+- 結果は GitHub Security で追跡可能です
+- 誤検知を抑制するには `.trivyignore` を正当な理由とともに使用してください
+
 ## ビルド・デプロイフロー
 
 ### ビルド順序

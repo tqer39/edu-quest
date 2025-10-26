@@ -1,0 +1,6 @@
+# Trivy Ignore File
+# This file contains checks that are intentionally ignored
+# Format: <check-id> [expiry-date] [reason]
+# Example: AVD-AWS-0001 2024-12-31 # Temporary exemption for migration
+
+# Add ignored security checks here with justification

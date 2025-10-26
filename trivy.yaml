@@ -1,0 +1,64 @@
+---
+# Trivy Configuration
+# https://aquasecurity.github.io/trivy/latest/docs/configuration/
+
+# Scan settings
+scan:
+  # Security check types
+  security-checks:
+    - config
+    - secret
+
+# Vulnerability settings
+vulnerability:
+  type:
+    - os
+    - library
+
+# Misconfiguration settings
+misconfiguration:
+  # Scan policies
+  policy: []
+
+  # Include non-failures in the report
+  include-non-failures: false
+
+  # Trace configuration files
+  trace: false
+
+# Secret scanning settings
+secret:
+  # Secret scanning configuration file
+  config: ''
+
+# Severity levels to report
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+
+# Format settings
+format: table
+
+# Output settings
+output: ''
+
+# Exit code
+exit-code: 0
+
+# Timeout
+timeout: 5m
+
+# Cache settings
+cache:
+  # Cache directory
+  dir: ~/.cache/trivy
+
+# Skip directories
+skip-dirs:
+  - .git
+  - .terraform
+  - node_modules
+
+# Skip files
+skip-files: []
