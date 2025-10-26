@@ -120,8 +120,91 @@ The project is a monorepo managed with pnpm workspaces.
 - `just lint`: Runs all code quality checks.
 - `just fix`: Applies automatic formatting and fixes.
 - `pnpm dev:edge`: Starts the main application for local development.
+- `just e2e`: Runs E2E tests (requires dev server running).
+- `just e2e-ci`: Runs E2E tests with automatic server management.
 
-### 4.3. UI/UX Guidelines
+### 4.3. Testing
+
+#### Unit Tests
+
+The project uses **Vitest** for unit testing:
+
+```bash
+# Run all unit tests
+pnpm test
+
+# Run unit tests in watch mode
+pnpm test:watch
+
+# Generate coverage report
+pnpm test:coverage
+```
+
+#### E2E Tests
+
+The project uses **Cypress** for end-to-end testing to verify screen transitions and user flows.
+
+**Local Development:**
+
+```bash
+# 1. Start the Cloudflare Workers dev server in a separate terminal
+pnpm dev:edge
+
+# 2. Run E2E tests in headless mode
+just e2e
+
+# OR open Cypress test runner (interactive mode)
+just e2e-open
+```
+
+**Automatic Mode (CI or quick testing):**
+
+```bash
+# Automatically start dev server, run tests, and shut down
+just e2e-ci
+```
+
+**Important Notes:**
+
+- E2E tests **MUST** run against `@edu-quest/edge` (Cloudflare Workers), **NOT** `@edu-quest/web`
+- `@edu-quest/web` is a placeholder Node.js server without actual application routes
+- All application routes exist only in `@edu-quest/edge`
+- Always use `pnpm dev:edge` to start the server for E2E testing
+
+**CI/CD:**
+
+E2E tests run automatically on:
+
+- Push to `main` branch
+- Pull request creation/updates
+
+The CI workflow (`.github/workflows/e2e.yml`):
+
+1. Installs dependencies and builds required packages
+2. Starts the dev server in the background
+3. Runs all E2E tests
+4. Uploads screenshots and videos on failure
+
+**Viewing Test Results:**
+
+When tests fail in CI, screenshots are uploaded as GitHub Artifacts:
+
+1. Go to the failed workflow run
+2. Scroll to the bottom of the page
+3. Download the `cypress-screenshots` artifact
+4. Review the screenshots to diagnose the issue
+
+**Test Coverage:**
+
+Current E2E test coverage (16 tests):
+
+- Navigation flows (home → MathQuest → ClockQuest)
+- MathQuest configuration wizard
+- Page transitions and loading
+- Browser back button navigation
+- Legacy URL redirects
+
+### 4.4. UI/UX Guidelines
 
 #### Answer Input Method
 
