@@ -183,14 +183,21 @@ app.get('/kanji/start', async (c) => {
   // クイズセッションを開始（10問固定）
   const session = startKanjiQuizSession(grade, 10);
 
-  // セッション情報をクッキーに保存
-  const maxAge = 60 * 30; // 30分
+  // セッションIDを生成
+  const sessionId = crypto.randomUUID();
+
+  // KVにセッション情報を保存（30分TTL）
+  await c.env.KV_QUIZ_SESSION.put(
+    `kanji:${sessionId}`,
+    JSON.stringify(session),
+    { expirationTtl: 1800 }
+  );
+
+  // セッションIDのみをHttpOnly Cookieに保存
   const response = c.redirect('/kanji/quiz', 302);
   response.headers.append(
     'Set-Cookie',
-    `kanji_quiz_session=${encodeURIComponent(
-      JSON.stringify(session)
-    )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+    `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
   );
 
   return response;
@@ -199,16 +206,23 @@ app.get('/kanji/start', async (c) => {
 // KanjiQuest: クイズ画面（現在の問題を表示）
 app.get('/kanji/quiz', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
-  const sessionMatch = cookies.match(/kanji_quiz_session=([^;]+)/);
+  const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
 
   if (!sessionMatch) {
     return c.redirect('/kanji', 302);
   }
 
+  const sessionId = sessionMatch[1];
+
   try {
-    const session: KanjiQuizSession = JSON.parse(
-      decodeURIComponent(sessionMatch[1])
-    );
+    // KVからセッション情報を取得
+    const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
+
+    if (!sessionData) {
+      return c.redirect('/kanji', 302);
+    }
+
+    const session: KanjiQuizSession = JSON.parse(sessionData);
 
     if (!session.currentQuestion) {
       return c.redirect('/kanji', 302);
@@ -229,7 +243,7 @@ app.get('/kanji/quiz', async (c) => {
       }
     );
   } catch (error) {
-    console.error('Failed to parse kanji quiz session:', error);
+    console.error('Failed to load kanji quiz session:', error);
     return c.redirect('/kanji', 302);
   }
 });
@@ -237,18 +251,24 @@ app.get('/kanji/quiz', async (c) => {
 // KanjiQuest: 回答を送信
 app.post('/kanji/quiz', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
-  const sessionMatch = cookies.match(/kanji_quiz_session=([^;]+)/);
+  const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
 
   if (!sessionMatch) {
     return c.redirect('/kanji', 302);
   }
 
-  try {
-    const session: KanjiQuizSession = JSON.parse(
-      decodeURIComponent(sessionMatch[1])
-    );
-    const body = await c.req.parseBody();
+  const sessionId = sessionMatch[1];
 
+  try {
+    // KVからセッション情報を取得
+    const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
+
+    if (!sessionData) {
+      return c.redirect('/kanji', 302);
+    }
+
+    const session: KanjiQuizSession = JSON.parse(sessionData);
+    const body = await c.req.parseBody();
     const answer = String(body.answer);
 
     // 回答をチェック
@@ -258,32 +278,38 @@ app.post('/kanji/quiz', async (c) => {
     if (!result.nextSession) {
       const quizResult = getKanjiSessionResult(session);
 
-      // クッキーをクリア
+      // 結果用のセッションIDを生成してKVに保存
+      const resultId = crypto.randomUUID();
+      await c.env.KV_QUIZ_SESSION.put(
+        `kanji_result:${resultId}`,
+        JSON.stringify(quizResult),
+        { expirationTtl: 300 } // 5分
+      );
+
+      // クイズセッションを削除
+      await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
+
+      // 結果ページにリダイレクト
       const response = c.redirect('/kanji/results', 302);
       response.headers.append(
         'Set-Cookie',
-        `kanji_quiz_result=${encodeURIComponent(
-          JSON.stringify(quizResult)
-        )}; Path=/; Max-Age=300; SameSite=Lax; HttpOnly`
+        `kanji_result_id=${resultId}; Path=/; Max-Age=300; HttpOnly; SameSite=Lax`
       );
       response.headers.append(
         'Set-Cookie',
-        'kanji_quiz_session=; Path=/; Max-Age=0'
+        'kanji_session_id=; Path=/; Max-Age=0'
       );
       return response;
     }
 
-    // 次の問題へ
-    const maxAge = 60 * 30; // 30分
-    const response = c.redirect('/kanji/quiz', 302);
-    response.headers.append(
-      'Set-Cookie',
-      `kanji_quiz_session=${encodeURIComponent(
-        JSON.stringify(result.nextSession)
-      )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+    // 次の問題へ - KVのセッションを更新
+    await c.env.KV_QUIZ_SESSION.put(
+      `kanji:${sessionId}`,
+      JSON.stringify(result.nextSession),
+      { expirationTtl: 1800 }
     );
 
-    return response;
+    return c.redirect('/kanji/quiz', 302);
   } catch (error) {
     console.error('Failed to process kanji quiz answer:', error);
     return c.redirect('/kanji', 302);
@@ -293,31 +319,29 @@ app.post('/kanji/quiz', async (c) => {
 // KanjiQuest: 結果画面
 app.get('/kanji/results', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
-  const resultMatch = cookies.match(/kanji_quiz_result=([^;]+)/);
-  const sessionMatch = cookies.match(/kanji_quiz_session=([^;]+)/);
+  const resultMatch = cookies.match(/kanji_result_id=([^;]+)/);
 
-  if (!resultMatch && !sessionMatch) {
+  if (!resultMatch) {
     return c.redirect('/kanji', 302);
   }
 
-  try {
-    let result: ReturnType<typeof getKanjiSessionResult>;
-    let grade: number;
+  const resultId = resultMatch[1];
 
-    if (resultMatch) {
-      result = JSON.parse(decodeURIComponent(resultMatch[1]));
-      // 結果から学年を推測（クッキーに保存していない場合）
-      // TODO: 結果に学年情報も含めるように改善
-      grade = 1;
-    } else if (sessionMatch) {
-      const session: KanjiQuizSession = JSON.parse(
-        decodeURIComponent(sessionMatch[1])
-      );
-      result = getKanjiSessionResult(session);
-      grade = session.quiz.config.grade;
-    } else {
+  try {
+    // KVから結果情報を取得
+    const resultData = await c.env.KV_QUIZ_SESSION.get(
+      `kanji_result:${resultId}`
+    );
+
+    if (!resultData) {
       return c.redirect('/kanji', 302);
     }
+
+    const result: ReturnType<typeof getKanjiSessionResult> =
+      JSON.parse(resultData);
+
+    // TODO: 結果に学年情報も含めるように改善
+    const grade = 1;
 
     return c.render(
       <KanjiResults

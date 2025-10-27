@@ -63,7 +63,11 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
           {/* 選択肢 */}
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {question.choices.map((choice, index) => (
-              <form method="POST" key={`${choice}-${index}`}>
+              <form
+                method="POST"
+                action="/kanji/quiz"
+                key={`${choice}-${index}`}
+              >
                 <input type="hidden" name="answer" value={choice} />
                 <button
                   type="submit"

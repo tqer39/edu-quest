@@ -5,6 +5,7 @@ export type Env = {
   KV_AUTH_SESSION: KVNamespace;
   KV_RATE_LIMIT: KVNamespace;
   KV_IDEMPOTENCY: KVNamespace;
+  KV_QUIZ_SESSION: KVNamespace;
   DB: D1Database;
   ENVIRONMENT?: string;
   DEFAULT_LANG: string;
