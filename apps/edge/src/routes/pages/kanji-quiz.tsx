@@ -47,9 +47,10 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
       {/* クイズコンテンツ */}
       <div class="flex flex-col items-center gap-8">
         <div class="w-full max-w-2xl rounded-3xl border border-[var(--mq-outline)] bg-white p-8 shadow-xl">
-          <h2 class="mb-8 text-center text-2xl font-bold text-[var(--mq-ink)]">
-            {question.questionText}
-          </h2>
+          <h2
+            class="mb-8 text-center text-2xl font-bold text-[var(--mq-ink)]"
+            dangerouslySetInnerHTML={{ __html: question.questionText }}
+          />
 
           {/* 漢字表示 */}
           <div class="mb-8 flex justify-center">

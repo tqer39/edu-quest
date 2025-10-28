@@ -635,3 +635,188 @@ When implementing new Quest modules:
 - [ ] Never expose sensitive data to client
 
 **Note to AI Assistants:** When implementing Quest session management, ALWAYS use the KV + Session ID pattern (Pattern A). This is a non-negotiable security and architecture requirement. DO NOT implement client-side session management or store quiz data in cookies.
+
+## 8. Static Data Management Policy
+
+### 8.1. Kanji and Educational Content Data
+
+**EduQuest uses JSON files for educational master data (kanji, vocabulary, etc.) instead of database storage.**
+
+This is a deliberate architectural decision that prioritizes simplicity, performance, and maintainability.
+
+### 8.2. Current Approach: JSON Files in Domain Package
+
+**CRITICAL: Kanji master data MUST be stored as JSON files in `packages/domain/src/data/`.**
+
+**Implementation:**
+
+```typescript
+// packages/domain/src/data/kanji-grade-1.json
+[
+  {
+    "character": "一",
+    "grade": 1,
+    "strokeCount": 1,
+    "readings": {
+      "onyomi": ["イチ", "イツ"],
+      "kunyomi": ["ひと-", "ひと-つ"]
+    },
+    "meanings": ["one"],
+    "radicals": ["一"],
+    "examples": [...]
+  }
+]
+
+// packages/domain/src/kanji-quest.ts
+import kanjiGrade1Data from './data/kanji-grade-1.json';
+
+function loadKanjiDataByGrade(grade: KanjiGrade): Kanji[] {
+  switch (grade) {
+    case 1:
+      return kanjiGrade1Data as Kanji[];
+    case 2:
+      return kanjiGrade2Data as Kanji[];
+    // ...
+  }
+}
+```
+
+### 8.3. Rationale: Why JSON Files?
+
+**Benefits:**
+
+- ✅ **Simplicity**: Easy to manage and version control
+- ✅ **Performance**: Zero database queries, instant access
+- ✅ **Static Content**: Educational content rarely changes (based on Ministry of Education curriculum)
+- ✅ **Bundle Optimization**: Data automatically included in Worker bundle
+- ✅ **Version Control**: Full change history in Git
+- ✅ **Type Safety**: TypeScript interfaces validate data structure
+- ✅ **Local Development**: No database setup required
+- ✅ **Deployment**: Atomic deployments with code and data together
+
+**Trade-offs:**
+
+- ⚠️ **Update Friction**: Changes require code deployment (acceptable for stable educational content)
+- ⚠️ **Dynamic Updates**: Cannot modify content at runtime (not needed for curriculum-based data)
+
+### 8.4. When to Use Database Instead
+
+Consider migrating to database storage ONLY when implementing:
+
+**User-Generated Content:**
+
+- Custom kanji study sets created by teachers
+- User-specific flashcard collections
+- Personalized learning paths
+
+**Learning Analytics:**
+
+- Individual student progress tracking
+- Kanji mastery levels per user
+- Study history and statistics
+- Wrong answer analysis
+- Time-based performance metrics
+
+**Adaptive Learning:**
+
+- Spaced repetition scheduling
+- Difficulty adjustment per user
+- Personalized question generation based on weak areas
+
+**Content Management:**
+
+- Administrator dashboard for content editing
+- A/B testing of question variations
+- Dynamic content updates without deployment
+
+### 8.5. Hybrid Approach (Recommended Future Direction)
+
+**Master Data (Static):** JSON files in domain package
+
+- Kanji characters and metadata
+- Grade-level curriculum data
+- Official readings and meanings
+- Stroke count and radicals
+
+**User Data (Dynamic):** Database (D1) storage
+
+- Study progress per user
+- Correct/incorrect answer history
+- Last studied timestamps
+- Mastery levels
+- Custom study sets
+
+**Example Schema (Future):**
+
+```sql
+-- User learning progress
+CREATE TABLE kanji_progress (
+  user_id TEXT NOT NULL,
+  character TEXT NOT NULL,
+  grade INTEGER NOT NULL,
+  correct_count INTEGER DEFAULT 0,
+  incorrect_count INTEGER DEFAULT 0,
+  last_studied_at DATETIME,
+  mastery_level INTEGER DEFAULT 0,
+  PRIMARY KEY (user_id, character)
+);
+
+-- Custom study sets
+CREATE TABLE study_sets (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  name TEXT NOT NULL,
+  kanji_list TEXT NOT NULL, -- JSON array of characters
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 8.6. Implementation Guidelines
+
+**DO:**
+
+- ✅ Store curriculum-based educational content in JSON files
+- ✅ Use TypeScript interfaces to validate data structure
+- ✅ Organize data by grade level or logical categories
+- ✅ Include comprehensive metadata in JSON (readings, meanings, examples)
+- ✅ Version control all educational content
+- ✅ Document data sources (e.g., Ministry of Education standards)
+
+**DON'T:**
+
+- ❌ Store user-specific learning data in JSON files
+- ❌ Use JSON files for frequently changing content
+- ❌ Implement content management UI for JSON data
+- ❌ Store dynamic analytics or progress in static files
+- ❌ Mix master data with user data
+
+### 8.7. Migration Path
+
+When user progress tracking is needed:
+
+1. **Keep JSON master data** in `packages/domain/src/data/`
+2. **Add database schema** for user learning data
+3. **Create migration scripts** in `infra/migrations/`
+4. **Implement repository pattern** for data access
+5. **Join static and dynamic data** at query time
+
+**Example:**
+
+```typescript
+// Static data from JSON
+const kanji = loadKanjiDataByGrade(1);
+
+// Dynamic data from database
+const progress = await db
+  .select()
+  .from(kanjiProgress)
+  .where(eq(kanjiProgress.userId, userId));
+
+// Combine for personalized experience
+const personalizedKanji = kanji.map((k) => ({
+  ...k,
+  userProgress: progress.find((p) => p.character === k.character),
+}));
+```
+
+**Note to AI Assistants:** When implementing new Quest modules with educational content (vocabulary, grammar rules, etc.), ALWAYS start with JSON files for master data. Only consider database migration when implementing user-specific features like progress tracking or adaptive learning. This separation of concerns maintains simplicity while allowing future scalability.

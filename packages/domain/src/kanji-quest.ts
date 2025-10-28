@@ -126,6 +126,23 @@ function generateWrongReadings(
 }
 
 /**
+ * Format reading type name with ruby tags for lower grades
+ */
+function formatReadingTypeName(
+  readingType: 'onyomi' | 'kunyomi',
+  grade: KanjiGrade
+): string {
+  // 低学年（1-2年生）にはルビを振る
+  if (grade <= 2) {
+    return readingType === 'onyomi'
+      ? '<ruby>音読<rt>おんよ</rt></ruby>み'
+      : '<ruby>訓読<rt>くんよ</rt></ruby>み';
+  }
+  // 3年生以上はルビなし
+  return readingType === 'onyomi' ? '音読み' : '訓読み';
+}
+
+/**
  * Generate a Reading Quest question
  */
 export function generateReadingQuestion(
@@ -159,8 +176,9 @@ export function generateReadingQuestion(
   // Combine and shuffle choices
   const choices = shuffleArray([correctAnswer, ...wrongAnswers]);
 
-  // Generate question text
-  const readingTypeName = actualReadingType === 'onyomi' ? '音読み' : '訓読み';
+  // Generate question text with ruby tags for lower grades
+  const grade = kanji.grade as KanjiGrade;
+  const readingTypeName = formatReadingTypeName(actualReadingType, grade);
   const questionText = `「${kanji.character}」の${readingTypeName}は？`;
 
   return {
@@ -169,7 +187,7 @@ export function generateReadingQuestion(
     correctAnswer,
     choices,
     questType: 'reading',
-    grade: kanji.grade as KanjiGrade,
+    grade,
   };
 }
 
@@ -232,8 +250,11 @@ export function generateStrokeCountQuestion(
   // Combine and shuffle choices
   const choices = shuffleArray([correctAnswer, ...wrongAnswers]);
 
-  // Generate question text
-  const questionText = `「${kanji.character}」の画数は？`;
+  // Generate question text with ruby tags for lower grades
+  const grade = kanji.grade as KanjiGrade;
+  const strokeCountLabel =
+    grade <= 2 ? '<ruby>画数<rt>かくすう</rt></ruby>' : '画数';
+  const questionText = `「${kanji.character}」の${strokeCountLabel}は？`;
 
   return {
     character: kanji.character,
@@ -241,7 +262,7 @@ export function generateStrokeCountQuestion(
     correctAnswer,
     choices,
     questType: 'stroke-count',
-    grade: kanji.grade as KanjiGrade,
+    grade,
   };
 }
 
