@@ -42,7 +42,19 @@ app.use('*', prettyJSON());
 app.use('*', i18n());
 app.use('*', seoControl());
 
-// Avoid noisy errors for favicon requests during local dev
+// KanjiQuest favicon
+app.get('/favicon-kanji.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#9B87D4" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">漢</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// Default favicon (no content)
 app.get('/favicon.ico', (c) => c.body(null, 204));
 
 // Robots.txt - dev環境では全てのクローラーをブロック
@@ -115,20 +127,23 @@ app.get('/hello', (c) => c.text('Hello World'));
 // SSR renderer
 app.use(
   '*',
-  jsxRenderer<{ title?: string; description?: string }>((props, c) => {
-    const lang = c.get('lang') ?? 'ja';
-    const environment = c.env.ENVIRONMENT;
-    return (
-      <Document
-        lang={lang}
-        title={props.title}
-        description={props.description}
-        environment={environment}
-      >
-        {props.children}
-      </Document>
-    );
-  })
+  jsxRenderer<{ title?: string; description?: string; favicon?: string }>(
+    (props, c) => {
+      const lang = c.get('lang') ?? 'ja';
+      const environment = c.env.ENVIRONMENT;
+      return (
+        <Document
+          lang={lang}
+          title={props.title}
+          description={props.description}
+          favicon={props.favicon}
+          environment={environment}
+        >
+          {props.children}
+        </Document>
+      );
+    }
+  )
 );
 
 // Public top
@@ -166,6 +181,7 @@ app.get('/kanji', async (c) =>
     {
       title: 'KanjiQuest | 漢字の読み方をマスターしよう',
       description: '小学校で習う漢字の読み方を練習。楽しく漢字を覚えられます。',
+      favicon: '/favicon-kanji.svg',
     }
   )
 );
