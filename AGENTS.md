@@ -1,5 +1,3 @@
-# AGENTS.md (Master Document)
-
 ## 1. Overview
 
 This document provides a comprehensive guide for AI assistants (like Gemini, Claude, Copilot) to understand and contribute to the **EduQuest** project.

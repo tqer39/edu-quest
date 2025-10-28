@@ -7,21 +7,14 @@ if ! command -v rulesync >/dev/null 2>&1; then
   exit 0
 fi
 
-# Guard: 設定ファイルが無ければスキップ
-CONFIG=".rulesync.yaml"
-if [ ! -f "$CONFIG" ]; then
-  CONFIG=".rulesync.yml"
-fi
-if [ ! -f "$CONFIG" ]; then
-  echo "No .rulesync.yaml found; skipping update."
+# Guard: .rulesync ディレクトリが無ければスキップ
+if [ ! -d ".rulesync" ]; then
+  echo "No .rulesync directory found; skipping update."
   exit 0
 fi
 
-# Guard: 雛形のままならスキップ（例の文字列に依存）
-if grep -q "your-org/your-rules-repo" "$CONFIG"; then
-  echo "rulesync config looks like a placeholder; skipping update."
-  exit 0
-fi
+# Generate AI assistant configurations from .rulesync/rules/
+echo "Generating AI assistant configurations..."
+rulesync generate --targets copilot,cursor,cline --features rules
 
-# Apply 実行
-exec rulesync apply
+echo "✓ AI assistant configurations updated"
