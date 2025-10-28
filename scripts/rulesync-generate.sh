@@ -1,41 +1,24 @@
 #!/usr/bin/env bash
+#
+# Generate AI assistant configuration files from .rulesync/rules/
+#
+# This script generates configuration files for:
+# - GitHub Copilot (.github/copilot-instructions.md)
+# - Cursor (.cursorrules)
+# - Cline/Claude Code (via .claude/)
+#
+
 set -euo pipefail
 
-# Generate AI assistant config files from a single source of truth.
-# Source: AGENTS.md
+# Change to project root
+cd "$(dirname "$0")/.."
 
-ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-SRC_FILE="$ROOT_DIR/AGENTS.md"
+echo "Generating AI assistant configurations from AGENTS.md..."
 
-if [ ! -f "$SRC_FILE" ]; then
-  echo "Source file not found: $SRC_FILE" >&2
-  exit 1
-fi
+# Generate for all supported tools
+rulesync generate --targets copilot,cursor,cline --features rules
 
-mkdir -p "$ROOT_DIR/.github"
-
-# Cursor
-{
-  echo "# Cursor Rules"
-  echo
-  tail -n +2 "$SRC_FILE"
-} > "$ROOT_DIR/.cursorrules"
-
-# GitHub Copilot
-{
-  echo "# Copilot Workspace / Chat Instructions"
-  echo
-  tail -n +2 "$SRC_FILE"
-} > "$ROOT_DIR/.github/copilot-instructions.md"
-
-# Claude Code / Dev
-{
-  echo "# Claude Project Instructions"
-  echo
-  tail -n +2 "$SRC_FILE"
-} > "$ROOT_DIR/CLAUDE.md"
-
-echo "Generated:"
-echo " - .cursorrules"
-echo " - .github/copilot-instructions.md"
-echo " - CLAUDE.md"
+echo "✓ Generated configuration files:"
+echo "  - .github/copilot-instructions.md (GitHub Copilot)"
+echo "  - .cursor/rules/agents.mdc (Cursor)"
+echo "  - Claude Code uses CLAUDE.md directly"
