@@ -426,6 +426,9 @@ export type {
 // ClockQuest exports
 export * from './clock-quest';
 
+// KanjiQuest exports
+export * from './kanji-quest';
+
 export const generateInverseQuestion = (
   max: number,
   terms?: 2 | 3 | null

@@ -154,14 +154,14 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
       <QuestCard
         title="KanjiQuest"
         description="小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。"
-        icon="📝"
+        icon="✏️"
         href="/kanji"
-        available={false}
+        available={true}
         themeColor={{
-          primary: '#9B7EC8',
-          primaryStrong: '#7B5DB8',
-          primarySoft: '#E5DDF5',
-          outline: 'rgba(155, 126, 200, 0.45)',
+          primary: '#9B87D4',
+          primaryStrong: '#7B5FBD',
+          primarySoft: '#E8E1F5',
+          outline: 'rgba(155, 135, 212, 0.45)',
         }}
       />
       <QuestCard

@@ -30,6 +30,11 @@ binding = "KV_IDEMPOTENCY"
 id = "kv_idempotency_id"
 preview_id = "kv_idempotency_preview"
 
+[[kv_namespaces]]
+binding = "KV_QUIZ_SESSION"
+id = "kv_quiz_session_id"
+preview_id = "kv_quiz_session_preview"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "edu-quest-local"

@@ -240,6 +240,18 @@ class KanjiAnswerVerifier {
 }
 ```
 
+**Session Storage Strategy:**
+
+KanjiQuest uses **Cloudflare KV** for server-side session management:
+
+- Session data is stored in `KV_QUIZ_SESSION` with key pattern `kanji:{sessionId}`
+- Only session ID is stored in HttpOnly cookie (`kanji_session_id`)
+- Active session TTL: 1800 seconds (30 minutes)
+- Result session TTL: 300 seconds (5 minutes)
+- Session is deleted from KV when quiz completes
+
+This approach provides security (XSS/CSRF protection) and scalability (distributed KV storage). See [AGENTS.md Section 7](../AGENTS.md#7-session-management-policy) for detailed guidelines.
+
 ### Edge Layer (`@edu-quest/edge`)
 
 ```typescript

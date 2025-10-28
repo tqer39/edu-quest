@@ -1,0 +1,342 @@
+[
+  {
+    "character": "一",
+    "grade": 1,
+    "strokeCount": 1,
+    "readings": {
+      "onyomi": ["イチ", "イツ"],
+      "kunyomi": ["ひと", "ひと-つ"]
+    },
+    "meanings": ["one"],
+    "radicals": ["一"],
+    "examples": [
+      { "word": "一つ", "reading": "ひとつ", "meaning": "one (thing)" },
+      { "word": "一人", "reading": "ひとり", "meaning": "one person" },
+      { "word": "一日", "reading": "いちにち", "meaning": "one day" }
+    ]
+  },
+  {
+    "character": "二",
+    "grade": 1,
+    "strokeCount": 2,
+    "readings": {
+      "onyomi": ["ニ"],
+      "kunyomi": ["ふた", "ふた-つ"]
+    },
+    "meanings": ["two"],
+    "radicals": ["二"],
+    "examples": [
+      { "word": "二つ", "reading": "ふたつ", "meaning": "two (things)" },
+      { "word": "二人", "reading": "ふたり", "meaning": "two people" },
+      { "word": "二日", "reading": "ふつか", "meaning": "two days, 2nd day" }
+    ]
+  },
+  {
+    "character": "三",
+    "grade": 1,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["サン"],
+      "kunyomi": ["み", "み-つ", "みっ-つ"]
+    },
+    "meanings": ["three"],
+    "radicals": ["一"],
+    "examples": [
+      { "word": "三つ", "reading": "みっつ", "meaning": "three (things)" },
+      { "word": "三人", "reading": "さんにん", "meaning": "three people" },
+      { "word": "三日", "reading": "みっか", "meaning": "three days, 3rd day" }
+    ]
+  },
+  {
+    "character": "四",
+    "grade": 1,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["よ", "よ-つ", "よっ-つ", "よん"]
+    },
+    "meanings": ["four"],
+    "radicals": ["囗"],
+    "examples": [
+      { "word": "四つ", "reading": "よっつ", "meaning": "four (things)" },
+      { "word": "四人", "reading": "よにん", "meaning": "four people" },
+      { "word": "四日", "reading": "よっか", "meaning": "four days, 4th day" }
+    ]
+  },
+  {
+    "character": "五",
+    "grade": 1,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ゴ"],
+      "kunyomi": ["いつ", "いつ-つ"]
+    },
+    "meanings": ["five"],
+    "radicals": ["二"],
+    "examples": [
+      { "word": "五つ", "reading": "いつつ", "meaning": "five (things)" },
+      { "word": "五人", "reading": "ごにん", "meaning": "five people" },
+      { "word": "五日", "reading": "いつか", "meaning": "five days, 5th day" }
+    ]
+  },
+  {
+    "character": "六",
+    "grade": 1,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ロク"],
+      "kunyomi": ["む", "む-つ", "むっ-つ", "むい"]
+    },
+    "meanings": ["six"],
+    "radicals": ["八"],
+    "examples": [
+      { "word": "六つ", "reading": "むっつ", "meaning": "six (things)" },
+      { "word": "六人", "reading": "ろくにん", "meaning": "six people" },
+      { "word": "六日", "reading": "むいか", "meaning": "six days, 6th day" }
+    ]
+  },
+  {
+    "character": "七",
+    "grade": 1,
+    "strokeCount": 2,
+    "readings": {
+      "onyomi": ["シチ"],
+      "kunyomi": ["なな", "なな-つ", "なの"]
+    },
+    "meanings": ["seven"],
+    "radicals": ["一"],
+    "examples": [
+      { "word": "七つ", "reading": "ななつ", "meaning": "seven (things)" },
+      { "word": "七人", "reading": "しちにん", "meaning": "seven people" },
+      { "word": "七日", "reading": "なのか", "meaning": "seven days, 7th day" }
+    ]
+  },
+  {
+    "character": "八",
+    "grade": 1,
+    "strokeCount": 2,
+    "readings": {
+      "onyomi": ["ハチ"],
+      "kunyomi": ["や", "や-つ", "やっ-つ", "よう"]
+    },
+    "meanings": ["eight"],
+    "radicals": ["八"],
+    "examples": [
+      { "word": "八つ", "reading": "やっつ", "meaning": "eight (things)" },
+      { "word": "八人", "reading": "はちにん", "meaning": "eight people" },
+      { "word": "八日", "reading": "ようか", "meaning": "eight days, 8th day" }
+    ]
+  },
+  {
+    "character": "九",
+    "grade": 1,
+    "strokeCount": 2,
+    "readings": {
+      "onyomi": ["キュウ", "ク"],
+      "kunyomi": ["ここの", "ここの-つ"]
+    },
+    "meanings": ["nine"],
+    "radicals": ["乙"],
+    "examples": [
+      { "word": "九つ", "reading": "ここのつ", "meaning": "nine (things)" },
+      { "word": "九人", "reading": "きゅうにん", "meaning": "nine people" },
+      { "word": "九日", "reading": "ここのか", "meaning": "nine days, 9th day" }
+    ]
+  },
+  {
+    "character": "十",
+    "grade": 1,
+    "strokeCount": 2,
+    "readings": {
+      "onyomi": ["ジュウ", "ジッ"],
+      "kunyomi": ["とお", "と"]
+    },
+    "meanings": ["ten"],
+    "radicals": ["十"],
+    "examples": [
+      { "word": "十", "reading": "じゅう", "meaning": "ten" },
+      { "word": "十人", "reading": "じゅうにん", "meaning": "ten people" },
+      { "word": "十日", "reading": "とおか", "meaning": "ten days, 10th day" }
+    ]
+  },
+  {
+    "character": "百",
+    "grade": 1,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ヒャク"],
+      "kunyomi": ["もも"]
+    },
+    "meanings": ["hundred"],
+    "radicals": ["白"],
+    "examples": [
+      { "word": "百", "reading": "ひゃく", "meaning": "hundred" },
+      { "word": "二百", "reading": "にひゃく", "meaning": "two hundred" },
+      { "word": "百円", "reading": "ひゃくえん", "meaning": "100 yen" }
+    ]
+  },
+  {
+    "character": "千",
+    "grade": 1,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["セン"],
+      "kunyomi": ["ち"]
+    },
+    "meanings": ["thousand"],
+    "radicals": ["十"],
+    "examples": [
+      { "word": "千", "reading": "せん", "meaning": "thousand" },
+      { "word": "二千", "reading": "にせん", "meaning": "two thousand" },
+      { "word": "千円", "reading": "せんえん", "meaning": "1000 yen" }
+    ]
+  },
+  {
+    "character": "上",
+    "grade": 1,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["ジョウ", "ショウ"],
+      "kunyomi": ["うえ", "うわ", "かみ", "あ-げる", "あ-がる", "のぼ-る"]
+    },
+    "meanings": ["above", "up", "upper"],
+    "radicals": ["一"],
+    "examples": [
+      { "word": "上", "reading": "うえ", "meaning": "above, up" },
+      { "word": "上手", "reading": "じょうず", "meaning": "skillful" },
+      { "word": "上がる", "reading": "あがる", "meaning": "to rise, to go up" }
+    ]
+  },
+  {
+    "character": "下",
+    "grade": 1,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["カ", "ゲ"],
+      "kunyomi": [
+        "した",
+        "しも",
+        "もと",
+        "さ-げる",
+        "さ-がる",
+        "くだ-る",
+        "お-りる"
+      ]
+    },
+    "meanings": ["below", "down", "under"],
+    "radicals": ["一"],
+    "examples": [
+      { "word": "下", "reading": "した", "meaning": "below, down" },
+      { "word": "下手", "reading": "へた", "meaning": "unskillful" },
+      {
+        "word": "下がる",
+        "reading": "さがる",
+        "meaning": "to hang down, to fall"
+      }
+    ]
+  },
+  {
+    "character": "左",
+    "grade": 1,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["サ"],
+      "kunyomi": ["ひだり"]
+    },
+    "meanings": ["left"],
+    "radicals": ["工"],
+    "examples": [
+      { "word": "左", "reading": "ひだり", "meaning": "left" },
+      { "word": "左手", "reading": "ひだりて", "meaning": "left hand" },
+      { "word": "左右", "reading": "さゆう", "meaning": "left and right" }
+    ]
+  },
+  {
+    "character": "右",
+    "grade": 1,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ウ", "ユウ"],
+      "kunyomi": ["みぎ"]
+    },
+    "meanings": ["right"],
+    "radicals": ["口"],
+    "examples": [
+      { "word": "右", "reading": "みぎ", "meaning": "right" },
+      { "word": "右手", "reading": "みぎて", "meaning": "right hand" },
+      { "word": "左右", "reading": "さゆう", "meaning": "left and right" }
+    ]
+  },
+  {
+    "character": "大",
+    "grade": 1,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["ダイ", "タイ"],
+      "kunyomi": ["おお", "おお-きい", "おお-いに"]
+    },
+    "meanings": ["big", "large"],
+    "radicals": ["大"],
+    "examples": [
+      { "word": "大きい", "reading": "おおきい", "meaning": "big, large" },
+      { "word": "大人", "reading": "おとな", "meaning": "adult" },
+      { "word": "大学", "reading": "だいがく", "meaning": "university" }
+    ]
+  },
+  {
+    "character": "小",
+    "grade": 1,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["ショウ"],
+      "kunyomi": ["ちい-さい", "こ", "お"]
+    },
+    "meanings": ["small", "little"],
+    "radicals": ["小"],
+    "examples": [
+      { "word": "小さい", "reading": "ちいさい", "meaning": "small, little" },
+      {
+        "word": "小学校",
+        "reading": "しょうがっこう",
+        "meaning": "elementary school"
+      },
+      { "word": "小鳥", "reading": "ことり", "meaning": "small bird" }
+    ]
+  },
+  {
+    "character": "中",
+    "grade": 1,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["チュウ"],
+      "kunyomi": ["なか", "うち"]
+    },
+    "meanings": ["middle", "inside", "center"],
+    "radicals": ["丨"],
+    "examples": [
+      { "word": "中", "reading": "なか", "meaning": "inside, middle" },
+      {
+        "word": "中学校",
+        "reading": "ちゅうがっこう",
+        "meaning": "junior high school"
+      },
+      { "word": "中心", "reading": "ちゅうしん", "meaning": "center" }
+    ]
+  },
+  {
+    "character": "日",
+    "grade": 1,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ニチ", "ジツ"],
+      "kunyomi": ["ひ", "か"]
+    },
+    "meanings": ["day", "sun"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "日", "reading": "ひ", "meaning": "day, sun" },
+      { "word": "今日", "reading": "きょう", "meaning": "today" },
+      { "word": "日本", "reading": "にほん", "meaning": "Japan" }
+    ]
+  }
+]
