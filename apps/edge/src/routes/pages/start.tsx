@@ -93,8 +93,8 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
             </p>
           </div>
           <div class="grid gap-3 sm:grid-cols-3 xl:grid-cols-6">
-            {gradeLevels.map((preset, index) => {
-              const isDisabled = index >= 2;
+            {gradeLevels.map((preset) => {
+              const isDisabled = preset.disabled;
               return (
                 <button
                   key={preset.id}

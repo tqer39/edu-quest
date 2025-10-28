@@ -6,31 +6,37 @@ export const gradeLevels = [
     id: 'grade-1',
     label: '小1',
     description: '小学1年生',
+    disabled: false,
   },
   {
     id: 'grade-2',
     label: '小2',
     description: '小学2年生',
+    disabled: false,
   },
   {
     id: 'grade-3',
     label: '小3',
     description: '小学3年生',
+    disabled: true,
   },
   {
     id: 'grade-4',
     label: '小4',
     description: '小学4年生',
+    disabled: true,
   },
   {
     id: 'grade-5',
     label: '小5',
     description: '小学5年生',
+    disabled: true,
   },
   {
     id: 'grade-6',
     label: '小6',
     description: '小学6年生',
+    disabled: true,
   },
 ] as const;
 
