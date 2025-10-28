@@ -28,6 +28,6 @@
     "@biomejs/biome": "2.3.1",
     "@types/node": "22.18.12",
     "cypress": "15.5.0",
-    "wrangler": "4.45.0"
+    "wrangler": "4.45.1"
   }
 }
