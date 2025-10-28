@@ -85,7 +85,10 @@ describe('generateReadingQuestion', () => {
     expect(question.character).toBe('一');
     expect(question.questType).toBe('reading');
     expect(question.grade).toBe(1);
-    expect(question.questionText).toMatch(/^「一」の(音読み|訓読み)は？$/);
+    // Grade 1-2 kanji should have ruby tags
+    expect(question.questionText).toMatch(
+      /^「一」の(<ruby>音読<rt>おんよ<\/rt><\/ruby>み|<ruby>訓読<rt>くんよ<\/rt><\/ruby>み)は？$/
+    );
     expect(question.choices).toHaveLength(4);
     expect(question.choices).toContain(question.correctAnswer);
 
@@ -98,7 +101,10 @@ describe('generateReadingQuestion', () => {
     const kanji = sampleKanji[0];
     const question = generateReadingQuestion(kanji, sampleKanji, 'onyomi');
 
-    expect(question.questionText).toBe('「一」の音読みは？');
+    // Grade 1 should have ruby tags
+    expect(question.questionText).toBe(
+      '「一」の<ruby>音読<rt>おんよ</rt></ruby>みは？'
+    );
     expect(kanji.readings.onyomi).toContain(question.correctAnswer);
   });
 
@@ -106,7 +112,10 @@ describe('generateReadingQuestion', () => {
     const kanji = sampleKanji[0];
     const question = generateReadingQuestion(kanji, sampleKanji, 'kunyomi');
 
-    expect(question.questionText).toBe('「一」の訓読みは？');
+    // Grade 1 should have ruby tags
+    expect(question.questionText).toBe(
+      '「一」の<ruby>訓読<rt>くんよ</rt></ruby>みは？'
+    );
     expect(kanji.readings.kunyomi).toContain(question.correctAnswer);
   });
 
@@ -118,9 +127,10 @@ describe('generateReadingQuestion', () => {
     // Run multiple times to get both types
     for (let i = 0; i < 50; i++) {
       const question = generateReadingQuestion(kanji, sampleKanji, 'both');
-      if (question.questionText.includes('音読み')) {
+      // Check for either plain text or ruby tags
+      if (question.questionText.includes('音読')) {
         onyomiQuestions.push(i);
-      } else if (question.questionText.includes('訓読み')) {
+      } else if (question.questionText.includes('訓読')) {
         kunyomiQuestions.push(i);
       }
     }
@@ -187,7 +197,10 @@ describe('generateKanjiQuestions', () => {
 
     questions.forEach((q) => {
       expect(q.questType).toBe('reading');
-      expect(q.questionText).toMatch(/^「.」の(音読み|訓読み)は？$/);
+      // Grade 1-2 kanji should have ruby tags
+      expect(q.questionText).toMatch(
+        /^「.」の(<ruby>音読<rt>おんよ<\/rt><\/ruby>み|<ruby>訓読<rt>くんよ<\/rt><\/ruby>み)は？$/
+      );
     });
   });
 
@@ -201,7 +214,8 @@ describe('generateKanjiQuestions', () => {
     const questions = generateKanjiQuestions(config);
 
     questions.forEach((q) => {
-      expect(q.questionText).toContain('音読み');
+      // Check for "音読" which appears in both plain text and ruby tags
+      expect(q.questionText).toContain('音読');
     });
   });
 

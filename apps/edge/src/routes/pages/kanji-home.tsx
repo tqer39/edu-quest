@@ -27,6 +27,7 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({
 
 type GradeCardProps = {
   grade: KanjiGrade;
+  disabled?: boolean;
 };
 
 const getGradeDescription = (grade: KanjiGrade): string => {
@@ -41,13 +42,26 @@ const getGradeDescription = (grade: KanjiGrade): string => {
   return descriptions[grade];
 };
 
-const GradeCard: FC<GradeCardProps> = ({ grade }) => {
+const GradeCard: FC<GradeCardProps> = ({ grade, disabled = false }) => {
   const description = getGradeDescription(grade);
   const stars = '★'.repeat(grade);
 
+  if (disabled) {
+    return (
+      <div class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-lg opacity-50 cursor-not-allowed">
+        <div class="text-2xl font-bold text-gray-500">{grade}年生</div>
+        <div class="text-lg text-gray-400">{stars}</div>
+        <div class="text-sm text-gray-400">{description}</div>
+        <div class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-500">
+          🔒 準備中
+        </div>
+      </div>
+    );
+  }
+
   return (
     <a
-      href={`/kanji/start?grade=${grade}`}
+      href={`/kanji/select?grade=${grade}`}
       class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
     >
       <div class="text-2xl font-bold text-[var(--mq-ink)]">{grade}年生</div>
@@ -87,7 +101,7 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
         </h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {grades.map((grade) => (
-            <GradeCard key={grade} grade={grade} />
+            <GradeCard key={grade} grade={grade} disabled={grade > 2} />
           ))}
         </div>
       </section>
