@@ -48,6 +48,7 @@ graph TB
 
     subgraph "Cloudflare Edge"
         EdgeApp[Edge App<br/>Hono SSR]
+        KV_Quiz[KV: Quiz Session]
         KV_Session[KV: Auth Session]
         KV_Trial[KV: Free Trial]
         KV_Rate[KV: Rate Limit]
@@ -82,6 +83,7 @@ graph TB
     UseCases --> AppLogic
     UseCases --> Session
     AppLogic --> DomainLogic
+    EdgeApp --> KV_Quiz
     EdgeApp --> KV_Session
     EdgeApp --> KV_Trial
     EdgeApp --> KV_Rate
@@ -667,6 +669,271 @@ sequenceDiagram
 - **Rate Limiting**: KV_RATE_LIMITによる制限
 - **Idempotency**: KV_IDEMPOTENCYによる重複リクエスト防止
 - **Session Management**: KV_AUTH_SESSIONによる認証管理
+
+## セッション管理ポリシー
+
+### 7.1. セッション管理アーキテクチャ
+
+**EduQuest は全ての Quest モジュールで、セキュアなサーバーサイドセッション管理のために Cloudflare KV (Key-Value) ストレージを使用します。**
+
+### 7.2. 推奨アプローチ: KV + セッション ID（パターンA）
+
+**重要: すべてのクイズ/Quest セッションデータは、セッション ID ベースのアクセスで Cloudflare KV に保存する必要があります。**
+
+**理由:**
+
+1. **セキュリティ**
+
+   - セッション ID のみを HttpOnly Cookie に保存（JavaScript からアクセス不可）
+   - 実際のセッションデータはサーバーサイド（KV）に保存
+   - XSS 攻撃からセッションデータを保護
+   - CSRF 対策として SameSite Cookie 属性を使用
+
+2. **スケーラビリティ**
+
+   - Cloudflare KV は分散ストレージで、複数の Worker インスタンス間でシームレスに機能
+   - セッションデータサイズに制約なし（Cookie の 4KB 制限を回避）
+   - 自動的な地理的分散によるグローバルアクセス
+
+3. **保守性**
+   - セッション構造を変更しても、Cookie 形式の変更は不要
+   - サーバーサイドのみで TTL（有効期限）を管理
+   - セッションの自動クリーンアップ（KV の TTL 機能による）
+
+**実装例:**
+
+```typescript
+// セッション開始
+const sessionId = crypto.randomUUID();
+await c.env.KV_QUIZ_SESSION.put(
+  `kanji:${sessionId}`,
+  JSON.stringify(sessionData),
+  { expirationTtl: 1800 } // 30分
+);
+
+// HttpOnly Cookie にセッション ID のみを設定
+response.headers.append(
+  'Set-Cookie',
+  `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
+);
+```
+
+### 7.3. なぜ KV ストレージなのか？
+
+| 機能                         | メリット                                                   |
+| ---------------------------- | ---------------------------------------------------------- |
+| **HttpOnly Cookie**          | JavaScript からのアクセスを防止、XSS 攻撃対策              |
+| **SameSite 属性**            | CSRF 攻撃を防止（`SameSite=Lax` または `Strict`）          |
+| **サーバーサイドストレージ** | 機密データ（正解、スコア）がクライアントに公開されない     |
+| **自動 TTL**                 | セッションが自動的に期限切れになり、手動クリーンアップ不要 |
+| **分散 KV**                  | Worker のどのインスタンスからもアクセス可能                |
+| **容量無制限**               | Cookie サイズ制限（4KB）を回避                             |
+
+### 7.4. 利用可能なセッションストア
+
+EduQuest で使用する KV ネームスペースは以下の通りです：
+
+| KV ネームスペース | 用途                          | キーのプレフィックス例      | TTL の推奨値      |
+| ----------------- | ----------------------------- | --------------------------- | ----------------- |
+| `KV_QUIZ_SESSION` | クイズ/Quest セッションデータ | `kanji:`, `math:`, `clock:` | 1800秒（30分）    |
+| `KV_AUTH_SESSION` | ユーザー認証セッション        | `auth:`                     | 604800秒（7日間） |
+| `KV_FREE_TRIAL`   | フリートライアル追跡          | `trial:`                    | カスタム          |
+| `KV_RATE_LIMIT`   | API レート制限                | `rate:`                     | 60秒              |
+| `KV_IDEMPOTENCY`  | 冪等性キー管理                | `idempotency:`              | 86400秒（24時間） |
+
+### 7.5. セッションキーの命名規則
+
+各 Quest モジュールは、KV キーに一貫した命名パターンを使用する必要があります：
+
+```typescript
+// パターン: {quest_type}:{session_id}
+`kanji:${sessionId}` // KanjiQuest アクティブセッション
+`kanji_result:${resultId}` // KanjiQuest 結果（短命）
+`math:${sessionId}` // MathQuest アクティブセッション
+`clock:${sessionId}`; // ClockQuest アクティブセッション
+```
+
+**命名のベストプラクティス:**
+
+- Quest タイプをプレフィックスとして使用（`kanji:`、`math:`、`clock:`）
+- 結果保存用には `_result` サフィックスを使用
+- UUID v4（`crypto.randomUUID()`）をセッション ID として使用
+- コロン（`:`）をセパレータとして使用（KV のクエリパターンに対応）
+
+### 7.6. Cookie の命名規則
+
+セッション ID を保存する Cookie は以下のパターンに従います：
+
+```typescript
+`{quest_type}_session_id` // アクティブセッション
+`{quest_type}_result_id`; // 結果セッション
+```
+
+**例:**
+
+- `kanji_session_id` - KanjiQuest のアクティブセッション
+- `kanji_result_id` - KanjiQuest の結果セッション
+- `math_session_id` - MathQuest のアクティブセッション
+
+### 7.7. セッションライフサイクル
+
+**完全な実装例（KanjiQuest を例として）:**
+
+```typescript
+// 1. セッション開始 (/kanji/start)
+app.get('/kanji/start', async (c) => {
+  const grade = Number(c.req.query('grade'));
+
+  // ドメインロジックを使用してセッションを初期化
+  const session = startKanjiQuizSession(grade, 10);
+
+  // UUID セッション ID を生成
+  const sessionId = crypto.randomUUID();
+
+  // KV にセッションを保存（30分 TTL）
+  await c.env.KV_QUIZ_SESSION.put(
+    `kanji:${sessionId}`,
+    JSON.stringify(session),
+    { expirationTtl: 1800 }
+  );
+
+  // HttpOnly Cookie にセッション ID のみを設定
+  const response = c.redirect('/kanji/quiz', 302);
+  response.headers.append(
+    'Set-Cookie',
+    `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
+  );
+
+  return response;
+});
+
+// 2. セッション取得（/kanji/quiz GET）
+app.get('/kanji/quiz', async (c) => {
+  // Cookie からセッション ID を取得
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
+
+  if (!sessionMatch) {
+    return c.redirect('/kanji', 302);
+  }
+
+  const sessionId = sessionMatch[1];
+
+  // KV からセッションデータを取得
+  const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
+
+  if (!sessionData) {
+    return c.redirect('/kanji', 302);
+  }
+
+  const session: KanjiQuizSession = JSON.parse(sessionData);
+
+  // セッションデータを使用して UI をレンダリング
+  return c.render(<KanjiQuiz session={session} />);
+});
+
+// 3. セッション更新（/kanji/quiz POST）
+app.post('/kanji/quiz', async (c) => {
+  const sessionId = getSessionIdFromCookie(c);
+  const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
+  const session = JSON.parse(sessionData);
+
+  // ユーザーの回答を処理
+  const body = await c.req.parseBody();
+  const result = submitKanjiQuizAnswer(session, String(body.answer));
+
+  if (result.nextSession) {
+    // 次の問題へ - KV のセッションを更新
+    await c.env.KV_QUIZ_SESSION.put(
+      `kanji:${sessionId}`,
+      JSON.stringify(result.nextSession),
+      { expirationTtl: 1800 }
+    );
+    return c.redirect('/kanji/quiz', 302);
+  } else {
+    // クイズ完了 - 結果を保存してセッションをクリーンアップ
+    const resultId = crypto.randomUUID();
+    await c.env.KV_QUIZ_SESSION.put(
+      `kanji_result:${resultId}`,
+      JSON.stringify(result),
+      { expirationTtl: 300 } // 5分（短命）
+    );
+
+    // アクティブセッションを削除
+    await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
+
+    const response = c.redirect('/kanji/results', 302);
+    response.headers.append(
+      'Set-Cookie',
+      `kanji_result_id=${resultId}; Path=/; Max-Age=300; HttpOnly; SameSite=Lax`
+    );
+    response.headers.append(
+      'Set-Cookie',
+      'kanji_session_id=; Path=/; Max-Age=0' // 古いセッション Cookie をクリア
+    );
+    return response;
+  }
+});
+
+// 4. セッション削除（クイズ完了時）
+// 上記のステップ3を参照
+```
+
+### 7.8. 代替パターン（非推奨）
+
+#### パターンB: JWT トークン
+
+- ❌ トークンサイズが大きい（Base64 エンコードされた JSON）
+- ❌ 秘密鍵の管理が必要
+- ❌ トークンの無効化が困難（ブラックリストが必要）
+- ✅ ステートレス（KV ルックアップ不要）
+
+#### パターンC: 署名付き Cookie
+
+- ❌ Cookie サイズ制限（4KB）
+- ❌ すべてのリクエストでデータを送信（帯域幅の無駄）
+- ❌ 構造変更が困難（Cookie 形式の変更が必要）
+- ✅ KV ルックアップ不要
+
+#### パターンD: クライアントサイドのみ（LocalStorage）
+
+- ❌ **絶対に使用しない** - セキュリティリスク大
+- ❌ JavaScript からアクセス可能（XSS 脆弱性）
+- ❌ サーバーサイドの検証なし
+- ❌ チート可能（ユーザーがスコアや正解を改ざん可能）
+
+**結論: パターンA（KV + セッション ID）のみを使用してください。**
+
+### 7.9. ローカル開発
+
+Wrangler dev サーバーは自動的にすべての KV ネームスペースのプレビュー版を提供します：
+
+```bash
+pnpm dev:edge
+# → wrangler.toml の preview_id を使用
+```
+
+**wrangler.toml 設定例:**
+
+```toml
+[[kv_namespaces]]
+binding = "KV_QUIZ_SESSION"
+id = "kv_quiz_session_id"           # 本番環境
+preview_id = "kv_quiz_session_preview"  # 開発環境
+```
+
+### 7.10. 実装チェックリスト
+
+新しい Quest モジュールを実装する際は、以下を確認してください：
+
+- [ ] `wrangler.toml` に KV ネームスペースが追加されている
+- [ ] `Env` 型に KV バインディングが追加されている
+- [ ] セッション ID に `crypto.randomUUID()` を使用
+- [ ] 適切な TTL でセッションデータを保存（アクティブセッション: 1800秒、結果: 300秒）
+- [ ] HttpOnly、Secure、SameSite 属性付きの Cookie を使用
+- [ ] 命名規則に従う（`{quest}:{id}` for keys, `{quest}_session_id` for cookies）
+- [ ] 完了時にセッションをクリーンアップ（`KV.delete()`）
+- [ ] 機密データをクライアントに公開しない（セッション ID のみ）
 
 ## パフォーマンス最適化
 

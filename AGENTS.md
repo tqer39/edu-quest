@@ -80,6 +80,7 @@ graph TB
     subgraph "Cloudflare Edge"
         EdgeApp[Edge App<br/>Hono SSR]
         KV_Session[KV: Auth Session]
+        KV_Quiz[KV: Quiz Session]
         KV_Trial[KV: Free Trial]
         KV_Rate[KV: Rate Limit]
         KV_Idempotency[KV: Idempotency]
@@ -449,3 +450,190 @@ Routes:
 ```
 
 **Note to AI Assistants:** When implementing new Quest modules or features, ensure that subject-specific logic is properly isolated while leveraging shared domain logic for common functionality (question generation patterns, answer verification, etc.).
+
+## 7. Session Management Policy
+
+### 7.1. Session Management Architecture
+
+**EduQuest uses Cloudflare KV (Key-Value) storage for secure server-side session management across all Quest modules.**
+
+This is a fundamental architectural decision that prioritizes security, scalability, and data integrity.
+
+### 7.2. Recommended Approach: KV + Session ID (Pattern A)
+
+**CRITICAL: All Quiz/Quest session data MUST be stored in Cloudflare KV with session ID-based access.**
+
+**Implementation Pattern:**
+
+```typescript
+// 1. Generate unique session ID
+const sessionId = crypto.randomUUID();
+
+// 2. Store session data in KV with TTL
+await c.env.KV_QUIZ_SESSION.put(
+  `quest_type:${sessionId}`,
+  JSON.stringify(sessionData),
+  { expirationTtl: 1800 } // 30 minutes
+);
+
+// 3. Set HttpOnly cookie with session ID only
+response.headers.append(
+  'Set-Cookie',
+  `session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; Secure; SameSite=Strict`
+);
+
+// 4. Retrieve session data from KV
+const sessionData = await c.env.KV_QUIZ_SESSION.get(`quest_type:${sessionId}`);
+const session = JSON.parse(sessionData);
+```
+
+### 7.3. Why KV Storage?
+
+**Security Benefits:**
+
+- ✅ Quiz questions and correct answers never exposed to client
+- ✅ Session hijacking prevention with HttpOnly cookies
+- ✅ No client-side tampering possible
+- ✅ Secure handling of sensitive data
+
+**Scalability Benefits:**
+
+- ✅ Distributed storage across Cloudflare's global network
+- ✅ Automatic session expiration via TTL
+- ✅ No server-side memory management required
+- ✅ Supports millions of concurrent sessions
+
+**Maintainability Benefits:**
+
+- ✅ Consistent with authentication session management (`KV_AUTH_SESSION`)
+- ✅ Unified architecture across all Quest modules
+- ✅ Simple key-based access pattern
+- ✅ Built-in expiration handling
+
+### 7.4. Available Session Stores
+
+The project uses dedicated KV namespaces for different purposes:
+
+```toml
+# wrangler.toml
+[[kv_namespaces]]
+binding = "KV_AUTH_SESSION"      # User authentication sessions
+id = "kv_auth_session_id"
+preview_id = "kv_auth_session_preview"
+
+[[kv_namespaces]]
+binding = "KV_QUIZ_SESSION"      # Quiz/Quest session data
+id = "kv_quiz_session_id"
+preview_id = "kv_quiz_session_preview"
+
+[[kv_namespaces]]
+binding = "KV_FREE_TRIAL"        # Free trial tracking
+id = "kv_free_trial_id"
+preview_id = "kv_free_trial_preview"
+
+[[kv_namespaces]]
+binding = "KV_RATE_LIMIT"        # Rate limiting
+id = "kv_rate_limit_id"
+preview_id = "kv_rate_limit_preview"
+
+[[kv_namespaces]]
+binding = "KV_IDEMPOTENCY"       # Idempotency keys
+id = "kv_idempotency_id"
+preview_id = "kv_idempotency_preview"
+```
+
+### 7.5. Session Key Naming Convention
+
+**Format:** `{quest_type}:{session_id}`
+
+**Examples:**
+
+- `kanji:550e8400-e29b-41d4-a716-446655440000` - KanjiQuest session
+- `kanji_result:550e8400-e29b-41d4-a716-446655440001` - KanjiQuest result
+- `math:550e8400-e29b-41d4-a716-446655440002` - MathQuest session (future)
+- `clock:550e8400-e29b-41d4-a716-446655440003` - ClockQuest session (future)
+
+### 7.6. Cookie Naming Convention
+
+**Format:** `{quest_type}_session_id` or `{quest_type}_result_id`
+
+**Examples:**
+
+- `kanji_session_id` - KanjiQuest active session
+- `kanji_result_id` - KanjiQuest completed result
+- `math_session_id` - MathQuest active session (future)
+
+### 7.7. Session Lifecycle
+
+```typescript
+// 1. Start Session (/quest/start)
+const sessionId = crypto.randomUUID();
+await c.env.KV_QUIZ_SESSION.put(`quest:${sessionId}`, JSON.stringify(session), {
+  expirationTtl: 1800,
+});
+setCookie(response, 'quest_session_id', sessionId, { httpOnly: true });
+
+// 2. Active Session (/quest/quiz)
+const sessionId = getCookie(c, 'quest_session_id');
+const sessionData = await c.env.KV_QUIZ_SESSION.get(`quest:${sessionId}`);
+const session = JSON.parse(sessionData);
+
+// 3. Update Session (POST /quest/quiz)
+await c.env.KV_QUIZ_SESSION.put(
+  `quest:${sessionId}`,
+  JSON.stringify(updatedSession),
+  { expirationTtl: 1800 }
+);
+
+// 4. Complete Session
+const resultId = crypto.randomUUID();
+await c.env.KV_QUIZ_SESSION.put(
+  `quest_result:${resultId}`,
+  JSON.stringify(result),
+  {
+    expirationTtl: 300,
+  }
+); // 5 minutes
+await c.env.KV_QUIZ_SESSION.delete(`quest:${sessionId}`);
+setCookie(response, 'quest_result_id', resultId, { httpOnly: true });
+clearCookie(response, 'quest_session_id');
+```
+
+### 7.8. Alternative Patterns (Not Recommended)
+
+#### Pattern B: Signed Cookies (⚠️ Avoid)
+
+- Session data stored in cookies with cryptographic signature
+- **Issues:** 4KB cookie size limit, exposes question structure, no server-side invalidation
+
+#### Pattern C: Client-Side Storage (❌ Never Use)
+
+- Session data in localStorage/sessionStorage
+- **Issues:** XSS vulnerability, no security, client-side tampering, SSR incompatible
+
+### 7.9. Local Development
+
+KV storage works seamlessly in local development with preview namespaces:
+
+```bash
+# Start development server (KV automatically available)
+pnpm dev:edge
+
+# wrangler automatically provisions local KV stores
+# env.KV_QUIZ_SESSION (kv_quiz_session_preview) - KV Namespace local
+```
+
+### 7.10. Implementation Checklist
+
+When implementing new Quest modules:
+
+- [ ] Add KV namespace to `wrangler.toml` (if not using `KV_QUIZ_SESSION`)
+- [ ] Update `Env` type in `apps/edge/src/env.ts`
+- [ ] Use `crypto.randomUUID()` for session IDs
+- [ ] Store session data with appropriate TTL (1800s for active, 300s for results)
+- [ ] Use HttpOnly, Secure, SameSite cookies
+- [ ] Follow naming conventions for keys and cookies
+- [ ] Clean up sessions on completion
+- [ ] Never expose sensitive data to client
+
+**Note to AI Assistants:** When implementing Quest session management, ALWAYS use the KV + Session ID pattern (Pattern A). This is a non-negotiable security and architecture requirement. DO NOT implement client-side session management or store quiz data in cookies.

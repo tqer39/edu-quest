@@ -16,7 +16,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 - **Edge Runtime:** Cloudflare Workers (Wrangler development mode / production environment)
 - **Framework:** Hono + JSX (SSR + Islands)
-- **Data Store:** Cloudflare D1 (planned), KV (sessions, rate limiting, free trials)
+- **Data Store:** Cloudflare D1 (planned), KV (quiz sessions, auth sessions, rate limiting, free trials, idempotency)
 - **Build:** pnpm workspaces + Vite/Vitest (application)
 
 ### Layered Structure
@@ -172,3 +172,66 @@ type Question = {
 - **Accessibility:** The keypad supports keyboard operations and communicates state with ARIA attributes. Theme selection uses `aria-pressed`.
 - **Local Storage Strategy:** Progress and settings are saved to improve the UX on return visits. A version key is included to prepare for future migrations.
 - **Future Expansion:** Plans include user management with Better Auth integration, full-fledged learning history persistence to D1, and AI coaching features.
+
+## 8. Session Management
+
+**EduQuest uses Cloudflare KV storage for secure server-side session management.**
+
+### Philosophy
+
+All Quest modules (MathQuest, KanjiQuest, ClockQuest) follow the **KV + Session ID pattern** for managing quiz sessions:
+
+- **Session data is stored server-side** in Cloudflare KV with automatic TTL (Time To Live)
+- **Only session IDs are stored client-side** in HttpOnly cookies
+- **Never expose sensitive data** to the client (question answers, correct counts, etc.)
+
+### Available KV Namespaces
+
+| Namespace       | Purpose                      | Binding Name      |
+| --------------- | ---------------------------- | ----------------- |
+| KV_QUIZ_SESSION | Quiz/Quest session data      | `KV_QUIZ_SESSION` |
+| KV_AUTH_SESSION | User authentication sessions | `KV_AUTH_SESSION` |
+| KV_FREE_TRIAL   | Free trial tracking          | `KV_FREE_TRIAL`   |
+| KV_RATE_LIMIT   | API rate limiting            | `KV_RATE_LIMIT`   |
+| KV_IDEMPOTENCY  | Idempotency key management   | `KV_IDEMPOTENCY`  |
+
+### Session Lifecycle Example (KanjiQuest)
+
+```typescript
+// 1. Start session - Generate ID and store in KV
+const sessionId = crypto.randomUUID();
+await c.env.KV_QUIZ_SESSION.put(
+  `kanji:${sessionId}`,
+  JSON.stringify(session),
+  { expirationTtl: 1800 } // 30 minutes
+);
+
+// Set HttpOnly cookie with session ID only
+response.headers.append(
+  'Set-Cookie',
+  `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
+);
+
+// 2. Retrieve session - Read from KV using ID from cookie
+const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
+const session = JSON.parse(sessionData);
+
+// 3. Update session - Overwrite KV entry with new state
+await c.env.KV_QUIZ_SESSION.put(
+  `kanji:${sessionId}`,
+  JSON.stringify(updatedSession),
+  { expirationTtl: 1800 }
+);
+
+// 4. End session - Delete from KV when quiz completes
+await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
+```
+
+### Security Benefits
+
+- **XSS Protection:** HttpOnly cookies prevent JavaScript access to session IDs
+- **CSRF Mitigation:** SameSite=Lax prevents cross-site request forgery
+- **Data Isolation:** Session data never leaves the server
+- **Automatic Expiration:** TTL ensures sessions don't persist indefinitely
+
+For detailed implementation guidelines, see [AGENTS.md Section 7: Session Management Policy](./AGENTS.md#7-session-management-policy).

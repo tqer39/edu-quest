@@ -36,6 +36,7 @@ graph TB
 
     subgraph "Cloudflare Edge"
         EdgeApp[Edge App<br/>Hono SSR]
+        KV_Quiz[KV: Quiz Session]
         KV_Session[KV: Auth Session]
         KV_Trial[KV: Free Trial]
         KV_Rate[KV: Rate Limit]
@@ -70,6 +71,7 @@ graph TB
     UseCases --> AppLogic
     UseCases --> Session
     AppLogic --> DomainLogic
+    EdgeApp --> KV_Quiz
     EdgeApp --> KV_Session
     EdgeApp --> KV_Trial
     EdgeApp --> KV_Rate

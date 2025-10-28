@@ -240,6 +240,18 @@ class KanjiAnswerVerifier {
 }
 ```
 
+**セッションストレージ戦略:**
+
+KanjiQuest はサーバーサイドのセッション管理に **Cloudflare KV** を使用します：
+
+- セッションデータは `KV_QUIZ_SESSION` にキーパターン `kanji:{sessionId}` で保存
+- HttpOnly Cookie にはセッション ID のみを保存（`kanji_session_id`）
+- アクティブセッション TTL: 1800秒（30分）
+- 結果セッション TTL: 300秒（5分）
+- クイズ完了時にセッションを KV から削除
+
+このアプローチはセキュリティ（XSS/CSRF 対策）とスケーラビリティ（分散 KV ストレージ）を提供します。詳細なガイドラインは [AGENTS.md セクション 7](../AGENTS.md#7-session-management-policy) を参照してください。
+
 ### Edge層（`@edu-quest/edge`）
 
 ```typescript

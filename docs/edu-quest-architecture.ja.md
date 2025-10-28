@@ -16,7 +16,7 @@ EduQuest は小学生向けの学習プラットフォームで、複数の「Qu
 
 - **Edge Runtime:** Cloudflare Workers（Wrangler 開発モード／本番環境）
 - **フレームワーク:** Hono + JSX（SSR + Islands）
-- **データストア:** Cloudflare D1（想定）、KV（セッション・レート制限・フリートライアル）
+- **データストア:** Cloudflare D1（想定）、KV（クイズセッション・認証セッション・レート制限・フリートライアル・冪等性管理）
 - **ビルド:** pnpm ワークスペース + Vite/Vitest（アプリケーション）
 
 ### レイヤー構造
@@ -172,3 +172,66 @@ type Question = {
 - **アクセシビリティ:** テンキーはキーボード操作にも対応し、ARIA 属性で状態を伝達。テーマ選択は `aria-pressed` を利用。
 - **ローカルストレージ戦略:** 進捗・設定を保存し、次回訪問時の UX を向上。バージョンキーを付けて将来のマイグレーションに備えています。
 - **今後の拡張:** Better Auth 連携によるユーザー管理、D1 への本格的な学習履歴永続化、AI コーチング機能などを想定しています。
+
+## 8. セッション管理
+
+**EduQuest はセキュアなサーバーサイドセッション管理のために Cloudflare KV ストレージを使用します。**
+
+### 基本方針
+
+全ての Quest モジュール（MathQuest、KanjiQuest、ClockQuest）は、クイズセッション管理に **KV + セッション ID パターン** を採用します：
+
+- **セッションデータはサーバーサイドに保存** - Cloudflare KV に自動 TTL（Time To Live）で保存
+- **クライアントサイドにはセッション ID のみを保存** - HttpOnly Cookie に格納
+- **機密データをクライアントに公開しない** - 問題の正解、正解数などは一切クライアントに送信しない
+
+### 利用可能な KV ネームスペース
+
+| ネームスペース  | 用途                          | バインディング名  |
+| --------------- | ----------------------------- | ----------------- |
+| KV_QUIZ_SESSION | クイズ/Quest セッションデータ | `KV_QUIZ_SESSION` |
+| KV_AUTH_SESSION | ユーザー認証セッション        | `KV_AUTH_SESSION` |
+| KV_FREE_TRIAL   | フリートライアル追跡          | `KV_FREE_TRIAL`   |
+| KV_RATE_LIMIT   | API レート制限                | `KV_RATE_LIMIT`   |
+| KV_IDEMPOTENCY  | 冪等性キー管理                | `KV_IDEMPOTENCY`  |
+
+### セッションライフサイクル例（KanjiQuest）
+
+```typescript
+// 1. セッション開始 - ID を生成して KV に保存
+const sessionId = crypto.randomUUID();
+await c.env.KV_QUIZ_SESSION.put(
+  `kanji:${sessionId}`,
+  JSON.stringify(session),
+  { expirationTtl: 1800 } // 30分
+);
+
+// セッション ID のみを HttpOnly Cookie に設定
+response.headers.append(
+  'Set-Cookie',
+  `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
+);
+
+// 2. セッション取得 - Cookie から ID を読み取り KV から取得
+const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
+const session = JSON.parse(sessionData);
+
+// 3. セッション更新 - KV エントリを新しい状態で上書き
+await c.env.KV_QUIZ_SESSION.put(
+  `kanji:${sessionId}`,
+  JSON.stringify(updatedSession),
+  { expirationTtl: 1800 }
+);
+
+// 4. セッション終了 - クイズ完了時に KV から削除
+await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
+```
+
+### セキュリティ上のメリット
+
+- **XSS 対策:** HttpOnly Cookie により JavaScript からセッション ID にアクセス不可
+- **CSRF 対策:** SameSite=Lax によりクロスサイトリクエストフォージェリを防止
+- **データ隔離:** セッションデータはサーバーから外に出ない
+- **自動期限切れ:** TTL によりセッションが無期限に残らない
+
+詳細な実装ガイドラインは [AGENTS.md セクション 7: セッション管理ポリシー](./AGENTS.md#7-session-management-policy) を参照してください。
