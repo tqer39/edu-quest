@@ -820,3 +820,167 @@ const personalizedKanji = kanji.map((k) => ({
 ```
 
 **Note to AI Assistants:** When implementing new Quest modules with educational content (vocabulary, grammar rules, etc.), ALWAYS start with JSON files for master data. Only consider database migration when implementing user-specific features like progress tracking or adaptive learning. This separation of concerns maintains simplicity while allowing future scalability.
+
+## 9. Favicon Management Policy
+
+### 9.1. Quest-Specific Favicons
+
+**EduQuest uses dynamic favicon switching based on the Quest type to provide visual context for users.**
+
+This is a platform-wide design pattern that MUST be followed for all Quest modules to maintain consistent branding and user experience.
+
+### 9.2. Implementation Pattern
+
+**CRITICAL: Each Quest module MUST have its own favicon served via a dedicated endpoint and applied through the `Document` component.**
+
+**Architecture:**
+
+```typescript
+// 1. Define favicon endpoint in apps/edge/src/index.tsx
+app.get('/favicon-{quest}.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="{color}" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">{character}</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// 2. Apply favicon in route handler
+app.get('/{quest}', async (c) =>
+  c.render(<QuestHome />, {
+    title: 'Quest Title',
+    description: 'Quest Description',
+    favicon: '/favicon-{quest}.svg', // Pass favicon prop
+  })
+);
+
+// 3. Document component uses favicon prop
+export const Document: FC<DocumentProps> = ({
+  favicon,
+  // ...
+}) => {
+  const defaultFavicon = "data:image/svg+xml,..."; // Default MQ favicon
+
+  return html`
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="${favicon || defaultFavicon}"
+    />
+  `;
+};
+```
+
+### 9.3. Quest Favicon Specifications
+
+**Design Requirements:**
+
+- **Format:** SVG (inline, served via dedicated endpoint)
+- **Size:** 100x100 viewBox for optimal rendering
+- **Border Radius:** 15px rounded corners
+- **Colors:** Match Quest theme color palette
+- **Character:** Representative Japanese character or English abbreviation
+- **Font:** Bold sans-serif, 60px, white color
+- **Cache:** 24 hours (`max-age=86400`)
+
+**Current Favicon Mapping:**
+
+| Quest Type  | Endpoint               | Background Color | Character | Theme        |
+| ----------- | ---------------------- | ---------------- | --------- | ------------ |
+| MathQuest   | (default)              | `#78c2c3` (Teal) | `MQ`      | Blue/Teal    |
+| KanjiQuest  | `/favicon-kanji.svg`   | `#9B87D4` (Purple)| `漢`      | Purple       |
+| ClockQuest  | `/favicon-clock.svg`   | `#F5A85F` (Orange)| `時`      | Orange       |
+
+### 9.4. Implementation Checklist
+
+When implementing a new Quest module:
+
+- [ ] Create favicon endpoint `/favicon-{quest}.svg` in `apps/edge/src/index.tsx`
+- [ ] Use Quest theme color as background (`fill` attribute)
+- [ ] Select representative character (Japanese kanji or English abbreviation)
+- [ ] Set `Cache-Control: public, max-age=86400` for CDN caching
+- [ ] Add `favicon` prop to all Quest route handlers (`c.render()` calls)
+- [ ] Test favicon appears correctly in browser tab
+- [ ] Verify favicon switches when navigating between Quest types
+- [ ] Ensure default MathQuest favicon displays on non-Quest pages (`/`)
+
+### 9.5. Routes Requiring Favicon Prop
+
+**For each Quest module, apply the favicon to ALL routes:**
+
+```typescript
+// Example: KanjiQuest routes
+app.get('/kanji', async (c) => c.render(<KanjiHome />, { favicon: '/favicon-kanji.svg' }));
+app.get('/kanji/select', async (c) => c.render(<KanjiGradeSelect />, { favicon: '/favicon-kanji.svg' }));
+app.get('/kanji/quiz', async (c) => c.render(<KanjiQuiz />, { favicon: '/favicon-kanji.svg' }));
+app.get('/kanji/results', async (c) => c.render(<KanjiResults />, { favicon: '/favicon-kanji.svg' }));
+```
+
+### 9.6. Default Favicon (MathQuest)
+
+**The default favicon is embedded as a data URI in the `Document` component:**
+
+```typescript
+const defaultFavicon =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2378c2c3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%231f2a4a' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EMQ%3C/text%3E%3C/svg%3E";
+```
+
+**This default applies to:**
+
+- `/` (EduQuest hub)
+- `/math` routes (if not explicitly overridden)
+- Any other non-Quest pages
+
+### 9.7. TypeScript Type Definitions
+
+**Update `DocumentProps` type in `apps/edge/src/views/layouts/document.tsx`:**
+
+```typescript
+export type DocumentProps = {
+  lang: 'ja' | 'en';
+  title?: string;
+  description?: string;
+  environment?: string;
+  favicon?: string; // Optional favicon path
+  children?: JSX.Element | JSX.Element[];
+};
+```
+
+**Update `jsxRenderer` type in `apps/edge/src/index.tsx`:**
+
+```typescript
+app.use(
+  '*',
+  jsxRenderer<{ title?: string; description?: string; favicon?: string }>(
+    (props, c) => {
+      return (
+        <Document
+          lang={lang}
+          title={props.title}
+          description={props.description}
+          favicon={props.favicon}
+          environment={environment}
+        >
+          {props.children}
+        </Document>
+      );
+    }
+  )
+);
+```
+
+### 9.8. Rationale
+
+**Benefits:**
+
+- ✅ **Visual Context:** Users immediately recognize which Quest they're in
+- ✅ **Branding Consistency:** Each Quest has distinct visual identity
+- ✅ **User Experience:** Browser tab shows relevant icon when multiple tabs open
+- ✅ **Scalability:** Easy to add new Quest favicons following the same pattern
+- ✅ **Performance:** SVG favicons are small, cacheable, and scale perfectly
+- ✅ **Maintainability:** Single source of truth in routing layer
+
+**Note to AI Assistants:** When implementing new Quest modules, ALWAYS create a dedicated favicon endpoint and apply it to all Quest routes. This is a non-negotiable UX requirement that maintains visual consistency across the platform.
