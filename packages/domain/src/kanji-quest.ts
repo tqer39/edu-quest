@@ -30,7 +30,7 @@ export interface Kanji {
 /**
  * Quest types for KanjiQuest
  */
-export type KanjiQuestType = 'reading'; // Start with reading quest only
+export type KanjiQuestType = 'reading' | 'stroke-count';
 
 /**
  * Difficulty level based on school grade
@@ -174,6 +174,78 @@ export function generateReadingQuestion(
 }
 
 /**
+ * Generate wrong answer choices for stroke count questions
+ */
+function generateWrongStrokeCounts(
+  correctCount: number,
+  allKanji: Kanji[],
+  count: number = 3
+): string[] {
+  const wrongCounts: Set<string> = new Set();
+
+  // Collect stroke counts from other kanji (excluding the correct one)
+  const otherCounts = allKanji
+    .map((k) => k.strokeCount)
+    .filter((c) => c !== correctCount);
+
+  // Add nearby stroke counts (±1, ±2, ±3)
+  const nearby = [
+    correctCount - 3,
+    correctCount - 2,
+    correctCount - 1,
+    correctCount + 1,
+    correctCount + 2,
+    correctCount + 3,
+  ].filter((c) => c > 0 && c !== correctCount);
+
+  // Prioritize nearby counts that exist in the dataset
+  const candidates = [...nearby.filter((c) => otherCounts.includes(c))];
+
+  // Add other counts from the dataset
+  candidates.push(...shuffleArray(otherCounts));
+
+  // Select unique wrong counts
+  for (const strokeCount of candidates) {
+    if (wrongCounts.size >= count) break;
+    wrongCounts.add(String(strokeCount));
+  }
+
+  return Array.from(wrongCounts).slice(0, count);
+}
+
+/**
+ * Generate a Stroke Count Quest question
+ */
+export function generateStrokeCountQuestion(
+  kanji: Kanji,
+  allKanji: Kanji[]
+): KanjiQuestion {
+  const correctAnswer = String(kanji.strokeCount);
+
+  // Generate wrong answer choices
+  const wrongAnswers = generateWrongStrokeCounts(
+    kanji.strokeCount,
+    allKanji,
+    3
+  );
+
+  // Combine and shuffle choices
+  const choices = shuffleArray([correctAnswer, ...wrongAnswers]);
+
+  // Generate question text
+  const questionText = `「${kanji.character}」の画数は？`;
+
+  return {
+    character: kanji.character,
+    questionText,
+    correctAnswer,
+    choices,
+    questType: 'stroke-count',
+    grade: kanji.grade as KanjiGrade,
+  };
+}
+
+/**
  * Generate multiple questions for a KanjiQuest session
  */
 export function generateKanjiQuestions(
@@ -200,6 +272,9 @@ export function generateKanjiQuestions(
             config.readingType || 'both'
           )
         );
+        break;
+      case 'stroke-count':
+        questions.push(generateStrokeCountQuestion(kanji, kanjiData));
         break;
       // TODO: Add other quest types (okurigana, puzzle, etc.)
       default:

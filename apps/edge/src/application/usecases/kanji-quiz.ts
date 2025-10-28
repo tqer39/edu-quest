@@ -1,4 +1,8 @@
-import type { KanjiGrade, KanjiQuestion } from '@edu-quest/domain';
+import type {
+  KanjiGrade,
+  KanjiQuestion,
+  KanjiQuestType,
+} from '@edu-quest/domain';
 import {
   createKanjiQuiz,
   getCurrentKanjiQuestion,
@@ -18,11 +22,12 @@ export type KanjiQuizSession = {
  */
 export const startKanjiQuizSession = (
   grade: KanjiGrade,
-  questionCount: number = 10
+  questionCount: number = 10,
+  questType: KanjiQuestType = 'reading'
 ): KanjiQuizSession => {
   const quiz = createKanjiQuiz({
     grade,
-    questType: 'reading',
+    questType,
     questionCount,
   });
   const currentQuestion = getCurrentKanjiQuestion(quiz);

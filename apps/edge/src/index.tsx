@@ -170,8 +170,8 @@ app.get('/kanji', async (c) =>
   )
 );
 
-// KanjiQuest: 学年選択してクイズ開始
-app.get('/kanji/start', async (c) => {
+// KanjiQuest: クエストタイプ選択画面
+app.get('/kanji/select', async (c) => {
   const gradeParam = c.req.query('grade');
   const grade = Number(gradeParam) as KanjiGrade;
 
@@ -180,8 +180,40 @@ app.get('/kanji/start', async (c) => {
     return c.redirect('/kanji', 302);
   }
 
+  const { KanjiSelect } = await import('./routes/pages/kanji-select');
+
+  return c.html(
+    <Document
+      title="KanjiQuest - クエスト選択"
+      description="学習したいクエストタイプを選んでください。"
+    >
+      <KanjiSelect
+        currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+        grade={grade}
+      />
+    </Document>
+  );
+});
+
+// KanjiQuest: 学年選択してクイズ開始
+app.get('/kanji/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const questTypeParam = c.req.query('questType');
+  const grade = Number(gradeParam) as KanjiGrade;
+  const questType = (questTypeParam as KanjiQuestType) || 'reading';
+
+  // 学年のバリデーション
+  if (!grade || grade < 1 || grade > 6) {
+    return c.redirect('/kanji', 302);
+  }
+
+  // クエストタイプのバリデーション
+  if (questType !== 'reading' && questType !== 'stroke-count') {
+    return c.redirect(`/kanji/select?grade=${grade}`, 302);
+  }
+
   // クイズセッションを開始（10問固定）
-  const session = startKanjiQuizSession(grade, 10);
+  const session = startKanjiQuizSession(grade, 10, questType);
 
   // セッションIDを生成
   const sessionId = crypto.randomUUID();
