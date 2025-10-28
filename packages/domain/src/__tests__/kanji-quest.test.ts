@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   generateReadingQuestion,
+  generateStrokeCountQuestion,
   generateKanjiQuestions,
   verifyKanjiAnswer,
   calculateKanjiScore,
@@ -162,6 +163,64 @@ describe('generateReadingQuestion', () => {
   });
 });
 
+describe('generateStrokeCountQuestion', () => {
+  it('generates a valid stroke count question', () => {
+    const kanji = sampleKanji[0]; // 一 has 1 stroke
+    const question = generateStrokeCountQuestion(kanji, sampleKanji);
+
+    expect(question.character).toBe('一');
+    expect(question.questType).toBe('stroke-count');
+    expect(question.grade).toBe(1);
+    expect(question.correctAnswer).toBe('1');
+    expect(question.choices).toHaveLength(4);
+    expect(question.choices).toContain('1');
+  });
+
+  it('includes ruby tags for grade 1-2', () => {
+    const kanji = sampleKanji[0];
+    const question = generateStrokeCountQuestion(kanji, sampleKanji);
+
+    // Grade 1 should have ruby tags for 画数
+    expect(question.questionText).toBe(
+      '「一」の<ruby>画数<rt>かくすう</rt></ruby>は？'
+    );
+  });
+
+  it('generates 4 unique choices', () => {
+    const kanji = sampleKanji[1]; // 二 has 2 strokes
+    const question = generateStrokeCountQuestion(kanji, sampleKanji);
+
+    expect(question.choices).toHaveLength(4);
+    const uniqueChoices = new Set(question.choices);
+    expect(uniqueChoices.size).toBe(4);
+  });
+
+  it('uses nearby stroke counts for wrong answers', () => {
+    const kanji = sampleKanji[2]; // 三 has 3 strokes
+    const question = generateStrokeCountQuestion(kanji, sampleKanji);
+
+    expect(question.correctAnswer).toBe('3');
+    const wrongChoices = question.choices.filter((c) => c !== '3');
+
+    // Wrong choices should be numbers
+    wrongChoices.forEach((choice) => {
+      expect(Number.isInteger(Number(choice))).toBe(true);
+      expect(Number(choice)).toBeGreaterThan(0);
+    });
+  });
+
+  it('does not include correct answer in wrong choices', () => {
+    const kanji = sampleKanji[0];
+    const question = generateStrokeCountQuestion(kanji, sampleKanji);
+
+    const wrongChoices = question.choices.filter(
+      (choice) => choice !== question.correctAnswer
+    );
+    expect(wrongChoices).toHaveLength(3);
+    expect(wrongChoices).not.toContain(question.correctAnswer);
+  });
+});
+
 describe('generateKanjiQuestions', () => {
   it('generates correct number of questions', () => {
     const config: KanjiQuestConfig = {
@@ -216,6 +275,22 @@ describe('generateKanjiQuestions', () => {
     questions.forEach((q) => {
       // Check for "音読" which appears in both plain text and ruby tags
       expect(q.questionText).toContain('音読');
+    });
+  });
+
+  it('generates stroke count quest questions', () => {
+    const config: KanjiQuestConfig = {
+      grade: 1,
+      questType: 'stroke-count',
+      questionCount: 3,
+    };
+    const questions = generateKanjiQuestions(config);
+
+    questions.forEach((q) => {
+      expect(q.questType).toBe('stroke-count');
+      // Grade 1-2 kanji should have ruby tags for 画数
+      expect(q.questionText).toContain('画数');
+      expect(q.correctAnswer).toMatch(/^\d+$/); // Should be a number string
     });
   });
 
