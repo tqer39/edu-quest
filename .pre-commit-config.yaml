@@ -126,11 +126,14 @@ repos:
         language: system
         entry: bash -lc 'bash scripts/rulesync-update.sh'
         pass_filenames: false
+        files: ^\.rulesync/(rules|commands|subagents)/
+        always_run: false
       - id: rulesync-check
         name: rulesync check drift
         language: system
         entry: bash -lc 'bash scripts/rulesync-check.sh'
         pass_filenames: false
+        always_run: true
       - id: rulesync-apply
         name: rulesync apply (manual)
         language: system
