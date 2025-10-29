@@ -1,5 +1,6 @@
 # EduQuest Document Overview
 
+[![codecov](https://codecov.io/gh/tqer39/edu-quest/graph/badge.svg)](https://codecov.io/gh/tqer39/edu-quest)
 [![D1 Migrations (Dev)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-dev.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-dev.yml)
 [![D1 Migrations (Prod)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-prod.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-prod.yml)
 [![Terraform (Dev)](https://github.com/tqer39/edu-quest/actions/workflows/terraform-dev.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/terraform-dev.yml)
