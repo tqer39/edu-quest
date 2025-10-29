@@ -1,0 +1,35 @@
+{
+  "css.validate": true,
+  "css.lint.validProperties": [],
+  "css.customData": [],
+  "files.associations": {
+    "**/tailwind.css": "plaintext"
+  },
+  "tailwindCSS.validate": false,
+  "stylelint.validate": ["css", "scss"],
+  "stylelint.ignoreDisables": false,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/.wrangler": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.wrangler": true,
+    "**/pnpm-lock.yaml": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.wrangler/**": true,
+    "**/dist/**": true,
+    "**/build/**": true
+  }
+}
