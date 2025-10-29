@@ -10,6 +10,7 @@ EduQuest は複数の「Quest」モジュールを通じて様々な教育コン
 
 - **MathQuest** (`/math`) - 算数練習。学年別プリセットとテーマ練習を提供（利用可能）
 - **KanjiQuest** (`/kanji`) - 学年別に整理された漢字学習（準備中）
+- **GameQuest** (`/game`) - パターン認識・空間認識・記憶力を鍛える脳トレミニゲーム（準備中）
 - **ClockQuest** (`/clock`) - アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
 ## 現在の主要機能
@@ -234,6 +235,7 @@ pnpm workspacesによるmonorepo構成：
   - `/math/start`: MathQuest 設定ウィザード
   - `/math/play`: MathQuest 練習セッション
   - `/kanji`: KanjiQuest トップページ（準備中）
+  - `/game`: GameQuest トップページ（準備中）
   - `/clock`: ClockQuest トップページ（準備中）
 
 - **Backward Compatibility**:
@@ -442,7 +444,7 @@ CI でテストが失敗した場合:
 
 現在の E2E テストカバレッジ (16 テスト):
 
-- ナビゲーションフロー (ホーム → MathQuest → ClockQuest)
+- ナビゲーションフロー (ホーム → MathQuest → GameQuest → ClockQuest)
 - MathQuest 設定ウィザード
 - ページ遷移とロード
 - ブラウザの戻るボタンナビゲーション
@@ -750,12 +752,14 @@ EduQuest で使用する KV ネームスペースは以下の通りです：
 `kanji:${sessionId}` // KanjiQuest アクティブセッション
 `kanji_result:${resultId}` // KanjiQuest 結果（短命）
 `math:${sessionId}` // MathQuest アクティブセッション
+`game:${sessionId}` // GameQuest アクティブセッション
+`game_result:${resultId}` // GameQuest 結果（短命）
 `clock:${sessionId}`; // ClockQuest アクティブセッション
 ```
 
 **命名のベストプラクティス:**
 
-- Quest タイプをプレフィックスとして使用（`kanji:`、`math:`、`clock:`）
+- Quest タイプをプレフィックスとして使用（`kanji:`、`math:`、`game:`、`clock:`）
 - 結果保存用には `_result` サフィックスを使用
 - UUID v4（`crypto.randomUUID()`）をセッション ID として使用
 - コロン（`:`）をセパレータとして使用（KV のクエリパターンに対応）
@@ -774,6 +778,8 @@ EduQuest で使用する KV ネームスペースは以下の通りです：
 - `kanji_session_id` - KanjiQuest のアクティブセッション
 - `kanji_result_id` - KanjiQuest の結果セッション
 - `math_session_id` - MathQuest のアクティブセッション
+- `game_session_id` - GameQuest のアクティブセッション
+- `game_result_id` - GameQuest の結果セッション
 
 ### 7.7. セッションライフサイクル
 
@@ -946,7 +952,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 
 ### 解答入力方式
 
-**重要: EduQuest では、すべてのコンテンツタイプ（算数、時計、漢字）でボタン式の解答入力を使用します。**
+**重要: EduQuest では、すべてのコンテンツタイプ（算数、時計、漢字、ゲーム）でボタン式の解答入力を使用します。**
 
 これはプラットフォーム全体の基本的な設計決定であり、すべての Quest 実装で**必ず従う必要があります**：
 
@@ -971,6 +977,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 - ✅ **MathQuest**: 数値解答用の数字パッドボタン（0-9）
 - ✅ **ClockQuest**: 時刻選択用の時間ボタン（1-12）
 - ✅ **KanjiQuest**: 文字選択用の選択肢ボタン
+- ✅ **GameQuest**: モード別のアクションボタンやカード選択
 - ❌ **絶対に使わない**: `<input type="number">`、`<input type="text">`、その他のテキスト入力フィールド
 
 **実装パターン:**
@@ -1049,6 +1056,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 - **テーマカスタマイズ**: 各 Quest モジュールは CSS 変数による独自の配色スキーム
   - MathQuest: 青系テーマ (#6B9BD1)
   - KanjiQuest: 紫系テーマ (#9B7EC8)
+  - GameQuest: 緑系テーマ (#5DB996)
   - ClockQuest: オレンジ系テーマ (#F5A85F)
 - **共有ドメインロジック**: すべての Quest モジュールは `@edu-quest/domain` と `@edu-quest/app` パッケージを再利用
 - **一貫した UX**: すべての Quest モジュール間で統一されたナビゲーションと認証
@@ -1061,8 +1069,9 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 パッケージ:   @edu-quest/*
 ルート:
   - ポータル:  /
-  - 算数:      /math, /math/start, /math/play
-  - 漢字:      /kanji（準備中）
+ - 算数:      /math, /math/start, /math/play
+ - 漢字:      /kanji（準備中）
+  - ゲーム:    /game（準備中）
   - 時計:      /clock（準備中）
 ```
 
@@ -1073,6 +1082,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 - [README.md](README.md): プロジェクトセットアップ
 - [CLAUDE.md](CLAUDE.md): Claude Code向けプロジェクト規約
 - [docs/AI_RULES.ja.md](docs/AI_RULES.ja.md): 詳細なコーディング規約
+- [docs/game-quest-design.ja.md](docs/game-quest-design.ja.md): GameQuest 設計ドキュメント
 - [Hono Documentation](https://hono.dev/)
 - [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
 - [Drizzle ORM Documentation](https://orm.drizzle.team/)

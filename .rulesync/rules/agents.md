@@ -25,6 +25,7 @@ This file is the central hub. For detailed information, please refer to the spec
 ### 2.1. Quest-Specific Design Documents
 
 - **[KanjiQuest Design](./docs/kanji-quest-design.md):** Comprehensive design document for the Kanji learning quest ([日本語版](./docs/kanji-quest-design.ja.md))
+- **[GameQuest Design](./docs/game-quest-design.md):** Design blueprint for the GameQuest brain-training mini games ([日本語版](./docs/game-quest-design.ja.md))
 
 ### 2.2. Documentation Localization Policy
 
@@ -241,7 +242,7 @@ When tests fail in CI, screenshots are uploaded as GitHub Artifacts:
 
 Current E2E test coverage (16 tests):
 
-- Navigation flows (home → MathQuest → ClockQuest)
+- Navigation flows (home → MathQuest → GameQuest → ClockQuest)
 - MathQuest configuration wizard
 - Page transitions and loading
 - Browser back button navigation
@@ -347,7 +348,7 @@ pre-commit run trivy-terraform --all-files
 
 #### Answer Input Method
 
-**CRITICAL: EduQuest uses button-based answer input across all content types (math, time, kanji).**
+**CRITICAL: EduQuest uses button-based answer input across all content types (math, time, kanji, game).**
 
 This is a fundamental platform-wide design decision that MUST be followed for all Quest implementations:
 
@@ -372,6 +373,7 @@ This is a fundamental platform-wide design decision that MUST be followed for al
 - ✅ **MathQuest**: Number pad buttons (0-9) for numeric answers
 - ✅ **ClockQuest**: Hour buttons (1-12) for time selection
 - ✅ **KanjiQuest**: Multiple choice buttons for character selection
+- ✅ **GameQuest**: Mode-specific action buttons and card selections
 - ❌ **NEVER**: `<input type="number">`, `<input type="text">`, or other text input fields
 
 **Implementation Pattern:**
@@ -410,6 +412,7 @@ The platform currently supports and plans to support the following Quest modules
 
 - **MathQuest** (`/math`) - Arithmetic practice with grade-level presets and themed exercises (Available)
 - **KanjiQuest** (`/kanji`) - Kanji learning organized by grade level (Coming Soon)
+- **GameQuest** (`/game`) - Brain-training mini games for pattern recognition, spatial reasoning, and memory (Coming Soon)
 - **ClockQuest** (`/clock`) - Time-reading practice with analog and digital clocks (Coming Soon)
 
 ### 6.2. URL Structure
@@ -427,6 +430,7 @@ Route Structure:
   /math/start          → MathQuest configuration wizard
   /math/play           → MathQuest practice session
   /kanji               → KanjiQuest landing page (Coming Soon)
+  /game                → GameQuest landing page (Coming Soon)
   /clock               → ClockQuest landing page (Coming Soon)
 ```
 
@@ -441,6 +445,7 @@ Route Structure:
 - **Theme Customization:** Each Quest module has its own color scheme applied via CSS variables
   - MathQuest: Blue theme (#6B9BD1)
   - KanjiQuest: Purple theme (#9B7EC8)
+  - GameQuest: Green theme (#5DB996)
   - ClockQuest: Orange theme (#F5A85F)
 - **Shared Domain Logic:** All Quest modules reuse `@edu-quest/domain` and `@edu-quest/app` packages
 - **Consistent UX:** Unified navigation and authentication across all Quest modules
@@ -455,6 +460,7 @@ Routes:
   - Portal:  /
   - Math:    /math, /math/start, /math/play
   - Kanji:   /kanji (Coming Soon)
+  - Game:    /game (Coming Soon)
   - Clock:   /clock (Coming Soon)
 ```
 
@@ -560,6 +566,8 @@ preview_id = "kv_idempotency_preview"
 - `kanji:550e8400-e29b-41d4-a716-446655440000` - KanjiQuest session
 - `kanji_result:550e8400-e29b-41d4-a716-446655440001` - KanjiQuest result
 - `math:550e8400-e29b-41d4-a716-446655440002` - MathQuest session (future)
+- `game:550e8400-e29b-41d4-a716-446655440010` - GameQuest session (future)
+- `game_result:550e8400-e29b-41d4-a716-446655440011` - GameQuest result (future)
 - `clock:550e8400-e29b-41d4-a716-446655440003` - ClockQuest session (future)
 
 ### 7.6. Cookie Naming Convention
@@ -571,6 +579,8 @@ preview_id = "kv_idempotency_preview"
 - `kanji_session_id` - KanjiQuest active session
 - `kanji_result_id` - KanjiQuest completed result
 - `math_session_id` - MathQuest active session (future)
+- `game_session_id` - GameQuest active session (future)
+- `game_result_id` - GameQuest completed result (future)
 
 ### 7.7. Session Lifecycle
 
@@ -903,6 +913,7 @@ export const Document: FC<DocumentProps> = ({
 | ---------- | -------------------- | ------------------ | --------- | --------- |
 | MathQuest  | (default)            | `#78c2c3` (Teal)   | `MQ`      | Blue/Teal |
 | KanjiQuest | `/favicon-kanji.svg` | `#9B87D4` (Purple) | `漢`      | Purple    |
+| GameQuest  | `/favicon-game.svg`  | `#5DB996` (Green)  | `遊`      | Green     |
 | ClockQuest | `/favicon-clock.svg` | `#F5A85F` (Orange) | `時`      | Orange    |
 
 ### 9.4. Implementation Checklist
