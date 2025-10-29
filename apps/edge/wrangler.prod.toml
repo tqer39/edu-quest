@@ -6,6 +6,10 @@ name = "edu-quest-edge-prod"
 main = "src/index.tsx"
 compatibility_date = "2024-09-01"
 
+[assets]
+dir = "./public"
+binding = "ASSETS"
+
 [[routes]]
 pattern = "edu-quest.app/*"
 zone_name = "edu-quest.app"

@@ -5,6 +5,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@edu-quest/domain': resolve(__dirname, '../../packages/domain/src'),
+      '@edu-quest/app': resolve(__dirname, '../../packages/app/src'),
     },
   },
   test: {
