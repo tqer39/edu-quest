@@ -301,8 +301,8 @@ export class BetterAuthService {
 
   clearGuestCookies(): string[] {
     return [
-      `${guestCookieName}=; Path=/; Max-Age=0; SameSite=Lax`,
-      `${guestProfileCookieName}=; Path=/; Max-Age=0; SameSite=Lax`,
+      `${guestCookieName}=; Path=/; Max-Age=0; SameSite=Lax; HttpOnly; Secure`,
+      `${guestProfileCookieName}=; Path=/; Max-Age=0; SameSite=Lax; HttpOnly; Secure`,
     ];
   }
 

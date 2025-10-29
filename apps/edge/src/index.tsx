@@ -1,11 +1,11 @@
 import { Hono } from 'hono';
 import { jsxRenderer } from 'hono/jsx-renderer';
-import { secureHeaders } from 'hono/secure-headers';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
+import { securityHeaders } from './middlewares/security-headers';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
 import { ClockHome } from './routes/pages/clock-home';
@@ -31,16 +31,31 @@ import {
   getKanjiSessionResult,
 } from './application/usecases/kanji-quiz';
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
-import type { ClockDifficulty, KanjiGrade } from '@edu-quest/domain';
+import type {
+  ClockDifficulty,
+  KanjiGrade,
+  KanjiQuestType,
+} from '@edu-quest/domain';
 import { Document } from './views/layouts/document';
+import { assetManifest } from './middlewares/asset-manifest';
+import type { AssetManifest } from './middlewares/asset-manifest';
+import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
 
-const app = new Hono<{ Bindings: Env; Variables: { lang: 'ja' | 'en' } }>();
+const app = new Hono<{
+  Bindings: Env;
+  Variables: { lang: 'ja' | 'en'; assetManifest: AssetManifest | null };
+}>();
+
+const isKanjiQuestType = (
+  value: string | null | undefined
+): value is KanjiQuestType => value === 'reading' || value === 'stroke-count';
 
 app.use('*', logger());
-app.use('*', secureHeaders());
+app.use('*', securityHeaders());
 app.use('*', prettyJSON());
 app.use('*', i18n());
 app.use('*', seoControl());
+app.use('*', assetManifest());
 
 // KanjiQuest favicon
 app.get('/favicon-kanji.svg', (c) => {
@@ -131,6 +146,7 @@ app.use(
     (props, c) => {
       const lang = c.get('lang') ?? 'ja';
       const environment = c.env.ENVIRONMENT;
+      const manifest = c.get('assetManifest') ?? null;
       return (
         <Document
           lang={lang}
@@ -138,6 +154,7 @@ app.use(
           description={props.description}
           favicon={props.favicon}
           environment={environment}
+          assetManifest={manifest}
         >
           {props.children}
         </Document>
@@ -198,16 +215,15 @@ app.get('/kanji/select', async (c) => {
 
   const { KanjiSelect } = await import('./routes/pages/kanji-select');
 
-  return c.html(
-    <Document
-      title="KanjiQuest - クエスト選択"
-      description="学習したいクエストタイプを選んでください。"
-    >
-      <KanjiSelect
-        currentUser={await resolveCurrentUser(c.env, c.req.raw)}
-        grade={grade}
-      />
-    </Document>
+  return c.render(
+    <KanjiSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+    />,
+    {
+      title: 'KanjiQuest - クエスト選択',
+      description: '学習したいクエストタイプを選んでください。',
+    }
   );
 });
 
@@ -216,16 +232,18 @@ app.get('/kanji/start', async (c) => {
   const gradeParam = c.req.query('grade');
   const questTypeParam = c.req.query('questType');
   const grade = Number(gradeParam) as KanjiGrade;
-  const questType = (questTypeParam as KanjiQuestType) || 'reading';
+
+  if (questTypeParam && !isKanjiQuestType(questTypeParam)) {
+    return c.redirect(`/kanji/select?grade=${grade}`, 302);
+  }
+
+  const questType: KanjiQuestType = isKanjiQuestType(questTypeParam)
+    ? questTypeParam
+    : 'reading';
 
   // 学年のバリデーション
   if (!grade || grade < 1 || grade > 6) {
     return c.redirect('/kanji', 302);
-  }
-
-  // クエストタイプのバリデーション
-  if (questType !== 'reading' && questType !== 'stroke-count') {
-    return c.redirect(`/kanji/select?grade=${grade}`, 302);
   }
 
   // クイズセッションを開始（10問固定）
@@ -245,7 +263,7 @@ app.get('/kanji/start', async (c) => {
   const response = c.redirect('/kanji/quiz', 302);
   response.headers.append(
     'Set-Cookie',
-    `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
+    `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax; Secure`
   );
 
   return response;
@@ -341,11 +359,11 @@ app.post('/kanji/quiz', async (c) => {
       const response = c.redirect('/kanji/results', 302);
       response.headers.append(
         'Set-Cookie',
-        `kanji_result_id=${resultId}; Path=/; Max-Age=300; HttpOnly; SameSite=Lax`
+        `kanji_result_id=${resultId}; Path=/; Max-Age=300; HttpOnly; SameSite=Lax; Secure`
       );
       response.headers.append(
         'Set-Cookie',
-        'kanji_session_id=; Path=/; Max-Age=0'
+        'kanji_session_id=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure'
       );
       return response;
     }
@@ -442,7 +460,7 @@ app.get('/clock/start', async (c) => {
     'Set-Cookie',
     `clock_quiz_session=${encodeURIComponent(
       JSON.stringify(session)
-    )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+    )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
   );
 
   return response;
@@ -517,12 +535,12 @@ app.post('/clock/quiz', async (c) => {
             total: session.quiz.config.total,
             difficulty: session.quiz.config.difficulty,
           })
-        )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+        )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
       );
       // セッションクッキーをクリア
       response.headers.append(
         'Set-Cookie',
-        'clock_quiz_session=; Path=/; Max-Age=0'
+        'clock_quiz_session=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure'
       );
       return response;
     }
@@ -534,7 +552,7 @@ app.post('/clock/quiz', async (c) => {
       'Set-Cookie',
       `clock_quiz_session=${encodeURIComponent(
         JSON.stringify(result.nextSession)
-      )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly`
+      )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
     );
     return response;
   } catch (error) {
@@ -581,12 +599,15 @@ app.get('/clock/results', async (c) => {
 app.get('/start', (c) => c.redirect('/math/start', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
-app.get('/sudoku', (c) =>
-  c.render(<Sudoku currentUser={resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 数独',
-    description:
-      '数独パズルで論理的思考力を鍛えよう。数字を使った楽しいパズルゲームです。',
-  })
+app.get('/sudoku', async (c) =>
+  c.render(
+    <Sudoku currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 数独',
+      description:
+        '数独パズルで論理的思考力を鍛えよう。数字を使った楽しいパズルゲームです。',
+    }
+  )
 );
 
 app.get('/auth/guest-login', (c) => {
@@ -598,11 +619,11 @@ app.get('/auth/guest-login', (c) => {
   const response = c.redirect('/', 302);
   response.headers.append(
     'Set-Cookie',
-    `mq_guest=1; Path=/; Max-Age=${maxAge}; SameSite=Lax`
+    `mq_guest=1; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
   );
   response.headers.append(
     'Set-Cookie',
-    `mq_guest_profile=${index}; Path=/; Max-Age=${maxAge}; SameSite=Lax`
+    `mq_guest_profile=${index}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
   );
   return response;
 });
@@ -728,5 +749,25 @@ app.get('/auth/logout', async (c) => {
 
 // BFF API
 app.route('/apis/quiz', quiz);
+
+app.notFound((c) => {
+  c.status(404);
+  return c.render(<NotFoundPage />, {
+    title: 'ページが見つかりません',
+    description:
+      'お探しのページが見つかりませんでした。URL をご確認のうえ再度お試しください。',
+  });
+});
+
+app.onError((error, c) => {
+  const requestId = crypto.randomUUID();
+  console.error(`Unhandled error [${requestId}]`, error);
+  c.status(500);
+  return c.render(<ServerErrorPage requestId={requestId} />, {
+    title: 'エラーが発生しました',
+    description:
+      '申し訳ありません。ページの表示中に問題が発生しました。時間をおいて再度お試しください。',
+  });
+});
 
 export default app;

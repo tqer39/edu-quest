@@ -76,12 +76,7 @@ const guestProfiles: readonly CurrentUser[] = [
   },
 ];
 
-const shouldUseMockUser = (env: Env): boolean => {
-  const flag = (env as Record<string, string | undefined>).USE_MOCK_USER;
-  if (flag === 'true') return true;
-  if (flag === 'false') return false;
-  return false;
-};
+const shouldUseMockUser = (env: Env): boolean => env.USE_MOCK_USER === 'true';
 
 const parseCookie = (header: string | null): Map<string, string> => {
   const map = new Map<string, string>();
