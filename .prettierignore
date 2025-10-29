@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.wrangler/
+
+# Minified files
+*.min.js
+*.min.css
+
+# Coverage
+coverage/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*

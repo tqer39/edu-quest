@@ -15,7 +15,8 @@
       "!**/.wrangler",
       "!**/pnpm-lock.yaml",
       "!**/*.min.js",
-      "!**/*.min.css"
+      "!**/*.min.css",
+      "!**/src/styles/tailwind.css"
     ]
   },
   "formatter": {

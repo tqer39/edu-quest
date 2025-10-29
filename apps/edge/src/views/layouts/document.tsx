@@ -128,6 +128,7 @@ export const Document: FC<DocumentProps> = ({
           href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
           crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="/styles/tailwind.min.css" />
         ${modulePreloadLinks.map(
           (href) =>
             html`<link
@@ -148,10 +149,6 @@ export const Document: FC<DocumentProps> = ({
               crossorigin="anonymous"
             />`
         )}
-        <script
-          src="https://cdn.tailwindcss.com"
-          crossorigin="anonymous"
-        ></script>
         <style>
           :root {
             color-scheme: light;
