@@ -16,23 +16,37 @@ describe('EduQuest Navigation', () => {
   });
 
   describe('MathQuest Navigation Flow', () => {
-    it('should navigate from home to math start page', () => {
+    it('should navigate from home to math grade selection page', () => {
       cy.contains('a', 'MathQuest').click();
-      cy.url().should('include', '/math/start');
+      cy.url().should('include', '/math');
+      cy.contains('学年を選んでください').should('be.visible');
     });
 
-    it('should navigate to math start configuration page via /math redirect', () => {
+    it('should display grade selection when visiting /math directly', () => {
       cy.visit('/math');
-      cy.url().should('include', '/math/start');
+      cy.url().should('include', '/math');
+      cy.contains('学年を選んでください').should('be.visible');
     });
 
-    it('should complete navigation flow: home → math/start', () => {
+    it('should navigate from grade selection to start configuration page', () => {
+      cy.visit('/math');
+      cy.contains('a', '小1').click();
+      cy.url().should('include', '/math/start?grade=grade-1');
+      cy.contains('れんしゅうの じゅんび').should('be.visible');
+    });
+
+    it('should complete navigation flow: home → math → grade → start', () => {
       // Start from home
       cy.visit('/');
 
-      // Navigate to MathQuest (goes directly to /math/start)
+      // Navigate to MathQuest (goes to grade selection)
       cy.contains('a', 'MathQuest').click();
-      cy.url().should('include', '/math/start');
+      cy.url().should('include', '/math');
+      cy.contains('学年を選んでください').should('be.visible');
+
+      // Select first grade
+      cy.contains('a', '小1').click();
+      cy.url().should('include', '/math/start?grade=grade-1');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
   });
@@ -47,7 +61,7 @@ describe('EduQuest Navigation', () => {
 
   describe('Back Navigation', () => {
     it('should navigate back from math start to math home', () => {
-      cy.visit('/math/start');
+      cy.visit('/math/start?grade=grade-1');
       cy.go('back');
       cy.url().should('include', '/math');
     });

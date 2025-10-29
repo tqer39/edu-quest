@@ -60,6 +60,8 @@ const MODULE_SOURCE = `
       },
     };
 
+    const rootElement = document.getElementById('start-root');
+
     // DOM要素
     const step1Grade = document.getElementById('step-1-grade');
     const step2Activity = document.getElementById('step-2-activity');
@@ -73,6 +75,10 @@ const MODULE_SOURCE = `
     const calcTypeGrid = document.getElementById('calculation-type-grid');
     const themeBtns = document.querySelectorAll('.theme-btn');
     const gameBtns = document.querySelectorAll('.game-btn');
+
+    const gradeSummary = document.getElementById('grade-summary');
+    const gradeLabelEl = gradeSummary?.querySelector('[data-role="grade-label"]');
+    const gradeDescriptionEl = gradeSummary?.querySelector('[data-role="grade-description"]');
 
     const soundToggle = document.getElementById('toggle-sound');
     const stepsToggle = document.getElementById('toggle-steps');
@@ -138,6 +144,32 @@ const MODULE_SOURCE = `
       }
     }
 
+    const gradeLevelMap = new Map(
+      Array.isArray(gradeLevels)
+        ? gradeLevels.map(level => [level.id, level])
+        : []
+    );
+
+    function applySelectedGrade(gradeId) {
+      if (!gradeId) return;
+      state.selectedGrade = gradeId;
+      if (gradeSummary) {
+        gradeSummary.dataset.gradeId = gradeId;
+      }
+      const gradeData = gradeLevelMap.get(gradeId);
+      if (gradeLabelEl && gradeData) {
+        gradeLabelEl.textContent = gradeData.label;
+      }
+      if (gradeDescriptionEl && gradeData) {
+        gradeDescriptionEl.textContent = gradeData.description;
+      }
+    }
+
+    const initialSelectedGrade = rootElement?.dataset.selectedGrade || null;
+    if (initialSelectedGrade) {
+      applySelectedGrade(initialSelectedGrade);
+    }
+
     // STEP 1: 学年選択（任意・トグル可能）
     gradeBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -145,14 +177,25 @@ const MODULE_SOURCE = `
 
         const gradeId = btn.dataset.gradeId;
 
-        // トグル機能: 選択中のボタンを押すと未選択に
-        if (state.selectedGrade === gradeId) {
-          state.selectedGrade = null;
-          btn.classList.remove('selection-card--selected');
-        } else {
-          state.selectedGrade = gradeId;
-          selectButton(gradeBtns, btn);
+        if (!gradeId || state.selectedGrade === gradeId) {
+          return;
         }
+
+        applySelectedGrade(gradeId);
+        selectButton(gradeBtns, btn);
+
+        state.selectedActivity = null;
+        state.selectedCalculationType = null;
+        state.selectedTheme = null;
+        state.selectedGame = null;
+
+        hideAllStepsAfter(2);
+        if (calcTypeGrid) {
+          calcTypeGrid.innerHTML = '';
+        }
+        activityBtns.forEach(button => button.classList.remove('selection-card--selected'));
+        themeBtns.forEach(button => button.classList.remove('selection-card--selected'));
+        gameBtns.forEach(button => button.classList.remove('selection-card--selected'));
 
         // テーマフィルタリングを更新（計算種類が選択されている場合）
         if (state.selectedCalculationType) {
@@ -160,6 +203,7 @@ const MODULE_SOURCE = `
         }
 
         updateStartButtonState();
+        updateStepNumbers();
       });
     });
 
@@ -454,7 +498,11 @@ const MODULE_SOURCE = `
     if (clearButton) {
       clearButton.addEventListener('click', () => {
         // 状態をリセット
-        state.selectedGrade = null;
+        if (initialSelectedGrade) {
+          applySelectedGrade(initialSelectedGrade);
+        } else {
+          state.selectedGrade = null;
+        }
         state.selectedActivity = null;
         state.selectedCalculationType = null;
         state.selectedTheme = null;
@@ -483,6 +531,7 @@ const MODULE_SOURCE = `
         }
 
         updateStartButtonState();
+        updateStepNumbers();
       });
     }
 
@@ -577,6 +626,7 @@ const MODULE_SOURCE = `
     if (step1Grade) step1Grade.classList.remove('step-hidden');
     if (step2Activity) step2Activity.classList.remove('step-hidden');
     updateStartButtonState();
+    updateStepNumbers();
 
     // ローカルストレージから設定を復元
     try {

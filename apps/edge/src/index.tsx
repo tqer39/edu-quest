@@ -21,6 +21,7 @@ import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
+import { MathHome } from './routes/pages/math-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -43,6 +44,7 @@ import type {
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
+import { gradeLevels } from './routes/pages/grade-presets';
 import { Document } from './views/layouts/document';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
@@ -188,15 +190,35 @@ app.get('/', async (c) =>
 );
 
 // MathQuest routes
-app.get('/math', (c) => c.redirect('/math/start', 302));
-
-app.get('/math/start', async (c) =>
-  c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 設定ウィザード',
-    description:
-      '学年・単元とプレイ設定をまとめて選択し、集中モードで算数ミッションを始めましょう。',
-  })
+app.get('/math', async (c) =>
+  c.render(
+    <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 学年を選んで練習をはじめよう',
+      description: '最初に学年を選択して、ぴったりの算数ミッションを見つけましょう。',
+    }
+  )
 );
+
+app.get('/math/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const selectedGrade = gradeLevels.find((grade) => grade.id === gradeParam);
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  return c.render(
+    <Start
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      selectedGradeId={selectedGrade.id}
+    />,
+    {
+      title: `MathQuest | ${selectedGrade.label}の設定`,
+      description: `${selectedGrade.description}向けの問題セットをカスタマイズしましょう。`,
+    }
+  );
+});
 
 app.get('/math/play', async (c) =>
   c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
@@ -611,7 +633,7 @@ app.get('/clock/results', async (c) => {
 });
 
 // Backward compatibility: redirect old routes to /math/*
-app.get('/start', (c) => c.redirect('/math/start', 301));
+app.get('/start', (c) => c.redirect('/math', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
 app.get('/sudoku', async (c) =>

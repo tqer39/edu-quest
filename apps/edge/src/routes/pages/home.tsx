@@ -142,7 +142,7 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         title="MathQuest"
         description="算数の四則演算を楽しく練習。学年別のプリセットや、逆算問題など、多彩な問題で計算力をアップ。"
         icon="🔢"
-        href="/math/start"
+        href="/math"
         available={true}
         themeColor={{
           primary: '#6B9BD1',

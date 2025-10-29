@@ -7,6 +7,7 @@ import {
   practiceThemes,
   gradePresets,
   gradeCalculationTypes,
+  type GradeId,
 } from './grade-presets';
 import { renderStartClientScript } from './start.client';
 
@@ -16,13 +17,21 @@ const questionCountOptions = (
   isDevelopment ? [1, ...baseQuestionCountOptions] : baseQuestionCountOptions
 ) as readonly number[];
 
-export const Start: FC<{ currentUser: CurrentUser | null }> = ({
-  currentUser,
-}) => (
+type StartProps = {
+  currentUser: CurrentUser | null;
+  selectedGradeId: GradeId;
+};
+
+export const Start: FC<StartProps> = ({ currentUser, selectedGradeId }) => {
+  const selectedGrade =
+    gradeLevels.find((grade) => grade.id === selectedGradeId) ?? gradeLevels[0];
+
+  return (
   <div
     id="start-root"
     class="flex min-h-screen w-full flex-col gap-8 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
     data-user-state={currentUser ? 'known' : 'anonymous'}
+    data-selected-grade={selectedGrade.id}
   >
     {html`
       <style>
@@ -79,63 +88,52 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
 
     <div class="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
       <section id="main-steps" class="space-y-8">
-        {/* STEP 1: 学年をえらぼう（任意） */}
+        {/* STEP 1: 学年の確認 */}
         <div id="step-1-grade" class="space-y-4">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#6c7c90]">
+            <p class="step-number text-xs font-semibold uppercase tracking-[0.35em] text-[#6c7c90]">
               STEP 1
             </p>
             <h2 class="text-2xl font-extrabold text-[var(--mq-ink)]">
-              学年をえらぼう（えらばなくてもOK）
+              選んだ学年
             </h2>
             <p class="mt-1 text-sm text-[#5e718a]">
-              学年を選ぶとテーマが絞られます。選択しなくても進めます。
+              学年にもとづいて、おすすめの計算種類とテーマを表示します。
             </p>
           </div>
-          <div class="grid gap-3 sm:grid-cols-3 xl:grid-cols-6">
-            {gradeLevels.map((preset) => {
-              const isDisabled = preset.disabled;
-              return (
-                <button
-                  key={preset.id}
-                  type="button"
-                  data-grade-id={preset.id}
-                  disabled={isDisabled}
-                  class={`grade-btn rounded-2xl border-2 border-transparent bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--mq-primary)] ${
-                    isDisabled ? 'cursor-not-allowed opacity-50' : ''
-                  }`}
-                >
-                  <p
-                    class={`text-sm font-bold ${
-                      isDisabled
-                        ? 'text-gray-400'
-                        : 'text-[var(--mq-primary-strong)]'
-                    }`}
-                  >
-                    {preset.label}
-                  </p>
-                  <p
-                    class={`text-sm font-semibold ${
-                      isDisabled ? 'text-gray-500' : 'text-[var(--mq-ink)]'
-                    }`}
-                  >
-                    {preset.description}
-                  </p>
-                  {isDisabled && (
-                    <p class="mt-1 text-xs text-gray-400">準備中</p>
-                  )}
-                </button>
-              );
-            })}
+          <div
+            id="grade-summary"
+            data-grade-id={selectedGrade.id}
+            class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm"
+          >
+            <div class="flex flex-col gap-1">
+              <p class="text-sm font-semibold text-[#5e718a]">現在の学年</p>
+              <p
+                data-role="grade-label"
+                class="text-2xl font-extrabold text-[var(--mq-ink)]"
+              >
+                {selectedGrade.label}
+              </p>
+              <p
+                data-role="grade-description"
+                class="text-sm font-semibold text-[var(--mq-primary-strong)]"
+              >
+                {selectedGrade.description}
+              </p>
+            </div>
+            <a
+              href="/math"
+              class="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)]"
+            >
+              ↩ 学年を変更する
+            </a>
           </div>
         </div>
 
         {/* STEP 2: 活動選択 */}
         <div id="step-2-activity" class="space-y-4">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-[#6c7c90]">
-              STEP 2
-            </p>
+            <p class="step-number text-xs font-semibold uppercase tracking-[0.35em] text-[#6c7c90]"></p>
             <h2 class="text-2xl font-extrabold text-[var(--mq-ink)]">
               なにをするか えらぼう
             </h2>
@@ -486,3 +484,4 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
     })}
   </div>
 );
+};

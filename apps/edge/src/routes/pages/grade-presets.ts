@@ -40,7 +40,7 @@ export const gradeLevels = [
   },
 ] as const;
 
-type GradeId = (typeof gradeLevels)[number]['id'];
+export type GradeId = (typeof gradeLevels)[number]['id'];
 
 type RawPracticeTheme = {
   id: string;
