@@ -1,5 +1,10 @@
 # EduQuest Document Overview
 
+[![D1 Migrations (Dev)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-dev.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-dev.yml)
+[![D1 Migrations (Prod)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-prod.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/d1-migrations-prod.yml)
+[![Terraform (Dev)](https://github.com/tqer39/edu-quest/actions/workflows/terraform-dev.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/terraform-dev.yml)
+[![Terraform (Prod)](https://github.com/tqer39/edu-quest/actions/workflows/terraform-prod.yml/badge.svg)](https://github.com/tqer39/edu-quest/actions/workflows/terraform-prod.yml)
+
 EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Built with Hono for SSR on Cloudflare Workers, it features a shared domain logic managed in a monorepo with pnpm workspaces.
 
 ## Quest Modules
