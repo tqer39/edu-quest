@@ -6,6 +6,7 @@ export type DocumentProps = {
   title?: string;
   description?: string;
   environment?: string;
+  favicon?: string;
   children?: JSX.Element | JSX.Element[];
 };
 
@@ -14,10 +15,16 @@ export const Document: FC<DocumentProps> = ({
   title = 'EduQuest',
   description = '毎日の学習をもっと楽しく。EduQuest で学年別の問題にチャレンジしよう。',
   environment,
+  favicon,
   children,
 }) => {
   const year = new Date().getFullYear();
   const isDev = environment === 'dev';
+
+  // Default MathQuest favicon
+  const defaultFavicon =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2378c2c3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%231f2a4a' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EMQ%3C/text%3E%3C/svg%3E";
+
   return html`
     <!doctype html>
     <html lang=${lang} class="scroll-smooth">
@@ -35,7 +42,7 @@ export const Document: FC<DocumentProps> = ({
         <link
           rel="icon"
           type="image/svg+xml"
-          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2378c2c3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%231f2a4a' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EMQ%3C/text%3E%3C/svg%3E"
+          href="${favicon || defaultFavicon}"
         />
         <link
           rel="preconnect"
