@@ -1,11 +1,46 @@
 import { html } from 'hono/html';
 import type { FC, JSX } from 'hono/jsx';
+import type { AssetManifest } from '../../middlewares/asset-manifest';
+
+const entryCandidates = [
+  'src/entry-client.tsx',
+  'src/entry-client.ts',
+  'src/main.tsx',
+  'src/main.ts',
+  'src/index.tsx',
+  'src/index.ts',
+];
+
+const withLeadingSlash = (value: string): string =>
+  value.startsWith('/') ? value : `/${value}`;
+
+const resolveEntry = (
+  manifest: AssetManifest | null | undefined
+): { key: string; file: string } | null => {
+  if (!manifest) return null;
+
+  for (const candidate of entryCandidates) {
+    const entry = manifest[candidate];
+    if (entry?.file) {
+      return { key: candidate, file: entry.file };
+    }
+  }
+
+  for (const [key, entry] of Object.entries(manifest)) {
+    if (entry?.file) {
+      return { key, file: entry.file };
+    }
+  }
+
+  return null;
+};
 
 export type DocumentProps = {
   lang: 'ja' | 'en';
   title?: string;
   description?: string;
   environment?: string;
+  assetManifest?: AssetManifest | null;
   children?: JSX.Element | JSX.Element[];
 };
 
@@ -14,10 +49,41 @@ export const Document: FC<DocumentProps> = ({
   title = 'EduQuest',
   description = '毎日の学習をもっと楽しく。EduQuest で学年別の問題にチャレンジしよう。',
   environment,
+  assetManifest,
   children,
 }) => {
   const year = new Date().getFullYear();
   const isDev = environment === 'dev';
+  const resolvedEntry = resolveEntry(assetManifest);
+  const visited = new Set<string>();
+  const modulePreloadLinks: string[] = [];
+  const stylesheetLinks = new Set<string>();
+  const assetPreloads: Array<{ href: string; as: string }> = [];
+
+  const walkManifest = (entryKey: string): void => {
+    if (!assetManifest || visited.has(entryKey)) return;
+    visited.add(entryKey);
+    const entry = assetManifest[entryKey];
+    if (!entry) return;
+    modulePreloadLinks.push(withLeadingSlash(entry.file));
+    entry.css?.forEach((css) => stylesheetLinks.add(withLeadingSlash(css)));
+    entry.assets?.forEach((asset) => {
+      const href = withLeadingSlash(asset);
+      if (asset.endsWith('.woff2') || asset.endsWith('.woff')) {
+        assetPreloads.push({ href, as: 'font' });
+      } else if (asset.endsWith('.mp3') || asset.endsWith('.wav')) {
+        assetPreloads.push({ href, as: 'audio' });
+      } else if (asset.endsWith('.png') || asset.endsWith('.jpg') || asset.endsWith('.svg') || asset.endsWith('.webp')) {
+        assetPreloads.push({ href, as: 'image' });
+      }
+    });
+    entry.imports?.forEach((importKey) => walkManifest(importKey));
+  };
+
+  if (resolvedEntry) {
+    walkManifest(resolvedEntry.key);
+  }
+
   return html`
     <!doctype html>
     <html lang=${lang} class="scroll-smooth">
@@ -46,6 +112,15 @@ export const Document: FC<DocumentProps> = ({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
         />
+        ${modulePreloadLinks.map(
+          (href) => html`<link rel="modulepreload" href=${href} crossorigin="anonymous" />`
+        )}
+        ${[...stylesheetLinks.values()].map(
+          (href) => html`<link rel="stylesheet" href=${href} />`
+        )}
+        ${assetPreloads.map(
+          ({ href, as }) => html`<link rel="preload" href=${href} as=${as} crossorigin="anonymous" />`
+        )}
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
           :root {
@@ -127,7 +202,15 @@ export const Document: FC<DocumentProps> = ({
             <span>© ${year} EduQuest</span>
           </div>
         </footer>
+        ${resolvedEntry
+          ? html`<script
+              type="module"
+              src=${withLeadingSlash(resolvedEntry.file)}
+              defer
+            ></script>`
+          : ''}
       </body>
     </html>
   `;
 };
+
