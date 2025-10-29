@@ -1,3 +1,5 @@
+[English](/docs/README.md)
+
 # EduQuest ドキュメント概要
 
 EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。Cloudflare Workers 上で動作する Hono ベースの SSR アプリと、共有ドメインロジックを pnpm ワークスペースで管理するモノレポ構成になっています。

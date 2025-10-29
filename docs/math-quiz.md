@@ -1,3 +1,5 @@
+[日本語](/docs/math-quiz.ja.md)
+
 # Math Quiz (Elementary School)
 
 This is a simple browser-based arithmetic game. Learners can choose addition, subtraction, multiplication, or a mixed mode, and customize the number range and number of questions. The interface includes an on-screen keypad so it works well on touch devices. The target audience is lower to middle elementary school grades.

@@ -1,3 +1,5 @@
+[日本語](/docs/gemini-instructions.ja.md)
+
 # Notes for Gemini Code Assist
 
 At the moment there is no official feature that automatically imports standard repository files. When necessary, copy the shared guidelines from `docs/AI_RULES.md` into the workspace-specific instructions.

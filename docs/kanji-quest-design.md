@@ -1,3 +1,5 @@
+[日本語](/docs/kanji-quest-design.ja.md)
+
 # KanjiQuest Design Document
 
 ## Overview

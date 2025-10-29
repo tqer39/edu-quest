@@ -1,3 +1,5 @@
+[日本語](/docs/local-dev.ja.md)
+
 # Local Development Environments
 
 The repository provides two primary local development modes:

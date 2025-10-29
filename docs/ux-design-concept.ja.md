@@ -1,3 +1,5 @@
+[English](/docs/ux-design-concept.md)
+
 # eduquest: UI/UXデザインコンセプト
 
 ## 1. デザイン哲学

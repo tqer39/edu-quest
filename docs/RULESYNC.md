@@ -1,3 +1,5 @@
+[日本語](/docs/RULESYNC.ja.md)
+
 # rulesync Implementation Guide
 
 This is a minimal guide for introducing rulesync into this repository. rulesync is a CLI tool for safely synchronizing common rules and configuration files across multiple projects.

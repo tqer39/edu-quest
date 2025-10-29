@@ -1,3 +1,5 @@
+[日本語](/docs/edu-quest-architecture.ja.md)
+
 # eduquest: Architecture Design and Project Structure
 
 ## 1. Purpose

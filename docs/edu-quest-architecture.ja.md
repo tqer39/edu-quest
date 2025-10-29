@@ -1,3 +1,5 @@
+[English](/docs/edu-quest-architecture.md)
+
 # eduquest: アーキテクチャ設計とプロジェクト構造
 
 ## 1. 目的

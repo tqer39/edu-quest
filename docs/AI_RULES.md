@@ -1,3 +1,5 @@
+[日本語](/docs/AI_RULES.ja.md)
+
 # Common Rules for AI Assistants (English)
 
 This document outlines project-specific instructions to ensure consistent behavior from assistants like Cursor, GitHub Copilot, Codex CLI, Gemini, Claude Code, etc., in this repository.

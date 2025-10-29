@@ -1,3 +1,5 @@
+[English](/docs/hono-ddd-monorepo.md)
+
 # Hono × DDD モノレポ構成（最小）
 
 このドキュメントは、Hono を使って DDD（ドメイン駆動設計）のレイヤ分離を意識したモノレポ構成の最小実装について説明します。

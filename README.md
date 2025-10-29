@@ -1,3 +1,5 @@
+[日本語](/docs/README.ja.md)
+
 # EduQuest Document Overview
 
 EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Built with Hono for SSR on Cloudflare Workers, it features a shared domain logic managed in a monorepo with pnpm workspaces.

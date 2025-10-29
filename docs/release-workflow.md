@@ -1,3 +1,5 @@
+[日本語](/docs/release-workflow.ja.md)
+
 # Release Workflow
 
 This document explains how the EduQuest project manages releases.

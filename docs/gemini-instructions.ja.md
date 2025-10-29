@@ -1,3 +1,5 @@
+[English](/docs/gemini-instructions.md)
+
 # Gemini Code Assist 用メモ
 
 現時点でリポジトリ内の標準ファイルを自動で取り込む公式仕様は確認できていません。必要に応じて以下の共通ルール（`docs/AI_RULES.ja.md`）をワークスペースのカスタム指示へ貼り付けてください。
