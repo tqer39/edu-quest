@@ -11,9 +11,6 @@ build/
 *.min.js
 *.min.css
 
-# Generated CSS files
-**/tailwind.css
-
 # Coverage
 coverage/
 

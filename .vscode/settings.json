@@ -3,7 +3,8 @@
   "css.lint.validProperties": [],
   "css.customData": [],
   "files.associations": {
-    "**/tailwind.css": "plaintext"
+    "**/*.min.css": "plaintext",
+    "**/*.min.js": "plaintext"
   },
   "tailwindCSS.validate": false,
   "stylelint.validate": ["css", "scss"],
