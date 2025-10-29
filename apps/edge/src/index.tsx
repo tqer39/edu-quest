@@ -76,6 +76,18 @@ app.get('/favicon-kanji.svg', (c) => {
   });
 });
 
+// ClockQuest favicon
+app.get('/favicon-clock.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#F5A85F" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="Zen Kaku Gothic New, sans-serif" font-weight="bold">時</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
 // Default favicon (no content)
 app.get('/favicon.ico', (c) => c.body(null, 204));
 
@@ -451,6 +463,7 @@ app.get('/clock', async (c) =>
       title: 'ClockQuest | 時計の読み方をマスターしよう',
       description:
         'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
+      favicon: '/favicon-clock.svg',
     }
   )
 );
@@ -508,6 +521,7 @@ app.get('/clock/quiz', async (c) => {
       {
         title: `ClockQuest | レベル${session.quiz.config.difficulty}`,
         description: '時計の読み方クイズに挑戦中',
+        favicon: '/favicon-clock.svg',
       }
     );
   } catch (error) {
@@ -602,6 +616,7 @@ app.get('/clock/results', async (c) => {
       {
         title: `ClockQuest | 結果発表`,
         description: `${result.score}/${result.total}問正解しました！`,
+        favicon: '/favicon-clock.svg',
       }
     );
   } catch (error) {
