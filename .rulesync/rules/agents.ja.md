@@ -39,8 +39,8 @@
 - **重要**: 任意の `.md` ファイルを変更したら、同じディレクトリにある対応する `.{locale}.md` ファイルも必ず更新すること。
 - このルールは次を含むすべてのドキュメントに適用される。
   - プロジェクトドキュメント (AGENTS.md、README.md、CONTRIBUTING.md など)
-  - 技術ドキュメント (docs/*.md)
-  - 設計ドキュメント (docs/edu-quest-*.md、docs/*-quest-design.md)
+  - 技術ドキュメント (docs/\*.md)
+  - 設計ドキュメント (docs/edu-quest-_.md、docs/_-quest-design.md)
   - ワークフロードキュメント (docs/RULESYNC.md、docs/AI_RULES.md など)
 
 **ワークフロー:**
@@ -899,11 +899,11 @@ export const Document: FC<DocumentProps> = ({
 
 **現在のファビコン割り当て:**
 
-| クエスト種別 | エンドポイント             | 背景色              | 文字 | テーマ     |
-| ------------- | ------------------------ | ------------------- | ---- | ---------- |
-| MathQuest     | (default)                | `#78c2c3` (ティール) | `MQ` | 青/ティール |
-| KanjiQuest    | `/favicon-kanji.svg`     | `#9B87D4` (パープル) | `漢` | パープル   |
-| ClockQuest    | `/favicon-clock.svg`     | `#F5A85F` (オレンジ) | `時` | オレンジ   |
+| クエスト種別 | エンドポイント       | 背景色               | 文字 | テーマ      |
+| ------------ | -------------------- | -------------------- | ---- | ----------- |
+| MathQuest    | (default)            | `#78c2c3` (ティール) | `MQ` | 青/ティール |
+| KanjiQuest   | `/favicon-kanji.svg` | `#9B87D4` (パープル) | `漢` | パープル    |
+| ClockQuest   | `/favicon-clock.svg` | `#F5A85F` (オレンジ) | `時` | オレンジ    |
 
 ### 9.4. 実装チェックリスト
 
