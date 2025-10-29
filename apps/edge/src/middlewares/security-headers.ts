@@ -2,7 +2,7 @@ import type { MiddlewareHandler } from 'hono';
 
 const cspDirectives = [
   "default-src 'self'",
-  "script-src 'self' https://cdn.tailwindcss.com",
+  "script-src 'self'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data:",
   "font-src 'self' https://fonts.gstatic.com data:",
@@ -24,8 +24,7 @@ export const securityHeaders = (): MiddlewareHandler => {
       'Strict-Transport-Security',
       'max-age=15552000; includeSubDomains; preload'
     );
-    // COEP is disabled because it can block external resources (Google Fonts, Tailwind CDN)
-    // even with crossorigin attributes if the CDN doesn't return proper CORP headers.
+    // COEP is disabled because it can block external resources (Google Fonts)
     // Re-enable only if SharedArrayBuffer or similar features are needed.
     // c.header('Cross-Origin-Embedder-Policy', 'credentialless');
     c.header('Cross-Origin-Resource-Policy', 'same-origin');
