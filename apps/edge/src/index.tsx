@@ -10,6 +10,7 @@ declare module 'hono' {
     props?: { title?: string; description?: string; favicon?: string }
   ) => Response | Promise<Response>;
 }
+
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { securityHeaders } from './middlewares/security-headers';
