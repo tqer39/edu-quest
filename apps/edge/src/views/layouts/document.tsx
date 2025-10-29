@@ -68,7 +68,9 @@ export const Document: FC<DocumentProps> = ({
     const entry = assetManifest[entryKey];
     if (!entry) return;
     modulePreloadLinks.push(withLeadingSlash(entry.file));
-    entry.css?.forEach((css) => stylesheetLinks.add(withLeadingSlash(css)));
+    entry.css?.forEach((css) => {
+      stylesheetLinks.add(withLeadingSlash(css));
+    });
     entry.assets?.forEach((asset) => {
       const href = withLeadingSlash(asset);
       if (asset.endsWith('.woff2') || asset.endsWith('.woff')) {
@@ -84,7 +86,9 @@ export const Document: FC<DocumentProps> = ({
         assetPreloads.push({ href, as: 'image' });
       }
     });
-    entry.imports?.forEach((importKey) => walkManifest(importKey));
+    entry.imports?.forEach((importKey) => {
+      walkManifest(importKey);
+    });
   };
 
   if (resolvedEntry) {

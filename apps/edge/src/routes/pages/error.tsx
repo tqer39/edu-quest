@@ -48,7 +48,10 @@ export const ServerErrorPage: FC<{ requestId?: string }> = ({ requestId }) => (
   <ErrorPageLayout
     title="エラーが発生しました"
     message="申し訳ありません。ページの表示中に問題が発生しました。時間をおいて再度お試しください。"
-    details={requestId ? `サポートにお問い合わせの際は ID: ${requestId} をお伝えください。` : undefined}
+    details={
+      requestId
+        ? `サポートにお問い合わせの際は ID: ${requestId} をお伝えください。`
+        : undefined
+    }
   />
 );
-

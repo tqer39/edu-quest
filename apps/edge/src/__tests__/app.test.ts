@@ -22,7 +22,11 @@ beforeAll(() => {
 
 describe('app global handlers', () => {
   it('renders SSR not found page with 404 status', async () => {
-    const response = await app.request('/__missing', undefined, createTestEnv());
+    const response = await app.request(
+      '/__missing',
+      undefined,
+      createTestEnv()
+    );
     expect(response.status).toBe(404);
     const html = await response.text();
     expect(html).toContain('ページが見つかりません');
@@ -30,11 +34,14 @@ describe('app global handlers', () => {
   });
 
   it('renders SSR error page on unhandled exceptions', async () => {
-    const response = await app.request('/__test-error', undefined, createTestEnv());
+    const response = await app.request(
+      '/__test-error',
+      undefined,
+      createTestEnv()
+    );
     expect(response.status).toBe(500);
     const html = await response.text();
     expect(html).toContain('エラーが発生しました');
     expect(html).toContain('ID:');
   });
 });
-

@@ -46,4 +46,3 @@ export const assetManifest = (): MiddlewareHandler<{
     await next();
   };
 };
-
