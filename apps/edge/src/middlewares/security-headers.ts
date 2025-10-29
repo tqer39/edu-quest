@@ -24,7 +24,10 @@ export const securityHeaders = (): MiddlewareHandler => {
       'Strict-Transport-Security',
       'max-age=15552000; includeSubDomains; preload'
     );
-    c.header('Cross-Origin-Embedder-Policy', 'credentialless');
+    // COEP is disabled because it can block external resources (Google Fonts, Tailwind CDN)
+    // even with crossorigin attributes if the CDN doesn't return proper CORP headers.
+    // Re-enable only if SharedArrayBuffer or similar features are needed.
+    // c.header('Cross-Origin-Embedder-Policy', 'credentialless');
     c.header('Cross-Origin-Resource-Policy', 'same-origin');
     c.header('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
     await next();
