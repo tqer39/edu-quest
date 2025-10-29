@@ -46,8 +46,3 @@ export const assetManifest = (): MiddlewareHandler<{
     await next();
   };
 };
-
-export const clearAssetManifestCache = (): void => {
-  cachedManifest = undefined;
-};
-

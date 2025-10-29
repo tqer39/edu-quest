@@ -19,9 +19,9 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20251014.0",
-    "wrangler": "4.45.1",
+    "wrangler": "4.45.2",
     "typescript": "5.9.3",
-    "vitest": "4.0.4",
-    "drizzle-kit": "0.31.5"
+    "vitest": "4.0.5",
+    "drizzle-kit": "0.31.6"
   }
 }

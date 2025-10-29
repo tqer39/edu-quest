@@ -1,7 +1,7 @@
 {
   "name": "edu-quest",
   "private": true,
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -28,6 +28,6 @@
     "@biomejs/biome": "2.3.2",
     "@types/node": "24.9.2",
     "cypress": "15.5.0",
-    "wrangler": "4.45.1"
+    "wrangler": "4.45.2"
   }
 }

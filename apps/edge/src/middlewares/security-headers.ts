@@ -20,11 +20,16 @@ export const securityHeaders = (): MiddlewareHandler => {
     c.header('Referrer-Policy', 'strict-origin-when-cross-origin');
     c.header('X-Content-Type-Options', 'nosniff');
     c.header('X-Frame-Options', 'DENY');
-    c.header('Strict-Transport-Security', 'max-age=15552000; includeSubDomains; preload');
-    c.header('Cross-Origin-Embedder-Policy', 'credentialless');
+    c.header(
+      'Strict-Transport-Security',
+      'max-age=15552000; includeSubDomains; preload'
+    );
+    // COEP is disabled because it can block external resources (Google Fonts, Tailwind CDN)
+    // even with crossorigin attributes if the CDN doesn't return proper CORP headers.
+    // Re-enable only if SharedArrayBuffer or similar features are needed.
+    // c.header('Cross-Origin-Embedder-Policy', 'credentialless');
     c.header('Cross-Origin-Resource-Policy', 'same-origin');
     c.header('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
     await next();
   };
 };
-

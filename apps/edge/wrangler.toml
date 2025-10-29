@@ -11,7 +11,7 @@ compatibility_date = "2024-09-01"
 port = 8788
 
 [assets]
-dir = "./public"
+directory = "./public"
 binding = "ASSETS"
 
 [[kv_namespaces]]
