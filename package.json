@@ -1,7 +1,7 @@
 {
   "name": "edu-quest",
   "private": true,
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "workspaces": [
     "apps/*",
     "packages/*"

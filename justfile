@@ -94,7 +94,7 @@ update-brew:
 # Run rulesync with passthrough args
 rulesync args='':
     @if [[ "{{args}}" =~ ^generate(\s|$) ]]; then \
-        echo "Generating AI assistant configs from AGENTS.md"; \
+        echo "Generating AI assistant configs from .rulesync/rules/agents.md"; \
         bash scripts/rulesync-generate.sh; \
     elif command -v rulesync >/dev/null 2>&1; then \
         echo "Running: rulesync {{args}}"; \

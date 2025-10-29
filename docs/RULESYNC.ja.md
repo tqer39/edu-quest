@@ -46,6 +46,30 @@
 
 ## 使い方
 
+### このプロジェクト固有のワークフロー
+
+このプロジェクトでは、rulesync を使って AI アシスタントの設定ファイル(AGENTS.md、Copilot instructions、Cursor rules など)を管理しています。
+
+**マスターソース**: `.rulesync/rules/agents.md` (git 管理対象)
+
+**生成されるファイル**(gitignore):
+
+- `./AGENTS.md` → `.rulesync/rules/agents.md` (Codex CLI 互換性のためのシンボリックリンク)
+- `.github/copilot-instructions.md` (GitHub Copilot)
+- `.cursor/rules/agents.mdc` (Cursor)
+- `.claude/memories/agents.md` (Claude Code)
+- `.codex/memories/agents.md` (Codex CLI)
+
+**AI アシスタント設定を更新する手順**:
+
+1. `.rulesync/rules/agents.md` を編集
+2. `just rulesync generate` を実行して全ツールの設定ファイルを再生成
+3. `.rulesync/rules/agents.md` の変更をコミット
+
+**自動生成**: pre-commit フックにより、`.rulesync/rules/`、`.rulesync/commands/`、または `.rulesync/subagents/` が変更されると自動的に `rulesync generate` が実行されます。
+
+### 一般的な rulesync コマンド
+
 - ドライラン/差分確認（例）
   - `rulesync --check` や `rulesync diff` など、ツールが提供するチェックコマンド
 - 適用（例）
@@ -56,6 +80,9 @@
 ```bash
 # ヘルプ表示
 just rulesync -- --help
+
+# AI アシスタント設定を生成（特別な処理）
+just rulesync generate
 
 # 差分確認（例）
 just rulesync -- --check

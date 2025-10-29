@@ -46,6 +46,30 @@ Please refer to the official rulesync documentation for schema and option names.
 
 ## Usage
 
+### Project-Specific Workflow
+
+This project uses rulesync to manage AI assistant configurations (AGENTS.md, Copilot instructions, Cursor rules, etc.).
+
+**Source of truth**: `.rulesync/rules/agents.md` (git-tracked)
+
+**Generated files** (gitignored):
+
+- `./AGENTS.md` → `.rulesync/rules/agents.md` (symlink for Codex CLI compatibility)
+- `.github/copilot-instructions.md` (GitHub Copilot)
+- `.cursor/rules/agents.mdc` (Cursor)
+- `.claude/memories/agents.md` (Claude Code)
+- `.codex/memories/agents.md` (Codex CLI)
+
+**To update AI assistant configurations**:
+
+1. Edit `.rulesync/rules/agents.md`
+2. Run `just rulesync generate` to regenerate all tool-specific files
+3. Commit changes to `.rulesync/rules/agents.md`
+
+**Automatic generation**: The pre-commit hook automatically runs `rulesync generate` when `.rulesync/rules/`, `.rulesync/commands/`, or `.rulesync/subagents/` are modified.
+
+### General rulesync Commands
+
 - Dry-run/Check for differences (example)
   - Check commands provided by the tool, such as `rulesync --check` or `rulesync diff`.
 - Apply (example)
@@ -56,6 +80,9 @@ This repository's `just` file includes a generic `rulesync` task (arguments are 
 ```bash
 # Display help
 just rulesync -- --help
+
+# Generate AI assistant configs (special handling)
+just rulesync generate
 
 # Check for differences (example)
 just rulesync -- --check

@@ -31,7 +31,11 @@ import {
   getKanjiSessionResult,
 } from './application/usecases/kanji-quiz';
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
-import type { ClockDifficulty, KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
+import type {
+  ClockDifficulty,
+  KanjiGrade,
+  KanjiQuestType,
+} from '@edu-quest/domain';
 import { Document } from './views/layouts/document';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
@@ -53,7 +57,19 @@ app.use('*', i18n());
 app.use('*', seoControl());
 app.use('*', assetManifest());
 
-// Avoid noisy errors for favicon requests during local dev
+// KanjiQuest favicon
+app.get('/favicon-kanji.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#9B87D4" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">漢</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// Default favicon (no content)
 app.get('/favicon.ico', (c) => c.body(null, 204));
 
 // Robots.txt - dev環境では全てのクローラーをブロック
@@ -126,22 +142,25 @@ app.get('/hello', (c) => c.text('Hello World'));
 // SSR renderer
 app.use(
   '*',
-  jsxRenderer<{ title?: string; description?: string }>((props, c) => {
-    const lang = c.get('lang') ?? 'ja';
-    const environment = c.env.ENVIRONMENT;
-    const manifest = c.get('assetManifest') ?? null;
-    return (
-      <Document
-        lang={lang}
-        title={props.title}
-        description={props.description}
-        environment={environment}
-        assetManifest={manifest}
-      >
-        {props.children}
-      </Document>
-    );
-  })
+  jsxRenderer<{ title?: string; description?: string; favicon?: string }>(
+    (props, c) => {
+      const lang = c.get('lang') ?? 'ja';
+      const environment = c.env.ENVIRONMENT;
+      const manifest = c.get('assetManifest') ?? null;
+      return (
+        <Document
+          lang={lang}
+          title={props.title}
+          description={props.description}
+          favicon={props.favicon}
+          environment={environment}
+          assetManifest={manifest}
+        >
+          {props.children}
+        </Document>
+      );
+    }
+  )
 );
 
 // Public top
@@ -179,6 +198,7 @@ app.get('/kanji', async (c) =>
     {
       title: 'KanjiQuest | 漢字の読み方をマスターしよう',
       description: '小学校で習う漢字の読み方を練習。楽しく漢字を覚えられます。',
+      favicon: '/favicon-kanji.svg',
     }
   )
 );
@@ -199,7 +219,7 @@ app.get('/kanji/select', async (c) => {
     <KanjiSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
-    />, 
+    />,
     {
       title: 'KanjiQuest - クエスト選択',
       description: '学習したいクエストタイプを選んでください。',
@@ -580,11 +600,14 @@ app.get('/start', (c) => c.redirect('/math/start', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
 app.get('/sudoku', async (c) =>
-  c.render(<Sudoku currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 数独',
-    description:
-      '数独パズルで論理的思考力を鍛えよう。数字を使った楽しいパズルゲームです。',
-  })
+  c.render(
+    <Sudoku currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 数独',
+      description:
+        '数独パズルで論理的思考力を鍛えよう。数字を使った楽しいパズルゲームです。',
+    }
+  )
 );
 
 app.get('/auth/guest-login', (c) => {
@@ -729,26 +752,22 @@ app.route('/apis/quiz', quiz);
 
 app.notFound((c) => {
   c.status(404);
-  return c.render(
-    <NotFoundPage />,
-    {
-      title: 'ページが見つかりません',
-      description: 'お探しのページが見つかりませんでした。URL をご確認のうえ再度お試しください。',
-    }
-  );
+  return c.render(<NotFoundPage />, {
+    title: 'ページが見つかりません',
+    description:
+      'お探しのページが見つかりませんでした。URL をご確認のうえ再度お試しください。',
+  });
 });
 
 app.onError((error, c) => {
   const requestId = crypto.randomUUID();
   console.error(`Unhandled error [${requestId}]`, error);
   c.status(500);
-  return c.render(
-    <ServerErrorPage requestId={requestId} />,
-    {
-      title: 'エラーが発生しました',
-      description: '申し訳ありません。ページの表示中に問題が発生しました。時間をおいて再度お試しください。',
-    }
-  );
+  return c.render(<ServerErrorPage requestId={requestId} />, {
+    title: 'エラーが発生しました',
+    description:
+      '申し訳ありません。ページの表示中に問題が発生しました。時間をおいて再度お試しください。',
+  });
 });
 
 export default app;

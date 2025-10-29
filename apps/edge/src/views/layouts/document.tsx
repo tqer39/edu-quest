@@ -41,6 +41,7 @@ export type DocumentProps = {
   description?: string;
   environment?: string;
   assetManifest?: AssetManifest | null;
+  favicon?: string;
   children?: JSX.Element | JSX.Element[];
 };
 
@@ -50,6 +51,7 @@ export const Document: FC<DocumentProps> = ({
   description = '毎日の学習をもっと楽しく。EduQuest で学年別の問題にチャレンジしよう。',
   environment,
   assetManifest,
+  favicon,
   children,
 }) => {
   const year = new Date().getFullYear();
@@ -73,7 +75,12 @@ export const Document: FC<DocumentProps> = ({
         assetPreloads.push({ href, as: 'font' });
       } else if (asset.endsWith('.mp3') || asset.endsWith('.wav')) {
         assetPreloads.push({ href, as: 'audio' });
-      } else if (asset.endsWith('.png') || asset.endsWith('.jpg') || asset.endsWith('.svg') || asset.endsWith('.webp')) {
+      } else if (
+        asset.endsWith('.png') ||
+        asset.endsWith('.jpg') ||
+        asset.endsWith('.svg') ||
+        asset.endsWith('.webp')
+      ) {
         assetPreloads.push({ href, as: 'image' });
       }
     });
@@ -83,6 +90,10 @@ export const Document: FC<DocumentProps> = ({
   if (resolvedEntry) {
     walkManifest(resolvedEntry.key);
   }
+
+  // Default MathQuest favicon
+  const defaultFavicon =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2378c2c3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%231f2a4a' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EMQ%3C/text%3E%3C/svg%3E";
 
   return html`
     <!doctype html>
@@ -101,7 +112,7 @@ export const Document: FC<DocumentProps> = ({
         <link
           rel="icon"
           type="image/svg+xml"
-          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2378c2c3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%231f2a4a' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EMQ%3C/text%3E%3C/svg%3E"
+          href="${favicon || defaultFavicon}"
         />
         <link
           rel="preconnect"
@@ -113,13 +124,24 @@ export const Document: FC<DocumentProps> = ({
           href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
         />
         ${modulePreloadLinks.map(
-          (href) => html`<link rel="modulepreload" href=${href} crossorigin="anonymous" />`
+          (href) =>
+            html`<link
+              rel="modulepreload"
+              href=${href}
+              crossorigin="anonymous"
+            />`
         )}
         ${[...stylesheetLinks.values()].map(
           (href) => html`<link rel="stylesheet" href=${href} />`
         )}
         ${assetPreloads.map(
-          ({ href, as }) => html`<link rel="preload" href=${href} as=${as} crossorigin="anonymous" />`
+          ({ href, as }) =>
+            html`<link
+              rel="preload"
+              href=${href}
+              as=${as}
+              crossorigin="anonymous"
+            />`
         )}
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
@@ -213,4 +235,3 @@ export const Document: FC<DocumentProps> = ({
     </html>
   `;
 };
-
