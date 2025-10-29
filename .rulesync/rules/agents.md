@@ -65,6 +65,17 @@ This file is the central hub. For detailed information, please refer to the spec
 - If you're unsure about the translation, ask the user for guidance.
 - Maintaining documentation parity is critical for our bilingual user base.
 
+### 2.3. ChatGPT Codex Connector Comment Localization
+
+To keep the ChatGPT Codex Connector guidance understandable for both English- and Japanese-speaking contributors, always pair explanations in both languages when editing this file.
+
+- Provide the English guidance first, followed immediately by its Japanese translation so the intent stays synchronized.
+  - 英語での説明を書いた直後に、意図が変わらないよう同内容の日本語訳を必ず追記してください。
+- Use full sentences for the Japanese explanation instead of short phrases or machine-generated fragments.
+  - 日本語訳は断片的な語句ではなく、意味が伝わる完結した文章で記述してください。
+- When updating existing text, confirm that both language versions are updated together to avoid mismatched instructions.
+  - 既存の文章を更新するときは、英語と日本語の両方を同時にメンテナンスし、内容の食い違いが生じないようにしてください。
+
 ## 3. System Architecture
 
 ### 3.1. High-Level Diagram
