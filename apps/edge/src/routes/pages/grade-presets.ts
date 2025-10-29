@@ -4,37 +4,37 @@ import type { DifficultyProfile, Mode } from '@edu-quest/domain';
 export const gradeLevels = [
   {
     id: 'grade-1',
-    label: '小1',
+    label: '小学1年生',
     description: '小学1年生',
     disabled: false,
   },
   {
     id: 'grade-2',
-    label: '小2',
+    label: '小学2年生',
     description: '小学2年生',
     disabled: false,
   },
   {
     id: 'grade-3',
-    label: '小3',
+    label: '小学3年生',
     description: '小学3年生',
     disabled: true,
   },
   {
     id: 'grade-4',
-    label: '小4',
+    label: '小学4年生',
     description: '小学4年生',
     disabled: true,
   },
   {
     id: 'grade-5',
-    label: '小5',
+    label: '小学5年生',
     description: '小学5年生',
     disabled: true,
   },
   {
     id: 'grade-6',
-    label: '小6',
+    label: '小学6年生',
     description: '小学6年生',
     disabled: true,
   },

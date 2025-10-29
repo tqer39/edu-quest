@@ -195,7 +195,8 @@ app.get('/math', async (c) =>
     <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'MathQuest | 学年を選んで練習をはじめよう',
-      description: '最初に学年を選択して、ぴったりの算数ミッションを見つけましょう。',
+      description:
+        '最初に学年を選択して、ぴったりの算数ミッションを見つけましょう。',
     }
   )
 );

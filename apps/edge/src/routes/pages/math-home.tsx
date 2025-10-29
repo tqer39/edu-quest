@@ -45,14 +45,17 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
       <div class="space-y-4">
         <h1 class="text-3xl font-extrabold sm:text-4xl">MathQuest</h1>
         <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-          学年をえらんで算数のれんしゅうをはじめよう。<br />
+          学年をえらんで算数のれんしゅうをはじめよう。
+          <br />
           たし算・ひき算だけでなく、逆算やテーマ学習にも挑戦できます。
         </p>
       </div>
     </header>
 
     <section>
-      <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">学年を選んでください</h2>
+      <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
+        学年を選んでください
+      </h2>
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {gradeLevels.map((grade) => {
           if (grade.disabled) {
@@ -77,8 +80,12 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
               href={`/math/start?grade=${grade.id}`}
               class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
-              <div class="text-2xl font-bold text-[var(--mq-ink)]">{grade.label}</div>
-              <div class="text-lg text-[var(--mq-primary-strong)]">{getGradeStars(grade.id)}</div>
+              <div class="text-2xl font-bold text-[var(--mq-ink)]">
+                {grade.label}
+              </div>
+              <div class="text-lg text-[var(--mq-primary-strong)]">
+                {getGradeStars(grade.id)}
+              </div>
               <div class="text-sm text-[#5e718a]">{grade.description}</div>
             </a>
           );
@@ -87,7 +94,9 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
     </section>
 
     <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-      <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">MathQuest でできること</h2>
+      <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
+        MathQuest でできること
+      </h2>
       <ul class="space-y-2 text-sm text-[#5e718a]">
         <li>✓ 学年プリセットで学ぶ範囲をしぼって練習できます</li>
         <li>✓ たし算・ひき算だけでなく逆算やテーマ学習にも挑戦できます</li>
@@ -97,4 +106,3 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
     </section>
   </div>
 );
-
