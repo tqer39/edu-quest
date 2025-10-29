@@ -4,6 +4,8 @@ name: Auto Assign
 on:
   pull_request:
     types: [opened, ready_for_review]
+    paths-ignore:
+      - '**/*.md'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
