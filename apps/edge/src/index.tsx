@@ -3,6 +3,13 @@ import { jsxRenderer } from 'hono/jsx-renderer';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
+
+declare module 'hono' {
+  type ContextRenderer = (
+    content: string | Promise<string>,
+    props?: { title?: string; description?: string; favicon?: string }
+  ) => Response | Promise<Response>;
+}
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { securityHeaders } from './middlewares/security-headers';
@@ -142,8 +149,16 @@ app.get('/hello', (c) => c.text('Hello World'));
 // SSR renderer
 app.use(
   '*',
-  jsxRenderer<{ title?: string; description?: string; favicon?: string }>(
-    (props, c) => {
+  jsxRenderer(
+    (
+      props: {
+        title?: string;
+        description?: string;
+        favicon?: string;
+        children?: any;
+      },
+      c
+    ) => {
       const lang = c.get('lang') ?? 'ja';
       const environment = c.env.ENVIRONMENT;
       const manifest = c.get('assetManifest') ?? null;
