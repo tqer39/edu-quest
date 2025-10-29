@@ -34,13 +34,24 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
             KanjiQuest {grade}年生
           </span>
         </div>
-        <div class="flex items-center gap-4">
-          <span class="text-sm font-semibold text-[var(--mq-ink)]">
-            問題 {questionNumber} / {totalQuestions}
-          </span>
-          <span class="text-sm font-semibold text-[var(--mq-primary-strong)]">
-            正解数: {score}
-          </span>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <div class="flex items-center gap-4">
+            <span class="text-sm font-semibold text-[var(--mq-ink)]">
+              問題 {questionNumber} / {totalQuestions}
+            </span>
+            <span class="text-sm font-semibold text-[var(--mq-primary-strong)]">
+              正解数: {score}
+            </span>
+          </div>
+          <form method="POST" action="/kanji/quit" class="sm:ml-auto">
+            <input type="hidden" name="grade" value={grade} />
+            <button
+              type="submit"
+              class="w-full rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] sm:w-auto"
+            >
+              やめる
+            </button>
+          </form>
         </div>
       </nav>
 
