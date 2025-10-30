@@ -2,6 +2,12 @@
 
 EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。Cloudflare Workers 上で動作する Hono ベースの SSR アプリと、共有ドメインロジックを pnpm ワークスペースで管理するモノレポ構成になっています。
 
+## アーキテクチャ参照
+
+- **一次情報:** 現行の本番レイヤ構成・依存ルール・ディレクトリ構成は [edu-quest-architecture.md](./edu-quest-architecture.ja.md) にまとめています。
+- **履歴資料:** [hono-ddd-monorepo.md](./hono-ddd-monorepo.ja.md) は最小 3 レイヤ構成を解説した初期チュートリアルです。背景を把握する際に参照し、日常的な作業ではアーキテクチャドキュメントを優先してください。
+- **構成スナップショット:** ディレクトリを追加・変更した場合は `pnpm run docs:update-structure` を実行して、アーキテクチャドキュメント内のツリーを最新化しましょう。
+
 ## Quest モジュール
 
 - **MathQuest** (`/math`): 学年別プリセットとテーマ練習を提供する算数練習。計算種別の選択、設定切り替え（効果音、途中式）、テンキー UI での練習が可能。
@@ -86,10 +92,10 @@ just status
 - `apps/api` / `apps/web`: ローカル開発向けの Node サーバーと Web フロント。Workers を使わない検証で利用します。
 - `packages/domain`: 問題生成・採点ロジック。学年別の複合ステップ問題（たし算→ひき算など）もここで定義します。
 - `packages/app`: ドメインロジックを利用したクイズ進行管理（出題順・正解数カウントなど）。
+- `cypress/`: Cypress の E2E テストコード、共通ヘルパー、設定ファイル。
 - `docs/`: 設計・運用ドキュメント。
 - `infra/`: Terraform と D1 マイグレーション。
-- `games/math-quiz`: 旧ブラウザ版ゲーム（静的 HTML/JS）。
-- `games/clock-quest`: アナログとデジタルの時計でれんしゅうできる ClockQuest 試作版（静的 HTML/JS）。
+- `scripts/`: rulesync やドキュメントツールなどの自動化スクリプト。
 
 ## 関連ドキュメント
 

@@ -8,6 +8,12 @@
 
 EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Built with Hono for SSR on Cloudflare Workers, it features a shared domain logic managed in a monorepo with pnpm workspaces.
 
+## Architecture Reference
+
+- **Source of truth:** [edu-quest-architecture.md](./edu-quest-architecture.md) documents the current production layers, dependency rules, and repository structure.
+- **Historical tutorial:** [hono-ddd-monorepo.md](./hono-ddd-monorepo.md) captures the original minimal three-layer setup. Refer to it for legacy context, but prefer the architecture document for day-to-day work.
+- **Structure snapshot:** Run `pnpm run docs:update-structure` after changing directories so the architecture document stays in sync with the repository tree.
+
 ## Quest Modules
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises. Users can select calculation types, toggle settings (sound effects, intermediate steps), and practice with a keypad UI.
@@ -209,10 +215,10 @@ cypress/screenshots/
 - `apps/api` / `apps/web`: A Node server and web front-end for local development. Used for validation without Workers.
 - `packages/domain`: The logic for question generation and grading. It also defines multi-step problems for different grade levels (e.g., addition then subtraction).
 - `packages/app`: Manages quiz progression (question order, correct answer count, etc.) using the domain logic.
+- `cypress/`: Cypress specs, shared helpers, and configuration for end-to-end tests.
 - `docs/`: Design and operational documents.
 - `infra/`: Terraform and D1 migrations.
-- `games/math-quiz`: The old browser-based game (static HTML/JS).
-- `games/clock-quest`: A prototype ClockQuest trainer with analog & digital clocks (static HTML/JS).
+- `scripts/`: Repository automation (rulesync, documentation tooling).
 
 ## Related Documents
 
