@@ -3,7 +3,6 @@ import { jsxRenderer } from 'hono/jsx-renderer';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
-import './types/hono';
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { securityHeaders } from './middlewares/security-headers';
