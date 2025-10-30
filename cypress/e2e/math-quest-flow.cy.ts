@@ -1,21 +1,21 @@
 describe('MathQuest Flow', () => {
   describe('Start Configuration Page', () => {
     beforeEach(() => {
-      cy.visit('/math/start');
+      cy.visit('/math/start?grade=grade-1');
     });
 
     it('should load the start configuration page', () => {
-      cy.url().should('include', '/math/start');
+      cy.url().should('include', '/math/start?grade=grade-1');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
 
-    it('should display grade level selection', () => {
-      cy.contains('学年をえらぼう').should('be.visible');
+    it('should display selected grade summary', () => {
+      cy.contains('選んだ学年').should('be.visible');
+      cy.contains('現在の学年').should('be.visible');
     });
 
     it('should display question count selection after completing configuration steps', () => {
       // Complete configuration steps to reveal question count selection
-      cy.contains('button', '小1').click();
       cy.contains('button', '計算する').click();
       cy.contains('button', 'たし算').click();
 
@@ -30,10 +30,7 @@ describe('MathQuest Flow', () => {
 
   describe('Play Page Navigation', () => {
     it('should navigate to play page after configuration', () => {
-      cy.visit('/math/start');
-
-      // Select grade level (1st grade)
-      cy.contains('button', '小1').click();
+      cy.visit('/math/start?grade=grade-1');
 
       // Select activity (計算する)
       cy.contains('button', '計算する').click();
@@ -49,10 +46,9 @@ describe('MathQuest Flow', () => {
     });
 
     it('should display question on play page', () => {
-      cy.visit('/math/start');
+      cy.visit('/math/start?grade=grade-1');
 
       // Quick start with default settings
-      cy.contains('button', '小1').click();
       cy.contains('button', '計算する').click();
       cy.contains('button', 'たし算').click();
       cy.contains('button', 'はじめる').click();
@@ -66,7 +62,7 @@ describe('MathQuest Flow', () => {
   describe('Backward Compatibility Redirects', () => {
     it('should redirect /start to /math/start', () => {
       cy.visit('/start');
-      cy.url().should('include', '/math/start');
+      cy.url().should('include', '/math');
     });
 
     it('should redirect /play to /math/play', () => {

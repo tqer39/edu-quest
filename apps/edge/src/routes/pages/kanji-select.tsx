@@ -16,7 +16,7 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null; grade: KanjiGrade }> = ({
           ✏️
         </span>
         <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-          KanjiQuest - {grade}年生
+          KanjiQuest - 小学{grade}年生
         </span>
       </a>
     </div>
@@ -92,7 +92,7 @@ export const KanjiSelect: FC<{
             クエストを選んでください
           </h1>
           <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-            {grade}年生の漢字で遊びましょう！
+            小学{grade}年生の漢字で遊びましょう！
             <br />
             挑戦したいクエストを選んでください。
           </p>
