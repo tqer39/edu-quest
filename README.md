@@ -129,7 +129,7 @@ EduQuest is a learning platform for elementary school students that provides var
   </tr>
   <tr>
     <td align="center">
-      <a href="https://just.systems/" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/casey/just" target="_blank" rel="noopener noreferrer">
         <img src="https://raw.githubusercontent.com/casey/just/master/icon.png" alt="just logo" width="60" height="60" />
         <br /><sub><b>just</b></sub>
       </a>
