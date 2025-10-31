@@ -188,7 +188,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
     </td>
     <td align="center">
       <a href="https://textlint.github.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://textlint.org/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="180" height="90" />
+        <img src="https://avatars.githubusercontent.com/u/12554465?s=200&v=4" alt="textlint logo" width="60" height="60" />
         <br /><sub><b>textlint</b></sub>
       </a>
     </td>
@@ -200,7 +200,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
     </td>
     <td align="center">
       <a href="https://biomejs.dev/" target="_blank" rel="noopener noreferrer">
-        <img src="https://biomejs.dev/img/logo_light_transparent.svg" alt="Biome logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/121827644?s=200&v=4" alt="Biome logo" width="60" height="60" />
         <br /><sub><b>Biome</b></sub>
       </a>
     </td>
