@@ -250,7 +250,8 @@ app.use(
       const lang = c.get('lang') ?? 'ja';
       const environment = c.env.ENVIRONMENT;
       const manifest = c.get('assetManifest') ?? null;
-      const releaseInfo = environment === 'dev' ? await fetchLatestRelease() : null;
+      const releaseInfo =
+        environment === 'dev' ? await fetchLatestRelease() : null;
 
       return (
         <Document
