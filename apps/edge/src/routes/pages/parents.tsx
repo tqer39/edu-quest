@@ -54,6 +54,15 @@ const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   </ul>
 );
 
+const SectionDivider: FC = () => (
+  <div class="relative flex items-center justify-center py-4">
+    <div class="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[var(--mq-outline)] to-transparent"></div>
+    <div class="relative flex h-3 w-3 items-center justify-center rounded-full bg-[var(--mq-primary-soft)] shadow-sm">
+      <div class="h-1.5 w-1.5 rounded-full bg-[var(--mq-primary)]"></div>
+    </div>
+  </div>
+);
+
 const TableOfContents: FC = () => {
   const sections = [
     { id: 'safety', icon: '🔒', title: '安心して使える設計' },
@@ -129,7 +138,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 }) => (
   <main
     id="parents-root"
-    class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
+    class="flex min-h-screen w-full flex-col gap-16 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
   >
     <Header currentUser={currentUser} />
     <section
@@ -199,6 +208,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <TableOfContents />
 
+    <SectionDivider />
+
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="safety"
@@ -254,6 +265,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         </aside>
       </div>
     </section>
+
+    <SectionDivider />
 
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
@@ -339,6 +352,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       </div>
     </section>
 
+    <SectionDivider />
+
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="easy-start"
@@ -397,6 +412,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         </div>
       </div>
     </section>
+
+    <SectionDivider />
 
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
@@ -464,6 +481,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       </div>
     </section>
 
+    <SectionDivider />
+
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="use-cases"
@@ -500,6 +519,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       </div>
     </section>
 
+    <SectionDivider />
+
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading id="faq" icon="❓" title="よくある質問" />
       <div class="mt-10 space-y-6">
@@ -524,6 +545,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         ))}
       </div>
     </section>
+
+    <SectionDivider />
 
     <section class="rounded-[32px]  bg-gradient-to-br from-[#dbeafe] via-white to-[#bbf7d0] p-8 text-[var(--mq-ink)] shadow-md">
       <div class="flex flex-col gap-6 text-center">
