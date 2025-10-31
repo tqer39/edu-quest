@@ -198,6 +198,12 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
         <br /><sub><b>gitignore.io</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://biomejs.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://biomejs.dev/img/logo_light_transparent.svg" alt="Biome logo" width="60" height="60" />
+        <br /><sub><b>Biome</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
