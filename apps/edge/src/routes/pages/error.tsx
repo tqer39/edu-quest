@@ -1,4 +1,5 @@
 import type { FC } from 'hono/jsx';
+import { BACK_TO_TOP_LABEL } from '../components/back-to-top-link';
 
 type ErrorPageProps = {
   title: string;
@@ -11,7 +12,7 @@ const ErrorPageLayout: FC<ErrorPageProps> = ({
   title,
   message,
   details,
-  action = { href: '/', label: 'トップに戻る' },
+  action = { href: '/', label: BACK_TO_TOP_LABEL },
 }) => (
   <div class="flex min-h-screen flex-col items-center justify-center bg-[var(--mq-bg)] px-6 py-16">
     <div class="w-full max-w-xl space-y-6 rounded-3xl border border-[var(--mq-outline)] bg-white/90 p-10 text-center shadow-xl backdrop-blur">

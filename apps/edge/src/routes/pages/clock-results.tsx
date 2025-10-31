@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockGrade } from '@edu-quest/domain';
+import { BackToTopLink } from '../components/back-to-top-link';
 
 type ClockResultsProps = {
   currentUser: CurrentUser | null;
@@ -75,12 +76,7 @@ export const ClockResults: FC<ClockResultsProps> = ({
             >
               レベルを選び直す
             </a>
-            <a
-              href="/"
-              class="text-sm font-semibold text-[var(--mq-primary-strong)] transition hover:underline"
-            >
-              トップに戻る
-            </a>
+            <BackToTopLink variant="text" />
           </div>
         </div>
 
