@@ -1,5 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
+import { Footer } from '../../components/Footer';
 
 const HomeNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
@@ -113,34 +114,6 @@ const QuestCard: FC<QuestCardProps> = ({
   </a>
 );
 
-const HomeFooter: FC = () => (
-  <nav class="rounded-3xl border border-[rgba(148,163,184,0.25)] bg-white/90 p-6 shadow-sm">
-    <h2 class="text-sm font-semibold text-[#1f2937]">関連リンク</h2>
-    <ul class="mt-3 flex flex-wrap gap-4 text-sm text-[#3b82f6]">
-      <li>
-        <a class="transition hover:text-[#1d4ed8]" href="/">
-          ホーム
-        </a>
-      </li>
-      <li>
-        <a class="transition hover:text-[#1d4ed8]" href="/parents">
-          保護者の方へ
-        </a>
-      </li>
-      <li>
-        <a
-          class="transition hover:text-[#1d4ed8]"
-          href="https://github.com/tqer39/edu-quest"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub Repository
-        </a>
-      </li>
-    </ul>
-  </nav>
-);
-
 export const Home: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser,
 }) => (
@@ -211,6 +184,6 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
       />
     </section>
 
-    <HomeFooter />
+    <Footer />
   </div>
 );
