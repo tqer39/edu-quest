@@ -129,7 +129,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 }) => (
   <main
     id="parents-root"
-    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-10 px-4 py-8 sm:px-8 lg:px-12"
+    class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
   >
     <Header currentUser={currentUser} />
     <section

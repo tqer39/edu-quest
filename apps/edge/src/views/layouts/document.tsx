@@ -172,6 +172,7 @@ export const Document: FC<DocumentProps> = ({
               'Noto Sans JP',
               sans-serif;
             min-height: 100vh;
+            scrollbar-gutter: stable;
           }
           #top-nav {
             position: sticky;
