@@ -98,6 +98,63 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   </tr>
 </table>
 
+### 開発ツール
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">
+        <img src="https://brew.sh/assets/img/homebrew.svg" alt="Homebrew logo" width="60" height="60" />
+        <br /><sub><b>Homebrew</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://mise.jdx.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://mise.jdx.dev/logo.svg" alt="mise logo" width="60" height="60" />
+        <br /><sub><b>mise</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://just.systems/" target="_blank" rel="noopener noreferrer">
+        <img src="https://just.systems/icon.png" alt="just logo" width="60" height="60" />
+        <br /><sub><b>just</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo" width="60" height="60" />
+        <br /><sub><b>GitHub</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://prettier.io/icon.png" alt="Prettier logo" width="60" height="60" />
+        <br /><sub><b>Prettier</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://pre-commit.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://pre-commit.com/logo.svg" alt="pre-commit logo" width="60" height="60" />
+        <br /><sub><b>pre-commit</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/suzuki-shunsuke/rulesync" target="_blank" rel="noopener noreferrer">
+        <img src="https://avatars.githubusercontent.com/u/33576079" alt="rulesync logo" width="60" height="60" />
+        <br /><sub><b>rulesync</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://aquasecurity.github.io/tfsec/" target="_blank" rel="noopener noreferrer">
+        <img src="https://aquasecurity.github.io/tfsec/latest/imgs/logo.png" alt="tfsec logo" width="60" height="60" />
+        <br /><sub><b>tfsec</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## Quest モジュール
 
 - **MathQuest** (`/math`): 学年別プリセットとテーマ付き演習による計算練習。計算種類の選択、設定の切り替え（効果音、中間ステップ）やキーパッド UI での練習が可能です。
