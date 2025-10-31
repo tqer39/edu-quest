@@ -2,22 +2,28 @@ import type {
   ClockDifficulty,
   ClockQuestion,
   ClockAnswer,
+  ClockGrade,
 } from '@edu-quest/domain';
 import { generateClockQuestion, checkClockAnswer } from '@edu-quest/domain';
 
 export type StartClockQuizInput = {
+  grade: ClockGrade;
   difficulty: ClockDifficulty;
   total: number;
 };
 
 export type ClockQuiz = {
-  config: { difficulty: ClockDifficulty; total: number };
+  config: { grade: ClockGrade; difficulty: ClockDifficulty; total: number };
   index: number;
   correct: number;
 };
 
 export const createClockQuiz = (input: StartClockQuizInput): ClockQuiz => ({
-  config: { difficulty: input.difficulty, total: input.total },
+  config: {
+    grade: input.grade,
+    difficulty: input.difficulty,
+    total: input.total,
+  },
   index: 0,
   correct: 0,
 });

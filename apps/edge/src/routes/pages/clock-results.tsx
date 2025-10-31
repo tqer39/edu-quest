@@ -1,11 +1,13 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
+import type { ClockGrade } from '@edu-quest/domain';
 
 type ClockResultsProps = {
   currentUser: CurrentUser | null;
   score: number;
   total: number;
   difficulty: number;
+  grade: ClockGrade;
 };
 
 export const ClockResults: FC<ClockResultsProps> = ({
@@ -13,6 +15,7 @@ export const ClockResults: FC<ClockResultsProps> = ({
   score,
   total,
   difficulty,
+  grade,
 }) => {
   const percentage = Math.round((score / total) * 100);
   const isPerfect = score === total;
@@ -30,7 +33,7 @@ export const ClockResults: FC<ClockResultsProps> = ({
             🕐
           </span>
           <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-            ClockQuest レベル{difficulty}
+            ClockQuest {grade}年生 レベル{difficulty}
           </span>
         </div>
       </nav>
@@ -61,16 +64,16 @@ export const ClockResults: FC<ClockResultsProps> = ({
 
           <div class="flex flex-col gap-3">
             <a
-              href={`/clock/start?difficulty=${difficulty}`}
+              href={`/clock/start?grade=${grade}&difficulty=${difficulty}`}
               class="rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               もう一度挑戦
             </a>
             <a
-              href="/clock"
+              href={`/clock/select?grade=${grade}`}
               class="rounded-2xl border-2 border-[var(--mq-outline)] bg-white px-8 py-4 text-lg font-bold text-[var(--mq-ink)] shadow transition hover:-translate-y-1 hover:bg-[var(--mq-surface)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
-              難易度を選ぶ
+              レベルを選び直す
             </a>
             <a
               href="/"

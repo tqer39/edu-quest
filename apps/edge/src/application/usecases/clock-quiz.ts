@@ -2,6 +2,7 @@ import type {
   ClockDifficulty,
   ClockQuestion,
   ClockAnswer,
+  ClockGrade,
 } from '@edu-quest/domain';
 import {
   createClockQuiz,
@@ -19,10 +20,11 @@ export type ClockQuizSession = {
  * 新しいクイズセッションを開始
  */
 export const startClockQuizSession = (
+  grade: ClockGrade,
   difficulty: ClockDifficulty,
   total: number
 ): ClockQuizSession => {
-  const quiz = createClockQuiz({ difficulty, total });
+  const quiz = createClockQuiz({ grade, difficulty, total });
   const currentQuestion = nextClockQuestion(quiz);
   return { quiz, currentQuestion };
 };
