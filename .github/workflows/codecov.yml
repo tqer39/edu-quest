@@ -49,7 +49,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: |
             ./packages/domain/coverage/lcov.info
-            ./apps/edge/coverage/lcov.info
           flags: unit-tests
           name: codecov-umbrella
           fail_ci_if_error: false
