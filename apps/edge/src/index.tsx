@@ -20,6 +20,7 @@ import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
 import { Login } from './routes/pages/login';
+import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
 import { resolveCurrentUser } from './application/session/current-user';
 import {
@@ -198,6 +199,15 @@ app.get('/', async (c) =>
     title: 'EduQuest | じぶんのペースで楽しく学習',
     description:
       '学年別の単元から選んで学習。匿名で始めて、記録を残したくなったら会員登録できる学習アプリです。',
+  })
+);
+
+// Parents landing page
+app.get('/parents', (c) =>
+  c.render(<ParentsPage />, {
+    title: '保護者の方へ | EduQuestの安心・安全な学び',
+    description:
+      '安全性・教育的効果・導入のしやすさを紹介。小学生のお子さまが安心して学べるEduQuestの取り組みをお伝えします。',
   })
 );
 
