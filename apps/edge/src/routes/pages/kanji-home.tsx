@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade } from '@edu-quest/domain';
+import { BackToTopLink } from '../components/back-to-top-link';
 import { createSchoolGradeParam } from '../utils/school-grade';
 
 const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({
@@ -17,12 +18,7 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({
         </span>
       </a>
     </div>
-    <a
-      href="/"
-      class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-    >
-      ← トップに戻る
-    </a>
+    <BackToTopLink />
   </nav>
 );
 

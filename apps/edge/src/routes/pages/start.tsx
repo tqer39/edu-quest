@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
 import type { CurrentUser } from '../../application/session/current-user';
+import { BackToTopLink } from '../components/back-to-top-link';
 import {
   gradeLevels,
   calculationTypes,
@@ -78,12 +79,7 @@ export const Start: FC<StartProps> = ({ currentUser, selectedGradeId }) => {
             れんしゅうの じゅんび
           </span>
         </div>
-        <a
-          href="/"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)]"
-        >
-          ← トップに戻る
-        </a>
+        <BackToTopLink class="hover:bg-[var(--mq-primary-soft)]" />
       </nav>
 
       <div class="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">

@@ -1,5 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
+import { BackToTopLink } from '../components/back-to-top-link';
 
 type KanjiResultsProps = {
   currentUser: CurrentUser | null;
@@ -70,12 +71,7 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
             >
               学年を選ぶ
             </a>
-            <a
-              href="/"
-              class="text-sm font-semibold text-[var(--mq-primary-strong)] transition hover:underline"
-            >
-              トップに戻る
-            </a>
+            <BackToTopLink variant="text" />
           </div>
         </div>
 
