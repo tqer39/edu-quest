@@ -236,14 +236,16 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             },
           ]}
         />
-        <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] via-[#1f2937] to-[#2563eb] p-8 text-white shadow-md">
-          <h3 class="text-lg font-semibold">セキュリティ対策も透明に</h3>
-          <p class="mt-4 text-sm leading-relaxed text-white/90">
+        <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] via-[#1f2937] to-[#2563eb] p-8 shadow-md">
+          <h3 class="text-lg font-semibold !text-white">
+            セキュリティ対策も透明に
+          </h3>
+          <p class="mt-4 text-sm leading-relaxed !text-white">
             定期的にコードレビューとセキュリティチェックを実施し、安全な状態を維持しています。詳細な技術資料は順次公開予定です。
           </p>
           <a
             href="/trust-and-safety"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2 text-sm font-semibold !text-white transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             セキュリティ対策を詳しく見る
             <span aria-hidden="true">→</span>
