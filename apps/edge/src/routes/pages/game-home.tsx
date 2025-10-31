@@ -39,7 +39,10 @@ type GameHomeProps = {
   selectedGradeId: GradeId | null;
 };
 
-export const GameHome: FC<GameHomeProps> = ({ currentUser, selectedGradeId }) => {
+export const GameHome: FC<GameHomeProps> = ({
+  currentUser,
+  selectedGradeId,
+}) => {
   const grade = selectedGradeId ? getGameGradeById(selectedGradeId) : null;
 
   return (
@@ -74,7 +77,7 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser, selectedGradeId }) =>
           ) : null}
         </div>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gameGradeLevels.map(level => (
+          {gameGradeLevels.map((level) => (
             <a
               key={level.id}
               href={`/game?grade=${encodeURIComponent(level.id)}`}
@@ -84,7 +87,9 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser, selectedGradeId }) =>
                   : 'bg-gradient-to-br from-white to-[var(--mq-primary-soft)]'
               }`}
             >
-              <div class="text-2xl font-bold text-[var(--mq-ink)]">{level.label}</div>
+              <div class="text-2xl font-bold text-[var(--mq-ink)]">
+                {level.label}
+              </div>
               <div class="text-sm text-[#5e718a]">{level.description}</div>
               <div class="text-xs font-semibold uppercase tracking-wide text-[var(--mq-primary-strong)]">
                 {level.highlight}
@@ -118,11 +123,13 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser, selectedGradeId }) =>
                 <span class="text-3xl">🧩</span>
                 <div>
                   <div class="text-lg font-bold text-[var(--mq-ink)]">数独</div>
-                  <div class="text-xs text-[#5e718a]">論理パズルで集中力アップ</div>
+                  <div class="text-xs text-[#5e718a]">
+                    論理パズルで集中力アップ
+                  </div>
                 </div>
               </div>
               <div class="space-y-1 text-xs text-[#5e718a]">
-                {getSudokuPresetsForGrade(grade.id).map(preset => (
+                {getSudokuPresetsForGrade(grade.id).map((preset) => (
                   <div key={preset.id} class="flex items-center gap-2">
                     <span>{preset.icon}</span>
                     <span class="font-semibold text-[var(--mq-ink)]">

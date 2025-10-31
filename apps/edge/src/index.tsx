@@ -65,10 +65,9 @@ const isKanjiQuestType = (
   value: string | null | undefined
 ): value is KanjiQuestType => value === 'reading' || value === 'stroke-count';
 
-const isGameGradeId = (
-  value: string | null | undefined
-): value is GradeId =>
-  typeof value === 'string' && gameGradeLevels.some((level) => level.id === value);
+const isGameGradeId = (value: string | null | undefined): value is GradeId =>
+  typeof value === 'string' &&
+  gameGradeLevels.some((level) => level.id === value);
 
 app.use('*', logger());
 app.use('*', securityHeaders());
@@ -296,9 +295,7 @@ app.get('/game', async (c) => {
 
 app.get('/game/sudoku', async (c) => {
   const gradeParam = c.req.query('grade');
-  const gradeId: GradeId = isGameGradeId(gradeParam)
-    ? gradeParam
-    : 'grade-1';
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
   const grade = getGameGradeById(gradeId);
 
   return c.render(

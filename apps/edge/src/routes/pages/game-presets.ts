@@ -211,7 +211,7 @@ export const sudokuPresetsByGrade: Record<GradeId, readonly SudokuPreset[]> = {
 };
 
 export const getGameGradeById = (gradeId: GradeId): GameGradeLevel =>
-  gameGradeLevels.find(level => level.id === gradeId) || gameGradeLevels[0];
+  gameGradeLevels.find((level) => level.id === gradeId) || gameGradeLevels[0];
 
 export const getSudokuPresetsForGrade = (
   gradeId: GradeId

@@ -414,7 +414,9 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
                       <div class="text-base font-bold text-[var(--mq-ink)]">
                         {preset.label}
                       </div>
-                      <div class="text-xs text-[#5e718a]">{preset.description}</div>
+                      <div class="text-xs text-[#5e718a]">
+                        {preset.description}
+                      </div>
                     </div>
                   </div>
                   {preset.recommended ? (
