@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { gradeLevels, type GradeId } from './grade-presets';
+import { createSchoolGradeParam } from '../utils/school-grade';
 
 const MathNav: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser: _currentUser,
@@ -82,7 +83,9 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
           return (
             <a
               key={grade.id}
-              href={`/math/start?grade=${gradeNumber}`}
+              href={`/math/select?grade=${encodeURIComponent(
+                createSchoolGradeParam({ stage: '小学', grade: gradeNumber })
+              )}`}
               class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               <div class="text-2xl font-bold text-[var(--mq-ink)]">

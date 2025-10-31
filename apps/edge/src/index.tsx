@@ -16,6 +16,7 @@ import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { MathHome } from './routes/pages/math-home';
+import { MathSelect } from './routes/pages/math-select';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -39,7 +40,7 @@ import type {
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
-import { gradeLevels } from './routes/pages/grade-presets';
+import { gradeLevels, gradeCalculationTypes } from './routes/pages/grade-presets';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
@@ -213,9 +214,50 @@ app.get('/math', async (c) =>
   )
 );
 
+app.get('/math/select', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeIndex = parsedGrade.grade - 1;
+  const selectedGrade = gradeLevels[gradeIndex];
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  return c.render(
+    <MathSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={selectedGrade.id}
+      gradeStage={parsedGrade.stage}
+    />,
+    {
+      title: `MathQuest - ${gradeLabel}`,
+      description: `${gradeLabel}向けの算数クエストを選んでください。`,
+    }
+  );
+});
+
 app.get('/math/start', async (c) => {
   const gradeParam = c.req.query('grade');
-  let selectedGrade = gradeLevels.find((grade) => grade.id === gradeParam);
+  const calcParam = c.req.query('calc');
+  let selectedGradeIndex = gradeLevels.findIndex((grade) => grade.id === gradeParam);
+  let selectedGrade =
+    selectedGradeIndex >= 0 ? gradeLevels[selectedGradeIndex] : undefined;
+
+  if (!selectedGrade && gradeParam) {
+    const parsedSchoolGrade = parseSchoolGradeParam(gradeParam);
+    if (parsedSchoolGrade && parsedSchoolGrade.stage === '小学') {
+      selectedGradeIndex = parsedSchoolGrade.grade - 1;
+      selectedGrade = gradeLevels[selectedGradeIndex];
+    }
+  }
 
   if (!selectedGrade && gradeParam) {
     const parsedGrade = Number(gradeParam);
@@ -224,18 +266,46 @@ app.get('/math/start', async (c) => {
       parsedGrade >= 1 &&
       parsedGrade <= gradeLevels.length
     ) {
-      selectedGrade = gradeLevels[parsedGrade - 1];
+      selectedGradeIndex = parsedGrade - 1;
+      selectedGrade = gradeLevels[selectedGradeIndex];
     }
   }
 
-  if (!selectedGrade || selectedGrade.disabled) {
+  if (
+    !selectedGrade ||
+    selectedGrade.disabled ||
+    selectedGradeIndex < 0 ||
+    selectedGradeIndex >= gradeLevels.length
+  ) {
     return c.redirect('/math', 302);
+  }
+
+  const gradeNumber = selectedGradeIndex + 1;
+  const gradeQuery = createSchoolGradeParam({ stage: '小学', grade: gradeNumber });
+  let initialCalcTypeId: string | undefined;
+
+  if (calcParam) {
+    const availableCalcIds =
+      gradeCalculationTypes[
+        selectedGrade.id as keyof typeof gradeCalculationTypes
+      ] ?? [];
+
+    if ((availableCalcIds as readonly string[]).includes(calcParam)) {
+      initialCalcTypeId = calcParam;
+    } else {
+      return c.redirect(
+        `/math/select?grade=${encodeURIComponent(gradeQuery)}`,
+        302
+      );
+    }
   }
 
   return c.render(
     <Start
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       selectedGradeId={selectedGrade.id}
+      initialActivity={initialCalcTypeId ? 'math' : undefined}
+      initialCalculationTypeId={initialCalcTypeId}
     />,
     {
       title: `MathQuest | ${selectedGrade.label}の設定`,

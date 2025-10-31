@@ -20,9 +20,16 @@ const questionCountOptions = (
 type StartProps = {
   currentUser: CurrentUser | null;
   selectedGradeId: GradeId;
+  initialActivity?: 'math' | 'game';
+  initialCalculationTypeId?: string;
 };
 
-export const Start: FC<StartProps> = ({ currentUser, selectedGradeId }) => {
+export const Start: FC<StartProps> = ({
+  currentUser,
+  selectedGradeId,
+  initialActivity,
+  initialCalculationTypeId,
+}) => {
   const selectedGrade =
     gradeLevels.find((grade) => grade.id === selectedGradeId) ?? gradeLevels[0];
 
@@ -32,6 +39,8 @@ export const Start: FC<StartProps> = ({ currentUser, selectedGradeId }) => {
       class="flex min-h-screen w-full flex-col gap-8 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
       data-user-state={currentUser ? 'known' : 'anonymous'}
       data-selected-grade={selectedGrade.id}
+      data-selected-activity={initialActivity ?? ''}
+      data-selected-calculation-type={initialCalculationTypeId ?? ''}
     >
       {html`
         <style>
@@ -145,7 +154,7 @@ export const Start: FC<StartProps> = ({ currentUser, selectedGradeId }) => {
                 class="activity-btn rounded-3xl border-2 border-transparent bg-white p-6 text-left shadow-md transition hover:-translate-y-1 hover:border-[var(--mq-primary)]"
               >
                 <p class="text-xl font-bold text-[var(--mq-primary-strong)]">
-                  🧮 計算する
+                  🧮 さんすうクエスト
                 </p>
                 <p class="mt-2 text-sm text-[var(--mq-ink)]">
                   算数の問題を解こう

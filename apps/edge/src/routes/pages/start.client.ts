@@ -80,6 +80,53 @@ const MODULE_SOURCE = `
     const gradeLabelEl = gradeSummary?.querySelector('[data-role="grade-label"]');
     const gradeDescriptionEl = gradeSummary?.querySelector('[data-role="grade-description"]');
 
+    function handleActivitySelection(activity, button) {
+      if (!activity) {
+        return;
+      }
+
+      state.selectedActivity = activity;
+      selectButton(activityBtns, button || null);
+
+      state.selectedCalculationType = null;
+      state.selectedTheme = null;
+      state.selectedGame = null;
+
+      themeBtns.forEach(btn => btn.classList.remove('selection-card--selected'));
+      gameBtns.forEach(btn => btn.classList.remove('selection-card--selected'));
+      if (calcTypeGrid) {
+        calcTypeGrid.querySelectorAll('.calc-type-btn').forEach(btn => {
+          btn.classList.remove('selection-card--selected');
+        });
+      }
+
+      hideAllStepsAfter(2);
+
+      if (questionCountFieldset) {
+        if (activity === 'math') {
+          questionCountFieldset.style.display = '';
+        } else {
+          questionCountFieldset.style.display = 'none';
+        }
+      }
+      if (stepsToggle) {
+        if (activity === 'math') {
+          stepsToggle.style.display = '';
+        } else {
+          stepsToggle.style.display = 'none';
+        }
+      }
+
+      if (activity === 'math') {
+        showStep(step3CalcType);
+        renderCalculationTypes();
+      } else if (activity === 'game') {
+        showStep(step4Game);
+      }
+
+      updateStartButtonState();
+    }
+
     const soundToggle = document.getElementById('toggle-sound');
     const stepsToggle = document.getElementById('toggle-steps');
     const countdownToggle = document.getElementById('toggle-countdown');
@@ -210,52 +257,7 @@ const MODULE_SOURCE = `
     // STEP 2: 活動選択
     activityBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const activity = btn.dataset.activity;
-        state.selectedActivity = activity;
-        selectButton(activityBtns, btn);
-
-        // 後続ステップの選択状態をリセット
-        state.selectedCalculationType = null;
-        state.selectedTheme = null;
-        state.selectedGame = null;
-
-        // UIの選択状態もリセット
-        themeBtns.forEach(btn => btn.classList.remove('selection-card--selected'));
-        gameBtns.forEach(btn => btn.classList.remove('selection-card--selected'));
-        if (calcTypeGrid) {
-          calcTypeGrid.querySelectorAll('.calc-type-btn').forEach(btn => {
-            btn.classList.remove('selection-card--selected');
-          });
-        }
-
-        // すべての後続ステップを非表示
-        hideAllStepsAfter(2);
-
-        // 問題数と途中式の表示/非表示を制御
-        if (questionCountFieldset) {
-          if (activity === 'math') {
-            questionCountFieldset.style.display = '';
-          } else {
-            questionCountFieldset.style.display = 'none';
-          }
-        }
-        if (stepsToggle) {
-          if (activity === 'math') {
-            stepsToggle.style.display = '';
-          } else {
-            stepsToggle.style.display = 'none';
-          }
-        }
-
-        // STEP 3を表示
-        if (activity === 'math') {
-          showStep(step3CalcType);
-          renderCalculationTypes();
-        } else if (activity === 'game') {
-          showStep(step4Game);
-        }
-
-        updateStartButtonState();
+        handleActivitySelection(btn.dataset.activity, btn);
       });
     });
 
@@ -434,6 +436,42 @@ const MODULE_SOURCE = `
         updateStartButtonState();
       });
     });
+
+    function initializeFromDataset() {
+      if (!rootElement) {
+        return;
+      }
+
+      const initialActivity = rootElement.dataset.selectedActivity || null;
+      const initialCalcTypeId = rootElement.dataset.selectedCalculationType || null;
+
+      if (initialActivity === 'math') {
+        const mathButton = Array.from(activityBtns).find(
+          btn => btn.dataset.activity === 'math'
+        );
+        handleActivitySelection('math', mathButton || null);
+
+        if (initialCalcTypeId && calcTypeGrid) {
+          const targetButton = Array.from(
+            calcTypeGrid.querySelectorAll('.calc-type-btn')
+          ).find(
+            btn =>
+              btn instanceof HTMLButtonElement &&
+              btn.dataset.calcTypeId === initialCalcTypeId
+          );
+          if (targetButton) {
+            targetButton.click();
+          }
+        }
+      } else if (initialActivity === 'game') {
+        const gameButton = Array.from(activityBtns).find(
+          btn => btn.dataset.activity === 'game'
+        );
+        handleActivitySelection('game', gameButton || null);
+      }
+    }
+
+    initializeFromDataset();
 
     // スタートボタンの状態更新
     function updateStartButtonState() {
