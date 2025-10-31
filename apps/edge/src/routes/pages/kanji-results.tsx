@@ -32,7 +32,7 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
             ✏️
           </span>
           <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest {grade}年生
+            KanjiQuest 小学{grade}年生
           </span>
         </div>
       </nav>

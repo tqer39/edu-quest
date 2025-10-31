@@ -3,13 +3,6 @@ import { jsxRenderer } from 'hono/jsx-renderer';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
-
-declare module 'hono' {
-  type ContextRenderer = (
-    content: string | Promise<string>,
-    props?: { title?: string; description?: string; favicon?: string }
-  ) => Response | Promise<Response>;
-}
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { securityHeaders } from './middlewares/security-headers';
@@ -22,6 +15,7 @@ import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
+import { MathHome } from './routes/pages/math-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -45,6 +39,7 @@ import type {
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
+import { gradeLevels } from './routes/pages/grade-presets';
 import { Document } from './views/layouts/document';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
@@ -71,6 +66,18 @@ app.get('/favicon-kanji.svg', (c) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" fill="#9B87D4" rx="15"/>
   <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">漢</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// ClockQuest favicon
+app.get('/favicon-clock.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#F5A85F" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="Zen Kaku Gothic New, sans-serif" font-weight="bold">時</text>
 </svg>`;
   return c.body(svg, 200, {
     'Content-Type': 'image/svg+xml',
@@ -190,15 +197,36 @@ app.get('/', async (c) =>
 );
 
 // MathQuest routes
-app.get('/math', (c) => c.redirect('/math/start', 302));
-
-app.get('/math/start', async (c) =>
-  c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 設定ウィザード',
-    description:
-      '学年・単元とプレイ設定をまとめて選択し、集中モードで算数ミッションを始めましょう。',
-  })
+app.get('/math', async (c) =>
+  c.render(
+    <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 学年を選んで練習をはじめよう',
+      description:
+        '最初に学年を選択して、ぴったりの算数ミッションを見つけましょう。',
+    }
+  )
 );
+
+app.get('/math/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const selectedGrade = gradeLevels.find((grade) => grade.id === gradeParam);
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  return c.render(
+    <Start
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      selectedGradeId={selectedGrade.id}
+    />,
+    {
+      title: `MathQuest | ${selectedGrade.label}の設定`,
+      description: `${selectedGrade.description}向けの問題セットをカスタマイズしましょう。`,
+    }
+  );
+});
 
 app.get('/math/play', async (c) =>
   c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
@@ -453,6 +481,7 @@ app.get('/clock', async (c) =>
       title: 'ClockQuest | 時計の読み方をマスターしよう',
       description:
         'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
+      favicon: '/favicon-clock.svg',
     }
   )
 );
@@ -537,6 +566,7 @@ app.get('/clock/quiz', async (c) => {
       {
         title: `ClockQuest | ${session.quiz.config.grade}年生 レベル${session.quiz.config.difficulty}`,
         description: '時計の読み方クイズに挑戦中',
+        favicon: '/favicon-clock.svg',
       }
     );
   } catch (error) {
@@ -634,6 +664,7 @@ app.get('/clock/results', async (c) => {
       {
         title: `ClockQuest | ${result.grade}年生の結果`,
         description: `${result.score}/${result.total}問正解しました！`,
+        favicon: '/favicon-clock.svg',
       }
     );
   } catch (error) {
@@ -643,7 +674,7 @@ app.get('/clock/results', async (c) => {
 });
 
 // Backward compatibility: redirect old routes to /math/*
-app.get('/start', (c) => c.redirect('/math/start', 301));
+app.get('/start', (c) => c.redirect('/math', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
 app.get('/sudoku', async (c) =>

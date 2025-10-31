@@ -49,7 +49,7 @@ const GradeCard: FC<GradeCardProps> = ({ grade, disabled = false }) => {
   if (disabled) {
     return (
       <div class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-lg opacity-50 cursor-not-allowed">
-        <div class="text-2xl font-bold text-gray-500">{grade}年生</div>
+        <div class="text-2xl font-bold text-gray-500">小学{grade}年生</div>
         <div class="text-lg text-gray-400">{stars}</div>
         <div class="text-sm text-gray-400">{description}</div>
         <div class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-500">
@@ -64,7 +64,7 @@ const GradeCard: FC<GradeCardProps> = ({ grade, disabled = false }) => {
       href={`/kanji/select?grade=${grade}`}
       class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
     >
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">{grade}年生</div>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">小学{grade}年生</div>
       <div class="text-lg text-[var(--mq-primary-strong)]">{stars}</div>
       <div class="text-sm text-[#5e718a]">{description}</div>
     </a>
