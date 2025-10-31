@@ -60,7 +60,16 @@ const treeConfig = new Map([
   [
     'apps/edge/src',
     {
-      order: ['__tests__', 'application', 'components', 'infrastructure', 'middlewares', 'routes', 'styles', 'views'],
+      order: [
+        '__tests__',
+        'application',
+        'components',
+        'infrastructure',
+        'middlewares',
+        'routes',
+        'styles',
+        'views',
+      ],
       labels: {
         __tests__: 'Edge integration tests',
         application: 'Use cases, session management',
@@ -142,7 +151,16 @@ const japaneseLabels = new Map([
   ['scripts/docs', 'ドキュメント用スクリプト'],
 ]);
 
-const ignoreDirectories = new Set(['.git', '.wrangler', 'node_modules', '.cache', '.output', '.next', 'dist', 'build']);
+const ignoreDirectories = new Set([
+  '.git',
+  '.wrangler',
+  'node_modules',
+  '.cache',
+  '.output',
+  '.next',
+  'dist',
+  'build',
+]);
 
 const startMarker = '<!-- AUTO-GENERATED:STRUCTURE:START -->';
 const endMarker = '<!-- AUTO-GENERATED:STRUCTURE:END -->';
@@ -159,13 +177,20 @@ function getNodeConfig(relPath) {
 async function listDirectories(relPath) {
   const absPath = path.join(repoRoot, relPath);
   const entries = await fs.readdir(absPath, { withFileTypes: true });
-  return entries.filter((entry) => entry.isDirectory() && !ignoreDirectories.has(entry.name));
+  return entries.filter(
+    (entry) => entry.isDirectory() && !ignoreDirectories.has(entry.name)
+  );
 }
 
 async function ensureOrderedExists(relPath, order, available) {
   for (const name of order) {
     if (!available.has(name)) {
-      throw new Error(`Expected directory "${path.join(relPath, name)}" to exist, but it was not found.`);
+      throw new Error(
+        `Expected directory "${path.join(
+          relPath,
+          name
+        )}" to exist, but it was not found.`
+      );
     }
   }
 }
@@ -245,12 +270,16 @@ async function updateFile(filePath, lines) {
   if (startIndex === -1 || endIndex === -1) {
     throw new Error(`Markers not found in ${filePath}`);
   }
-  const replacement = `${startMarker}\n\n` +
+  const replacement =
+    `${startMarker}\n\n` +
     '```txt\n' +
     `${lines.join('\n')}\n` +
     '```\n' +
     endMarker;
-  const updated = content.slice(0, startIndex) + replacement + content.slice(endIndex + endMarker.length);
+  const updated =
+    content.slice(0, startIndex) +
+    replacement +
+    content.slice(endIndex + endMarker.length);
   await fs.writeFile(absPath, `${updated.trimEnd()}\n`);
 }
 
