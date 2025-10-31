@@ -16,6 +16,7 @@ import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { MathHome } from './routes/pages/math-home';
+import { GameHome } from './routes/pages/game-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -39,7 +40,12 @@ import type {
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
-import { gradeLevels } from './routes/pages/grade-presets';
+import { gradeLevels, type GradeId } from './routes/pages/grade-presets';
+import {
+  gameGradeLevels,
+  getGameGradeById,
+  getSudokuPresetsForGrade,
+} from './routes/pages/game-presets';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
@@ -59,6 +65,11 @@ const isKanjiQuestType = (
   value: string | null | undefined
 ): value is KanjiQuestType => value === 'reading' || value === 'stroke-count';
 
+const isGameGradeId = (
+  value: string | null | undefined
+): value is GradeId =>
+  typeof value === 'string' && gameGradeLevels.some((level) => level.id === value);
+
 app.use('*', logger());
 app.use('*', securityHeaders());
 app.use('*', prettyJSON());
@@ -71,6 +82,18 @@ app.get('/favicon-kanji.svg', (c) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" fill="#9B87D4" rx="15"/>
   <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">漢</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// GameQuest favicon
+app.get('/favicon-game.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#5DB996" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="Zen Kaku Gothic New, sans-serif" font-weight="bold">遊</text>
 </svg>`;
   return c.body(svg, 200, {
     'Content-Type': 'image/svg+xml',
@@ -251,6 +274,46 @@ app.get('/math/play', async (c) =>
       '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
   })
 );
+
+// GameQuest routes
+app.get('/game', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const selectedGradeId = isGameGradeId(gradeParam) ? gradeParam : null;
+
+  return c.render(
+    <GameHome
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      selectedGradeId={selectedGradeId}
+    />,
+    {
+      title: 'GameQuest | 学年からゲームを選ぼう',
+      description:
+        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、ぴったりの数独プリセットを選択しよう。',
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+app.get('/game/sudoku', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam)
+    ? gradeParam
+    : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <Sudoku
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      presets={getSudokuPresetsForGrade(gradeId)}
+    />,
+    {
+      title: `GameQuest | 数独（${grade.label}向け）`,
+      description: `${grade.label}に合わせた難易度プリセットで数独に挑戦しよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
 
 // KanjiQuest routes
 app.get('/kanji', async (c) =>
@@ -730,16 +793,11 @@ app.get('/clock/results', async (c) => {
 app.get('/start', (c) => c.redirect('/math', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
-app.get('/sudoku', async (c) =>
-  c.render(
-    <Sudoku currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
-    {
-      title: 'MathQuest | 数独',
-      description:
-        '数独パズルで論理的思考力を鍛えよう。数字を使った楽しいパズルゲームです。',
-    }
-  )
-);
+app.get('/sudoku', (c) => {
+  const gradeParam = c.req.query('grade');
+  const suffix = gradeParam ? `?grade=${encodeURIComponent(gradeParam)}` : '';
+  return c.redirect(`/game/sudoku${suffix}`, 301);
+});
 
 app.get('/auth/guest-login', (c) => {
   const profileParam = c.req.query('profile');
