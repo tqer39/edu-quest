@@ -1,7 +1,10 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockDifficulty, ClockGrade } from '@edu-quest/domain';
-import { getDifficultyDescription, getGradeDescription } from '@edu-quest/domain';
+import {
+  getDifficultyDescription,
+  getGradeDescription,
+} from '@edu-quest/domain';
 
 const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
   currentUser: _currentUser,
@@ -97,7 +100,9 @@ export const ClockSelect: FC<{
       </section>
 
       <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-        <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">レベルについて</h2>
+        <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
+          レベルについて
+        </h2>
         <ul class="space-y-2 text-sm text-[#5e718a]">
           <li>
             ✓ <strong>レベル1:</strong> ちょうどの時刻（1時、2時など）
