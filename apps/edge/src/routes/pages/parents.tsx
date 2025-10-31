@@ -159,17 +159,20 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           <p class="max-w-xl text-base leading-relaxed text-[#334155]">
             EduQuestは、小学生のお子さまが"遊びながら学ぶ"ことを目指した無料の学習プラットフォームです。安全性・教育的効果・使いやすさの3つを大切に設計しています。
           </p>
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
               id="parents-primary-cta"
               href="/"
-              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#3b82f6] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[#2563eb] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
             >
               今すぐ体験する
+              <span aria-hidden="true" class="text-lg">
+                →
+              </span>
             </a>
             <a
               href="/"
-              class="inline-flex items-center justify-center rounded-2xl bg-white/80 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#3b82f6]/30 bg-white/90 px-8 py-4 text-base font-semibold text-[#1f2937] shadow-sm transition-all hover:-translate-y-1 hover:border-[#3b82f6]/50 hover:bg-white hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
             >
               学習ステージを見る
             </a>
@@ -256,10 +259,12 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </p>
           <a
             href="/trust-and-safety"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2 text-sm font-semibold !text-white transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/20 px-5 py-3 text-sm font-bold !text-white shadow-md transition-all hover:bg-white/30 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             セキュリティ対策を詳しく見る
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true" class="text-base">
+              →
+            </span>
           </a>
           <div class="absolute -bottom-12 -right-12 h-32 w-32 rounded-full bg-[radial-gradient(circle,#22c55e,transparent_65%)] opacity-70"></div>
         </aside>
@@ -343,10 +348,12 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </ol>
           <a
             href="/math"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-4 py-2 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-[#16a34a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
+            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
           >
             算数チャレンジを見る
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true" class="text-base">
+              →
+            </span>
           </a>
         </div>
       </div>
@@ -404,10 +411,12 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </div>
           <a
             href="#parents-hero"
-            class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-2 text-sm font-semibold text-[#0f172a] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
+            class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-3 text-sm font-bold text-[#0f172a] shadow-md transition-all hover:-translate-y-1 hover:bg-white hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
           >
             学習を始める位置に戻る
-            <span aria-hidden="true">↑</span>
+            <span aria-hidden="true" class="text-base">
+              ↑
+            </span>
           </a>
         </div>
       </div>
@@ -466,15 +475,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 準備中（公開予定）
               </a>
             </li>
-            <li>
-              お問い合わせ：
-              <a
-                href="mailto:contact@eduquest.app"
-                class="underline decoration-[#4338ca]/50 underline-offset-2 transition hover:text-[#1d4ed8]"
-              >
-                contact@eduquest.app
-              </a>
-            </li>
+            <li>お問い合わせ：準備中（公開予定）</li>
             <li>透明性レポート：現在準備中です。</li>
           </ul>
         </article>
@@ -525,23 +526,14 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       <SectionHeading id="faq" icon="❓" title="よくある質問" />
       <div class="mt-10 space-y-6">
         {faqItems.map((item) => (
-          <details
-            open
-            class="group rounded-2xl bg-white/95 p-6 shadow-sm transition"
-          >
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-[#1f2937]">
-              <span>{item.question}</span>
-              <span
-                aria-hidden="true"
-                class="text-lg text-[#3b82f6] transition group-open:rotate-90"
-              >
-                ›
-              </span>
-            </summary>
+          <article class="rounded-2xl bg-white/95 p-6 shadow-sm">
+            <h3 class="text-base font-semibold text-[#1f2937]">
+              {item.question}
+            </h3>
             <p class="mt-4 text-sm leading-relaxed text-[#334155]">
               {item.answer}
             </p>
-          </details>
+          </article>
         ))}
       </div>
     </section>
@@ -556,16 +548,19 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#334155]">
           安心・教育的・導入しやすい学習体験を、ご家庭の毎日に取り入れてみませんか？
         </p>
-        <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="/"
-            class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#3b82f6] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[#2563eb] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
           >
             トップページで体験する
+            <span aria-hidden="true" class="text-lg">
+              →
+            </span>
           </a>
           <a
             href="/"
-            class="inline-flex items-center justify-center rounded-2xl bg-white/90 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#3b82f6]/30 bg-white/90 px-8 py-4 text-base font-semibold text-[#1f2937] shadow-sm transition-all hover:-translate-y-1 hover:border-[#3b82f6]/50 hover:bg-white hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
           >
             学習ステージ一覧
           </a>
