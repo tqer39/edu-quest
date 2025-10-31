@@ -85,7 +85,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
-        <img src="https://mintlify.s3.us-west-1.amazonaws.com/anthropic/logo/light.svg" alt="Claude Code logo" width="60" height="60" />
+        <img src="https://claude.ai/images/claude_app_icon.png" alt="Claude Code logo" width="60" height="60" />
         <br /><sub><b>Claude Code</b></sub>
       </a>
     </td>
