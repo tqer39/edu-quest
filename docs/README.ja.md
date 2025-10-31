@@ -156,7 +156,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://github.com/dyoshikawa/rulesync" target="_blank" rel="noopener noreferrer">
-        <img src="https://avatars.githubusercontent.com/u/19943347?v=4" alt="rulesync logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/34151621?v=4" alt="rulesync logo" width="60" height="60" />
         <br /><sub><b>rulesync</b></sub>
       </a>
     </td>
