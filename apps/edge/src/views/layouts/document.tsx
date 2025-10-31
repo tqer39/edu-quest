@@ -54,7 +54,6 @@ export const Document: FC<DocumentProps> = ({
   favicon,
   children,
 }) => {
-  const year = new Date().getFullYear();
   const isDev = environment === 'dev';
   const resolvedEntry = resolveEntry(assetManifest);
   const visited = new Set<string>();
@@ -214,21 +213,6 @@ export const Document: FC<DocumentProps> = ({
       </head>
       <body class="bg-[var(--mq-bg)] text-[var(--mq-ink)]">
         ${children}
-        <footer class="mt-16 border-t border-[var(--mq-outline)] bg-white/80">
-          <div
-            class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-[#5e718a] sm:flex-row sm:items-center sm:justify-between"
-          >
-            <a
-              href="https://github.com/tqer39/edu-quest"
-              class="inline-flex items-center gap-2 font-semibold text-[var(--mq-primary-strong)] transition hover:-translate-y-0.5 hover:text-[var(--mq-ink)]"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub Repository
-            </a>
-            <span>© ${year} EduQuest</span>
-          </div>
-        </footer>
         ${resolvedEntry
           ? html`<script
               type="module"
