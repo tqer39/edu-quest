@@ -26,7 +26,11 @@ export const parseSchoolGradeParam = (
   const grade = Number(match[2]);
   const bounds = stageGradeBounds[stage];
 
-  if (Number.isInteger(grade) === false || grade < bounds.min || grade > bounds.max) {
+  if (
+    Number.isInteger(grade) === false ||
+    grade < bounds.min ||
+    grade > bounds.max
+  ) {
     return null;
   }
 
