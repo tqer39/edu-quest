@@ -160,6 +160,44 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
         <br /><sub><b>rulesync</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://editorconfig.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://editorconfig.org/logo.png" alt="EditorConfig logo" width="60" height="60" />
+        <br /><sub><b>EditorConfig</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://pnpm.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://pnpm.io/img/pnpm-no-name-with-frame.svg" alt="pnpm logo" width="60" height="60" />
+        <br /><sub><b>pnpm</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://yamllint.readthedocs.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://yamllint.readthedocs.io/en/stable/_static/logo.png" alt="yamllint logo" width="60" height="60" />
+        <br /><sub><b>yamllint</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://cspell.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/streetsidesoftware/cspell/main/docs/images/logo.png" alt="cspell logo" width="60" height="60" />
+        <br /><sub><b>cspell</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://textlint.github.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://textlint.github.io/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="60" height="60" />
+        <br /><sub><b>textlint</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.toptal.com/developers/gitignore/" target="_blank" rel="noopener noreferrer">
+        <img src="https://www.toptal.com/developers/gitignore/img/gitignoreio-logo.svg" alt="gitignore.io logo" width="60" height="60" />
+        <br /><sub><b>gitignore.io</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
