@@ -45,6 +45,12 @@ EduQuest is a learning platform for elementary school students that provides var
         <br /><sub><b>Cypress</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://about.codecov.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://about.codecov.io/wp-content/themes/codecov/assets/brand/icons/codecov-icon-text.svg" alt="Codecov logo" width="60" height="60" />
+        <br /><sub><b>Codecov</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
