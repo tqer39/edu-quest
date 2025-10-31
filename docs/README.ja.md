@@ -12,7 +12,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
 
 ### アプリケーションと言語
 
-<table>
+<table border="0">
   <tr>
     <td align="center">
       <a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
@@ -31,7 +31,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
 
 ### テストと品質
 
-<table>
+<table border="0">
   <tr>
     <td align="center">
       <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
@@ -56,7 +56,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
 
 ### クラウドとインフラ
 
-<table>
+<table border="0">
   <tr>
     <td align="center">
       <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
 
 ### 開発生産性
 
-<table>
+<table border="0">
   <tr>
     <td align="center">
       <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
@@ -100,7 +100,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
 
 ### IaC と開発ツール
 
-<table>
+<table border="0">
   <tr>
     <td align="center">
       <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
