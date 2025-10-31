@@ -136,7 +136,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             <a
               id="parents-primary-cta"
               href="/"
-              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#3b82f6] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[#2563eb] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--mq-primary)] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[var(--mq-primary-strong)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               今すぐ体験する
               <span aria-hidden="true" class="text-lg">
@@ -546,7 +546,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="/"
-            class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#3b82f6] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[#2563eb] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--mq-primary)] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[var(--mq-primary-strong)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
           >
             トップページで体験する
             <span aria-hidden="true" class="text-lg">
