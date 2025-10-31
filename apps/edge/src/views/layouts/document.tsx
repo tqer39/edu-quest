@@ -1,6 +1,7 @@
 import { html } from 'hono/html';
 import type { FC, JSX } from 'hono/jsx';
 import type { AssetManifest } from '../../middlewares/asset-manifest';
+import type { ReleaseInfo } from '../../types/release';
 
 const entryCandidates = [
   'src/entry-client.tsx',
@@ -42,6 +43,7 @@ export type DocumentProps = {
   environment?: string;
   assetManifest?: AssetManifest | null;
   favicon?: string;
+  releaseInfo?: ReleaseInfo | null;
   children?: JSX.Element | JSX.Element[];
 };
 
@@ -52,6 +54,7 @@ export const Document: FC<DocumentProps> = ({
   environment,
   assetManifest,
   favicon,
+  releaseInfo,
   children,
 }) => {
   const year = new Date().getFullYear();
@@ -98,6 +101,26 @@ export const Document: FC<DocumentProps> = ({
   // Default EduQuest favicon
   const defaultFavicon =
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231f2a4a'/%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%23ffffff' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EEQ%3C/text%3E%3C/svg%3E";
+
+  let formattedReleaseDate: string | null = null;
+
+  if (releaseInfo?.publishedAt) {
+    const parsedReleaseDate = new Date(releaseInfo.publishedAt);
+
+    if (!Number.isNaN(parsedReleaseDate.getTime())) {
+      formattedReleaseDate = `${new Intl.DateTimeFormat('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Tokyo',
+      }).format(parsedReleaseDate)} JST`;
+    } else {
+      formattedReleaseDate = releaseInfo.publishedAt;
+    }
+  }
 
   return html`
     <!doctype html>
@@ -210,9 +233,76 @@ export const Document: FC<DocumentProps> = ({
             background: rgba(239, 68, 68, 0.15);
             color: #b91c1c;
           }
+          #dev-release-banner {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1rem 1.25rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(120, 194, 195, 0.45);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 24px rgba(31, 42, 74, 0.15);
+            max-width: min(320px, 80vw);
+            color: #1f2a4a;
+            backdrop-filter: blur(10px);
+            z-index: 50;
+          }
+          #dev-release-banner h2 {
+            margin: 0;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #3b7ac7;
+          }
+          #dev-release-banner dl {
+            margin: 0;
+            display: grid;
+            gap: 0.25rem 0.5rem;
+            grid-template-columns: auto 1fr;
+            font-size: 0.8rem;
+          }
+          #dev-release-banner dt {
+            font-weight: 600;
+            color: #5e718a;
+          }
+          #dev-release-banner dd {
+            margin: 0;
+            font-weight: 600;
+            color: #1f2a4a;
+          }
+          #dev-release-banner p {
+            margin: 0;
+            font-size: 0.75rem;
+            color: #b91c1c;
+            font-weight: 600;
+          }
+          @media (max-width: 640px) {
+            #dev-release-banner {
+              left: 1rem;
+              right: 1rem;
+              bottom: 1rem;
+            }
+          }
         </style>
       </head>
       <body class="bg-[var(--mq-bg)] text-[var(--mq-ink)]">
+        ${isDev
+          ? html`<section id="dev-release-banner">
+              <h2>Dev Environment</h2>
+              ${releaseInfo
+                ? html`<dl>
+                    <dt>リリースバージョン</dt>
+                    <dd>${releaseInfo.version}</dd>
+                    <dt>リリース日</dt>
+                    <dd>${formattedReleaseDate ?? releaseInfo.publishedAt}</dd>
+                  </dl>`
+                : html`<p>GitHub Release 情報を取得できませんでした。</p>`}
+            </section>`
+          : ''}
         ${children}
         <footer class="mt-16 border-t border-[var(--mq-outline)] bg-white/80">
           <div

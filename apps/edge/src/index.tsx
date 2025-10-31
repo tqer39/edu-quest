@@ -46,9 +46,83 @@ import {
   parseSchoolGradeParam,
 } from './routes/utils/school-grade';
 import { Document } from './views/layouts/document';
+import type { ReleaseInfo } from './types/release';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
 import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
+
+const GITHUB_RELEASE_ENDPOINT =
+  'https://api.github.com/repos/tqer39/edu-quest/releases/latest';
+
+type GitHubReleaseResponse = {
+  tag_name?: string;
+  published_at?: string;
+};
+
+type GlobalWithProcess = typeof globalThis & {
+  process?: {
+    env?: Record<string, string | undefined>;
+  };
+};
+
+const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
+  try {
+    const maybeProcess = (globalThis as GlobalWithProcess).process;
+    if (maybeProcess?.env?.VITEST !== undefined) {
+      return null;
+    }
+
+    const cache = globalThis.caches?.default;
+    const createCacheRequest = () => new Request(GITHUB_RELEASE_ENDPOINT);
+
+    if (cache) {
+      const cached = await cache.match(createCacheRequest());
+      if (cached) {
+        try {
+          return (await cached.json()) as ReleaseInfo;
+        } catch {
+          await cache.delete(createCacheRequest());
+        }
+      }
+    }
+
+    const response = await fetch(GITHUB_RELEASE_ENDPOINT, {
+      headers: {
+        'User-Agent': 'edu-quest-worker',
+        Accept: 'application/vnd.github+json',
+      },
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const data = (await response.json()) as GitHubReleaseResponse;
+
+    if (!data.tag_name || !data.published_at) {
+      return null;
+    }
+
+    const releaseInfo: ReleaseInfo = {
+      version: data.tag_name,
+      publishedAt: data.published_at,
+    };
+
+    if (cache) {
+      const cacheResponse = new Response(JSON.stringify(releaseInfo), {
+        headers: {
+          'Cache-Control': 'public, max-age=900',
+          'Content-Type': 'application/json',
+        },
+      });
+      await cache.put(createCacheRequest(), cacheResponse);
+    }
+
+    return releaseInfo;
+  } catch {
+    return null;
+  }
+};
 
 const app = new Hono<{
   Bindings: Env;
@@ -164,7 +238,7 @@ app.get('/hello', (c) => c.text('Hello World'));
 app.use(
   '*',
   jsxRenderer(
-    (
+    async (
       props: {
         title?: string;
         description?: string;
@@ -176,6 +250,8 @@ app.use(
       const lang = c.get('lang') ?? 'ja';
       const environment = c.env.ENVIRONMENT;
       const manifest = c.get('assetManifest') ?? null;
+      const releaseInfo = environment === 'dev' ? await fetchLatestRelease() : null;
+
       return (
         <Document
           lang={lang}
@@ -184,6 +260,7 @@ app.use(
           favicon={props.favicon}
           environment={environment}
           assetManifest={manifest}
+          releaseInfo={releaseInfo}
         >
           {props.children}
         </Document>
