@@ -24,7 +24,7 @@ const SectionHeading: FC<SectionHeadingProps> = ({
       <span>{title}</span>
     </h2>
     {description ? (
-      <p class="max-w-3xl text-lg leading-relaxed text-[#4f6076]">
+      <p class="max-w-3xl text-lg leading-relaxed text-[#334155]">
         {description}
       </p>
     ) : null}
@@ -47,7 +47,7 @@ const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
           <span class="font-semibold text-[var(--mq-ink)]">
             {feature.title}
           </span>
-          <span class="block text-[#4f6076]">{feature.description}</span>
+          <span class="block text-[#334155]">{feature.description}</span>
         </span>
       </li>
     ))}
@@ -108,7 +108,7 @@ const UseCaseCard: FC<{
       <h3 class="text-xl font-semibold text-[var(--mq-ink)]">{title}</h3>
       <div class="mt-2 h-1 w-12 rounded-full bg-[var(--accent)]"></div>
     </header>
-    <p class="text-sm leading-relaxed text-[#4f6076]">{description}</p>
+    <p class="text-sm leading-relaxed text-[#334155]">{description}</p>
   </article>
 );
 
@@ -156,8 +156,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           <h1 class="text-3xl font-extrabold leading-tight sm:text-4xl">
             👪 保護者の方へ — 楽しく学べて、安心して使えるEduQuest
           </h1>
-          <p class="max-w-xl text-base leading-relaxed text-[#4f6076]">
-            EduQuestは、小学生のお子さまが“遊びながら学ぶ”ことを目指した無料の学習プラットフォームです。安全性・教育的効果・使いやすさの3つを大切に設計しています。
+          <p class="max-w-xl text-base leading-relaxed text-[#334155]">
+            EduQuestは、小学生のお子さまが"遊びながら学ぶ"ことを目指した無料の学習プラットフォームです。安全性・教育的効果・使いやすさの3つを大切に設計しています。
           </p>
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
@@ -181,7 +181,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             <p class="text-sm font-semibold text-[#1f2937]">
               ご家庭での安心ポイント
             </p>
-            <ul class="mt-4 space-y-3 text-sm text-[#4f6076]">
+            <ul class="mt-4 space-y-3 text-sm text-[#334155]">
               <li class="flex items-start gap-2">
                 <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
                   ●
@@ -309,7 +309,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           <h3 class="text-xl font-bold text-[var(--mq-ink)]">
             学びの循環サイクル
           </h3>
-          <ol class="mt-4 space-y-3 text-sm text-[#4f6076]">
+          <ol class="mt-4 space-y-3 text-sm text-[#334155]">
             <li class="flex items-start gap-3">
               <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
                 1
@@ -398,7 +398,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 📱
               </span>
             </div>
-            <p class="text-sm leading-relaxed text-[#0f172a]">
+            <p class="text-sm leading-relaxed text-[#1f2937]">
               デスクトップ・タブレット・スマホが並ぶイメージで、どのデバイスからでも同じ体験をご提供します。
             </p>
           </div>
@@ -538,7 +538,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 ›
               </span>
             </summary>
-            <p class="mt-4 text-sm leading-relaxed text-[#4f6076]">
+            <p class="mt-4 text-sm leading-relaxed text-[#334155]">
               {item.answer}
             </p>
           </details>
@@ -553,7 +553,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         <h2 class="text-2xl font-bold sm:text-3xl">
           さあ、EduQuestをはじめましょう
         </h2>
-        <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#4f6076]">
+        <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#334155]">
           安心・教育的・導入しやすい学習体験を、ご家庭の毎日に取り入れてみませんか？
         </p>
         <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
