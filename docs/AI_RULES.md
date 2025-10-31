@@ -23,7 +23,7 @@ This document outlines project-specific instructions to ensure consistent behavi
 **Answer Input Interface:**
 
 - **DO NOT use** standard browser input controls (`<input type="text">`, `<input type="number">`, `<select>`, etc.) for quiz answer submission
-- **USE** button-based answer input for all quest types (MathQuest, ClockQuest, KanjiQuest)
+- **USE** button-based answer input for all quest types (MathQuest, ClockQuest, KanjiQuest, GameQuest)
 - **Implementation:** Each answer option should be a separate `<button>` within a `<form>` with hidden inputs for SSR compatibility
 - **Reason:** Target users are elementary school students; button-based input prevents keyboard/IME issues and provides better mobile/tablet UX
 

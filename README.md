@@ -12,6 +12,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises. Users can select calculation types, toggle settings (sound effects, intermediate steps), and practice with a keypad UI.
 - **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
+- **GameQuest** (`/game`): Brain-training mini games for pattern recognition, spatial reasoning, and memory (Coming Soon)
 - **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
 
 The platform features an EduQuest hub page (`/`) where users can navigate to each Quest module. Question generation and grading are handled by `@edu-quest/domain` and are reused by the API layer (`/apis/quiz`).

@@ -10,7 +10,7 @@ The UI/UX design for "eduquest" is built around the core concept: "Play becomes 
 
 ### 1.1. Answer Input Interface Standard
 
-**EduQuest uses button-based answer input across all quest types (MathQuest, ClockQuest, KanjiQuest).**
+**EduQuest uses button-based answer input across all quest types (MathQuest, ClockQuest, KanjiQuest, GameQuest).**
 
 This is a fundamental UX principle for the entire platform:
 
@@ -32,6 +32,7 @@ This is a fundamental UX principle for the entire platform:
 - **MathQuest:** Number pad (0-9) for arithmetic answers
 - **ClockQuest:** Hour buttons (1-12) for time reading
 - **KanjiQuest:** Multiple choice buttons for character selection
+- **GameQuest:** Mode-specific action buttons (tile rotation, card flip, pattern selection)
 
 This standard ensures a consistent, frustration-free learning experience for all elementary school students.
 
