@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/README.md)
+
 # EduQuest ドキュメント概要
 
 [![codecov](https://codecov.io/gh/tqer39/edu-quest/graph/badge.svg)](https://codecov.io/gh/tqer39/edu-quest)

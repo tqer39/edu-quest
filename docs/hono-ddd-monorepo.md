@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/hono-ddd-monorepo.ja.md)
+
 # Minimal Hono × DDD Monorepo Structure
 
 This document describes the minimal monorepo setup that combines Hono with Domain-Driven Design (DDD) layering.

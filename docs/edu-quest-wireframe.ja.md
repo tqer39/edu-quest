@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/edu-quest-wireframe.md)
+
 # eduquest: ワイヤーフレーム
 
 以下に、eduquestの主要画面のワイヤーフレームを示します。これはUIの骨格であり、実際のデザインでは、より豊かな色彩、イラスト、アニメーションが加わります。

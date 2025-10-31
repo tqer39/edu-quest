@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/AI_RULES.md)
+
 # AI アシスタント共通ルール（日本語）
 
 本リポジトリで Cursor / GitHub Copilot / Codex CLI / Gemini / Claude Code 等のアシスタントが一貫した挙動になるよう、プロジェクト固有の指示をまとめます。

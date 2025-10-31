@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/edu-quest-migration.ja.md)
+
 # EduQuest Migration Plan
 
 ## Overview

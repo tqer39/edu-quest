@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/CLAUDE.ja.md)
+
 # Claude Project Instructions
 
 ## 1. Overview

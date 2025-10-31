@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/README.ja.md)
+
 # EduQuest Document Overview
 
 [![codecov](https://codecov.io/gh/tqer39/edu-quest/graph/badge.svg)](https://codecov.io/gh/tqer39/edu-quest)

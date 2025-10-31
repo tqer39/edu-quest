@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/AGENTS.md)
+
 # AGENTS.md
 
 ## 概要

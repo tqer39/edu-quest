@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/edu-quest-wireframe.ja.md)
+
 # eduquest: Wireframes
 
 Below are the wireframes for the main screens of eduquest. This is the structural backbone of the UI; the final design will incorporate richer colors, illustrations, and animations.
