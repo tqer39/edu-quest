@@ -169,6 +169,19 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
         }}
       />
       <QuestCard
+        title="GameQuest"
+        description="学年に合わせた脳トレゲームをプレイ。数独プリセットで集中力と論理力を磨こう。"
+        icon="🎮"
+        href="/game"
+        available={true}
+        themeColor={{
+          primary: '#5DB996',
+          primaryStrong: '#3AA07A',
+          primarySoft: '#D6F5E7',
+          outline: 'rgba(93, 185, 150, 0.45)',
+        }}
+      />
+      <QuestCard
         title="ClockQuest"
         description="時計の読み方をマスター。アナログ時計とデジタル時計の両方を練習できます。"
         icon="🕐"

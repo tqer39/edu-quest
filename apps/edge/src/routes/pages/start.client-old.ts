@@ -582,7 +582,9 @@ const MODULE_SOURCE = `
 
     // ゲームモードの場合は数独ページへ遷移
     if (selectedMode === 'game') {
-      window.location.href = '/sudoku';
+      const gradeId =
+        state.selectedGrade || gradeLevels[0]?.id || 'grade-1';
+      window.location.href = '/game/sudoku?grade=' + encodeURIComponent(gradeId);
       return;
     }
 
