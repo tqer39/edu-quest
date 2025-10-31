@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade } from '@edu-quest/domain';
+import { createSchoolGradeParam } from '../utils/school-grade';
 
 const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser: _currentUser,
@@ -45,6 +46,7 @@ const getGradeDescription = (grade: KanjiGrade): string => {
 const GradeCard: FC<GradeCardProps> = ({ grade, disabled = false }) => {
   const description = getGradeDescription(grade);
   const stars = '★'.repeat(grade);
+  const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
 
   if (disabled) {
     return (
@@ -61,7 +63,7 @@ const GradeCard: FC<GradeCardProps> = ({ grade, disabled = false }) => {
 
   return (
     <a
-      href={`/kanji/select?grade=${grade}`}
+      href={`/kanji/select?grade=${gradeParam}`}
       class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
     >
       <div class="text-2xl font-bold text-[var(--mq-ink)]">小学{grade}年生</div>

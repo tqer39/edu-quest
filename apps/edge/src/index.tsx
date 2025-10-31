@@ -38,6 +38,11 @@ import type {
   KanjiQuestType,
 } from '@edu-quest/domain';
 import { gradeLevels } from './routes/pages/grade-presets';
+import {
+  createSchoolGradeParam,
+  formatSchoolGradeLabel,
+  parseSchoolGradeParam,
+} from './routes/utils/school-grade';
 import { Document } from './views/layouts/document';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
@@ -249,23 +254,26 @@ app.get('/kanji', async (c) =>
 // KanjiQuest: クエストタイプ選択画面
 app.get('/kanji/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  const grade = Number(gradeParam) as KanjiGrade;
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
 
-  // 学年のバリデーション
-  if (!grade || grade < 1 || grade > 6) {
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
     return c.redirect('/kanji', 302);
   }
 
+  const grade = parsedGrade.grade as KanjiGrade;
   const { KanjiSelect } = await import('./routes/pages/kanji-select');
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
 
   return c.render(
     <KanjiSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
+      gradeStage={parsedGrade.stage}
     />,
     {
-      title: 'KanjiQuest - クエスト選択',
-      description: '学習したいクエストタイプを選んでください。',
+      title: `KanjiQuest - ${gradeLabel}`,
+      description: `${gradeLabel}向けのクエストタイプを選んでください。`,
+      favicon: '/favicon-kanji.svg',
     }
   );
 });
@@ -277,7 +285,8 @@ app.get('/kanji/start', async (c) => {
   const grade = Number(gradeParam) as KanjiGrade;
 
   if (questTypeParam && !isKanjiQuestType(questTypeParam)) {
-    return c.redirect(`/kanji/select?grade=${grade}`, 302);
+    const gradeQuery = createSchoolGradeParam({ stage: '小学', grade });
+    return c.redirect(`/kanji/select?grade=${gradeQuery}`, 302);
   }
 
   const questType: KanjiQuestType = isKanjiQuestType(questTypeParam)
