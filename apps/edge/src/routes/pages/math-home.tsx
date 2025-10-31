@@ -8,9 +8,13 @@ const MathNav: FC<{ currentUser: CurrentUser | null }> = ({
   <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
     <div class="flex items-center gap-3">
       <a href="/" class="flex items-center gap-3 transition hover:opacity-80">
-        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-base font-bold text-[var(--mq-primary-strong)]">
-          MQ
-        </span>
+        <img
+          src="/logo.svg"
+          alt="EduQuest Logo"
+          class="h-10 w-10"
+          width="40"
+          height="40"
+        />
         <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
           MathQuest
         </span>
