@@ -117,12 +117,12 @@ export const ParentsPage: FC = () => (
             <a
               id="parents-primary-cta"
               href="/"
-              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold text-white [color:white!important] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
             >
               今すぐ体験する
             </a>
             <a
-              href="/math"
+              href="/"
               class="inline-flex items-center justify-center rounded-2xl border border-[#3b82f6]/20 bg-white/80 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:border-[#3b82f6]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
             >
               学習ステージを見る
@@ -493,12 +493,12 @@ export const ParentsPage: FC = () => (
         <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/"
-            class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+            class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
           >
             トップページで体験する
           </a>
           <a
-            href="/math"
+            href="/"
             class="inline-flex items-center justify-center rounded-2xl border border-[#3b82f6]/20 bg-white/90 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:border-[#3b82f6]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
           >
             学習ステージ一覧
