@@ -208,7 +208,14 @@ app.get('/math', async (c) =>
 
 app.get('/math/start', async (c) => {
   const gradeParam = c.req.query('grade');
-  const selectedGrade = gradeLevels.find((grade) => grade.id === gradeParam);
+  let selectedGrade = gradeLevels.find((grade) => grade.id === gradeParam);
+
+  if (!selectedGrade && gradeParam) {
+    const parsedGrade = Number(gradeParam);
+    if (!Number.isNaN(parsedGrade) && parsedGrade >= 1 && parsedGrade <= gradeLevels.length) {
+      selectedGrade = gradeLevels[parsedGrade - 1];
+    }
+  }
 
   if (!selectedGrade || selectedGrade.disabled) {
     return c.redirect('/math', 302);
