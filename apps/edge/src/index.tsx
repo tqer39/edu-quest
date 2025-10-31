@@ -379,6 +379,39 @@ app.get('/kanji/quiz', async (c) => {
   }
 });
 
+app.post('/kanji/quit', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
+
+  if (sessionMatch) {
+    const sessionId = sessionMatch[1];
+
+    try {
+      await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
+    } catch (error) {
+      console.error('Failed to delete kanji quiz session:', error);
+    }
+  }
+
+  const body = await c.req.parseBody();
+  const rawGrade = body.grade;
+  const grade = typeof rawGrade === 'string' ? Number(rawGrade) : NaN;
+  const isValidGrade = Number.isInteger(grade) && grade >= 1 && grade <= 6;
+  const redirectUrl = isValidGrade ? `/kanji/select?grade=${grade}` : '/kanji';
+
+  const response = c.redirect(redirectUrl, 302);
+  response.headers.append(
+    'Set-Cookie',
+    'kanji_session_id=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure'
+  );
+  response.headers.append(
+    'Set-Cookie',
+    'kanji_result_id=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure'
+  );
+
+  return response;
+});
+
 // KanjiQuest: 回答を送信
 app.post('/kanji/quiz', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
