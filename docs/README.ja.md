@@ -65,12 +65,6 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
       </a>
     </td>
     <td align="center">
-      <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform logo" width="60" height="60" />
-        <br /><sub><b>Terraform</b></sub>
-      </a>
-    </td>
-    <td align="center">
       <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS logo" width="60" height="60" />
         <br /><sub><b>AWS</b></sub>
@@ -104,10 +98,22 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   </tr>
 </table>
 
-### 開発ツール
+### IaC と開発ツール
 
 <table>
   <tr>
+    <td align="center">
+      <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform logo" width="60" height="60" />
+        <br /><sub><b>Terraform</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://aquasecurity.github.io/tfsec/" target="_blank" rel="noopener noreferrer">
+        <img src="https://aquasecurity.github.io/tfsec/latest/imgs/logo.png" alt="tfsec logo" width="60" height="60" />
+        <br /><sub><b>tfsec</b></sub>
+      </a>
+    </td>
     <td align="center">
       <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">
         <img src="https://brew.sh/assets/img/homebrew.svg" alt="Homebrew logo" width="60" height="60" />
@@ -120,6 +126,8 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
         <br /><sub><b>mise</b></sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://just.systems/" target="_blank" rel="noopener noreferrer">
         <img src="https://raw.githubusercontent.com/casey/just/master/icon.png" alt="just logo" width="60" height="60" />
@@ -132,8 +140,6 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
         <br /><sub><b>GitHub</b></sub>
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center">
       <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
         <img src="https://prettier.io/icon.png" alt="Prettier logo" width="60" height="60" />
@@ -146,16 +152,12 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
         <br /><sub><b>pre-commit</b></sub>
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <a href="https://github.com/dyoshikawa/rulesync" target="_blank" rel="noopener noreferrer">
         <img src="https://avatars.githubusercontent.com/u/33576079" alt="rulesync logo" width="60" height="60" />
         <br /><sub><b>rulesync</b></sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://aquasecurity.github.io/tfsec/" target="_blank" rel="noopener noreferrer">
-        <img src="https://aquasecurity.github.io/tfsec/latest/imgs/logo.png" alt="tfsec logo" width="60" height="60" />
-        <br /><sub><b>tfsec</b></sub>
       </a>
     </td>
   </tr>
