@@ -147,7 +147,7 @@ EduQuest is a learning platform for elementary school students that provides var
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/suzuki-shunsuke/rulesync" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/dyoshikawa/rulesync" target="_blank" rel="noopener noreferrer">
         <img src="https://avatars.githubusercontent.com/u/33576079" alt="rulesync logo" width="60" height="60" />
         <br /><sub><b>rulesync</b></sub>
       </a>
