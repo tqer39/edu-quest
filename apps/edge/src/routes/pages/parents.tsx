@@ -113,7 +113,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
     <Header currentUser={currentUser} />
     <section
       id="parents-hero"
-      class="relative mt-8 overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
+      class="relative mt-16 overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
     >
       <div class="absolute inset-y-0 right-0 hidden w-1/2 opacity-80 sm:block">
         <div class="h-full w-full rounded-l-full bg-[radial-gradient(circle_at_top,#d1fae5,transparent_60%)]"></div>
