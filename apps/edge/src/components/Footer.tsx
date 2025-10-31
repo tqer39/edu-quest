@@ -1,8 +1,8 @@
 import type { FC } from 'hono/jsx';
 
 export const Footer: FC = () => (
-  <footer class="flex flex-wrap items-center justify-between gap-4 text-sm text-[#5e718a]">
-    <div class="flex flex-wrap items-center gap-4">
+  <footer class="flex flex-wrap items-center justify-between gap-6 py-8 text-sm text-[#5e718a]">
+    <div class="flex flex-wrap items-center gap-6">
       <a
         class="transition hover:text-[#3b82f6]"
         href="/parents"

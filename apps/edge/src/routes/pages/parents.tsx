@@ -37,7 +37,7 @@ type Feature = {
 const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   <ul class="grid gap-4 text-sm text-[#1f2937] sm:grid-cols-2">
     {features.map((feature) => (
-      <li class="flex items-start gap-3 rounded-2xl border border-[rgba(59,130,246,0.18)] bg-white/80 p-4 shadow-sm">
+      <li class="flex items-start gap-3 rounded-2xl  bg-white/80 p-4 shadow-sm">
         <span aria-hidden="true" class="mt-1 text-base">
           ✔
         </span>
@@ -52,18 +52,50 @@ const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   </ul>
 );
 
+const TableOfContents: FC = () => {
+  const sections = [
+    { id: 'safety', icon: '🔒', title: '安心して使える設計' },
+    { id: 'effect', icon: '📈', title: '楽しく学び、しっかり身につく' },
+    { id: 'easy-start', icon: '⚡', title: 'すぐに使い始められます' },
+    { id: 'transparency', icon: '🪪', title: 'オープンで誠実な運営' },
+    { id: 'use-cases', icon: '🏡', title: 'ご家庭での活用シーン' },
+    { id: 'faq', icon: '❓', title: 'よくある質問' },
+  ];
+
+  return (
+    <nav class="rounded-3xl  bg-white/90 p-6 shadow-sm">
+      <h2 class="mb-4 text-sm font-semibold text-[#1f2937]">📑 目次</h2>
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {sections.map((section) => (
+          <li>
+            <a
+              href={`#${section.id}`}
+              class="flex items-center gap-2 rounded-xl  bg-white/80 px-4 py-3 text-sm font-medium text-[#1f2937] transition hover:-translate-y-0.5 hover:bg-[#f0f9ff] hover:shadow-md"
+            >
+              <span aria-hidden="true" class="text-base">
+                {section.icon}
+              </span>
+              <span>{section.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
+
 const UseCaseCard: FC<{
   title: string;
   description: string;
   accent: string;
 }> = ({ title, description, accent }) => (
   <article
-    class="flex min-h-[180px] w-full min-w-[240px] flex-col justify-between gap-4 rounded-3xl border border-[rgba(34,197,94,0.2)] bg-white/90 p-5 shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
+    class="flex min-h-[200px] w-full min-w-[260px] flex-col justify-between gap-6 rounded-3xl  bg-white/90 p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-sm"
     style={`--accent: ${accent};`}
   >
     <header>
       <h3 class="text-lg font-semibold text-[var(--mq-ink)]">{title}</h3>
-      <div class="mt-1 h-1 w-12 rounded-full bg-[var(--accent)]"></div>
+      <div class="mt-2 h-1 w-12 rounded-full bg-[var(--accent)]"></div>
     </header>
     <p class="text-sm leading-relaxed text-[#4f6076]">{description}</p>
   </article>
@@ -93,11 +125,11 @@ const faqItems = [
 export const ParentsPage: FC = () => (
   <main
     id="parents-root"
-    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-16 px-4 pb-20 pt-12 sm:px-8 lg:px-12"
+    class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-20 px-4 pb-24 pt-12 sm:px-8 lg:px-12"
   >
     <section
       id="parents-hero"
-      class="relative overflow-hidden rounded-[32px] border border-[rgba(59,130,246,0.15)] bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-2xl sm:px-10 sm:py-16"
+      class="relative overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
     >
       <div class="absolute inset-y-0 right-0 hidden w-1/2 opacity-80 sm:block">
         <div class="h-full w-full rounded-l-full bg-[radial-gradient(circle_at_top,#d1fae5,transparent_60%)]"></div>
@@ -117,20 +149,20 @@ export const ParentsPage: FC = () => (
             <a
               id="parents-primary-cta"
               href="/"
-              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
             >
               今すぐ体験する
             </a>
             <a
               href="/"
-              class="inline-flex items-center justify-center rounded-2xl border border-[#3b82f6]/20 bg-white/80 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:border-[#3b82f6]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
+              class="inline-flex items-center justify-center rounded-2xl bg-white/80 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
             >
               学習ステージを見る
             </a>
           </div>
         </div>
         <div class="flex flex-1 justify-center">
-          <div class="relative mt-8 w-full max-w-sm rounded-3xl border border-white/40 bg-white/80 p-6 shadow-xl backdrop-blur">
+          <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-6 shadow-sm backdrop-blur">
             <div class="absolute -right-6 -top-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-[#22c55e]/80 to-[#3b82f6]/80 blur-0 sm:block"></div>
             <p class="text-sm font-semibold text-[#1f2937]">
               ご家庭での安心ポイント
@@ -160,7 +192,9 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(59,130,246,0.12)] bg-white/90 p-8 shadow-xl">
+    <TableOfContents />
+
+    <section class="rounded-[32px]  bg-white/90 p-8 shadow-sm">
       <SectionHeading
         id="safety"
         icon="🔒"
@@ -197,7 +231,7 @@ export const ParentsPage: FC = () => (
             },
           ]}
         />
-        <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] via-[#1f2937] to-[#2563eb] p-8 text-white shadow-2xl">
+        <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] via-[#1f2937] to-[#2563eb] p-8 text-white shadow-md">
           <h3 class="text-lg font-semibold">セキュリティ対策も透明に</h3>
           <p class="mt-4 text-sm leading-relaxed text-white/90">
             定期的にコードレビューとセキュリティチェックを実施し、安全な状態を維持しています。詳細な技術資料は順次公開予定です。
@@ -214,7 +248,7 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(34,197,94,0.15)] bg-white/95 p-8 shadow-xl">
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="effect"
         icon="📈"
@@ -251,7 +285,7 @@ export const ParentsPage: FC = () => (
             },
           ]}
         />
-        <div class="rounded-3xl border border-[#3b82f6]/10 bg-[#f9fafb] p-6 shadow-inner">
+        <div class="rounded-3xl bg-[#f9fafb] p-6 shadow-inner">
           <h3 class="text-base font-semibold text-[var(--mq-ink)]">
             学びの循環サイクル
           </h3>
@@ -298,7 +332,7 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(15,118,110,0.15)] bg-white/95 p-8 shadow-xl">
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="easy-start"
         icon="💻"
@@ -335,7 +369,7 @@ export const ParentsPage: FC = () => (
             },
           ]}
         />
-        <div class="flex flex-col items-start gap-6 rounded-3xl border border-[#0f766e]/15 bg-gradient-to-br from-[#ecfdf5] via-white to-[#d1fae5] p-8 shadow-lg">
+        <div class="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-[#ecfdf5] via-white to-[#d1fae5] p-8 shadow-sm">
           <div class="flex items-center gap-4">
             <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow">
               <span class="text-3xl" aria-hidden="true">
@@ -348,7 +382,7 @@ export const ParentsPage: FC = () => (
           </div>
           <a
             href="#parents-hero"
-            class="inline-flex items-center gap-2 rounded-xl border border-[#0f766e]/30 bg-white/90 px-5 py-2 text-sm font-semibold text-[#0f172a] shadow-sm transition hover:-translate-y-0.5 hover:border-[#0f766e]/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
+            class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-2 text-sm font-semibold text-[#0f172a] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
           >
             学習を始める位置に戻る
             <span aria-hidden="true">↑</span>
@@ -357,14 +391,14 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(99,102,241,0.18)] bg-white/95 p-8 shadow-xl">
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="transparency"
         icon="🪪"
         title="オープンで誠実な運営"
       />
       <div class="mt-8 grid gap-6 sm:grid-cols-2">
-        <article class="rounded-3xl border border-[#6366f1]/20 bg-gradient-to-br from-[#eef2ff] via-white to-[#c7d2fe] p-6 shadow-lg">
+        <article class="rounded-3xl bg-gradient-to-br from-[#eef2ff] via-white to-[#c7d2fe] p-6 shadow-sm">
           <h3 class="text-base font-semibold text-[#312e81]">運営情報</h3>
           <ul class="mt-4 space-y-3 text-sm text-[#4338ca]">
             <li>
@@ -394,7 +428,7 @@ export const ParentsPage: FC = () => (
             </li>
           </ul>
         </article>
-        <article class="rounded-3xl border border-[#6366f1]/20 bg-white/95 p-6 shadow-lg">
+        <article class="rounded-3xl bg-white/95 p-6 shadow-sm">
           <h3 class="text-base font-semibold text-[#312e81]">
             お問い合わせとポリシー
           </h3>
@@ -423,14 +457,14 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(34,197,94,0.18)] bg-white/95 p-8 shadow-xl">
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="use-cases"
         icon="🏡"
         title="ご家庭での活用シーン"
         description="毎日の生活に取り入れやすい具体的な利用例をご紹介します。"
       />
-      <div class="mt-8 flex gap-4 overflow-x-auto pb-2 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible">
+      <div class="mt-12 flex gap-6 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-8 sm:overflow-visible">
         <UseCaseCard
           title="宿題後の10分復習"
           description="宿題が終わったあとに短時間で確認テスト。間違えた問題は自動的に復習へ。"
@@ -459,15 +493,15 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(148,163,184,0.25)] bg-white/95 p-8 shadow-xl">
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading id="faq" icon="❓" title="よくある質問" />
-      <div class="mt-6 space-y-4">
+      <div class="mt-10 space-y-6">
         {faqItems.map((item) => (
           <details
             open
-            class="group rounded-2xl border border-[#cbd5f5] bg-white/90 p-4 shadow-sm transition"
+            class="group rounded-2xl bg-white/90 p-6 shadow-sm transition"
           >
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-[#1f2937]">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-[#1f2937]">
               <span>{item.question}</span>
               <span
                 aria-hidden="true"
@@ -476,7 +510,7 @@ export const ParentsPage: FC = () => (
                 ›
               </span>
             </summary>
-            <p class="mt-2 text-sm leading-relaxed text-[#4f6076]">
+            <p class="mt-4 text-sm leading-relaxed text-[#4f6076]">
               {item.answer}
             </p>
           </details>
@@ -484,7 +518,7 @@ export const ParentsPage: FC = () => (
       </div>
     </section>
 
-    <section class="rounded-[32px] border border-[rgba(59,130,246,0.2)] bg-gradient-to-br from-[#dbeafe] via-white to-[#bbf7d0] p-8 text-[var(--mq-ink)] shadow-2xl">
+    <section class="rounded-[32px]  bg-gradient-to-br from-[#dbeafe] via-white to-[#bbf7d0] p-8 text-[var(--mq-ink)] shadow-md">
       <div class="flex flex-col gap-6 text-center">
         <h2 class="text-2xl font-extrabold">さあ、EduQuestをはじめましょう</h2>
         <p class="mx-auto max-w-2xl text-sm leading-relaxed text-[#4f6076]">
@@ -493,13 +527,13 @@ export const ParentsPage: FC = () => (
         <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a
             href="/"
-            class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-lg transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+            class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold !text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-[#2563eb] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
           >
             トップページで体験する
           </a>
           <a
             href="/"
-            class="inline-flex items-center justify-center rounded-2xl border border-[#3b82f6]/20 bg-white/90 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:border-[#3b82f6]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
+            class="inline-flex items-center justify-center rounded-2xl bg-white/90 px-6 py-3 text-sm font-semibold text-[#1f2937] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
           >
             学習ステージ一覧
           </a>
