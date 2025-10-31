@@ -22,7 +22,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
     </td>
     <td align="center">
       <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/typescript.svg" alt="TypeScript logo" width="60" height="60" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript logo" width="60" height="60" />
         <br /><sub><b>TypeScript</b></sub>
       </a>
     </td>
@@ -35,13 +35,13 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vitest.svg" alt="Vitest logo" width="60" height="60" />
+        <img src="https://vitest.dev/logo.svg" alt="Vitest logo" width="60" height="60" />
         <br /><sub><b>Vitest</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cypress.svg" alt="Cypress logo" width="60" height="60" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg" alt="Cypress logo" width="60" height="60" />
         <br /><sub><b>Cypress</b></sub>
       </a>
     </td>
@@ -54,25 +54,25 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cloudflare.svg" alt="Cloudflare logo" width="60" height="60" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare logo" width="60" height="60" />
         <br /><sub><b>Cloudflare</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/terraform.svg" alt="Terraform logo" width="60" height="60" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform logo" width="60" height="60" />
         <br /><sub><b>Terraform</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/amazonaws.svg" alt="AWS logo" width="60" height="60" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS logo" width="60" height="60" />
         <br /><sub><b>AWS</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/googlecloud.svg" alt="Google Cloud logo" width="60" height="60" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud logo" width="60" height="60" />
         <br /><sub><b>Google Cloud</b></sub>
       </a>
     </td>
@@ -85,14 +85,14 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anthropic.svg" alt="Claude Code logo" width="60" height="60" />
+        <img src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F823d48d90f979ead855a04999a4b0188ce8e9419-2880x2880.png&w=1920&q=75" alt="Claude Code logo" width="60" height="60" />
         <br /><sub><b>Claude Code</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://openai.com/blog/openai-codex" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg" alt="OpenAI Codex logo" width="60" height="60" />
-        <br /><sub><b>OpenAI Codex</b></sub>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="OpenAI logo" width="60" height="60" />
+        <br /><sub><b>OpenAI</b></sub>
       </a>
     </td>
   </tr>
