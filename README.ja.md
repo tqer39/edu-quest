@@ -8,6 +8,96 @@
 
 EduQuest は小学生向けに各種学習コンテンツを提供するプラットフォームで、専門の「Quest」モジュールを通じて学習体験を提供します。Cloudflare Workers 上で Hono を用いた SSR で構築されており、pnpm ワークスペースで管理されるモノレポ内で共通のドメインロジックを共有します。
 
+## 技術スタック
+
+### アプリケーションと言語
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/honojs/hono/main/docs/images/logo.png" alt="Hono logo" width="60" height="60" />
+        <br /><sub><b>Hono</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/typescript.svg" alt="TypeScript logo" width="60" height="60" />
+        <br /><sub><b>TypeScript</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### テストと品質
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vitest.svg" alt="Vitest logo" width="60" height="60" />
+        <br /><sub><b>Vitest</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cypress.svg" alt="Cypress logo" width="60" height="60" />
+        <br /><sub><b>Cypress</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### クラウドとインフラ
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cloudflare.svg" alt="Cloudflare logo" width="60" height="60" />
+        <br /><sub><b>Cloudflare</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/terraform.svg" alt="Terraform logo" width="60" height="60" />
+        <br /><sub><b>Terraform</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/amazonaws.svg" alt="AWS logo" width="60" height="60" />
+        <br /><sub><b>AWS</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/googlecloud.svg" alt="Google Cloud logo" width="60" height="60" />
+        <br /><sub><b>Google Cloud</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### 開発生産性
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anthropic.svg" alt="Claude Code logo" width="60" height="60" />
+        <br /><sub><b>Claude Code</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://openai.com/blog/openai-codex" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg" alt="OpenAI Codex logo" width="60" height="60" />
+        <br /><sub><b>OpenAI Codex</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## Quest モジュール
 
 - **MathQuest** (`/math`): 学年別プリセットとテーマ付き演習による計算練習。計算種類の選択、設定の切り替え（効果音、中間ステップ）やキーパッド UI での練習が可能です。

@@ -8,6 +8,96 @@
 
 EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Built with Hono for SSR on Cloudflare Workers, it features a shared domain logic managed in a monorepo with pnpm workspaces.
 
+## Technology Stack
+
+### Application & Language
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/honojs/hono/main/docs/images/logo.png" alt="Hono logo" width="60" height="60" />
+        <br /><sub><b>Hono</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/typescript.svg" alt="TypeScript logo" width="60" height="60" />
+        <br /><sub><b>TypeScript</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Testing & Quality
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/vitest.svg" alt="Vitest logo" width="60" height="60" />
+        <br /><sub><b>Vitest</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cypress.svg" alt="Cypress logo" width="60" height="60" />
+        <br /><sub><b>Cypress</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Cloud & Infrastructure
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cloudflare.svg" alt="Cloudflare logo" width="60" height="60" />
+        <br /><sub><b>Cloudflare</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/terraform.svg" alt="Terraform logo" width="60" height="60" />
+        <br /><sub><b>Terraform</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/amazonaws.svg" alt="AWS logo" width="60" height="60" />
+        <br /><sub><b>AWS</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/googlecloud.svg" alt="Google Cloud logo" width="60" height="60" />
+        <br /><sub><b>Google Cloud</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Developer Productivity
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/anthropic.svg" alt="Claude Code logo" width="60" height="60" />
+        <br /><sub><b>Claude Code</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://openai.com/blog/openai-codex" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/openai.svg" alt="OpenAI Codex logo" width="60" height="60" />
+        <br /><sub><b>OpenAI Codex</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## Quest Modules
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises. Users can select calculation types, toggle settings (sound effects, intermediate steps), and practice with a keypad UI.
