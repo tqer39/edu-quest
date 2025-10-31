@@ -188,7 +188,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
     </td>
     <td align="center">
       <a href="https://textlint.github.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://textlint.org/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="60" height="60" />
+        <img src="https://textlint.org/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="120" height="60" />
         <br /><sub><b>textlint</b></sub>
       </a>
     </td>
