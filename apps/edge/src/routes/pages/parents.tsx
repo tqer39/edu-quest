@@ -143,7 +143,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             安心して任せられる学びの場
           </span>
           <h1 class="text-3xl font-extrabold leading-tight sm:text-4xl">
-            👪 保護者の方へ — 楽しく学べて、安心して使えるEduQuest
+            保護者の方へ — 楽しく学べて、安心して使えるEduQuest
           </h1>
           <p
             class="max-w-xl text-base text-[#334155]"
@@ -304,38 +304,78 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           <h3 class="text-xl font-bold text-[var(--mq-ink)]">
             学びの循環サイクル
           </h3>
-          <ol class="mt-4 space-y-3 text-sm text-[#334155]">
-            <li class="flex items-start gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
-                1
+          <div class="mt-6 grid gap-4">
+            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-50 to-transparent p-4 shadow-sm">
+              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-lg">
+                🎯
               </span>
-              問題を解く
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
-                2
+              <div>
+                <div class="font-semibold text-[var(--mq-ink)]">問題を解く</div>
+                <div class="text-xs text-[#64748b]">挑戦する</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <span class="text-2xl text-blue-400">↓</span>
+            </div>
+            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-yellow-50 to-transparent p-4 shadow-sm">
+              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 text-lg">
+                💡
               </span>
-              フィードバックを受ける
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
-                3
+              <div>
+                <div class="font-semibold text-[var(--mq-ink)]">
+                  フィードバックを受ける
+                </div>
+                <div class="text-xs text-[#64748b]">理解と気づき</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <span class="text-2xl text-blue-400">↓</span>
+            </div>
+            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-green-50 to-transparent p-4 shadow-sm">
+              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-lg">
+                📚
               </span>
-              理解が深まる
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
-                4
+              <div>
+                <div class="font-semibold text-[var(--mq-ink)]">
+                  理解が深まる
+                </div>
+                <div class="text-xs text-[#64748b]">自律性に学ぶ感覚</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <span class="text-2xl text-blue-400">↓</span>
+            </div>
+            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-orange-50 to-transparent p-4 shadow-sm">
+              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 text-lg">
+                🔥
               </span>
-              モチベーション向上
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
-                5
+              <div>
+                <div class="font-semibold text-[var(--mq-ink)]">
+                  モチベーション向上
+                </div>
+                <div class="text-xs text-[#64748b]">成長と達成感</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center">
+              <span class="text-2xl text-blue-400">↓</span>
+            </div>
+            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-50 to-transparent p-4 shadow-sm">
+              <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 text-lg">
+                🔄
               </span>
-              再び問題に挑戦
-            </li>
-          </ol>
+              <div>
+                <div class="font-semibold text-[var(--mq-ink)]">
+                  再び問題に挑戦
+                </div>
+                <div class="text-xs text-[#64748b]">継続的な成長</div>
+              </div>
+            </div>
+          </div>
+          <p class="mt-6 text-sm text-[#334155]" style="line-height: 1.7;">
+            EduQuestでは、この「学びの循環」を自然に体験できるように設計されています。ただ解くだけでなく、
+            <strong>理解 → 挑戦 → 成長のサイクルを繰り返す</strong>
+            ことで、自発的に学び続ける力を育みます。
+          </p>
           <a
             href="/math"
             class="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
@@ -389,16 +429,9 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           ]}
         />
         <div class="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-[#ecfdf5] via-white to-[#d1fae5] p-8 shadow-sm">
-          <div class="flex items-center gap-4">
-            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow">
-              <span class="text-3xl" aria-hidden="true">
-                📱
-              </span>
-            </div>
-            <p class="text-sm leading-relaxed text-[#1f2937]">
-              デスクトップ・タブレット・スマホが並ぶイメージで、どのデバイスからでも同じ体験をご提供します。
-            </p>
-          </div>
+          <p class="text-sm leading-relaxed text-[#1f2937]">
+            PC・タブレット・スマートフォンなど、お使いのデバイスからいつでもアクセス可能。どの端末でも同じ快適な学習体験をご提供します。
+          </p>
           <a
             href="#parents-hero"
             class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-3 text-sm font-bold text-[#0f172a] shadow-md transition-all hover:-translate-y-1 hover:bg-white hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
