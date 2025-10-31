@@ -47,7 +47,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
     </td>
     <td align="center">
       <a href="https://about.codecov.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://about.codecov.io/wp-content/themes/codecov/assets/brand/icons/codecov-icon-text.svg" alt="Codecov logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/8226205?s=200&v=4" alt="Codecov logo" width="60" height="60" />
         <br /><sub><b>Codecov</b></sub>
       </a>
     </td>
