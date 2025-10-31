@@ -443,7 +443,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 href="https://github.com/tqer39"
                 class="underline decoration-[#4338ca]/50 underline-offset-2 transition hover:text-[#1d4ed8]"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 tqer39（Embedded SRE）
               </a>
@@ -454,7 +454,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 href="https://github.com/tqer39/edu-quest"
                 class="underline decoration-[#4338ca]/50 underline-offset-2 transition hover:text-[#1d4ed8]"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 GitHub Repository
               </a>
