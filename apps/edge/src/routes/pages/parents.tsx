@@ -15,11 +15,15 @@ const SectionHeading: FC<SectionHeadingProps> = ({
 }) => (
   <div class="flex flex-col gap-3" id={id}>
     <div class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.35em] text-[#5e718a]">
-      <span aria-hidden="true" class="text-lg">{icon}</span>
+      <span aria-hidden="true" class="text-lg">
+        {icon}
+      </span>
       <span>{title}</span>
     </div>
     {description ? (
-      <p class="max-w-3xl text-base leading-relaxed text-[#4f6076]">{description}</p>
+      <p class="max-w-3xl text-base leading-relaxed text-[#4f6076]">
+        {description}
+      </p>
     ) : null}
   </div>
 );
@@ -32,12 +36,14 @@ type Feature = {
 const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   <ul class="grid gap-4 text-sm text-[#1f2937] sm:grid-cols-2">
     {features.map((feature) => (
-      <li
-        class="flex items-start gap-3 rounded-2xl border border-[rgba(59,130,246,0.18)] bg-white/80 p-4 shadow-sm"
-      >
-        <span aria-hidden="true" class="mt-1 text-base">✔</span>
+      <li class="flex items-start gap-3 rounded-2xl border border-[rgba(59,130,246,0.18)] bg-white/80 p-4 shadow-sm">
+        <span aria-hidden="true" class="mt-1 text-base">
+          ✔
+        </span>
         <span>
-          <span class="font-semibold text-[var(--mq-ink)]">{feature.title}</span>
+          <span class="font-semibold text-[var(--mq-ink)]">
+            {feature.title}
+          </span>
           <span class="block text-[#4f6076]">{feature.description}</span>
         </span>
       </li>
@@ -45,11 +51,11 @@ const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   </ul>
 );
 
-const UseCaseCard: FC<{ title: string; description: string; accent: string }> = ({
-  title,
-  description,
-  accent,
-}) => (
+const UseCaseCard: FC<{
+  title: string;
+  description: string;
+  accent: string;
+}> = ({ title, description, accent }) => (
   <article
     class="flex min-h-[180px] w-full min-w-[240px] flex-col justify-between gap-4 rounded-3xl border border-[rgba(34,197,94,0.2)] bg-white/90 p-5 shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
     style={`--accent: ${accent};`}
@@ -110,7 +116,7 @@ export const ParentsPage: FC = () => (
             <a
               id="parents-primary-cta"
               href="/"
-              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
+              class="inline-flex items-center justify-center rounded-2xl bg-[#3b82f6] px-6 py-3 text-sm font-semibold text-white [color:white!important] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#2563eb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1d4ed8]"
             >
               今すぐ体験する
             </a>
@@ -125,18 +131,26 @@ export const ParentsPage: FC = () => (
         <div class="flex flex-1 justify-center">
           <div class="relative mt-8 w-full max-w-sm rounded-3xl border border-white/40 bg-white/80 p-6 shadow-xl backdrop-blur">
             <div class="absolute -right-6 -top-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-[#22c55e]/80 to-[#3b82f6]/80 blur-0 sm:block"></div>
-            <p class="text-sm font-semibold text-[#1f2937]">ご家庭での安心ポイント</p>
+            <p class="text-sm font-semibold text-[#1f2937]">
+              ご家庭での安心ポイント
+            </p>
             <ul class="mt-4 space-y-3 text-sm text-[#4f6076]">
               <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">●</span>
+                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
+                  ●
+                </span>
                 匿名で始められ、個人情報の入力は不要。
               </li>
               <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">●</span>
+                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
+                  ●
+                </span>
                 広告や外部リンクがなく、学習に集中できます。
               </li>
               <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">●</span>
+                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
+                  ●
+                </span>
                 進捗は端末内に保存され、プライバシーを守ります。
               </li>
             </ul>
@@ -156,24 +170,29 @@ export const ParentsPage: FC = () => (
         <FeatureList
           features={[
             {
-              title: '個人アカウント登録不要',
-              description: 'メールアドレスなしで体験を開始でき、すぐに学習へ進めます。',
+              title: '匿名ですぐに体験可能',
+              description:
+                'アカウント登録なしで体験を開始できます。学習履歴を保存する場合はアカウント登録が必要です。',
             },
             {
               title: '広告・外部リンクなし',
-              description: 'アプリ内に広告や誘導リンクがなく、安心して任せられます。',
+              description:
+                'アプリ内に広告や誘導リンクがなく、安心して任せられます。',
             },
             {
               title: '学習進捗は端末内に保存',
-              description: 'ローカルストレージに保存され、サーバーに個人情報を送信しません。',
+              description:
+                'ローカルストレージに保存され、サーバーに個人情報を送信しません。',
             },
             {
               title: '通信はすべてHTTPSで暗号化',
-              description: '常に暗号化された通信で、第三者からの盗聴や改ざんを防ぎます。',
+              description:
+                '常に暗号化された通信で、第三者からの盗聴や改ざんを防ぎます。',
             },
             {
               title: '利用時間制限機能（開発中）',
-              description: 'ご家庭のルールに合わせた利用時間のコントロールを提供予定です。',
+              description:
+                'ご家庭のルールに合わせた利用時間のコントロールを提供予定です。',
             },
           ]}
         />
@@ -199,35 +218,42 @@ export const ParentsPage: FC = () => (
         id="effect"
         icon="📈"
         title="楽しく学び、しっかり身につく"
-        description="学校の学習指導要領に沿いながら、フィードバックでモチベーションを高める仕組みを備えています。"
+        description="文部科学省の学習指導要領に沿いながら、フィードバックでモチベーションを高める仕組みを備えています。"
       />
       <div class="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <FeatureList
           features={[
             {
               title: '教科書準拠の出題',
-              description: '学校で習う単元をもとにした問題で、授業との連携がしやすい構成です。',
+              description:
+                '学校で習う単元をもとにした問題で、授業との連携がしやすい構成です。',
             },
             {
               title: '段階的に難度が上昇',
-              description: 'ステップアップ方式で、成功体験を重ねながら確かな理解へつなげます。',
+              description:
+                'ステップアップ方式で、成功体験を重ねながら確かな理解へつなげます。',
             },
             {
               title: 'AIが苦手単元を分析',
-              description: '誤答データをもとに自動で復習問題を提示し、弱点克服をサポートします。',
+              description:
+                '誤答データをもとに自動で復習問題を提示し、弱点克服をサポートします。',
             },
             {
               title: 'ゲーミフィケーション要素',
-              description: 'ポイントや称号、連続チャレンジなど、自発的な学習を促す仕掛けを用意。',
+              description:
+                'ポイントや称号、連続チャレンジなど、自発的な学習を促す仕掛けを用意。',
             },
             {
               title: '自己決定理論に基づいた設計',
-              description: '自律性・有能感・関係性を満たす体験で、継続的な学習意欲を引き出します。',
+              description:
+                '自律性・有能感・関係性を満たす体験で、継続的な学習意欲を引き出します。',
             },
           ]}
         />
         <div class="rounded-3xl border border-[#3b82f6]/10 bg-[#f9fafb] p-6 shadow-inner">
-          <h3 class="text-base font-semibold text-[var(--mq-ink)]">学びの循環サイクル</h3>
+          <h3 class="text-base font-semibold text-[var(--mq-ink)]">
+            学びの循環サイクル
+          </h3>
           <ol class="mt-4 space-y-3 text-sm text-[#4f6076]">
             <li class="flex items-start gap-3">
               <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#3b82f6]/15 text-sm font-semibold text-[#1d4ed8]">
@@ -283,23 +309,28 @@ export const ParentsPage: FC = () => (
           features={[
             {
               title: 'ブラウザだけで利用可能',
-              description: 'ChromeやSafariなど、お使いのブラウザがあれば追加インストールは不要です。',
+              description:
+                'ChromeやSafariなど、お使いのブラウザがあれば追加インストールは不要です。',
             },
             {
               title: 'PC／タブレット／スマホ対応',
-              description: '画面サイズに合わせたレイアウトで、どの端末でも見やすく操作できます。',
+              description:
+                '画面サイズに合わせたレイアウトで、どの端末でも見やすく操作できます。',
             },
             {
               title: '1クリックで学習開始',
-              description: 'トップページのミッションからワンクリックで問題に挑戦できます。',
+              description:
+                'トップページのミッションからワンクリックで問題に挑戦できます。',
             },
             {
               title: '進捗は自動保存',
-              description: '途中で中断しても、次回アクセス時に前回の状態から再開できます。',
+              description:
+                '途中で中断しても、次回アクセス時に前回の状態から再開できます。',
             },
             {
               title: '家庭・学校・学習塾でも利用可能',
-              description: '複数アカウントを用意しなくても、各端末ごとに学習履歴を管理できます。',
+              description:
+                '複数アカウントを用意しなくても、各端末ごとに学習履歴を管理できます。',
             },
           ]}
         />
@@ -363,7 +394,9 @@ export const ParentsPage: FC = () => (
           </ul>
         </article>
         <article class="rounded-3xl border border-[#6366f1]/20 bg-white/95 p-6 shadow-lg">
-          <h3 class="text-base font-semibold text-[#312e81]">お問い合わせとポリシー</h3>
+          <h3 class="text-base font-semibold text-[#312e81]">
+            お問い合わせとポリシー
+          </h3>
           <ul class="mt-4 space-y-3 text-sm text-[#4338ca]">
             <li>
               プライバシーポリシー：
@@ -435,11 +468,16 @@ export const ParentsPage: FC = () => (
           >
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-[#1f2937]">
               <span>{item.question}</span>
-              <span aria-hidden="true" class="text-lg text-[#3b82f6] transition group-open:rotate-90">
+              <span
+                aria-hidden="true"
+                class="text-lg text-[#3b82f6] transition group-open:rotate-90"
+              >
                 ›
               </span>
             </summary>
-            <p class="mt-2 text-sm leading-relaxed text-[#4f6076]">{item.answer}</p>
+            <p class="mt-2 text-sm leading-relaxed text-[#4f6076]">
+              {item.answer}
+            </p>
           </details>
         ))}
       </div>
@@ -472,10 +510,14 @@ export const ParentsPage: FC = () => (
       <h2 class="text-sm font-semibold text-[#1f2937]">関連リンク</h2>
       <ul class="mt-3 flex flex-wrap gap-4 text-sm text-[#3b82f6]">
         <li>
-          <a class="transition hover:text-[#1d4ed8]" href="/">ホーム</a>
+          <a class="transition hover:text-[#1d4ed8]" href="/">
+            ホーム
+          </a>
         </li>
         <li>
-          <a class="transition hover:text-[#1d4ed8]" href="/parents">保護者の方へ</a>
+          <a class="transition hover:text-[#1d4ed8]" href="/parents">
+            保護者の方へ
+          </a>
         </li>
         <li>
           <a
