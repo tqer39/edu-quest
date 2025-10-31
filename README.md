@@ -1,4 +1,4 @@
-[日本語](/docs/README.ja.md)
+[🇯🇵 日本語](/docs/README.ja.md)
 
 # EduQuest Document Overview
 

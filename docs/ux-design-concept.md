@@ -1,4 +1,4 @@
-[日本語](/docs/ux-design-concept.ja.md)
+[🇯🇵 日本語](/docs/ux-design-concept.ja.md)
 
 # eduquest: UI/UX Design Concept
 

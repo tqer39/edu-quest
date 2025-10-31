@@ -1,4 +1,4 @@
-[日本語](/docs/RULESYNC.ja.md)
+[🇯🇵 日本語](/docs/RULESYNC.ja.md)
 
 # rulesync Implementation Guide
 

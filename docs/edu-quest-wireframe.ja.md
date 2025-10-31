@@ -1,4 +1,4 @@
-[English](/docs/edu-quest-wireframe.md)
+[🇺🇸 English](/docs/edu-quest-wireframe.md)
 
 # eduquest: ワイヤーフレーム
 

@@ -1,4 +1,4 @@
-[English](/docs/edu-quest-architecture.md)
+[🇺🇸 English](/docs/edu-quest-architecture.md)
 
 # eduquest: アーキテクチャ設計とプロジェクト構造
 

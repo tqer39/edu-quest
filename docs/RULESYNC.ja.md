@@ -1,4 +1,4 @@
-[English](/docs/RULESYNC.md)
+[🇺🇸 English](/docs/RULESYNC.md)
 
 # rulesync 導入ガイド
 

@@ -1,4 +1,4 @@
-[English](/docs/AGENTS.md)
+[🇺🇸 English](/docs/AGENTS.md)
 
 # AGENTS.md
 

@@ -1,4 +1,4 @@
-[日本語](/docs/CONTRIBUTING.ja.md)
+[🇯🇵 日本語](/docs/CONTRIBUTING.ja.md)
 
 # Contributing to EduQuest
 

@@ -1,4 +1,4 @@
-[English](/docs/kanji-quest-design.md)
+[🇺🇸 English](/docs/kanji-quest-design.md)
 
 # KanjiQuest 設計ドキュメント
 

@@ -1,4 +1,4 @@
-[English](/docs/hono-ddd-monorepo.md)
+[🇺🇸 English](/docs/hono-ddd-monorepo.md)
 
 # Hono × DDD モノレポ構成（最小）
 

@@ -1,4 +1,4 @@
-[English](/docs/local-dev.md)
+[🇺🇸 English](/docs/local-dev.md)
 
 # ローカル検証環境の作り方
 

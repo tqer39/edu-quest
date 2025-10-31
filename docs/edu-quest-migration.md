@@ -1,4 +1,4 @@
-[日本語](/docs/edu-quest-migration.ja.md)
+[🇯🇵 日本語](/docs/edu-quest-migration.ja.md)
 
 # EduQuest Migration Plan
 

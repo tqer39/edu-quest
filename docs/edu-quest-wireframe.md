@@ -1,4 +1,4 @@
-[日本語](/docs/edu-quest-wireframe.ja.md)
+[🇯🇵 日本語](/docs/edu-quest-wireframe.ja.md)
 
 # eduquest: Wireframes
 

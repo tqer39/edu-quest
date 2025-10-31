@@ -1,4 +1,4 @@
-[English](/docs/gemini-instructions.md)
+[🇺🇸 English](/docs/gemini-instructions.md)
 
 # Gemini Code Assist 用メモ
 

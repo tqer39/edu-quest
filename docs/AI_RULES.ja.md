@@ -1,4 +1,4 @@
-[English](/docs/AI_RULES.md)
+[🇺🇸 English](/docs/AI_RULES.md)
 
 # AI アシスタント共通ルール（日本語）
 

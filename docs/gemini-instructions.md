@@ -1,4 +1,4 @@
-[日本語](/docs/gemini-instructions.ja.md)
+[🇯🇵 日本語](/docs/gemini-instructions.ja.md)
 
 # Notes for Gemini Code Assist
 

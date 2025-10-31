@@ -1,4 +1,4 @@
-[日本語](/docs/AGENTS.ja.md)
+[🇯🇵 日本語](/docs/AGENTS.ja.md)
 
 ## 1. Overview
 

@@ -1,4 +1,4 @@
-[English](/docs/release-workflow.md)
+[🇺🇸 English](/docs/release-workflow.md)
 
 # リリースワークフロー
 

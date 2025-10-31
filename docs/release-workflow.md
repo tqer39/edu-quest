@@ -1,4 +1,4 @@
-[日本語](/docs/release-workflow.ja.md)
+[🇯🇵 日本語](/docs/release-workflow.ja.md)
 
 # Release Workflow
 

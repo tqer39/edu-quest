@@ -1,4 +1,4 @@
-[English](/docs/github-secrets-setup.md)
+[🇺🇸 English](/docs/github-secrets-setup.md)
 
 # GitHub Secrets セットアップガイド
 

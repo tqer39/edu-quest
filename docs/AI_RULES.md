@@ -1,4 +1,4 @@
-[日本語](/docs/AI_RULES.ja.md)
+[🇯🇵 日本語](/docs/AI_RULES.ja.md)
 
 # Common Rules for AI Assistants (English)
 

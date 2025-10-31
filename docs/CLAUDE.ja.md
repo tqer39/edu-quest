@@ -1,4 +1,4 @@
-[English](/docs/CLAUDE.md)
+[🇺🇸 English](/docs/CLAUDE.md)
 
 # CLAUDE.md
 

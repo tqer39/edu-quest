@@ -1,4 +1,4 @@
-[English](/docs/ux-design-concept.md)
+[🇺🇸 English](/docs/ux-design-concept.md)
 
 # eduquest: UI/UXデザインコンセプト
 

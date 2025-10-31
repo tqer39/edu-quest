@@ -1,4 +1,4 @@
-[English](/docs/README.md)
+[🇺🇸 English](/docs/README.md)
 
 # EduQuest ドキュメント概要
 

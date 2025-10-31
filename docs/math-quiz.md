@@ -1,4 +1,4 @@
-[日本語](/docs/math-quiz.ja.md)
+[🇯🇵 日本語](/docs/math-quiz.ja.md)
 
 # Math Quiz (Elementary School)
 

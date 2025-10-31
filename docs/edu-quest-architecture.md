@@ -1,4 +1,4 @@
-[日本語](/docs/edu-quest-architecture.ja.md)
+[🇯🇵 日本語](/docs/edu-quest-architecture.ja.md)
 
 # eduquest: Architecture Design and Project Structure
 

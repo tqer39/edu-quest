@@ -1,4 +1,4 @@
-[English](/docs/math-quiz.md)
+[🇺🇸 English](/docs/math-quiz.md)
 
 # 算数クイズ（小学生向け）
 

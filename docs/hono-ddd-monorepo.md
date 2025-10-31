@@ -1,4 +1,4 @@
-[日本語](/docs/hono-ddd-monorepo.ja.md)
+[🇯🇵 日本語](/docs/hono-ddd-monorepo.ja.md)
 
 # Minimal Hono × DDD Monorepo Structure
 
