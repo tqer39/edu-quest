@@ -65,33 +65,42 @@ graph LR
 
 ## 4. ディレクトリ構造
 
-実際のリポジトリ構成は以下の通りです。
+以下のツリーは自動生成されています。ディレクトリを追加・削除した際は `pnpm run docs:update-structure` を実行し、最新状態に更新してください。
+
+<!-- AUTO-GENERATED:STRUCTURE:START -->
 
 ```txt
-eduquest/
-├── apps/
-│   ├── edge/                    # Cloudflare Workers SSR アプリ
-│   │   ├── src/
-│   │   │   ├── application/     # ユースケース・セッション管理
-│   │   │   ├── infrastructure/  # Drizzle, 環境変数
-│   │   │   ├── middlewares/     # i18n 等
-│   │   │   └── routes/
-│   │   │       ├── pages/       # home/start/play, クライアントスクリプト
-│   │   │       └── apis/        # /apis/quiz
-│   │   └── wrangler.toml        # Workers 設定
-│   ├── api/                     # ローカル開発用 API サーバー
-│   └── web/                     # ローカル開発用 Web サーバー
-├── packages/
-│   ├── app/                     # クイズ進行ユースケース
-│   └── domain/                  # 問題生成・採点ロジック
-├── infra/
-│   ├── terraform/               # Terraform 構成
-│   └── migrations/              # D1 スキーマ
-├── docs/                        # ドキュメント群
-└── games/
-    ├── math-quiz/              # 旧スタンドアロン版ゲーム
-    └── clock-quest/            # アナログ・デジタル時計れんしゅうの試作版
+edu-quest/
+├── apps/ - アプリケーション群
+│   ├── api/ - ローカル開発用 API サーバー
+│   ├── edge/ - Cloudflare Workers 向け SSR アプリ
+│   │   └── src/
+│   │       ├── __tests__/ - Edge 向けの統合テスト
+│   │       ├── application/ - ユースケース・セッション管理
+│   │       ├── components/ - UI アイランドと共通コンポーネント
+│   │       ├── infrastructure/ - Drizzle・環境変数
+│   │       ├── middlewares/
+│   │       ├── routes/
+│   │       │   ├── apis/ - `/apis/quiz` ハンドラー
+│   │       │   └── pages/ - `/`・クエストページ・クライアントスクリプト
+│   │       ├── styles/ - 共有のデザイントークン
+│   │       └── views/ - レイアウトとテンプレート
+│   └── web/ - ローカル開発用 Web サーバー
+├── cypress/ - Cypress E2E テスト
+│   ├── e2e/ - Cypress スペックファイル
+│   └── support/ - 共通ヘルパーと初期化コード
+├── docs/ - ドキュメント群
+├── infra/ - インフラ構成 (Terraform など)
+│   ├── migrations/ - D1 スキーマ
+│   └── terraform/ - Terraform 構成
+├── packages/ - 共有ライブラリ
+│   ├── app/ - クイズ進行ユースケース
+│   └── domain/ - 問題生成・採点ロジック
+└── scripts/ - リポジトリの補助スクリプト
+    └── docs/ - ドキュメント用スクリプト
 ```
+
+<!-- AUTO-GENERATED:STRUCTURE:END -->
 
 ## 5. ユースケースとデータフロー
 

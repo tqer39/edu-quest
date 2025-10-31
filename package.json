@@ -22,7 +22,8 @@
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
     "check": "biome check .",
-    "drizzle:generate": "pnpm --filter @edu-quest/edge run drizzle:generate"
+    "drizzle:generate": "pnpm --filter @edu-quest/edge run drizzle:generate",
+    "docs:update-structure": "node scripts/docs/update-structure.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.2",

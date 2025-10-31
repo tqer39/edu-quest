@@ -65,33 +65,42 @@ graph LR
 
 ## 4. Directory Structure
 
-The actual repository structure is as follows:
+The following snapshot is auto-generated. Run `pnpm run docs:update-structure` after adding or removing directories so the tree stays in sync with the repository.
+
+<!-- AUTO-GENERATED:STRUCTURE:START -->
 
 ```txt
-eduquest/
-├── apps/
-│   ├── edge/                    # Cloudflare Workers SSR App
-│   │   ├── src/
-│   │   │   ├── application/     # Use cases, session management
-│   │   │   ├── infrastructure/  # Drizzle, environment variables
-│   │   │   ├── middlewares/     # i18n, etc.
-│   │   │   └── routes/
-│   │   │       ├── pages/       # home/start/play, client scripts
-│   │   │       └── apis/        # /apis/quiz
-│   │   └── wrangler.toml        # Workers configuration
-│   ├── api/                     # Local development API server
-│   └── web/                     # Local development Web server
-├── packages/
-│   ├── app/                     # Quiz progression use cases
-│   └── domain/                  # Question generation & grading logic
-├── infra/
-│   ├── terraform/               # Terraform configuration
-│   └── migrations/              # D1 schema
-├── docs/                        # Documents
-└── games/
-    ├── math-quiz/              # Old standalone game
-    └── clock-quest/            # ClockQuest prototype with analog/digital drills
+edu-quest/
+├── apps/ - Application projects
+│   ├── api/ - Local development API server
+│   ├── edge/ - Cloudflare Workers SSR app
+│   │   └── src/
+│   │       ├── __tests__/ - Edge integration tests
+│   │       ├── application/ - Use cases, session management
+│   │       ├── components/ - UI islands and shared components
+│   │       ├── infrastructure/ - Drizzle, environment variables
+│   │       ├── middlewares/
+│   │       ├── routes/
+│   │       │   ├── apis/ - `/apis/quiz` handlers
+│   │       │   └── pages/ - `/`, quest pages, client scripts
+│   │       ├── styles/ - Shared Tailwind-like tokens
+│   │       └── views/ - Layouts and templates
+│   └── web/ - Local development web server
+├── cypress/ - End-to-end tests
+│   ├── e2e/ - Cypress spec files
+│   └── support/ - Shared Cypress helpers
+├── docs/ - Documentation
+├── infra/ - Infrastructure as code
+│   ├── migrations/ - D1 schema
+│   └── terraform/ - Terraform configuration
+├── packages/ - Shared libraries
+│   ├── app/ - Quiz progression use cases
+│   └── domain/ - Question generation & grading logic
+└── scripts/ - Automation scripts
+    └── docs/ - Documentation tooling
 ```
+
+<!-- AUTO-GENERATED:STRUCTURE:END -->
 
 ## 5. Use Cases and Data Flow
 
