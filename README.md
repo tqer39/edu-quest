@@ -174,7 +174,7 @@ EduQuest is a learning platform for elementary school students that provides var
     </td>
     <td align="center">
       <a href="https://yamllint.readthedocs.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://yamllint.readthedocs.io/en/stable/_static/logo.png" alt="yamllint logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/102422558?s=200&v=4" alt="yamllint logo" width="60" height="60" />
         <br /><sub><b>yamllint</b></sub>
       </a>
     </td>
@@ -182,19 +182,19 @@ EduQuest is a learning platform for elementary school students that provides var
   <tr>
     <td align="center">
       <a href="https://cspell.org/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/streetsidesoftware/cspell/main/docs/images/logo.png" alt="cspell logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/50543896?s=200&v=4" alt="cspell logo" width="60" height="60" />
         <br /><sub><b>cspell</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://textlint.github.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://textlint.github.io/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/12554465?s=200&v=4" alt="textlint logo" width="60" height="60" />
         <br /><sub><b>textlint</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://www.toptal.com/developers/gitignore/" target="_blank" rel="noopener noreferrer">
-        <img src="https://www.toptal.com/developers/gitignore/img/gitignoreio-logo.svg" alt="gitignore.io logo" width="60" height="60" />
+        <img src="https://avatars.githubusercontent.com/u/4723?s=200&v=4" alt="gitignore.io logo" width="60" height="60" />
         <br /><sub><b>gitignore.io</b></sub>
       </a>
     </td>
