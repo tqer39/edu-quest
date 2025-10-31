@@ -63,37 +63,16 @@ const SectionDivider: FC = () => (
   </div>
 );
 
-const TableOfContents: FC = () => {
-  const sections = [
-    { id: 'safety', icon: '🔒', title: '安心して使える設計' },
-    { id: 'effect', icon: '📈', title: '楽しく学び、しっかり身につく' },
-    { id: 'easy-start', icon: '⚡', title: 'すぐに使い始められます' },
-    { id: 'transparency', icon: '🪪', title: 'オープンで誠実な運営' },
-    { id: 'use-cases', icon: '🏡', title: 'ご家庭での活用シーン' },
-    { id: 'faq', icon: '❓', title: 'よくある質問' },
-  ];
-
-  return (
-    <nav class="rounded-3xl  bg-white/95 p-6 shadow-sm">
-      <h2 class="mb-4 text-xl font-bold text-[#1f2937]">📑 目次</h2>
-      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {sections.map((section) => (
-          <li>
-            <a
-              href={`#${section.id}`}
-              class="flex items-center gap-2 rounded-xl  bg-white/80 px-4 py-3 text-sm font-medium text-[#1f2937] transition hover:-translate-y-0.5 hover:bg-[#f0f9ff] hover:shadow-md"
-            >
-              <span aria-hidden="true" class="text-base">
-                {section.icon}
-              </span>
-              <span>{section.title}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  );
-};
+const LayerDivider: FC<{ label: string }> = ({ label }) => (
+  <div class="relative flex items-center justify-center py-8">
+    <div class="absolute inset-x-0 top-1/2 h-0.5 bg-gradient-to-r from-transparent via-[var(--mq-primary)]/30 to-transparent"></div>
+    <div class="relative rounded-full bg-[var(--mq-primary-soft)] px-6 py-2 shadow-sm">
+      <span class="text-sm font-bold text-[var(--mq-primary-strong)]">
+        {label}
+      </span>
+    </div>
+  </div>
+);
 
 const UseCaseCard: FC<{
   title: string;
@@ -209,9 +188,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       </div>
     </section>
 
-    <TableOfContents />
-
-    <SectionDivider />
+    <LayerDivider label="安心・楽しく・簡単" />
 
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
@@ -422,6 +399,62 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       </div>
     </section>
 
+    <LayerDivider label="ご利用にあたって" />
+
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+      <SectionHeading
+        id="use-cases"
+        icon="🏡"
+        title="ご家庭での活用シーン"
+        description="毎日の生活に取り入れやすい具体的な利用例をご紹介します。"
+      />
+      <div class="mt-12 flex gap-6 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-8 sm:overflow-visible">
+        <UseCaseCard
+          title="宿題後の10分復習"
+          description="宿題が終わったあとに短時間で確認テスト。間違えた問題は自動的に復習へ。"
+          accent="#3b82f6"
+        />
+        <UseCaseCard
+          title="親子で一緒にチャレンジ"
+          description="画面を見ながら親子で話し合って問題を解くことで、学びの時間がコミュニケーションに。"
+          accent="#22c55e"
+        />
+        <UseCaseCard
+          title="登校前・就寝前の短時間学習"
+          description="スキマ時間に1〜2ステージだけチャレンジ。習慣化しやすいUIを提供します。"
+          accent="#f97316"
+        />
+        <UseCaseCard
+          title="兄弟姉妹での競争"
+          description="端末ごとに記録できるので、家族みんなで称号を目指して挑戦できます。"
+          accent="#a855f7"
+        />
+        <UseCaseCard
+          title="連続チャレンジで習慣化"
+          description="学習連続日数が可視化されるステータスカードで、やる気を維持できます。"
+          accent="#0ea5e9"
+        />
+      </div>
+    </section>
+
+    <SectionDivider />
+
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+      <SectionHeading id="faq" icon="❓" title="よくある質問" />
+      <div class="mt-10 space-y-6">
+        {faqItems.map((item) => (
+          <article class="rounded-2xl bg-white/95 p-6 shadow-sm">
+            <h3 class="text-base font-semibold text-[#1f2937]">
+              {item.question}
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-[#334155]">
+              {item.answer}
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
     <SectionDivider />
 
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
@@ -479,62 +512,6 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             <li>透明性レポート：現在準備中です。</li>
           </ul>
         </article>
-      </div>
-    </section>
-
-    <SectionDivider />
-
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
-      <SectionHeading
-        id="use-cases"
-        icon="🏡"
-        title="ご家庭での活用シーン"
-        description="毎日の生活に取り入れやすい具体的な利用例をご紹介します。"
-      />
-      <div class="mt-12 flex gap-6 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-8 sm:overflow-visible">
-        <UseCaseCard
-          title="宿題後の10分復習"
-          description="宿題が終わったあとに短時間で確認テスト。間違えた問題は自動的に復習へ。"
-          accent="#3b82f6"
-        />
-        <UseCaseCard
-          title="親子で一緒にチャレンジ"
-          description="画面を見ながら親子で話し合って問題を解くことで、学びの時間がコミュニケーションに。"
-          accent="#22c55e"
-        />
-        <UseCaseCard
-          title="登校前・就寝前の短時間学習"
-          description="スキマ時間に1〜2ステージだけチャレンジ。習慣化しやすいUIを提供します。"
-          accent="#f97316"
-        />
-        <UseCaseCard
-          title="兄弟姉妹での競争"
-          description="端末ごとに記録できるので、家族みんなで称号を目指して挑戦できます。"
-          accent="#a855f7"
-        />
-        <UseCaseCard
-          title="連続チャレンジで習慣化"
-          description="学習連続日数が可視化されるステータスカードで、やる気を維持できます。"
-          accent="#0ea5e9"
-        />
-      </div>
-    </section>
-
-    <SectionDivider />
-
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
-      <SectionHeading id="faq" icon="❓" title="よくある質問" />
-      <div class="mt-10 space-y-6">
-        {faqItems.map((item) => (
-          <article class="rounded-2xl bg-white/95 p-6 shadow-sm">
-            <h3 class="text-base font-semibold text-[#1f2937]">
-              {item.question}
-            </h3>
-            <p class="mt-4 text-sm leading-relaxed text-[#334155]">
-              {item.answer}
-            </p>
-          </article>
-        ))}
       </div>
     </section>
 
