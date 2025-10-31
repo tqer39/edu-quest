@@ -16,7 +16,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/honojs/hono/main/docs/images/logo.png" alt="Hono logo" width="60" height="60" />
+        <img src="https://hono.dev/images/logo.png" alt="Hono logo" width="60" height="60" />
         <br /><sub><b>Hono</b></sub>
       </a>
     </td>
@@ -85,7 +85,7 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
   <tr>
     <td align="center">
       <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
-        <img src="https://www.anthropic.com/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F823d48d90f979ead855a04999a4b0188ce8e9419-2880x2880.png&w=1920&q=75" alt="Claude Code logo" width="60" height="60" />
+        <img src="https://mintlify.s3.us-west-1.amazonaws.com/anthropic/logo/light.svg" alt="Claude Code logo" width="60" height="60" />
         <br /><sub><b>Claude Code</b></sub>
       </a>
     </td>
