@@ -212,7 +212,11 @@ app.get('/math/start', async (c) => {
 
   if (!selectedGrade && gradeParam) {
     const parsedGrade = Number(gradeParam);
-    if (!Number.isNaN(parsedGrade) && parsedGrade >= 1 && parsedGrade <= gradeLevels.length) {
+    if (
+      !Number.isNaN(parsedGrade) &&
+      parsedGrade >= 1 &&
+      parsedGrade <= gradeLevels.length
+    ) {
       selectedGrade = gradeLevels[parsedGrade - 1];
     }
   }
