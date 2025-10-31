@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
+import { BackToTopLink } from '../components/back-to-top-link';
 import type { SchoolStage } from '../utils/school-grade';
 import { BackToGradeSelectButton } from '../components/back-to-grade-select-button';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
@@ -23,12 +24,7 @@ const KanjiNav: FC<{
         </span>
       </div>
       <div class="flex flex-wrap gap-2">
-        <a
-          href="/"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          トップへ戻る
-        </a>
+        <BackToTopLink />
         <BackToGradeSelectButton href="/kanji" />
       </div>
     </nav>

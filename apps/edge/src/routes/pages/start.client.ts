@@ -542,7 +542,9 @@ const MODULE_SOURCE = `
 
         // ゲームモードの場合
         if (state.selectedActivity === 'game' && state.selectedGame === 'sudoku') {
-          window.location.href = '/sudoku';
+          const gradeId = state.selectedGrade || gradeLevels[0]?.id || 'grade-1';
+          window.location.href =
+            '/game/sudoku?grade=' + encodeURIComponent(gradeId);
           return;
         }
 
