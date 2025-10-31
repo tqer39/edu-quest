@@ -9,6 +9,7 @@ import { securityHeaders } from './middlewares/security-headers';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
 import { ClockHome } from './routes/pages/clock-home';
+import { ClockSelect } from './routes/pages/clock-select';
 import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
@@ -34,6 +35,7 @@ import {
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
 import type {
   ClockDifficulty,
+  ClockGrade,
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
@@ -484,18 +486,44 @@ app.get('/clock', async (c) =>
   )
 );
 
-// ClockQuest: 難易度選択してクイズ開始
-app.get('/clock/start', async (c) => {
-  const difficultyParam = c.req.query('difficulty');
-  const difficulty = Number(difficultyParam) as ClockDifficulty;
+app.get('/clock/select', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const grade = Number(gradeParam) as ClockGrade;
 
-  // 難易度のバリデーション
-  if (!difficulty || difficulty < 1 || difficulty > 5) {
+  if (!grade || grade < 1 || grade > 6) {
     return c.redirect('/clock', 302);
   }
 
+  return c.render(
+    <ClockSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+    />,
+    {
+      title: `ClockQuest | ${grade}年生のレベル選択`,
+      description: `${grade}年生向けの時計クエストのレベルを選択しましょう。`,
+    }
+  );
+});
+
+// ClockQuest: 学年と難易度を選択してクイズ開始
+app.get('/clock/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const difficultyParam = c.req.query('difficulty');
+
+  const grade = Number(gradeParam) as ClockGrade;
+  const difficulty = Number(difficultyParam) as ClockDifficulty;
+
+  if (!grade || grade < 1 || grade > 6) {
+    return c.redirect('/clock', 302);
+  }
+
+  if (!difficulty || difficulty < 1 || difficulty > 5) {
+    return c.redirect(`/clock/select?grade=${grade}`, 302);
+  }
+
   // クイズセッションを開始（10問固定）
-  const session = startClockQuizSession(difficulty, 10);
+  const session = startClockQuizSession(grade, difficulty, 10);
 
   // セッション情報をクッキーに保存
   const maxAge = 60 * 30; // 30分
@@ -533,9 +561,10 @@ app.get('/clock/quiz', async (c) => {
         totalQuestions={session.quiz.config.total}
         score={session.quiz.correct}
         difficulty={session.quiz.config.difficulty}
+        grade={session.quiz.config.grade}
       />,
       {
-        title: `ClockQuest | レベル${session.quiz.config.difficulty}`,
+        title: `ClockQuest | ${session.quiz.config.grade}年生 レベル${session.quiz.config.difficulty}`,
         description: '時計の読み方クイズに挑戦中',
         favicon: '/favicon-clock.svg',
       }
@@ -579,6 +608,7 @@ app.post('/clock/quiz', async (c) => {
             score: session.quiz.correct,
             total: session.quiz.config.total,
             difficulty: session.quiz.config.difficulty,
+            grade: session.quiz.config.grade,
           })
         )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
       );
@@ -620,6 +650,7 @@ app.get('/clock/results', async (c) => {
       score: number;
       total: number;
       difficulty: ClockDifficulty;
+      grade: ClockGrade;
     } = JSON.parse(decodeURIComponent(resultMatch[1]));
 
     return c.render(
@@ -628,9 +659,10 @@ app.get('/clock/results', async (c) => {
         score={result.score}
         total={result.total}
         difficulty={result.difficulty}
+        grade={result.grade}
       />,
       {
-        title: `ClockQuest | 結果発表`,
+        title: `ClockQuest | ${result.grade}年生の結果`,
         description: `${result.score}/${result.total}問正解しました！`,
         favicon: '/favicon-clock.svg',
       }
