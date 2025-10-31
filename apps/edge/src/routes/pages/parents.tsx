@@ -82,25 +82,6 @@ const LayerDivider: FC<{ label: string }> = ({ label }) => (
   </div>
 );
 
-const UseCaseCard: FC<{
-  title: string;
-  description: string;
-  accent: string;
-}> = ({ title, description, accent }) => (
-  <article
-    class="flex min-h-[200px] w-full min-w-[260px] flex-col justify-between gap-6 rounded-3xl bg-white/95 p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-sm"
-    style={`--accent: ${accent};`}
-  >
-    <header>
-      <h3 class="text-xl font-semibold text-[var(--mq-ink)]">{title}</h3>
-      <div class="mt-2 h-1 w-12 rounded-full bg-[var(--accent)]"></div>
-    </header>
-    <p class="text-sm text-[#334155]" style="line-height: 1.7;">
-      {description}
-    </p>
-  </article>
-);
-
 const faqItems = [
   {
     question: 'Q1. 会員登録は必要ですか？',
@@ -132,7 +113,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
     <Header currentUser={currentUser} />
     <section
       id="parents-hero"
-      class="relative overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
+      class="relative mt-8 overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
     >
       <div class="absolute inset-y-0 right-0 hidden w-1/2 opacity-80 sm:block">
         <div class="h-full w-full rounded-l-full bg-[radial-gradient(circle_at_top,#d1fae5,transparent_60%)]"></div>
@@ -162,21 +143,15 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 →
               </span>
             </a>
-            <a
-              href="/"
-              class="inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-[#3b82f6]/30 bg-white/90 px-8 py-4 text-base font-semibold text-[#1f2937] shadow-sm transition-all hover:-translate-y-1 hover:border-[#3b82f6]/50 hover:bg-white hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#93c5fd]"
-            >
-              学習ステージを見る
-            </a>
           </div>
         </div>
         <div class="flex flex-1 justify-center">
-          <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-6 shadow-sm backdrop-blur">
+          <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-8 shadow-sm backdrop-blur">
             <div class="absolute -right-6 -top-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-[#22c55e]/80 to-[#3b82f6]/80 blur-0 sm:block"></div>
             <p class="text-sm font-semibold text-[#1f2937]">
               ご家庭での安心ポイント
             </p>
-            <ul class="mt-4 space-y-3 text-sm text-[#334155]">
+            <ul class="mt-6 space-y-4 text-sm text-[#334155]">
               <li class="flex items-start gap-2">
                 <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
                   ●
@@ -240,23 +215,22 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             },
           ]}
         />
-        <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] via-[#1f2937] to-[#2563eb] p-8 shadow-md">
-          <h3 class="text-xl font-bold !text-white">
+        <aside class="relative overflow-hidden rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8 shadow-sm">
+          <h3 class="text-xl font-bold text-blue-800">
             セキュリティ対策も透明に
           </h3>
-          <p class="mt-4 text-sm leading-relaxed !text-white">
+          <p class="mt-4 text-sm leading-relaxed text-gray-700 border-l-4 border-blue-200 pl-4">
             定期的にコードレビューとセキュリティチェックを実施し、安全な状態を維持しています。詳細な技術資料は順次公開予定です。
           </p>
           <a
             href="/trust-and-safety"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-white/20 px-5 py-3 text-sm font-bold !text-white shadow-md transition-all hover:bg-white/30 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             セキュリティ対策を詳しく見る
             <span aria-hidden="true" class="text-base">
               →
             </span>
           </a>
-          <div class="absolute -bottom-12 -right-12 h-32 w-32 rounded-full bg-[radial-gradient(circle,#22c55e,transparent_65%)] opacity-70"></div>
         </aside>
       </div>
     </section>
@@ -300,74 +274,68 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             },
           ]}
         />
-        <div class="rounded-3xl bg-white/95 p-6 shadow-sm">
-          <h3 class="text-xl font-bold text-[var(--mq-ink)]">
-            学びの循環サイクル
-          </h3>
+        <div class="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+          <h3 class="text-xl font-bold text-gray-900">学びの循環サイクル</h3>
           <div class="mt-6 grid gap-4">
-            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-blue-50 to-transparent p-4 shadow-sm">
+            <div class="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
               <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-lg">
                 🎯
               </span>
               <div>
-                <div class="font-semibold text-[var(--mq-ink)]">問題を解く</div>
-                <div class="text-xs text-[#64748b]">挑戦する</div>
+                <div class="font-semibold text-gray-900">問題を解く</div>
+                <div class="text-xs text-gray-600">挑戦する</div>
               </div>
             </div>
             <div class="flex items-center justify-center">
-              <span class="text-2xl text-blue-400">↓</span>
+              <span class="text-2xl text-gray-400">↓</span>
             </div>
-            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-yellow-50 to-transparent p-4 shadow-sm">
+            <div class="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
               <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-yellow-100 text-lg">
                 💡
               </span>
               <div>
-                <div class="font-semibold text-[var(--mq-ink)]">
+                <div class="font-semibold text-gray-900">
                   フィードバックを受ける
                 </div>
-                <div class="text-xs text-[#64748b]">理解と気づき</div>
+                <div class="text-xs text-gray-600">理解と気づき</div>
               </div>
             </div>
             <div class="flex items-center justify-center">
-              <span class="text-2xl text-blue-400">↓</span>
+              <span class="text-2xl text-gray-400">↓</span>
             </div>
-            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-green-50 to-transparent p-4 shadow-sm">
+            <div class="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
               <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-lg">
                 📚
               </span>
               <div>
-                <div class="font-semibold text-[var(--mq-ink)]">
-                  理解が深まる
-                </div>
-                <div class="text-xs text-[#64748b]">自律性に学ぶ感覚</div>
+                <div class="font-semibold text-gray-900">理解が深まる</div>
+                <div class="text-xs text-gray-600">自律性に学ぶ感覚</div>
               </div>
             </div>
             <div class="flex items-center justify-center">
-              <span class="text-2xl text-blue-400">↓</span>
+              <span class="text-2xl text-gray-400">↓</span>
             </div>
-            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-orange-50 to-transparent p-4 shadow-sm">
+            <div class="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
               <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 text-lg">
                 🔥
               </span>
               <div>
-                <div class="font-semibold text-[var(--mq-ink)]">
+                <div class="font-semibold text-gray-900">
                   モチベーション向上
                 </div>
-                <div class="text-xs text-[#64748b]">成長と達成感</div>
+                <div class="text-xs text-gray-600">成長と達成感</div>
               </div>
             </div>
             <div class="flex items-center justify-center">
-              <span class="text-2xl text-blue-400">↓</span>
+              <span class="text-2xl text-gray-400">↓</span>
             </div>
-            <div class="flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-50 to-transparent p-4 shadow-sm">
+            <div class="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
               <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 text-lg">
                 🔄
               </span>
               <div>
-                <div class="font-semibold text-[var(--mq-ink)]">
-                  再び問題に挑戦
-                </div>
-                <div class="text-xs text-[#64748b]">継続的な成長</div>
+                <div class="font-semibold text-gray-900">再び問題に挑戦</div>
+                <div class="text-xs text-gray-600">継続的な成長</div>
               </div>
             </div>
           </div>
@@ -378,7 +346,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </p>
           <a
             href="/math"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
+            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-bold !text-white shadow-md transition-all hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
           >
             算数チャレンジを見る
             <span aria-hidden="true" class="text-base">
@@ -447,39 +415,74 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <LayerDivider label="ご利用にあたって" />
 
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
-      <SectionHeading
-        id="use-cases"
-        icon="🏡"
-        title="ご家庭での活用シーン"
-        description="毎日の生活に取り入れやすい具体的な利用例をご紹介します。"
-      />
-      <div class="mt-12 flex gap-6 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:gap-8 sm:overflow-visible">
-        <UseCaseCard
-          title="宿題後の10分復習"
-          description="宿題が終わったあとに短時間で確認テスト。間違えた問題は自動的に復習へ。"
-          accent="#3b82f6"
-        />
-        <UseCaseCard
-          title="親子で一緒にチャレンジ"
-          description="画面を見ながら親子で話し合って問題を解くことで、学びの時間がコミュニケーションに。"
-          accent="#22c55e"
-        />
-        <UseCaseCard
-          title="登校前・就寝前の短時間学習"
-          description="スキマ時間に1〜2ステージだけチャレンジ。習慣化しやすいUIを提供します。"
-          accent="#f97316"
-        />
-        <UseCaseCard
-          title="兄弟姉妹での競争"
-          description="端末ごとに記録できるので、家族みんなで称号を目指して挑戦できます。"
-          accent="#a855f7"
-        />
-        <UseCaseCard
-          title="連続チャレンジで習慣化"
-          description="学習連続日数が可視化されるステータスカードで、やる気を維持できます。"
-          accent="#0ea5e9"
-        />
+    <section class="my-20 rounded-3xl bg-blue-50 px-6 py-12 sm:px-8 lg:px-12">
+      <h2 class="mb-10 flex items-center gap-2 text-2xl font-bold text-blue-800">
+        <span>🏡</span> ご家庭での活用シーン
+      </h2>
+      <p class="mb-12 max-w-prose leading-relaxed text-gray-700">
+        毎日の生活に取り入れやすい具体的な利用例をご紹介します。
+      </p>
+
+      <div class="grid gap-x-8 gap-y-12 sm:grid-cols-2">
+        <div class="rounded-2xl bg-white p-8 shadow-lg transition hover:shadow-xl">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="text-2xl">📖</span>
+            <h3 class="text-lg font-semibold text-gray-900">
+              宿題後の10分復習
+            </h3>
+          </div>
+          <p class="leading-relaxed text-gray-700">
+            宿題が終わったあとに短時間で確認テスト。間違えた問題は自動的に復習へ。
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-lg transition hover:shadow-xl">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="text-2xl">👨‍👩‍👧</span>
+            <h3 class="text-lg font-semibold text-gray-900">
+              親子で一緒にチャレンジ
+            </h3>
+          </div>
+          <p class="leading-relaxed text-gray-700">
+            画面を見ながら親子で話し合って問題を解くことで、学びの時間がコミュニケーションに。
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-lg transition hover:shadow-xl">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="text-2xl">🕐</span>
+            <h3 class="text-lg font-semibold text-gray-900">
+              登校前・就寝前の短時間学習
+            </h3>
+          </div>
+          <p class="leading-relaxed text-gray-700">
+            スキマ時間に1〜2ステージだけチャレンジ。習慣化しやすいUIを提供します。
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-lg transition hover:shadow-xl">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="text-2xl">👦</span>
+            <h3 class="text-lg font-semibold text-gray-900">
+              兄弟姉妹での競争
+            </h3>
+          </div>
+          <p class="leading-relaxed text-gray-700">
+            端末ごとに記録できるので、家族みんなで称号を目指して挑戦できます。
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-white p-8 shadow-lg transition hover:shadow-xl sm:col-span-2">
+          <div class="mb-5 flex items-center gap-3">
+            <span class="text-2xl">🔥</span>
+            <h3 class="text-lg font-semibold text-gray-900">
+              連続チャレンジで習慣化
+            </h3>
+          </div>
+          <p class="leading-relaxed text-gray-700">
+            学習連続日数が可視化されるステータスカードで、やる気を維持できます。
+          </p>
+        </div>
       </div>
     </section>
 
@@ -488,8 +491,12 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
     <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading id="faq" icon="❓" title="よくある質問" />
       <div class="mt-10 space-y-6">
-        {faqItems.map((item) => (
-          <article class="rounded-2xl bg-white/95 p-6 shadow-sm">
+        {faqItems.map((item, index) => (
+          <article
+            class={`rounded-2xl p-6 shadow-sm ${
+              index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+            }`}
+          >
             <h3 class="text-base font-semibold text-[#1f2937]">
               {item.question}
             </h3>
