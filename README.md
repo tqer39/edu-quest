@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/README.ja.md)
+
 # EduQuest Document Overview
 
 [![codecov](https://codecov.io/gh/tqer39/edu-quest/graph/badge.svg)](https://codecov.io/gh/tqer39/edu-quest)
@@ -8,16 +10,210 @@
 
 EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Built with Hono for SSR on Cloudflare Workers, it features a shared domain logic managed in a monorepo with pnpm workspaces.
 
-## Architecture Reference
+## Technology Stack
 
-- **Source of truth:** [edu-quest-architecture.md](./edu-quest-architecture.md) documents the current production layers, dependency rules, and repository structure.
-- **Historical tutorial:** [hono-ddd-monorepo.md](./hono-ddd-monorepo.md) captures the original minimal three-layer setup. Refer to it for legacy context, but prefer the architecture document for day-to-day work.
-- **Structure snapshot:** Run `pnpm run docs:update-structure` after changing directories so the architecture document stays in sync with the repository tree.
+### Application & Language
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://hono.dev/images/logo.png" alt="Hono logo" width="60" height="60" />
+        <br /><sub><b>Hono</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript logo" width="60" height="60" />
+        <br /><sub><b>TypeScript</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Testing & Quality
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://vitest.dev/logo.svg" alt="Vitest logo" width="60" height="60" />
+        <br /><sub><b>Vitest</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg" alt="Cypress logo" width="60" height="60" />
+        <br /><sub><b>Cypress</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://about.codecov.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://avatars.githubusercontent.com/u/8226205?s=200&v=4" alt="Codecov logo" width="60" height="60" />
+        <br /><sub><b>Codecov</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Cloud & Infrastructure
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg" alt="Cloudflare logo" width="60" height="60" />
+        <br /><sub><b>Cloudflare</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS logo" width="60" height="60" />
+        <br /><sub><b>AWS</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud logo" width="60" height="60" />
+        <br /><sub><b>Google Cloud</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Developer Productivity
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
+        <img src="https://claude.ai/images/claude_app_icon.png" alt="Claude Code logo" width="60" height="60" />
+        <br /><sub><b>Claude Code</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://openai.com/blog/openai-codex" target="_blank" rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="OpenAI logo" width="60" height="60" />
+        <br /><sub><b>OpenAI</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+### Infrastructure as Code (IaC) & Development Tools
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform logo" width="60" height="60" />
+        <br /><sub><b>Terraform</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://aquasecurity.github.io/tfsec/" target="_blank" rel="noopener noreferrer">
+        <img src="https://aquasecurity.github.io/tfsec/latest/imgs/logo.png" alt="tfsec logo" width="60" height="60" />
+        <br /><sub><b>tfsec</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">
+        <img src="https://brew.sh/assets/img/homebrew.svg" alt="Homebrew logo" width="60" height="60" />
+        <br /><sub><b>Homebrew</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://mise.jdx.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://mise.jdx.dev/logo.svg" alt="mise logo" width="60" height="60" />
+        <br /><sub><b>mise</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://just.systems/" target="_blank" rel="noopener noreferrer">
+        <img src="https://raw.githubusercontent.com/casey/just/master/icon.png" alt="just logo" width="60" height="60" />
+        <br /><sub><b>just</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub logo" width="60" height="60" />
+        <br /><sub><b>GitHub</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://prettier.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://prettier.io/icon.png" alt="Prettier logo" width="60" height="60" />
+        <br /><sub><b>Prettier</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://pre-commit.com/" target="_blank" rel="noopener noreferrer">
+        <img src="https://pre-commit.com/logo.svg" alt="pre-commit logo" width="60" height="60" />
+        <br /><sub><b>pre-commit</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/dyoshikawa/rulesync" target="_blank" rel="noopener noreferrer">
+        <img src="https://avatars.githubusercontent.com/u/34151621?v=4" alt="rulesync logo" width="60" height="60" />
+        <br /><sub><b>rulesync</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://editorconfig.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://editorconfig.org/logo.png" alt="EditorConfig logo" width="60" height="60" />
+        <br /><sub><b>EditorConfig</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://pnpm.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://pnpm.io/img/pnpm-no-name-with-frame.svg" alt="pnpm logo" width="60" height="60" />
+        <br /><sub><b>pnpm</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://yamllint.readthedocs.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://plugins.jetbrains.com/files/15349/503949/icon/default.svg" alt="yamllint logo" width="60" height="60" />
+        <br /><sub><b>yamllint</b></sub>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://cspell.org/" target="_blank" rel="noopener noreferrer">
+        <img src="https://avatars.githubusercontent.com/u/50543896?s=200&v=4" alt="cspell logo" width="60" height="60" />
+        <br /><sub><b>cspell</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://textlint.github.io/" target="_blank" rel="noopener noreferrer">
+        <img src="https://avatars.githubusercontent.com/u/15377024?s=280&v=4" alt="textlint logo" width="60" height="60" />
+        <br /><sub><b>textlint</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.toptal.com/developers/gitignore/" target="_blank" rel="noopener noreferrer">
+        <img src="https://github.com/toptal/gitignore.io/raw/master/Public/img/gitignoreio.svg" alt="gitignore.io logo" width="60" height="60" />
+        <br /><sub><b>gitignore.io</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://biomejs.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://biomejs.dev/_astro/logo-light-transparent.D-4iVN_O.svg" alt="Biome logo" width="60" height="60" />
+        <br /><sub><b>Biome</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ## Quest Modules
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises. Users can select calculation types, toggle settings (sound effects, intermediate steps), and practice with a keypad UI.
 - **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
+- **GameQuest** (`/game`): Brain-training mini games for pattern recognition, spatial reasoning, and memory (Coming Soon)
 - **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
 
 The platform features an EduQuest hub page (`/`) where users can navigate to each Quest module. Question generation and grading are handled by `@edu-quest/domain` and are reused by the API layer (`/apis/quiz`).
@@ -215,10 +411,10 @@ cypress/screenshots/
 - `apps/api` / `apps/web`: A Node server and web front-end for local development. Used for validation without Workers.
 - `packages/domain`: The logic for question generation and grading. It also defines multi-step problems for different grade levels (e.g., addition then subtraction).
 - `packages/app`: Manages quiz progression (question order, correct answer count, etc.) using the domain logic.
-- `cypress/`: Cypress specs, shared helpers, and configuration for end-to-end tests.
 - `docs/`: Design and operational documents.
 - `infra/`: Terraform and D1 migrations.
-- `scripts/`: Repository automation (rulesync, documentation tooling).
+- `games/math-quiz`: The old browser-based game (static HTML/JS).
+- `games/clock-quest`: A prototype ClockQuest trainer with analog & digital clocks (static HTML/JS).
 
 ## Related Documents
 

@@ -3,24 +3,19 @@ import { jsxRenderer } from 'hono/jsx-renderer';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
 import type { Env } from './env';
-
-declare module 'hono' {
-  type ContextRenderer = (
-    content: string | Promise<string>,
-    props?: { title?: string; description?: string; favicon?: string }
-  ) => Response | Promise<Response>;
-}
 import { i18n } from './middlewares/i18n';
 import { seoControl } from './middlewares/seo-control';
 import { securityHeaders } from './middlewares/security-headers';
 import { quiz } from './routes/apis/quiz';
 import { Home } from './routes/pages/home';
 import { ClockHome } from './routes/pages/clock-home';
+import { ClockSelect } from './routes/pages/clock-select';
 import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
+import { MathHome } from './routes/pages/math-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -40,9 +35,16 @@ import {
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
 import type {
   ClockDifficulty,
+  ClockGrade,
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
+import { gradeLevels } from './routes/pages/grade-presets';
+import {
+  createSchoolGradeParam,
+  formatSchoolGradeLabel,
+  parseSchoolGradeParam,
+} from './routes/utils/school-grade';
 import { Document } from './views/layouts/document';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
@@ -69,6 +71,18 @@ app.get('/favicon-kanji.svg', (c) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" fill="#9B87D4" rx="15"/>
   <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">漢</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// ClockQuest favicon
+app.get('/favicon-clock.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#F5A85F" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="Zen Kaku Gothic New, sans-serif" font-weight="bold">時</text>
 </svg>`;
   return c.body(svg, 200, {
     'Content-Type': 'image/svg+xml',
@@ -188,15 +202,47 @@ app.get('/', async (c) =>
 );
 
 // MathQuest routes
-app.get('/math', (c) => c.redirect('/math/start', 302));
-
-app.get('/math/start', async (c) =>
-  c.render(<Start currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 設定ウィザード',
-    description:
-      '学年・単元とプレイ設定をまとめて選択し、集中モードで算数ミッションを始めましょう。',
-  })
+app.get('/math', async (c) =>
+  c.render(
+    <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: 'MathQuest | 学年を選んで練習をはじめよう',
+      description:
+        '最初に学年を選択して、ぴったりの算数ミッションを見つけましょう。',
+    }
+  )
 );
+
+app.get('/math/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  let selectedGrade = gradeLevels.find((grade) => grade.id === gradeParam);
+
+  if (!selectedGrade && gradeParam) {
+    const parsedGrade = Number(gradeParam);
+    if (
+      !Number.isNaN(parsedGrade) &&
+      parsedGrade >= 1 &&
+      parsedGrade <= gradeLevels.length
+    ) {
+      selectedGrade = gradeLevels[parsedGrade - 1];
+    }
+  }
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  return c.render(
+    <Start
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      selectedGradeId={selectedGrade.id}
+    />,
+    {
+      title: `MathQuest | ${selectedGrade.label}の設定`,
+      description: `${selectedGrade.description}向けの問題セットをカスタマイズしましょう。`,
+    }
+  );
+});
 
 app.get('/math/play', async (c) =>
   c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
@@ -221,23 +267,26 @@ app.get('/kanji', async (c) =>
 // KanjiQuest: クエストタイプ選択画面
 app.get('/kanji/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  const grade = Number(gradeParam) as KanjiGrade;
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
 
-  // 学年のバリデーション
-  if (!grade || grade < 1 || grade > 6) {
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
     return c.redirect('/kanji', 302);
   }
 
+  const grade = parsedGrade.grade as KanjiGrade;
   const { KanjiSelect } = await import('./routes/pages/kanji-select');
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
 
   return c.render(
     <KanjiSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
+      gradeStage={parsedGrade.stage}
     />,
     {
-      title: 'KanjiQuest - クエスト選択',
-      description: '学習したいクエストタイプを選んでください。',
+      title: `KanjiQuest - ${gradeLabel}`,
+      description: `${gradeLabel}向けのクエストタイプを選んでください。`,
+      favicon: '/favicon-kanji.svg',
     }
   );
 });
@@ -249,7 +298,8 @@ app.get('/kanji/start', async (c) => {
   const grade = Number(gradeParam) as KanjiGrade;
 
   if (questTypeParam && !isKanjiQuestType(questTypeParam)) {
-    return c.redirect(`/kanji/select?grade=${grade}`, 302);
+    const gradeQuery = createSchoolGradeParam({ stage: '小学', grade });
+    return c.redirect(`/kanji/select?grade=${gradeQuery}`, 302);
   }
 
   const questType: KanjiQuestType = isKanjiQuestType(questTypeParam)
@@ -327,6 +377,39 @@ app.get('/kanji/quiz', async (c) => {
     console.error('Failed to load kanji quiz session:', error);
     return c.redirect('/kanji', 302);
   }
+});
+
+app.post('/kanji/quit', async (c) => {
+  const cookies = c.req.header('Cookie') ?? '';
+  const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
+
+  if (sessionMatch) {
+    const sessionId = sessionMatch[1];
+
+    try {
+      await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
+    } catch (error) {
+      console.error('Failed to delete kanji quiz session:', error);
+    }
+  }
+
+  const body = await c.req.parseBody();
+  const rawGrade = body.grade;
+  const grade = typeof rawGrade === 'string' ? Number(rawGrade) : NaN;
+  const isValidGrade = Number.isInteger(grade) && grade >= 1 && grade <= 6;
+  const redirectUrl = isValidGrade ? `/kanji/select?grade=${grade}` : '/kanji';
+
+  const response = c.redirect(redirectUrl, 302);
+  response.headers.append(
+    'Set-Cookie',
+    'kanji_session_id=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure'
+  );
+  response.headers.append(
+    'Set-Cookie',
+    'kanji_result_id=; Path=/; Max-Age=0; HttpOnly; SameSite=Lax; Secure'
+  );
+
+  return response;
 });
 
 // KanjiQuest: 回答を送信
@@ -451,22 +534,49 @@ app.get('/clock', async (c) =>
       title: 'ClockQuest | 時計の読み方をマスターしよう',
       description:
         'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
+      favicon: '/favicon-clock.svg',
     }
   )
 );
 
-// ClockQuest: 難易度選択してクイズ開始
-app.get('/clock/start', async (c) => {
-  const difficultyParam = c.req.query('difficulty');
-  const difficulty = Number(difficultyParam) as ClockDifficulty;
+app.get('/clock/select', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const grade = Number(gradeParam) as ClockGrade;
 
-  // 難易度のバリデーション
-  if (!difficulty || difficulty < 1 || difficulty > 5) {
+  if (!grade || grade < 1 || grade > 6) {
     return c.redirect('/clock', 302);
   }
 
+  return c.render(
+    <ClockSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+    />,
+    {
+      title: `ClockQuest | ${grade}年生のレベル選択`,
+      description: `${grade}年生向けの時計クエストのレベルを選択しましょう。`,
+    }
+  );
+});
+
+// ClockQuest: 学年と難易度を選択してクイズ開始
+app.get('/clock/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const difficultyParam = c.req.query('difficulty');
+
+  const grade = Number(gradeParam) as ClockGrade;
+  const difficulty = Number(difficultyParam) as ClockDifficulty;
+
+  if (!grade || grade < 1 || grade > 6) {
+    return c.redirect('/clock', 302);
+  }
+
+  if (!difficulty || difficulty < 1 || difficulty > 5) {
+    return c.redirect(`/clock/select?grade=${grade}`, 302);
+  }
+
   // クイズセッションを開始（10問固定）
-  const session = startClockQuizSession(difficulty, 10);
+  const session = startClockQuizSession(grade, difficulty, 10);
 
   // セッション情報をクッキーに保存
   const maxAge = 60 * 30; // 30分
@@ -504,10 +614,12 @@ app.get('/clock/quiz', async (c) => {
         totalQuestions={session.quiz.config.total}
         score={session.quiz.correct}
         difficulty={session.quiz.config.difficulty}
+        grade={session.quiz.config.grade}
       />,
       {
-        title: `ClockQuest | レベル${session.quiz.config.difficulty}`,
+        title: `ClockQuest | ${session.quiz.config.grade}年生 レベル${session.quiz.config.difficulty}`,
         description: '時計の読み方クイズに挑戦中',
+        favicon: '/favicon-clock.svg',
       }
     );
   } catch (error) {
@@ -549,6 +661,7 @@ app.post('/clock/quiz', async (c) => {
             score: session.quiz.correct,
             total: session.quiz.config.total,
             difficulty: session.quiz.config.difficulty,
+            grade: session.quiz.config.grade,
           })
         )}; Path=/; Max-Age=${maxAge}; SameSite=Lax; HttpOnly; Secure`
       );
@@ -590,6 +703,7 @@ app.get('/clock/results', async (c) => {
       score: number;
       total: number;
       difficulty: ClockDifficulty;
+      grade: ClockGrade;
     } = JSON.parse(decodeURIComponent(resultMatch[1]));
 
     return c.render(
@@ -598,10 +712,12 @@ app.get('/clock/results', async (c) => {
         score={result.score}
         total={result.total}
         difficulty={result.difficulty}
+        grade={result.grade}
       />,
       {
-        title: `ClockQuest | 結果発表`,
+        title: `ClockQuest | ${result.grade}年生の結果`,
         description: `${result.score}/${result.total}問正解しました！`,
+        favicon: '/favicon-clock.svg',
       }
     );
   } catch (error) {
@@ -611,7 +727,7 @@ app.get('/clock/results', async (c) => {
 });
 
 // Backward compatibility: redirect old routes to /math/*
-app.get('/start', (c) => c.redirect('/math/start', 301));
+app.get('/start', (c) => c.redirect('/math', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
 app.get('/sudoku', async (c) =>

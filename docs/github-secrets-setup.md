@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/github-secrets-setup.ja.md)
+
 # GitHub Secrets Setup Guide
 
 ## Overview

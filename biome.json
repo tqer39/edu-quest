@@ -16,7 +16,8 @@
       "!**/pnpm-lock.yaml",
       "!**/*.min.js",
       "!**/*.min.css",
-      "!**/src/styles/tailwind.css"
+      "!**/src/styles/tailwind.css",
+      "!**/src/types/hono.d.ts"
     ]
   },
   "formatter": {

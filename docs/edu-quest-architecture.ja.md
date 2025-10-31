@@ -1,13 +1,16 @@
+[🇺🇸 English](/docs/edu-quest-architecture.md)
+
 # eduquest: アーキテクチャ設計とプロジェクト構造
 
 ## 1. 目的
 
-EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。現在は算数練習の MathQuest を提供しており、将来的に漢字学習の KanjiQuest や時計の読み方を学ぶ ClockQuest を追加予定です。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
+EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。現在は算数練習の MathQuest を提供しており、将来的に漢字学習の KanjiQuest、脳トレ系ミニゲームの GameQuest、時計の読み方を学ぶ ClockQuest を追加予定です。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
 
 ### Quest モジュール
 
 - **MathQuest** (`/math`): 学年別プリセットとテーマ練習（「たし算 20 まで」「たし算・ひき算ミックス」など）を提供する算数練習
 - **KanjiQuest** (`/kanji`): 学年別に整理された漢字学習（準備中）
+- **GameQuest** (`/game`): パターン認識・空間認識・記憶力を鍛える脳トレミニゲーム（準備中）
 - **ClockQuest** (`/clock`): アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
 ## 2. アーキテクチャ概要
@@ -28,7 +31,7 @@ EduQuest は小学生向けの学習プラットフォームで、複数の「Qu
 - **インフラストラクチャ層 (`apps/edge/src/infrastructure`)**
   - Drizzle ORM による D1 接続、KV バインディング、環境変数管理。
 - **インターフェース層 (`apps/edge/src/routes`)**
-  - ページ: EduQuest ハブ (`/`)、Quest 専用ページ (`/math`, `/kanji`, `/clock`)、練習画面 (`/math/start`, `/math/play`)
+  - ページ: EduQuest ハブ (`/`)、Quest 専用ページ (`/math`, `/kanji`, `/game`, `/clock`)、練習画面 (`/math/start`, `/math/play`)
   - BFF API (`/apis/quiz/generate`, `/apis/quiz/verify`)、クライアントサイドのインタラクションロジック。
 
 レイヤー間の依存はドメイン層を中心とした内向き矢印となるよう整理しており、UI 改修や新しいデリバリーチャネル追加（例: API 専用の UI）でもドメインロジックをそのまま流用できます。
@@ -96,6 +99,7 @@ edu-quest/
 └── scripts/ - リポジトリの補助スクリプト
     └── docs/ - ドキュメント用スクリプト
 ```
+
 <!-- AUTO-GENERATED:STRUCTURE:END -->
 
 ## 5. ユースケースとデータフロー
@@ -105,6 +109,7 @@ edu-quest/
 1. トップページでは、利用可能な Quest モジュールをテーマカラー付きのカードで表示：
    - **MathQuest**（青系テーマ）: 利用可能
    - **KanjiQuest**（紫系テーマ）: 準備中
+   - **GameQuest**（緑系テーマ）: 準備中
    - **ClockQuest**（オレンジ系テーマ）: 準備中
 2. 「はじめる」ボタンをクリックして、各 Quest に遷移できます。
 3. 各 Quest は CSS 変数で独自のカラースキームが適用されています。
@@ -187,7 +192,7 @@ type Question = {
 
 ### 基本方針
 
-全ての Quest モジュール（MathQuest、KanjiQuest、ClockQuest）は、クイズセッション管理に **KV + セッション ID パターン** を採用します：
+全ての Quest モジュール（MathQuest、KanjiQuest、GameQuest、ClockQuest）は、クイズセッション管理に **KV + セッション ID パターン** を採用します：
 
 - **セッションデータはサーバーサイドに保存** - Cloudflare KV に自動 TTL（Time To Live）で保存
 - **クライアントサイドにはセッション ID のみを保存** - HttpOnly Cookie に格納

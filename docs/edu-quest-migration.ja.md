@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/edu-quest-migration.md)
+
 # EduQuest 移行計画
 
 ## 概要

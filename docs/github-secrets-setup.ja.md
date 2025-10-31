@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/github-secrets-setup.md)
+
 # GitHub Secrets セットアップガイド
 
 ## 概要

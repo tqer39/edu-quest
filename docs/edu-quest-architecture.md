@@ -1,13 +1,16 @@
+[🇯🇵 日本語](/docs/edu-quest-architecture.ja.md)
+
 # eduquest: Architecture Design and Project Structure
 
 ## 1. Purpose
 
-EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Currently featuring MathQuest for arithmetic practice, with KanjiQuest (kanji learning) and ClockQuest (time-reading) planned for future releases. Built with Hono for SSR on Cloudflare Workers, it offers grade-level presets and themed exercises. Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
+EduQuest is a learning platform for elementary school students that provides various educational content through specialized "Quest" modules. Currently featuring MathQuest for arithmetic practice, with KanjiQuest (kanji learning), GameQuest (brain-training mini games), and ClockQuest (time-reading) planned for future releases. Built with Hono for SSR on Cloudflare Workers, it offers grade-level presets and themed exercises. Question generation and grading are centralized in a shared domain logic, structured for consistent reuse from the UI to the API.
 
 ### Quest Modules
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix")
 - **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
+- **GameQuest** (`/game`): Brain-training mini games for pattern recognition, spatial reasoning, and memory (Coming Soon)
 - **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
 
 ## 2. Architecture Overview
@@ -28,7 +31,7 @@ EduQuest is a learning platform for elementary school students that provides var
 - **Infrastructure Layer (`apps/edge/src/infrastructure`)**
   - D1 connection via Drizzle ORM, KV bindings, and environment variable management.
 - **Interface Layer (`apps/edge/src/routes`)**
-  - Pages: EduQuest hub (`/`), Quest-specific pages (`/math`, `/kanji`, `/clock`), and practice screens (`/math/start`, `/math/play`)
+  - Pages: EduQuest hub (`/`), Quest-specific pages (`/math`, `/kanji`, `/game`, `/clock`), and practice screens (`/math/start`, `/math/play`)
   - BFF API (`/apis/quiz/generate`, `/apis/quiz/verify`), and client-side interaction logic.
 
 Dependencies between layers are organized with inward-pointing arrows centered on the domain layer. This allows the domain logic to be reused as-is for UI modifications or the addition of new delivery channels (e.g., a dedicated API UI).
@@ -96,6 +99,7 @@ edu-quest/
 └── scripts/ - Automation scripts
     └── docs/ - Documentation tooling
 ```
+
 <!-- AUTO-GENERATED:STRUCTURE:END -->
 
 ## 5. Use Cases and Data Flow
@@ -105,6 +109,7 @@ edu-quest/
 1.  The homepage displays available Quest modules as cards with theme colors:
     - **MathQuest** (blue theme): Available for use
     - **KanjiQuest** (purple theme): Coming Soon
+    - **GameQuest** (green theme): Coming Soon
     - **ClockQuest** (orange theme): Coming Soon
 2.  Users can navigate to a specific Quest by clicking the "はじめる" (Start) button.
 3.  Each Quest has its own dedicated color scheme applied via CSS variables.
@@ -187,7 +192,7 @@ type Question = {
 
 ### Philosophy
 
-All Quest modules (MathQuest, KanjiQuest, ClockQuest) follow the **KV + Session ID pattern** for managing quiz sessions:
+All Quest modules (MathQuest, KanjiQuest, GameQuest, ClockQuest) follow the **KV + Session ID pattern** for managing quiz sessions:
 
 - **Session data is stored server-side** in Cloudflare KV with automatic TTL (Time To Live)
 - **Only session IDs are stored client-side** in HttpOnly cookies

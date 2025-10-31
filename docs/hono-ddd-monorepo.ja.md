@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/hono-ddd-monorepo.md)
+
 # Hono × DDD モノレポ構成（最小）
 
 > **ステータス**: このガイドは、Hono と DDD をモノレポで組み合わせた最初期のチュートリアル構成をまとめたものです。現在の本番実装は主に `apps/edge` に置かれています。最新のレイアウトは [edu-quest-architecture.md](./edu-quest-architecture.ja.md) を参照してください。

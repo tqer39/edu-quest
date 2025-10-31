@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/release-workflow.md)
+
 # リリースワークフロー
 
 このドキュメントでは、EduQuest プロジェクトのリリースワークフローについて説明します。

@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/CONTRIBUTING.ja.md)
+
 # Contributing to EduQuest
 
 Thank you for your interest in contributing to EduQuest! We welcome pull requests of all sizes, from quick fixes to new features. This guide outlines how to get started and what to expect during the contribution process.

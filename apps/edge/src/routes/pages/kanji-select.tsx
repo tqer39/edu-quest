@@ -1,33 +1,43 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
+import type { SchoolStage } from '../utils/school-grade';
+import { formatSchoolGradeLabel } from '../utils/school-grade';
 
-const KanjiNav: FC<{ currentUser: CurrentUser | null; grade: KanjiGrade }> = ({
-  currentUser: _currentUser,
-  grade,
-}) => (
-  <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-    <div class="flex items-center gap-3">
-      <a
-        href="/kanji"
-        class="flex items-center gap-3 transition hover:opacity-80"
-      >
+const KanjiNav: FC<{
+  currentUser: CurrentUser | null;
+  grade: KanjiGrade;
+  stage: SchoolStage;
+}> = ({ currentUser: _currentUser, grade, stage }) => {
+  const gradeLabel = formatSchoolGradeLabel({ stage, grade });
+
+  return (
+    <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
         <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-base">
           ✏️
         </span>
         <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-          KanjiQuest - {grade}年生
+          KanjiQuest - {gradeLabel}
         </span>
-      </a>
-    </div>
-    <a
-      href="/kanji"
-      class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-    >
-      ← 学年選択に戻る
-    </a>
-  </nav>
-);
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        >
+          トップへ戻る
+        </a>
+        <a
+          href="/kanji"
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        >
+          学年選択へ戻る
+        </a>
+      </div>
+    </nav>
+  );
+};
 
 type QuestTypeCardProps = {
   questType: KanjiQuestType;
@@ -75,15 +85,17 @@ const QuestTypeCard: FC<QuestTypeCardProps> = ({ questType, grade }) => {
 export const KanjiSelect: FC<{
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
-}> = ({ currentUser: _currentUser, grade }) => {
+  gradeStage: SchoolStage;
+}> = ({ currentUser: _currentUser, grade, gradeStage }) => {
   const questTypes: KanjiQuestType[] = ['reading', 'stroke-count'];
+  const gradeLabel = formatSchoolGradeLabel({ stage: gradeStage, grade });
 
   return (
     <div
       class="flex min-h-screen w-full flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45);"
     >
-      <KanjiNav currentUser={_currentUser} grade={grade} />
+      <KanjiNav currentUser={_currentUser} grade={grade} stage={gradeStage} />
 
       <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
         <span class="text-6xl">✏️</span>
@@ -92,7 +104,7 @@ export const KanjiSelect: FC<{
             クエストを選んでください
           </h1>
           <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-            {grade}年生の漢字で遊びましょう！
+            {gradeLabel}の漢字で遊びましょう！
             <br />
             挑戦したいクエストを選んでください。
           </p>

@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/RULESYNC.md)
+
 # rulesync 導入ガイド
 
 このリポジトリに rulesync を導入するための最小ガイドです。rulesync は、複数プロジェクトに共通のルール・設定ファイルを安全に同期するための CLI ツールです。

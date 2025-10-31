@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/hono-ddd-monorepo.ja.md)
+
 # Minimal Hono × DDD Monorepo Structure
 
 > **Status**: This guide documents the original minimal tutorial for combining Hono and DDD in a monorepo. The production-ready implementation now lives primarily in `apps/edge`. For the authoritative layout, refer to [edu-quest-architecture.md](./edu-quest-architecture.md).
