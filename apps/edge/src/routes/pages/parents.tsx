@@ -17,14 +17,17 @@ const SectionHeading: FC<SectionHeadingProps> = ({
   description,
 }) => (
   <div class="flex flex-col gap-4" id={id}>
-    <h2 class="inline-flex items-center gap-3 text-2xl font-bold text-[var(--mq-ink)] sm:text-3xl">
+    <h2 class="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#dbeafe] to-transparent px-6 py-4 text-2xl font-bold text-[var(--mq-ink)] shadow-sm sm:text-3xl">
       <span aria-hidden="true" class="text-3xl">
         {icon}
       </span>
-      <span>{title}</span>
+      <span class="border-b-4 border-[var(--mq-primary)] pb-1">{title}</span>
     </h2>
     {description ? (
-      <p class="max-w-3xl text-lg leading-relaxed text-[#334155]">
+      <p
+        class="max-w-3xl px-6 text-lg leading-relaxed text-[#334155]"
+        style="line-height: 1.75;"
+      >
         {description}
       </p>
     ) : null}
@@ -39,15 +42,20 @@ type Feature = {
 const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   <ul class="grid gap-4 text-sm text-[#1f2937] sm:grid-cols-2">
     {features.map((feature) => (
-      <li class="flex items-start gap-3 rounded-2xl  bg-white/80 p-4 shadow-sm">
-        <span aria-hidden="true" class="mt-1 text-base">
-          ✔
+      <li class="flex items-start gap-3 rounded-2xl bg-white/80 p-4 shadow-sm">
+        <span
+          aria-hidden="true"
+          class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[var(--mq-primary)] text-xs font-bold text-white"
+        >
+          ✓
         </span>
         <span>
-          <span class="font-semibold text-[var(--mq-ink)]">
+          <span class="block font-semibold text-[var(--mq-ink)]">
             {feature.title}
           </span>
-          <span class="block text-[#334155]">{feature.description}</span>
+          <span class="block text-[#334155]" style="line-height: 1.7;">
+            {feature.description}
+          </span>
         </span>
       </li>
     ))}
@@ -80,14 +88,16 @@ const UseCaseCard: FC<{
   accent: string;
 }> = ({ title, description, accent }) => (
   <article
-    class="flex min-h-[200px] w-full min-w-[260px] flex-col justify-between gap-6 rounded-3xl  bg-white/95 p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-sm"
+    class="flex min-h-[200px] w-full min-w-[260px] flex-col justify-between gap-6 rounded-3xl bg-white/95 p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-sm"
     style={`--accent: ${accent};`}
   >
     <header>
       <h3 class="text-xl font-semibold text-[var(--mq-ink)]">{title}</h3>
       <div class="mt-2 h-1 w-12 rounded-full bg-[var(--accent)]"></div>
     </header>
-    <p class="text-sm leading-relaxed text-[#334155]">{description}</p>
+    <p class="text-sm text-[#334155]" style="line-height: 1.7;">
+      {description}
+    </p>
   </article>
 );
 
@@ -135,7 +145,10 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           <h1 class="text-3xl font-extrabold leading-tight sm:text-4xl">
             👪 保護者の方へ — 楽しく学べて、安心して使えるEduQuest
           </h1>
-          <p class="max-w-xl text-base leading-relaxed text-[#334155]">
+          <p
+            class="max-w-xl text-base text-[#334155]"
+            style="line-height: 1.75;"
+          >
             EduQuestは、小学生のお子さまが"遊びながら学ぶ"ことを目指した無料の学習プラットフォームです。安全性・教育的効果・使いやすさの3つを大切に設計しています。
           </p>
           <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -447,7 +460,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             <h3 class="text-base font-semibold text-[#1f2937]">
               {item.question}
             </h3>
-            <p class="mt-4 text-sm leading-relaxed text-[#334155]">
+            <p class="mt-4 text-sm text-[#334155]" style="line-height: 1.7;">
               {item.answer}
             </p>
           </article>
@@ -522,7 +535,10 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         <h2 class="text-2xl font-bold sm:text-3xl">
           さあ、EduQuestをはじめましょう
         </h2>
-        <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#334155]">
+        <p
+          class="mx-auto max-w-2xl text-base text-[#334155]"
+          style="line-height: 1.75;"
+        >
           安心・教育的・導入しやすい学習体験を、ご家庭の毎日に取り入れてみませんか？
         </p>
         <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
