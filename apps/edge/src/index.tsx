@@ -203,12 +203,15 @@ app.get('/', async (c) =>
 );
 
 // Parents landing page
-app.get('/parents', (c) =>
-  c.render(<ParentsPage />, {
-    title: '保護者の方へ | EduQuestの安心・安全な学び',
-    description:
-      '安全性・教育的効果・導入のしやすさを紹介。小学生のお子さまが安心して学べるEduQuestの取り組みをお伝えします。',
-  })
+app.get('/parents', async (c) =>
+  c.render(
+    <ParentsPage currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: '保護者の方へ | EduQuestの安心・安全な学び',
+      description:
+        '安全性・教育的効果・導入のしやすさを紹介。小学生のお子さまが安心して学べるEduQuestの取り組みをお伝えします。',
+    }
+  )
 );
 
 // MathQuest routes

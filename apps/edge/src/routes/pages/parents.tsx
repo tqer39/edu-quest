@@ -1,5 +1,7 @@
 import type { FC } from 'hono/jsx';
+import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
+import { Header } from '../../components/Header';
 
 type SectionHeadingProps = {
   id: string;
@@ -122,11 +124,14 @@ const faqItems = [
   },
 ];
 
-export const ParentsPage: FC = () => (
+export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
+  currentUser,
+}) => (
   <main
     id="parents-root"
     class="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-20 px-4 pb-24 pt-12 sm:px-8 lg:px-12"
   >
+    <Header currentUser={currentUser} />
     <section
       id="parents-hero"
       class="relative overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
