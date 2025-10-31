@@ -12,7 +12,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 ### Application & Language
 
-<table border="0">
+<table>
   <tr>
     <td align="center">
       <a href="https://hono.dev/" target="_blank" rel="noopener noreferrer">
@@ -31,7 +31,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 ### Testing & Quality
 
-<table border="0">
+<table>
   <tr>
     <td align="center">
       <a href="https://vitest.dev/" target="_blank" rel="noopener noreferrer">
@@ -56,7 +56,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 ### Cloud & Infrastructure
 
-<table border="0">
+<table>
   <tr>
     <td align="center">
       <a href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 ### Developer Productivity
 
-<table border="0">
+<table>
   <tr>
     <td align="center">
       <a href="https://www.anthropic.com/claude/code" target="_blank" rel="noopener noreferrer">
@@ -100,7 +100,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 ### Infrastructure as Code (IaC) & Development Tools
 
-<table border="0">
+<table>
   <tr>
     <td align="center">
       <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">
