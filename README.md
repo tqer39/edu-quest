@@ -200,7 +200,7 @@ EduQuest is a learning platform for elementary school students that provides var
     </td>
     <td align="center">
       <a href="https://biomejs.dev/" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/biomejs/resources/main/svg/icon-transparent.svg" alt="Biome logo" width="60" height="60" />
+        <img src="https://images.seeklogo.com/logo-png/55/1/biome-logo-png_seeklogo-554473.png" alt="Biome logo" width="60" height="60" />
         <br /><sub><b>Biome</b></sub>
       </a>
     </td>
