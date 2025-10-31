@@ -188,7 +188,7 @@ EduQuest is a learning platform for elementary school students that provides var
     </td>
     <td align="center">
       <a href="https://textlint.github.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://textlint.org/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="120" height="60" />
+        <img src="https://textlint.org/media/logo/spaced/textlint-logo.png" alt="textlint logo" width="180" height="90" />
         <br /><sub><b>textlint</b></sub>
       </a>
     </td>
