@@ -1,5 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
+import type { ClockGrade } from '@edu-quest/domain';
 import { AnalogClock } from '../../components/analog-clock';
 
 type ClockQuizProps = {
@@ -10,6 +11,7 @@ type ClockQuizProps = {
   totalQuestions: number;
   score: number;
   difficulty?: number;
+  grade: ClockGrade;
 };
 
 export const ClockQuiz: FC<ClockQuizProps> = ({
@@ -20,6 +22,7 @@ export const ClockQuiz: FC<ClockQuizProps> = ({
   totalQuestions,
   score,
   difficulty = 1,
+  grade,
 }) => {
   return (
     <div
@@ -33,7 +36,7 @@ export const ClockQuiz: FC<ClockQuizProps> = ({
             🕐
           </span>
           <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-            ClockQuest レベル{difficulty}
+            ClockQuest {grade}年生 レベル{difficulty}
           </span>
         </div>
         <div class="flex items-center gap-4">

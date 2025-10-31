@@ -4,6 +4,7 @@
  */
 
 export type ClockDifficulty = 1 | 2 | 3 | 4 | 5;
+export type ClockGrade = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type ClockQuestion = {
   hours: number; // 0-23 (24時間表記)
@@ -132,4 +133,17 @@ export const getDifficultyDescription = (
     default:
       return '';
   }
+};
+
+export const getGradeDescription = (grade: ClockGrade): string => {
+  const descriptions: Record<ClockGrade, string> = {
+    1: '小学1年生: ちょうどの時刻を読んでみよう',
+    2: '小学2年生: 半の時刻にもチャレンジ',
+    3: '小学3年生: 15分単位で時間感覚を鍛えよう',
+    4: '小学4年生: 5分ごとの読み取りを練習',
+    5: '小学5年生: 細かい時間も正確に読もう',
+    6: '小学6年生: 1分単位の時刻で総仕上げ',
+  };
+
+  return descriptions[grade];
 };

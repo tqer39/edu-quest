@@ -31,7 +31,7 @@ describe('EduQuest Navigation', () => {
     it('should navigate from grade selection to start configuration page', () => {
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
-      cy.url().should('include', '/math/start?grade=grade-1');
+      cy.url().should('include', '/math/start?grade=1');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
 
@@ -46,7 +46,7 @@ describe('EduQuest Navigation', () => {
 
       // Select first grade
       cy.contains('a', '小学1年生').click();
-      cy.url().should('include', '/math/start?grade=grade-1');
+      cy.url().should('include', '/math/start?grade=1');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
   });
@@ -61,7 +61,7 @@ describe('EduQuest Navigation', () => {
 
   describe('Back Navigation', () => {
     it('should navigate back from math start to math home', () => {
-      cy.visit('/math/start?grade=grade-1');
+      cy.visit('/math/start?grade=1');
       cy.go('back');
       cy.url().should('include', '/math');
     });
