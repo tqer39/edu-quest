@@ -25,7 +25,7 @@ const SectionHeading: FC<SectionHeadingProps> = ({
     </h2>
     {description ? (
       <p
-        class="max-w-3xl px-6 text-lg leading-relaxed text-[#334155]"
+        class="mb-8 max-w-3xl px-6 text-lg leading-relaxed text-[#334155]"
         style="line-height: 1.75;"
       >
         {description}
@@ -40,7 +40,7 @@ type Feature = {
 };
 
 const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
-  <ul class="grid gap-4 text-sm text-[#1f2937] sm:grid-cols-2">
+  <ul class="grid gap-4 space-y-3 text-sm text-[#1f2937] sm:grid-cols-2">
     {features.map((feature) => (
       <li class="flex items-start gap-3 rounded-2xl bg-white/80 p-4 shadow-sm">
         <span
@@ -148,10 +148,10 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         <div class="flex flex-1 justify-center">
           <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-8 shadow-sm backdrop-blur">
             <div class="absolute -right-6 -top-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-[#22c55e]/80 to-[#3b82f6]/80 blur-0 sm:block"></div>
-            <p class="text-sm font-semibold text-[#1f2937]">
+            <p class="mb-2 text-sm font-semibold text-[#1f2937]">
               ご家庭での安心ポイント
             </p>
-            <ul class="mt-6 space-y-4 text-sm text-[#334155]">
+            <ul class="mt-8 space-y-4 text-sm text-[#334155]">
               <li class="flex items-start gap-2">
                 <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
                   ●
@@ -178,14 +178,14 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <LayerDivider label="安心・楽しく・簡単" />
 
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+    <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
       <SectionHeading
         id="safety"
         icon="🔒"
         title="安心して使える設計"
         description="EduQuestは収集データを最小限に抑え、子どもが集中できる環境を最優先しています。"
       />
-      <div class="mt-8 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="mt-12 grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <FeatureList
           features={[
             {
@@ -237,14 +237,14 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <SectionDivider />
 
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+    <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
       <SectionHeading
         id="effect"
         icon="📈"
         title="楽しく学び、しっかり身につく"
         description="文部科学省の学習指導要領に沿いながら、フィードバックでモチベーションを高める仕組みを備えています。"
       />
-      <div class="mt-10 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="mt-12 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <FeatureList
           features={[
             {
@@ -346,7 +346,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </p>
           <a
             href="/math"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-bold !text-white shadow-md transition-all hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
+            class="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#22c55e] px-5 py-3 text-sm font-bold !text-white shadow-md transition-all hover:-translate-y-1 hover:bg-[#16a34a] hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#22c55e]"
           >
             算数チャレンジを見る
             <span aria-hidden="true" class="text-base">
@@ -359,14 +359,14 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <SectionDivider />
 
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+    <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
       <SectionHeading
         id="easy-start"
         icon="💻"
         title="すぐに使い始められます"
         description="インストール不要で、すでにあるデバイスからすぐに学習を開始できます。"
       />
-      <div class="mt-10 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+      <div class="mt-12 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <FeatureList
           features={[
             {
@@ -416,10 +416,10 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
     <LayerDivider label="ご利用にあたって" />
 
     <section class="my-20 rounded-3xl bg-blue-50 px-6 py-12 sm:px-8 lg:px-12">
-      <h2 class="mb-10 flex items-center gap-2 text-2xl font-bold text-blue-800">
+      <h2 class="mb-6 flex items-center gap-2 text-2xl font-bold text-blue-800">
         <span>🏡</span> ご家庭での活用シーン
       </h2>
-      <p class="mb-12 max-w-prose leading-relaxed text-gray-700">
+      <p class="mb-14 max-w-prose leading-relaxed text-gray-700">
         毎日の生活に取り入れやすい具体的な利用例をご紹介します。
       </p>
 
@@ -488,7 +488,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <SectionDivider />
 
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+    <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
       <SectionHeading id="faq" icon="❓" title="よくある質問" />
       <div class="mt-10 space-y-6">
         {faqItems.map((item, index) => (
@@ -510,7 +510,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <SectionDivider />
 
-    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
+    <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
       <SectionHeading
         id="transparency"
         icon="🪪"
