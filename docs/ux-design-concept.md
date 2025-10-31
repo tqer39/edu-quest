@@ -35,6 +35,19 @@ This is a fundamental UX principle for the entire platform:
 
 This standard ensures a consistent, frustration-free learning experience for all elementary school students.
 
+### 1.2. Grade-First Stage Selection Standard
+
+**Every Quest follows the KanjiQuest-style flow where learners choose their grade level before any other stage options.**
+
+This requirement keeps the experience predictable across modules:
+
+- **Shared layout:** The start screen always opens with a grade picker component, followed by stage/theme cards filtered by that grade.
+- **Difficulty clarity:** By anchoring the first choice on grade, learners (and teachers) immediately understand the level that subsequent content targets.
+- **Scalable IA:** New Quest types can plug into the same grade-first template without rethinking navigation or progress hand-off.
+- **Progress continuity:** Saving/restoring state uses the selected grade as the primary key, so keeping it upfront avoids mismatches between quests.
+
+KanjiQuest already implements this pattern, and MathQuest / ClockQuest must align with the same grade-first structure to maintain UX consistency.
+
 ## 2. Target Users
 
 - **Primary Target:** Lower elementary school students in Japan (Grades 1-3)
