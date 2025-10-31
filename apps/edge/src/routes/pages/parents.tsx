@@ -148,28 +148,13 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         <div class="flex flex-1 justify-center">
           <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-8 shadow-sm backdrop-blur">
             <div class="absolute -right-6 -top-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-[#22c55e]/80 to-[#3b82f6]/80 blur-0 sm:block"></div>
-            <p class="mb-2 text-sm font-semibold text-[#1f2937]">
+            <p class="mb-6 text-sm font-semibold text-[#1f2937]">
               ご家庭での安心ポイント
             </p>
-            <ul class="mt-8 space-y-4 text-sm text-[#334155]">
-              <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
-                  ●
-                </span>
-                匿名で始められ、個人情報の入力は不要。
-              </li>
-              <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
-                  ●
-                </span>
-                広告や外部リンクがなく、学習に集中できます。
-              </li>
-              <li class="flex items-start gap-2">
-                <span aria-hidden="true" class="mt-1 text-base text-[#22c55e]">
-                  ●
-                </span>
-                進捗は端末内に保存され、プライバシーを守ります。
-              </li>
+            <ul class="list-inside list-disc space-y-3 pl-2 text-sm leading-relaxed text-gray-700 marker:text-blue-600 sm:pl-4">
+              <li>匿名で始められ、個人情報の入力は不要。</li>
+              <li>広告や外部リンクがなく、学習に集中できます。</li>
+              <li>進捗は端末内に保存され、プライバシーを守ります。</li>
             </ul>
           </div>
         </div>
@@ -224,12 +209,9 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </p>
           <a
             href="/trust-and-safety"
-            class="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-blue-700 hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            class="mt-6 inline-block !text-blue-700 font-semibold underline transition hover:!text-blue-900"
           >
-            セキュリティ対策を詳しく見る
-            <span aria-hidden="true" class="text-base">
-              →
-            </span>
+            セキュリティ対策を詳しく見る →
           </a>
         </aside>
       </div>
