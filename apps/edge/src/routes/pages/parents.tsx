@@ -16,15 +16,15 @@ const SectionHeading: FC<SectionHeadingProps> = ({
   title,
   description,
 }) => (
-  <div class="flex flex-col gap-3" id={id}>
-    <div class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.35em] text-[#5e718a]">
-      <span aria-hidden="true" class="text-lg">
+  <div class="flex flex-col gap-4" id={id}>
+    <h2 class="inline-flex items-center gap-3 text-2xl font-bold text-[var(--mq-ink)] sm:text-3xl">
+      <span aria-hidden="true" class="text-3xl">
         {icon}
       </span>
       <span>{title}</span>
-    </div>
+    </h2>
     {description ? (
-      <p class="max-w-3xl text-base leading-relaxed text-[#4f6076]">
+      <p class="max-w-3xl text-lg leading-relaxed text-[#4f6076]">
         {description}
       </p>
     ) : null}
@@ -65,8 +65,8 @@ const TableOfContents: FC = () => {
   ];
 
   return (
-    <nav class="rounded-3xl  bg-white/90 p-6 shadow-sm">
-      <h2 class="mb-4 text-sm font-semibold text-[#1f2937]">📑 目次</h2>
+    <nav class="rounded-3xl  bg-white/95 p-6 shadow-sm">
+      <h2 class="mb-4 text-xl font-bold text-[#1f2937]">📑 目次</h2>
       <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {sections.map((section) => (
           <li>
@@ -92,11 +92,11 @@ const UseCaseCard: FC<{
   accent: string;
 }> = ({ title, description, accent }) => (
   <article
-    class="flex min-h-[200px] w-full min-w-[260px] flex-col justify-between gap-6 rounded-3xl  bg-white/90 p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-sm"
+    class="flex min-h-[200px] w-full min-w-[260px] flex-col justify-between gap-6 rounded-3xl  bg-white/95 p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-sm"
     style={`--accent: ${accent};`}
   >
     <header>
-      <h3 class="text-lg font-semibold text-[var(--mq-ink)]">{title}</h3>
+      <h3 class="text-xl font-semibold text-[var(--mq-ink)]">{title}</h3>
       <div class="mt-2 h-1 w-12 rounded-full bg-[var(--accent)]"></div>
     </header>
     <p class="text-sm leading-relaxed text-[#4f6076]">{description}</p>
@@ -199,7 +199,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <TableOfContents />
 
-    <section class="rounded-[32px]  bg-white/90 p-8 shadow-sm">
+    <section class="rounded-[32px]  bg-white/95 p-8 shadow-sm">
       <SectionHeading
         id="safety"
         icon="🔒"
@@ -237,7 +237,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           ]}
         />
         <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1f2937] via-[#1f2937] to-[#2563eb] p-8 shadow-md">
-          <h3 class="text-lg font-semibold !text-white">
+          <h3 class="text-xl font-bold !text-white">
             セキュリティ対策も透明に
           </h3>
           <p class="mt-4 text-sm leading-relaxed !text-white">
@@ -292,8 +292,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             },
           ]}
         />
-        <div class="rounded-3xl bg-[#f9fafb] p-6 shadow-inner">
-          <h3 class="text-base font-semibold text-[var(--mq-ink)]">
+        <div class="rounded-3xl bg-white/95 p-6 shadow-sm">
+          <h3 class="text-xl font-bold text-[var(--mq-ink)]">
             学びの循環サイクル
           </h3>
           <ol class="mt-4 space-y-3 text-sm text-[#4f6076]">
@@ -406,7 +406,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       />
       <div class="mt-8 grid gap-6 sm:grid-cols-2">
         <article class="rounded-3xl bg-gradient-to-br from-[#eef2ff] via-white to-[#c7d2fe] p-6 shadow-sm">
-          <h3 class="text-base font-semibold text-[#312e81]">運営情報</h3>
+          <h3 class="text-xl font-bold text-[#312e81]">運営情報</h3>
           <ul class="mt-4 space-y-3 text-sm text-[#4338ca]">
             <li>
               開発運営：<span class="font-semibold">EduQuest Project</span>
@@ -419,7 +419,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                tqer39（教育系SRE）
+                tqer39（Embedded SRE）
               </a>
             </li>
             <li>
@@ -436,7 +436,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </ul>
         </article>
         <article class="rounded-3xl bg-white/95 p-6 shadow-sm">
-          <h3 class="text-base font-semibold text-[#312e81]">
+          <h3 class="text-xl font-bold text-[#312e81]">
             お問い合わせとポリシー
           </h3>
           <ul class="mt-4 space-y-3 text-sm text-[#4338ca]">
@@ -506,7 +506,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
         {faqItems.map((item) => (
           <details
             open
-            class="group rounded-2xl bg-white/90 p-6 shadow-sm transition"
+            class="group rounded-2xl bg-white/95 p-6 shadow-sm transition"
           >
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-[#1f2937]">
               <span>{item.question}</span>
@@ -527,8 +527,10 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
     <section class="rounded-[32px]  bg-gradient-to-br from-[#dbeafe] via-white to-[#bbf7d0] p-8 text-[var(--mq-ink)] shadow-md">
       <div class="flex flex-col gap-6 text-center">
-        <h2 class="text-2xl font-extrabold">さあ、EduQuestをはじめましょう</h2>
-        <p class="mx-auto max-w-2xl text-sm leading-relaxed text-[#4f6076]">
+        <h2 class="text-2xl font-bold sm:text-3xl">
+          さあ、EduQuestをはじめましょう
+        </h2>
+        <p class="mx-auto max-w-2xl text-base leading-relaxed text-[#4f6076]">
           安心・教育的・導入しやすい学習体験を、ご家庭の毎日に取り入れてみませんか？
         </p>
         <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
