@@ -116,13 +116,13 @@ EduQuest is a learning platform for elementary school students that provides var
     </td>
     <td align="center">
       <a href="https://just.systems/" target="_blank" rel="noopener noreferrer">
-        <img src="https://just.systems/icon.png" alt="just logo" width="60" height="60" />
+        <img src="https://raw.githubusercontent.com/casey/just/master/icon.png" alt="just logo" width="60" height="60" />
         <br /><sub><b>just</b></sub>
       </a>
     </td>
     <td align="center">
       <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub logo" width="60" height="60" />
+        <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub logo" width="60" height="60" />
         <br /><sub><b>GitHub</b></sub>
       </a>
     </td>
