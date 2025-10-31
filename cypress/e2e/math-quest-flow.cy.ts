@@ -1,11 +1,11 @@
 describe('MathQuest Flow', () => {
   describe('Start Configuration Page', () => {
     beforeEach(() => {
-      cy.visit('/math/start?grade=grade-1');
+      cy.visit('/math/start?grade=1');
     });
 
     it('should load the start configuration page', () => {
-      cy.url().should('include', '/math/start?grade=grade-1');
+      cy.url().should('include', '/math/start?grade=1');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
 
@@ -30,7 +30,7 @@ describe('MathQuest Flow', () => {
 
   describe('Play Page Navigation', () => {
     it('should navigate to play page after configuration', () => {
-      cy.visit('/math/start?grade=grade-1');
+      cy.visit('/math/start?grade=1');
 
       // Select activity (計算する)
       cy.contains('button', '計算する').click();
@@ -46,7 +46,7 @@ describe('MathQuest Flow', () => {
     });
 
     it('should display question on play page', () => {
-      cy.visit('/math/start?grade=grade-1');
+      cy.visit('/math/start?grade=1');
 
       // Quick start with default settings
       cy.contains('button', '計算する').click();
