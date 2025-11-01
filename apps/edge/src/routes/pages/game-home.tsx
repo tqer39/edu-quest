@@ -12,11 +12,11 @@ const GameNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
     <div class="flex items-center gap-2">
       <a href="/" class="flex items-center gap-2 transition hover:opacity-80">
         <img
-          src="/logo.svg"
-          alt="EduQuest Logo"
-          class="h-7 w-7"
-          width="28"
-          height="28"
+          src="/gamequest-logo.svg"
+          alt="GameQuest Logo"
+          class="h-10 w-10"
+          width="40"
+          height="40"
         />
         <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
           GameQuest
