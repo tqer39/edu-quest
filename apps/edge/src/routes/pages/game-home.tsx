@@ -10,7 +10,7 @@ import {
 const GameNav: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser: _currentUser,
 }) => (
-  <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+  <nav class="flex flex-wrap items-center justify-between gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-3 shadow-sm sm:flex-nowrap sm:gap-4 sm:px-6">
     <div class="flex items-center gap-3">
       <a href="/" class="flex items-center gap-3 transition hover:opacity-80">
         <img

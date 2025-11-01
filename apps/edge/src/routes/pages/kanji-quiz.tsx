@@ -25,7 +25,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45); --mq-ink: #2c3e50; --mq-surface: rgba(255, 255, 255, 0.95);"
     >
       {/* ナビゲーション */}
-      <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+      <nav class="flex flex-wrap items-center justify-between gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-3 shadow-sm backdrop-blur sm:flex-nowrap sm:gap-4 sm:px-6">
         <div class="flex items-center gap-3">
           <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-base">
             ✏️
