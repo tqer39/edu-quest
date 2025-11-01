@@ -783,25 +783,54 @@ app.get('/clock/select', async (c) => {
       grade={grade}
     />,
     {
-      title: `ClockQuest | ${grade}年生のレベル選択`,
-      description: `${grade}年生向けの時計クエストのレベルを選択しましょう。`,
+      title: `ClockQuest | ${grade}年生のクエスト選択`,
+      description: `${grade}年生向けの時計クエストを選択しましょう。`,
+      favicon: '/favicon-clock.svg',
     }
   );
 });
 
-// ClockQuest: 学年と難易度を選択してクイズ開始
+const clockQuestTypeConfig: Record<
+  'reading' | 'conversion' | 'arithmetic' | 'variety',
+  { difficulty: ClockDifficulty }
+> = {
+  reading: { difficulty: 1 as ClockDifficulty },
+  conversion: { difficulty: 2 as ClockDifficulty },
+  arithmetic: { difficulty: 4 as ClockDifficulty },
+  variety: { difficulty: 5 as ClockDifficulty },
+};
+
+type ClockQuestType = keyof typeof clockQuestTypeConfig;
+
+// ClockQuest: 学年とクエスト種別を選択してクイズ開始
 app.get('/clock/start', async (c) => {
   const gradeParam = c.req.query('grade');
   const difficultyParam = c.req.query('difficulty');
+  const typeParam = c.req.query('type');
 
   const grade = Number(gradeParam) as ClockGrade;
-  const difficulty = Number(difficultyParam) as ClockDifficulty;
+  let difficulty: ClockDifficulty | null = null;
 
   if (!grade || grade < 1 || grade > 6) {
     return c.redirect('/clock', 302);
   }
 
-  if (!difficulty || difficulty < 1 || difficulty > 5) {
+  if (typeParam) {
+    const questType = typeParam as ClockQuestType;
+    const questConfig = clockQuestTypeConfig[questType];
+    if (questConfig) {
+      difficulty = questConfig.difficulty;
+    }
+  }
+
+  if (!difficulty && difficultyParam) {
+    const parsed = Number(difficultyParam) as ClockDifficulty;
+    if (parsed >= 1 && parsed <= 5) {
+      difficulty = parsed;
+    }
+  }
+
+  if (!difficulty) {
     return c.redirect(`/clock/select?grade=${grade}`, 302);
   }
 
