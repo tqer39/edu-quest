@@ -3,6 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
 import { createSchoolGradeParam } from '../utils/school-grade';
+import { Footer } from '../../components/Footer';
 import {
   QuestHeader,
   GradeCard,
@@ -115,6 +116,8 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
           ]}
         />
       </div>
+
+      <Footer />
     </div>
   );
 };

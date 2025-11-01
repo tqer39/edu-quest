@@ -3,6 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockGrade } from '@edu-quest/domain';
 import { getGradeDescription } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 import {
   QuestHeader,
   GradeCard,
@@ -102,6 +103,8 @@ export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
           ]}
         />
       </div>
+
+      <Footer />
     </div>
   );
 };

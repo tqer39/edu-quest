@@ -3,6 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import { gradeLevels } from './grade-presets';
 import { createSchoolGradeParam } from '../utils/school-grade';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 import {
   QuestHeader,
   GradeCard,
@@ -95,5 +96,7 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
         ]}
       />
     </div>
+
+    <Footer />
   </div>
 );

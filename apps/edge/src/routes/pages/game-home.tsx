@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { gameGradeLevels } from './game-presets';
+import { Footer } from '../../components/Footer';
 import {
   QuestHeader,
   GradeCard,
@@ -89,6 +90,8 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
           ]}
         />
       </div>
+
+      <Footer />
     </div>
   );
 };
