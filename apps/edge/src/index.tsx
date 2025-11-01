@@ -23,6 +23,7 @@ import { GameSelect } from './routes/pages/game-select';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
+import { SudokuSelect } from './routes/pages/sudoku-select';
 import { Login } from './routes/pages/login';
 import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
@@ -477,13 +478,14 @@ app.get('/game/select', async (c) => {
   );
 });
 
+// Sudoku preset selection page
 app.get('/game/sudoku', async (c) => {
   const gradeParam = c.req.query('grade');
   const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
   const grade = getGameGradeById(gradeId);
 
   return c.render(
-    <Sudoku
+    <SudokuSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
       presets={getSudokuPresetsForGrade(gradeId)}
@@ -491,6 +493,32 @@ app.get('/game/sudoku', async (c) => {
     {
       title: `GameQuest | 数独（${grade.label}向け）`,
       description: `${grade.label}に合わせた難易度プリセットで数独に挑戦しよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sudoku gameplay page
+app.get('/game/sudoku/play', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const sizeParam = c.req.query('size');
+  const difficultyParam = c.req.query('difficulty');
+
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+  const size = sizeParam ? Number(sizeParam) : 4;
+  const difficulty = difficultyParam || 'easy';
+
+  return c.render(
+    <Sudoku
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      size={size}
+      difficulty={difficulty}
+    />,
+    {
+      title: `GameQuest | 数独 - ${grade.label}`,
+      description: `数独パズルで集中力を鍛えよう。`,
       favicon: '/favicon-game.svg',
     }
   );

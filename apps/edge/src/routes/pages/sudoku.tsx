@@ -2,21 +2,30 @@ import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
 import type { CurrentUser } from '../../application/session/current-user';
 import { renderSudokuClientScript } from './sudoku.client';
-import type { GameGradeLevel, SudokuPreset } from './game-presets';
+import type { GameGradeLevel } from './game-presets';
 
 type SudokuProps = {
   currentUser: CurrentUser | null;
   grade: GameGradeLevel;
-  presets: readonly SudokuPreset[];
+  size: number;
+  difficulty: string;
 };
 
-export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
+export const Sudoku: FC<SudokuProps> = ({
+  currentUser,
+  grade,
+  size,
+  difficulty,
+}) => (
   <div
     id="sudoku-root"
     class="relative flex min-h-screen flex-col bg-[var(--mq-surface-strong)] text-[var(--mq-ink)]"
     data-user-state={currentUser ? 'known' : 'anonymous'}
     data-grade-id={grade.id}
-    style="--mq-primary: #5DB996; --mq-primary-strong: #3AA07A; --mq-primary-soft: #D6F5E7; --mq-accent: #A8EBD0; --mq-outline: rgba(93, 185, 150, 0.45);"
+    data-auto-start="true"
+    data-size={size}
+    data-difficulty={difficulty}
+    style="--mq-primary: #5DB996; --mq-primary-strong: #3AA07A; --mq-primary-soft: #D6F5E7; --mq-accent: #A8EBD0; --mq-outline: rgba(93, 185, 150, 0.45); --mq-ink: #0f172a; --mq-surface: #f8fafc; --mq-surface-strong: #e2e8f0;"
   >
     {html`
       <style>
@@ -395,66 +404,8 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
     </nav>
 
     <div class="flex flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24">
-      <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-        <span class="text-6xl">🧩</span>
-        <div class="space-y-4">
-          <h1 class="text-3xl font-extrabold sm:text-4xl">
-            プリセットを選んでください
-          </h1>
-          <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-            {grade.label}向けのおすすめ:
-            <br />
-            {grade.highlight}
-          </p>
-        </div>
-      </header>
-
       <main class="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
         <section class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg lg:col-span-2">
-          <div id="preset-selector" class="space-y-4">
-            <h2 class="text-xl font-bold text-[var(--mq-ink)]">数独パズル</h2>
-            {presets.length === 0 ? (
-              <div class="rounded-2xl border border-[var(--mq-outline)] bg-white p-6 text-sm text-[#5e718a] shadow-sm">
-                この学年向けのプリセットは準備中です。
-                <a
-                  href="/game"
-                  class="ml-2 font-semibold text-[var(--mq-primary-strong)] underline"
-                >
-                  GameQuest に戻る
-                </a>
-              </div>
-            ) : (
-              <div class="grid gap-3 sm:grid-cols-2">
-                {presets.map((preset) => (
-                  <button
-                    key={preset.id}
-                    type="button"
-                    class="preset-button flex flex-col gap-3 rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-                    data-size={preset.size}
-                    data-difficulty={preset.difficulty}
-                  >
-                    <div class="flex items-center gap-3">
-                      <span class="text-3xl">{preset.icon}</span>
-                      <div class="flex flex-col">
-                        <div class="text-base font-bold text-[var(--mq-ink)]">
-                          {preset.label}
-                        </div>
-                        <div class="text-xs text-[#5e718a]">
-                          {preset.description}
-                        </div>
-                      </div>
-                    </div>
-                    {preset.recommended ? (
-                      <span class="mt-2 inline-flex w-fit items-center gap-1 rounded-xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
-                        おすすめ
-                      </span>
-                    ) : null}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
           <div id="game-container" class="hidden space-y-6">
             <div class="flex items-center justify-between gap-4">
               <div class="difficulty-badge">
