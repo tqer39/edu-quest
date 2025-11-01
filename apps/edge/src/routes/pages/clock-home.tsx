@@ -65,12 +65,10 @@ export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
         <GradeSelection>
           {grades.map((grade) => {
             const description = getGradeDescription(grade);
-            const stars = '★'.repeat(grade);
             return (
               <GradeCard
                 key={grade}
                 gradeNumber={grade}
-                stars={stars}
                 description={description}
                 href={`/clock/select?grade=elem-${grade}`}
               />

@@ -77,7 +77,6 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
         <GradeSelection>
           {grades.map((grade) => {
             const description = getGradeDescription(grade);
-            const stars = '★'.repeat(grade);
             const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
             const href = `/kanji/select?grade=${gradeParam}`;
             const disabled = grade > 2;
@@ -86,7 +85,6 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
               <GradeCard
                 key={grade}
                 gradeNumber={grade}
-                stars={stars}
                 description={description}
                 href={href}
                 disabled={disabled}

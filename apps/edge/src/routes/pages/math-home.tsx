@@ -1,6 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import { gradeLevels, type GradeId } from './grade-presets';
+import { gradeLevels } from './grade-presets';
 import { createSchoolGradeParam } from '../utils/school-grade';
 import { BackToTopLink } from '../components/back-to-top-link';
 import {
@@ -43,11 +43,6 @@ const MathNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   </nav>
 );
 
-const getGradeStars = (grade: GradeId): string => {
-  const order = gradeLevels.findIndex((level) => level.id === grade) + 1;
-  return '★'.repeat(order);
-};
-
 export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser,
 }) => (
@@ -68,7 +63,6 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
       <GradeSelection>
         {gradeLevels.map((grade, index) => {
           const gradeNumber = index + 1;
-          const stars = getGradeStars(grade.id);
           const href = `/math/select?grade=${encodeURIComponent(
             createSchoolGradeParam({ stage: '小学', grade: gradeNumber })
           )}`;
@@ -77,7 +71,6 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
             <GradeCard
               key={grade.id}
               gradeNumber={gradeNumber}
-              stars={stars}
               description={grade.description}
               href={href}
               disabled={grade.disabled}

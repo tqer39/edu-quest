@@ -33,7 +33,6 @@ export const QuestHeader: FC<QuestHeaderProps> = ({
 type GradeCardProps = {
   gradeNumber?: number;
   label?: string;
-  stars?: string;
   description: string;
   highlight?: string;
   href: string;
@@ -43,7 +42,6 @@ type GradeCardProps = {
 export const GradeCard: FC<GradeCardProps> = ({
   gradeNumber,
   label,
-  stars,
   description,
   highlight,
   href,
@@ -54,9 +52,6 @@ export const GradeCard: FC<GradeCardProps> = ({
       <div class="text-2xl font-bold text-[var(--mq-ink)]">
         {label || `小学${gradeNumber}年生`}
       </div>
-      {stars && (
-        <div class="text-lg text-[var(--mq-primary-strong)]">{stars}</div>
-      )}
       <div class="text-sm text-[#5e718a]">{description}</div>
       {highlight && (
         <div class="text-xs font-semibold uppercase tracking-wide text-[var(--mq-primary-strong)]">
