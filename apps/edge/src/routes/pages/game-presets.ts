@@ -5,6 +5,7 @@ export type GameGradeLevel = {
   label: string;
   description: string;
   highlight: string;
+  disabled?: boolean;
 };
 
 export const gameGradeLevels: readonly GameGradeLevel[] = [
@@ -25,24 +26,28 @@ export const gameGradeLevels: readonly GameGradeLevel[] = [
     label: '小学3年生',
     description: '6×6 の論理パズルで集中力をアップ',
     highlight: '6×6 ふつう',
+    disabled: true,
   },
   {
     id: 'grade-4',
     label: '小学4年生',
     description: '6×6 を極めて 9×9 にステップアップ',
     highlight: '9×9 かんたん',
+    disabled: true,
   },
   {
     id: 'grade-5',
     label: '小学5年生',
     description: '9×9 の標準レベルで推理力を鍛える',
     highlight: '9×9 ふつう',
+    disabled: true,
   },
   {
     id: 'grade-6',
     label: '小学6年生',
     description: '9×9 の難問でロジックを磨こう',
     highlight: '9×9 むずかしい',
+    disabled: true,
   },
 ] as const;
 

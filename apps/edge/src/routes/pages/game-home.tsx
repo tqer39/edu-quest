@@ -69,21 +69,41 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
         <section class="space-y-6">
           <h2 class="text-xl font-bold text-[var(--mq-ink)]">学年を選ぶ</h2>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {gameGradeLevels.map((level) => (
-              <a
-                key={level.id}
-                href={`/game/select?grade=${encodeURIComponent(level.id)}`}
-                class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-              >
-                <div class="text-2xl font-bold text-[var(--mq-ink)]">
-                  {level.label}
-                </div>
-                <div class="text-sm text-[#5e718a]">{level.description}</div>
-                <div class="text-xs font-semibold uppercase tracking-wide text-[var(--mq-primary-strong)]">
-                  {level.highlight}
-                </div>
-              </a>
-            ))}
+            {gameGradeLevels.map((level) => {
+              if (level.disabled) {
+                return (
+                  <div
+                    key={level.id}
+                    class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-6 text-left text-gray-500 shadow-lg opacity-60"
+                  >
+                    <div class="text-2xl font-bold">{level.label}</div>
+                    <div class="text-sm">{level.description}</div>
+                    <div class="text-xs font-semibold uppercase tracking-wide">
+                      {level.highlight}
+                    </div>
+                    <div class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-500">
+                      🔒 準備中
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={level.id}
+                  href={`/game/select?grade=${encodeURIComponent(level.id)}`}
+                  class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                >
+                  <div class="text-2xl font-bold text-[var(--mq-ink)]">
+                    {level.label}
+                  </div>
+                  <div class="text-sm text-[#5e718a]">{level.description}</div>
+                  <div class="text-xs font-semibold uppercase tracking-wide text-[var(--mq-primary-strong)]">
+                    {level.highlight}
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </section>
 
