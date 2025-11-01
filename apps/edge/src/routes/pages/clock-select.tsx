@@ -1,10 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockDifficulty, ClockGrade } from '@edu-quest/domain';
-import {
-  getDifficultyDescription,
-  getGradeDescription,
-} from '@edu-quest/domain';
+import { getGradeDescription } from '@edu-quest/domain';
 
 const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
   currentUser: _currentUser,
@@ -33,34 +30,74 @@ const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
   </nav>
 );
 
-type DifficultyCardProps = {
-  grade: ClockGrade;
+const questOptions: {
+  id: 'reading' | 'conversion' | 'arithmetic' | 'variety';
+  title: string;
+  description: string;
+  icon: string;
   difficulty: ClockDifficulty;
-};
+}[] = [
+  {
+    id: 'reading',
+    title: 'アナログ・デジタル時計の読み問題',
+    description:
+      '長針・短針やデジタル表示を読み取って、正しい時刻を答えるクエストです。',
+    icon: '🕒',
+    difficulty: 1,
+  },
+  {
+    id: 'conversion',
+    title: 'アナログ・デジタルの変換問題',
+    description:
+      'アナログ表示とデジタル表示を切り替えながら、同じ時刻を表す力を鍛えます。',
+    icon: '🔄',
+    difficulty: 2,
+  },
+  {
+    id: 'arithmetic',
+    title: '時間のたし算・引き算',
+    description:
+      '○時△分からの経過時間や、合計時間を求める計算問題に挑戦しましょう。',
+    icon: '➕',
+    difficulty: 4,
+  },
+  {
+    id: 'variety',
+    title: 'その他色々',
+    description:
+      'カレンダーや日常生活のスケジュールなど、多彩な時計クイズをランダムに出題します。',
+    icon: '✨',
+    difficulty: 5,
+  },
+];
 
-const DifficultyCard: FC<DifficultyCardProps> = ({ grade, difficulty }) => {
-  const description = getDifficultyDescription(difficulty);
-  const stars = '★'.repeat(difficulty);
-
-  return (
-    <a
-      href={`/clock/start?grade=${grade}&difficulty=${difficulty}`}
-      class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-    >
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">
-        レベル {difficulty}
+const QuestCard: FC<{
+  grade: ClockGrade;
+  option: (typeof questOptions)[number];
+}> = ({ grade, option }) => (
+  <a
+    href={`/clock/start?grade=${grade}&type=${option.id}&difficulty=${option.difficulty}`}
+    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+  >
+    <span class="text-4xl" aria-hidden="true">
+      {option.icon}
+    </span>
+    <div class="space-y-2">
+      <div class="text-xl font-bold text-[var(--mq-ink)]">
+        {option.title}
       </div>
-      <div class="text-lg text-[var(--mq-primary-strong)]">{stars}</div>
-      <div class="text-sm text-[#5e718a]">{description}</div>
-    </a>
-  );
-};
+      <p class="text-sm leading-relaxed text-[#5e718a]">{option.description}</p>
+    </div>
+    <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
+      クエスト開始 →
+    </span>
+  </a>
+);
 
 export const ClockSelect: FC<{
   currentUser: CurrentUser | null;
   grade: ClockGrade;
 }> = ({ currentUser: _currentUser, grade }) => {
-  const difficulties: ClockDifficulty[] = [1, 2, 3, 4, 5];
   const gradeDescription = getGradeDescription(grade);
 
   return (
@@ -74,7 +111,7 @@ export const ClockSelect: FC<{
         <span class="text-6xl">🕐</span>
         <div class="space-y-4">
           <h1 class="text-3xl font-extrabold sm:text-4xl">
-            レベルを選んでください
+            クエストを選んでください
           </h1>
           <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
             {grade}年生向けのおすすめ:
@@ -86,40 +123,13 @@ export const ClockSelect: FC<{
 
       <section>
         <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-          チャレンジするレベル
+          チャレンジするクエスト
         </h2>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {difficulties.map((difficulty) => (
-            <DifficultyCard
-              key={difficulty}
-              grade={grade}
-              difficulty={difficulty}
-            />
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+          {questOptions.map((option) => (
+            <QuestCard key={option.id} grade={grade} option={option} />
           ))}
         </div>
-      </section>
-
-      <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-        <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
-          レベルについて
-        </h2>
-        <ul class="space-y-2 text-sm text-[#5e718a]">
-          <li>
-            ✓ <strong>レベル1:</strong> ちょうどの時刻（1時、2時など）
-          </li>
-          <li>
-            ✓ <strong>レベル2:</strong> ちょうどと半（1時、1時半など）
-          </li>
-          <li>
-            ✓ <strong>レベル3:</strong> 15分きざみ（1時15分、1時45分など）
-          </li>
-          <li>
-            ✓ <strong>レベル4:</strong> 5分きざみ（1時5分、1時10分など）
-          </li>
-          <li>
-            ✓ <strong>レベル5:</strong> 1分きざみ（任意の時刻）
-          </li>
-        </ul>
       </section>
     </div>
   );
