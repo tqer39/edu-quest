@@ -15,7 +15,7 @@ const MathNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
     <div class="flex items-center gap-2">
       <a href="/" class="flex items-center gap-2 transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          🧮
+          🔢
         </span>
         <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
           MathQuest
@@ -54,7 +54,7 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
     <MathNav currentUser={currentUser} />
     <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
       <QuestHeader
-        icon="🧮"
+        icon="🔢"
         title="MathQuest"
         description="学年をえらんで算数のれんしゅうをはじめよう。"
         subtitle="たし算・ひき算だけでなく、逆算やテーマ学習にも挑戦できます。"
