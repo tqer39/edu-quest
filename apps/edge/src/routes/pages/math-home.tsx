@@ -2,7 +2,40 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { gradeLevels, type GradeId } from './grade-presets';
 import { createSchoolGradeParam } from '../utils/school-grade';
-import { Header } from '../../components/Header';
+import { BackToTopLink } from '../components/back-to-top-link';
+
+const MathNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
+  <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
+    <div class="flex items-center gap-2">
+      <a href="/" class="flex items-center gap-2 transition hover:opacity-80">
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+          🧮
+        </span>
+        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+          MathQuest
+        </span>
+      </a>
+    </div>
+    <div class="flex items-center gap-2">
+      <BackToTopLink />
+      {currentUser ? (
+        <a
+          href="/auth/logout"
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        >
+          ログアウト
+        </a>
+      ) : (
+        <a
+          href="/auth/login"
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        >
+          ログイン
+        </a>
+      )}
+    </div>
+  </nav>
+);
 
 const getGradeStars = (grade: GradeId): string => {
   const order = gradeLevels.findIndex((level) => level.id === grade) + 1;
@@ -17,7 +50,7 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
     data-user-state={currentUser ? 'known' : 'anonymous'}
     style="--mq-primary: #6B9BD1; --mq-primary-strong: #3B7AC7; --mq-primary-soft: #D6E4F5; --mq-accent: #B7D4F7; --mq-outline: rgba(107, 155, 209, 0.45);"
   >
-    <Header currentUser={currentUser} />
+    <MathNav currentUser={currentUser} />
     <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
       <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
         <span class="text-6xl">🧮</span>
