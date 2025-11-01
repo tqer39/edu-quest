@@ -168,6 +168,9 @@ const MODULE_SOURCE = `
     const countdownOverlay = document.getElementById('countdown-overlay');
     const countdownNumber = document.getElementById('countdown-number');
 
+    console.log('Sudoku page initialized');
+    console.log('Preset buttons found:', presetButtons.length);
+
     let currentPuzzle = null;
     let currentSolution = null;
     let selectedCell = null;
@@ -519,8 +522,10 @@ const MODULE_SOURCE = `
     // プリセットボタン
     presetButtons.forEach(button => {
       button.addEventListener('click', async () => {
+        console.log('Preset button clicked!');
         const size = Number(button.dataset.size);
         const difficulty = button.dataset.difficulty;
+        console.log('Size:', size, 'Difficulty:', difficulty);
         // カウントダウンを実行してからゲーム開始
         await runCountdown();
         startNewGame(size, difficulty);

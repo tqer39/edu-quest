@@ -360,7 +360,7 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
           🎮
         </span>
         <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          GameQuest - {grade.label}
+          GameQuest - {grade.label} - 数独
         </span>
       </div>
       <div class="flex flex-wrap gap-2">
@@ -590,21 +590,21 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
           </div>
         </aside>
       </main>
-
-      {/* カウントダウンオーバーレイ */}
-      <div
-        id="countdown-overlay"
-        class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[var(--mq-surface-strong)] bg-opacity-95"
-      >
-        <div
-          id="countdown-number"
-          class="text-9xl font-extrabold text-[var(--mq-primary-strong)] animate-pulse"
-        >
-          3
-        </div>
-      </div>
-
-      {renderSudokuClientScript()}
     </div>
+
+    {/* カウントダウンオーバーレイ */}
+    <div
+      id="countdown-overlay"
+      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[var(--mq-surface-strong)] bg-opacity-95"
+    >
+      <div
+        id="countdown-number"
+        class="text-9xl font-extrabold text-[var(--mq-primary-strong)] animate-pulse"
+      >
+        3
+      </div>
+    </div>
+
+    {renderSudokuClientScript()}
   </div>
 );
