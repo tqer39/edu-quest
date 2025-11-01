@@ -14,9 +14,9 @@ const GameNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
         <img
           src="/gamequest-logo.svg"
           alt="GameQuest Logo"
-          class="h-10 w-10"
-          width="40"
-          height="40"
+          class="h-7 w-7"
+          width="28"
+          height="28"
         />
         <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
           GameQuest
