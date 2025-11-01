@@ -3,6 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { GradeId } from './grade-presets';
 import { getGameGradeById } from './game-presets';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 
 const GameNav: FC<{
   currentUser: CurrentUser | null;
@@ -123,6 +124,8 @@ export const GameSelect: FC<{
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockDifficulty, ClockGrade } from '@edu-quest/domain';
 import { getGradeDescription } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 
 const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
   currentUser,
@@ -144,6 +145,8 @@ export const ClockSelect: FC<{
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };

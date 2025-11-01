@@ -4,6 +4,7 @@ import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
 import { gradeLevels, type GradeId } from './grade-presets';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 
 type MathQuestOption = {
   id: 'calc-add' | 'calc-sub' | 'calc-mul' | 'calc-div';
@@ -212,6 +213,8 @@ export const MathSelect: FC<{
           </ul>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };

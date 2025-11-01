@@ -2,6 +2,7 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
 
@@ -158,6 +159,8 @@ export const KanjiSelect: FC<{
           </ul>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };
