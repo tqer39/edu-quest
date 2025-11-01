@@ -74,10 +74,10 @@ export const ClockSelect: FC<{
         <span class="text-6xl">🕐</span>
         <div class="space-y-4">
           <h1 class="text-3xl font-extrabold sm:text-4xl">
-            レベルを選んでください
+            クエストを選ぶ
           </h1>
           <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-            {grade}年生向けのおすすめ:
+            {grade}年生向けのおすすめクエストを選択してください。
             <br />
             {gradeDescription}
           </p>
@@ -86,7 +86,7 @@ export const ClockSelect: FC<{
 
       <section>
         <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-          チャレンジするレベル
+          チャレンジするクエスト
         </h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {difficulties.map((difficulty) => (

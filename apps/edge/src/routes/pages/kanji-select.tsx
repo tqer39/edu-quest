@@ -96,21 +96,17 @@ export const KanjiSelect: FC<{
       <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
         <span class="text-6xl">✏️</span>
         <div class="space-y-4">
-          <h1 class="text-3xl font-extrabold sm:text-4xl">
-            クエストを選んでください
-          </h1>
+          <h1 class="text-3xl font-extrabold sm:text-4xl">クエストを選ぶ</h1>
           <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
             {gradeLabel}の漢字で遊びましょう！
             <br />
-            挑戦したいクエストを選んでください。
+            挑戦したいクエストをえらんでスタートしよう。
           </p>
         </div>
       </header>
 
       <section>
-        <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-          クエストタイプ
-        </h2>
+        <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">チャレンジするクエスト</h2>
         <div class="grid gap-6 sm:grid-cols-2">
           {questTypes.map((questType) => (
             <QuestTypeCard
