@@ -1,12 +1,12 @@
 import type { FC } from 'hono/jsx';
 
 export const Footer: FC = () => (
-  <footer class="mt-auto w-full bg-[var(--mq-surface)] px-4 py-16 backdrop-blur sm:px-8 lg:px-16 xl:px-24">
+  <footer class="mt-auto w-full bg-[var(--mq-surface)] px-4 py-8 backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="mx-auto max-w-7xl">
-      <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-        <div class="space-y-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 space-y-8">
+        <div class="space-y-2">
           <h3 class="text-sm font-semibold text-[var(--mq-ink)]">サービス</h3>
-          <div class="flex flex-col gap-3 text-sm">
+          <div class="flex flex-col gap-1 text-sm">
             <a
               class="text-[#5e718a] transition hover:text-[var(--mq-primary-strong)]"
               href="/parents"
@@ -18,17 +18,17 @@ export const Footer: FC = () => (
           </div>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-2">
           <h3 class="text-sm font-semibold text-[var(--mq-ink)]">サポート</h3>
-          <div class="flex flex-col gap-3 text-sm">
+          <div class="flex flex-col gap-1 text-sm">
             <span class="text-[#9ca3af]">お問い合わせ（準備中）</span>
             <span class="text-[#9ca3af]">プライバシーポリシー（準備中）</span>
           </div>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-2">
           <h3 class="text-sm font-semibold text-[var(--mq-ink)]">開発</h3>
-          <div class="flex flex-col gap-3 text-sm">
+          <div class="flex flex-col gap-1 text-sm">
             <a
               class="inline-flex items-center gap-2 text-[#5e718a] transition hover:text-[var(--mq-primary-strong)]"
               href="https://github.com/tqer39/edu-quest"
@@ -48,7 +48,7 @@ export const Footer: FC = () => (
           </div>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-2">
           <h3 class="text-sm font-semibold text-[var(--mq-ink)]">EduQuest</h3>
           <p class="text-sm text-[#5e718a]">小学生向けの学習プラットフォーム</p>
         </div>
