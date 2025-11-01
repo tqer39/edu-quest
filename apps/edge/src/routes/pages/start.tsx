@@ -140,8 +140,11 @@ export const Start: FC<StartProps> = ({
             <div>
               <p class="step-number text-xs font-semibold uppercase tracking-[0.35em] text-[#6c7c90]"></p>
               <h2 class="text-2xl font-extrabold text-[var(--mq-ink)]">
-                なにをするか えらぼう
+                クエストを選ぶ
               </h2>
+              <p class="mt-1 text-sm text-[#5e718a]">
+                やりたいクエストをえらんでスタートしよう。
+              </p>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
               <button
