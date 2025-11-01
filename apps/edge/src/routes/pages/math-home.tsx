@@ -1,19 +1,16 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import { BackToTopLink } from '../components/back-to-top-link';
 import { gradeLevels, type GradeId } from './grade-presets';
+import { createSchoolGradeParam } from '../utils/school-grade';
+import { BackToTopLink } from '../components/back-to-top-link';
 
 const MathNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
       <a href="/" class="flex items-center gap-2 transition hover:opacity-80">
-        <img
-          src="/logo.svg"
-          alt="EduQuest Logo"
-          class="h-7 w-7"
-          width="28"
-          height="28"
-        />
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+          🧮
+        </span>
         <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
           MathQuest
         </span>
@@ -93,7 +90,9 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
             return (
               <a
                 key={grade.id}
-                href={`/math/start?grade=${gradeNumber}`}
+                href={`/math/select?grade=${encodeURIComponent(
+                  createSchoolGradeParam({ stage: '小学', grade: gradeNumber })
+                )}`}
                 class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
               >
                 <div class="text-2xl font-bold text-[var(--mq-ink)]">
