@@ -372,7 +372,7 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
           href={`/game?grade=${encodeURIComponent(grade.id)}`}
           class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
         >
-          学年を変更
+          ← 学年を変更
         </a>
       </div>
     </nav>
