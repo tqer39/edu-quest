@@ -812,7 +812,9 @@ app.get('/clock', async (c) =>
 
 app.get('/clock/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  const grade = Number(gradeParam) as ClockGrade;
+  // elem-1 形式から数字を抽出
+  const gradeMatch = gradeParam?.match(/^elem-(\d)$/);
+  const grade = gradeMatch ? (Number(gradeMatch[1]) as ClockGrade) : null;
 
   if (!grade || grade < 1 || grade > 6) {
     return c.redirect('/clock', 302);
@@ -824,8 +826,8 @@ app.get('/clock/select', async (c) => {
       grade={grade}
     />,
     {
-      title: `ClockQuest | ${grade}年生のクエスト選択`,
-      description: `${grade}年生向けの時計クエストを選択しましょう。`,
+      title: `ClockQuest | 小学${grade}年生のクエスト選択`,
+      description: `小学${grade}年生向けの時計クエストを選択しましょう。`,
       favicon: '/favicon-clock.svg',
     }
   );
@@ -849,7 +851,9 @@ app.get('/clock/start', async (c) => {
   const difficultyParam = c.req.query('difficulty');
   const typeParam = c.req.query('type');
 
-  const grade = Number(gradeParam) as ClockGrade;
+  // elem-1 形式から数字を抽出
+  const gradeMatch = gradeParam?.match(/^elem-(\d)$/);
+  const grade = gradeMatch ? (Number(gradeMatch[1]) as ClockGrade) : null;
   let difficulty: ClockDifficulty | null = null;
 
   if (!grade || grade < 1 || grade > 6) {

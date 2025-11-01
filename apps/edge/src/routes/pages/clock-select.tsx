@@ -90,7 +90,7 @@ const QuestCard: FC<{
   option: (typeof questOptions)[number];
 }> = ({ grade, option }) => (
   <a
-    href={`/clock/start?grade=${grade}&type=${option.id}&difficulty=${option.difficulty}`}
+    href={`/clock/start?grade=elem-${grade}&type=${option.id}&difficulty=${option.difficulty}`}
     class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
     <span class="text-4xl" aria-hidden="true">

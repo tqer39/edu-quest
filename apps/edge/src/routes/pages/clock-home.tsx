@@ -72,7 +72,7 @@ export const ClockHome: FC<{ currentUser: CurrentUser | null }> = ({
                 gradeNumber={grade}
                 stars={stars}
                 description={description}
-                href={`/clock/select?grade=${grade}`}
+                href={`/clock/select?grade=elem-${grade}`}
               />
             );
           })}

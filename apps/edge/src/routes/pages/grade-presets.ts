@@ -3,37 +3,37 @@ import type { DifficultyProfile, Mode } from '@edu-quest/domain';
 
 export const gradeLevels = [
   {
-    id: 'grade-1',
+    id: 'elem-1',
     label: '小学1年生',
     description: '小学1年生',
     disabled: false,
   },
   {
-    id: 'grade-2',
+    id: 'elem-2',
     label: '小学2年生',
     description: '小学2年生',
     disabled: false,
   },
   {
-    id: 'grade-3',
+    id: 'elem-3',
     label: '小学3年生',
     description: '小学3年生',
     disabled: true,
   },
   {
-    id: 'grade-4',
+    id: 'elem-4',
     label: '小学4年生',
     description: '小学4年生',
     disabled: true,
   },
   {
-    id: 'grade-5',
+    id: 'elem-5',
     label: '小学5年生',
     description: '小学5年生',
     disabled: true,
   },
   {
-    id: 'grade-6',
+    id: 'elem-6',
     label: '小学6年生',
     description: '小学6年生',
     disabled: true,
@@ -159,7 +159,7 @@ export const calculationTypes = [
 
 // 学年ごとの利用可能な計算種類
 export const gradeCalculationTypes = {
-  'grade-1': [
+  'elem-1': [
     'calc-add',
     'calc-sub',
     'calc-add-sub-mix',
@@ -167,7 +167,7 @@ export const gradeCalculationTypes = {
     'calc-sub-inverse',
     'calc-custom',
   ],
-  'grade-2': [
+  'elem-2': [
     'calc-add',
     'calc-sub',
     'calc-add-sub-mix',
@@ -175,7 +175,7 @@ export const gradeCalculationTypes = {
     'calc-sub-inverse',
     'calc-custom',
   ],
-  'grade-3': [
+  'elem-3': [
     'calc-add',
     'calc-sub',
     'calc-add-sub-mix',
@@ -184,7 +184,7 @@ export const gradeCalculationTypes = {
     'calc-mul',
     'calc-custom',
   ],
-  'grade-4': [
+  'elem-4': [
     'calc-add',
     'calc-sub',
     'calc-add-sub-mix',
@@ -194,7 +194,7 @@ export const gradeCalculationTypes = {
     'calc-div',
     'calc-custom',
   ],
-  'grade-5': [
+  'elem-5': [
     'calc-add',
     'calc-sub',
     'calc-add-sub-mix',
@@ -205,7 +205,7 @@ export const gradeCalculationTypes = {
     'calc-mix',
     'calc-custom',
   ],
-  'grade-6': [
+  'elem-6': [
     'calc-add',
     'calc-sub',
     'calc-add-sub-mix',
@@ -260,7 +260,7 @@ const rawPracticeThemes = [
     description: '1 + 2 のような2つの数のたし算',
     mode: 'add' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - たし算（10以下・三項）
@@ -270,7 +270,7 @@ const rawPracticeThemes = [
     description: '1 + 2 + 3 のような3つの数のたし算',
     mode: 'add' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - ひき算（10以下・二項）
@@ -280,7 +280,7 @@ const rawPracticeThemes = [
     description: '5 - 2 のような2つの数のひき算',
     mode: 'sub' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - ひき算（10以下・三項）
@@ -290,7 +290,7 @@ const rawPracticeThemes = [
     description: '10 - 3 - 2 のような3つの数のひき算',
     mode: 'sub' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - たし算（20以下・二項）
@@ -300,7 +300,7 @@ const rawPracticeThemes = [
     description: '10 + 5 のような2つの数のたし算',
     mode: 'add' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - たし算（20以下・三項）
@@ -310,7 +310,7 @@ const rawPracticeThemes = [
     description: '5 + 7 + 3 のような3つの数のたし算',
     mode: 'add' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - ひき算（20以下・二項）
@@ -320,7 +320,7 @@ const rawPracticeThemes = [
     description: '15 - 8 のような2つの数のひき算',
     mode: 'sub' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - ひき算（20以下・三項）
@@ -330,7 +330,7 @@ const rawPracticeThemes = [
     description: '20 - 7 - 5 のような3つの数のひき算',
     mode: 'sub' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小2向け - たし算（50以下・二項）
@@ -340,7 +340,7 @@ const rawPracticeThemes = [
     description: '25 + 15 のような2つの数のたし算',
     mode: 'add' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - たし算（50以下・三項）
@@ -350,7 +350,7 @@ const rawPracticeThemes = [
     description: '10 + 15 + 8 のような3つの数のたし算',
     mode: 'add' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - ひき算（50以下・二項）
@@ -360,7 +360,7 @@ const rawPracticeThemes = [
     description: '40 - 18 のような2つの数のひき算',
     mode: 'sub' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - ひき算（50以下・三項）
@@ -370,7 +370,7 @@ const rawPracticeThemes = [
     description: '50 - 20 - 10 のような3つの数のひき算',
     mode: 'sub' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - たし算（100以下・二項）
@@ -380,7 +380,7 @@ const rawPracticeThemes = [
     description: '45 + 38 のような2つの数のたし算',
     mode: 'add' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - たし算（100以下・三項）
@@ -390,7 +390,7 @@ const rawPracticeThemes = [
     description: '25 + 30 + 12 のような3つの数のたし算',
     mode: 'add' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - ひき算（100以下・二項）
@@ -400,7 +400,7 @@ const rawPracticeThemes = [
     description: '73 - 29 のような2つの数のひき算',
     mode: 'sub' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - ひき算（100以下・三項）
@@ -410,7 +410,7 @@ const rawPracticeThemes = [
     description: '100 - 40 - 25 のような3つの数のひき算',
     mode: 'sub' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小3向け - たし算（200以下・二項）
@@ -420,7 +420,7 @@ const rawPracticeThemes = [
     description: '125 + 48 のような2つの数のたし算',
     mode: 'add' as const,
     max: 200,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // 小3向け - たし算（200以下・三項）
@@ -430,7 +430,7 @@ const rawPracticeThemes = [
     description: '50 + 75 + 30 のような3つの数のたし算',
     mode: 'add' as const,
     max: 200,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 3 as const,
   },
   // 小3向け - ひき算（200以下・二項）
@@ -440,7 +440,7 @@ const rawPracticeThemes = [
     description: '150 - 73 のような2つの数のひき算',
     mode: 'sub' as const,
     max: 200,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // 小3向け - ひき算（200以下・三項）
@@ -450,7 +450,7 @@ const rawPracticeThemes = [
     description: '200 - 80 - 50 のような3つの数のひき算',
     mode: 'sub' as const,
     max: 200,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 3 as const,
   },
   // 小3向け - たし算（500以下・二項）
@@ -460,7 +460,7 @@ const rawPracticeThemes = [
     description: '235 + 178 のような2つの数のたし算',
     mode: 'add' as const,
     max: 500,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // 小3向け - たし算（500以下・三項）
@@ -470,7 +470,7 @@ const rawPracticeThemes = [
     description: '100 + 200 + 85 のような3つの数のたし算',
     mode: 'add' as const,
     max: 500,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 3 as const,
   },
   // 小3向け - ひき算（500以下・二項）
@@ -480,7 +480,7 @@ const rawPracticeThemes = [
     description: '380 - 145 のような2つの数のひき算',
     mode: 'sub' as const,
     max: 500,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // 小3向け - ひき算（500以下・三項）
@@ -490,7 +490,7 @@ const rawPracticeThemes = [
     description: '500 - 200 - 100 のような3つの数のひき算',
     mode: 'sub' as const,
     max: 500,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 3 as const,
   },
   // 小3向け - 小数のたし算（基礎）
@@ -500,7 +500,7 @@ const rawPracticeThemes = [
     description: '小数点以下1桁までのたし算',
     mode: 'add' as const,
     max: 10,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     isDecimal: true,
     terms: 2 as const,
   },
@@ -511,7 +511,7 @@ const rawPracticeThemes = [
     description: '小数点以下1桁までのひき算',
     mode: 'sub' as const,
     max: 10,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     isDecimal: true,
     terms: 2 as const,
   },
@@ -522,7 +522,7 @@ const rawPracticeThemes = [
     description: '小数点以下2桁までのたし算',
     mode: 'add' as const,
     max: 100,
-    minGrade: 'grade-4',
+    minGrade: 'elem-4',
     isDecimal: true,
     terms: 2 as const,
   },
@@ -533,7 +533,7 @@ const rawPracticeThemes = [
     description: '小数点以下2桁までのひき算',
     mode: 'sub' as const,
     max: 100,
-    minGrade: 'grade-4',
+    minGrade: 'elem-4',
     isDecimal: true,
     terms: 2 as const,
   },
@@ -544,7 +544,7 @@ const rawPracticeThemes = [
     description: '1 + ? = 10 のような2つの数の逆算',
     mode: 'add-inverse' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - 逆算（10まで・三項）
@@ -554,7 +554,7 @@ const rawPracticeThemes = [
     description: '1 + ? + 2 = 10 のような3つの数の逆算',
     mode: 'add-inverse' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - 逆算（20まで・二項）
@@ -564,7 +564,7 @@ const rawPracticeThemes = [
     description: '5 + ? = 20 のような2つの数の逆算',
     mode: 'add-inverse' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - 逆算（20まで・三項）
@@ -574,7 +574,7 @@ const rawPracticeThemes = [
     description: '5 + ? + 3 = 20 のような3つの数の逆算',
     mode: 'add-inverse' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - ひき算逆算（10まで・二項）
@@ -584,7 +584,7 @@ const rawPracticeThemes = [
     description: '10 - ? = 3 のような2つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - ひき算逆算（10まで・三項）
@@ -594,7 +594,7 @@ const rawPracticeThemes = [
     description: '10 - ? - 2 = 3 のような3つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - ひき算逆算（20まで・二項）
@@ -604,7 +604,7 @@ const rawPracticeThemes = [
     description: '20 - ? = 8 のような2つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - ひき算逆算（20まで・三項）
@@ -614,7 +614,7 @@ const rawPracticeThemes = [
     description: '20 - ? - 5 = 8 のような3つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - たし算・ひき算ミックス（10まで・二項）
@@ -624,7 +624,7 @@ const rawPracticeThemes = [
     description: '5 + 3 や 8 - 2 のような2つの数',
     mode: 'add-sub-mix' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - たし算・ひき算ミックス（10まで・三項）
@@ -634,7 +634,7 @@ const rawPracticeThemes = [
     description: '1 + 2 + 3 や 5 + 3 - 2 のような3つの数',
     mode: 'add-sub-mix' as const,
     max: 10,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小1向け - たし算・ひき算ミックス（20まで・二項）
@@ -644,7 +644,7 @@ const rawPracticeThemes = [
     description: '12 + 5 や 15 - 7 のような2つの数',
     mode: 'add-sub-mix' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 2 as const,
   },
   // 小1向け - たし算・ひき算ミックス（20まで・三項）
@@ -654,7 +654,7 @@ const rawPracticeThemes = [
     description: '5 + 7 + 3 や 10 + 5 - 3 のような3つの数',
     mode: 'add-sub-mix' as const,
     max: 20,
-    minGrade: 'grade-1',
+    minGrade: 'elem-1',
     terms: 3 as const,
   },
   // 小2向け - 逆算（50まで・二項）
@@ -664,7 +664,7 @@ const rawPracticeThemes = [
     description: '10 + ? = 50 のような2つの数の逆算',
     mode: 'add-inverse' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - 逆算（50まで・三項）
@@ -674,7 +674,7 @@ const rawPracticeThemes = [
     description: '10 + ? + 5 = 50 のような3つの数の逆算',
     mode: 'add-inverse' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - 逆算（100まで・二項）
@@ -684,7 +684,7 @@ const rawPracticeThemes = [
     description: '25 + ? = 100 のような2つの数の逆算',
     mode: 'add-inverse' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - 逆算（100まで・三項）
@@ -694,7 +694,7 @@ const rawPracticeThemes = [
     description: '20 + ? + 10 = 100 のような3つの数の逆算',
     mode: 'add-inverse' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - ひき算逆算（50まで・二項）
@@ -704,7 +704,7 @@ const rawPracticeThemes = [
     description: '50 - ? = 18 のような2つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - ひき算逆算（50まで・三項）
@@ -714,7 +714,7 @@ const rawPracticeThemes = [
     description: '50 - ? - 10 = 18 のような3つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - ひき算逆算（100まで・二項）
@@ -724,7 +724,7 @@ const rawPracticeThemes = [
     description: '100 - ? = 37 のような2つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - ひき算逆算（100まで・三項）
@@ -734,7 +734,7 @@ const rawPracticeThemes = [
     description: '100 - ? - 25 = 37 のような3つの数のひき算逆算',
     mode: 'sub-inverse' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - たし算・ひき算ミックス（50まで・二項）
@@ -744,7 +744,7 @@ const rawPracticeThemes = [
     description: '23 + 15 や 40 - 12 のような2つの数',
     mode: 'add-sub-mix' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - たし算・ひき算ミックス（50まで・三項）
@@ -754,7 +754,7 @@ const rawPracticeThemes = [
     description: '10 + 15 + 8 や 30 + 10 - 5 のような3つの数',
     mode: 'add-sub-mix' as const,
     max: 50,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小2向け - たし算・ひき算ミックス（100まで・二項）
@@ -764,7 +764,7 @@ const rawPracticeThemes = [
     description: '45 + 38 や 73 - 29 のような2つの数',
     mode: 'add-sub-mix' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 2 as const,
   },
   // 小2向け - たし算・ひき算ミックス（100まで・三項）
@@ -774,7 +774,7 @@ const rawPracticeThemes = [
     description: '25 + 30 + 12 や 50 + 20 - 15 のような3つの数',
     mode: 'add-sub-mix' as const,
     max: 100,
-    minGrade: 'grade-2',
+    minGrade: 'elem-2',
     terms: 3 as const,
   },
   // 小3向け - たし算・ひき算ミックス（200まで・二項）
@@ -784,7 +784,7 @@ const rawPracticeThemes = [
     description: '125 + 48 や 150 - 73 のような2つの数',
     mode: 'add-sub-mix' as const,
     max: 200,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // 小3向け - たし算・ひき算ミックス（200まで・三項）
@@ -794,7 +794,7 @@ const rawPracticeThemes = [
     description: '50 + 75 + 30 や 100 + 50 - 25 のような3つの数',
     mode: 'add-sub-mix' as const,
     max: 200,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 3 as const,
   },
   // 小3向け - たし算・ひき算ミックス（500まで・二項）
@@ -804,7 +804,7 @@ const rawPracticeThemes = [
     description: '235 + 178 や 380 - 145 のような2つの数',
     mode: 'add-sub-mix' as const,
     max: 500,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // 小3向け - たし算・ひき算ミックス（500まで・三項）
@@ -814,7 +814,7 @@ const rawPracticeThemes = [
     description: '100 + 200 + 85 や 300 + 100 - 50 のような3つの数',
     mode: 'add-sub-mix' as const,
     max: 500,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 3 as const,
   },
   // 小5向け - 四則演算ミックス（100まで・二項）
@@ -824,7 +824,7 @@ const rawPracticeThemes = [
     description: '45 + 38 や 12 × 5 のような2つの数',
     mode: 'mix' as const,
     max: 100,
-    minGrade: 'grade-5',
+    minGrade: 'elem-5',
     terms: 2 as const,
   },
   // 小5向け - 四則演算ミックス（500まで・二項）
@@ -834,7 +834,7 @@ const rawPracticeThemes = [
     description: '235 + 178 や 25 × 12 のような2つの数',
     mode: 'mix' as const,
     max: 500,
-    minGrade: 'grade-5',
+    minGrade: 'elem-5',
     terms: 2 as const,
   },
   // かけ算 - 小3向け（やさしい）
@@ -844,7 +844,7 @@ const rawPracticeThemes = [
     description: '答えが25以下のかけ算',
     mode: 'mul' as const,
     max: 25,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // かけ算 - 小3向け（九九）
@@ -854,7 +854,7 @@ const rawPracticeThemes = [
     description: '答えが81以下のかけ算',
     mode: 'mul' as const,
     max: 81,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // かけ算 - 小3向け（むずかしい）
@@ -864,7 +864,7 @@ const rawPracticeThemes = [
     description: '答えが180以下のかけ算',
     mode: 'mul' as const,
     max: 180,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
   // かけ算 - 小3向け（とてもむずかしい）
@@ -874,7 +874,7 @@ const rawPracticeThemes = [
     description: '答えが400以下のかけ算',
     mode: 'mul' as const,
     max: 400,
-    minGrade: 'grade-3',
+    minGrade: 'elem-3',
     terms: 2 as const,
   },
 ] as const satisfies readonly RawPracticeTheme[];
@@ -911,7 +911,7 @@ export const createPracticeSession = (
 
   // 学年と計算種類の組み合わせから基本設定を生成
   const maxValues = {
-    'grade-1': {
+    'elem-1': {
       add: 10,
       sub: 10,
       mul: 10,
@@ -921,7 +921,7 @@ export const createPracticeSession = (
       'sub-inverse': 10,
       'add-sub-mix': 10,
     },
-    'grade-2': {
+    'elem-2': {
       add: 100,
       sub: 100,
       mul: 50,
@@ -931,7 +931,7 @@ export const createPracticeSession = (
       'sub-inverse': 100,
       'add-sub-mix': 100,
     },
-    'grade-3': {
+    'elem-3': {
       add: 200,
       sub: 200,
       mul: 81,
@@ -941,7 +941,7 @@ export const createPracticeSession = (
       'sub-inverse': 200,
       'add-sub-mix': 200,
     },
-    'grade-4': {
+    'elem-4': {
       add: 500,
       sub: 500,
       mul: 144,
@@ -951,7 +951,7 @@ export const createPracticeSession = (
       'sub-inverse': 500,
       'add-sub-mix': 500,
     },
-    'grade-5': {
+    'elem-5': {
       add: 1000,
       sub: 1000,
       mul: 200,
@@ -961,7 +961,7 @@ export const createPracticeSession = (
       'sub-inverse': 1000,
       'add-sub-mix': 1000,
     },
-    'grade-6': {
+    'elem-6': {
       add: 2000,
       sub: 2000,
       mul: 300,
