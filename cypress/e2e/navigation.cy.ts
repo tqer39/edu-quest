@@ -28,14 +28,14 @@ describe('EduQuest Navigation', () => {
       cy.contains('学年を選んでください').should('be.visible');
     });
 
-    it('should navigate from grade selection to start configuration page', () => {
+    it('should navigate from grade selection to quest selection page', () => {
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
-      cy.url().should('include', '/math/start?grade=1');
-      cy.contains('れんしゅうの じゅんび').should('be.visible');
+      cy.url().should('include', '/math/select');
+      cy.contains('挑戦するミッションを選ぼう').should('be.visible');
     });
 
-    it('should complete navigation flow: home → math → grade → start', () => {
+    it('should complete navigation flow: home → math → grade → quest select → start', () => {
       // Start from home
       cy.visit('/');
 
@@ -46,7 +46,12 @@ describe('EduQuest Navigation', () => {
 
       // Select first grade
       cy.contains('a', '小学1年生').click();
-      cy.url().should('include', '/math/start?grade=1');
+      cy.url().should('include', '/math/select');
+      cy.contains('挑戦するミッションを選ぼう').should('be.visible');
+
+      // Select a quest (たし算)
+      cy.contains('a', 'たし算').click();
+      cy.url().should('include', '/math/start');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
   });
