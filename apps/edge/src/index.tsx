@@ -17,10 +17,12 @@ import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { MathHome } from './routes/pages/math-home';
 import { MathSelect } from './routes/pages/math-select';
+import { GameHome } from './routes/pages/game-home';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
 import { Login } from './routes/pages/login';
+import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
 import { resolveCurrentUser } from './application/session/current-user';
 import {
@@ -40,16 +42,99 @@ import type {
   KanjiGrade,
   KanjiQuestType,
 } from '@edu-quest/domain';
-import { gradeLevels, gradeCalculationTypes } from './routes/pages/grade-presets';
+import {
+  gradeLevels,
+  gradeCalculationTypes,
+  type GradeId,
+} from './routes/pages/grade-presets';
+import {
+  gameGradeLevels,
+  getGameGradeById,
+  getSudokuPresetsForGrade,
+} from './routes/pages/game-presets';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
   parseSchoolGradeParam,
 } from './routes/utils/school-grade';
 import { Document } from './views/layouts/document';
+import type { ReleaseInfo } from './types/release';
 import { assetManifest } from './middlewares/asset-manifest';
 import type { AssetManifest } from './middlewares/asset-manifest';
 import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
+
+const GITHUB_RELEASE_ENDPOINT =
+  'https://api.github.com/repos/tqer39/edu-quest/releases/latest';
+
+type GitHubReleaseResponse = {
+  tag_name?: string;
+  published_at?: string;
+};
+
+type GlobalWithProcess = typeof globalThis & {
+  process?: {
+    env?: Record<string, string | undefined>;
+  };
+};
+
+const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
+  try {
+    const maybeProcess = (globalThis as GlobalWithProcess).process;
+    if (maybeProcess?.env?.VITEST !== undefined) {
+      return null;
+    }
+
+    const cache = globalThis.caches?.default;
+    const createCacheRequest = () => new Request(GITHUB_RELEASE_ENDPOINT);
+
+    if (cache) {
+      const cached = await cache.match(createCacheRequest());
+      if (cached) {
+        try {
+          return (await cached.json()) as ReleaseInfo;
+        } catch {
+          await cache.delete(createCacheRequest());
+        }
+      }
+    }
+
+    const response = await fetch(GITHUB_RELEASE_ENDPOINT, {
+      headers: {
+        'User-Agent': 'edu-quest-worker',
+        Accept: 'application/vnd.github+json',
+      },
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const data = (await response.json()) as GitHubReleaseResponse;
+
+    if (!data.tag_name || !data.published_at) {
+      return null;
+    }
+
+    const releaseInfo: ReleaseInfo = {
+      version: data.tag_name,
+      publishedAt: data.published_at,
+    };
+
+    if (cache) {
+      const cacheResponse = new Response(JSON.stringify(releaseInfo), {
+        headers: {
+          'Cache-Control': 'public, max-age=900',
+          'Content-Type': 'application/json',
+        },
+      });
+      await cache.put(createCacheRequest(), cacheResponse);
+    }
+
+    return releaseInfo;
+  } catch {
+    return null;
+  }
+};
 
 const app = new Hono<{
   Bindings: Env;
@@ -59,6 +144,10 @@ const app = new Hono<{
 const isKanjiQuestType = (
   value: string | null | undefined
 ): value is KanjiQuestType => value === 'reading' || value === 'stroke-count';
+
+const isGameGradeId = (value: string | null | undefined): value is GradeId =>
+  typeof value === 'string' &&
+  gameGradeLevels.some((level) => level.id === value);
 
 app.use('*', logger());
 app.use('*', securityHeaders());
@@ -72,6 +161,18 @@ app.get('/favicon-kanji.svg', (c) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" fill="#9B87D4" rx="15"/>
   <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">漢</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// GameQuest favicon
+app.get('/favicon-game.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#5DB996" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="Zen Kaku Gothic New, sans-serif" font-weight="bold">遊</text>
 </svg>`;
   return c.body(svg, 200, {
     'Content-Type': 'image/svg+xml',
@@ -165,7 +266,7 @@ app.get('/hello', (c) => c.text('Hello World'));
 app.use(
   '*',
   jsxRenderer(
-    (
+    async (
       props: {
         title?: string;
         description?: string;
@@ -177,6 +278,9 @@ app.use(
       const lang = c.get('lang') ?? 'ja';
       const environment = c.env.ENVIRONMENT;
       const manifest = c.get('assetManifest') ?? null;
+      const releaseInfo =
+        environment === 'dev' ? await fetchLatestRelease() : null;
+
       return (
         <Document
           lang={lang}
@@ -185,6 +289,7 @@ app.use(
           favicon={props.favicon}
           environment={environment}
           assetManifest={manifest}
+          releaseInfo={releaseInfo}
         >
           {props.children}
         </Document>
@@ -200,6 +305,18 @@ app.get('/', async (c) =>
     description:
       '学年別の単元から選んで学習。匿名で始めて、記録を残したくなったら会員登録できる学習アプリです。',
   })
+);
+
+// Parents landing page
+app.get('/parents', async (c) =>
+  c.render(
+    <ParentsPage currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
+    {
+      title: '保護者の方へ | EduQuestの安心・安全な学び',
+      description:
+        '安全性・教育的効果・導入のしやすさを紹介。小学生のお子さまが安心して学べるEduQuestの取り組みをお伝えします。',
+    }
+  )
 );
 
 // MathQuest routes
@@ -247,7 +364,9 @@ app.get('/math/select', async (c) => {
 app.get('/math/start', async (c) => {
   const gradeParam = c.req.query('grade');
   const calcParam = c.req.query('calc');
-  let selectedGradeIndex = gradeLevels.findIndex((grade) => grade.id === gradeParam);
+  let selectedGradeIndex = gradeLevels.findIndex(
+    (grade) => grade.id === gradeParam
+  );
   let selectedGrade =
     selectedGradeIndex >= 0 ? gradeLevels[selectedGradeIndex] : undefined;
 
@@ -281,7 +400,10 @@ app.get('/math/start', async (c) => {
   }
 
   const gradeNumber = selectedGradeIndex + 1;
-  const gradeQuery = createSchoolGradeParam({ stage: '小学', grade: gradeNumber });
+  const gradeQuery = createSchoolGradeParam({
+    stage: '小学',
+    grade: gradeNumber,
+  });
   let initialCalcTypeId: string | undefined;
 
   if (calcParam) {
@@ -321,6 +443,44 @@ app.get('/math/play', async (c) =>
       '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
   })
 );
+
+// GameQuest routes
+app.get('/game', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const selectedGradeId = isGameGradeId(gradeParam) ? gradeParam : null;
+
+  return c.render(
+    <GameHome
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      selectedGradeId={selectedGradeId}
+    />,
+    {
+      title: 'GameQuest | 学年からゲームを選ぼう',
+      description:
+        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、ぴったりの数独プリセットを選択しよう。',
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+app.get('/game/sudoku', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <Sudoku
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      presets={getSudokuPresetsForGrade(gradeId)}
+    />,
+    {
+      title: `GameQuest | 数独（${grade.label}向け）`,
+      description: `${grade.label}に合わせた難易度プリセットで数独に挑戦しよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
 
 // KanjiQuest routes
 app.get('/kanji', async (c) =>
@@ -800,16 +960,11 @@ app.get('/clock/results', async (c) => {
 app.get('/start', (c) => c.redirect('/math', 301));
 app.get('/play', (c) => c.redirect('/math/play', 301));
 
-app.get('/sudoku', async (c) =>
-  c.render(
-    <Sudoku currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
-    {
-      title: 'MathQuest | 数独',
-      description:
-        '数独パズルで論理的思考力を鍛えよう。数字を使った楽しいパズルゲームです。',
-    }
-  )
-);
+app.get('/sudoku', (c) => {
+  const gradeParam = c.req.query('grade');
+  const suffix = gradeParam ? `?grade=${encodeURIComponent(gradeParam)}` : '';
+  return c.redirect(`/game/sudoku${suffix}`, 301);
+});
 
 app.get('/auth/guest-login', (c) => {
   const profileParam = c.req.query('profile');

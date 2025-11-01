@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
 import type { CurrentUser } from '../../application/session/current-user';
+import { BackToTopLink } from '../components/back-to-top-link';
 import {
   gradeLevels,
   calculationTypes,
@@ -59,7 +60,7 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
         }
       </style>
     `}
-    <nav class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-6 py-4 shadow-sm backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+    <nav class="flex flex-wrap items-center justify-between gap-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-3 shadow-sm backdrop-blur sm:flex-nowrap sm:gap-4 sm:px-6">
       <div class="flex items-center gap-3">
         <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--mq-primary-soft)] text-base font-bold text-[var(--mq-primary-strong)]">
           MQ
@@ -68,12 +69,7 @@ export const Start: FC<{ currentUser: CurrentUser | null }> = ({
           れんしゅうの じゅんび
         </span>
       </div>
-      <a
-        href="/"
-        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-      >
-        ← トップに戻る
-      </a>
+      <BackToTopLink class="hover:bg-[var(--mq-primary-soft)] hover:shadow-md" />
     </nav>
 
     <header class="space-y-3">

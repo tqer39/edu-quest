@@ -2,14 +2,21 @@ import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
 import type { CurrentUser } from '../../application/session/current-user';
 import { renderSudokuClientScript } from './sudoku.client';
+import type { GameGradeLevel, SudokuPreset } from './game-presets';
 
-export const Sudoku: FC<{ currentUser: CurrentUser | null }> = ({
-  currentUser,
-}) => (
+type SudokuProps = {
+  currentUser: CurrentUser | null;
+  grade: GameGradeLevel;
+  presets: readonly SudokuPreset[];
+};
+
+export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
   <div
     id="sudoku-root"
     class="relative flex min-h-screen flex-col bg-[var(--mq-surface-strong)] text-[var(--mq-ink)]"
     data-user-state={currentUser ? 'known' : 'anonymous'}
+    data-grade-id={grade.id}
+    style="--mq-primary: #5DB996; --mq-primary-strong: #3AA07A; --mq-primary-soft: #D6F5E7; --mq-accent: #A8EBD0; --mq-outline: rgba(93, 185, 150, 0.45);"
   >
     {html`
       <style>
@@ -350,154 +357,77 @@ export const Sudoku: FC<{ currentUser: CurrentUser | null }> = ({
     <nav class="sticky top-0 z-10 flex items-center justify-between border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-4 shadow-sm sm:px-8 lg:px-16 xl:px-24">
       <div class="flex flex-col">
         <span class="text-xs font-semibold uppercase tracking-[0.3em] text-[#6c7c90]">
-          SUDOKU MODE
+          GAMEQUEST
         </span>
         <span class="text-lg font-semibold">数独で遊ぼう</span>
+        <span class="text-xs font-semibold text-[#5e718a]">
+          {grade.label}向けプリセット
+        </span>
       </div>
-      <a
-        href="/math/start"
-        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-      >
-        やめる
-      </a>
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
+          {grade.label}
+        </span>
+        <a
+          href={`/game?grade=${encodeURIComponent(grade.id)}`}
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        >
+          ← 学年を変更
+        </a>
+      </div>
     </nav>
 
     <main class="grid gap-6 px-4 py-8 sm:px-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:px-16 xl:px-24">
       <section class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg lg:col-span-2">
         <div id="preset-selector" class="space-y-4">
-          <h2 class="text-lg font-semibold text-[var(--mq-ink)]">
-            プリセットをえらぶ
-          </h2>
-          <div class="grid gap-3 sm:grid-cols-2">
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="4"
-              data-difficulty="easy"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">🌱</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    4×4 かんたん
-                  </div>
-                  <div class="text-xs text-[#5e718a]">初心者向け</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="4"
-              data-difficulty="medium"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">🌿</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    4×4 ふつう
-                  </div>
-                  <div class="text-xs text-[#5e718a]">初心者向け</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="6"
-              data-difficulty="easy"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">🌸</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    6×6 かんたん
-                  </div>
-                  <div class="text-xs text-[#5e718a]">入門（2×3）</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="6"
-              data-difficulty="medium"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">🌺</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    6×6 ふつう
-                  </div>
-                  <div class="text-xs text-[#5e718a]">入門（2×3）</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="6"
-              data-difficulty="hard"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">🌹</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    6×6 むずかしい
-                  </div>
-                  <div class="text-xs text-[#5e718a]">入門（2×3）</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="9"
-              data-difficulty="easy"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">⭐</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    9×9 かんたん
-                  </div>
-                  <div class="text-xs text-[#5e718a]">標準</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="9"
-              data-difficulty="medium"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">🌟</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    9×9 ふつう
-                  </div>
-                  <div class="text-xs text-[#5e718a]">標準</div>
-                </div>
-              </div>
-            </button>
-            <button
-              type="button"
-              class="preset-button rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-              data-size="9"
-              data-difficulty="hard"
-            >
-              <div class="flex items-center gap-3">
-                <span class="text-3xl">💫</span>
-                <div>
-                  <div class="text-base font-bold text-[var(--mq-ink)]">
-                    9×9 むずかしい
-                  </div>
-                  <div class="text-xs text-[#5e718a]">標準</div>
-                </div>
-              </div>
-            </button>
+          <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <h2 class="text-lg font-semibold text-[var(--mq-ink)]">
+              プリセットをえらぶ
+            </h2>
+            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-[#6c7c90]">
+              {grade.label}向け
+            </span>
           </div>
+          {presets.length === 0 ? (
+            <div class="rounded-2xl border border-[var(--mq-outline)] bg-white p-6 text-sm text-[#5e718a] shadow-sm">
+              この学年向けのプリセットは準備中です。
+              <a
+                href="/game"
+                class="ml-2 font-semibold text-[var(--mq-primary-strong)] underline"
+              >
+                GameQuest に戻る
+              </a>
+            </div>
+          ) : (
+            <div class="grid gap-3 sm:grid-cols-2">
+              {presets.map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  class="preset-button flex flex-col gap-3 rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
+                  data-size={preset.size}
+                  data-difficulty={preset.difficulty}
+                >
+                  <div class="flex items-center gap-3">
+                    <span class="text-3xl">{preset.icon}</span>
+                    <div class="flex flex-col">
+                      <div class="text-base font-bold text-[var(--mq-ink)]">
+                        {preset.label}
+                      </div>
+                      <div class="text-xs text-[#5e718a]">
+                        {preset.description}
+                      </div>
+                    </div>
+                  </div>
+                  {preset.recommended ? (
+                    <span class="mt-2 inline-flex w-fit items-center gap-1 rounded-xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
+                      おすすめ
+                    </span>
+                  ) : null}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div id="game-container" class="hidden space-y-6">
@@ -618,7 +548,7 @@ export const Sudoku: FC<{ currentUser: CurrentUser | null }> = ({
             >
               <span class="flex items-center justify-center gap-2">
                 <span class="text-xl">🎲</span>
-                プリセットをえらぶ
+                プリセットをえらびなおす
               </span>
             </button>
             <button
