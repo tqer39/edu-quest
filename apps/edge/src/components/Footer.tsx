@@ -3,7 +3,7 @@ import type { FC } from 'hono/jsx';
 export const Footer: FC = () => (
   <footer class="mt-auto w-full bg-[var(--mq-surface)] px-4 py-8 backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="mx-auto max-w-7xl">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 space-y-8">
+      <div class="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-4 space-y-4">
         <div class="space-y-2">
           <h3 class="text-sm font-semibold text-[var(--mq-ink)]">サービス</h3>
           <div class="flex flex-col gap-1 text-sm">
@@ -54,7 +54,7 @@ export const Footer: FC = () => (
         </div>
       </div>
 
-      <div class="mt-16">
+      <div class="mt-16 mb-4">
         <p class="text-center text-xs text-[#5e718a]">
           © 2025 EduQuest. All rights reserved.
         </p>
