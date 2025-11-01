@@ -3,7 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
 import { gradeLevels, type GradeId } from './grade-presets';
-import { BackToTopLink } from '../components/back-to-top-link';
+import { Header } from '../../components/Header';
 
 type MathQuestOption = {
   id: 'calc-add' | 'calc-sub' | 'calc-mul' | 'calc-div';
@@ -44,11 +44,10 @@ const mathQuestOptions: readonly MathQuestOption[] = [
   },
 ] satisfies readonly MathQuestOption[];
 
-const MathNav: FC<{
-  currentUser: CurrentUser | null;
+const Breadcrumb: FC<{
   gradeId: GradeId;
   gradeStage: SchoolStage;
-}> = ({ currentUser, gradeId, gradeStage }) => {
+}> = ({ gradeId, gradeStage }) => {
   const gradeIndex = Math.max(
     gradeLevels.findIndex((grade) => grade.id === gradeId),
     0
@@ -60,39 +59,16 @@ const MathNav: FC<{
   });
 
   return (
-    <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
-      <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          🧮
-        </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          MathQuest - {gradeLabel}
-        </span>
-      </div>
-      <div class="flex flex-wrap gap-2">
-        <BackToTopLink />
-        <a
-          href="/math"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ← 学年選択へ戻る
-        </a>
-        {currentUser ? (
-          <a
-            href="/auth/logout"
-            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-          >
-            ログアウト
-          </a>
-        ) : (
-          <a
-            href="/auth/login"
-            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-          >
-            ログイン
-          </a>
-        )}
-      </div>
+    <nav class="flex flex-wrap items-center gap-2 text-sm text-[#5e718a]">
+      <a href="/" class="hover:text-[var(--mq-primary)] transition">
+        トップ
+      </a>
+      <span>›</span>
+      <a href="/math" class="hover:text-[var(--mq-primary)] transition">
+        MathQuest
+      </a>
+      <span>›</span>
+      <span class="font-semibold text-[var(--mq-ink)]">{gradeLabel}</span>
     </nav>
   );
 };
@@ -164,12 +140,9 @@ export const MathSelect: FC<{
       data-user-state={currentUser ? 'known' : 'anonymous'}
       style="--mq-primary: #6B9BD1; --mq-primary-strong: #3B7AC7; --mq-primary-soft: #D6E4F5; --mq-accent: #B7D4F7; --mq-outline: rgba(107, 155, 209, 0.45);"
     >
-      <MathNav
-        currentUser={currentUser}
-        gradeId={gradeId}
-        gradeStage={gradeStage}
-      />
+      <Header currentUser={currentUser} />
       <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+        <Breadcrumb gradeId={gradeId} gradeStage={gradeStage} />
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
           <span class="text-6xl">🧮</span>
           <div class="space-y-4">
