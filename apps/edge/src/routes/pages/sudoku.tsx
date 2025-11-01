@@ -354,26 +354,43 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
         }
       </style>
     `}
-    <nav class="sticky top-0 z-10 flex items-center justify-between border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-4 shadow-sm sm:px-8 lg:px-16 xl:px-24">
-      <div class="flex flex-col">
-        <span class="text-xs font-semibold uppercase tracking-[0.3em] text-[#6c7c90]">
-          GAMEQUEST
+    <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+          🎮
         </span>
-        <span class="text-lg font-semibold">数独で遊ぼう</span>
-        <span class="text-xs font-semibold text-[#5e718a]">
-          {grade.label}向けプリセット
+        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+          GameQuest - {grade.label}
         </span>
       </div>
-      <div class="flex items-center gap-3">
-        <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
-          {grade.label}
-        </span>
+      <div class="flex flex-wrap gap-2">
         <a
-          href={`/game?grade=${encodeURIComponent(grade.id)}`}
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          href="/"
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
         >
-          ← 学年を変更
+          ← トップに戻る
         </a>
+        <a
+          href={`/game/select?grade=${encodeURIComponent(grade.id)}`}
+          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        >
+          ← ゲーム選択に戻る
+        </a>
+        {currentUser ? (
+          <a
+            href="/auth/logout"
+            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          >
+            ログアウト
+          </a>
+        ) : (
+          <a
+            href="/auth/login"
+            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          >
+            ログイン
+          </a>
+        )}
       </div>
     </nav>
 

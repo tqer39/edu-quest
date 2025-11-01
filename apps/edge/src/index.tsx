@@ -19,6 +19,7 @@ import { KanjiSelect } from './routes/pages/kanji-select';
 import { MathHome } from './routes/pages/math-home';
 import { MathSelect } from './routes/pages/math-select';
 import { GameHome } from './routes/pages/game-home';
+import { GameSelect } from './routes/pages/game-select';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
@@ -447,18 +448,30 @@ app.get('/math/play', async (c) =>
 
 // GameQuest routes
 app.get('/game', async (c) => {
-  const gradeParam = c.req.query('grade');
-  const selectedGradeId = isGameGradeId(gradeParam) ? gradeParam : null;
-
   return c.render(
-    <GameHome
-      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
-      selectedGradeId={selectedGradeId}
-    />,
+    <GameHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'GameQuest | 学年からゲームを選ぼう',
       description:
         '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、ぴったりの数独プリセットを選択しよう。',
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+app.get('/game/select', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <GameSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={gradeId}
+    />,
+    {
+      title: `GameQuest | ${grade.label} - ゲーム選択`,
+      description: `${grade.label}向けの数独パズルに挑戦しよう。${grade.highlight}がおすすめです。`,
       favicon: '/favicon-game.svg',
     }
   );
