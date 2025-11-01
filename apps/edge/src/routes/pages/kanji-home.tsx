@@ -63,11 +63,11 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
 
   return (
     <div
-      class="flex min-h-screen w-full flex-col gap-10"
+      class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45);"
     >
       <KanjiNav currentUser={currentUser} />
-      <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <QuestHeader
           icon="✏️"
           title="KanjiQuest"

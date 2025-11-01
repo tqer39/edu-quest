@@ -104,11 +104,11 @@ export const KanjiSelect: FC<{
 
   return (
     <div
-      class="flex min-h-screen w-full flex-col gap-10"
+      class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45);"
     >
       <KanjiNav currentUser={currentUser} grade={grade} stage={gradeStage} />
-      <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
           <span class="text-6xl">✏️</span>
           <div class="space-y-4">

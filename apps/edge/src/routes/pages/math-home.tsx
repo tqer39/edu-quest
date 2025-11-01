@@ -48,12 +48,12 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser,
 }) => (
   <div
-    class="flex min-h-screen w-full flex-col gap-10"
+    class="flex flex-1 w-full flex-col gap-10"
     data-user-state={currentUser ? 'known' : 'anonymous'}
     style="--mq-primary: #6B9BD1; --mq-primary-strong: #3B7AC7; --mq-primary-soft: #D6E4F5; --mq-accent: #B7D4F7; --mq-outline: rgba(107, 155, 209, 0.45);"
   >
     <MathNav currentUser={currentUser} />
-    <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+    <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
       <QuestHeader
         icon="🔢"
         title="MathQuest"
