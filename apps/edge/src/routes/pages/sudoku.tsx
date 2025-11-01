@@ -394,208 +394,217 @@ export const Sudoku: FC<SudokuProps> = ({ currentUser, grade, presets }) => (
       </div>
     </nav>
 
-    <main class="grid gap-6 px-4 py-8 sm:px-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:px-16 xl:px-24">
-      <section class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg lg:col-span-2">
-        <div id="preset-selector" class="space-y-4">
-          <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <h2 class="text-lg font-semibold text-[var(--mq-ink)]">
-              プリセットをえらぶ
-            </h2>
-            <span class="text-xs font-semibold uppercase tracking-[0.3em] text-[#6c7c90]">
-              {grade.label}向け
-            </span>
-          </div>
-          {presets.length === 0 ? (
-            <div class="rounded-2xl border border-[var(--mq-outline)] bg-white p-6 text-sm text-[#5e718a] shadow-sm">
-              この学年向けのプリセットは準備中です。
-              <a
-                href="/game"
-                class="ml-2 font-semibold text-[var(--mq-primary-strong)] underline"
-              >
-                GameQuest に戻る
-              </a>
-            </div>
-          ) : (
-            <div class="grid gap-3 sm:grid-cols-2">
-              {presets.map((preset) => (
-                <button
-                  key={preset.id}
-                  type="button"
-                  class="preset-button flex flex-col gap-3 rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-                  data-size={preset.size}
-                  data-difficulty={preset.difficulty}
+    <div class="flex flex-col gap-10 px-4 py-8 sm:px-8 lg:px-16 xl:px-24">
+      <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
+        <span class="text-6xl">🧩</span>
+        <div class="space-y-4">
+          <h1 class="text-3xl font-extrabold sm:text-4xl">
+            プリセットを選んでください
+          </h1>
+          <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
+            {grade.label}向けのおすすめ:
+            <br />
+            {grade.highlight}
+          </p>
+        </div>
+      </header>
+
+      <main class="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+        <section class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg lg:col-span-2">
+          <div id="preset-selector" class="space-y-4">
+            <h2 class="text-xl font-bold text-[var(--mq-ink)]">数独パズル</h2>
+            {presets.length === 0 ? (
+              <div class="rounded-2xl border border-[var(--mq-outline)] bg-white p-6 text-sm text-[#5e718a] shadow-sm">
+                この学年向けのプリセットは準備中です。
+                <a
+                  href="/game"
+                  class="ml-2 font-semibold text-[var(--mq-primary-strong)] underline"
                 >
-                  <div class="flex items-center gap-3">
-                    <span class="text-3xl">{preset.icon}</span>
-                    <div class="flex flex-col">
-                      <div class="text-base font-bold text-[var(--mq-ink)]">
-                        {preset.label}
-                      </div>
-                      <div class="text-xs text-[#5e718a]">
-                        {preset.description}
+                  GameQuest に戻る
+                </a>
+              </div>
+            ) : (
+              <div class="grid gap-3 sm:grid-cols-2">
+                {presets.map((preset) => (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    class="preset-button flex flex-col gap-3 rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] p-4 text-left transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
+                    data-size={preset.size}
+                    data-difficulty={preset.difficulty}
+                  >
+                    <div class="flex items-center gap-3">
+                      <span class="text-3xl">{preset.icon}</span>
+                      <div class="flex flex-col">
+                        <div class="text-base font-bold text-[var(--mq-ink)]">
+                          {preset.label}
+                        </div>
+                        <div class="text-xs text-[#5e718a]">
+                          {preset.description}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {preset.recommended ? (
-                    <span class="mt-2 inline-flex w-fit items-center gap-1 rounded-xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
-                      おすすめ
-                    </span>
-                  ) : null}
+                    {preset.recommended ? (
+                      <span class="mt-2 inline-flex w-fit items-center gap-1 rounded-xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
+                        おすすめ
+                      </span>
+                    ) : null}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div id="game-container" class="hidden space-y-6">
+            <div class="flex items-center justify-between gap-4">
+              <div class="difficulty-badge">
+                <span class="text-2xl">🎯</span>
+                <div class="flex flex-col">
+                  <span class="text-xs uppercase tracking-wide opacity-75">
+                    難易度
+                  </span>
+                  <span id="difficulty-label" class="text-base font-bold">
+                    かんたん
+                  </span>
+                </div>
+              </div>
+              <div class="difficulty-badge">
+                <span class="text-2xl">📏</span>
+                <div class="flex flex-col">
+                  <span class="text-xs uppercase tracking-wide opacity-75">
+                    サイズ
+                  </span>
+                  <span id="size-label" class="text-base font-bold">
+                    9×9
+                  </span>
+                </div>
+              </div>
+              <div class="difficulty-badge">
+                <span class="text-2xl">📝</span>
+                <div class="flex flex-col">
+                  <span class="text-xs uppercase tracking-wide opacity-75">
+                    残り
+                  </span>
+                  <span id="remaining-count" class="text-base font-bold">
+                    0
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
+              <div id="sudoku-grid" class="sudoku-grid">
+                {Array.from({ length: 81 }).map((_, i) => (
+                  <input
+                    key={i}
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={1}
+                    class="sudoku-cell"
+                    data-index={i}
+                    data-row={Math.floor(i / 9)}
+                    data-col={i % 9}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div
+              id="feedback"
+              class="flex min-h-[48px] items-center justify-center rounded-2xl text-center text-sm font-semibold"
+            ></div>
+          </div>
+        </section>
+
+        <aside id="controls-panel" class="hidden space-y-6">
+          <div class="rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg">
+            <p class="mb-4 text-sm font-semibold text-[#5e718a]">数字パッド</p>
+            <div class="grid grid-cols-3 gap-3">
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+                <button
+                  key={num}
+                  type="button"
+                  class="number-pad-button"
+                  data-number={num}
+                >
+                  {num}
                 </button>
               ))}
             </div>
-          )}
-        </div>
-
-        <div id="game-container" class="hidden space-y-6">
-          <div class="flex items-center justify-between gap-4">
-            <div class="difficulty-badge">
-              <span class="text-2xl">🎯</span>
-              <div class="flex flex-col">
-                <span class="text-xs uppercase tracking-wide opacity-75">
-                  難易度
-                </span>
-                <span id="difficulty-label" class="text-base font-bold">
-                  かんたん
-                </span>
-              </div>
-            </div>
-            <div class="difficulty-badge">
-              <span class="text-2xl">📏</span>
-              <div class="flex flex-col">
-                <span class="text-xs uppercase tracking-wide opacity-75">
-                  サイズ
-                </span>
-                <span id="size-label" class="text-base font-bold">
-                  9×9
-                </span>
-              </div>
-            </div>
-            <div class="difficulty-badge">
-              <span class="text-2xl">📝</span>
-              <div class="flex flex-col">
-                <span class="text-xs uppercase tracking-wide opacity-75">
-                  残り
-                </span>
-                <span id="remaining-count" class="text-base font-bold">
-                  0
-                </span>
-              </div>
-            </div>
+            <button
+              id="clear-button"
+              type="button"
+              class="action-button mt-3 w-full rounded-2xl border-2 border-red-200 bg-gradient-to-br from-red-50 to-white px-4 py-3 text-sm font-bold text-red-700 shadow-md transition hover:-translate-y-1 hover:border-red-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            >
+              <span class="flex items-center justify-center gap-2">
+                <span class="text-lg">✏️</span>
+                けす
+              </span>
+            </button>
           </div>
 
-          <div class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-            <div id="sudoku-grid" class="sudoku-grid">
-              {Array.from({ length: 81 }).map((_, i) => (
-                <input
-                  key={i}
-                  type="text"
-                  inputMode="numeric"
-                  maxLength={1}
-                  class="sudoku-cell"
-                  data-index={i}
-                  data-row={Math.floor(i / 9)}
-                  data-col={i % 9}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div
-            id="feedback"
-            class="flex min-h-[48px] items-center justify-center rounded-2xl text-center text-sm font-semibold"
-          ></div>
-        </div>
-      </section>
-
-      <aside id="controls-panel" class="hidden space-y-6">
-        <div class="rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg">
-          <p class="mb-4 text-sm font-semibold text-[#5e718a]">数字パッド</p>
-          <div class="grid grid-cols-3 gap-3">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
+          <div class="space-y-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg">
+            <h2 class="text-lg font-semibold text-[var(--mq-ink)]">操作</h2>
+            <div class="flex flex-col gap-3">
               <button
-                key={num}
+                id="check-button"
                 type="button"
-                class="number-pad-button"
-                data-number={num}
+                class="action-button w-full rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-4 py-3 text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {num}
+                <span class="flex items-center justify-center gap-2">
+                  <span class="text-xl">✅</span>
+                  こたえあわせ
+                </span>
               </button>
-            ))}
+              <button
+                id="retry-button"
+                type="button"
+                class="action-button hidden w-full rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-3 text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <span class="flex items-center justify-center gap-2">
+                  <span class="text-xl">🔄</span>
+                  もういちど
+                </span>
+              </button>
+              <button
+                id="new-game-button"
+                type="button"
+                class="action-button w-full rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] px-4 py-3 text-base font-bold text-[var(--mq-ink)] shadow-md transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
+              >
+                <span class="flex items-center justify-center gap-2">
+                  <span class="text-xl">🎲</span>
+                  プリセットをえらびなおす
+                </span>
+              </button>
+              <button
+                id="hint-button"
+                type="button"
+                class="action-button w-full rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white px-4 py-3 text-base font-bold text-amber-700 shadow-md transition hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              >
+                <span class="flex items-center justify-center gap-2">
+                  <span class="text-xl">💡</span>
+                  ヒント
+                </span>
+              </button>
+            </div>
           </div>
-          <button
-            id="clear-button"
-            type="button"
-            class="action-button mt-3 w-full rounded-2xl border-2 border-red-200 bg-gradient-to-br from-red-50 to-white px-4 py-3 text-sm font-bold text-red-700 shadow-md transition hover:-translate-y-1 hover:border-red-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-          >
-            <span class="flex items-center justify-center gap-2">
-              <span class="text-lg">✏️</span>
-              けす
-            </span>
-          </button>
-        </div>
+        </aside>
+      </main>
 
-        <div class="space-y-3 rounded-3xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-6 shadow-lg">
-          <h2 class="text-lg font-semibold text-[var(--mq-ink)]">操作</h2>
-          <div class="flex flex-col gap-3">
-            <button
-              id="check-button"
-              type="button"
-              class="action-button w-full rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-4 py-3 text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            >
-              <span class="flex items-center justify-center gap-2">
-                <span class="text-xl">✅</span>
-                こたえあわせ
-              </span>
-            </button>
-            <button
-              id="retry-button"
-              type="button"
-              class="action-button hidden w-full rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-3 text-base font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <span class="flex items-center justify-center gap-2">
-                <span class="text-xl">🔄</span>
-                もういちど
-              </span>
-            </button>
-            <button
-              id="new-game-button"
-              type="button"
-              class="action-button w-full rounded-2xl border-2 border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-surface)] px-4 py-3 text-base font-bold text-[var(--mq-ink)] shadow-md transition hover:-translate-y-1 hover:border-[var(--mq-primary)] hover:shadow-lg"
-            >
-              <span class="flex items-center justify-center gap-2">
-                <span class="text-xl">🎲</span>
-                プリセットをえらびなおす
-              </span>
-            </button>
-            <button
-              id="hint-button"
-              type="button"
-              class="action-button w-full rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white px-4 py-3 text-base font-bold text-amber-700 shadow-md transition hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-            >
-              <span class="flex items-center justify-center gap-2">
-                <span class="text-xl">💡</span>
-                ヒント
-              </span>
-            </button>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    {/* カウントダウンオーバーレイ */}
-    <div
-      id="countdown-overlay"
-      class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[var(--mq-surface-strong)] bg-opacity-95"
-    >
+      {/* カウントダウンオーバーレイ */}
       <div
-        id="countdown-number"
-        class="text-9xl font-extrabold text-[var(--mq-primary-strong)] animate-pulse"
+        id="countdown-overlay"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[var(--mq-surface-strong)] bg-opacity-95"
       >
-        3
+        <div
+          id="countdown-number"
+          class="text-9xl font-extrabold text-[var(--mq-primary-strong)] animate-pulse"
+        >
+          3
+        </div>
       </div>
-    </div>
 
-    {renderSudokuClientScript()}
+      {renderSudokuClientScript()}
+    </div>
   </div>
 );
