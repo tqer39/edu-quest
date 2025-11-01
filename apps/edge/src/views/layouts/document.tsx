@@ -289,7 +289,7 @@ export const Document: FC<DocumentProps> = ({
           }
         </style>
       </head>
-      <body class="h-full flex flex-col text-[var(--mq-ink)]">
+      <body class="h-full flex flex-col bg-[var(--mq-bg)] text-[var(--mq-ink)]">
         ${isDev
           ? html`<section id="dev-release-banner">
               <h2>Dev Environment</h2>
