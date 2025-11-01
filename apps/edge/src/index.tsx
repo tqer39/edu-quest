@@ -15,6 +15,7 @@ import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
+import { KanjiSelect } from './routes/pages/kanji-select';
 import { MathHome } from './routes/pages/math-home';
 import { MathSelect } from './routes/pages/math-select';
 import { GameHome } from './routes/pages/game-home';
@@ -504,7 +505,6 @@ app.get('/kanji/select', async (c) => {
   }
 
   const grade = parsedGrade.grade as KanjiGrade;
-  const { KanjiSelect } = await import('./routes/pages/kanji-select');
   const gradeLabel = formatSchoolGradeLabel(parsedGrade);
 
   return c.render(
