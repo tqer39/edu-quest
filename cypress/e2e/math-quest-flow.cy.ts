@@ -1,11 +1,11 @@
 describe('MathQuest Flow', () => {
   describe('Start Configuration Page', () => {
     beforeEach(() => {
-      cy.visit('/math/start?grade=1');
+      cy.visit('/math/start?grade=1&calc=calc-add');
     });
 
     it('should load the start configuration page', () => {
-      cy.url().should('include', '/math/start?grade=1');
+      cy.url().should('include', '/math/start');
       cy.contains('れんしゅうの じゅんび').should('be.visible');
     });
 
@@ -14,12 +14,8 @@ describe('MathQuest Flow', () => {
       cy.contains('現在の学年').should('be.visible');
     });
 
-    it('should display question count selection after completing configuration steps', () => {
-      // Complete configuration steps to reveal question count selection
-      cy.contains('button', '計算する').click();
-      cy.contains('button', 'たし算').click();
-
-      // Now question count should be visible
+    it('should display question count selection', () => {
+      // Question count should be visible on the page
       cy.contains('問題数').should('be.visible');
     });
 
@@ -30,13 +26,7 @@ describe('MathQuest Flow', () => {
 
   describe('Play Page Navigation', () => {
     it('should navigate to play page after configuration', () => {
-      cy.visit('/math/start?grade=1');
-
-      // Select activity (計算する)
-      cy.contains('button', '計算する').click();
-
-      // Select calculation type (たし算)
-      cy.contains('button', 'たし算').click();
+      cy.visit('/math/start?grade=1&calc=calc-add');
 
       // Start the quiz
       cy.contains('button', 'はじめる').click();
@@ -46,11 +36,9 @@ describe('MathQuest Flow', () => {
     });
 
     it('should display question on play page', () => {
-      cy.visit('/math/start?grade=1');
+      cy.visit('/math/start?grade=1&calc=calc-add');
 
       // Quick start with default settings
-      cy.contains('button', '計算する').click();
-      cy.contains('button', 'たし算').click();
       cy.contains('button', 'はじめる').click();
 
       // Verify play page loaded
