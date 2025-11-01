@@ -72,7 +72,7 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
 }) => (
   <div
     id="home-root"
-    class="flex min-h-screen w-full flex-col gap-10"
+    class="flex flex-1 w-full flex-col gap-10"
     data-user-state={
       currentUser
         ? currentUser.id.startsWith('guest-')
@@ -82,7 +82,7 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
     }
   >
     <Header currentUser={currentUser} />
-    <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+    <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
       <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-8 text-[var(--mq-ink)] shadow-xl">
         <div class="space-y-4">
           <p class="text-xs font-semibold uppercase tracking-[0.4em] text-[#6c7c90]">

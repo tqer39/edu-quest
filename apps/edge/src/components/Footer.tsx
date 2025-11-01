@@ -1,7 +1,7 @@
 import type { FC } from 'hono/jsx';
 
 export const Footer: FC = () => (
-  <footer class="w-full border-t border-gray-200 bg-gray-50 px-4 py-8 sm:px-8 lg:px-16 xl:px-24">
+  <footer class="mt-auto w-full border-t border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-8 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex flex-wrap items-center justify-between gap-6 text-sm text-[#5e718a]">
       <div class="flex flex-wrap items-center gap-6">
         <a
