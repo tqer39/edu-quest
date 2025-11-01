@@ -554,8 +554,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
+
+    <Footer />
   </main>
 );

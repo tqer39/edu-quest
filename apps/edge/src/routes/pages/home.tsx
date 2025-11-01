@@ -149,8 +149,8 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
           }}
         />
       </section>
-
-      <Footer />
     </div>
+
+    <Footer />
   </div>
 );
