@@ -1,6 +1,12 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { gameGradeLevels } from './game-presets';
+import {
+  QuestHeader,
+  GradeCard,
+  GradeSelection,
+  Features,
+} from '../components/quest-layout';
 
 const GameNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
@@ -56,68 +62,36 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
     >
       <GameNav currentUser={currentUser} />
       <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
-        <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">🎮</span>
-          <div class="space-y-4">
-            <h1 class="text-3xl font-extrabold sm:text-4xl">GameQuest</h1>
-            <p class="max-w-xl text-sm text-[#4f6076] sm:text-base">
-              学年に合わせた脳トレゲームに挑戦しよう。まずは学年をえらんで、ぴったりのゲームを選択してください。
-            </p>
-          </div>
-        </header>
+        <QuestHeader
+          icon="🎮"
+          title="GameQuest"
+          description="学年に合わせた脳トレゲームに挑戦しよう。まずは学年をえらんで、ぴったりのゲームを選択してください。"
+        />
 
-        <section class="space-y-6">
-          <h2 class="text-xl font-bold text-[var(--mq-ink)]">学年を選ぶ</h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {gameGradeLevels.map((level) => {
-              if (level.disabled) {
-                return (
-                  <div
-                    key={level.id}
-                    class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-6 text-left text-gray-500 shadow-lg opacity-60"
-                  >
-                    <div class="text-2xl font-bold">{level.label}</div>
-                    <div class="text-sm">{level.description}</div>
-                    <div class="text-xs font-semibold uppercase tracking-wide">
-                      {level.highlight}
-                    </div>
-                    <div class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-500">
-                      🔒 準備中
-                    </div>
-                  </div>
-                );
-              }
+        <GradeSelection title="学年を選ぶ">
+          {gameGradeLevels.map((level) => (
+            <GradeCard
+              key={level.id}
+              label={level.label}
+              description={level.description}
+              highlight={level.highlight}
+              href={`/game/select?grade=${encodeURIComponent(level.id)}`}
+              disabled={level.disabled}
+            />
+          ))}
+        </GradeSelection>
 
-              return (
-                <a
-                  key={level.id}
-                  href={`/game/select?grade=${encodeURIComponent(level.id)}`}
-                  class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-                >
-                  <div class="text-2xl font-bold text-[var(--mq-ink)]">
-                    {level.label}
-                  </div>
-                  <div class="text-sm text-[#5e718a]">{level.description}</div>
-                  <div class="text-xs font-semibold uppercase tracking-wide text-[var(--mq-primary-strong)]">
-                    {level.highlight}
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </section>
-
-        <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-          <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
-            GameQuest でできること
-          </h2>
-          <ul class="space-y-2 text-sm text-[#5e718a]">
-            <li>✓ 学年に合わせた難易度で論理パズルに挑戦できます</li>
-            <li>✓ 数独パズルで集中力と推理力を鍛えられます</li>
-            <li>✓ 4×4 から 9×9 まで段階的にステップアップできます</li>
-            <li>✓ 楽しみながら論理的思考力を育てられます</li>
-          </ul>
-        </section>
+        <Features
+          title="GameQuest でできること"
+          items={[
+            { description: '学年に合わせた難易度で論理パズルに挑戦できます' },
+            { description: '数独パズルで集中力と推理力を鍛えられます' },
+            {
+              description: '4×4 から 9×9 まで段階的にステップアップできます',
+            },
+            { description: '楽しみながら論理的思考力を育てられます' },
+          ]}
+        />
       </div>
     </div>
   );

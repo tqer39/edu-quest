@@ -3,6 +3,12 @@ import type { CurrentUser } from '../../application/session/current-user';
 import { gradeLevels, type GradeId } from './grade-presets';
 import { createSchoolGradeParam } from '../utils/school-grade';
 import { BackToTopLink } from '../components/back-to-top-link';
+import {
+  QuestHeader,
+  GradeCard,
+  GradeSelection,
+  Features,
+} from '../components/quest-layout';
 
 const MathNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
@@ -52,73 +58,49 @@ export const MathHome: FC<{ currentUser: CurrentUser | null }> = ({
   >
     <MathNav currentUser={currentUser} />
     <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
-      <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-        <span class="text-6xl">🧮</span>
-        <div class="space-y-4">
-          <h1 class="text-3xl font-extrabold sm:text-4xl">MathQuest</h1>
-          <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-            学年をえらんで算数のれんしゅうをはじめよう。
-            <br />
-            たし算・ひき算だけでなく、逆算やテーマ学習にも挑戦できます。
-          </p>
-        </div>
-      </header>
+      <QuestHeader
+        icon="🧮"
+        title="MathQuest"
+        description="学年をえらんで算数のれんしゅうをはじめよう。"
+        subtitle="たし算・ひき算だけでなく、逆算やテーマ学習にも挑戦できます。"
+      />
 
-      <section>
-        <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-          学年を選んでください
-        </h2>
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gradeLevels.map((grade, index) => {
-            const gradeNumber = index + 1;
-            if (grade.disabled) {
-              return (
-                <div
-                  key={grade.id}
-                  class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-6 text-left text-gray-500 shadow-lg opacity-60"
-                >
-                  <div class="text-2xl font-bold">{grade.label}</div>
-                  <div class="text-lg">{getGradeStars(grade.id)}</div>
-                  <div class="text-sm">{grade.description}</div>
-                  <div class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-500">
-                    🔒 準備中
-                  </div>
-                </div>
-              );
-            }
+      <GradeSelection>
+        {gradeLevels.map((grade, index) => {
+          const gradeNumber = index + 1;
+          const stars = getGradeStars(grade.id);
+          const href = `/math/select?grade=${encodeURIComponent(
+            createSchoolGradeParam({ stage: '小学', grade: gradeNumber })
+          )}`;
 
-            return (
-              <a
-                key={grade.id}
-                href={`/math/select?grade=${encodeURIComponent(
-                  createSchoolGradeParam({ stage: '小学', grade: gradeNumber })
-                )}`}
-                class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-              >
-                <div class="text-2xl font-bold text-[var(--mq-ink)]">
-                  {grade.label}
-                </div>
-                <div class="text-lg text-[var(--mq-primary-strong)]">
-                  {getGradeStars(grade.id)}
-                </div>
-                <div class="text-sm text-[#5e718a]">{grade.description}</div>
-              </a>
-            );
-          })}
-        </div>
-      </section>
+          return (
+            <GradeCard
+              key={grade.id}
+              gradeNumber={gradeNumber}
+              stars={stars}
+              description={grade.description}
+              href={href}
+              disabled={grade.disabled}
+            />
+          );
+        })}
+      </GradeSelection>
 
-      <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-        <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
-          MathQuest でできること
-        </h2>
-        <ul class="space-y-2 text-sm text-[#5e718a]">
-          <li>✓ 学年プリセットで学ぶ範囲をしぼって練習できます</li>
-          <li>✓ たし算・ひき算だけでなく逆算やテーマ学習にも挑戦できます</li>
-          <li>✓ 効果音・カウントダウンなどの設定をカスタマイズできます</li>
-          <li>✓ 数独などのゲームで頭の体操も楽しめます</li>
-        </ul>
-      </section>
+      <Features
+        title="MathQuest でできること"
+        items={[
+          { description: '学年プリセットで学ぶ範囲をしぼって練習できます' },
+          {
+            description:
+              'たし算・ひき算だけでなく逆算やテーマ学習にも挑戦できます',
+          },
+          {
+            description:
+              '効果音・カウントダウンなどの設定をカスタマイズできます',
+          },
+          { description: '数独などのゲームで頭の体操も楽しめます' },
+        ]}
+      />
     </div>
   </div>
 );

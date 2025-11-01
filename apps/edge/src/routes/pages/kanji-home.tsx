@@ -3,6 +3,12 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
 import { createSchoolGradeParam } from '../utils/school-grade';
+import {
+  QuestHeader,
+  GradeCard,
+  GradeSelection,
+  Features,
+} from '../components/quest-layout';
 
 const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
@@ -37,11 +43,6 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   </nav>
 );
 
-type GradeCardProps = {
-  grade: KanjiGrade;
-  disabled?: boolean;
-};
-
 const getGradeDescription = (grade: KanjiGrade): string => {
   const descriptions: Record<KanjiGrade, string> = {
     1: '小学1年生で習う80字の漢字',
@@ -52,36 +53,6 @@ const getGradeDescription = (grade: KanjiGrade): string => {
     6: '小学6年生で習う181字の漢字',
   };
   return descriptions[grade];
-};
-
-const GradeCard: FC<GradeCardProps> = ({ grade, disabled = false }) => {
-  const description = getGradeDescription(grade);
-  const stars = '★'.repeat(grade);
-  const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
-
-  if (disabled) {
-    return (
-      <div class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-6 shadow-lg opacity-50 cursor-not-allowed">
-        <div class="text-2xl font-bold text-gray-500">小学{grade}年生</div>
-        <div class="text-lg text-gray-400">{stars}</div>
-        <div class="text-sm text-gray-400">{description}</div>
-        <div class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-gray-500">
-          🔒 準備中
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <a
-      href={`/kanji/select?grade=${gradeParam}`}
-      class="flex flex-col gap-3 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-    >
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">小学{grade}年生</div>
-      <div class="text-lg text-[var(--mq-primary-strong)]">{stars}</div>
-      <div class="text-sm text-[#5e718a]">{description}</div>
-    </a>
-  );
 };
 
 export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
@@ -96,47 +67,55 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
     >
       <KanjiNav currentUser={currentUser} />
       <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
-        <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">✏️</span>
-          <div class="space-y-4">
-            <h1 class="text-3xl font-extrabold sm:text-4xl">KanjiQuest</h1>
-            <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              漢字の読み方を学ぼう！
-              <br />
-              学年を選んで、楽しく漢字を覚えられます。
-            </p>
-          </div>
-        </header>
+        <QuestHeader
+          icon="✏️"
+          title="KanjiQuest"
+          description="漢字の読み方を学ぼう！"
+          subtitle="学年を選んで、楽しく漢字を覚えられます。"
+        />
 
-        <section>
-          <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            学年を選んでください
-          </h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {grades.map((grade) => (
-              <GradeCard key={grade} grade={grade} disabled={grade > 2} />
-            ))}
-          </div>
-        </section>
+        <GradeSelection>
+          {grades.map((grade) => {
+            const description = getGradeDescription(grade);
+            const stars = '★'.repeat(grade);
+            const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
+            const href = `/kanji/select?grade=${gradeParam}`;
+            const disabled = grade > 2;
 
-        <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-          <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">遊び方</h2>
-          <ul class="space-y-2 text-sm text-[#5e718a]">
-            <li>
-              ✓ <strong>読みクエスト:</strong> 漢字の音読み・訓読みを答えます
-            </li>
-            <li>
-              ✓ <strong>学年別:</strong> 小学1年生から6年生までの教育漢字を収録
-            </li>
-            <li>
-              ✓ <strong>4択問題:</strong> 4つの選択肢から正しい読み方を選びます
-            </li>
-            <li>
-              ✓ <strong>スコア表示:</strong>{' '}
-              正解率に応じてメッセージが変わります
-            </li>
-          </ul>
-        </section>
+            return (
+              <GradeCard
+                key={grade}
+                gradeNumber={grade}
+                stars={stars}
+                description={description}
+                href={href}
+                disabled={disabled}
+              />
+            );
+          })}
+        </GradeSelection>
+
+        <Features
+          title="遊び方"
+          items={[
+            {
+              label: '読みクエスト:',
+              description: '漢字の音読み・訓読みを答えます',
+            },
+            {
+              label: '学年別:',
+              description: '小学1年生から6年生までの教育漢字を収録',
+            },
+            {
+              label: '4択問題:',
+              description: '4つの選択肢から正しい読み方を選びます',
+            },
+            {
+              label: 'スコア表示:',
+              description: '正解率に応じてメッセージが変わります',
+            },
+          ]}
+        />
       </div>
     </div>
   );
