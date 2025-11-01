@@ -1,11 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { GradeId } from './grade-presets';
-import {
-  getGameGradeById,
-  getSudokuPresetsForGrade,
-  type SudokuPreset,
-} from './game-presets';
+import { getGameGradeById } from './game-presets';
 import { BackToTopLink } from '../components/back-to-top-link';
 
 const GameNav: FC<{
@@ -52,28 +48,28 @@ const GameNav: FC<{
   );
 };
 
-const GameCard: FC<{
-  gradeId: GradeId;
-  preset: SudokuPreset;
-}> = ({ gradeId, preset }) => (
+type GameType = {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+  href: string;
+};
+
+const GameTypeCard: FC<{ game: GameType }> = ({ game }) => (
   <a
-    href={`/game/sudoku?grade=${gradeId}&preset=${preset.id}`}
-    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+    href={game.href}
+    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
-    <span class="text-4xl" aria-hidden="true">
-      {preset.icon}
+    <span class="text-5xl" aria-hidden="true">
+      {game.icon}
     </span>
     <div class="space-y-2">
-      <div class="text-xl font-bold text-[var(--mq-ink)]">{preset.label}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{preset.description}</p>
-      {preset.recommended && (
-        <span class="inline-block rounded-lg bg-[var(--mq-primary-soft)] px-2 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
-          おすすめ
-        </span>
-      )}
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">{game.title}</div>
+      <p class="text-sm leading-relaxed text-[#5e718a]">{game.description}</p>
     </div>
     <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
-      ゲーム開始 →
+      選択する →
     </span>
   </a>
 );
@@ -83,7 +79,17 @@ export const GameSelect: FC<{
   gradeId: GradeId;
 }> = ({ currentUser, gradeId }) => {
   const grade = getGameGradeById(gradeId);
-  const presets = getSudokuPresetsForGrade(gradeId);
+
+  const gameTypes: GameType[] = [
+    {
+      id: 'sudoku',
+      title: '数独',
+      icon: '🧩',
+      description:
+        '論理パズルで集中力アップ。数字を使った推理ゲームに挑戦しよう。',
+      href: `/game/sudoku?grade=${gradeId}`,
+    },
+  ];
 
   return (
     <div
@@ -108,11 +114,11 @@ export const GameSelect: FC<{
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            数独パズル
+            遊べるゲーム
           </h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {presets.map((preset) => (
-              <GameCard key={preset.id} gradeId={gradeId} preset={preset} />
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {gameTypes.map((game) => (
+              <GameTypeCard key={game.id} game={game} />
             ))}
           </div>
         </section>

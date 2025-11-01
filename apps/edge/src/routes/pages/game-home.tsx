@@ -86,6 +86,18 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
             ))}
           </div>
         </section>
+
+        <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
+          <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
+            GameQuest でできること
+          </h2>
+          <ul class="space-y-2 text-sm text-[#5e718a]">
+            <li>✓ 学年に合わせた難易度で論理パズルに挑戦できます</li>
+            <li>✓ 数独パズルで集中力と推理力を鍛えられます</li>
+            <li>✓ 4×4 から 9×9 まで段階的にステップアップできます</li>
+            <li>✓ 楽しみながら論理的思考力を育てられます</li>
+          </ul>
+        </section>
       </div>
     </div>
   );
