@@ -6,6 +6,7 @@ import { DictionaryLink } from '../components/dictionary-link';
 import type { SchoolStage } from '../utils/school-grade';
 import {
   createSchoolGradeParam,
+  formatSchoolGradeLabel,
   formatSchoolGradeLabelShort,
 } from '../utils/school-grade';
 
