@@ -5,7 +5,10 @@ import { BackToTopLink } from '../components/back-to-top-link';
 import { DictionaryLink } from '../components/dictionary-link';
 import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
-import { formatSchoolGradeLabel } from '../utils/school-grade';
+import {
+  createSchoolGradeParam,
+  formatSchoolGradeLabel,
+} from '../utils/school-grade';
 
 const KanjiNav: FC<{
   currentUser: CurrentUser | null;
@@ -13,19 +16,25 @@ const KanjiNav: FC<{
   stage: SchoolStage;
 }> = ({ currentUser, grade, stage }) => {
   const gradeLabel = formatSchoolGradeLabel({ stage, grade });
+  const gradeParam = createSchoolGradeParam({ stage, grade });
 
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
       <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          ✏️
-        </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          KanjiQuest - {gradeLabel}
-        </span>
+        <a
+          href="/kanji"
+          class="flex items-center gap-2 transition hover:opacity-80"
+        >
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            ✏️
+          </span>
+          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+            KanjiQuest - {gradeLabel}
+          </span>
+        </a>
       </div>
       <div class="flex flex-wrap gap-2">
-        <DictionaryLink />
+        <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
         <BackToTopLink />
         <a
           href="/kanji"

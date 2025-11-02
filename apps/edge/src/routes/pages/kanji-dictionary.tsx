@@ -4,15 +4,22 @@ import type { Kanji, KanjiGrade } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
 import { DictionaryLink } from '../components/dictionary-link';
 import { Footer } from '../../components/Footer';
-import { createSchoolGradeParam, formatSchoolGradeLabel } from '../utils/school-grade';
+import {
+  createSchoolGradeParam,
+  formatSchoolGradeLabel,
+} from '../utils/school-grade';
 
-const KanjiDictionaryNav: FC<{ currentUser: CurrentUser | null; gradeLabel: string }> = ({
-  currentUser,
-  gradeLabel,
-}) => (
+const KanjiDictionaryNav: FC<{
+  currentUser: CurrentUser | null;
+  gradeLabel: string;
+  gradeParam: string;
+}> = ({ currentUser, gradeLabel, gradeParam }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
-      <a href="/kanji" class="flex items-center gap-2 transition hover:opacity-80">
+      <a
+        href="/kanji"
+        class="flex items-center gap-2 transition hover:opacity-80"
+      >
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
@@ -28,7 +35,13 @@ const KanjiDictionaryNav: FC<{ currentUser: CurrentUser | null; gradeLabel: stri
     </div>
     <div class="flex flex-wrap items-center gap-2">
       <DictionaryLink current />
-      <BackToTopLink href="/kanji" />
+      <a
+        href={`/kanji/select?grade=${gradeParam}`}
+        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+      >
+        ← クエスト選択へ戻る
+      </a>
+      <BackToTopLink />
       {currentUser ? (
         <a
           href="/auth/logout"
@@ -88,7 +101,9 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
   const normalizedQuery = query.trim().toLowerCase();
   const totalCount = entries.length;
   const filteredEntries = normalizedQuery
-    ? entries.filter((entry) => buildSearchIndex(entry).includes(normalizedQuery))
+    ? entries.filter((entry) =>
+        buildSearchIndex(entry).includes(normalizedQuery)
+      )
     : entries;
 
   return (
@@ -96,27 +111,58 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
       class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45); --mq-ink: #2c3e50; --mq-surface: rgba(255, 255, 255, 0.95);"
     >
-      <KanjiDictionaryNav currentUser={currentUser} gradeLabel={gradeLabel} />
+      <KanjiDictionaryNav
+        currentUser={currentUser}
+        gradeLabel={gradeLabel}
+        gradeParam={gradeParam}
+      />
       <div class="flex flex-1 flex-col gap-8 px-4 pb-16 sm:px-8 lg:px-16 xl:px-24">
-        <header class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-10 text-[var(--mq-ink)] shadow-xl">
+        <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-10 text-[var(--mq-ink)] shadow-xl">
           <div class="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p class="text-sm font-semibold text-[var(--mq-primary-strong)]">小学1年生向け</p>
-              <h1 class="text-3xl font-extrabold sm:text-4xl">
-                {gradeLabel} 漢字辞書
-              </h1>
+              <p class="text-sm font-semibold text-[var(--mq-primary-strong)]">
+                {gradeLabel}向け
+              </p>
+              <h1 class="text-3xl font-extrabold sm:text-4xl">漢字辞書</h1>
               <p class="mt-2 max-w-2xl text-sm text-[#4f6076]">
-                教育漢字80字の読み方・意味・例をいつでも確認できます。クエストの途中でも辞書を開いて復習しましょう。
+                教育漢字の読み方・意味・例をいつでも確認できます。クエストの途中でも辞書を開いて復習しましょう。
               </p>
             </div>
             <div class="rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-primary-strong)] shadow-sm">
               全{totalCount}字掲載
             </div>
           </div>
+
+          <div class="flex flex-wrap gap-2">
+            {([1, 2, 3, 4, 5, 6] as KanjiGrade[]).map((g) => {
+              const isActive = g === grade;
+              const gParam = createSchoolGradeParam({
+                stage: '小学',
+                grade: g,
+              });
+              return (
+                <a
+                  key={g}
+                  href={`/kanji/dictionary?grade=${gParam}`}
+                  class={`inline-flex items-center rounded-2xl border px-4 py-2 text-sm font-semibold transition ${
+                    isActive
+                      ? 'border-[var(--mq-primary)] bg-[var(--mq-primary-soft)] text-[var(--mq-primary-strong)]'
+                      : 'border-[var(--mq-outline)] bg-white text-[var(--mq-ink)] hover:-translate-y-0.5 hover:bg-[var(--mq-surface)]'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  小学{g}年生
+                </a>
+              );
+            })}
+          </div>
         </header>
 
         <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-          <form class="flex flex-col gap-4 sm:flex-row sm:items-center" method="GET">
+          <form
+            class="flex flex-col gap-4 sm:flex-row sm:items-center"
+            method="GET"
+          >
             <input type="hidden" name="grade" value={gradeParam} />
             <label class="flex-1">
               <span class="mb-2 block text-xs font-semibold text-[#5e718a]">
@@ -150,7 +196,8 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
           <p class="mt-4 text-xs text-[#5e718a]">
             {normalizedQuery ? (
               <>
-                「{query}」に一致する漢字 {filteredEntries.length} / {totalCount} 字
+                「{query}」に一致する漢字 {filteredEntries.length} /{' '}
+                {totalCount} 字
               </>
             ) : (
               <>全{totalCount}字を表示しています</>
@@ -192,15 +239,25 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
 
                 <dl class="space-y-3 text-sm text-[#4f6076]">
                   <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">音読み</dt>
-                    <dd class="mt-1 text-base text-[var(--mq-ink)]">{formatReadings(kanji.readings.onyomi)}</dd>
+                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
+                      音読み
+                    </dt>
+                    <dd class="mt-1 text-base text-[var(--mq-ink)]">
+                      {formatReadings(kanji.readings.onyomi)}
+                    </dd>
                   </div>
                   <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">訓読み</dt>
-                    <dd class="mt-1 text-base text-[var(--mq-ink)]">{formatReadings(kanji.readings.kunyomi)}</dd>
+                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
+                      訓読み
+                    </dt>
+                    <dd class="mt-1 text-base text-[var(--mq-ink)]">
+                      {formatReadings(kanji.readings.kunyomi)}
+                    </dd>
                   </div>
                   <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">部首</dt>
+                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
+                      部首
+                    </dt>
                     <dd class="mt-1 flex flex-wrap gap-2">
                       {kanji.radicals.length > 0 ? (
                         kanji.radicals.map((radical) => (
@@ -217,7 +274,9 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
                     </dd>
                   </div>
                   <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">例のことば</dt>
+                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
+                      例のことば
+                    </dt>
                     <dd class="mt-2 space-y-2">
                       {kanji.examples.map((example) => (
                         <div
@@ -226,9 +285,13 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
                         >
                           <div class="font-semibold">
                             {example.word}
-                            <span class="ml-2 text-[11px] text-[#5e718a]">{example.reading}</span>
+                            <span class="ml-2 text-[11px] text-[#5e718a]">
+                              {example.reading}
+                            </span>
                           </div>
-                          <div class="mt-1 text-[11px] text-[#5e718a]">{example.meaning}</div>
+                          <div class="mt-1 text-[11px] text-[#5e718a]">
+                            {example.meaning}
+                          </div>
                         </div>
                       ))}
                     </dd>
