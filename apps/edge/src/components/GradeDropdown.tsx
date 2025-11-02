@@ -33,12 +33,17 @@ export const GradeDropdown: FC<GradeDropdownProps> = ({
     <div class="grade-dropdown relative inline-block flex-shrink-0">
       <button
         type="button"
-        class="grade-dropdown-button inline-flex items-center gap-1 whitespace-nowrap rounded-lg bg-[var(--mq-primary-soft)] px-2 py-1 text-xs font-semibold text-[var(--mq-ink)] transition hover:bg-[var(--mq-primary)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        class="grade-dropdown-button inline-flex min-w-[4.5rem] items-center justify-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
         aria-label="学年を変更"
         aria-expanded="false"
         aria-haspopup="true"
       >
-        <span>{currentLabel}</span>
+        <span
+          class="inline-block"
+          style="white-space: nowrap; word-break: keep-all;"
+        >
+          {currentLabel}
+        </span>
         <svg
           class="grade-dropdown-icon h-3 w-3 transition-transform"
           fill="none"
