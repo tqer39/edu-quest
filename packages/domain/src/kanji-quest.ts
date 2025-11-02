@@ -8,6 +8,8 @@
 import kanjiGrade1Data from './data/kanji-grade-1.json';
 import kanjiGrade2Data from './data/kanji-grade-2.json';
 
+// Vocabulary examples reference resources such as Kanji Alive (CC BY 4.0).
+
 /**
  * Kanji character data structure
  */
@@ -22,6 +24,11 @@ export interface Kanji {
   meanings: string[];
   radicals: string[];
   examples: Array<{
+    word: string;
+    reading: string;
+    meaning: string;
+  }>;
+  specialExamples: Array<{
     word: string;
     reading: string;
     meaning: string;
@@ -96,6 +103,9 @@ export function getKanjiDictionaryByGrade(grade: KanjiGrade): Kanji[] {
     meanings: [...kanji.meanings],
     radicals: [...kanji.radicals],
     examples: kanji.examples.map((example) => ({ ...example })),
+    specialExamples: kanji.specialExamples
+      ? kanji.specialExamples.map((example) => ({ ...example }))
+      : [],
   }));
 }
 
