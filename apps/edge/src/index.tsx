@@ -13,15 +13,19 @@ import { ClockSelect } from './routes/pages/clock-select';
 import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiDictionary } from './routes/pages/kanji-dictionary';
+import { KanjiDetail } from './routes/pages/kanji-detail';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { KanjiSelect } from './routes/pages/kanji-select';
 import { MathHome } from './routes/pages/math-home';
 import { MathSelect } from './routes/pages/math-select';
 import { GameHome } from './routes/pages/game-home';
+import { GameSelect } from './routes/pages/game-select';
 import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
+import { SudokuSelect } from './routes/pages/sudoku-select';
 import { Login } from './routes/pages/login';
 import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
@@ -37,11 +41,12 @@ import {
   getKanjiSessionResult,
 } from './application/usecases/kanji-quiz';
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
-import type {
-  ClockDifficulty,
-  ClockGrade,
-  KanjiGrade,
-  KanjiQuestType,
+import {
+  getKanjiDictionaryByGrade,
+  type ClockDifficulty,
+  type ClockGrade,
+  type KanjiGrade,
+  type KanjiQuestType,
 } from '@edu-quest/domain';
 import {
   gradeLevels,
@@ -447,14 +452,8 @@ app.get('/math/play', async (c) =>
 
 // GameQuest routes
 app.get('/game', async (c) => {
-  const gradeParam = c.req.query('grade');
-  const selectedGradeId = isGameGradeId(gradeParam) ? gradeParam : null;
-
   return c.render(
-    <GameHome
-      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
-      selectedGradeId={selectedGradeId}
-    />,
+    <GameHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'GameQuest | 学年からゲームを選ぼう',
       description:
@@ -464,13 +463,32 @@ app.get('/game', async (c) => {
   );
 });
 
+app.get('/game/select', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <GameSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={gradeId}
+    />,
+    {
+      title: `GameQuest | ${grade.label} - ゲーム選択`,
+      description: `${grade.label}向けの数独パズルに挑戦しよう。${grade.highlight}がおすすめです。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sudoku preset selection page
 app.get('/game/sudoku', async (c) => {
   const gradeParam = c.req.query('grade');
   const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
   const grade = getGameGradeById(gradeId);
 
   return c.render(
-    <Sudoku
+    <SudokuSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
       presets={getSudokuPresetsForGrade(gradeId)}
@@ -478,6 +496,32 @@ app.get('/game/sudoku', async (c) => {
     {
       title: `GameQuest | 数独（${grade.label}向け）`,
       description: `${grade.label}に合わせた難易度プリセットで数独に挑戦しよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sudoku gameplay page
+app.get('/game/sudoku/play', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const sizeParam = c.req.query('size');
+  const difficultyParam = c.req.query('difficulty');
+
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+  const size = sizeParam ? Number(sizeParam) : 4;
+  const difficulty = difficultyParam || 'easy';
+
+  return c.render(
+    <Sudoku
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      size={size}
+      difficulty={difficulty}
+    />,
+    {
+      title: `GameQuest | 数独 - ${grade.label}`,
+      description: `数独パズルで集中力を鍛えよう。`,
       favicon: '/favicon-game.svg',
     }
   );
@@ -494,6 +538,78 @@ app.get('/kanji', async (c) =>
     }
   )
 );
+
+app.get('/kanji/dictionary', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  // Load all available grades' data for client-side filtering
+  const allEntries = availableGrades.flatMap((g) =>
+    getKanjiDictionaryByGrade(g)
+  );
+
+  return c.render(
+    <KanjiDictionary
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      entries={allEntries}
+    />,
+    {
+      title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
+      description: `${gradeLabel}で学ぶ漢字の読み方・意味・例をまとめた辞書ページです。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kanji/dictionary/:id', async (c) => {
+  const kanjiId = c.req.param('id');
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+
+  // Convert hex ID back to character
+  const character = String.fromCodePoint(Number.parseInt(kanjiId, 16));
+
+  // Find the kanji in the dictionary
+  const allKanji = getKanjiDictionaryByGrade(grade);
+  const kanji = allKanji.find((k) => k.character === character);
+
+  if (!kanji) {
+    return c.notFound();
+  }
+
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  return c.render(
+    <KanjiDetail
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      kanji={kanji}
+    />,
+    {
+      title: `${kanji.character} - ${gradeLabel}の漢字 | KanjiQuest`,
+      description: `${kanji.character}（${kanji.meanings.join(
+        '、'
+      )}）の読み方・意味・例を確認できます。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
 
 // KanjiQuest: クエストタイプ選択画面
 app.get('/kanji/select', async (c) => {
@@ -771,7 +887,9 @@ app.get('/clock', async (c) =>
 
 app.get('/clock/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  const grade = Number(gradeParam) as ClockGrade;
+  // elem-1 形式から数字を抽出
+  const gradeMatch = gradeParam?.match(/^elem-(\d)$/);
+  const grade = gradeMatch ? (Number(gradeMatch[1]) as ClockGrade) : null;
 
   if (!grade || grade < 1 || grade > 6) {
     return c.redirect('/clock', 302);
@@ -783,8 +901,8 @@ app.get('/clock/select', async (c) => {
       grade={grade}
     />,
     {
-      title: `ClockQuest | ${grade}年生のクエスト選択`,
-      description: `${grade}年生向けの時計クエストを選択しましょう。`,
+      title: `ClockQuest | 小学${grade}年生のクエスト選択`,
+      description: `小学${grade}年生向けの時計クエストを選択しましょう。`,
       favicon: '/favicon-clock.svg',
     }
   );
@@ -808,7 +926,9 @@ app.get('/clock/start', async (c) => {
   const difficultyParam = c.req.query('difficulty');
   const typeParam = c.req.query('type');
 
-  const grade = Number(gradeParam) as ClockGrade;
+  // elem-1 形式から数字を抽出
+  const gradeMatch = gradeParam?.match(/^elem-(\d)$/);
+  const grade = gradeMatch ? (Number(gradeMatch[1]) as ClockGrade) : null;
   let difficulty: ClockDifficulty | null = null;
 
   if (!grade || grade < 1 || grade > 6) {

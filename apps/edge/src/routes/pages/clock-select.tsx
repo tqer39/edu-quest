@@ -3,6 +3,7 @@ import type { CurrentUser } from '../../application/session/current-user';
 import type { ClockDifficulty, ClockGrade } from '@edu-quest/domain';
 import { getGradeDescription } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 
 const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
   currentUser,
@@ -10,12 +11,17 @@ const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
 }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
-      <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-        🕐
-      </span>
-      <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-        ClockQuest - {grade}年生
-      </span>
+      <a
+        href="/clock"
+        class="flex items-center gap-2 transition hover:opacity-80"
+      >
+        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+          🕐
+        </span>
+        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+          ClockQuest - {grade}年生
+        </span>
+      </a>
     </div>
     <div class="flex flex-wrap gap-2">
       <BackToTopLink />
@@ -90,7 +96,7 @@ const QuestCard: FC<{
   option: (typeof questOptions)[number];
 }> = ({ grade, option }) => (
   <a
-    href={`/clock/start?grade=${grade}&type=${option.id}&difficulty=${option.difficulty}`}
+    href={`/clock/start?grade=elem-${grade}&type=${option.id}&difficulty=${option.difficulty}`}
     class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
     <span class="text-4xl" aria-hidden="true">
@@ -114,11 +120,11 @@ export const ClockSelect: FC<{
 
   return (
     <div
-      class="flex min-h-screen w-full flex-col gap-10"
+      class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #F5A85F; --mq-primary-strong: #E88D3D; --mq-primary-soft: #FEE9D5; --mq-accent: #FFCC99; --mq-outline: rgba(245, 168, 95, 0.45);"
     >
       <ClockNav currentUser={currentUser} grade={grade} />
-      <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
           <span class="text-6xl">🕐</span>
           <div class="space-y-4">
@@ -144,6 +150,8 @@ export const ClockSelect: FC<{
           </div>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };

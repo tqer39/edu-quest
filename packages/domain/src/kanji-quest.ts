@@ -6,6 +6,7 @@
  */
 
 import kanjiGrade1Data from './data/kanji-grade-1.json';
+import kanjiGrade2Data from './data/kanji-grade-2.json';
 
 /**
  * Kanji character data structure
@@ -71,10 +72,31 @@ function loadKanjiDataByGrade(grade: KanjiGrade): Kanji[] {
   switch (grade) {
     case 1:
       return kanjiGrade1Data as Kanji[];
-    // TODO: Add grades 2-6 when data is available
+    case 2:
+      return kanjiGrade2Data as Kanji[];
+    // TODO: Add grades 3-6 when data is available
     default:
       return kanjiGrade1Data as Kanji[];
   }
+}
+
+/**
+ * Get kanji dictionary data for a specific grade.
+ * Returns a deep copy so callers cannot mutate the source dataset.
+ */
+export function getKanjiDictionaryByGrade(grade: KanjiGrade): Kanji[] {
+  const kanjiList = loadKanjiDataByGrade(grade);
+
+  return kanjiList.map((kanji) => ({
+    ...kanji,
+    readings: {
+      onyomi: [...kanji.readings.onyomi],
+      kunyomi: [...kanji.readings.kunyomi],
+    },
+    meanings: [...kanji.meanings],
+    radicals: [...kanji.radicals],
+    examples: kanji.examples.map((example) => ({ ...example })),
+  }));
 }
 
 /**

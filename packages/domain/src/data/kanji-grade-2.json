@@ -1,0 +1,2449 @@
+[
+  {
+    "character": "引",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["イン"],
+      "kunyomi": ["ひ-く", "ひ-ける"]
+    },
+    "meanings": ["pull", "draw"],
+    "radicals": ["弓"],
+    "examples": [
+      { "word": "引く", "reading": "ひく", "meaning": "to pull" },
+      { "word": "引力", "reading": "いんりょく", "meaning": "gravity" }
+    ]
+  },
+  {
+    "character": "羽",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ウ"],
+      "kunyomi": ["は", "はね"]
+    },
+    "meanings": ["feather", "wing"],
+    "radicals": ["羽"],
+    "examples": [
+      { "word": "羽", "reading": "はね", "meaning": "feather, wing" },
+      { "word": "羽根", "reading": "はね", "meaning": "feather" }
+    ]
+  },
+  {
+    "character": "雲",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["ウン"],
+      "kunyomi": ["くも"]
+    },
+    "meanings": ["cloud"],
+    "radicals": ["雨"],
+    "examples": [
+      { "word": "雲", "reading": "くも", "meaning": "cloud" },
+      { "word": "雲海", "reading": "うんかい", "meaning": "sea of clouds" }
+    ]
+  },
+  {
+    "character": "園",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["エン"],
+      "kunyomi": ["その"]
+    },
+    "meanings": ["garden", "park"],
+    "radicals": ["囗"],
+    "examples": [
+      { "word": "公園", "reading": "こうえん", "meaning": "park" },
+      { "word": "動物園", "reading": "どうぶつえん", "meaning": "zoo" }
+    ]
+  },
+  {
+    "character": "遠",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["エン", "オン"],
+      "kunyomi": ["とお-い"]
+    },
+    "meanings": ["far", "distant"],
+    "radicals": ["辵"],
+    "examples": [
+      { "word": "遠い", "reading": "とおい", "meaning": "far" },
+      { "word": "遠足", "reading": "えんそく", "meaning": "excursion" }
+    ]
+  },
+  {
+    "character": "何",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["カ"],
+      "kunyomi": ["なに", "なん"]
+    },
+    "meanings": ["what"],
+    "radicals": ["人"],
+    "examples": [
+      { "word": "何", "reading": "なに", "meaning": "what" },
+      { "word": "何人", "reading": "なんにん", "meaning": "how many people" }
+    ]
+  },
+  {
+    "character": "科",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["カ"],
+      "kunyomi": []
+    },
+    "meanings": ["department", "course"],
+    "radicals": ["禾"],
+    "examples": [
+      { "word": "科学", "reading": "かがく", "meaning": "science" },
+      { "word": "科目", "reading": "かもく", "meaning": "subject" }
+    ]
+  },
+  {
+    "character": "夏",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["カ", "ゲ"],
+      "kunyomi": ["なつ"]
+    },
+    "meanings": ["summer"],
+    "radicals": ["夊"],
+    "examples": [
+      { "word": "夏", "reading": "なつ", "meaning": "summer" },
+      {
+        "word": "夏休み",
+        "reading": "なつやすみ",
+        "meaning": "summer vacation"
+      }
+    ]
+  },
+  {
+    "character": "家",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["カ", "ケ"],
+      "kunyomi": ["いえ", "や"]
+    },
+    "meanings": ["house", "home", "family"],
+    "radicals": ["宀"],
+    "examples": [
+      { "word": "家", "reading": "いえ", "meaning": "house, home" },
+      { "word": "家族", "reading": "かぞく", "meaning": "family" }
+    ]
+  },
+  {
+    "character": "歌",
+    "grade": 2,
+    "strokeCount": 14,
+    "readings": {
+      "onyomi": ["カ"],
+      "kunyomi": ["うた", "うた-う"]
+    },
+    "meanings": ["song", "sing"],
+    "radicals": ["欠"],
+    "examples": [
+      { "word": "歌", "reading": "うた", "meaning": "song" },
+      { "word": "歌う", "reading": "うたう", "meaning": "to sing" }
+    ]
+  },
+  {
+    "character": "画",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["ガ", "カク"],
+      "kunyomi": []
+    },
+    "meanings": ["picture", "drawing", "stroke"],
+    "radicals": ["田"],
+    "examples": [
+      { "word": "画家", "reading": "がか", "meaning": "painter" },
+      { "word": "映画", "reading": "えいが", "meaning": "movie" }
+    ]
+  },
+  {
+    "character": "回",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["カイ", "エ"],
+      "kunyomi": ["まわ-る", "まわ-す"]
+    },
+    "meanings": ["times", "round", "rotate"],
+    "radicals": ["囗"],
+    "examples": [
+      { "word": "回る", "reading": "まわる", "meaning": "to turn" },
+      { "word": "一回", "reading": "いっかい", "meaning": "once" }
+    ]
+  },
+  {
+    "character": "海",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["カイ"],
+      "kunyomi": ["うみ"]
+    },
+    "meanings": ["sea", "ocean"],
+    "radicals": ["水"],
+    "examples": [
+      { "word": "海", "reading": "うみ", "meaning": "sea, ocean" },
+      { "word": "海水", "reading": "かいすい", "meaning": "seawater" }
+    ]
+  },
+  {
+    "character": "絵",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["カイ", "エ"],
+      "kunyomi": []
+    },
+    "meanings": ["picture", "drawing"],
+    "radicals": ["糸"],
+    "examples": [
+      { "word": "絵", "reading": "え", "meaning": "picture, drawing" },
+      { "word": "絵本", "reading": "えほん", "meaning": "picture book" }
+    ]
+  },
+  {
+    "character": "外",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ガイ", "ゲ"],
+      "kunyomi": ["そと", "ほか", "はず-す", "はず-れる"]
+    },
+    "meanings": ["outside", "foreign"],
+    "radicals": ["夕"],
+    "examples": [
+      { "word": "外", "reading": "そと", "meaning": "outside" },
+      { "word": "外国", "reading": "がいこく", "meaning": "foreign country" }
+    ]
+  },
+  {
+    "character": "角",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["カク"],
+      "kunyomi": ["かど", "つの"]
+    },
+    "meanings": ["angle", "corner", "horn"],
+    "radicals": ["角"],
+    "examples": [
+      { "word": "角", "reading": "かど", "meaning": "corner" },
+      { "word": "三角", "reading": "さんかく", "meaning": "triangle" }
+    ]
+  },
+  {
+    "character": "楽",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["ガク", "ラク"],
+      "kunyomi": ["たの-しい", "たの-しむ"]
+    },
+    "meanings": ["music", "pleasure", "easy"],
+    "radicals": ["木"],
+    "examples": [
+      { "word": "楽しい", "reading": "たのしい", "meaning": "fun, enjoyable" },
+      { "word": "音楽", "reading": "おんがく", "meaning": "music" }
+    ]
+  },
+  {
+    "character": "活",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["カツ"],
+      "kunyomi": []
+    },
+    "meanings": ["lively", "active"],
+    "radicals": ["水"],
+    "examples": [
+      { "word": "生活", "reading": "せいかつ", "meaning": "life, living" },
+      { "word": "活動", "reading": "かつどう", "meaning": "activity" }
+    ]
+  },
+  {
+    "character": "間",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["カン", "ケン"],
+      "kunyomi": ["あいだ", "ま"]
+    },
+    "meanings": ["interval", "space", "between"],
+    "radicals": ["門"],
+    "examples": [
+      { "word": "間", "reading": "あいだ", "meaning": "between, interval" },
+      { "word": "時間", "reading": "じかん", "meaning": "time" }
+    ]
+  },
+  {
+    "character": "丸",
+    "grade": 2,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["ガン"],
+      "kunyomi": ["まる", "まる-い"]
+    },
+    "meanings": ["round", "circle"],
+    "radicals": ["丶"],
+    "examples": [
+      { "word": "丸い", "reading": "まるい", "meaning": "round" },
+      { "word": "丸", "reading": "まる", "meaning": "circle" }
+    ]
+  },
+  {
+    "character": "岩",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["ガン"],
+      "kunyomi": ["いわ"]
+    },
+    "meanings": ["rock", "crag"],
+    "radicals": ["山"],
+    "examples": [
+      { "word": "岩", "reading": "いわ", "meaning": "rock" },
+      { "word": "岩石", "reading": "がんせき", "meaning": "rock, stone" }
+    ]
+  },
+  {
+    "character": "顔",
+    "grade": 2,
+    "strokeCount": 18,
+    "readings": {
+      "onyomi": ["ガン"],
+      "kunyomi": ["かお"]
+    },
+    "meanings": ["face"],
+    "radicals": ["頁"],
+    "examples": [
+      { "word": "顔", "reading": "かお", "meaning": "face" },
+      { "word": "笑顔", "reading": "えがお", "meaning": "smiling face" }
+    ]
+  },
+  {
+    "character": "汽",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["キ"],
+      "kunyomi": []
+    },
+    "meanings": ["steam", "vapor"],
+    "radicals": ["水"],
+    "examples": [
+      { "word": "汽車", "reading": "きしゃ", "meaning": "train" },
+      { "word": "汽船", "reading": "きせん", "meaning": "steamship" }
+    ]
+  },
+  {
+    "character": "記",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["キ"],
+      "kunyomi": ["しる-す"]
+    },
+    "meanings": ["write down", "record"],
+    "radicals": ["言"],
+    "examples": [
+      { "word": "記す", "reading": "しるす", "meaning": "to write down" },
+      { "word": "記録", "reading": "きろく", "meaning": "record" }
+    ]
+  },
+  {
+    "character": "帰",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["キ"],
+      "kunyomi": ["かえ-る", "かえ-す"]
+    },
+    "meanings": ["return", "go back"],
+    "radicals": ["巾"],
+    "examples": [
+      { "word": "帰る", "reading": "かえる", "meaning": "to return" },
+      {
+        "word": "帰国",
+        "reading": "きこく",
+        "meaning": "return to one's country"
+      }
+    ]
+  },
+  {
+    "character": "弓",
+    "grade": 2,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["キュウ"],
+      "kunyomi": ["ゆみ"]
+    },
+    "meanings": ["bow", "archery"],
+    "radicals": ["弓"],
+    "examples": [
+      { "word": "弓", "reading": "ゆみ", "meaning": "bow" },
+      { "word": "弓道", "reading": "きゅうどう", "meaning": "archery" }
+    ]
+  },
+  {
+    "character": "牛",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ギュウ"],
+      "kunyomi": ["うし"]
+    },
+    "meanings": ["cow", "cattle"],
+    "radicals": ["牛"],
+    "examples": [
+      { "word": "牛", "reading": "うし", "meaning": "cow" },
+      { "word": "牛乳", "reading": "ぎゅうにゅう", "meaning": "milk" }
+    ]
+  },
+  {
+    "character": "魚",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["ギョ"],
+      "kunyomi": ["さかな"]
+    },
+    "meanings": ["fish"],
+    "radicals": ["魚"],
+    "examples": [
+      { "word": "魚", "reading": "さかな", "meaning": "fish" },
+      { "word": "金魚", "reading": "きんぎょ", "meaning": "goldfish" }
+    ]
+  },
+  {
+    "character": "京",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["キョウ", "ケイ"],
+      "kunyomi": []
+    },
+    "meanings": ["capital"],
+    "radicals": ["亠"],
+    "examples": [
+      { "word": "東京", "reading": "とうきょう", "meaning": "Tokyo" },
+      { "word": "京都", "reading": "きょうと", "meaning": "Kyoto" }
+    ]
+  },
+  {
+    "character": "強",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["キョウ", "ゴウ"],
+      "kunyomi": ["つよ-い", "つよ-まる", "つよ-める"]
+    },
+    "meanings": ["strong"],
+    "radicals": ["弓"],
+    "examples": [
+      { "word": "強い", "reading": "つよい", "meaning": "strong" },
+      { "word": "強化", "reading": "きょうか", "meaning": "strengthening" }
+    ]
+  },
+  {
+    "character": "教",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["キョウ"],
+      "kunyomi": ["おし-える", "おそ-わる"]
+    },
+    "meanings": ["teach", "education"],
+    "radicals": ["攴"],
+    "examples": [
+      { "word": "教える", "reading": "おしえる", "meaning": "to teach" },
+      { "word": "教室", "reading": "きょうしつ", "meaning": "classroom" }
+    ]
+  },
+  {
+    "character": "近",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["キン"],
+      "kunyomi": ["ちか-い"]
+    },
+    "meanings": ["near", "close"],
+    "radicals": ["辵"],
+    "examples": [
+      { "word": "近い", "reading": "ちかい", "meaning": "near, close" },
+      { "word": "近所", "reading": "きんじょ", "meaning": "neighborhood" }
+    ]
+  },
+  {
+    "character": "兄",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ケイ", "キョウ"],
+      "kunyomi": ["あに"]
+    },
+    "meanings": ["older brother"],
+    "radicals": ["儿"],
+    "examples": [
+      { "word": "兄", "reading": "あに", "meaning": "older brother" },
+      { "word": "兄弟", "reading": "きょうだい", "meaning": "siblings" }
+    ]
+  },
+  {
+    "character": "形",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["ケイ", "ギョウ"],
+      "kunyomi": ["かた", "かたち"]
+    },
+    "meanings": ["shape", "form"],
+    "radicals": ["彡"],
+    "examples": [
+      { "word": "形", "reading": "かたち", "meaning": "shape, form" },
+      { "word": "四角形", "reading": "しかくけい", "meaning": "quadrilateral" }
+    ]
+  },
+  {
+    "character": "計",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["ケイ"],
+      "kunyomi": ["はか-る", "はか-らう"]
+    },
+    "meanings": ["measure", "plan"],
+    "radicals": ["言"],
+    "examples": [
+      { "word": "計る", "reading": "はかる", "meaning": "to measure" },
+      { "word": "時計", "reading": "とけい", "meaning": "clock, watch" }
+    ]
+  },
+  {
+    "character": "元",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ゲン", "ガン"],
+      "kunyomi": ["もと"]
+    },
+    "meanings": ["origin", "source"],
+    "radicals": ["儿"],
+    "examples": [
+      { "word": "元", "reading": "もと", "meaning": "origin, source" },
+      { "word": "元気", "reading": "げんき", "meaning": "energetic, healthy" }
+    ]
+  },
+  {
+    "character": "言",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["ゲン", "ゴン"],
+      "kunyomi": ["い-う", "こと"]
+    },
+    "meanings": ["say", "word"],
+    "radicals": ["言"],
+    "examples": [
+      { "word": "言う", "reading": "いう", "meaning": "to say" },
+      { "word": "言葉", "reading": "ことば", "meaning": "word, language" }
+    ]
+  },
+  {
+    "character": "原",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["ゲン"],
+      "kunyomi": ["はら"]
+    },
+    "meanings": ["plain", "field", "origin"],
+    "radicals": ["厂"],
+    "examples": [
+      { "word": "原", "reading": "はら", "meaning": "field, plain" },
+      { "word": "原因", "reading": "げんいん", "meaning": "cause" }
+    ]
+  },
+  {
+    "character": "戸",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["コ"],
+      "kunyomi": ["と"]
+    },
+    "meanings": ["door"],
+    "radicals": ["戸"],
+    "examples": [
+      { "word": "戸", "reading": "と", "meaning": "door" },
+      { "word": "戸口", "reading": "とぐち", "meaning": "doorway" }
+    ]
+  },
+  {
+    "character": "古",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["コ"],
+      "kunyomi": ["ふる-い", "ふる-す"]
+    },
+    "meanings": ["old"],
+    "radicals": ["口"],
+    "examples": [
+      { "word": "古い", "reading": "ふるい", "meaning": "old" },
+      { "word": "古代", "reading": "こだい", "meaning": "ancient times" }
+    ]
+  },
+  {
+    "character": "午",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ゴ"],
+      "kunyomi": []
+    },
+    "meanings": ["noon"],
+    "radicals": ["十"],
+    "examples": [
+      { "word": "午前", "reading": "ごぜん", "meaning": "morning, AM" },
+      { "word": "午後", "reading": "ごご", "meaning": "afternoon, PM" }
+    ]
+  },
+  {
+    "character": "後",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["ゴ", "コウ"],
+      "kunyomi": ["のち", "うし-ろ", "あと"]
+    },
+    "meanings": ["after", "behind"],
+    "radicals": ["彳"],
+    "examples": [
+      { "word": "後", "reading": "あと", "meaning": "after" },
+      { "word": "午後", "reading": "ごご", "meaning": "afternoon" }
+    ]
+  },
+  {
+    "character": "語",
+    "grade": 2,
+    "strokeCount": 14,
+    "readings": {
+      "onyomi": ["ゴ"],
+      "kunyomi": ["かた-る", "かた-らう"]
+    },
+    "meanings": ["language", "word"],
+    "radicals": ["言"],
+    "examples": [
+      { "word": "語る", "reading": "かたる", "meaning": "to talk, to tell" },
+      {
+        "word": "日本語",
+        "reading": "にほんご",
+        "meaning": "Japanese language"
+      }
+    ]
+  },
+  {
+    "character": "工",
+    "grade": 2,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["コウ", "ク"],
+      "kunyomi": []
+    },
+    "meanings": ["craft", "construction"],
+    "radicals": ["工"],
+    "examples": [
+      { "word": "工場", "reading": "こうじょう", "meaning": "factory" },
+      { "word": "工事", "reading": "こうじ", "meaning": "construction work" }
+    ]
+  },
+  {
+    "character": "公",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["コウ"],
+      "kunyomi": ["おおやけ"]
+    },
+    "meanings": ["public"],
+    "radicals": ["八"],
+    "examples": [
+      { "word": "公園", "reading": "こうえん", "meaning": "park" },
+      { "word": "公共", "reading": "こうきょう", "meaning": "public" }
+    ]
+  },
+  {
+    "character": "広",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["コウ"],
+      "kunyomi": ["ひろ-い", "ひろ-まる", "ひろ-める", "ひろ-がる", "ひろ-げる"]
+    },
+    "meanings": ["wide", "broad"],
+    "radicals": ["广"],
+    "examples": [
+      { "word": "広い", "reading": "ひろい", "meaning": "wide, spacious" },
+      { "word": "広場", "reading": "ひろば", "meaning": "plaza, square" }
+    ]
+  },
+  {
+    "character": "交",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["コウ"],
+      "kunyomi": [
+        "まじ-わる",
+        "まじ-える",
+        "ま-じる",
+        "ま-ざる",
+        "ま-ぜる",
+        "か-う",
+        "か-わす"
+      ]
+    },
+    "meanings": ["mix", "exchange"],
+    "radicals": ["亠"],
+    "examples": [
+      {
+        "word": "交わる",
+        "reading": "まじわる",
+        "meaning": "to associate with"
+      },
+      {
+        "word": "交通",
+        "reading": "こうつう",
+        "meaning": "traffic, transportation"
+      }
+    ]
+  },
+  {
+    "character": "光",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["コウ"],
+      "kunyomi": ["ひか-る", "ひかり"]
+    },
+    "meanings": ["light", "shine"],
+    "radicals": ["儿"],
+    "examples": [
+      { "word": "光", "reading": "ひかり", "meaning": "light" },
+      { "word": "光る", "reading": "ひかる", "meaning": "to shine" }
+    ]
+  },
+  {
+    "character": "考",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["コウ"],
+      "kunyomi": ["かんが-える"]
+    },
+    "meanings": ["think", "consider"],
+    "radicals": ["老"],
+    "examples": [
+      { "word": "考える", "reading": "かんがえる", "meaning": "to think" },
+      { "word": "参考", "reading": "さんこう", "meaning": "reference" }
+    ]
+  },
+  {
+    "character": "行",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["コウ", "ギョウ", "アン"],
+      "kunyomi": ["い-く", "ゆ-く", "おこな-う"]
+    },
+    "meanings": ["go", "conduct"],
+    "radicals": ["行"],
+    "examples": [
+      { "word": "行く", "reading": "いく", "meaning": "to go" },
+      { "word": "銀行", "reading": "ぎんこう", "meaning": "bank" }
+    ]
+  },
+  {
+    "character": "高",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["コウ"],
+      "kunyomi": ["たか-い", "たか", "たか-まる", "たか-める"]
+    },
+    "meanings": ["tall", "high"],
+    "radicals": ["高"],
+    "examples": [
+      {
+        "word": "高い",
+        "reading": "たかい",
+        "meaning": "tall, high, expensive"
+      },
+      { "word": "高校", "reading": "こうこう", "meaning": "high school" }
+    ]
+  },
+  {
+    "character": "黄",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["コウ", "オウ"],
+      "kunyomi": ["き", "こ"]
+    },
+    "meanings": ["yellow"],
+    "radicals": ["黄"],
+    "examples": [
+      { "word": "黄色", "reading": "きいろ", "meaning": "yellow" },
+      { "word": "黄金", "reading": "おうごん", "meaning": "gold" }
+    ]
+  },
+  {
+    "character": "合",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ゴウ", "ガッ", "カッ"],
+      "kunyomi": ["あ-う", "あ-わす", "あ-わせる"]
+    },
+    "meanings": ["combine", "fit"],
+    "radicals": ["口"],
+    "examples": [
+      { "word": "合う", "reading": "あう", "meaning": "to fit, to match" },
+      { "word": "合計", "reading": "ごうけい", "meaning": "sum total" }
+    ]
+  },
+  {
+    "character": "谷",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["コク"],
+      "kunyomi": ["たに"]
+    },
+    "meanings": ["valley"],
+    "radicals": ["谷"],
+    "examples": [
+      { "word": "谷", "reading": "たに", "meaning": "valley" },
+      { "word": "谷川", "reading": "たにがわ", "meaning": "mountain stream" }
+    ]
+  },
+  {
+    "character": "国",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["コク"],
+      "kunyomi": ["くに"]
+    },
+    "meanings": ["country"],
+    "radicals": ["囗"],
+    "examples": [
+      { "word": "国", "reading": "くに", "meaning": "country" },
+      {
+        "word": "国語",
+        "reading": "こくご",
+        "meaning": "national language, Japanese"
+      }
+    ]
+  },
+  {
+    "character": "黒",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["コク"],
+      "kunyomi": ["くろ", "くろ-い"]
+    },
+    "meanings": ["black"],
+    "radicals": ["黒"],
+    "examples": [
+      { "word": "黒", "reading": "くろ", "meaning": "black" },
+      { "word": "黒い", "reading": "くろい", "meaning": "black" }
+    ]
+  },
+  {
+    "character": "今",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["コン", "キン"],
+      "kunyomi": ["いま"]
+    },
+    "meanings": ["now", "present"],
+    "radicals": ["人"],
+    "examples": [
+      { "word": "今", "reading": "いま", "meaning": "now" },
+      { "word": "今日", "reading": "きょう", "meaning": "today" }
+    ]
+  },
+  {
+    "character": "才",
+    "grade": 2,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["サイ"],
+      "kunyomi": []
+    },
+    "meanings": ["talent", "ability"],
+    "radicals": ["手"],
+    "examples": [
+      { "word": "才能", "reading": "さいのう", "meaning": "talent, ability" },
+      { "word": "天才", "reading": "てんさい", "meaning": "genius" }
+    ]
+  },
+  {
+    "character": "細",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["サイ"],
+      "kunyomi": ["ほそ-い", "ほそ-る", "こま-か", "こま-かい"]
+    },
+    "meanings": ["thin", "fine", "detailed"],
+    "radicals": ["糸"],
+    "examples": [
+      { "word": "細い", "reading": "ほそい", "meaning": "thin, slender" },
+      {
+        "word": "細かい",
+        "reading": "こまかい",
+        "meaning": "small, fine, detailed"
+      }
+    ]
+  },
+  {
+    "character": "作",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["サク", "サ"],
+      "kunyomi": ["つく-る"]
+    },
+    "meanings": ["make", "create"],
+    "radicals": ["人"],
+    "examples": [
+      { "word": "作る", "reading": "つくる", "meaning": "to make, to create" },
+      { "word": "作品", "reading": "さくひん", "meaning": "work, piece" }
+    ]
+  },
+  {
+    "character": "算",
+    "grade": 2,
+    "strokeCount": 14,
+    "readings": {
+      "onyomi": ["サン"],
+      "kunyomi": []
+    },
+    "meanings": ["calculate", "count"],
+    "radicals": ["竹"],
+    "examples": [
+      { "word": "算数", "reading": "さんすう", "meaning": "arithmetic" },
+      { "word": "計算", "reading": "けいさん", "meaning": "calculation" }
+    ]
+  },
+  {
+    "character": "止",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["と-まる", "と-める"]
+    },
+    "meanings": ["stop"],
+    "radicals": ["止"],
+    "examples": [
+      { "word": "止まる", "reading": "とまる", "meaning": "to stop" },
+      { "word": "中止", "reading": "ちゅうし", "meaning": "cancellation" }
+    ]
+  },
+  {
+    "character": "市",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["いち"]
+    },
+    "meanings": ["city", "market"],
+    "radicals": ["巾"],
+    "examples": [
+      { "word": "市", "reading": "し", "meaning": "city" },
+      { "word": "市場", "reading": "いちば", "meaning": "market" }
+    ]
+  },
+  {
+    "character": "矢",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["や"]
+    },
+    "meanings": ["arrow"],
+    "radicals": ["矢"],
+    "examples": [
+      { "word": "矢", "reading": "や", "meaning": "arrow" },
+      { "word": "矢印", "reading": "やじるし", "meaning": "arrow sign" }
+    ]
+  },
+  {
+    "character": "姉",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["あね"]
+    },
+    "meanings": ["older sister"],
+    "radicals": ["女"],
+    "examples": [
+      { "word": "姉", "reading": "あね", "meaning": "older sister" },
+      { "word": "姉妹", "reading": "しまい", "meaning": "sisters" }
+    ]
+  },
+  {
+    "character": "思",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["おも-う"]
+    },
+    "meanings": ["think"],
+    "radicals": ["心"],
+    "examples": [
+      { "word": "思う", "reading": "おもう", "meaning": "to think" },
+      { "word": "思考", "reading": "しこう", "meaning": "thought, thinking" }
+    ]
+  },
+  {
+    "character": "紙",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["シ"],
+      "kunyomi": ["かみ"]
+    },
+    "meanings": ["paper"],
+    "radicals": ["糸"],
+    "examples": [
+      { "word": "紙", "reading": "かみ", "meaning": "paper" },
+      { "word": "手紙", "reading": "てがみ", "meaning": "letter" }
+    ]
+  },
+  {
+    "character": "寺",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ジ"],
+      "kunyomi": ["てら"]
+    },
+    "meanings": ["temple"],
+    "radicals": ["寸"],
+    "examples": [
+      { "word": "寺", "reading": "てら", "meaning": "temple" },
+      { "word": "寺院", "reading": "じいん", "meaning": "temple" }
+    ]
+  },
+  {
+    "character": "自",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ジ", "シ"],
+      "kunyomi": ["みずか-ら"]
+    },
+    "meanings": ["self", "oneself"],
+    "radicals": ["自"],
+    "examples": [
+      { "word": "自分", "reading": "じぶん", "meaning": "oneself" },
+      { "word": "自然", "reading": "しぜん", "meaning": "nature" }
+    ]
+  },
+  {
+    "character": "時",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["ジ"],
+      "kunyomi": ["とき"]
+    },
+    "meanings": ["time", "hour"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "時", "reading": "とき", "meaning": "time" },
+      { "word": "時間", "reading": "じかん", "meaning": "time" }
+    ]
+  },
+  {
+    "character": "室",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["シツ"],
+      "kunyomi": ["むろ"]
+    },
+    "meanings": ["room"],
+    "radicals": ["宀"],
+    "examples": [
+      { "word": "教室", "reading": "きょうしつ", "meaning": "classroom" },
+      { "word": "室内", "reading": "しつない", "meaning": "indoor" }
+    ]
+  },
+  {
+    "character": "社",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["シャ"],
+      "kunyomi": ["やしろ"]
+    },
+    "meanings": ["company", "shrine"],
+    "radicals": ["示"],
+    "examples": [
+      { "word": "会社", "reading": "かいしゃ", "meaning": "company" },
+      { "word": "社会", "reading": "しゃかい", "meaning": "society" }
+    ]
+  },
+  {
+    "character": "弱",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["ジャク"],
+      "kunyomi": ["よわ-い", "よわ-る", "よわ-まる", "よわ-める"]
+    },
+    "meanings": ["weak"],
+    "radicals": ["弓"],
+    "examples": [
+      { "word": "弱い", "reading": "よわい", "meaning": "weak" },
+      { "word": "弱点", "reading": "じゃくてん", "meaning": "weak point" }
+    ]
+  },
+  {
+    "character": "首",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["シュ"],
+      "kunyomi": ["くび"]
+    },
+    "meanings": ["neck", "head"],
+    "radicals": ["首"],
+    "examples": [
+      { "word": "首", "reading": "くび", "meaning": "neck" },
+      { "word": "首相", "reading": "しゅしょう", "meaning": "prime minister" }
+    ]
+  },
+  {
+    "character": "秋",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["シュウ"],
+      "kunyomi": ["あき"]
+    },
+    "meanings": ["autumn", "fall"],
+    "radicals": ["禾"],
+    "examples": [
+      { "word": "秋", "reading": "あき", "meaning": "autumn, fall" },
+      { "word": "秋分", "reading": "しゅうぶん", "meaning": "autumnal equinox" }
+    ]
+  },
+  {
+    "character": "週",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["シュウ"],
+      "kunyomi": []
+    },
+    "meanings": ["week"],
+    "radicals": ["辵"],
+    "examples": [
+      { "word": "週間", "reading": "しゅうかん", "meaning": "week" },
+      { "word": "今週", "reading": "こんしゅう", "meaning": "this week" }
+    ]
+  },
+  {
+    "character": "春",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["シュン"],
+      "kunyomi": ["はる"]
+    },
+    "meanings": ["spring"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "春", "reading": "はる", "meaning": "spring" },
+      { "word": "春分", "reading": "しゅんぶん", "meaning": "vernal equinox" }
+    ]
+  },
+  {
+    "character": "書",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["ショ"],
+      "kunyomi": ["か-く"]
+    },
+    "meanings": ["write", "book"],
+    "radicals": ["曰"],
+    "examples": [
+      { "word": "書く", "reading": "かく", "meaning": "to write" },
+      { "word": "教科書", "reading": "きょうかしょ", "meaning": "textbook" }
+    ]
+  },
+  {
+    "character": "少",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ショウ"],
+      "kunyomi": ["すく-ない", "すこ-し"]
+    },
+    "meanings": ["few", "little"],
+    "radicals": ["小"],
+    "examples": [
+      { "word": "少ない", "reading": "すくない", "meaning": "few, little" },
+      { "word": "少し", "reading": "すこし", "meaning": "a little" }
+    ]
+  },
+  {
+    "character": "場",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["ジョウ"],
+      "kunyomi": ["ば"]
+    },
+    "meanings": ["place", "field"],
+    "radicals": ["土"],
+    "examples": [
+      { "word": "場所", "reading": "ばしょ", "meaning": "place" },
+      { "word": "工場", "reading": "こうじょう", "meaning": "factory" }
+    ]
+  },
+  {
+    "character": "色",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ショク", "シキ"],
+      "kunyomi": ["いろ"]
+    },
+    "meanings": ["color"],
+    "radicals": ["色"],
+    "examples": [
+      { "word": "色", "reading": "いろ", "meaning": "color" },
+      { "word": "景色", "reading": "けしき", "meaning": "scenery" }
+    ]
+  },
+  {
+    "character": "食",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["ショク", "ジキ"],
+      "kunyomi": ["た-べる", "く-う"]
+    },
+    "meanings": ["eat", "food"],
+    "radicals": ["食"],
+    "examples": [
+      { "word": "食べる", "reading": "たべる", "meaning": "to eat" },
+      { "word": "食事", "reading": "しょくじ", "meaning": "meal" }
+    ]
+  },
+  {
+    "character": "心",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["シン"],
+      "kunyomi": ["こころ"]
+    },
+    "meanings": ["heart", "mind"],
+    "radicals": ["心"],
+    "examples": [
+      { "word": "心", "reading": "こころ", "meaning": "heart, mind" },
+      {
+        "word": "安心",
+        "reading": "あんしん",
+        "meaning": "relief, peace of mind"
+      }
+    ]
+  },
+  {
+    "character": "新",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["シン"],
+      "kunyomi": ["あたら-しい", "あら-た", "にい"]
+    },
+    "meanings": ["new"],
+    "radicals": ["斤"],
+    "examples": [
+      { "word": "新しい", "reading": "あたらしい", "meaning": "new" },
+      { "word": "新聞", "reading": "しんぶん", "meaning": "newspaper" }
+    ]
+  },
+  {
+    "character": "親",
+    "grade": 2,
+    "strokeCount": 16,
+    "readings": {
+      "onyomi": ["シン"],
+      "kunyomi": ["おや", "した-しい", "した-しむ"]
+    },
+    "meanings": ["parent", "intimate"],
+    "radicals": ["見"],
+    "examples": [
+      { "word": "親", "reading": "おや", "meaning": "parent" },
+      { "word": "両親", "reading": "りょうしん", "meaning": "parents" }
+    ]
+  },
+  {
+    "character": "図",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["ズ", "ト"],
+      "kunyomi": ["はか-る"]
+    },
+    "meanings": ["diagram", "map"],
+    "radicals": ["囗"],
+    "examples": [
+      { "word": "地図", "reading": "ちず", "meaning": "map" },
+      { "word": "図書", "reading": "としょ", "meaning": "books" }
+    ]
+  },
+  {
+    "character": "数",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["スウ", "ス", "サク"],
+      "kunyomi": ["かず", "かぞ-える"]
+    },
+    "meanings": ["number", "count"],
+    "radicals": ["攴"],
+    "examples": [
+      { "word": "数", "reading": "かず", "meaning": "number" },
+      { "word": "数学", "reading": "すうがく", "meaning": "mathematics" }
+    ]
+  },
+  {
+    "character": "西",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["セイ", "サイ"],
+      "kunyomi": ["にし"]
+    },
+    "meanings": ["west"],
+    "radicals": ["西"],
+    "examples": [
+      { "word": "西", "reading": "にし", "meaning": "west" },
+      { "word": "西洋", "reading": "せいよう", "meaning": "the West" }
+    ]
+  },
+  {
+    "character": "声",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["セイ", "ショウ"],
+      "kunyomi": ["こえ", "こわ"]
+    },
+    "meanings": ["voice"],
+    "radicals": ["士"],
+    "examples": [
+      { "word": "声", "reading": "こえ", "meaning": "voice" },
+      { "word": "歌声", "reading": "うたごえ", "meaning": "singing voice" }
+    ]
+  },
+  {
+    "character": "星",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["セイ", "ショウ"],
+      "kunyomi": ["ほし"]
+    },
+    "meanings": ["star"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "星", "reading": "ほし", "meaning": "star" },
+      { "word": "惑星", "reading": "わくせい", "meaning": "planet" }
+    ]
+  },
+  {
+    "character": "晴",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["セイ"],
+      "kunyomi": ["は-れる", "は-らす"]
+    },
+    "meanings": ["clear up", "sunny"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "晴れる", "reading": "はれる", "meaning": "to clear up" },
+      { "word": "晴天", "reading": "せいてん", "meaning": "fine weather" }
+    ]
+  },
+  {
+    "character": "切",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["セツ", "サイ"],
+      "kunyomi": ["き-る", "き-れる"]
+    },
+    "meanings": ["cut"],
+    "radicals": ["刀"],
+    "examples": [
+      { "word": "切る", "reading": "きる", "meaning": "to cut" },
+      { "word": "大切", "reading": "たいせつ", "meaning": "important" }
+    ]
+  },
+  {
+    "character": "雪",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["セツ"],
+      "kunyomi": ["ゆき"]
+    },
+    "meanings": ["snow"],
+    "radicals": ["雨"],
+    "examples": [
+      { "word": "雪", "reading": "ゆき", "meaning": "snow" },
+      { "word": "雪だるま", "reading": "ゆきだるま", "meaning": "snowman" }
+    ]
+  },
+  {
+    "character": "船",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["セン"],
+      "kunyomi": ["ふね", "ふな"]
+    },
+    "meanings": ["ship", "boat"],
+    "radicals": ["舟"],
+    "examples": [
+      { "word": "船", "reading": "ふね", "meaning": "ship, boat" },
+      { "word": "船長", "reading": "せんちょう", "meaning": "captain" }
+    ]
+  },
+  {
+    "character": "線",
+    "grade": 2,
+    "strokeCount": 15,
+    "readings": {
+      "onyomi": ["セン"],
+      "kunyomi": []
+    },
+    "meanings": ["line"],
+    "radicals": ["糸"],
+    "examples": [
+      { "word": "線路", "reading": "せんろ", "meaning": "railway track" },
+      { "word": "電線", "reading": "でんせん", "meaning": "electric wire" }
+    ]
+  },
+  {
+    "character": "前",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["ゼン"],
+      "kunyomi": ["まえ"]
+    },
+    "meanings": ["front", "before"],
+    "radicals": ["刀"],
+    "examples": [
+      { "word": "前", "reading": "まえ", "meaning": "front, before" },
+      { "word": "午前", "reading": "ごぜん", "meaning": "morning, AM" }
+    ]
+  },
+  {
+    "character": "組",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["ソ"],
+      "kunyomi": ["く-む", "くみ"]
+    },
+    "meanings": ["group", "class"],
+    "radicals": ["糸"],
+    "examples": [
+      { "word": "組", "reading": "くみ", "meaning": "class, group" },
+      { "word": "組む", "reading": "くむ", "meaning": "to assemble" }
+    ]
+  },
+  {
+    "character": "走",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["ソウ"],
+      "kunyomi": ["はし-る"]
+    },
+    "meanings": ["run"],
+    "radicals": ["走"],
+    "examples": [
+      { "word": "走る", "reading": "はしる", "meaning": "to run" },
+      { "word": "走者", "reading": "そうしゃ", "meaning": "runner" }
+    ]
+  },
+  {
+    "character": "多",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["タ"],
+      "kunyomi": ["おお-い"]
+    },
+    "meanings": ["many", "much"],
+    "radicals": ["夕"],
+    "examples": [
+      { "word": "多い", "reading": "おおい", "meaning": "many, much" },
+      { "word": "多数", "reading": "たすう", "meaning": "majority" }
+    ]
+  },
+  {
+    "character": "太",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["タイ", "タ"],
+      "kunyomi": ["ふと-い", "ふと-る"]
+    },
+    "meanings": ["thick", "fat"],
+    "radicals": ["大"],
+    "examples": [
+      { "word": "太い", "reading": "ふとい", "meaning": "thick, fat" },
+      { "word": "太陽", "reading": "たいよう", "meaning": "sun" }
+    ]
+  },
+  {
+    "character": "体",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["タイ", "テイ"],
+      "kunyomi": ["からだ"]
+    },
+    "meanings": ["body"],
+    "radicals": ["人"],
+    "examples": [
+      { "word": "体", "reading": "からだ", "meaning": "body" },
+      { "word": "体育", "reading": "たいいく", "meaning": "physical education" }
+    ]
+  },
+  {
+    "character": "台",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ダイ", "タイ"],
+      "kunyomi": []
+    },
+    "meanings": ["stand", "platform"],
+    "radicals": ["厶"],
+    "examples": [
+      { "word": "台風", "reading": "たいふう", "meaning": "typhoon" },
+      { "word": "台所", "reading": "だいどころ", "meaning": "kitchen" }
+    ]
+  },
+  {
+    "character": "地",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["チ", "ジ"],
+      "kunyomi": []
+    },
+    "meanings": ["ground", "earth"],
+    "radicals": ["土"],
+    "examples": [
+      { "word": "地面", "reading": "じめん", "meaning": "ground" },
+      { "word": "地図", "reading": "ちず", "meaning": "map" }
+    ]
+  },
+  {
+    "character": "池",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["チ"],
+      "kunyomi": ["いけ"]
+    },
+    "meanings": ["pond"],
+    "radicals": ["水"],
+    "examples": [
+      { "word": "池", "reading": "いけ", "meaning": "pond" },
+      { "word": "電池", "reading": "でんち", "meaning": "battery" }
+    ]
+  },
+  {
+    "character": "知",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["チ"],
+      "kunyomi": ["し-る"]
+    },
+    "meanings": ["know", "wisdom"],
+    "radicals": ["矢"],
+    "examples": [
+      { "word": "知る", "reading": "しる", "meaning": "to know" },
+      { "word": "知識", "reading": "ちしき", "meaning": "knowledge" }
+    ]
+  },
+  {
+    "character": "茶",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["チャ", "サ"],
+      "kunyomi": []
+    },
+    "meanings": ["tea"],
+    "radicals": ["艸"],
+    "examples": [
+      { "word": "お茶", "reading": "おちゃ", "meaning": "tea" },
+      { "word": "茶色", "reading": "ちゃいろ", "meaning": "brown" }
+    ]
+  },
+  {
+    "character": "昼",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["チュウ"],
+      "kunyomi": ["ひる"]
+    },
+    "meanings": ["daytime", "noon"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "昼", "reading": "ひる", "meaning": "daytime, noon" },
+      { "word": "昼食", "reading": "ちゅうしょく", "meaning": "lunch" }
+    ]
+  },
+  {
+    "character": "長",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["チョウ"],
+      "kunyomi": ["なが-い"]
+    },
+    "meanings": ["long", "chief"],
+    "radicals": ["長"],
+    "examples": [
+      { "word": "長い", "reading": "ながい", "meaning": "long" },
+      {
+        "word": "社長",
+        "reading": "しゃちょう",
+        "meaning": "company president"
+      }
+    ]
+  },
+  {
+    "character": "鳥",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["チョウ"],
+      "kunyomi": ["とり"]
+    },
+    "meanings": ["bird"],
+    "radicals": ["鳥"],
+    "examples": [
+      { "word": "鳥", "reading": "とり", "meaning": "bird" },
+      { "word": "白鳥", "reading": "はくちょう", "meaning": "swan" }
+    ]
+  },
+  {
+    "character": "朝",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["チョウ"],
+      "kunyomi": ["あさ"]
+    },
+    "meanings": ["morning"],
+    "radicals": ["月"],
+    "examples": [
+      { "word": "朝", "reading": "あさ", "meaning": "morning" },
+      { "word": "朝食", "reading": "ちょうしょく", "meaning": "breakfast" }
+    ]
+  },
+  {
+    "character": "直",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["チョク", "ジキ"],
+      "kunyomi": ["ただ-ちに", "なお-す", "なお-る"]
+    },
+    "meanings": ["straight", "direct"],
+    "radicals": ["目"],
+    "examples": [
+      { "word": "直す", "reading": "なおす", "meaning": "to fix, to correct" },
+      { "word": "正直", "reading": "しょうじき", "meaning": "honest" }
+    ]
+  },
+  {
+    "character": "通",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["ツウ", "ツ"],
+      "kunyomi": ["とお-る", "とお-す", "かよ-う"]
+    },
+    "meanings": ["pass through", "commute"],
+    "radicals": ["辵"],
+    "examples": [
+      { "word": "通る", "reading": "とおる", "meaning": "to pass" },
+      { "word": "交通", "reading": "こうつう", "meaning": "traffic" }
+    ]
+  },
+  {
+    "character": "弟",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["テイ", "ダイ", "デ"],
+      "kunyomi": ["おとうと"]
+    },
+    "meanings": ["younger brother"],
+    "radicals": ["弓"],
+    "examples": [
+      { "word": "弟", "reading": "おとうと", "meaning": "younger brother" },
+      { "word": "兄弟", "reading": "きょうだい", "meaning": "siblings" }
+    ]
+  },
+  {
+    "character": "店",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["テン"],
+      "kunyomi": ["みせ"]
+    },
+    "meanings": ["shop", "store"],
+    "radicals": ["广"],
+    "examples": [
+      { "word": "店", "reading": "みせ", "meaning": "shop, store" },
+      { "word": "書店", "reading": "しょてん", "meaning": "bookstore" }
+    ]
+  },
+  {
+    "character": "点",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["テン"],
+      "kunyomi": []
+    },
+    "meanings": ["point", "dot"],
+    "radicals": ["黒"],
+    "examples": [
+      { "word": "点数", "reading": "てんすう", "meaning": "score, points" },
+      { "word": "欠点", "reading": "けってん", "meaning": "fault, defect" }
+    ]
+  },
+  {
+    "character": "電",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["デン"],
+      "kunyomi": []
+    },
+    "meanings": ["electricity"],
+    "radicals": ["雨"],
+    "examples": [
+      { "word": "電気", "reading": "でんき", "meaning": "electricity" },
+      { "word": "電車", "reading": "でんしゃ", "meaning": "train" }
+    ]
+  },
+  {
+    "character": "刀",
+    "grade": 2,
+    "strokeCount": 2,
+    "readings": {
+      "onyomi": ["トウ"],
+      "kunyomi": ["かたな"]
+    },
+    "meanings": ["sword", "blade"],
+    "radicals": ["刀"],
+    "examples": [
+      { "word": "刀", "reading": "かたな", "meaning": "sword" },
+      { "word": "包丁", "reading": "ほうちょう", "meaning": "kitchen knife" }
+    ]
+  },
+  {
+    "character": "冬",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["トウ"],
+      "kunyomi": ["ふゆ"]
+    },
+    "meanings": ["winter"],
+    "radicals": ["夂"],
+    "examples": [
+      { "word": "冬", "reading": "ふゆ", "meaning": "winter" },
+      {
+        "word": "冬休み",
+        "reading": "ふゆやすみ",
+        "meaning": "winter vacation"
+      }
+    ]
+  },
+  {
+    "character": "当",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["トウ"],
+      "kunyomi": ["あ-たる", "あ-てる"]
+    },
+    "meanings": ["hit", "appropriate"],
+    "radicals": ["彐"],
+    "examples": [
+      { "word": "当たる", "reading": "あたる", "meaning": "to hit" },
+      { "word": "本当", "reading": "ほんとう", "meaning": "truth, really" }
+    ]
+  },
+  {
+    "character": "東",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["トウ"],
+      "kunyomi": ["ひがし"]
+    },
+    "meanings": ["east"],
+    "radicals": ["木"],
+    "examples": [
+      { "word": "東", "reading": "ひがし", "meaning": "east" },
+      { "word": "東京", "reading": "とうきょう", "meaning": "Tokyo" }
+    ]
+  },
+  {
+    "character": "答",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["トウ"],
+      "kunyomi": ["こた-える", "こた-え"]
+    },
+    "meanings": ["answer"],
+    "radicals": ["竹"],
+    "examples": [
+      { "word": "答える", "reading": "こたえる", "meaning": "to answer" },
+      { "word": "答え", "reading": "こたえ", "meaning": "answer" }
+    ]
+  },
+  {
+    "character": "頭",
+    "grade": 2,
+    "strokeCount": 16,
+    "readings": {
+      "onyomi": ["トウ", "ズ", "ト"],
+      "kunyomi": ["あたま", "かしら"]
+    },
+    "meanings": ["head"],
+    "radicals": ["頁"],
+    "examples": [
+      { "word": "頭", "reading": "あたま", "meaning": "head" },
+      { "word": "頭痛", "reading": "ずつう", "meaning": "headache" }
+    ]
+  },
+  {
+    "character": "同",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ドウ"],
+      "kunyomi": ["おな-じ"]
+    },
+    "meanings": ["same"],
+    "radicals": ["口"],
+    "examples": [
+      { "word": "同じ", "reading": "おなじ", "meaning": "same" },
+      { "word": "同時", "reading": "どうじ", "meaning": "simultaneous" }
+    ]
+  },
+  {
+    "character": "道",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["ドウ", "トウ"],
+      "kunyomi": ["みち"]
+    },
+    "meanings": ["road", "way"],
+    "radicals": ["辵"],
+    "examples": [
+      { "word": "道", "reading": "みち", "meaning": "road, way" },
+      { "word": "歩道", "reading": "ほどう", "meaning": "sidewalk" }
+    ]
+  },
+  {
+    "character": "読",
+    "grade": 2,
+    "strokeCount": 14,
+    "readings": {
+      "onyomi": ["ドク", "トク", "トウ"],
+      "kunyomi": ["よ-む"]
+    },
+    "meanings": ["read"],
+    "radicals": ["言"],
+    "examples": [
+      { "word": "読む", "reading": "よむ", "meaning": "to read" },
+      { "word": "読書", "reading": "どくしょ", "meaning": "reading" }
+    ]
+  },
+  {
+    "character": "内",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ナイ", "ダイ"],
+      "kunyomi": ["うち"]
+    },
+    "meanings": ["inside"],
+    "radicals": ["入"],
+    "examples": [
+      { "word": "内", "reading": "うち", "meaning": "inside" },
+      { "word": "室内", "reading": "しつない", "meaning": "indoor" }
+    ]
+  },
+  {
+    "character": "南",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["ナン", "ナ"],
+      "kunyomi": ["みなみ"]
+    },
+    "meanings": ["south"],
+    "radicals": ["十"],
+    "examples": [
+      { "word": "南", "reading": "みなみ", "meaning": "south" },
+      { "word": "東南", "reading": "とうなん", "meaning": "southeast" }
+    ]
+  },
+  {
+    "character": "肉",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ニク"],
+      "kunyomi": []
+    },
+    "meanings": ["meat", "flesh"],
+    "radicals": ["肉"],
+    "examples": [
+      { "word": "肉", "reading": "にく", "meaning": "meat" },
+      { "word": "牛肉", "reading": "ぎゅうにく", "meaning": "beef" }
+    ]
+  },
+  {
+    "character": "馬",
+    "grade": 2,
+    "strokeCount": 10,
+    "readings": {
+      "onyomi": ["バ"],
+      "kunyomi": ["うま"]
+    },
+    "meanings": ["horse"],
+    "radicals": ["馬"],
+    "examples": [
+      { "word": "馬", "reading": "うま", "meaning": "horse" },
+      { "word": "競馬", "reading": "けいば", "meaning": "horse racing" }
+    ]
+  },
+  {
+    "character": "売",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["バイ"],
+      "kunyomi": ["う-る", "う-れる"]
+    },
+    "meanings": ["sell"],
+    "radicals": ["士"],
+    "examples": [
+      { "word": "売る", "reading": "うる", "meaning": "to sell" },
+      { "word": "売店", "reading": "ばいてん", "meaning": "shop, stand" }
+    ]
+  },
+  {
+    "character": "買",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["バイ"],
+      "kunyomi": ["か-う"]
+    },
+    "meanings": ["buy"],
+    "radicals": ["貝"],
+    "examples": [
+      { "word": "買う", "reading": "かう", "meaning": "to buy" },
+      { "word": "売買", "reading": "ばいばい", "meaning": "buying and selling" }
+    ]
+  },
+  {
+    "character": "麦",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["バク"],
+      "kunyomi": ["むぎ"]
+    },
+    "meanings": ["wheat", "barley"],
+    "radicals": ["麦"],
+    "examples": [
+      { "word": "麦", "reading": "むぎ", "meaning": "wheat, barley" },
+      { "word": "小麦", "reading": "こむぎ", "meaning": "wheat" }
+    ]
+  },
+  {
+    "character": "半",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ハン"],
+      "kunyomi": ["なか-ば"]
+    },
+    "meanings": ["half"],
+    "radicals": ["十"],
+    "examples": [
+      { "word": "半分", "reading": "はんぶん", "meaning": "half" },
+      { "word": "半年", "reading": "はんとし", "meaning": "half a year" }
+    ]
+  },
+  {
+    "character": "番",
+    "grade": 2,
+    "strokeCount": 12,
+    "readings": {
+      "onyomi": ["バン"],
+      "kunyomi": []
+    },
+    "meanings": ["number", "turn"],
+    "radicals": ["田"],
+    "examples": [
+      { "word": "番号", "reading": "ばんごう", "meaning": "number" },
+      { "word": "一番", "reading": "いちばん", "meaning": "number one, best" }
+    ]
+  },
+  {
+    "character": "父",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["フ"],
+      "kunyomi": ["ちち"]
+    },
+    "meanings": ["father"],
+    "radicals": ["父"],
+    "examples": [
+      { "word": "父", "reading": "ちち", "meaning": "father" },
+      { "word": "父母", "reading": "ふぼ", "meaning": "parents" }
+    ]
+  },
+  {
+    "character": "風",
+    "grade": 2,
+    "strokeCount": 9,
+    "readings": {
+      "onyomi": ["フウ", "フ"],
+      "kunyomi": ["かぜ", "かざ"]
+    },
+    "meanings": ["wind", "style"],
+    "radicals": ["風"],
+    "examples": [
+      { "word": "風", "reading": "かぜ", "meaning": "wind" },
+      { "word": "台風", "reading": "たいふう", "meaning": "typhoon" }
+    ]
+  },
+  {
+    "character": "分",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ブン", "フン", "ブ"],
+      "kunyomi": ["わ-ける", "わ-かれる", "わ-かる", "わ-かつ"]
+    },
+    "meanings": ["divide", "minute"],
+    "radicals": ["刀"],
+    "examples": [
+      { "word": "分ける", "reading": "わける", "meaning": "to divide" },
+      { "word": "自分", "reading": "じぶん", "meaning": "oneself" }
+    ]
+  },
+  {
+    "character": "聞",
+    "grade": 2,
+    "strokeCount": 14,
+    "readings": {
+      "onyomi": ["ブン", "モン"],
+      "kunyomi": ["き-く", "き-こえる"]
+    },
+    "meanings": ["hear", "ask"],
+    "radicals": ["耳"],
+    "examples": [
+      { "word": "聞く", "reading": "きく", "meaning": "to hear, to ask" },
+      { "word": "新聞", "reading": "しんぶん", "meaning": "newspaper" }
+    ]
+  },
+  {
+    "character": "米",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["ベイ", "マイ"],
+      "kunyomi": ["こめ"]
+    },
+    "meanings": ["rice", "America"],
+    "radicals": ["米"],
+    "examples": [
+      { "word": "米", "reading": "こめ", "meaning": "rice" },
+      { "word": "米国", "reading": "べいこく", "meaning": "United States" }
+    ]
+  },
+  {
+    "character": "歩",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["ホ", "ブ", "フ"],
+      "kunyomi": ["ある-く", "あゆ-む"]
+    },
+    "meanings": ["walk"],
+    "radicals": ["止"],
+    "examples": [
+      { "word": "歩く", "reading": "あるく", "meaning": "to walk" },
+      { "word": "歩道", "reading": "ほどう", "meaning": "sidewalk" }
+    ]
+  },
+  {
+    "character": "母",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ボ"],
+      "kunyomi": ["はは"]
+    },
+    "meanings": ["mother"],
+    "radicals": ["母"],
+    "examples": [
+      { "word": "母", "reading": "はは", "meaning": "mother" },
+      { "word": "母国", "reading": "ぼこく", "meaning": "mother country" }
+    ]
+  },
+  {
+    "character": "方",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ホウ"],
+      "kunyomi": ["かた"]
+    },
+    "meanings": ["direction", "way"],
+    "radicals": ["方"],
+    "examples": [
+      { "word": "方", "reading": "ほう", "meaning": "direction" },
+      { "word": "方法", "reading": "ほうほう", "meaning": "method" }
+    ]
+  },
+  {
+    "character": "北",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ホク"],
+      "kunyomi": ["きた"]
+    },
+    "meanings": ["north"],
+    "radicals": ["匕"],
+    "examples": [
+      { "word": "北", "reading": "きた", "meaning": "north" },
+      { "word": "北海道", "reading": "ほっかいどう", "meaning": "Hokkaido" }
+    ]
+  },
+  {
+    "character": "毎",
+    "grade": 2,
+    "strokeCount": 6,
+    "readings": {
+      "onyomi": ["マイ"],
+      "kunyomi": []
+    },
+    "meanings": ["every"],
+    "radicals": ["母"],
+    "examples": [
+      { "word": "毎日", "reading": "まいにち", "meaning": "every day" },
+      { "word": "毎朝", "reading": "まいあさ", "meaning": "every morning" }
+    ]
+  },
+  {
+    "character": "妹",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["マイ"],
+      "kunyomi": ["いもうと"]
+    },
+    "meanings": ["younger sister"],
+    "radicals": ["女"],
+    "examples": [
+      { "word": "妹", "reading": "いもうと", "meaning": "younger sister" },
+      { "word": "姉妹", "reading": "しまい", "meaning": "sisters" }
+    ]
+  },
+  {
+    "character": "万",
+    "grade": 2,
+    "strokeCount": 3,
+    "readings": {
+      "onyomi": ["マン", "バン"],
+      "kunyomi": []
+    },
+    "meanings": ["ten thousand"],
+    "radicals": ["一"],
+    "examples": [
+      { "word": "一万", "reading": "いちまん", "meaning": "ten thousand" },
+      { "word": "万年筆", "reading": "まんねんひつ", "meaning": "fountain pen" }
+    ]
+  },
+  {
+    "character": "明",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["メイ", "ミョウ", "ミン"],
+      "kunyomi": [
+        "あ-かり",
+        "あか-るい",
+        "あか-るむ",
+        "あか-らむ",
+        "あき-らか",
+        "あ-ける",
+        "あ-く",
+        "あ-くる",
+        "あ-かす"
+      ]
+    },
+    "meanings": ["bright", "clear"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "明るい", "reading": "あかるい", "meaning": "bright" },
+      { "word": "明日", "reading": "あした", "meaning": "tomorrow" }
+    ]
+  },
+  {
+    "character": "鳴",
+    "grade": 2,
+    "strokeCount": 14,
+    "readings": {
+      "onyomi": ["メイ"],
+      "kunyomi": ["な-く", "な-る", "な-らす"]
+    },
+    "meanings": ["cry", "sound"],
+    "radicals": ["鳥"],
+    "examples": [
+      { "word": "鳴く", "reading": "なく", "meaning": "to cry (animal)" },
+      { "word": "鳴る", "reading": "なる", "meaning": "to sound, to ring" }
+    ]
+  },
+  {
+    "character": "毛",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["モウ"],
+      "kunyomi": ["け"]
+    },
+    "meanings": ["hair", "fur"],
+    "radicals": ["毛"],
+    "examples": [
+      { "word": "毛", "reading": "け", "meaning": "hair, fur" },
+      { "word": "毛布", "reading": "もうふ", "meaning": "blanket" }
+    ]
+  },
+  {
+    "character": "門",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["モン"],
+      "kunyomi": ["かど"]
+    },
+    "meanings": ["gate"],
+    "radicals": ["門"],
+    "examples": [
+      { "word": "門", "reading": "もん", "meaning": "gate" },
+      { "word": "正門", "reading": "せいもん", "meaning": "main gate" }
+    ]
+  },
+  {
+    "character": "夜",
+    "grade": 2,
+    "strokeCount": 8,
+    "readings": {
+      "onyomi": ["ヤ"],
+      "kunyomi": ["よ", "よる"]
+    },
+    "meanings": ["night", "evening"],
+    "radicals": ["夕"],
+    "examples": [
+      { "word": "夜", "reading": "よる", "meaning": "night" },
+      { "word": "今夜", "reading": "こんや", "meaning": "tonight" }
+    ]
+  },
+  {
+    "character": "野",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["ヤ"],
+      "kunyomi": ["の"]
+    },
+    "meanings": ["field", "plain"],
+    "radicals": ["里"],
+    "examples": [
+      { "word": "野原", "reading": "のはら", "meaning": "field, plain" },
+      { "word": "野菜", "reading": "やさい", "meaning": "vegetable" }
+    ]
+  },
+  {
+    "character": "友",
+    "grade": 2,
+    "strokeCount": 4,
+    "readings": {
+      "onyomi": ["ユウ"],
+      "kunyomi": ["とも"]
+    },
+    "meanings": ["friend"],
+    "radicals": ["又"],
+    "examples": [
+      { "word": "友", "reading": "とも", "meaning": "friend" },
+      { "word": "友達", "reading": "ともだち", "meaning": "friend" }
+    ]
+  },
+  {
+    "character": "用",
+    "grade": 2,
+    "strokeCount": 5,
+    "readings": {
+      "onyomi": ["ヨウ"],
+      "kunyomi": ["もち-いる"]
+    },
+    "meanings": ["use", "business"],
+    "radicals": ["用"],
+    "examples": [
+      { "word": "用いる", "reading": "もちいる", "meaning": "to use" },
+      { "word": "用事", "reading": "ようじ", "meaning": "business, errand" }
+    ]
+  },
+  {
+    "character": "曜",
+    "grade": 2,
+    "strokeCount": 18,
+    "readings": {
+      "onyomi": ["ヨウ"],
+      "kunyomi": []
+    },
+    "meanings": ["day of the week"],
+    "radicals": ["日"],
+    "examples": [
+      { "word": "曜日", "reading": "ようび", "meaning": "day of the week" },
+      { "word": "月曜日", "reading": "げつようび", "meaning": "Monday" }
+    ]
+  },
+  {
+    "character": "来",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["ライ"],
+      "kunyomi": ["く-る", "きた-る", "きた-す"]
+    },
+    "meanings": ["come"],
+    "radicals": ["人"],
+    "examples": [
+      { "word": "来る", "reading": "くる", "meaning": "to come" },
+      { "word": "来年", "reading": "らいねん", "meaning": "next year" }
+    ]
+  },
+  {
+    "character": "里",
+    "grade": 2,
+    "strokeCount": 7,
+    "readings": {
+      "onyomi": ["リ"],
+      "kunyomi": ["さと"]
+    },
+    "meanings": ["village", "hometown"],
+    "radicals": ["里"],
+    "examples": [
+      { "word": "里", "reading": "さと", "meaning": "village, hometown" },
+      { "word": "里山", "reading": "さとやま", "meaning": "village forest" }
+    ]
+  },
+  {
+    "character": "理",
+    "grade": 2,
+    "strokeCount": 11,
+    "readings": {
+      "onyomi": ["リ"],
+      "kunyomi": []
+    },
+    "meanings": ["logic", "reason"],
+    "radicals": ["玉"],
+    "examples": [
+      { "word": "理由", "reading": "りゆう", "meaning": "reason" },
+      { "word": "料理", "reading": "りょうり", "meaning": "cooking" }
+    ]
+  },
+  {
+    "character": "話",
+    "grade": 2,
+    "strokeCount": 13,
+    "readings": {
+      "onyomi": ["ワ"],
+      "kunyomi": ["はな-す", "はなし"]
+    },
+    "meanings": ["talk", "speak"],
+    "radicals": ["言"],
+    "examples": [
+      { "word": "話す", "reading": "はなす", "meaning": "to speak" },
+      { "word": "電話", "reading": "でんわ", "meaning": "telephone" }
+    ]
+  }
+]

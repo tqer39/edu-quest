@@ -168,12 +168,52 @@ const MODULE_SOURCE = `
     const countdownOverlay = document.getElementById('countdown-overlay');
     const countdownNumber = document.getElementById('countdown-number');
 
+    console.log('Sudoku page initialized');
+    console.log('Preset buttons found:', presetButtons.length);
+
     let currentPuzzle = null;
     let currentSolution = null;
     let selectedCell = null;
     let currentSize = 9;
     let currentDifficulty = 'easy';
     let isProgrammaticInput = false; // プログラムによる入力かどうかのフラグ
+
+    // Check if we should auto-start the game
+    const root = document.getElementById('sudoku-root');
+    const autoStart = root?.dataset.autoStart === 'true';
+    const autoSize = root?.dataset.size ? Number(root.dataset.size) : null;
+    const autoDifficulty = root?.dataset.difficulty || null;
+
+    if (autoStart && autoSize && autoDifficulty) {
+      console.log('Auto-starting game with size:', autoSize, 'difficulty:', autoDifficulty);
+
+      // Hide preset selector and header immediately
+      if (presetSelector) presetSelector.style.display = 'none';
+      const header = document.querySelector('header');
+      if (header) header.style.display = 'none';
+
+      // Hide difficulty badges
+      const difficultyBadges = document.querySelectorAll('.difficulty-badge');
+      difficultyBadges.forEach(badge => {
+        if (badge instanceof HTMLElement) {
+          badge.style.display = 'none';
+        }
+      });
+
+      // Show game container immediately
+      if (gameContainer) {
+        gameContainer.classList.remove('hidden');
+        gameContainer.style.display = 'block';
+      }
+      if (controlsPanel) {
+        controlsPanel.classList.remove('hidden');
+      }
+
+      // Auto-start the game without countdown
+      setTimeout(() => {
+        startNewGame(autoSize, autoDifficulty);
+      }, 100);
+    }
 
     // 効果音再生関数
     const playSound = (variant) => {
@@ -519,8 +559,10 @@ const MODULE_SOURCE = `
     // プリセットボタン
     presetButtons.forEach(button => {
       button.addEventListener('click', async () => {
+        console.log('Preset button clicked!');
         const size = Number(button.dataset.size);
         const difficulty = button.dataset.difficulty;
+        console.log('Size:', size, 'Difficulty:', difficulty);
         // カウントダウンを実行してからゲーム開始
         await runCountdown();
         startNewGame(size, difficulty);

@@ -2,8 +2,13 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { DictionaryLink } from '../components/dictionary-link';
+import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
-import { formatSchoolGradeLabel } from '../utils/school-grade';
+import {
+  createSchoolGradeParam,
+  formatSchoolGradeLabel,
+} from '../utils/school-grade';
 
 const KanjiNav: FC<{
   currentUser: CurrentUser | null;
@@ -11,18 +16,25 @@ const KanjiNav: FC<{
   stage: SchoolStage;
 }> = ({ currentUser, grade, stage }) => {
   const gradeLabel = formatSchoolGradeLabel({ stage, grade });
+  const gradeParam = createSchoolGradeParam({ stage, grade });
 
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
       <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          ✏️
-        </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          KanjiQuest - {gradeLabel}
-        </span>
+        <a
+          href="/kanji"
+          class="flex items-center gap-2 transition hover:opacity-80"
+        >
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            ✏️
+          </span>
+          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+            KanjiQuest - {gradeLabel}
+          </span>
+        </a>
       </div>
       <div class="flex flex-wrap gap-2">
+        <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
         <BackToTopLink />
         <a
           href="/kanji"
@@ -103,11 +115,11 @@ export const KanjiSelect: FC<{
 
   return (
     <div
-      class="flex min-h-screen w-full flex-col gap-10"
+      class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45);"
     >
       <KanjiNav currentUser={currentUser} grade={grade} stage={gradeStage} />
-      <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
           <span class="text-6xl">✏️</span>
           <div class="space-y-4">
@@ -158,6 +170,8 @@ export const KanjiSelect: FC<{
           </ul>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };

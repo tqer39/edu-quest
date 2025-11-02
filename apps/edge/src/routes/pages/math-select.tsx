@@ -4,6 +4,7 @@ import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
 import { gradeLevels, type GradeId } from './grade-presets';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { Footer } from '../../components/Footer';
 
 type MathQuestOption = {
   id: 'calc-add' | 'calc-sub' | 'calc-mul' | 'calc-div';
@@ -62,12 +63,17 @@ const MathNav: FC<{
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
       <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          🧮
-        </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          MathQuest - {gradeLabel}
-        </span>
+        <a
+          href="/math"
+          class="flex items-center gap-2 transition hover:opacity-80"
+        >
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            🔢
+          </span>
+          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+            MathQuest - {gradeLabel}
+          </span>
+        </a>
       </div>
       <div class="flex flex-wrap gap-2">
         <BackToTopLink />
@@ -160,7 +166,7 @@ export const MathSelect: FC<{
 
   return (
     <div
-      class="flex min-h-screen w-full flex-col gap-10"
+      class="flex flex-1 w-full flex-col gap-10"
       data-user-state={currentUser ? 'known' : 'anonymous'}
       style="--mq-primary: #6B9BD1; --mq-primary-strong: #3B7AC7; --mq-primary-soft: #D6E4F5; --mq-accent: #B7D4F7; --mq-outline: rgba(107, 155, 209, 0.45);"
     >
@@ -169,9 +175,9 @@ export const MathSelect: FC<{
         gradeId={gradeId}
         gradeStage={gradeStage}
       />
-      <div class="flex flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">🧮</span>
+          <span class="text-6xl">🔢</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
               挑戦するミッションを選ぼう
@@ -212,6 +218,8 @@ export const MathSelect: FC<{
           </ul>
         </section>
       </div>
+
+      <Footer />
     </div>
   );
 };

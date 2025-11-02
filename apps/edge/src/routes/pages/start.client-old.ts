@@ -33,12 +33,12 @@ const MODULE_SOURCE = `
 
   // 学年ごとの利用可能な計算種類
   const gradeCalculationTypes = {
-    'grade-1': ['calc-add', 'calc-sub', 'calc-add-sub-mix'],
-    'grade-2': ['calc-add', 'calc-sub', 'calc-add-sub-mix'],
-    'grade-3': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul'],
-    'grade-4': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul', 'calc-div'],
-    'grade-5': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul', 'calc-div', 'calc-mix'],
-    'grade-6': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul', 'calc-div', 'calc-mix'],
+    'elem-1': ['calc-add', 'calc-sub', 'calc-add-sub-mix'],
+    'elem-2': ['calc-add', 'calc-sub', 'calc-add-sub-mix'],
+    'elem-3': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul'],
+    'elem-4': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul', 'calc-div'],
+    'elem-5': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul', 'calc-div', 'calc-mix'],
+    'elem-6': ['calc-add', 'calc-sub', 'calc-add-sub-mix', 'calc-mul', 'calc-div', 'calc-mix'],
   };
 
   // 学年の順序を取得する関数（比較用）
@@ -404,7 +404,7 @@ const MODULE_SOURCE = `
   setSelectedPreset(selectedGradeId);
 
   // 初期表示で小1の計算種類を表示（未選択状態）
-  renderCalculationTypes('grade-1', false);
+  renderCalculationTypes('elem-1', false);
 
   // 計算種類が未選択なので全テーマを表示
   filterThemesByCalculationType(null);
@@ -435,7 +435,7 @@ const MODULE_SOURCE = `
     }
 
     // 計算種類を小1用に戻す（未選択状態）
-    renderCalculationTypes('grade-1', false);
+    renderCalculationTypes('elem-1', false);
 
     // テーマ選択をクリア
     setThemeSelection(null);
@@ -583,7 +583,7 @@ const MODULE_SOURCE = `
     // ゲームモードの場合は数独ページへ遷移
     if (selectedMode === 'game') {
       const gradeId =
-        state.selectedGrade || gradeLevels[0]?.id || 'grade-1';
+        state.selectedGrade || gradeLevels[0]?.id || 'elem-1';
       window.location.href = '/game/sudoku?grade=' + encodeURIComponent(gradeId);
       return;
     }
