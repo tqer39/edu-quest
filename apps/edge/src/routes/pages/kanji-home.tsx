@@ -71,7 +71,7 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
         <QuestHeader
           icon="✏️"
           title="KanjiQuest"
-          description="漢字の読み方を学ぼう！"
+          description="漢字の読み方や部首を学ぼう！"
           subtitle="学年を選んで、楽しく漢字を覚えられます。"
         />
 
@@ -102,12 +102,16 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
               description: '漢字の音読み・訓読みを答えます',
             },
             {
+              label: '部首クエスト:',
+              description: '小学1年生向けに漢字の部首（ぶしゅ）を覚えます',
+            },
+            {
               label: '学年別:',
               description: '小学1年生から6年生までの教育漢字を収録',
             },
             {
               label: '4択問題:',
-              description: '4つの選択肢から正しい読み方を選びます',
+              description: '4つの選択肢から正しい答えを選びます',
             },
             {
               label: 'スコア表示:',

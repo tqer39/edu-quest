@@ -30,7 +30,7 @@ export interface Kanji {
 /**
  * Quest types for KanjiQuest
  */
-export type KanjiQuestType = 'reading' | 'stroke-count';
+export type KanjiQuestType = 'reading' | 'stroke-count' | 'radical';
 
 /**
  * Difficulty level based on school grade
@@ -140,6 +140,46 @@ function formatReadingTypeName(
   }
   // 3年生以上はルビなし
   return readingType === 'onyomi' ? '音読み' : '訓読み';
+}
+
+/**
+ * Generate wrong answer choices for radical questions
+ */
+function generateWrongRadicals(
+  correctRadical: string,
+  allKanji: Kanji[],
+  count: number = 3
+): string[] {
+  const candidates = new Set<string>();
+
+  for (const kanji of allKanji) {
+    for (const radical of kanji.radicals) {
+      if (radical !== correctRadical) {
+        candidates.add(radical);
+      }
+    }
+  }
+
+  const shuffled = shuffleArray(Array.from(candidates));
+  const wrongRadicals: string[] = [];
+
+  for (const radical of shuffled) {
+    if (wrongRadicals.length >= count) {
+      break;
+    }
+    wrongRadicals.push(radical);
+  }
+
+  // If there are not enough unique candidates, reuse from existing pool
+  while (wrongRadicals.length < count && shuffled.length > 0) {
+    const randomRadical =
+      shuffled[Math.floor(Math.random() * shuffled.length)] ?? correctRadical;
+    if (randomRadical !== correctRadical) {
+      wrongRadicals.push(randomRadical);
+    }
+  }
+
+  return wrongRadicals.slice(0, count);
 }
 
 /**
@@ -267,6 +307,37 @@ export function generateStrokeCountQuestion(
 }
 
 /**
+ * Generate a Radical Quest question
+ */
+export function generateRadicalQuestion(
+  kanji: Kanji,
+  allKanji: Kanji[]
+): KanjiQuestion {
+  const [primaryRadical] = kanji.radicals;
+
+  if (!primaryRadical) {
+    throw new Error(`Kanji ${kanji.character} has no radical information.`);
+  }
+
+  const wrongAnswers = generateWrongRadicals(primaryRadical, allKanji, 3);
+  const choices = shuffleArray([primaryRadical, ...wrongAnswers]);
+
+  const grade = kanji.grade as KanjiGrade;
+  const radicalLabel =
+    grade <= 2 ? '<ruby>部首<rt>ぶしゅ</rt></ruby>' : '部首';
+  const questionText = `「${kanji.character}」の${radicalLabel}は？`;
+
+  return {
+    character: kanji.character,
+    questionText,
+    correctAnswer: primaryRadical,
+    choices,
+    questType: 'radical',
+    grade,
+  };
+}
+
+/**
  * Generate multiple questions for a KanjiQuest session
  */
 export function generateKanjiQuestions(
@@ -296,6 +367,9 @@ export function generateKanjiQuestions(
         break;
       case 'stroke-count':
         questions.push(generateStrokeCountQuestion(kanji, kanjiData));
+        break;
+      case 'radical':
+        questions.push(generateRadicalQuestion(kanji, kanjiData));
         break;
       // TODO: Add other quest types (okurigana, puzzle, etc.)
       default:

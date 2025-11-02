@@ -1,5 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
+import type { KanjiQuestType } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
 
 type KanjiResultsProps = {
@@ -8,6 +9,7 @@ type KanjiResultsProps = {
   total: number;
   grade: number;
   message: string;
+  questType: KanjiQuestType;
 };
 
 export const KanjiResults: FC<KanjiResultsProps> = ({
@@ -16,10 +18,17 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
   total,
   grade,
   message,
+  questType,
 }) => {
   const percentage = Math.round((score / total) * 100);
   const isPerfect = score === total;
   const isGood = percentage >= 70;
+  const questTypeLabels: Record<KanjiQuestType, string> = {
+    reading: '読みクエスト',
+    'stroke-count': '画数クエスト',
+    radical: '部首クエスト',
+  };
+  const questTypeLabel = questTypeLabels[questType];
 
   return (
     <div
@@ -34,6 +43,9 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
           </span>
           <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
             KanjiQuest 小学{grade}年生
+          </span>
+          <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
+            {questTypeLabel}
           </span>
         </div>
       </nav>
@@ -56,11 +68,14 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
             <p class="text-xl font-semibold text-[var(--mq-ink)]">
               正解率: {percentage}%
             </p>
+            <p class="text-sm font-medium text-[var(--mq-ink)]">
+              今回のチャレンジ: {questTypeLabel}
+            </p>
           </div>
 
           <div class="flex flex-col gap-3">
             <a
-              href={`/kanji/start?grade=${grade}`}
+              href={`/kanji/start?grade=${grade}&questType=${questType}`}
               class="rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               もう一度挑戦

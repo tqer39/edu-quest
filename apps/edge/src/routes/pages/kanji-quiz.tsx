@@ -1,6 +1,18 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { KanjiQuestion } from '@edu-quest/domain';
+import type { KanjiQuestType, KanjiQuestion } from '@edu-quest/domain';
+
+const questTypeLabels: Record<KanjiQuestType, string> = {
+  reading: '読みクエスト',
+  'stroke-count': '画数クエスト',
+  radical: '部首クエスト',
+};
+
+const questTypeHintMessages: Record<KanjiQuestType, (grade: number) => string> = {
+  reading: (grade) => `小学${grade}年生で習う漢字の読み方を答えましょう`,
+  'stroke-count': (grade) => `小学${grade}年生で習う漢字の画数を選びましょう`,
+  radical: (grade) => `小学${grade}年生で習う漢字の部首（ぶしゅ）を見つけましょう`,
+};
 
 type KanjiQuizProps = {
   currentUser: CurrentUser | null;
@@ -9,6 +21,7 @@ type KanjiQuizProps = {
   totalQuestions: number;
   score: number;
   grade: number;
+  questType: KanjiQuestType;
 };
 
 export const KanjiQuiz: FC<KanjiQuizProps> = ({
@@ -18,7 +31,11 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
   totalQuestions,
   score,
   grade,
+  questType,
 }) => {
+  const questTypeLabel = questTypeLabels[questType];
+  const hintMessage = questTypeHintMessages[questType](grade);
+
   return (
     <div
       class="flex min-h-screen w-full flex-col gap-10"
@@ -32,6 +49,9 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
           </span>
           <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
             KanjiQuest 小学{grade}年生
+          </span>
+          <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
+            {questTypeLabel}
           </span>
         </div>
         <div class="flex flex-wrap items-center gap-2">
@@ -107,7 +127,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
 
           {/* ヒント */}
           <div class="rounded-3xl border border-[var(--mq-outline)] bg-white p-4 text-center text-sm text-[#5e718a]">
-            💡 小学{grade}年生で習う漢字の読み方を答えましょう
+            💡 {hintMessage}
           </div>
         </div>
       </div>

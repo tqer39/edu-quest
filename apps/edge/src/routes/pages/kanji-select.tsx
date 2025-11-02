@@ -76,6 +76,12 @@ const getQuestTypeInfo = (
         emoji: '✍️',
         description: '漢字の画数を数えて答えます',
       };
+    case 'radical':
+      return {
+        title: '部首クエスト',
+        emoji: '🧩',
+        description: '漢字の部首（ぶしゅ）を選びます',
+      };
   }
 };
 
@@ -99,7 +105,8 @@ export const KanjiSelect: FC<{
   grade: KanjiGrade;
   gradeStage: SchoolStage;
 }> = ({ currentUser, grade, gradeStage }) => {
-  const questTypes: KanjiQuestType[] = ['reading', 'stroke-count'];
+  const questTypes: KanjiQuestType[] =
+    grade === 1 ? ['reading', 'stroke-count', 'radical'] : ['reading', 'stroke-count'];
   const gradeLabel = formatSchoolGradeLabel({ stage: gradeStage, grade });
 
   return (
@@ -150,6 +157,11 @@ export const KanjiSelect: FC<{
             <li>
               ✓ <strong>画数クエスト:</strong> 漢字の画数を数えて4択から選びます
             </li>
+            {grade === 1 && (
+              <li>
+                ✓ <strong>部首クエスト:</strong> 漢字の部首（ぶしゅ）を選びます
+              </li>
+            )}
             <li>
               ✓ <strong>問題数:</strong> 各クエスト10問で構成されています
             </li>
