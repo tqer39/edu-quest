@@ -477,7 +477,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           title="オープンで誠実な運営"
         />
         <div class="mt-8 grid gap-6 sm:grid-cols-2">
-          <article class="rounded-3xl bg-gradient-to-br from-[#eef2ff] via-white to-[#c7d2fe] p-6">
+          <article>
             <h3 class="text-xl font-bold text-[#312e81]">運営情報</h3>
             <ul class="mt-4 space-y-3 text-sm text-[#4338ca]">
               <li>
@@ -507,7 +507,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
               </li>
             </ul>
           </article>
-          <article class="rounded-3xl bg-white/95 p-6">
+          <article>
             <h3 class="text-xl font-bold text-[#312e81]">
               お問い合わせとポリシー
             </h3>
