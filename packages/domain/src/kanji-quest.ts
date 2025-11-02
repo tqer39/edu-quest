@@ -6,6 +6,7 @@
  */
 
 import kanjiGrade1Data from './data/kanji-grade-1.json';
+import kanjiGrade2Data from './data/kanji-grade-2.json';
 
 /**
  * Kanji character data structure
@@ -71,7 +72,9 @@ function loadKanjiDataByGrade(grade: KanjiGrade): Kanji[] {
   switch (grade) {
     case 1:
       return kanjiGrade1Data as Kanji[];
-    // TODO: Add grades 2-6 when data is available
+    case 2:
+      return kanjiGrade2Data as Kanji[];
+    // TODO: Add grades 3-6 when data is available
     default:
       return kanjiGrade1Data as Kanji[];
   }

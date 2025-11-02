@@ -117,6 +117,7 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
       char: kanji.character,
       id: kanji.character.codePointAt(0)?.toString(16),
       idx: buildSearchIndex(kanji),
+      grade: kanji.grade,
     }))
   );
 
@@ -150,23 +151,20 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
           <div class="flex flex-wrap gap-2">
             {([1, 2, 3, 4, 5, 6] as KanjiGrade[]).map((g) => {
               const isActive = g === grade;
-              const gParam = createSchoolGradeParam({
-                stage: '小学',
-                grade: g,
-              });
               return (
-                <a
+                <button
                   key={g}
-                  href={`/kanji/dictionary?grade=${gParam}`}
-                  class={`inline-flex items-center rounded-2xl border px-4 py-2 text-sm font-semibold transition ${
+                  type="button"
+                  class={`grade-filter inline-flex items-center rounded-2xl border px-4 py-2 text-sm font-semibold transition ${
                     isActive
                       ? 'border-[var(--mq-primary)] bg-[var(--mq-primary-soft)] text-[var(--mq-primary-strong)]'
                       : 'border-[var(--mq-outline)] bg-white text-[var(--mq-ink)] hover:-translate-y-0.5 hover:bg-[var(--mq-surface)]'
                   }`}
-                  aria-current={isActive ? 'page' : undefined}
+                  data-grade={g}
+                  aria-pressed={isActive ? 'true' : 'false'}
                 >
                   小学{g}年生
-                </a>
+                </button>
               );
             })}
           </div>
@@ -231,23 +229,27 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
               const resultCount = document.getElementById('result-count');
               const noResults = document.getElementById('no-results');
               const totalCount = ${totalCount};
+              const gradeFilters = document.querySelectorAll('.grade-filter');
 
-              searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.trim().toLowerCase();
+              // Track selected grades (initially just the current grade)
+              const selectedGrades = new Set([${grade}]);
 
-                if (!query) {
-                  // Show all
-                  document.querySelectorAll('.kanji-item').forEach(item => {
-                    item.style.display = 'flex';
-                  });
-                  resultCount.textContent = \`全\${totalCount}字を表示しています\`;
-                  noResults.style.display = 'none';
-                  return;
+              // Update filter display
+              function updateFilters() {
+                const searchQuery = searchInput.value.trim().toLowerCase();
+
+                // Filter by selected grades
+                let filtered = searchData;
+                if (selectedGrades.size > 0) {
+                  filtered = searchData.filter(k => selectedGrades.has(k.grade));
                 }
 
-                // Filter
-                const matches = searchData.filter(k => k.idx.includes(query));
-                const matchChars = new Set(matches.map(m => m.char));
+                // Filter by search query
+                if (searchQuery) {
+                  filtered = filtered.filter(k => k.idx.includes(searchQuery));
+                }
+
+                const matchChars = new Set(filtered.map(m => m.char));
 
                 let visibleCount = 0;
                 document.querySelectorAll('.kanji-item').forEach(item => {
@@ -260,13 +262,49 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
                   }
                 });
 
+                // Update result count message
                 if (visibleCount === 0) {
                   noResults.style.display = 'block';
-                  resultCount.textContent = \`「\${e.target.value}」に一致する漢字が見つかりませんでした\`;
+                  if (searchQuery) {
+                    resultCount.textContent = \`「\${searchQuery}」に一致する漢字が見つかりませんでした\`;
+                  } else {
+                    resultCount.textContent = \`選択した学年の漢字が見つかりませんでした\`;
+                  }
                 } else {
                   noResults.style.display = 'none';
-                  resultCount.textContent = \`「\${e.target.value}」に一致する漢字 \${visibleCount} / \${totalCount} 字\`;
+                  const totalFiltered = filtered.length;
+                  if (searchQuery) {
+                    resultCount.textContent = \`「\${searchQuery}」に一致する漢字 \${visibleCount} / \${totalFiltered} 字\`;
+                  } else {
+                    resultCount.textContent = \`全\${visibleCount}字を表示しています\`;
+                  }
                 }
+              }
+
+              // Grade filter click handlers
+              gradeFilters.forEach(button => {
+                button.addEventListener('click', () => {
+                  const grade = parseInt(button.dataset.grade);
+
+                  if (selectedGrades.has(grade)) {
+                    selectedGrades.delete(grade);
+                    button.classList.remove('border-[var(--mq-primary)]', 'bg-[var(--mq-primary-soft)]', 'text-[var(--mq-primary-strong)]');
+                    button.classList.add('border-[var(--mq-outline)]', 'bg-white', 'text-[var(--mq-ink)]');
+                    button.setAttribute('aria-pressed', 'false');
+                  } else {
+                    selectedGrades.add(grade);
+                    button.classList.add('border-[var(--mq-primary)]', 'bg-[var(--mq-primary-soft)]', 'text-[var(--mq-primary-strong)]');
+                    button.classList.remove('border-[var(--mq-outline)]', 'bg-white', 'text-[var(--mq-ink)]');
+                    button.setAttribute('aria-pressed', 'true');
+                  }
+
+                  updateFilters();
+                });
+              });
+
+              // Search input handler
+              searchInput.addEventListener('input', () => {
+                updateFilters();
               });
             `,
           }}

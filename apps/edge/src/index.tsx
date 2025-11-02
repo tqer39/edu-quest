@@ -547,15 +547,20 @@ app.get('/kanji/dictionary', async (c) => {
       ? (parsedGrade.grade as KanjiGrade)
       : 1;
 
-  const availableGrades: KanjiGrade[] = [1];
+  const availableGrades: KanjiGrade[] = [1, 2];
   const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  // Load all available grades' data for client-side filtering
+  const allEntries = availableGrades.flatMap((g) =>
+    getKanjiDictionaryByGrade(g)
+  );
 
   return c.render(
     <KanjiDictionary
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
-      entries={getKanjiDictionaryByGrade(grade)}
+      entries={allEntries}
     />,
     {
       title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
@@ -574,7 +579,7 @@ app.get('/kanji/dictionary/:id', async (c) => {
       ? (parsedGrade.grade as KanjiGrade)
       : 1;
 
-  const availableGrades: KanjiGrade[] = [1];
+  const availableGrades: KanjiGrade[] = [1, 2];
   const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
 
   // Convert hex ID back to character
