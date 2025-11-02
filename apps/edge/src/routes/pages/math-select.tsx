@@ -2,7 +2,10 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
-import { formatSchoolGradeLabelShort } from '../utils/school-grade';
+import {
+  formatSchoolGradeLabel,
+  formatSchoolGradeLabelShort,
+} from '../utils/school-grade';
 import { type GradeId, gradeLevels } from './grade-presets';
 
 type MathQuestOption = {
@@ -54,6 +57,7 @@ const MathNav: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
+  // ナビゲーションでは短縮形を使用
   const gradeLabel = formatSchoolGradeLabelShort({
     stage: gradeStage,
     grade: gradeNumber,
@@ -118,7 +122,7 @@ const MathQuestCard: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  const gradeLabel = formatSchoolGradeLabelShort({
+  const gradeLabel = formatSchoolGradeLabel({
     stage: gradeStage,
     grade: gradeNumber,
   });
@@ -164,7 +168,7 @@ export const MathSelect: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  const gradeLabel = formatSchoolGradeLabelShort({
+  const gradeLabel = formatSchoolGradeLabel({
     stage: gradeStage,
     grade: gradeNumber,
   });

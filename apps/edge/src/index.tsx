@@ -42,6 +42,7 @@ import {
 } from './routes/pages/game-presets';
 import { GameSelect } from './routes/pages/game-select';
 import {
+  calculationTypes,
   type GradeId,
   gradeCalculationTypes,
   gradeLevels,
@@ -55,10 +56,11 @@ import { KanjiResults } from './routes/pages/kanji-results';
 import { KanjiSelect } from './routes/pages/kanji-select';
 import { Login } from './routes/pages/login';
 import { MathHome } from './routes/pages/math-home';
+import { MathPresetSelect } from './routes/pages/math-preset-select';
+import { getMathPresetsForGradeAndCalc } from './routes/pages/math-presets';
 import { MathSelect } from './routes/pages/math-select';
 import { ParentsPage } from './routes/pages/parents';
 import { Play } from './routes/pages/play';
-import { Start } from './routes/pages/start';
 import { Sudoku } from './routes/pages/sudoku';
 import { SudokuSelect } from './routes/pages/sudoku-select';
 import {
@@ -410,34 +412,67 @@ app.get('/math/start', async (c) => {
     stage: '小学',
     grade: gradeNumber,
   });
-  let initialCalcTypeId: string | undefined;
 
-  if (calcParam) {
-    const availableCalcIds =
-      gradeCalculationTypes[
-        selectedGrade.id as keyof typeof gradeCalculationTypes
-      ] ?? [];
-
-    if ((availableCalcIds as readonly string[]).includes(calcParam)) {
-      initialCalcTypeId = calcParam;
-    } else {
-      return c.redirect(
-        `/math/select?grade=${encodeURIComponent(gradeQuery)}`,
-        302
-      );
-    }
+  // 計算タイプを検証
+  if (!calcParam) {
+    return c.redirect(
+      `/math/select?grade=${encodeURIComponent(gradeQuery)}`,
+      302
+    );
   }
 
+  const availableCalcIds =
+    gradeCalculationTypes[
+      selectedGrade.id as keyof typeof gradeCalculationTypes
+    ] ?? [];
+
+  if (!(availableCalcIds as readonly string[]).includes(calcParam)) {
+    return c.redirect(
+      `/math/select?grade=${encodeURIComponent(gradeQuery)}`,
+      302
+    );
+  }
+
+  // 計算タイプの情報を取得
+  const calcType = calculationTypes.find((c) => c.id === calcParam);
+  if (!calcType) {
+    return c.redirect(
+      `/math/select?grade=${encodeURIComponent(gradeQuery)}`,
+      302
+    );
+  }
+
+  // アイコンマッピング
+  const calcIconMap: Record<string, string> = {
+    'calc-add': '➕',
+    'calc-sub': '➖',
+    'calc-mul': '✖️',
+    'calc-div': '➗',
+    'calc-add-sub-mix': '➕➖',
+    'calc-add-inverse': '🔄',
+    'calc-sub-inverse': '🔄',
+    'calc-mix': '🔢',
+  };
+
+  const calcTypeInfo = {
+    id: calcType.id,
+    label: calcType.label,
+    emoji: calcIconMap[calcType.id] || '🔢',
+  };
+
+  // プリセットを取得
+  const presets = getMathPresetsForGradeAndCalc(selectedGrade.id, calcParam);
+
   return c.render(
-    <Start
+    <MathPresetSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
-      selectedGradeId={selectedGrade.id}
-      initialActivity={initialCalcTypeId ? 'math' : undefined}
-      initialCalculationTypeId={initialCalcTypeId}
+      gradeId={selectedGrade.id}
+      calcType={calcTypeInfo}
+      presets={presets}
     />,
     {
-      title: `MathQuest | ${selectedGrade.label}の設定`,
-      description: `${selectedGrade.description}向けの問題セットをカスタマイズしましょう。`,
+      title: `MathQuest | ${calcType.label}のテーマを選択`,
+      description: `${selectedGrade.label}向けの${calcType.label}テーマを選んで練習をはじめましょう。`,
     }
   );
 });
