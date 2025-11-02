@@ -10,6 +10,7 @@ import {
   type Kanji,
   type KanjiQuestion,
   type KanjiQuestConfig,
+  type KanjiGrade,
 } from '../kanji-quest';
 
 // Sample kanji data for testing
@@ -28,6 +29,7 @@ const sampleKanji: Kanji[] = [
       { word: '一つ', reading: 'ひとつ', meaning: 'one (thing)' },
       { word: '一人', reading: 'ひとり', meaning: 'one person' },
     ],
+    specialExamples: [],
   },
   {
     character: '二',
@@ -40,6 +42,7 @@ const sampleKanji: Kanji[] = [
     meanings: ['two'],
     radicals: ['二'],
     examples: [{ word: '二つ', reading: 'ふたつ', meaning: 'two (things)' }],
+    specialExamples: [],
   },
   {
     character: '三',
@@ -52,6 +55,7 @@ const sampleKanji: Kanji[] = [
     meanings: ['three'],
     radicals: ['一'],
     examples: [{ word: '三つ', reading: 'みっつ', meaning: 'three (things)' }],
+    specialExamples: [],
   },
   {
     character: '四',
@@ -64,6 +68,7 @@ const sampleKanji: Kanji[] = [
     meanings: ['four'],
     radicals: ['囗'],
     examples: [{ word: '四つ', reading: 'よっつ', meaning: 'four (things)' }],
+    specialExamples: [],
   },
   {
     character: '五',
@@ -76,6 +81,7 @@ const sampleKanji: Kanji[] = [
     meanings: ['five'],
     radicals: ['二'],
     examples: [{ word: '五つ', reading: 'いつつ', meaning: 'five (things)' }],
+    specialExamples: [],
   },
 ];
 
@@ -450,6 +456,11 @@ describe('getKanjiDictionaryByGrade', () => {
       reading: 'てすと',
       meaning: 'test',
     });
+    mutatedEntries[0]?.specialExamples.push({
+      word: 'テスト特殊',
+      reading: 'てすととくしゅ',
+      meaning: 'special test reading',
+    });
 
     const freshEntries = getKanjiDictionaryByGrade(1);
 
@@ -457,7 +468,24 @@ describe('getKanjiDictionaryByGrade', () => {
     expect(freshEntries[0]?.examples.some((ex) => ex.word === 'テスト')).toBe(
       false
     );
+    expect(
+      freshEntries[0]?.specialExamples.some(
+        (ex) => ex.word === 'テスト特殊'
+      )
+    ).toBe(false);
     expect(originalEntries).not.toBe(mutatedEntries);
+  });
+
+  it('guarantees ample examples and special reading arrays for early grades', () => {
+    ([1, 2] as KanjiGrade[]).forEach((grade) => {
+      const entries = getKanjiDictionaryByGrade(grade);
+
+      entries.forEach((entry) => {
+        expect(Array.isArray(entry.examples)).toBe(true);
+        expect(entry.examples.length).toBeGreaterThanOrEqual(10);
+        expect(Array.isArray(entry.specialExamples)).toBe(true);
+      });
+    });
   });
 });
 
