@@ -4,7 +4,7 @@ import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
 import {
   formatSchoolGradeLabel,
-  formatSchoolGradeLabelShort,
+  formatSchoolGradeLabelNav,
 } from '../utils/school-grade';
 import { type GradeId, gradeLevels } from './grade-presets';
 
@@ -57,8 +57,8 @@ const MathNav: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  // ナビゲーションでは短縮形を使用
-  const gradeLabel = formatSchoolGradeLabelShort({
+  // ナビゲーションでは最短形式を使用（例：「小1」）
+  const gradeLabel = formatSchoolGradeLabelNav({
     stage: gradeStage,
     grade: gradeNumber,
   });

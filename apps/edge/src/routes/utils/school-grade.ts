@@ -59,6 +59,12 @@ export const formatSchoolGradeLabel = ({ stage, grade }: SchoolGrade) =>
 export const formatSchoolGradeLabelShort = ({ stage, grade }: SchoolGrade) =>
   `${stage}${grade}`;
 
+// ナビゲーション用の最短形式（例：「小1」「中2」）
+export const formatSchoolGradeLabelNav = ({ stage, grade }: SchoolGrade) => {
+  const shortStage = stage === '小学' ? '小' : '中';
+  return `${shortStage}${grade}`;
+};
+
 export const createSchoolGradeParam = ({ stage, grade }: SchoolGrade) => {
   const urlParam = stageToUrlParam[stage];
   return `${urlParam}-${grade}`;
