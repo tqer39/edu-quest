@@ -20,17 +20,12 @@ const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
         />
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
-      <a
-        href="/clock"
-        class="flex items-center gap-2 transition hover:opacity-80"
-      >
+      <a href="/clock" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           🕐
         </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          ClockQuest - {grade}年生
-        </span>
       </a>
+      <span class="text-xs font-semibold text-[var(--mq-ink)]">小{grade}</span>
     </div>
     <div class="flex flex-wrap gap-2">
       <a

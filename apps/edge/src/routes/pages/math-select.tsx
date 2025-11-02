@@ -2,7 +2,7 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
-import { formatSchoolGradeLabel } from '../utils/school-grade';
+import { formatSchoolGradeLabelShort } from '../utils/school-grade';
 import { type GradeId, gradeLevels } from './grade-presets';
 
 type MathQuestOption = {
@@ -54,7 +54,7 @@ const MathNav: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  const gradeLabel = formatSchoolGradeLabel({
+  const gradeLabel = formatSchoolGradeLabelShort({
     stage: gradeStage,
     grade: gradeNumber,
   });
@@ -72,17 +72,14 @@ const MathNav: FC<{
           />
         </a>
         <span class="text-[var(--mq-outline)]">|</span>
-        <a
-          href="/math"
-          class="flex items-center gap-2 transition hover:opacity-80"
-        >
+        <a href="/math" class="transition hover:opacity-80">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
             🔢
           </span>
-          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            MathQuest - {gradeLabel}
-          </span>
         </a>
+        <span class="text-xs font-semibold text-[var(--mq-ink)]">
+          {gradeLabel}
+        </span>
       </div>
       <div class="flex flex-wrap gap-2">
         <a
@@ -121,7 +118,7 @@ const MathQuestCard: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  const gradeLabel = formatSchoolGradeLabel({
+  const gradeLabel = formatSchoolGradeLabelShort({
     stage: gradeStage,
     grade: gradeNumber,
   });
@@ -167,7 +164,7 @@ export const MathSelect: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  const gradeLabel = formatSchoolGradeLabel({
+  const gradeLabel = formatSchoolGradeLabelShort({
     stage: gradeStage,
     grade: gradeNumber,
   });

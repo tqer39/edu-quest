@@ -6,7 +6,7 @@ import { DictionaryLink } from '../components/dictionary-link';
 import type { SchoolStage } from '../utils/school-grade';
 import {
   createSchoolGradeParam,
-  formatSchoolGradeLabel,
+  formatSchoolGradeLabelShort,
 } from '../utils/school-grade';
 
 const KanjiNav: FC<{
@@ -14,7 +14,7 @@ const KanjiNav: FC<{
   grade: KanjiGrade;
   stage: SchoolStage;
 }> = ({ currentUser, grade, stage }) => {
-  const gradeLabel = formatSchoolGradeLabel({ stage, grade });
+  const gradeLabel = formatSchoolGradeLabelShort({ stage, grade });
   const gradeParam = createSchoolGradeParam({ stage, grade });
 
   return (
@@ -30,17 +30,14 @@ const KanjiNav: FC<{
           />
         </a>
         <span class="text-[var(--mq-outline)]">|</span>
-        <a
-          href="/kanji"
-          class="flex items-center gap-2 transition hover:opacity-80"
-        >
+        <a href="/kanji" class="transition hover:opacity-80">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
             ✏️
           </span>
-          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest - {gradeLabel}
-          </span>
         </a>
+        <span class="text-xs font-semibold text-[var(--mq-ink)]">
+          {gradeLabel}
+        </span>
       </div>
       <div class="flex flex-wrap gap-2">
         <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />

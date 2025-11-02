@@ -23,17 +23,14 @@ const GameNav: FC<{
           />
         </a>
         <span class="text-[var(--mq-outline)]">|</span>
-        <a
-          href="/game"
-          class="flex items-center gap-2 transition hover:opacity-80"
-        >
+        <a href="/game" class="transition hover:opacity-80">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
             🎮
           </span>
-          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            GameQuest - {grade.label}
-          </span>
         </a>
+        <span class="text-xs font-semibold text-[var(--mq-ink)]">
+          {grade.label}
+        </span>
       </div>
       <div class="flex flex-wrap gap-2">
         <a

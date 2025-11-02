@@ -25,22 +25,14 @@ const KanjiDetailNav: FC<{
         />
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
-      <a
-        href="/kanji"
-        class="flex items-center gap-2 transition hover:opacity-80"
-      >
+      <a href="/kanji" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
-        <div class="flex flex-col leading-tight">
-          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest
-          </span>
-          <span class="text-[10px] font-semibold text-[var(--mq-primary-strong)]">
-            {gradeLabel} 辞書
-          </span>
-        </div>
       </a>
+      <span class="text-xs font-semibold text-[var(--mq-ink)]">
+        {gradeLabel} 辞書
+      </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
       <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />

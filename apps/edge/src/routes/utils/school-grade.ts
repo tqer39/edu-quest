@@ -56,6 +56,9 @@ export const parseSchoolGradeParam = (
 export const formatSchoolGradeLabel = ({ stage, grade }: SchoolGrade) =>
   `${stage}${grade}年生`;
 
+export const formatSchoolGradeLabelShort = ({ stage, grade }: SchoolGrade) =>
+  `${stage}${grade}`;
+
 export const createSchoolGradeParam = ({ stage, grade }: SchoolGrade) => {
   const urlParam = stageToUrlParam[stage];
   return `${urlParam}-${grade}`;
