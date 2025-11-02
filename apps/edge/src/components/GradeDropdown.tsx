@@ -58,7 +58,7 @@ export const GradeDropdown: FC<GradeDropdownProps> = ({
       </button>
 
       <div
-        class="grade-dropdown-menu absolute right-0 mt-2 hidden w-32 origin-top-right rounded-xl border border-[var(--mq-outline)] bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        class="grade-dropdown-menu absolute right-0 mt-2 hidden w-40 origin-top-right rounded-xl border border-[var(--mq-outline)] bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         role="menu"
         aria-orientation="vertical"
       >
@@ -79,7 +79,7 @@ export const GradeDropdown: FC<GradeDropdownProps> = ({
               return (
                 <div
                   key={`${option.stage}-${option.grade}`}
-                  class="block px-4 py-2 text-xs text-gray-400"
+                  class="block whitespace-nowrap px-4 py-2 text-xs text-gray-400"
                   role="menuitem"
                   tabIndex={-1}
                 >
@@ -93,7 +93,7 @@ export const GradeDropdown: FC<GradeDropdownProps> = ({
               <a
                 key={`${option.stage}-${option.grade}`}
                 href={`${baseUrl}?grade=${encodeURIComponent(gradeParam)}`}
-                class={`block px-4 py-2 text-xs transition hover:bg-[var(--mq-surface)] ${
+                class={`block whitespace-nowrap px-4 py-2 text-xs transition hover:bg-[var(--mq-surface)] ${
                   isCurrentGrade
                     ? 'bg-[var(--mq-primary-soft)] font-semibold text-[var(--mq-primary-strong)]'
                     : 'text-[var(--mq-ink)]'
