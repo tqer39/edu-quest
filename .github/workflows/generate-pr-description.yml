@@ -8,8 +8,6 @@ on:
     types:
       - opened
       - synchronize
-    paths-ignore:
-      - '**/*.md'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
