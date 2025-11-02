@@ -189,7 +189,7 @@ export const MathSelect: FC<{
           <span class="text-6xl">🔢</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              挑戦するミッションを選ぼう
+              クエストを選んでください
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
               {gradeLabel}向けの算数クエストを用意しました。
