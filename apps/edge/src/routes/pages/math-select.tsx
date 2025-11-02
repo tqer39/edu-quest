@@ -1,11 +1,9 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
+import { GradeDropdown } from '../../components/GradeDropdown';
 import type { SchoolStage } from '../utils/school-grade';
-import {
-  formatSchoolGradeLabel,
-  formatSchoolGradeLabelNav,
-} from '../utils/school-grade';
+import { formatSchoolGradeLabel } from '../utils/school-grade';
 import { type GradeId, gradeLevels } from './grade-presets';
 
 type MathQuestOption = {
@@ -57,11 +55,18 @@ const MathNav: FC<{
     0
   );
   const gradeNumber = gradeIndex + 1;
-  // ナビゲーションでは最短形式を使用（例：「小1」）
-  const gradeLabel = formatSchoolGradeLabelNav({
-    stage: gradeStage,
-    grade: gradeNumber,
-  });
+
+  // 利用可能な学年リスト（小学1-6年生）
+  const availableGrades = gradeLevels
+    .filter((level) => !level.disabled)
+    .map((level) => {
+      const idx = gradeLevels.findIndex((g) => g.id === level.id);
+      return {
+        stage: '小学' as SchoolStage,
+        grade: idx + 1,
+        disabled: level.disabled,
+      };
+    });
 
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
@@ -81,9 +86,12 @@ const MathNav: FC<{
             🔢
           </span>
         </a>
-        <span class="text-xs font-semibold text-[var(--mq-ink)]">
-          {gradeLabel}
-        </span>
+        <GradeDropdown
+          currentGrade={gradeNumber}
+          currentStage={gradeStage}
+          availableGrades={availableGrades}
+          baseUrl="/math/select"
+        />
       </div>
       <div class="flex flex-wrap gap-2">
         <a

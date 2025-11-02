@@ -1,14 +1,25 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
-import { getGameGradeById } from './game-presets';
+import { GradeDropdown } from '../../components/GradeDropdown';
+import { gameGradeLevels, getGameGradeById } from './game-presets';
 import type { GradeId } from './grade-presets';
+import type { SchoolStage } from '../utils/school-grade';
 
 const GameNav: FC<{
   currentUser: CurrentUser | null;
   gradeId: GradeId;
 }> = ({ currentUser, gradeId }) => {
-  const grade = getGameGradeById(gradeId);
+  // GradeIdからgrade numberに変換
+  const gradeIndex = gameGradeLevels.findIndex((level) => level.id === gradeId);
+  const gradeNumber = gradeIndex >= 0 ? gradeIndex + 1 : 1;
+
+  // 利用可能な学年リスト（小学1-6年生）
+  const availableGrades = gameGradeLevels.map((level, index) => ({
+    stage: '小学' as SchoolStage,
+    grade: index + 1,
+    disabled: level.disabled,
+  }));
 
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
@@ -28,9 +39,12 @@ const GameNav: FC<{
             🎮
           </span>
         </a>
-        <span class="text-xs font-semibold text-[var(--mq-ink)]">
-          {grade.label}
-        </span>
+        <GradeDropdown
+          currentGrade={gradeNumber}
+          currentStage="小学"
+          availableGrades={availableGrades}
+          baseUrl="/game/select"
+        />
       </div>
       <div class="flex flex-wrap gap-2">
         <a

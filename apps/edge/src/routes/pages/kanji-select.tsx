@@ -2,12 +2,12 @@ import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
+import { GradeDropdown } from '../../components/GradeDropdown';
 import { DictionaryLink } from '../components/dictionary-link';
 import type { SchoolStage } from '../utils/school-grade';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
-  formatSchoolGradeLabelShort,
 } from '../utils/school-grade';
 
 const KanjiNav: FC<{
@@ -15,8 +15,21 @@ const KanjiNav: FC<{
   grade: KanjiGrade;
   stage: SchoolStage;
 }> = ({ currentUser, grade, stage }) => {
-  const gradeLabel = formatSchoolGradeLabelShort({ stage, grade });
   const gradeParam = createSchoolGradeParam({ stage, grade });
+
+  // 利用可能な学年リスト（小学1-2年生のみ、KanjiQuestは現在1-2年生のみ対応）
+  const availableGrades: readonly {
+    stage: SchoolStage;
+    grade: number;
+    disabled?: boolean;
+  }[] = [
+    { stage: '小学', grade: 1 },
+    { stage: '小学', grade: 2 },
+    { stage: '小学', grade: 3, disabled: true },
+    { stage: '小学', grade: 4, disabled: true },
+    { stage: '小学', grade: 5, disabled: true },
+    { stage: '小学', grade: 6, disabled: true },
+  ];
 
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
@@ -36,9 +49,12 @@ const KanjiNav: FC<{
             ✏️
           </span>
         </a>
-        <span class="text-xs font-semibold text-[var(--mq-ink)]">
-          {gradeLabel}
-        </span>
+        <GradeDropdown
+          currentGrade={grade}
+          currentStage={stage}
+          availableGrades={availableGrades}
+          baseUrl="/kanji/select"
+        />
       </div>
       <div class="flex flex-wrap gap-2">
         <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
