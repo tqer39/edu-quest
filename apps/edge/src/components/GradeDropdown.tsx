@@ -30,10 +30,10 @@ export const GradeDropdown: FC<GradeDropdownProps> = ({
   });
 
   return (
-    <div class="grade-dropdown relative inline-block">
+    <div class="grade-dropdown relative inline-block flex-shrink-0">
       <button
         type="button"
-        class="grade-dropdown-button inline-flex items-center gap-1 rounded-lg bg-[var(--mq-primary-soft)] px-2 py-1 text-xs font-semibold text-[var(--mq-ink)] transition hover:bg-[var(--mq-primary)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+        class="grade-dropdown-button inline-flex items-center gap-1 whitespace-nowrap rounded-lg bg-[var(--mq-primary-soft)] px-2 py-1 text-xs font-semibold text-[var(--mq-ink)] transition hover:bg-[var(--mq-primary)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
         aria-label="学年を変更"
         aria-expanded="false"
         aria-haspopup="true"
