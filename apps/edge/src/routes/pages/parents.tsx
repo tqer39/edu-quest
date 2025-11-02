@@ -161,7 +161,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
       <LayerDivider label="安心・楽しく・簡単" />
 
-      <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
+      <section class="rounded-[32px]  bg-white/95 py-12 shadow-sm">
         <SectionHeading
           id="safety"
           icon="🔒"
@@ -217,7 +217,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
       <SectionDivider />
 
-      <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
+      <section class="rounded-[32px]  bg-white/95 py-12 shadow-sm">
         <SectionHeading
           id="effect"
           icon="📈"
@@ -336,7 +336,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
       <SectionDivider />
 
-      <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
+      <section class="rounded-[32px]  bg-white/95 py-12 shadow-sm">
         <SectionHeading
           id="easy-start"
           icon="💻"
@@ -392,7 +392,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
       <LayerDivider label="ご利用にあたって" />
 
-      <section class="rounded-[32px] bg-white/95 px-8 py-12 shadow-sm">
+      <section class="rounded-[32px] bg-white/95 py-12 shadow-sm">
         <SectionHeading
           id="home-usage"
           icon="🏡"
@@ -448,7 +448,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
       <SectionDivider />
 
-      <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
+      <section class="rounded-[32px]  bg-white/95 py-12 shadow-sm">
         <SectionHeading id="faq" icon="❓" title="よくある質問" />
         <div class="mt-10 space-y-6">
           {faqItems.map((item, index) => (
@@ -470,7 +470,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
 
       <SectionDivider />
 
-      <section class="rounded-[32px]  bg-white/95 px-8 py-12 shadow-sm">
+      <section class="rounded-[32px]  bg-white/95 py-12 shadow-sm">
         <SectionHeading
           id="transparency"
           icon="🪪"
