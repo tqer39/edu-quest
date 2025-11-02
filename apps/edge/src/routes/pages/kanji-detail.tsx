@@ -213,6 +213,8 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
             __html: `
               const readingButtons = document.querySelectorAll('.reading-filter');
               const exampleItems = document.querySelectorAll('.example-item');
+              const exampleList = document.getElementById('example-list');
+              const noExamplesMessage = document.getElementById('no-examples-message');
               let activeFilter = null;
 
               // Helper functions for kana conversion
@@ -268,15 +270,19 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                       btn.style.backgroundColor = 'white';
                       btn.style.borderColor = 'var(--mq-outline)';
                     });
+                    exampleList.style.display = 'block';
+                    noExamplesMessage.style.display = 'none';
                   } else {
                     // Apply filter
                     activeFilter = reading;
 
+                    let visibleCount = 0;
                     exampleItems.forEach(item => {
                       const itemReading = item.dataset.reading;
                       if (matchesReading(itemReading, reading)) {
                         item.style.display = 'block';
                         item.style.opacity = '1';
+                        visibleCount++;
                       } else {
                         item.style.display = 'none';
                         item.style.opacity = '0';
@@ -293,6 +299,15 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                         btn.style.borderColor = 'var(--mq-outline)';
                       }
                     });
+
+                    // Show/hide no-examples message based on visible count
+                    if (visibleCount === 0) {
+                      exampleList.style.display = 'none';
+                      noExamplesMessage.style.display = 'block';
+                    } else {
+                      exampleList.style.display = 'block';
+                      noExamplesMessage.style.display = 'none';
+                    }
                   }
                 });
               });
