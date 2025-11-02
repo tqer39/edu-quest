@@ -17,7 +17,7 @@ const SectionHeading: FC<SectionHeadingProps> = ({
   description,
 }) => (
   <div class="flex flex-col gap-4" id={id}>
-    <h2 class="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#dbeafe] to-transparent px-6 py-4 text-2xl font-bold text-[var(--mq-ink)] shadow-sm sm:text-3xl">
+    <h2 class="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-[#dbeafe] to-transparent px-6 py-4 text-2xl font-bold text-[var(--mq-ink)] sm:text-3xl">
       <span aria-hidden="true" class="text-3xl">
         {icon}
       </span>
@@ -42,7 +42,7 @@ type Feature = {
 const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
   <ul class="grid gap-4 space-y-3 text-sm text-[#1f2937] sm:grid-cols-2">
     {features.map((feature) => (
-      <li class="flex items-start gap-3 rounded-2xl bg-white/80 p-4 shadow-sm">
+      <li class="flex items-start gap-3 rounded-2xl bg-white/80 p-4">
         <span
           aria-hidden="true"
           class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-[var(--mq-primary)] text-xs font-bold text-white"
@@ -65,7 +65,7 @@ const FeatureList: FC<{ features: Feature[] }> = ({ features }) => (
 const SectionDivider: FC = () => (
   <div class="relative flex items-center justify-center py-4">
     <div class="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[var(--mq-outline)] to-transparent"></div>
-    <div class="relative flex h-3 w-3 items-center justify-center rounded-full bg-[var(--mq-primary-soft)] shadow-sm">
+    <div class="relative flex h-3 w-3 items-center justify-center rounded-full bg-[var(--mq-primary-soft)]">
       <div class="h-1.5 w-1.5 rounded-full bg-[var(--mq-primary)]"></div>
     </div>
   </div>
@@ -74,7 +74,7 @@ const SectionDivider: FC = () => (
 const LayerDivider: FC<{ label: string }> = ({ label }) => (
   <div class="relative flex items-center justify-center py-8">
     <div class="absolute inset-x-0 top-1/2 h-0.5 bg-gradient-to-r from-transparent via-[var(--mq-primary)]/30 to-transparent"></div>
-    <div class="relative rounded-full bg-[var(--mq-primary-soft)] px-6 py-2 shadow-sm">
+    <div class="relative rounded-full bg-[var(--mq-primary-soft)] px-6 py-2">
       <span class="text-sm font-bold text-[var(--mq-primary-strong)]">
         {label}
       </span>
@@ -111,14 +111,14 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
     <div class="flex flex-col gap-16 px-4 sm:px-8 lg:px-16 xl:px-24">
       <section
         id="parents-hero"
-        class="relative mt-16 overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] shadow-md sm:px-10 sm:py-16"
+        class="relative mt-16 overflow-hidden rounded-[32px]  bg-gradient-to-br from-[#ecf5ff] via-white to-[#e0f8f0] px-6 py-12 text-[var(--mq-ink)] sm:px-10 sm:py-16"
       >
         <div class="absolute inset-y-0 right-0 hidden w-1/2 opacity-80 sm:block">
           <div class="h-full w-full rounded-l-full bg-[radial-gradient(circle_at_top,#d1fae5,transparent_60%)]"></div>
         </div>
         <div class="relative flex flex-col gap-10 sm:flex-row sm:items-center">
           <div class="flex-1 space-y-6">
-            <span class="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#3b82f6] shadow-sm">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[#3b82f6]">
               安心して任せられる学びの場
             </span>
             <h1 class="text-3xl font-extrabold leading-tight sm:text-4xl">
@@ -134,7 +134,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
               <a
                 id="parents-primary-cta"
                 href="/"
-                class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--mq-primary)] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[var(--mq-primary-strong)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--mq-primary)] px-8 py-4 text-base font-bold !text-white transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[var(--mq-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
               >
                 今すぐ体験する
                 <span aria-hidden="true" class="text-lg">
@@ -144,7 +144,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
             </div>
           </div>
           <div class="flex flex-1 justify-center">
-            <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-8 shadow-sm backdrop-blur">
+            <div class="relative mt-8 w-full max-w-sm rounded-3xl bg-white/80 p-8 backdrop-blur">
               <div class="absolute -right-6 -top-6 hidden h-20 w-20 rounded-full bg-gradient-to-br from-[#22c55e]/80 to-[#3b82f6]/80 blur-0 sm:block"></div>
               <p class="mb-6 text-sm font-semibold text-[#1f2937]">
                 ご家庭での安心ポイント
@@ -198,7 +198,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
               },
             ]}
           />
-          <aside class="relative overflow-hidden rounded-3xl border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-8 shadow-sm">
+          <aside class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50 to-white p-8">
             <h3 class="text-xl font-bold text-blue-800">
               セキュリティ対策も透明に
             </h3>
@@ -254,11 +254,11 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
               },
             ]}
           />
-          <div class="rounded-3xl bg-blue-50 p-8 shadow-sm">
+          <div class="rounded-3xl bg-blue-50 p-8">
             <h3 class="mb-10 flex items-center justify-center gap-2 text-2xl font-bold text-blue-800">
               🌀 学びの循環サイクル
             </h3>
-            <div class="mx-auto max-w-3xl rounded-2xl bg-white p-8 shadow-md">
+            <div class="mx-auto max-w-3xl rounded-2xl bg-white p-8">
               <div class="grid grid-cols-1 items-center gap-4 text-center sm:grid-cols-5 sm:gap-6">
                 <div class="flex flex-col items-center">
                   <span class="mb-2 text-3xl">🎯</span>
@@ -373,13 +373,13 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
               },
             ]}
           />
-          <div class="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-[#ecfdf5] via-white to-[#d1fae5] p-8 shadow-sm">
+          <div class="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-[#ecfdf5] via-white to-[#d1fae5] p-8">
             <p class="text-sm leading-relaxed text-[#1f2937]">
               PC・タブレット・スマートフォンなど、お使いのデバイスからいつでもアクセス可能。どの端末でも同じ快適な学習体験をご提供します。
             </p>
             <a
               href="#parents-hero"
-              class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-3 text-sm font-bold text-[#0f172a] shadow-md transition-all hover:-translate-y-1 hover:bg-white hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
+              class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-3 text-sm font-bold text-[#0f172a] transition-all hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0f766e]"
             >
               学習を始める位置に戻る
               <span aria-hidden="true" class="text-base">
@@ -429,13 +429,13 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
               },
             ]}
           />
-          <div class="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-[#fef3c7] via-white to-[#fde68a] p-8 shadow-sm">
+          <div class="flex flex-col items-start gap-6 rounded-3xl bg-gradient-to-br from-[#fef3c7] via-white to-[#fde68a] p-8">
             <p class="text-sm leading-relaxed text-[#1f2937]">
               PC・タブレット・スマートフォンなど、お使いのデバイスからいつでもアクセス可能。どの端末でも同じ快適な学習体験をご提供します。
             </p>
             <a
               href="#parents-hero"
-              class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-3 text-sm font-bold text-[#0f172a] shadow-md transition-all hover:-translate-y-1 hover:bg-white hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f59e0b]"
+              class="inline-flex items-center gap-2 rounded-xl bg-white/90 px-5 py-3 text-sm font-bold text-[#0f172a] transition-all hover:-translate-y-1 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#f59e0b]"
             >
               学習を始める位置に戻る
               <span aria-hidden="true" class="text-base">
@@ -540,7 +540,7 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
           <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href="/"
-              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--mq-primary)] px-8 py-4 text-base font-bold !text-white shadow-lg transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[var(--mq-primary-strong)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+              class="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--mq-primary)] px-8 py-4 text-base font-bold !text-white transition-all hover:-translate-y-1 hover:scale-105 hover:bg-[var(--mq-primary-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               トップページで体験する
               <span aria-hidden="true" class="text-lg">
