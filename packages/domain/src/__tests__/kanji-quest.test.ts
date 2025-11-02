@@ -454,7 +454,9 @@ describe('getKanjiDictionaryByGrade', () => {
     const freshEntries = getKanjiDictionaryByGrade(1);
 
     expect(freshEntries[0]?.readings.onyomi).not.toContain('テスト');
-    expect(freshEntries[0]?.examples.some((ex) => ex.word === 'テスト')).toBe(false);
+    expect(freshEntries[0]?.examples.some((ex) => ex.word === 'テスト')).toBe(
+      false
+    );
     expect(originalEntries).not.toBe(mutatedEntries);
   });
 });
