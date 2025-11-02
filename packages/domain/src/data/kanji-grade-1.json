@@ -30,7 +30,9 @@
     "examples": [
       { "word": "二つ", "reading": "ふたつ", "meaning": "two (things)" },
       { "word": "二人", "reading": "ふたり", "meaning": "two people" },
-      { "word": "二日", "reading": "ふつか", "meaning": "two days, 2nd day" }
+      { "word": "二日", "reading": "ふつか", "meaning": "two days, 2nd day" },
+      { "word": "二月", "reading": "にがつ", "meaning": "February" },
+      { "word": "二年生", "reading": "にねんせい", "meaning": "2nd grader" }
     ]
   },
   {
@@ -46,7 +48,9 @@
     "examples": [
       { "word": "三つ", "reading": "みっつ", "meaning": "three (things)" },
       { "word": "三人", "reading": "さんにん", "meaning": "three people" },
-      { "word": "三日", "reading": "みっか", "meaning": "three days, 3rd day" }
+      { "word": "三日", "reading": "みっか", "meaning": "three days, 3rd day" },
+      { "word": "三月", "reading": "さんがつ", "meaning": "March" },
+      { "word": "三年生", "reading": "さんねんせい", "meaning": "3rd grader" }
     ]
   },
   {
@@ -62,7 +66,9 @@
     "examples": [
       { "word": "四つ", "reading": "よっつ", "meaning": "four (things)" },
       { "word": "四人", "reading": "よにん", "meaning": "four people" },
-      { "word": "四日", "reading": "よっか", "meaning": "four days, 4th day" }
+      { "word": "四日", "reading": "よっか", "meaning": "four days, 4th day" },
+      { "word": "四月", "reading": "しがつ", "meaning": "April" },
+      { "word": "四年生", "reading": "よねんせい", "meaning": "4th grader" }
     ]
   },
   {
@@ -78,7 +84,9 @@
     "examples": [
       { "word": "五つ", "reading": "いつつ", "meaning": "five (things)" },
       { "word": "五人", "reading": "ごにん", "meaning": "five people" },
-      { "word": "五日", "reading": "いつか", "meaning": "five days, 5th day" }
+      { "word": "五日", "reading": "いつか", "meaning": "five days, 5th day" },
+      { "word": "五月", "reading": "ごがつ", "meaning": "May" },
+      { "word": "五年生", "reading": "ごねんせい", "meaning": "5th grader" }
     ]
   },
   {
@@ -94,7 +102,9 @@
     "examples": [
       { "word": "六つ", "reading": "むっつ", "meaning": "six (things)" },
       { "word": "六人", "reading": "ろくにん", "meaning": "six people" },
-      { "word": "六日", "reading": "むいか", "meaning": "six days, 6th day" }
+      { "word": "六日", "reading": "むいか", "meaning": "six days, 6th day" },
+      { "word": "六月", "reading": "ろくがつ", "meaning": "June" },
+      { "word": "六年生", "reading": "ろくねんせい", "meaning": "6th grader" }
     ]
   },
   {
@@ -110,7 +120,8 @@
     "examples": [
       { "word": "七つ", "reading": "ななつ", "meaning": "seven (things)" },
       { "word": "七人", "reading": "しちにん", "meaning": "seven people" },
-      { "word": "七日", "reading": "なのか", "meaning": "seven days, 7th day" }
+      { "word": "七日", "reading": "なのか", "meaning": "seven days, 7th day" },
+      { "word": "七月", "reading": "しちがつ", "meaning": "July" }
     ]
   },
   {
@@ -126,7 +137,8 @@
     "examples": [
       { "word": "八つ", "reading": "やっつ", "meaning": "eight (things)" },
       { "word": "八人", "reading": "はちにん", "meaning": "eight people" },
-      { "word": "八日", "reading": "ようか", "meaning": "eight days, 8th day" }
+      { "word": "八日", "reading": "ようか", "meaning": "eight days, 8th day" },
+      { "word": "八月", "reading": "はちがつ", "meaning": "August" }
     ]
   },
   {
@@ -142,7 +154,12 @@
     "examples": [
       { "word": "九つ", "reading": "ここのつ", "meaning": "nine (things)" },
       { "word": "九人", "reading": "きゅうにん", "meaning": "nine people" },
-      { "word": "九日", "reading": "ここのか", "meaning": "nine days, 9th day" }
+      {
+        "word": "九日",
+        "reading": "ここのか",
+        "meaning": "nine days, 9th day"
+      },
+      { "word": "九月", "reading": "くがつ", "meaning": "September" }
     ]
   },
   {
@@ -158,7 +175,9 @@
     "examples": [
       { "word": "十", "reading": "じゅう", "meaning": "ten" },
       { "word": "十人", "reading": "じゅうにん", "meaning": "ten people" },
-      { "word": "十日", "reading": "とおか", "meaning": "ten days, 10th day" }
+      { "word": "十日", "reading": "とおか", "meaning": "ten days, 10th day" },
+      { "word": "十月", "reading": "じゅうがつ", "meaning": "October" },
+      { "word": "二十", "reading": "にじゅう", "meaning": "twenty" }
     ]
   },
   {
@@ -174,7 +193,8 @@
     "examples": [
       { "word": "百", "reading": "ひゃく", "meaning": "hundred" },
       { "word": "二百", "reading": "にひゃく", "meaning": "two hundred" },
-      { "word": "百円", "reading": "ひゃくえん", "meaning": "100 yen" }
+      { "word": "百円", "reading": "ひゃくえん", "meaning": "100 yen" },
+      { "word": "三百", "reading": "さんびゃく", "meaning": "three hundred" }
     ]
   },
   {
@@ -190,7 +210,8 @@
     "examples": [
       { "word": "千", "reading": "せん", "meaning": "thousand" },
       { "word": "二千", "reading": "にせん", "meaning": "two thousand" },
-      { "word": "千円", "reading": "せんえん", "meaning": "1000 yen" }
+      { "word": "千円", "reading": "せんえん", "meaning": "1000 yen" },
+      { "word": "三千", "reading": "さんぜん", "meaning": "three thousand" }
     ]
   },
   {
@@ -236,7 +257,9 @@
         "word": "下がる",
         "reading": "さがる",
         "meaning": "to hang down, to fall"
-      }
+      },
+      { "word": "上下", "reading": "じょうげ", "meaning": "up and down" },
+      { "word": "下校", "reading": "げこう", "meaning": "leaving school" }
     ]
   },
   {
@@ -340,7 +363,9 @@
     "examples": [
       { "word": "日", "reading": "ひ", "meaning": "day, sun" },
       { "word": "今日", "reading": "きょう", "meaning": "today" },
-      { "word": "日本", "reading": "にほん", "meaning": "Japan" }
+      { "word": "日本", "reading": "にほん", "meaning": "Japan" },
+      { "word": "一日", "reading": "いちにち", "meaning": "one day" },
+      { "word": "休日", "reading": "きゅうじつ", "meaning": "holiday" }
     ]
   },
   {
@@ -464,7 +489,8 @@
         "word": "山登り",
         "reading": "やまのぼり",
         "meaning": "mountain climbing"
-      }
+      },
+      { "word": "富士山", "reading": "ふじさん", "meaning": "Mt. Fuji" }
     ]
   },
   {
@@ -480,7 +506,12 @@
     "examples": [
       { "word": "川", "reading": "かわ", "meaning": "river" },
       { "word": "川口", "reading": "かわぐち", "meaning": "mouth of a river" },
-      { "word": "川岸", "reading": "かわぎし", "meaning": "riverbank" }
+      { "word": "川岸", "reading": "かわぎし", "meaning": "riverbank" },
+      {
+        "word": "山川",
+        "reading": "さんせん",
+        "meaning": "mountains and rivers"
+      }
     ]
   },
   {
@@ -544,7 +575,8 @@
     "examples": [
       { "word": "雨", "reading": "あめ", "meaning": "rain" },
       { "word": "大雨", "reading": "おおあめ", "meaning": "heavy rain" },
-      { "word": "雨水", "reading": "あまみず", "meaning": "rainwater" }
+      { "word": "雨水", "reading": "あまみず", "meaning": "rainwater" },
+      { "word": "雨天", "reading": "うてん", "meaning": "rainy weather" }
     ]
   },
   {
@@ -576,7 +608,8 @@
     "examples": [
       { "word": "糸", "reading": "いと", "meaning": "thread" },
       { "word": "毛糸", "reading": "けいと", "meaning": "knitting wool" },
-      { "word": "糸車", "reading": "いとぐるま", "meaning": "spinning wheel" }
+      { "word": "糸車", "reading": "いとぐるま", "meaning": "spinning wheel" },
+      { "word": "生糸", "reading": "きいと", "meaning": "raw silk" }
     ]
   },
   {
@@ -592,7 +625,8 @@
     "examples": [
       { "word": "貝", "reading": "かい", "meaning": "shell, shellfish" },
       { "word": "貝がら", "reading": "かいがら", "meaning": "seashell" },
-      { "word": "貝類", "reading": "かいるい", "meaning": "shellfish" }
+      { "word": "貝類", "reading": "かいるい", "meaning": "shellfish" },
+      { "word": "巻き貝", "reading": "まきがい", "meaning": "spiral shell" }
     ]
   },
   {
@@ -624,7 +658,8 @@
     "examples": [
       { "word": "赤", "reading": "あか", "meaning": "red" },
       { "word": "赤い", "reading": "あかい", "meaning": "red (adjective)" },
-      { "word": "赤色", "reading": "あかいろ", "meaning": "red color" }
+      { "word": "赤色", "reading": "あかいろ", "meaning": "red color" },
+      { "word": "赤字", "reading": "あかじ", "meaning": "deficit, red ink" }
     ]
   },
   {
@@ -640,7 +675,8 @@
     "examples": [
       { "word": "青", "reading": "あお", "meaning": "blue" },
       { "word": "青い", "reading": "あおい", "meaning": "blue (adjective)" },
-      { "word": "青空", "reading": "あおぞら", "meaning": "blue sky" }
+      { "word": "青空", "reading": "あおぞら", "meaning": "blue sky" },
+      { "word": "青年", "reading": "せいねん", "meaning": "youth, young man" }
     ]
   },
   {
@@ -704,7 +740,8 @@
     "examples": [
       { "word": "玉", "reading": "たま", "meaning": "ball, jewel" },
       { "word": "水玉", "reading": "みずたま", "meaning": "water drop" },
-      { "word": "目玉", "reading": "めだま", "meaning": "eyeball" }
+      { "word": "目玉", "reading": "めだま", "meaning": "eyeball" },
+      { "word": "玉子", "reading": "たまご", "meaning": "egg" }
     ]
   },
   {
@@ -842,7 +879,8 @@
         "reading": "いれる",
         "meaning": "to insert, to put in"
       },
-      { "word": "入口", "reading": "いりぐち", "meaning": "entrance" }
+      { "word": "入口", "reading": "いりぐち", "meaning": "entrance" },
+      { "word": "入学", "reading": "にゅうがく", "meaning": "school entrance" }
     ]
   },
   {
@@ -858,7 +896,8 @@
     "examples": [
       { "word": "出る", "reading": "でる", "meaning": "to go out, to exit" },
       { "word": "出す", "reading": "だす", "meaning": "to take out" },
-      { "word": "出口", "reading": "でぐち", "meaning": "exit" }
+      { "word": "出口", "reading": "でぐち", "meaning": "exit" },
+      { "word": "出席", "reading": "しゅっせき", "meaning": "attendance" }
     ]
   },
   {
@@ -874,7 +913,12 @@
     "examples": [
       { "word": "立つ", "reading": "たつ", "meaning": "to stand" },
       { "word": "立てる", "reading": "たてる", "meaning": "to erect" },
-      { "word": "目立つ", "reading": "めだつ", "meaning": "to stand out" }
+      { "word": "目立つ", "reading": "めだつ", "meaning": "to stand out" },
+      {
+        "word": "国立",
+        "reading": "こくりつ",
+        "meaning": "national, state-run"
+      }
     ]
   },
   {
@@ -989,7 +1033,12 @@
     "examples": [
       { "word": "花", "reading": "はな", "meaning": "flower" },
       { "word": "花火", "reading": "はなび", "meaning": "fireworks" },
-      { "word": "草花", "reading": "くさばな", "meaning": "flowering plant" }
+      { "word": "草花", "reading": "くさばな", "meaning": "flowering plant" },
+      {
+        "word": "生け花",
+        "reading": "いけばな",
+        "meaning": "flower arrangement"
+      }
     ]
   },
   {
@@ -1061,7 +1110,8 @@
     "examples": [
       { "word": "犬", "reading": "いぬ", "meaning": "dog" },
       { "word": "子犬", "reading": "こいぬ", "meaning": "puppy" },
-      { "word": "犬小屋", "reading": "いぬごや", "meaning": "doghouse" }
+      { "word": "犬小屋", "reading": "いぬごや", "meaning": "doghouse" },
+      { "word": "番犬", "reading": "ばんけん", "meaning": "watchdog" }
     ]
   },
   {
@@ -1077,6 +1127,7 @@
     "examples": [
       { "word": "見る", "reading": "みる", "meaning": "to see, to look" },
       { "word": "見える", "reading": "みえる", "meaning": "to be visible" },
+      { "word": "見学", "reading": "けんがく", "meaning": "field trip, tour" },
       {
         "word": "花見",
         "reading": "はなみ",
@@ -1162,7 +1213,8 @@
     "examples": [
       { "word": "手", "reading": "て", "meaning": "hand" },
       { "word": "右手", "reading": "みぎて", "meaning": "right hand" },
-      { "word": "上手", "reading": "じょうず", "meaning": "skillful" }
+      { "word": "上手", "reading": "じょうず", "meaning": "skillful" },
+      { "word": "選手", "reading": "せんしゅ", "meaning": "athlete, player" }
     ]
   },
   {
@@ -1178,7 +1230,12 @@
     "examples": [
       { "word": "足", "reading": "あし", "meaning": "foot, leg" },
       { "word": "足音", "reading": "あしおと", "meaning": "footsteps" },
-      { "word": "足りる", "reading": "たりる", "meaning": "to be sufficient" }
+      { "word": "足りる", "reading": "たりる", "meaning": "to be sufficient" },
+      {
+        "word": "不足",
+        "reading": "ふそく",
+        "meaning": "shortage, insufficiency"
+      }
     ]
   },
   {
@@ -1242,7 +1299,8 @@
     "examples": [
       { "word": "子", "reading": "こ", "meaning": "child" },
       { "word": "子犬", "reading": "こいぬ", "meaning": "puppy" },
-      { "word": "男の子", "reading": "おとこのこ", "meaning": "boy" }
+      { "word": "男の子", "reading": "おとこのこ", "meaning": "boy" },
+      { "word": "親子", "reading": "おやこ", "meaning": "parent and child" }
     ]
   },
   {
@@ -1290,7 +1348,12 @@
     "examples": [
       { "word": "夕", "reading": "ゆう", "meaning": "evening" },
       { "word": "夕方", "reading": "ゆうがた", "meaning": "evening" },
-      { "word": "夕日", "reading": "ゆうひ", "meaning": "evening sun" }
+      { "word": "夕日", "reading": "ゆうひ", "meaning": "evening sun" },
+      {
+        "word": "朝夕",
+        "reading": "あさゆう",
+        "meaning": "morning and evening"
+      }
     ]
   },
   {
