@@ -177,7 +177,8 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
 
         <div
           id="no-results"
-          class="hidden rounded-3xl border border-dashed border-[var(--mq-outline)] bg-white p-12 text-center text-sm text-[#5e718a]"
+          class="rounded-3xl border border-dashed border-[var(--mq-outline)] bg-white p-12 text-center text-sm text-[#5e718a]"
+          style="display: none;"
         >
           該当する漢字が見つかりませんでした。別のキーワードを試してみましょう。
         </div>
@@ -219,10 +220,10 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
                 if (!query) {
                   // Show all
                   document.querySelectorAll('.kanji-item').forEach(item => {
-                    item.classList.remove('hidden');
+                    item.style.display = 'flex';
                   });
                   resultCount.textContent = \`全\${totalCount}字を表示しています\`;
-                  noResults.classList.add('hidden');
+                  noResults.style.display = 'none';
                   return;
                 }
 
@@ -234,18 +235,18 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
                 document.querySelectorAll('.kanji-item').forEach(item => {
                   const char = item.dataset.char;
                   if (matchChars.has(char)) {
-                    item.classList.remove('hidden');
+                    item.style.display = 'flex';
                     visibleCount++;
                   } else {
-                    item.classList.add('hidden');
+                    item.style.display = 'none';
                   }
                 });
 
                 if (visibleCount === 0) {
-                  noResults.classList.remove('hidden');
+                  noResults.style.display = 'block';
                   resultCount.textContent = \`「\${e.target.value}」に一致する漢字が見つかりませんでした\`;
                 } else {
-                  noResults.classList.add('hidden');
+                  noResults.style.display = 'none';
                   resultCount.textContent = \`「\${e.target.value}」に一致する漢字 \${visibleCount} / \${totalCount} 字\`;
                 }
               });
