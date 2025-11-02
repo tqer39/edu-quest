@@ -12,7 +12,9 @@
     "examples": [
       { "word": "一つ", "reading": "ひとつ", "meaning": "one (thing)" },
       { "word": "一人", "reading": "ひとり", "meaning": "one person" },
-      { "word": "一日", "reading": "いちにち", "meaning": "one day" }
+      { "word": "一日", "reading": "いちにち", "meaning": "one day" },
+      { "word": "一月", "reading": "いちがつ", "meaning": "January" },
+      { "word": "一年", "reading": "いちねん", "meaning": "one year" }
     ]
   },
   {
@@ -204,7 +206,9 @@
     "examples": [
       { "word": "上", "reading": "うえ", "meaning": "above, up" },
       { "word": "上手", "reading": "じょうず", "meaning": "skillful" },
-      { "word": "上がる", "reading": "あがる", "meaning": "to rise, to go up" }
+      { "word": "上がる", "reading": "あがる", "meaning": "to rise, to go up" },
+      { "word": "上下", "reading": "じょうげ", "meaning": "up and down" },
+      { "word": "上る", "reading": "のぼる", "meaning": "to climb, to go up" }
     ]
   },
   {
@@ -404,7 +408,9 @@
     "examples": [
       { "word": "木", "reading": "き", "meaning": "tree" },
       { "word": "木曜日", "reading": "もくようび", "meaning": "Thursday" },
-      { "word": "木材", "reading": "もくざい", "meaning": "lumber" }
+      { "word": "木材", "reading": "もくざい", "meaning": "lumber" },
+      { "word": "大木", "reading": "たいぼく", "meaning": "large tree" },
+      { "word": "草木", "reading": "くさき", "meaning": "plants, vegetation" }
     ]
   },
   {
@@ -420,7 +426,9 @@
     "examples": [
       { "word": "金", "reading": "かね", "meaning": "money, gold" },
       { "word": "金曜日", "reading": "きんようび", "meaning": "Friday" },
-      { "word": "金色", "reading": "きんいろ", "meaning": "golden color" }
+      { "word": "金色", "reading": "きんいろ", "meaning": "golden color" },
+      { "word": "お金", "reading": "おかね", "meaning": "money" },
+      { "word": "黄金", "reading": "おうごん", "meaning": "gold" }
     ]
   },
   {
@@ -812,7 +820,9 @@
     "examples": [
       { "word": "人", "reading": "ひと", "meaning": "person" },
       { "word": "一人", "reading": "ひとり", "meaning": "one person" },
-      { "word": "大人", "reading": "おとな", "meaning": "adult" }
+      { "word": "大人", "reading": "おとな", "meaning": "adult" },
+      { "word": "人気", "reading": "にんき", "meaning": "popularity" },
+      { "word": "人生", "reading": "じんせい", "meaning": "life, human life" }
     ]
   },
   {
@@ -912,7 +922,10 @@
     "examples": [
       { "word": "先生", "reading": "せんせい", "meaning": "teacher" },
       { "word": "生きる", "reading": "いきる", "meaning": "to live" },
-      { "word": "学生", "reading": "がくせい", "meaning": "student" }
+      { "word": "学生", "reading": "がくせい", "meaning": "student" },
+      { "word": "生まれる", "reading": "うまれる", "meaning": "to be born" },
+      { "word": "一生", "reading": "いっしょう", "meaning": "lifetime" },
+      { "word": "人生", "reading": "じんせい", "meaning": "life, human life" }
     ]
   },
   {
@@ -1108,7 +1121,16 @@
     "examples": [
       { "word": "目", "reading": "め", "meaning": "eye" },
       { "word": "目玉", "reading": "めだま", "meaning": "eyeball" },
-      { "word": "目立つ", "reading": "めだつ", "meaning": "to stand out" }
+      { "word": "目立つ", "reading": "めだつ", "meaning": "to stand out" },
+      { "word": "一目", "reading": "いちもく", "meaning": "a glance" },
+      {
+        "word": "目的",
+        "reading": "もくてき",
+        "meaning": "purpose, objective"
+      },
+      { "word": "科目", "reading": "かもく", "meaning": "subject, course" },
+      { "word": "項目", "reading": "こうもく", "meaning": "item, clause" },
+      { "word": "目次", "reading": "もくじ", "meaning": "table of contents" }
     ]
   },
   {

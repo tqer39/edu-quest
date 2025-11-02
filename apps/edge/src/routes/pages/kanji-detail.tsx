@@ -67,9 +67,6 @@ type KanjiDetailProps = {
   kanji: Kanji;
 };
 
-const formatReadings = (readings: string[]): string =>
-  readings.length > 0 ? readings.join('・') : '—';
-
 export const KanjiDetail: FC<KanjiDetailProps> = ({
   currentUser,
   grade,
@@ -116,16 +113,46 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                 <dt class="text-sm font-semibold text-[var(--mq-primary-strong)]">
                   音読み
                 </dt>
-                <dd class="mt-2 text-2xl font-bold text-[var(--mq-ink)]">
-                  {formatReadings(kanji.readings.onyomi)}
+                <dd class="mt-2 flex flex-wrap gap-2">
+                  {kanji.readings.onyomi.length > 0 ? (
+                    kanji.readings.onyomi.map((reading) => (
+                      <button
+                        key={reading}
+                        type="button"
+                        class="reading-filter rounded-full border border-[var(--mq-outline)] bg-white px-4 py-2 text-xl font-bold text-[var(--mq-ink)] transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                        data-reading={reading}
+                      >
+                        {reading}
+                      </button>
+                    ))
+                  ) : (
+                    <span class="text-2xl font-bold text-[var(--mq-ink)]">
+                      —
+                    </span>
+                  )}
                 </dd>
               </div>
               <div>
                 <dt class="text-sm font-semibold text-[var(--mq-primary-strong)]">
                   訓読み
                 </dt>
-                <dd class="mt-2 text-2xl font-bold text-[var(--mq-ink)]">
-                  {formatReadings(kanji.readings.kunyomi)}
+                <dd class="mt-2 flex flex-wrap gap-2">
+                  {kanji.readings.kunyomi.length > 0 ? (
+                    kanji.readings.kunyomi.map((reading) => (
+                      <button
+                        key={reading}
+                        type="button"
+                        class="reading-filter rounded-full border border-[var(--mq-outline)] bg-white px-4 py-2 text-xl font-bold text-[var(--mq-ink)] transition hover:-translate-y-0.5 hover:bg-[var(--mq-primary-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                        data-reading={reading}
+                      >
+                        {reading}
+                      </button>
+                    ))
+                  ) : (
+                    <span class="text-2xl font-bold text-[var(--mq-ink)]">
+                      —
+                    </span>
+                  )}
                 </dd>
               </div>
             </dl>
@@ -154,11 +181,19 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
           <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
             例のことば
           </h2>
-          <div class="space-y-3">
+          <div
+            id="no-examples-message"
+            class="rounded-2xl border border-dashed border-[var(--mq-outline)] bg-[var(--mq-surface)] p-8 text-center text-sm text-[#5e718a]"
+            style="display: none;"
+          >
+            この読み方を使った例文は小学1年生レベルではあまり使われません。
+          </div>
+          <div id="example-list" class="space-y-3">
             {kanji.examples.map((example) => (
               <div
                 key={`${kanji.character}-${example.word}`}
-                class="rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4"
+                class="example-item rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition-all"
+                data-reading={example.reading}
               >
                 <div class="flex items-baseline gap-3">
                   <div class="text-xl font-bold text-[var(--mq-ink)]">
@@ -171,6 +206,99 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
             ))}
           </div>
         </section>
+
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: `
+              const readingButtons = document.querySelectorAll('.reading-filter');
+              const exampleItems = document.querySelectorAll('.example-item');
+              let activeFilter = null;
+
+              // Helper functions for kana conversion
+              function toHiragana(str) {
+                return str.replace(/[\u30A1-\u30F6]/g, (match) =>
+                  String.fromCharCode(match.charCodeAt(0) - 0x60)
+                );
+              }
+
+              function toKatakana(str) {
+                return str.replace(/[\u3041-\u3096]/g, (match) =>
+                  String.fromCharCode(match.charCodeAt(0) + 0x60)
+                );
+              }
+
+              function normalizeReading(reading) {
+                return reading.replace(/-/g, '').toLowerCase();
+              }
+
+              function matchesReading(itemReading, filterReading) {
+                const normalizedItem = normalizeReading(itemReading);
+                const normalizedFilter = normalizeReading(filterReading);
+
+                // Try direct match
+                if (normalizedItem.includes(normalizedFilter)) return true;
+
+                // Try hiragana match - convert both to hiragana
+                const hiraganaItem = toHiragana(normalizedItem);
+                const hiraganaFilter = toHiragana(normalizedFilter);
+                if (hiraganaItem.includes(hiraganaFilter)) return true;
+
+                // Try katakana match - convert both to katakana
+                const katakanaItem = toKatakana(normalizedItem);
+                const katakanaFilter = toKatakana(normalizedFilter);
+                if (katakanaItem.includes(katakanaFilter)) return true;
+
+                return false;
+              }
+
+              readingButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                  const reading = button.dataset.reading;
+
+                  // Toggle filter
+                  if (activeFilter === reading) {
+                    // Reset filter
+                    activeFilter = null;
+                    exampleItems.forEach(item => {
+                      item.style.display = 'block';
+                      item.style.opacity = '1';
+                    });
+                    readingButtons.forEach(btn => {
+                      btn.style.backgroundColor = 'white';
+                      btn.style.borderColor = 'var(--mq-outline)';
+                    });
+                  } else {
+                    // Apply filter
+                    activeFilter = reading;
+
+                    exampleItems.forEach(item => {
+                      const itemReading = item.dataset.reading;
+                      if (matchesReading(itemReading, reading)) {
+                        item.style.display = 'block';
+                        item.style.opacity = '1';
+                      } else {
+                        item.style.display = 'none';
+                        item.style.opacity = '0';
+                      }
+                    });
+
+                    // Update button states
+                    readingButtons.forEach(btn => {
+                      if (btn.dataset.reading === reading) {
+                        btn.style.backgroundColor = 'var(--mq-primary-soft)';
+                        btn.style.borderColor = 'var(--mq-primary)';
+                      } else {
+                        btn.style.backgroundColor = 'white';
+                        btn.style.borderColor = 'var(--mq-outline)';
+                      }
+                    });
+                  }
+                });
+              });
+            `,
+          }}
+        />
 
         <div class="flex justify-center">
           <a
