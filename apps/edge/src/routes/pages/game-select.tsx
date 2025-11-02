@@ -14,12 +14,17 @@ const GameNav: FC<{
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
       <div class="flex items-center gap-2">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          🎮
-        </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          GameQuest - {grade.label}
-        </span>
+        <a
+          href="/game"
+          class="flex items-center gap-2 transition hover:opacity-80"
+        >
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            🎮
+          </span>
+          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
+            GameQuest - {grade.label}
+          </span>
+        </a>
       </div>
       <div class="flex flex-wrap gap-2">
         <BackToTopLink />

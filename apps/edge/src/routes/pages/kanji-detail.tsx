@@ -227,7 +227,9 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                     </div>
                     <div class="text-sm text-[#5e718a]">{example.reading}</div>
                   </div>
-                  <div class="mt-2 text-sm text-[#4f6076]">{example.meaning}</div>
+                  <div class="mt-2 text-sm text-[#4f6076]">
+                    {example.meaning}
+                  </div>
                 </div>
               ))}
             </div>

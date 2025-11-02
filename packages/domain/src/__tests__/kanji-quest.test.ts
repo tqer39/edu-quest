@@ -469,9 +469,7 @@ describe('getKanjiDictionaryByGrade', () => {
       false
     );
     expect(
-      freshEntries[0]?.specialExamples.some(
-        (ex) => ex.word === 'テスト特殊'
-      )
+      freshEntries[0]?.specialExamples.some((ex) => ex.word === 'テスト特殊')
     ).toBe(false);
     expect(originalEntries).not.toBe(mutatedEntries);
   });

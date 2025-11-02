@@ -4,21 +4,11 @@
     "grade": 1,
     "strokeCount": 1,
     "readings": {
-      "onyomi": [
-        "イチ",
-        "イツ"
-      ],
-      "kunyomi": [
-        "ひと",
-        "ひと-つ"
-      ]
+      "onyomi": ["イチ", "イツ"],
+      "kunyomi": ["ひと", "ひと-つ"]
     },
-    "meanings": [
-      "one"
-    ],
-    "radicals": [
-      "一"
-    ],
+    "meanings": ["one"],
+    "radicals": ["一"],
     "examples": [
       {
         "word": "一年生",
@@ -114,20 +104,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "ニ"
-      ],
-      "kunyomi": [
-        "ふた",
-        "ふた-つ"
-      ]
+      "onyomi": ["ニ"],
+      "kunyomi": ["ふた", "ふた-つ"]
     },
-    "meanings": [
-      "two"
-    ],
-    "radicals": [
-      "二"
-    ],
+    "meanings": ["two"],
+    "radicals": ["二"],
     "examples": [
       {
         "word": "二枚舌",
@@ -233,21 +214,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "サン"
-      ],
-      "kunyomi": [
-        "み",
-        "み-つ",
-        "みっ-つ"
-      ]
+      "onyomi": ["サン"],
+      "kunyomi": ["み", "み-つ", "みっ-つ"]
     },
-    "meanings": [
-      "three"
-    ],
-    "radicals": [
-      "一"
-    ],
+    "meanings": ["three"],
+    "radicals": ["一"],
     "examples": [
       {
         "word": "七五三",
@@ -332,22 +303,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "よ",
-        "よ-つ",
-        "よっ-つ",
-        "よん"
-      ]
+      "onyomi": ["シ"],
+      "kunyomi": ["よ", "よ-つ", "よっ-つ", "よん"]
     },
-    "meanings": [
-      "four"
-    ],
-    "radicals": [
-      "囗"
-    ],
+    "meanings": ["four"],
+    "radicals": ["囗"],
     "examples": [
       {
         "word": "四隅",
@@ -427,20 +387,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ゴ"
-      ],
-      "kunyomi": [
-        "いつ",
-        "いつ-つ"
-      ]
+      "onyomi": ["ゴ"],
+      "kunyomi": ["いつ", "いつ-つ"]
     },
-    "meanings": [
-      "five"
-    ],
-    "radicals": [
-      "二"
-    ],
+    "meanings": ["five"],
+    "radicals": ["二"],
     "examples": [
       {
         "word": "七五三",
@@ -526,22 +477,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ロク"
-      ],
-      "kunyomi": [
-        "む",
-        "む-つ",
-        "むっ-つ",
-        "むい"
-      ]
+      "onyomi": ["ロク"],
+      "kunyomi": ["む", "む-つ", "むっ-つ", "むい"]
     },
-    "meanings": [
-      "six"
-    ],
-    "radicals": [
-      "八"
-    ],
+    "meanings": ["six"],
+    "radicals": ["八"],
     "examples": [
       {
         "word": "五臓六腑",
@@ -616,21 +556,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "シチ"
-      ],
-      "kunyomi": [
-        "なな",
-        "なな-つ",
-        "なの"
-      ]
+      "onyomi": ["シチ"],
+      "kunyomi": ["なな", "なな-つ", "なの"]
     },
-    "meanings": [
-      "seven"
-    ],
-    "radicals": [
-      "一"
-    ],
+    "meanings": ["seven"],
+    "radicals": ["一"],
     "examples": [
       {
         "word": "七時",
@@ -700,22 +630,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "ハチ"
-      ],
-      "kunyomi": [
-        "や",
-        "や-つ",
-        "やっ-つ",
-        "よう"
-      ]
+      "onyomi": ["ハチ"],
+      "kunyomi": ["や", "や-つ", "やっ-つ", "よう"]
     },
-    "meanings": [
-      "eight"
-    ],
-    "radicals": [
-      "八"
-    ],
+    "meanings": ["eight"],
+    "radicals": ["八"],
     "examples": [
       {
         "word": "八月",
@@ -795,21 +714,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "キュウ",
-        "ク"
-      ],
-      "kunyomi": [
-        "ここの",
-        "ここの-つ"
-      ]
+      "onyomi": ["キュウ", "ク"],
+      "kunyomi": ["ここの", "ここの-つ"]
     },
-    "meanings": [
-      "nine"
-    ],
-    "radicals": [
-      "乙"
-    ],
+    "meanings": ["nine"],
+    "radicals": ["乙"],
     "examples": [
       {
         "word": "九州",
@@ -874,21 +783,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "ジュウ",
-        "ジッ"
-      ],
-      "kunyomi": [
-        "とお",
-        "と"
-      ]
+      "onyomi": ["ジュウ", "ジッ"],
+      "kunyomi": ["とお", "と"]
     },
-    "meanings": [
-      "ten"
-    ],
-    "radicals": [
-      "十"
-    ],
+    "meanings": ["ten"],
+    "radicals": ["十"],
     "examples": [
       {
         "word": "十七",
@@ -1019,19 +918,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "ヒャク"
-      ],
-      "kunyomi": [
-        "もも"
-      ]
+      "onyomi": ["ヒャク"],
+      "kunyomi": ["もも"]
     },
-    "meanings": [
-      "hundred"
-    ],
-    "radicals": [
-      "白"
-    ],
+    "meanings": ["hundred"],
+    "radicals": ["白"],
     "examples": [
       {
         "word": "何百",
@@ -1107,19 +998,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "セン"
-      ],
-      "kunyomi": [
-        "ち"
-      ]
+      "onyomi": ["セン"],
+      "kunyomi": ["ち"]
     },
-    "meanings": [
-      "thousand"
-    ],
-    "radicals": [
-      "十"
-    ],
+    "meanings": ["thousand"],
+    "radicals": ["十"],
     "examples": [
       {
         "word": "千",
@@ -1184,27 +1067,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "ジョウ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "うえ",
-        "うわ",
-        "かみ",
-        "あ-げる",
-        "あ-がる",
-        "のぼ-る"
-      ]
+      "onyomi": ["ジョウ", "ショウ"],
+      "kunyomi": ["うえ", "うわ", "かみ", "あ-げる", "あ-がる", "のぼ-る"]
     },
-    "meanings": [
-      "above",
-      "up",
-      "upper"
-    ],
-    "radicals": [
-      "一"
-    ],
+    "meanings": ["above", "up", "upper"],
+    "radicals": ["一"],
     "examples": [
       {
         "word": "上述する",
@@ -1305,10 +1172,7 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "カ",
-        "ゲ"
-      ],
+      "onyomi": ["カ", "ゲ"],
       "kunyomi": [
         "した",
         "しも",
@@ -1319,14 +1183,8 @@
         "お-りる"
       ]
     },
-    "meanings": [
-      "below",
-      "down",
-      "under"
-    ],
-    "radicals": [
-      "一"
-    ],
+    "meanings": ["below", "down", "under"],
+    "radicals": ["一"],
     "examples": [
       {
         "word": "閣下",
@@ -1427,19 +1285,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "サ"
-      ],
-      "kunyomi": [
-        "ひだり"
-      ]
+      "onyomi": ["サ"],
+      "kunyomi": ["ひだり"]
     },
-    "meanings": [
-      "left"
-    ],
-    "radicals": [
-      "工"
-    ],
+    "meanings": ["left"],
+    "radicals": ["工"],
     "examples": [
       {
         "word": "左傾する",
@@ -1509,20 +1359,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "ウ",
-        "ユウ"
-      ],
-      "kunyomi": [
-        "みぎ"
-      ]
+      "onyomi": ["ウ", "ユウ"],
+      "kunyomi": ["みぎ"]
     },
-    "meanings": [
-      "right"
-    ],
-    "radicals": [
-      "口"
-    ],
+    "meanings": ["right"],
+    "radicals": ["口"],
     "examples": [
       {
         "word": "右傾する",
@@ -1587,23 +1428,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "ダイ",
-        "タイ"
-      ],
-      "kunyomi": [
-        "おお",
-        "おお-きい",
-        "おお-いに"
-      ]
+      "onyomi": ["ダイ", "タイ"],
+      "kunyomi": ["おお", "おお-きい", "おお-いに"]
     },
-    "meanings": [
-      "big",
-      "large"
-    ],
-    "radicals": [
-      "大"
-    ],
+    "meanings": ["big", "large"],
+    "radicals": ["大"],
     "examples": [
       {
         "word": "大損",
@@ -1694,22 +1523,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "ショウ"
-      ],
-      "kunyomi": [
-        "ちい-さい",
-        "こ",
-        "お"
-      ]
+      "onyomi": ["ショウ"],
+      "kunyomi": ["ちい-さい", "こ", "お"]
     },
-    "meanings": [
-      "small",
-      "little"
-    ],
-    "radicals": [
-      "小"
-    ],
+    "meanings": ["small", "little"],
+    "radicals": ["小"],
     "examples": [
       {
         "word": "小銭",
@@ -1800,22 +1618,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "チュウ"
-      ],
-      "kunyomi": [
-        "なか",
-        "うち"
-      ]
+      "onyomi": ["チュウ"],
+      "kunyomi": ["なか", "うち"]
     },
-    "meanings": [
-      "middle",
-      "inside",
-      "center"
-    ],
-    "radicals": [
-      "丨"
-    ],
+    "meanings": ["middle", "inside", "center"],
+    "radicals": ["丨"],
     "examples": [
       {
         "word": "話し中",
@@ -1911,22 +1718,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ニチ",
-        "ジツ"
-      ],
-      "kunyomi": [
-        "ひ",
-        "か"
-      ]
+      "onyomi": ["ニチ", "ジツ"],
+      "kunyomi": ["ひ", "か"]
     },
-    "meanings": [
-      "day",
-      "sun"
-    ],
-    "radicals": [
-      "日"
-    ],
+    "meanings": ["day", "sun"],
+    "radicals": ["日"],
     "examples": [
       {
         "word": "七日",
@@ -2072,21 +1868,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ゲツ",
-        "ガツ"
-      ],
-      "kunyomi": [
-        "つき"
-      ]
+      "onyomi": ["ゲツ", "ガツ"],
+      "kunyomi": ["つき"]
     },
-    "meanings": [
-      "month",
-      "moon"
-    ],
-    "radicals": [
-      "月"
-    ],
+    "meanings": ["month", "moon"],
+    "radicals": ["月"],
     "examples": [
       {
         "word": "八月",
@@ -2171,20 +1957,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "カ"
-      ],
-      "kunyomi": [
-        "ひ",
-        "ほ"
-      ]
+      "onyomi": ["カ"],
+      "kunyomi": ["ひ", "ほ"]
     },
-    "meanings": [
-      "fire"
-    ],
-    "radicals": [
-      "火"
-    ],
+    "meanings": ["fire"],
+    "radicals": ["火"],
     "examples": [
       {
         "word": "火山灰",
@@ -2275,19 +2052,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "スイ"
-      ],
-      "kunyomi": [
-        "みず"
-      ]
+      "onyomi": ["スイ"],
+      "kunyomi": ["みず"]
     },
-    "meanings": [
-      "water"
-    ],
-    "radicals": [
-      "水"
-    ],
+    "meanings": ["water"],
+    "radicals": ["水"],
     "examples": [
       {
         "word": "防水",
@@ -2372,22 +2141,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ボク",
-        "モク"
-      ],
-      "kunyomi": [
-        "き",
-        "こ"
-      ]
+      "onyomi": ["ボク", "モク"],
+      "kunyomi": ["き", "こ"]
     },
-    "meanings": [
-      "tree",
-      "wood"
-    ],
-    "radicals": [
-      "木"
-    ],
+    "meanings": ["tree", "wood"],
+    "radicals": ["木"],
     "examples": [
       {
         "word": "樹木",
@@ -2478,23 +2236,11 @@
     "grade": 1,
     "strokeCount": 8,
     "readings": {
-      "onyomi": [
-        "キン",
-        "コン"
-      ],
-      "kunyomi": [
-        "かね",
-        "かな"
-      ]
+      "onyomi": ["キン", "コン"],
+      "kunyomi": ["かね", "かな"]
     },
-    "meanings": [
-      "gold",
-      "money",
-      "metal"
-    ],
-    "radicals": [
-      "金"
-    ],
+    "meanings": ["gold", "money", "metal"],
+    "radicals": ["金"],
     "examples": [
       {
         "word": "税金",
@@ -2579,22 +2325,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "ド",
-        "ト"
-      ],
-      "kunyomi": [
-        "つち"
-      ]
+      "onyomi": ["ド", "ト"],
+      "kunyomi": ["つち"]
     },
-    "meanings": [
-      "soil",
-      "earth",
-      "ground"
-    ],
-    "radicals": [
-      "土"
-    ],
+    "meanings": ["soil", "earth", "ground"],
+    "radicals": ["土"],
     "examples": [
       {
         "word": "土俵",
@@ -2680,19 +2415,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "サン"
-      ],
-      "kunyomi": [
-        "やま"
-      ]
+      "onyomi": ["サン"],
+      "kunyomi": ["やま"]
     },
-    "meanings": [
-      "mountain"
-    ],
-    "radicals": [
-      "山"
-    ],
+    "meanings": ["mountain"],
+    "radicals": ["山"],
     "examples": [
       {
         "word": "銅山",
@@ -2777,19 +2504,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "セン"
-      ],
-      "kunyomi": [
-        "かわ"
-      ]
+      "onyomi": ["セン"],
+      "kunyomi": ["かわ"]
     },
-    "meanings": [
-      "river"
-    ],
-    "radicals": [
-      "川"
-    ],
+    "meanings": ["river"],
+    "radicals": ["川"],
     "examples": [
       {
         "word": "川沿い",
@@ -2874,23 +2593,11 @@
     "grade": 1,
     "strokeCount": 8,
     "readings": {
-      "onyomi": [
-        "クウ"
-      ],
-      "kunyomi": [
-        "そら",
-        "あ-く",
-        "あ-ける",
-        "から"
-      ]
+      "onyomi": ["クウ"],
+      "kunyomi": ["そら", "あ-く", "あ-ける", "から"]
     },
-    "meanings": [
-      "sky",
-      "empty"
-    ],
-    "radicals": [
-      "穴"
-    ],
+    "meanings": ["sky", "empty"],
+    "radicals": ["穴"],
     "examples": [
       {
         "word": "領空",
@@ -2981,20 +2688,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "キ",
-        "ケ"
-      ],
+      "onyomi": ["キ", "ケ"],
       "kunyomi": []
     },
-    "meanings": [
-      "spirit",
-      "air",
-      "atmosphere"
-    ],
-    "radicals": [
-      "气"
-    ],
+    "meanings": ["spirit", "air", "atmosphere"],
+    "radicals": ["气"],
     "examples": [
       {
         "word": "天気予報",
@@ -3079,21 +2777,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "テン"
-      ],
-      "kunyomi": [
-        "あま",
-        "あめ"
-      ]
+      "onyomi": ["テン"],
+      "kunyomi": ["あま", "あめ"]
     },
-    "meanings": [
-      "heaven",
-      "sky"
-    ],
-    "radicals": [
-      "大"
-    ],
+    "meanings": ["heaven", "sky"],
+    "radicals": ["大"],
     "examples": [
       {
         "word": "天気予報",
@@ -3178,20 +2866,11 @@
     "grade": 1,
     "strokeCount": 8,
     "readings": {
-      "onyomi": [
-        "ウ"
-      ],
-      "kunyomi": [
-        "あめ",
-        "あま"
-      ]
+      "onyomi": ["ウ"],
+      "kunyomi": ["あめ", "あま"]
     },
-    "meanings": [
-      "rain"
-    ],
-    "radicals": [
-      "雨"
-    ],
+    "meanings": ["rain"],
+    "radicals": ["雨"],
     "examples": [
       {
         "word": "雨垂れ",
@@ -3292,19 +2971,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "チク"
-      ],
-      "kunyomi": [
-        "たけ"
-      ]
+      "onyomi": ["チク"],
+      "kunyomi": ["たけ"]
     },
-    "meanings": [
-      "bamboo"
-    ],
-    "radicals": [
-      "竹"
-    ],
+    "meanings": ["bamboo"],
+    "radicals": ["竹"],
     "examples": [
       {
         "word": "竹馬の友",
@@ -3364,20 +3035,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "いと"
-      ]
+      "onyomi": ["シ"],
+      "kunyomi": ["いと"]
     },
-    "meanings": [
-      "thread",
-      "string"
-    ],
-    "radicals": [
-      "糸"
-    ],
+    "meanings": ["thread", "string"],
+    "radicals": ["糸"],
     "examples": [
       {
         "word": "綿糸",
@@ -3447,20 +3109,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "バイ"
-      ],
-      "kunyomi": [
-        "かい"
-      ]
+      "onyomi": ["バイ"],
+      "kunyomi": ["かい"]
     },
-    "meanings": [
-      "shellfish",
-      "shell"
-    ],
-    "radicals": [
-      "貝"
-    ],
+    "meanings": ["shellfish", "shell"],
+    "radicals": ["貝"],
     "examples": [
       {
         "word": "貝",
@@ -3530,21 +3183,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "シャ"
-      ],
-      "kunyomi": [
-        "くるま"
-      ]
+      "onyomi": ["シャ"],
+      "kunyomi": ["くるま"]
     },
-    "meanings": [
-      "car",
-      "vehicle",
-      "wheel"
-    ],
-    "radicals": [
-      "車"
-    ],
+    "meanings": ["car", "vehicle", "wheel"],
+    "radicals": ["車"],
     "examples": [
       {
         "word": "消防車",
@@ -3629,21 +3272,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "セキ",
-        "シャク"
-      ],
-      "kunyomi": [
-        "あか",
-        "あか-い"
-      ]
+      "onyomi": ["セキ", "シャク"],
+      "kunyomi": ["あか", "あか-い"]
     },
-    "meanings": [
-      "red"
-    ],
-    "radicals": [
-      "赤"
-    ],
+    "meanings": ["red"],
+    "radicals": ["赤"],
     "examples": [
       {
         "word": "赤帽",
@@ -3729,22 +3362,11 @@
     "grade": 1,
     "strokeCount": 8,
     "readings": {
-      "onyomi": [
-        "セイ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "あお",
-        "あお-い"
-      ]
+      "onyomi": ["セイ", "ショウ"],
+      "kunyomi": ["あお", "あお-い"]
     },
-    "meanings": [
-      "blue",
-      "green"
-    ],
-    "radicals": [
-      "青"
-    ],
+    "meanings": ["blue", "green"],
+    "radicals": ["青"],
     "examples": [
       {
         "word": "青銅",
@@ -3814,22 +3436,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "ハク",
-        "ビャク"
-      ],
-      "kunyomi": [
-        "しろ",
-        "しろ-い",
-        "しら"
-      ]
+      "onyomi": ["ハク", "ビャク"],
+      "kunyomi": ["しろ", "しろ-い", "しら"]
     },
-    "meanings": [
-      "white"
-    ],
-    "radicals": [
-      "白"
-    ],
+    "meanings": ["white"],
+    "radicals": ["白"],
     "examples": [
       {
         "word": "灰白色",
@@ -3914,20 +3525,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "エン"
-      ],
-      "kunyomi": [
-        "まる-い"
-      ]
+      "onyomi": ["エン"],
+      "kunyomi": ["まる-い"]
     },
-    "meanings": [
-      "circle",
-      "yen"
-    ],
-    "radicals": [
-      "囗"
-    ],
+    "meanings": ["circle", "yen"],
+    "radicals": ["囗"],
     "examples": [
       {
         "word": "円筒形",
@@ -4012,17 +3614,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "オウ"
-      ],
+      "onyomi": ["オウ"],
       "kunyomi": []
     },
-    "meanings": [
-      "king"
-    ],
-    "radicals": [
-      "玉"
-    ],
+    "meanings": ["king"],
+    "radicals": ["玉"],
     "examples": [
       {
         "word": "仁王",
@@ -4113,20 +3709,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "ギョク"
-      ],
-      "kunyomi": [
-        "たま"
-      ]
+      "onyomi": ["ギョク"],
+      "kunyomi": ["たま"]
     },
-    "meanings": [
-      "ball",
-      "jewel"
-    ],
-    "radicals": [
-      "玉"
-    ],
+    "meanings": ["ball", "jewel"],
+    "radicals": ["玉"],
     "examples": [
       {
         "word": "替え玉",
@@ -4196,21 +3783,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "セキ",
-        "シャク"
-      ],
-      "kunyomi": [
-        "いし"
-      ]
+      "onyomi": ["セキ", "シャク"],
+      "kunyomi": ["いし"]
     },
-    "meanings": [
-      "stone",
-      "rock"
-    ],
-    "radicals": [
-      "石"
-    ],
+    "meanings": ["stone", "rock"],
+    "radicals": ["石"],
     "examples": [
       {
         "word": "磁石",
@@ -4311,22 +3888,11 @@
     "grade": 1,
     "strokeCount": 9,
     "readings": {
-      "onyomi": [
-        "オン",
-        "イン"
-      ],
-      "kunyomi": [
-        "おと",
-        "ね"
-      ]
+      "onyomi": ["オン", "イン"],
+      "kunyomi": ["おと", "ね"]
     },
-    "meanings": [
-      "sound",
-      "noise"
-    ],
-    "radicals": [
-      "音"
-    ],
+    "meanings": ["sound", "noise"],
+    "radicals": ["音"],
     "examples": [
       {
         "word": "防音",
@@ -4417,20 +3983,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "ジ"
-      ],
-      "kunyomi": [
-        "あざ"
-      ]
+      "onyomi": ["ジ"],
+      "kunyomi": ["あざ"]
     },
-    "meanings": [
-      "character",
-      "letter"
-    ],
-    "radicals": [
-      "子"
-    ],
+    "meanings": ["character", "letter"],
+    "radicals": ["子"],
     "examples": [
       {
         "word": "略字",
@@ -4515,21 +4072,11 @@
     "grade": 1,
     "strokeCount": 8,
     "readings": {
-      "onyomi": [
-        "ガク"
-      ],
-      "kunyomi": [
-        "まな-ぶ"
-      ]
+      "onyomi": ["ガク"],
+      "kunyomi": ["まな-ぶ"]
     },
-    "meanings": [
-      "study",
-      "learning",
-      "school"
-    ],
-    "radicals": [
-      "子"
-    ],
+    "meanings": ["study", "learning", "school"],
+    "radicals": ["子"],
     "examples": [
       {
         "word": "幾何学",
@@ -4614,17 +4161,11 @@
     "grade": 1,
     "strokeCount": 10,
     "readings": {
-      "onyomi": [
-        "コウ"
-      ],
+      "onyomi": ["コウ"],
       "kunyomi": []
     },
-    "meanings": [
-      "school"
-    ],
-    "radicals": [
-      "木"
-    ],
+    "meanings": ["school"],
+    "radicals": ["木"],
     "examples": [
       {
         "word": "中学校",
@@ -4704,22 +4245,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ブン",
-        "モン"
-      ],
-      "kunyomi": [
-        "ふみ"
-      ]
+      "onyomi": ["ブン", "モン"],
+      "kunyomi": ["ふみ"]
     },
-    "meanings": [
-      "sentence",
-      "writing",
-      "text"
-    ],
-    "radicals": [
-      "文"
-    ],
+    "meanings": ["sentence", "writing", "text"],
+    "radicals": ["文"],
     "examples": [
       {
         "word": "序文",
@@ -4815,21 +4345,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "ジン",
-        "ニン"
-      ],
-      "kunyomi": [
-        "ひと"
-      ]
+      "onyomi": ["ジン", "ニン"],
+      "kunyomi": ["ひと"]
     },
-    "meanings": [
-      "person",
-      "people"
-    ],
-    "radicals": [
-      "人"
-    ],
+    "meanings": ["person", "people"],
+    "radicals": ["人"],
     "examples": [
       {
         "word": "一人",
@@ -4940,22 +4460,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "ニュウ"
-      ],
-      "kunyomi": [
-        "い-る",
-        "い-れる",
-        "はい-る"
-      ]
+      "onyomi": ["ニュウ"],
+      "kunyomi": ["い-る", "い-れる", "はい-る"]
     },
-    "meanings": [
-      "enter",
-      "insert"
-    ],
-    "radicals": [
-      "入"
-    ],
+    "meanings": ["enter", "insert"],
+    "radicals": ["入"],
     "examples": [
       {
         "word": "納入する",
@@ -5056,23 +4565,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "シュツ",
-        "スイ"
-      ],
-      "kunyomi": [
-        "で-る",
-        "だ-す"
-      ]
+      "onyomi": ["シュツ", "スイ"],
+      "kunyomi": ["で-る", "だ-す"]
     },
-    "meanings": [
-      "exit",
-      "leave",
-      "go out"
-    ],
-    "radicals": [
-      "凵"
-    ],
+    "meanings": ["exit", "leave", "go out"],
+    "radicals": ["凵"],
     "examples": [
       {
         "word": "出版社",
@@ -5203,22 +4700,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "リツ",
-        "リュウ"
-      ],
-      "kunyomi": [
-        "た-つ",
-        "た-てる"
-      ]
+      "onyomi": ["リツ", "リュウ"],
+      "kunyomi": ["た-つ", "た-てる"]
     },
-    "meanings": [
-      "stand",
-      "rise"
-    ],
-    "radicals": [
-      "立"
-    ],
+    "meanings": ["stand", "rise"],
+    "radicals": ["立"],
     "examples": [
       {
         "word": "立憲",
@@ -5314,21 +4800,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "キュウ"
-      ],
-      "kunyomi": [
-        "やす-む",
-        "やす-める"
-      ]
+      "onyomi": ["キュウ"],
+      "kunyomi": ["やす-む", "やす-める"]
     },
-    "meanings": [
-      "rest",
-      "break"
-    ],
-    "radicals": [
-      "人"
-    ],
+    "meanings": ["rest", "break"],
+    "radicals": ["人"],
     "examples": [
       {
         "word": "休館する",
@@ -5403,21 +4879,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "セン"
-      ],
-      "kunyomi": [
-        "さき"
-      ]
+      "onyomi": ["セン"],
+      "kunyomi": ["さき"]
     },
-    "meanings": [
-      "before",
-      "ahead",
-      "previous"
-    ],
-    "radicals": [
-      "儿"
-    ],
+    "meanings": ["before", "ahead", "previous"],
+    "radicals": ["儿"],
     "examples": [
       {
         "word": "祖先",
@@ -5508,25 +4974,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "セイ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "い-きる",
-        "い-かす",
-        "う-まれる",
-        "なま"
-      ]
+      "onyomi": ["セイ", "ショウ"],
+      "kunyomi": ["い-きる", "い-かす", "う-まれる", "なま"]
     },
-    "meanings": [
-      "life",
-      "birth",
-      "live"
-    ],
-    "radicals": [
-      "生"
-    ],
+    "meanings": ["life", "birth", "live"],
+    "radicals": ["生"],
     "examples": [
       {
         "word": "一年生",
@@ -5662,19 +5114,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "ネン"
-      ],
-      "kunyomi": [
-        "とし"
-      ]
+      "onyomi": ["ネン"],
+      "kunyomi": ["とし"]
     },
-    "meanings": [
-      "year"
-    ],
-    "radicals": [
-      "干"
-    ],
+    "meanings": ["year"],
+    "radicals": ["干"],
     "examples": [
       {
         "word": "一年生",
@@ -5759,21 +5203,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "ソウ",
-        "サッ"
-      ],
-      "kunyomi": [
-        "はや-い"
-      ]
+      "onyomi": ["ソウ", "サッ"],
+      "kunyomi": ["はや-い"]
     },
-    "meanings": [
-      "early",
-      "fast"
-    ],
-    "radicals": [
-      "日"
-    ],
+    "meanings": ["early", "fast"],
+    "radicals": ["日"],
     "examples": [
       {
         "word": "早熟な",
@@ -5864,20 +5298,11 @@
     "grade": 1,
     "strokeCount": 9,
     "readings": {
-      "onyomi": [
-        "ソウ"
-      ],
-      "kunyomi": [
-        "くさ"
-      ]
+      "onyomi": ["ソウ"],
+      "kunyomi": ["くさ"]
     },
-    "meanings": [
-      "grass",
-      "herb"
-    ],
-    "radicals": [
-      "艸"
-    ],
+    "meanings": ["grass", "herb"],
+    "radicals": ["艸"],
     "examples": [
       {
         "word": "草花",
@@ -5963,19 +5388,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "カ"
-      ],
-      "kunyomi": [
-        "はな"
-      ]
+      "onyomi": ["カ"],
+      "kunyomi": ["はな"]
     },
-    "meanings": [
-      "flower"
-    ],
-    "radicals": [
-      "艸"
-    ],
+    "meanings": ["flower"],
+    "radicals": ["艸"],
     "examples": [
       {
         "word": "綿花",
@@ -6060,20 +5477,11 @@
     "grade": 1,
     "strokeCount": 8,
     "readings": {
-      "onyomi": [
-        "リン"
-      ],
-      "kunyomi": [
-        "はやし"
-      ]
+      "onyomi": ["リン"],
+      "kunyomi": ["はやし"]
     },
-    "meanings": [
-      "woods",
-      "forest"
-    ],
-    "radicals": [
-      "木"
-    ],
+    "meanings": ["woods", "forest"],
+    "radicals": ["木"],
     "examples": [
       {
         "word": "針葉樹林",
@@ -6143,19 +5551,11 @@
     "grade": 1,
     "strokeCount": 12,
     "readings": {
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "もり"
-      ]
+      "onyomi": ["シン"],
+      "kunyomi": ["もり"]
     },
-    "meanings": [
-      "forest"
-    ],
-    "radicals": [
-      "木"
-    ],
+    "meanings": ["forest"],
+    "radicals": ["木"],
     "examples": [
       {
         "word": "森林",
@@ -6220,20 +5620,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "チュウ"
-      ],
-      "kunyomi": [
-        "むし"
-      ]
+      "onyomi": ["チュウ"],
+      "kunyomi": ["むし"]
     },
-    "meanings": [
-      "insect",
-      "bug"
-    ],
-    "radicals": [
-      "虫"
-    ],
+    "meanings": ["insect", "bug"],
+    "radicals": ["虫"],
     "examples": [
       {
         "word": "防虫剤",
@@ -6318,19 +5709,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "ケン"
-      ],
-      "kunyomi": [
-        "いぬ"
-      ]
+      "onyomi": ["ケン"],
+      "kunyomi": ["いぬ"]
     },
-    "meanings": [
-      "dog"
-    ],
-    "radicals": [
-      "犬"
-    ],
+    "meanings": ["dog"],
+    "radicals": ["犬"],
     "examples": [
       {
         "word": "飼い犬",
@@ -6395,22 +5778,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "ケン"
-      ],
-      "kunyomi": [
-        "み-る",
-        "み-える"
-      ]
+      "onyomi": ["ケン"],
+      "kunyomi": ["み-る", "み-える"]
     },
-    "meanings": [
-      "see",
-      "look",
-      "watch"
-    ],
-    "radicals": [
-      "見"
-    ],
+    "meanings": ["see", "look", "watch"],
+    "radicals": ["見"],
     "examples": [
       {
         "word": "拝見する",
@@ -6541,19 +5913,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "ジ"
-      ],
-      "kunyomi": [
-        "みみ"
-      ]
+      "onyomi": ["ジ"],
+      "kunyomi": ["みみ"]
     },
-    "meanings": [
-      "ear"
-    ],
-    "radicals": [
-      "耳"
-    ],
+    "meanings": ["ear"],
+    "radicals": ["耳"],
     "examples": [
       {
         "word": "耳鼻科",
@@ -6613,21 +5977,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "モク",
-        "ボク"
-      ],
-      "kunyomi": [
-        "め",
-        "ま"
-      ]
+      "onyomi": ["モク", "ボク"],
+      "kunyomi": ["め", "ま"]
     },
-    "meanings": [
-      "eye"
-    ],
-    "radicals": [
-      "目"
-    ],
+    "meanings": ["eye"],
+    "radicals": ["目"],
     "examples": [
       {
         "word": "織り目",
@@ -6712,20 +6066,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "コウ",
-        "ク"
-      ],
-      "kunyomi": [
-        "くち"
-      ]
+      "onyomi": ["コウ", "ク"],
+      "kunyomi": ["くち"]
     },
-    "meanings": [
-      "mouth"
-    ],
-    "radicals": [
-      "口"
-    ],
+    "meanings": ["mouth"],
+    "radicals": ["口"],
     "examples": [
       {
         "word": "口述する",
@@ -6810,20 +6155,11 @@
     "grade": 1,
     "strokeCount": 4,
     "readings": {
-      "onyomi": [
-        "シュ"
-      ],
-      "kunyomi": [
-        "て",
-        "た"
-      ]
+      "onyomi": ["シュ"],
+      "kunyomi": ["て", "た"]
     },
-    "meanings": [
-      "hand"
-    ],
-    "radicals": [
-      "手"
-    ],
+    "meanings": ["hand"],
+    "radicals": ["手"],
     "examples": [
       {
         "word": "手間賃",
@@ -6919,23 +6255,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "ソク"
-      ],
-      "kunyomi": [
-        "あし",
-        "た-りる",
-        "た-す"
-      ]
+      "onyomi": ["ソク"],
+      "kunyomi": ["あし", "た-りる", "た-す"]
     },
-    "meanings": [
-      "foot",
-      "leg",
-      "sufficient"
-    ],
-    "radicals": [
-      "足"
-    ],
+    "meanings": ["foot", "leg", "sufficient"],
+    "radicals": ["足"],
     "examples": [
       {
         "word": "補足する",
@@ -7026,22 +6350,11 @@
     "grade": 1,
     "strokeCount": 2,
     "readings": {
-      "onyomi": [
-        "リョク",
-        "リキ"
-      ],
-      "kunyomi": [
-        "ちから"
-      ]
+      "onyomi": ["リョク", "リキ"],
+      "kunyomi": ["ちから"]
     },
-    "meanings": [
-      "power",
-      "strength",
-      "force"
-    ],
-    "radicals": [
-      "力"
-    ],
+    "meanings": ["power", "strength", "force"],
+    "radicals": ["力"],
     "examples": [
       {
         "word": "武力",
@@ -7126,21 +6439,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "ダン",
-        "ナン"
-      ],
-      "kunyomi": [
-        "おとこ"
-      ]
+      "onyomi": ["ダン", "ナン"],
+      "kunyomi": ["おとこ"]
     },
-    "meanings": [
-      "man",
-      "male"
-    ],
-    "radicals": [
-      "田"
-    ],
+    "meanings": ["man", "male"],
+    "radicals": ["田"],
     "examples": [
       {
         "word": "長男",
@@ -7205,22 +6508,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "ジョ",
-        "ニョ"
-      ],
-      "kunyomi": [
-        "おんな",
-        "め"
-      ]
+      "onyomi": ["ジョ", "ニョ"],
+      "kunyomi": ["おんな", "め"]
     },
-    "meanings": [
-      "woman",
-      "female"
-    ],
-    "radicals": [
-      "女"
-    ],
+    "meanings": ["woman", "female"],
+    "radicals": ["女"],
     "examples": [
       {
         "word": "処女",
@@ -7305,20 +6597,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "シ",
-        "ス"
-      ],
-      "kunyomi": [
-        "こ"
-      ]
+      "onyomi": ["シ", "ス"],
+      "kunyomi": ["こ"]
     },
-    "meanings": [
-      "child"
-    ],
-    "radicals": [
-      "子"
-    ],
+    "meanings": ["child"],
+    "radicals": ["子"],
     "examples": [
       {
         "word": "綿菓子",
@@ -7403,20 +6686,11 @@
     "grade": 1,
     "strokeCount": 6,
     "readings": {
-      "onyomi": [
-        "メイ",
-        "ミョウ"
-      ],
-      "kunyomi": [
-        "な"
-      ]
+      "onyomi": ["メイ", "ミョウ"],
+      "kunyomi": ["な"]
     },
-    "meanings": [
-      "name"
-    ],
-    "radicals": [
-      "口"
-    ],
+    "meanings": ["name"],
+    "radicals": ["口"],
     "examples": [
       {
         "word": "署名する",
@@ -7501,23 +6775,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "セイ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "ただ-しい",
-        "まさ"
-      ]
+      "onyomi": ["セイ", "ショウ"],
+      "kunyomi": ["ただ-しい", "まさ"]
     },
-    "meanings": [
-      "correct",
-      "right",
-      "proper"
-    ],
-    "radicals": [
-      "止"
-    ],
+    "meanings": ["correct", "right", "proper"],
+    "radicals": ["止"],
     "examples": [
       {
         "word": "正絹",
@@ -7608,19 +6870,11 @@
     "grade": 1,
     "strokeCount": 3,
     "readings": {
-      "onyomi": [
-        "セキ"
-      ],
-      "kunyomi": [
-        "ゆう"
-      ]
+      "onyomi": ["セキ"],
+      "kunyomi": ["ゆう"]
     },
-    "meanings": [
-      "evening"
-    ],
-    "radicals": [
-      "夕"
-    ],
+    "meanings": ["evening"],
+    "radicals": ["夕"],
     "examples": [
       {
         "word": "夕刻",
@@ -7690,21 +6944,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "ホン"
-      ],
-      "kunyomi": [
-        "もと"
-      ]
+      "onyomi": ["ホン"],
+      "kunyomi": ["もと"]
     },
-    "meanings": [
-      "book",
-      "origin",
-      "main"
-    ],
-    "radicals": [
-      "木"
-    ],
+    "meanings": ["book", "origin", "main"],
+    "radicals": ["木"],
     "examples": [
       {
         "word": "初版本",
@@ -7789,19 +7033,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "ソン"
-      ],
-      "kunyomi": [
-        "むら"
-      ]
+      "onyomi": ["ソン"],
+      "kunyomi": ["むら"]
     },
-    "meanings": [
-      "village"
-    ],
-    "radicals": [
-      "木"
-    ],
+    "meanings": ["village"],
+    "radicals": ["木"],
     "examples": [
       {
         "word": "中村",
@@ -7861,19 +7097,11 @@
     "grade": 1,
     "strokeCount": 7,
     "readings": {
-      "onyomi": [
-        "チョウ"
-      ],
-      "kunyomi": [
-        "まち"
-      ]
+      "onyomi": ["チョウ"],
+      "kunyomi": ["まち"]
     },
-    "meanings": [
-      "town"
-    ],
-    "radicals": [
-      "田"
-    ],
+    "meanings": ["town"],
+    "radicals": ["田"],
     "examples": [
       {
         "word": "町長",
@@ -7933,20 +7161,11 @@
     "grade": 1,
     "strokeCount": 5,
     "readings": {
-      "onyomi": [
-        "デン"
-      ],
-      "kunyomi": [
-        "た"
-      ]
+      "onyomi": ["デン"],
+      "kunyomi": ["た"]
     },
-    "meanings": [
-      "rice field",
-      "rice paddy"
-    ],
-    "radicals": [
-      "田"
-    ],
+    "meanings": ["rice field", "rice paddy"],
+    "radicals": ["田"],
     "examples": [
       {
         "word": "山田殿",
