@@ -2,6 +2,7 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { DictionaryLink } from '../components/dictionary-link';
 import { Footer } from '../../components/Footer';
 import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
@@ -24,6 +25,7 @@ const KanjiNav: FC<{
         </span>
       </div>
       <div class="flex flex-wrap gap-2">
+        <DictionaryLink />
         <BackToTopLink />
         <a
           href="/kanji"

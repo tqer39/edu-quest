@@ -3,6 +3,7 @@ import {
   generateReadingQuestion,
   generateStrokeCountQuestion,
   generateKanjiQuestions,
+  getKanjiDictionaryByGrade,
   verifyKanjiAnswer,
   calculateKanjiScore,
   getKanjiPerformanceMessage,
@@ -428,6 +429,33 @@ describe('getKanjiPerformanceMessage', () => {
     expect(getKanjiPerformanceMessage(0)).toBe('復習が必要です。');
     expect(getKanjiPerformanceMessage(25)).toBe('復習が必要です。');
     expect(getKanjiPerformanceMessage(49)).toBe('復習が必要です。');
+  });
+});
+
+describe('getKanjiDictionaryByGrade', () => {
+  it('returns kanji entries for the requested grade', () => {
+    const entries = getKanjiDictionaryByGrade(1);
+
+    expect(entries.length).toBeGreaterThan(0);
+    expect(entries.every((entry) => entry.grade === 1)).toBe(true);
+  });
+
+  it('returns deep copies so the source data stays immutable', () => {
+    const originalEntries = getKanjiDictionaryByGrade(1);
+    const mutatedEntries = getKanjiDictionaryByGrade(1);
+
+    mutatedEntries[0]?.readings.onyomi.push('テスト');
+    mutatedEntries[0]?.examples.push({
+      word: 'テスト',
+      reading: 'てすと',
+      meaning: 'test',
+    });
+
+    const freshEntries = getKanjiDictionaryByGrade(1);
+
+    expect(freshEntries[0]?.readings.onyomi).not.toContain('テスト');
+    expect(freshEntries[0]?.examples.some((ex) => ex.word === 'テスト')).toBe(false);
+    expect(originalEntries).not.toBe(mutatedEntries);
   });
 });
 

@@ -13,6 +13,7 @@ import { ClockSelect } from './routes/pages/clock-select';
 import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiDictionary } from './routes/pages/kanji-dictionary';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { KanjiSelect } from './routes/pages/kanji-select';
@@ -39,11 +40,12 @@ import {
   getKanjiSessionResult,
 } from './application/usecases/kanji-quiz';
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
-import type {
-  ClockDifficulty,
-  ClockGrade,
-  KanjiGrade,
-  KanjiQuestType,
+import {
+  getKanjiDictionaryByGrade,
+  type ClockDifficulty,
+  type ClockGrade,
+  type KanjiGrade,
+  type KanjiQuestType,
 } from '@edu-quest/domain';
 import {
   gradeLevels,
@@ -535,6 +537,34 @@ app.get('/kanji', async (c) =>
     }
   )
 );
+
+app.get('/kanji/dictionary', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1];
+  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+  const query = c.req.query('q') ?? '';
+
+  return c.render(
+    <KanjiDictionary
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      entries={getKanjiDictionaryByGrade(grade)}
+      query={query}
+    />,
+    {
+      title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
+      description: `${gradeLabel}で学ぶ漢字の読み方・意味・例をまとめた辞書ページです。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
 
 // KanjiQuest: クエストタイプ選択画面
 app.get('/kanji/select', async (c) => {

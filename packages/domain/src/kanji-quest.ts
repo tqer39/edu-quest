@@ -78,6 +78,25 @@ function loadKanjiDataByGrade(grade: KanjiGrade): Kanji[] {
 }
 
 /**
+ * Get kanji dictionary data for a specific grade.
+ * Returns a deep copy so callers cannot mutate the source dataset.
+ */
+export function getKanjiDictionaryByGrade(grade: KanjiGrade): Kanji[] {
+  const kanjiList = loadKanjiDataByGrade(grade);
+
+  return kanjiList.map((kanji) => ({
+    ...kanji,
+    readings: {
+      onyomi: [...kanji.readings.onyomi],
+      kunyomi: [...kanji.readings.kunyomi],
+    },
+    meanings: [...kanji.meanings],
+    radicals: [...kanji.radicals],
+    examples: kanji.examples.map((example) => ({ ...example })),
+  }));
+}
+
+/**
  * Shuffle array using Fisher-Yates algorithm
  */
 function shuffleArray<T>(array: T[]): T[] {

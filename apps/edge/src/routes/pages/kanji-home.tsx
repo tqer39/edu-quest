@@ -2,6 +2,7 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiGrade } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { DictionaryLink } from '../components/dictionary-link';
 import { createSchoolGradeParam } from '../utils/school-grade';
 import { Footer } from '../../components/Footer';
 import {
@@ -24,6 +25,7 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
       </a>
     </div>
     <div class="flex items-center gap-2">
+      <DictionaryLink />
       <BackToTopLink />
       {currentUser ? (
         <a
@@ -112,6 +114,10 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
             {
               label: 'スコア表示:',
               description: '正解率に応じてメッセージが変わります',
+            },
+            {
+              label: '辞書機能:',
+              description: '小学1年生の漢字を一覧から調べられます',
             },
           ]}
         />
