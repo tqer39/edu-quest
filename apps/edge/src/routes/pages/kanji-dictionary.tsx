@@ -65,11 +65,7 @@ type KanjiDictionaryProps = {
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
   entries: Kanji[];
-  query: string;
 };
-
-const formatReadings = (readings: string[]): string =>
-  readings.length > 0 ? readings.join('・') : '—';
 
 const buildSearchIndex = (kanji: Kanji): string => {
   const base = [
@@ -94,17 +90,19 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
   currentUser,
   grade,
   entries,
-  query,
 }) => {
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
   const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
-  const normalizedQuery = query.trim().toLowerCase();
   const totalCount = entries.length;
-  const filteredEntries = normalizedQuery
-    ? entries.filter((entry) =>
-        buildSearchIndex(entry).includes(normalizedQuery)
-      )
-    : entries;
+
+  // Prepare search data for client-side filtering
+  const searchDataJson = JSON.stringify(
+    entries.map((kanji) => ({
+      char: kanji.character,
+      id: kanji.character.codePointAt(0)?.toString(16),
+      idx: buildSearchIndex(kanji),
+    }))
+  );
 
   return (
     <div
@@ -159,148 +157,101 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
         </header>
 
         <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
-          <form
-            class="flex flex-col gap-4 sm:flex-row sm:items-center"
-            method="GET"
-          >
-            <input type="hidden" name="grade" value={gradeParam} />
+          <div class="flex flex-col gap-4">
             <label class="flex-1">
               <span class="mb-2 block text-xs font-semibold text-[#5e718a]">
                 検索（漢字・読み・意味・例から探せます）
               </span>
               <input
                 type="search"
-                name="q"
-                defaultValue={query}
+                id="kanji-search"
                 placeholder="例：学、がく、まなぶ"
                 class="w-full rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-3 text-sm text-[var(--mq-ink)] shadow-inner focus:border-[var(--mq-primary)] focus:outline-none"
               />
             </label>
-            <div class="flex gap-2">
-              <button
-                type="submit"
-                class="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-              >
-                検索
-              </button>
-              {normalizedQuery && (
-                <a
-                  href={`/kanji/dictionary?grade=${gradeParam}`}
-                  class="inline-flex items-center justify-center rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-3 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)]"
-                >
-                  リセット
-                </a>
-              )}
-            </div>
-          </form>
-          <p class="mt-4 text-xs text-[#5e718a]">
-            {normalizedQuery ? (
-              <>
-                「{query}」に一致する漢字 {filteredEntries.length} /{' '}
-                {totalCount} 字
-              </>
-            ) : (
-              <>全{totalCount}字を表示しています</>
-            )}
-          </p>
+            <p class="text-xs text-[#5e718a]" id="result-count">
+              全{totalCount}字を表示しています
+            </p>
+          </div>
         </section>
 
-        {filteredEntries.length === 0 ? (
-          <div class="rounded-3xl border border-dashed border-[var(--mq-outline)] bg-white p-12 text-center text-sm text-[#5e718a]">
-            該当する漢字が見つかりませんでした。別のキーワードを試してみましょう。
-          </div>
-        ) : (
-          <section class="grid gap-6 lg:grid-cols-2">
-            {filteredEntries.map((kanji) => (
-              <article
-                key={kanji.character}
-                class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-md transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <div class="text-5xl font-extrabold text-[var(--mq-ink)]">
-                      {kanji.character}
-                    </div>
-                    <div class="mt-2 flex flex-wrap gap-2 text-xs text-[var(--mq-primary-strong)]">
-                      {kanji.meanings.map((meaning) => (
-                        <span
-                          key={meaning}
-                          class="inline-flex items-center rounded-full bg-[var(--mq-primary-soft)] px-3 py-1"
-                        >
-                          {meaning}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <div class="rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
-                    {kanji.strokeCount}画
-                  </div>
-                </div>
+        <div
+          id="no-results"
+          class="hidden rounded-3xl border border-dashed border-[var(--mq-outline)] bg-white p-12 text-center text-sm text-[#5e718a]"
+        >
+          該当する漢字が見つかりませんでした。別のキーワードを試してみましょう。
+        </div>
 
-                <dl class="space-y-3 text-sm text-[#4f6076]">
-                  <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
-                      音読み
-                    </dt>
-                    <dd class="mt-1 text-base text-[var(--mq-ink)]">
-                      {formatReadings(kanji.readings.onyomi)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
-                      訓読み
-                    </dt>
-                    <dd class="mt-1 text-base text-[var(--mq-ink)]">
-                      {formatReadings(kanji.readings.kunyomi)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
-                      部首
-                    </dt>
-                    <dd class="mt-1 flex flex-wrap gap-2">
-                      {kanji.radicals.length > 0 ? (
-                        kanji.radicals.map((radical) => (
-                          <span
-                            key={radical}
-                            class="inline-flex items-center rounded-full border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-3 py-1 text-xs"
-                          >
-                            {radical}
-                          </span>
-                        ))
-                      ) : (
-                        <span class="text-base text-[var(--mq-ink)]">—</span>
-                      )}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt class="text-xs font-semibold text-[var(--mq-primary-strong)]">
-                      例のことば
-                    </dt>
-                    <dd class="mt-2 space-y-2">
-                      {kanji.examples.map((example) => (
-                        <div
-                          key={`${kanji.character}-${example.word}`}
-                          class="rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] px-3 py-2 text-xs text-[var(--mq-ink)]"
-                        >
-                          <div class="font-semibold">
-                            {example.word}
-                            <span class="ml-2 text-[11px] text-[#5e718a]">
-                              {example.reading}
-                            </span>
-                          </div>
-                          <div class="mt-1 text-[11px] text-[#5e718a]">
-                            {example.meaning}
-                          </div>
-                        </div>
-                      ))}
-                    </dd>
-                  </div>
-                </dl>
-              </article>
-            ))}
-          </section>
-        )}
+        <div
+          id="kanji-grid"
+          style="display: grid; grid-template-columns: repeat(10, 1fr); overflow: hidden; border-radius: 1.5rem; border: 3px solid var(--mq-outline); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);"
+        >
+          {entries.map((kanji) => {
+            const kanjiId = kanji.character.codePointAt(0)?.toString(16);
+            return (
+              <a
+                key={kanji.character}
+                href={`/kanji/dictionary/${kanjiId}?grade=${gradeParam}`}
+                class="kanji-item"
+                style="display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-right: 1px solid var(--mq-outline); border-bottom: 1px solid var(--mq-outline); font-size: 2rem; font-weight: bold; color: var(--mq-ink); transition: all 0.2s; background-color: white;"
+                data-char={kanji.character}
+              >
+                {kanji.character}
+              </a>
+            );
+          })}
+        </div>
+
+        <script
+          type="module"
+          dangerouslySetInnerHTML={{
+            __html: `
+              const searchData = ${searchDataJson};
+              const searchInput = document.getElementById('kanji-search');
+              const kanjiGrid = document.getElementById('kanji-grid');
+              const resultCount = document.getElementById('result-count');
+              const noResults = document.getElementById('no-results');
+              const totalCount = ${totalCount};
+
+              searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim().toLowerCase();
+
+                if (!query) {
+                  // Show all
+                  document.querySelectorAll('.kanji-item').forEach(item => {
+                    item.classList.remove('hidden');
+                  });
+                  resultCount.textContent = \`全\${totalCount}字を表示しています\`;
+                  noResults.classList.add('hidden');
+                  return;
+                }
+
+                // Filter
+                const matches = searchData.filter(k => k.idx.includes(query));
+                const matchChars = new Set(matches.map(m => m.char));
+
+                let visibleCount = 0;
+                document.querySelectorAll('.kanji-item').forEach(item => {
+                  const char = item.dataset.char;
+                  if (matchChars.has(char)) {
+                    item.classList.remove('hidden');
+                    visibleCount++;
+                  } else {
+                    item.classList.add('hidden');
+                  }
+                });
+
+                if (visibleCount === 0) {
+                  noResults.classList.remove('hidden');
+                  resultCount.textContent = \`「\${e.target.value}」に一致する漢字が見つかりませんでした\`;
+                } else {
+                  noResults.classList.add('hidden');
+                  resultCount.textContent = \`「\${e.target.value}」に一致する漢字 \${visibleCount} / \${totalCount} 字\`;
+                }
+              });
+            `,
+          }}
+        />
       </div>
       <Footer />
     </div>

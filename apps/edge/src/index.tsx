@@ -14,6 +14,7 @@ import { ClockQuiz } from './routes/pages/clock-quiz';
 import { ClockResults } from './routes/pages/clock-results';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiDictionary } from './routes/pages/kanji-dictionary';
+import { KanjiDetail } from './routes/pages/kanji-detail';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { KanjiSelect } from './routes/pages/kanji-select';
@@ -549,18 +550,57 @@ app.get('/kanji/dictionary', async (c) => {
   const availableGrades: KanjiGrade[] = [1];
   const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
-  const query = c.req.query('q') ?? '';
 
   return c.render(
     <KanjiDictionary
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
       entries={getKanjiDictionaryByGrade(grade)}
-      query={query}
     />,
     {
       title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
       description: `${gradeLabel}で学ぶ漢字の読み方・意味・例をまとめた辞書ページです。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kanji/dictionary/:id', async (c) => {
+  const kanjiId = c.req.param('id');
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1];
+  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+
+  // Convert hex ID back to character
+  const character = String.fromCodePoint(Number.parseInt(kanjiId, 16));
+
+  // Find the kanji in the dictionary
+  const allKanji = getKanjiDictionaryByGrade(grade);
+  const kanji = allKanji.find((k) => k.character === character);
+
+  if (!kanji) {
+    return c.notFound();
+  }
+
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  return c.render(
+    <KanjiDetail
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      kanji={kanji}
+    />,
+    {
+      title: `${kanji.character} - ${gradeLabel}の漢字 | KanjiQuest`,
+      description: `${kanji.character}（${kanji.meanings.join(
+        '、'
+      )}）の読み方・意味・例を確認できます。`,
       favicon: '/favicon-kanji.svg',
     }
   );
