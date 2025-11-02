@@ -14,7 +14,7 @@ import { createSchoolGradeParam } from '../utils/school-grade';
 const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
-      <a href="/" class="flex items-center gap-2 transition hover:opacity-80">
+      <a href="/" class="transition hover:opacity-80">
         <img
           src="/logo.svg"
           alt="EduQuest Logo"
@@ -22,9 +22,6 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
           width="28"
           height="28"
         />
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          EduQuest
-        </span>
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
       <a

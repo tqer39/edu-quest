@@ -1,7 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
-import { BackToTopLink } from '../components/back-to-top-link';
 import { getGameGradeById } from './game-presets';
 import type { GradeId } from './grade-presets';
 
@@ -14,6 +13,16 @@ const GameNav: FC<{
   return (
     <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
       <div class="flex items-center gap-2">
+        <a href="/" class="transition hover:opacity-80">
+          <img
+            src="/logo.svg"
+            alt="EduQuest Logo"
+            class="h-7 w-7"
+            width="28"
+            height="28"
+          />
+        </a>
+        <span class="text-[var(--mq-outline)]">|</span>
         <a
           href="/game"
           class="flex items-center gap-2 transition hover:opacity-80"
@@ -27,7 +36,6 @@ const GameNav: FC<{
         </a>
       </div>
       <div class="flex flex-wrap gap-2">
-        <BackToTopLink />
         <a
           href="/game"
           class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
