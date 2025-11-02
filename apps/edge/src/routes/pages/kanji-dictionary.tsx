@@ -68,11 +68,27 @@ type KanjiDictionaryProps = {
 };
 
 const buildSearchIndex = (kanji: Kanji): string => {
+  // 音読みをカタカナと平仮名の両方で検索できるようにする
+  const onyomiHiragana = kanji.readings.onyomi.map((reading) =>
+    reading.replace(/[\u30A1-\u30F6]/g, (match) =>
+      String.fromCharCode(match.charCodeAt(0) - 0x60)
+    )
+  );
+
+  // 訓読みをカタカナと平仮名の両方で検索できるようにする
+  const kunyomiKatakana = kanji.readings.kunyomi.map((reading) =>
+    reading.replace(/[\u3041-\u3096]/g, (match) =>
+      String.fromCharCode(match.charCodeAt(0) + 0x60)
+    )
+  );
+
   const base = [
     kanji.character,
     kanji.strokeCount.toString(),
     ...kanji.readings.onyomi,
+    ...onyomiHiragana,
     ...kanji.readings.kunyomi,
+    ...kunyomiKatakana,
     ...kanji.meanings,
     ...kanji.radicals,
   ];
