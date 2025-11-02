@@ -1,8 +1,8 @@
-import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
+import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import { renderSudokuClientScript } from './sudoku.client';
 import type { GameGradeLevel } from './game-presets';
+import { renderSudokuClientScript } from './sudoku.client';
 
 type SudokuProps = {
   currentUser: CurrentUser | null;

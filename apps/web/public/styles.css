@@ -81,7 +81,7 @@ button {
   background: var(--secondary);
 }
 .hidden {
-  display: none !important;
+  display: none;
 }
 .status-bar {
   display: flex;

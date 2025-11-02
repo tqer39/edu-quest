@@ -1,9 +1,9 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { GradeId } from './grade-presets';
-import { getGameGradeById } from './game-presets';
-import { BackToTopLink } from '../components/back-to-top-link';
 import { Footer } from '../../components/Footer';
+import { BackToTopLink } from '../components/back-to-top-link';
+import { getGameGradeById } from './game-presets';
+import type { GradeId } from './grade-presets';
 
 const GameNav: FC<{
   currentUser: CurrentUser | null;

@@ -1,6 +1,6 @@
+import type { ClockGrade } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { ClockGrade } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
 
 type ClockResultsProps = {

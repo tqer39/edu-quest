@@ -1,73 +1,73 @@
+import {
+  type ClockDifficulty,
+  type ClockGrade,
+  getKanjiDictionaryByGrade,
+  type KanjiGrade,
+  type KanjiQuestType,
+} from '@edu-quest/domain';
 import { Hono } from 'hono';
 import { jsxRenderer } from 'hono/jsx-renderer';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
-import type { Env } from './env';
-import { i18n } from './middlewares/i18n';
-import { seoControl } from './middlewares/seo-control';
-import { securityHeaders } from './middlewares/security-headers';
-import { quiz } from './routes/apis/quiz';
-import { Home } from './routes/pages/home';
-import { ClockHome } from './routes/pages/clock-home';
-import { ClockSelect } from './routes/pages/clock-select';
-import { ClockQuiz } from './routes/pages/clock-quiz';
-import { ClockResults } from './routes/pages/clock-results';
-import { KanjiHome } from './routes/pages/kanji-home';
-import { KanjiDictionary } from './routes/pages/kanji-dictionary';
-import { KanjiDetail } from './routes/pages/kanji-detail';
-import { KanjiQuiz } from './routes/pages/kanji-quiz';
-import { KanjiResults } from './routes/pages/kanji-results';
-import { KanjiSelect } from './routes/pages/kanji-select';
-import { MathHome } from './routes/pages/math-home';
-import { MathSelect } from './routes/pages/math-select';
-import { GameHome } from './routes/pages/game-home';
-import { GameSelect } from './routes/pages/game-select';
-import { Start } from './routes/pages/start';
-import { Play } from './routes/pages/play';
-import { Sudoku } from './routes/pages/sudoku';
-import { SudokuSelect } from './routes/pages/sudoku-select';
-import { Login } from './routes/pages/login';
-import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
 import { resolveCurrentUser } from './application/session/current-user';
+import type { ClockQuizSession } from './application/usecases/clock-quiz';
 import {
   startClockQuizSession,
   submitClockAnswer,
 } from './application/usecases/clock-quiz';
-import type { ClockQuizSession } from './application/usecases/clock-quiz';
-import {
-  startKanjiQuizSession,
-  submitKanjiQuizAnswer,
-  getKanjiSessionResult,
-} from './application/usecases/kanji-quiz';
 import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
 import {
-  getKanjiDictionaryByGrade,
-  type ClockDifficulty,
-  type ClockGrade,
-  type KanjiGrade,
-  type KanjiQuestType,
-} from '@edu-quest/domain';
-import {
-  gradeLevels,
-  gradeCalculationTypes,
-  type GradeId,
-} from './routes/pages/grade-presets';
+  getKanjiSessionResult,
+  startKanjiQuizSession,
+  submitKanjiQuizAnswer,
+} from './application/usecases/kanji-quiz';
+import type { Env } from './env';
+import type { AssetManifest } from './middlewares/asset-manifest';
+import { assetManifest } from './middlewares/asset-manifest';
+import { i18n } from './middlewares/i18n';
+import { securityHeaders } from './middlewares/security-headers';
+import { seoControl } from './middlewares/seo-control';
+import { quiz } from './routes/apis/quiz';
+import { ClockHome } from './routes/pages/clock-home';
+import { ClockQuiz } from './routes/pages/clock-quiz';
+import { ClockResults } from './routes/pages/clock-results';
+import { ClockSelect } from './routes/pages/clock-select';
+import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
+import { GameHome } from './routes/pages/game-home';
 import {
   gameGradeLevels,
   getGameGradeById,
   getSudokuPresetsForGrade,
 } from './routes/pages/game-presets';
+import { GameSelect } from './routes/pages/game-select';
+import {
+  type GradeId,
+  gradeCalculationTypes,
+  gradeLevels,
+} from './routes/pages/grade-presets';
+import { Home } from './routes/pages/home';
+import { KanjiDetail } from './routes/pages/kanji-detail';
+import { KanjiDictionary } from './routes/pages/kanji-dictionary';
+import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiQuiz } from './routes/pages/kanji-quiz';
+import { KanjiResults } from './routes/pages/kanji-results';
+import { KanjiSelect } from './routes/pages/kanji-select';
+import { Login } from './routes/pages/login';
+import { MathHome } from './routes/pages/math-home';
+import { MathSelect } from './routes/pages/math-select';
+import { ParentsPage } from './routes/pages/parents';
+import { Play } from './routes/pages/play';
+import { Start } from './routes/pages/start';
+import { Sudoku } from './routes/pages/sudoku';
+import { SudokuSelect } from './routes/pages/sudoku-select';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
   parseSchoolGradeParam,
 } from './routes/utils/school-grade';
-import { Document } from './views/layouts/document';
 import type { ReleaseInfo } from './types/release';
-import { assetManifest } from './middlewares/asset-manifest';
-import type { AssetManifest } from './middlewares/asset-manifest';
-import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
+import { Document } from './views/layouts/document';
 
 const GITHUB_RELEASE_ENDPOINT =
   'https://api.github.com/repos/tqer39/edu-quest/releases/latest';

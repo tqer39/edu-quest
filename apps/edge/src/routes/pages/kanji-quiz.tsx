@@ -1,6 +1,6 @@
+import type { KanjiQuestion } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { KanjiQuestion } from '@edu-quest/domain';
 import { DictionaryLink } from '../components/dictionary-link';
 
 type KanjiQuizProps = {

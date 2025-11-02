@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import {
+  calculateKanjiScore,
+  generateKanjiQuestions,
   generateReadingQuestion,
   generateStrokeCountQuestion,
-  generateKanjiQuestions,
   getKanjiDictionaryByGrade,
-  verifyKanjiAnswer,
-  calculateKanjiScore,
   getKanjiPerformanceMessage,
   type Kanji,
-  type KanjiQuestion,
-  type KanjiQuestConfig,
   type KanjiGrade,
+  type KanjiQuestConfig,
+  type KanjiQuestion,
+  verifyKanjiAnswer,
 } from '../kanji-quest';
 
 // Sample kanji data for testing
