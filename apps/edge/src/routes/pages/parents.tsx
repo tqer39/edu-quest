@@ -451,12 +451,8 @@ export const ParentsPage: FC<{ currentUser: CurrentUser | null }> = ({
       <section>
         <SectionHeading id="faq" icon="❓" title="よくある質問" />
         <div class="mt-10 space-y-6">
-          {faqItems.map((item, index) => (
-            <article
-              class={`rounded-2xl p-6 ${
-                index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-              }`}
-            >
+          {faqItems.map((item) => (
+            <article class="py-4">
               <h3 class="text-base font-semibold text-[#1f2937]">
                 {item.question}
               </h3>
