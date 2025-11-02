@@ -210,7 +210,9 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
                 key={kanji.character}
                 href={`/kanji/dictionary/${kanjiId}?grade=${gradeParam}`}
                 class="kanji-item"
-                style="display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-right: 1px solid var(--mq-outline); border-bottom: 1px solid var(--mq-outline); font-size: 2rem; font-weight: bold; color: var(--mq-ink); transition: all 0.2s; background-color: white;"
+                style="display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-right: 1px solid var(--mq-outline); border-bottom: 1px solid var(--mq-outline); font-size: 2rem; font-weight: bold; color: var(--mq-ink); transition: all 0.2s; background-color: white; cursor: pointer;"
+                onmouseover="this.style.backgroundColor='var(--mq-primary-soft)'"
+                onmouseout="this.style.backgroundColor='white'"
                 data-char={kanji.character}
               >
                 {kanji.character}
