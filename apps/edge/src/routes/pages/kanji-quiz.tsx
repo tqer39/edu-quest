@@ -1,6 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiQuestion } from '@edu-quest/domain';
+import { DictionaryLink } from '../components/dictionary-link';
 
 type KanjiQuizProps = {
   currentUser: CurrentUser | null;
@@ -35,6 +36,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
           </span>
         </div>
         <div class="flex flex-wrap items-center gap-2">
+          <DictionaryLink />
           <span class="text-xs font-semibold text-[var(--mq-ink)]">
             問題 {questionNumber} / {totalQuestions}
           </span>
