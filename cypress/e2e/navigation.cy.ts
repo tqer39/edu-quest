@@ -52,12 +52,12 @@ describe('EduQuest Navigation', () => {
       // Select quest mode
       cy.contains('a', 'クエストに挑戦する').click();
       cy.url().should('include', '/math/quest');
-      cy.contains('挑戦するミッションを選ぼう').should('be.visible');
+      cy.contains('クエストを選んでください').should('be.visible');
 
       // Select a quest (たし算)
       cy.contains('a', 'たし算').click();
       cy.url().should('include', '/math/start');
-      cy.contains('れんしゅうの じゅんび').should('be.visible');
+      cy.contains('たし算のテーマを選んでください').should('be.visible');
     });
   });
 

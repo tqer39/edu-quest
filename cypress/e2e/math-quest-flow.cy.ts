@@ -1,21 +1,20 @@
 describe('MathQuest Flow', () => {
-  describe('Start Configuration Page', () => {
+  describe('Theme Selection Page', () => {
     beforeEach(() => {
-      // Navigate through the full flow to get to start page with proper cookies
+      // Navigate through the full flow to get to theme selection page with proper cookies
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
       cy.contains('a', 'クエストに挑戦する').click();
       cy.contains('a', 'たし算').click();
     });
 
-    it('should load the start configuration page', () => {
+    it('should load the theme selection page', () => {
       cy.url().should('include', '/math/start');
-      cy.contains('れんしゅうの じゅんび').should('be.visible');
+      cy.contains('たし算のテーマを選んでください').should('be.visible');
     });
 
-    it('should display selected grade summary', () => {
-      cy.contains('選んだ学年').should('be.visible');
-      cy.contains('現在の学年').should('be.visible');
+    it('should display play settings', () => {
+      cy.contains('プレイ設定').should('be.visible');
     });
 
     it('should display question count selection', () => {
@@ -23,21 +22,22 @@ describe('MathQuest Flow', () => {
       cy.contains('問題数').should('be.visible');
     });
 
-    it('should have a start button', () => {
-      cy.contains('button', 'はじめる').should('be.visible');
+    it('should have theme selection cards', () => {
+      // Theme cards should be visible
+      cy.get('[class*="grid"]').should('be.visible');
     });
   });
 
   describe('Play Page Navigation', () => {
-    it('should navigate to play page after configuration', () => {
+    it('should navigate to play page after selecting theme', () => {
       // Navigate through the full flow
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
       cy.contains('a', 'クエストに挑戦する').click();
       cy.contains('a', 'たし算').click();
 
-      // Start the quiz
-      cy.contains('button', 'はじめる').click();
+      // Select a theme (click on any theme card)
+      cy.get('a[href*="/math/play"]').first().click();
 
       // Should navigate to play page
       cy.url().should('include', '/math/play');
@@ -50,8 +50,8 @@ describe('MathQuest Flow', () => {
       cy.contains('a', 'クエストに挑戦する').click();
       cy.contains('a', 'たし算').click();
 
-      // Quick start with default settings
-      cy.contains('button', 'はじめる').click();
+      // Select a theme to start
+      cy.get('a[href*="/math/play"]').first().click();
 
       // Verify play page loaded
       cy.url().should('include', '/math/play');
