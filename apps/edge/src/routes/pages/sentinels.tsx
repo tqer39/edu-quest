@@ -5,8 +5,7 @@ import type { GameGradeLevel } from './game-presets';
 import type { SentinelPuzzle } from './sentinels-puzzles';
 import { renderSentinelsClientScript } from './sentinels.client';
 
-const encode = (value: unknown) =>
-  encodeURIComponent(JSON.stringify(value));
+const encode = (value: unknown) => encodeURIComponent(JSON.stringify(value));
 
 const REGION_COLORS = [
   '#FDE68A',
@@ -25,7 +24,11 @@ type SentinelsProps = {
   puzzle: SentinelPuzzle;
 };
 
-export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) => {
+export const Sentinels: FC<SentinelsProps> = ({
+  currentUser,
+  grade,
+  puzzle,
+}) => {
   const uniqueRegions = Array.from(
     new Set(puzzle.regionMap.join('').split(''))
   );
@@ -87,14 +90,20 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition:
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
             box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
             cursor: pointer;
           }
 
           .sentinel-cell[data-state='sentinel'] {
             color: #14532d;
-            background: linear-gradient(135deg, rgba(134, 239, 172, 0.4), rgba(74, 222, 128, 0.7));
+            background: linear-gradient(
+              135deg,
+              rgba(134, 239, 172, 0.4),
+              rgba(74, 222, 128, 0.7)
+            );
             box-shadow: inset 0 0 0 2px rgba(34, 197, 94, 0.6);
           }
 
@@ -122,7 +131,11 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
           }
 
           .sentinel-cell[data-state='given'] {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(147, 197, 253, 0.35));
+            background: linear-gradient(
+              135deg,
+              rgba(59, 130, 246, 0.25),
+              rgba(147, 197, 253, 0.35)
+            );
             color: #1d4ed8;
             box-shadow: inset 0 0 0 2px rgba(59, 130, 246, 0.4);
             cursor: default;
@@ -160,7 +173,11 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(165, 180, 252, 0.24));
+            background: linear-gradient(
+              135deg,
+              rgba(59, 130, 246, 0.12),
+              rgba(165, 180, 252, 0.24)
+            );
             border-radius: 9999px;
             font-size: 0.85rem;
             font-weight: 700;
@@ -177,7 +194,11 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), transparent);
+            background: linear-gradient(
+              135deg,
+              rgba(255, 255, 255, 0.35),
+              transparent
+            );
             opacity: 0;
             transition: opacity 0.3s ease;
           }
@@ -264,11 +285,19 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
             </h1>
           </div>
           <div class="flex flex-wrap items-center gap-2 text-sm">
-            <span class="status-chip" id="sentinel-timer">⏱ 00:00</span>
-            <span class="status-chip" id="sentinel-progress" data-state="warning">
+            <span class="status-chip" id="sentinel-timer">
+              ⏱ 00:00
+            </span>
+            <span
+              class="status-chip"
+              id="sentinel-progress"
+              data-state="warning"
+            >
               🛡️ 0 / {puzzle.targetCount}
             </span>
-            <span class="badge">難易度: {puzzle.difficulty === 'intro' ? '入門' : '標準'}</span>
+            <span class="badge">
+              難易度: {puzzle.difficulty === 'intro' ? '入門' : '標準'}
+            </span>
           </div>
         </div>
         <p class="max-w-4xl text-sm text-[#5e718a]">{puzzle.description}</p>
@@ -282,13 +311,26 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
                 センチネルを配置しよう
               </h2>
               <div class="flex flex-wrap items-center gap-2 text-xs text-[#5e718a]">
-                <span class="status-chip" id="row-status">行: 0 / {puzzle.targetCount}</span>
-                <span class="status-chip" id="column-status">列: 0 / {puzzle.targetCount}</span>
-                <span class="status-chip" id="region-status">領域: 0 / {puzzle.targetCount}</span>
+                <span class="status-chip" id="row-status">
+                  行: 0 / {puzzle.targetCount}
+                </span>
+                <span class="status-chip" id="column-status">
+                  列: 0 / {puzzle.targetCount}
+                </span>
+                <span class="status-chip" id="region-status">
+                  領域: 0 / {puzzle.targetCount}
+                </span>
               </div>
             </div>
-            <div class="sentinel-grid" id="sentinel-grid" data-size={puzzle.size}></div>
-            <div id="sentinel-feedback" class="mt-4 min-h-[48px] rounded-2xl bg-[var(--mq-primary-soft)]/60 px-4 py-3 text-center text-sm font-semibold text-[var(--mq-primary-strong)]"></div>
+            <div
+              class="sentinel-grid"
+              id="sentinel-grid"
+              data-size={puzzle.size}
+            ></div>
+            <div
+              id="sentinel-feedback"
+              class="mt-4 min-h-[48px] rounded-2xl bg-[var(--mq-primary-soft)]/60 px-4 py-3 text-center text-sm font-semibold text-[var(--mq-primary-strong)]"
+            ></div>
           </div>
         </section>
 
@@ -297,8 +339,13 @@ export const Sentinels: FC<SentinelsProps> = ({ currentUser, grade, puzzle }) =>
             <h3>ルールと操作</h3>
             <ul>
               <li>各行・各列・各色の領域にセンチネルを 1 体ずつ配置します。</li>
-              <li>センチネルはナイトのように L 字にジャンプします。同じナイトの動きで到達できる場所には配置できません。</li>
-              <li>セルをタップすると「配置 → 推論メモ → 空白」と切り替わります。</li>
+              <li>
+                センチネルはナイトのように L
+                字にジャンプします。同じナイトの動きで到達できる場所には配置できません。
+              </li>
+              <li>
+                セルをタップすると「配置 → 推論メモ → 空白」と切り替わります。
+              </li>
               <li>ブロックされたセル (× 印) にはセンチネルを置けません。</li>
             </ul>
           </div>

@@ -71,9 +71,7 @@ export const sentinelPuzzles = [
       [5, 0],
       [5, 2],
     ],
-    givenSentinels: [
-      [0, 3],
-    ],
+    givenSentinels: [[0, 3]],
     solution: [
       [0, 3],
       [1, 0],
@@ -90,4 +88,5 @@ export type SentinelPuzzleId = (typeof sentinelPuzzles)[number]['id'];
 export const getSentinelPuzzleById = (
   puzzleId: SentinelPuzzleId
 ): SentinelPuzzle =>
-  sentinelPuzzles.find((puzzle) => puzzle.id === puzzleId) || sentinelPuzzles[0];
+  sentinelPuzzles.find((puzzle) => puzzle.id === puzzleId) ||
+  sentinelPuzzles[0];
