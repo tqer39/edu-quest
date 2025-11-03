@@ -149,6 +149,36 @@ The project is a monorepo managed with pnpm workspaces.
 
 This approach maintains SSR compatibility while providing an optimal user experience for young learners.
 
+#### Navigation Design Philosophy
+
+**IMPORTANT: EduQuest follows a minimal navigation design approach to reduce cognitive load for young learners.**
+
+- **Minimize Text:** Remove redundant text labels in navigation
+- **Icon-First:** Use recognizable icons as primary navigation elements
+- **Short Labels:** Use abbreviated forms (e.g., "小1" instead of "小学1年生")
+- **Visual Hierarchy:** Keep navigation compact to maximize content area
+
+**Navigation Requirements:**
+
+```tsx
+// ✅ CORRECT: Minimal navigation
+<nav>
+  <a href="/"><img src="/logo.svg" /></a> {/* Logo only, no "EduQuest" text */}
+  <span>|</span>
+  <a href="/math"><span>🔢</span></a> {/* Icon only, no "MathQuest" text */}
+  <span>小1</span> {/* Short grade label */}
+</nav>
+
+// ❌ INCORRECT: Verbose navigation
+<nav>
+  <a href="/"><img src="/logo.svg" /><span>EduQuest</span></a> {/* ❌ Redundant */}
+  <span>|</span>
+  <a href="/math"><span>🔢</span><span>MathQuest - 小学1年生</span></a> {/* ❌ Too verbose */}
+</nav>
+```
+
+Use `formatSchoolGradeLabelShort()` from `apps/edge/src/routes/utils/school-grade.ts` for short grade labels.
+
 ## 5. How to Contribute
 
 1.  **Understand the Goal:** Read the user's request carefully.

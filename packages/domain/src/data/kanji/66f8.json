@@ -1,0 +1,90 @@
+{
+  "character": "書",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["ショ"],
+    "kunyomi": ["か-く"]
+  },
+  "meanings": ["write", "book"],
+  "radicals": ["曰"],
+  "examples": [
+    {
+      "word": "領収書",
+      "reading": "りょうしゅうしょ",
+      "meaning": "receipt"
+    },
+    {
+      "word": "縦書き",
+      "reading": "たてがき",
+      "meaning": "vertical writing"
+    },
+    {
+      "word": "秘書",
+      "reading": "ひしょ",
+      "meaning": "secretary"
+    },
+    {
+      "word": "書庫",
+      "reading": "しょこ",
+      "meaning": "archive"
+    },
+    {
+      "word": "書斎",
+      "reading": "しょさい",
+      "meaning": "study (room)"
+    },
+    {
+      "word": "書道",
+      "reading": "しょどう",
+      "meaning": "calligraphy"
+    },
+    {
+      "word": "辞書",
+      "reading": "じしょ",
+      "meaning": "dictionary"
+    },
+    {
+      "word": "図書館",
+      "reading": "としょかん",
+      "meaning": "library"
+    },
+    {
+      "word": "教科書",
+      "reading": "きょうかしょ",
+      "meaning": "text book"
+    },
+    {
+      "word": "参考書",
+      "reading": "さんこうしょ",
+      "meaning": "reference book"
+    },
+    {
+      "word": "証明書",
+      "reading": "しょうめいしょ",
+      "meaning": "certificate"
+    },
+    {
+      "word": "書く",
+      "reading": "かく",
+      "meaning": "write"
+    },
+    {
+      "word": "横書き",
+      "reading": "よこがき",
+      "meaning": "writing horizontally"
+    },
+    {
+      "word": "書き込む",
+      "reading": "かきこむ",
+      "meaning": "fill in (writing)"
+    },
+    {
+      "word": "書籍",
+      "reading": "しょせき",
+      "meaning": "book, publication"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "66f8"
+}

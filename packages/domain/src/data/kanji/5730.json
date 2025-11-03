@@ -1,0 +1,90 @@
+{
+  "character": "地",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["チ", "ジ"],
+    "kunyomi": []
+  },
+  "meanings": ["ground", "earth"],
+  "radicals": ["土"],
+  "examples": [
+    {
+      "word": "墓地",
+      "reading": "ぼち",
+      "meaning": "cemetery, graveyard"
+    },
+    {
+      "word": "余地",
+      "reading": "よち",
+      "meaning": "space, room, margin"
+    },
+    {
+      "word": "領地",
+      "reading": "りょうち",
+      "meaning": "territory, dominion"
+    },
+    {
+      "word": "地域",
+      "reading": "ちいき",
+      "meaning": "area, region"
+    },
+    {
+      "word": "砂地",
+      "reading": "すなち",
+      "meaning": "sandy soil"
+    },
+    {
+      "word": "地層",
+      "reading": "ちそう",
+      "meaning": "stratum"
+    },
+    {
+      "word": "荒れ地",
+      "reading": "あれち",
+      "meaning": "devastated or wasted land"
+    },
+    {
+      "word": "豪雪地帯",
+      "reading": "ごうせつちたい",
+      "meaning": "area of heavy snowfall"
+    },
+    {
+      "word": "湿地",
+      "reading": "しっち",
+      "meaning": "swamp"
+    },
+    {
+      "word": "占領地",
+      "reading": "せんりょうち",
+      "meaning": "occupied territory"
+    },
+    {
+      "word": "駐屯地",
+      "reading": "ちゅうとんち",
+      "meaning": "garrison"
+    },
+    {
+      "word": "地下鉄",
+      "reading": "ちかてつ",
+      "meaning": "subway"
+    },
+    {
+      "word": "地肌",
+      "reading": "じはだ",
+      "meaning": "one's skin, surface of the ground"
+    },
+    {
+      "word": "埋め立て地",
+      "reading": "うめたてち",
+      "meaning": "reclaimed land"
+    },
+    {
+      "word": "地方色",
+      "reading": "ちほうしょく",
+      "meaning": "local color"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5730"
+}

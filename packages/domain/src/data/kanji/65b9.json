@@ -1,0 +1,90 @@
+{
+  "character": "方",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["ホウ"],
+    "kunyomi": ["かた"]
+  },
+  "meanings": ["direction", "way"],
+  "radicals": ["方"],
+  "examples": [
+    {
+      "word": "方策",
+      "reading": "ほうさく",
+      "meaning": "plan, policy"
+    },
+    {
+      "word": "話し方",
+      "reading": "はなしかた",
+      "meaning": "way of talking"
+    },
+    {
+      "word": "処方箋",
+      "reading": "しょほうせん",
+      "meaning": "prescription"
+    },
+    {
+      "word": "方針",
+      "reading": "ほうしん",
+      "meaning": "objective, plan, policy"
+    },
+    {
+      "word": "双方",
+      "reading": "そうほう",
+      "meaning": "both parties, bilateral"
+    },
+    {
+      "word": "地方色",
+      "reading": "ちほうしょく",
+      "meaning": "local color"
+    },
+    {
+      "word": "方向",
+      "reading": "ほうこう",
+      "meaning": "direction"
+    },
+    {
+      "word": "方言",
+      "reading": "ほうげん",
+      "meaning": "dialect"
+    },
+    {
+      "word": "地方",
+      "reading": "ちほう",
+      "meaning": "area"
+    },
+    {
+      "word": "仕方",
+      "reading": "しかた",
+      "meaning": "way, method, style"
+    },
+    {
+      "word": "夕方",
+      "reading": "ゆうがた",
+      "meaning": "evening"
+    },
+    {
+      "word": "父方",
+      "reading": "ちちかた",
+      "meaning": "father's side of family"
+    },
+    {
+      "word": "先生方",
+      "reading": "せんせいがた",
+      "meaning": "teachers, doctors"
+    },
+    {
+      "word": "方法",
+      "reading": "ほうほう",
+      "meaning": "method"
+    },
+    {
+      "word": "仕方がない",
+      "reading": "しかたがない",
+      "meaning": "it can't be helped"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "65b9"
+}

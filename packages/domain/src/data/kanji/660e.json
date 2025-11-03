@@ -1,0 +1,121 @@
+{
+  "character": "明",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["メイ", "ミョウ", "ミン"],
+    "kunyomi": [
+      "あ-かり",
+      "あか-るい",
+      "あか-るむ",
+      "あか-らむ",
+      "あき-らか",
+      "あ-ける",
+      "あ-く",
+      "あ-くる",
+      "あ-かす"
+    ]
+  },
+  "meanings": ["bright", "clear"],
+  "radicals": ["日"],
+  "examples": [
+    {
+      "word": "明朗な",
+      "reading": "めいろうな",
+      "meaning": "bright, clear, cheerful"
+    },
+    {
+      "word": "証明書",
+      "reading": "しょうめいしょ",
+      "meaning": "certificate"
+    },
+    {
+      "word": "明白な",
+      "reading": "めいはくな",
+      "meaning": "obvious"
+    },
+    {
+      "word": "明治",
+      "reading": "めいじ",
+      "meaning": "Meiji era"
+    },
+    {
+      "word": "発明する",
+      "reading": "はつめいする",
+      "meaning": "invent"
+    },
+    {
+      "word": "文明",
+      "reading": "ぶんめい",
+      "meaning": "civilization"
+    },
+    {
+      "word": "説明する",
+      "reading": "せつめいする",
+      "meaning": "explain"
+    },
+    {
+      "word": "明確な",
+      "reading": "めいかくな",
+      "meaning": "clear"
+    },
+    {
+      "word": "証明する",
+      "reading": "しょうめいする",
+      "meaning": "prove, verify"
+    },
+    {
+      "word": "明治の代",
+      "reading": "めいじのよ",
+      "meaning": "Meiji era"
+    },
+    {
+      "word": "明晩",
+      "reading": "みょうばん",
+      "meaning": "tomorrow evening"
+    },
+    {
+      "word": "判明する",
+      "reading": "はんめいする",
+      "meaning": "prove, turn out"
+    },
+    {
+      "word": "賢明な",
+      "reading": "けんめいな",
+      "meaning": "wise"
+    },
+    {
+      "word": "明くる日",
+      "reading": "あくるひ",
+      "meaning": "following day"
+    },
+    {
+      "word": "明るい",
+      "reading": "あかるい",
+      "meaning": "bright, cheerful"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "明後日",
+      "reading": "あさって",
+      "meaning": "day after tomorrow"
+    },
+    {
+      "word": "夜明け",
+      "reading": "よあけ",
+      "meaning": "dawn"
+    },
+    {
+      "word": "明日",
+      "reading": "あした",
+      "meaning": "tomorrow"
+    },
+    {
+      "word": "明日",
+      "reading": "あす",
+      "meaning": "tomorrow"
+    }
+  ],
+  "unicode": "660e"
+}

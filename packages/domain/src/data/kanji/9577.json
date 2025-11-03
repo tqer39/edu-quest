@@ -1,0 +1,101 @@
+{
+  "character": "長",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["チョウ"],
+    "kunyomi": ["なが-い"]
+  },
+  "meanings": ["long", "chief"],
+  "radicals": ["長"],
+  "examples": [
+    {
+      "word": "婦長",
+      "reading": "ふちょう",
+      "meaning": "head nurse"
+    },
+    {
+      "word": "署長",
+      "reading": "しょちょう",
+      "meaning": "chief, head"
+    },
+    {
+      "word": "長針",
+      "reading": "ちょうしん",
+      "meaning": "long hand"
+    },
+    {
+      "word": "班長",
+      "reading": "はんちょう",
+      "meaning": "squad leader, group leader"
+    },
+    {
+      "word": "伸長する",
+      "reading": "しんちょうする",
+      "meaning": "expand, extend, elongate"
+    },
+    {
+      "word": "身長",
+      "reading": "しんちょう",
+      "meaning": "height (of body)"
+    },
+    {
+      "word": "社長",
+      "reading": "しゃちょう",
+      "meaning": "company president"
+    },
+    {
+      "word": "市長",
+      "reading": "しちょう",
+      "meaning": "mayor"
+    },
+    {
+      "word": "会長",
+      "reading": "かいちょう",
+      "meaning": "president (of a society)"
+    },
+    {
+      "word": "長期",
+      "reading": "ちょうき",
+      "meaning": "long time period"
+    },
+    {
+      "word": "長時間",
+      "reading": "ちょうじかん",
+      "meaning": "long-term, long-range"
+    },
+    {
+      "word": "長男",
+      "reading": "ちょうなん",
+      "meaning": "eldest son"
+    },
+    {
+      "word": "長女",
+      "reading": "ちょうじょ",
+      "meaning": "eldest daughter"
+    },
+    {
+      "word": "長所",
+      "reading": "ちょうしょ",
+      "meaning": "strong point"
+    },
+    {
+      "word": "成長する",
+      "reading": "せいちょうする",
+      "meaning": "grow"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "長靴",
+      "reading": "ながぐつ",
+      "meaning": "long boots"
+    },
+    {
+      "word": "長患い",
+      "reading": "ながわずらい",
+      "meaning": "long illness"
+    }
+  ],
+  "unicode": "9577"
+}

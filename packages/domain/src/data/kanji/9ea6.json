@@ -1,0 +1,76 @@
+{
+  "character": "麦",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["バク"],
+    "kunyomi": ["むぎ"]
+  },
+  "meanings": ["wheat", "barley"],
+  "radicals": ["麦"],
+  "examples": [
+    {
+      "word": "小麦",
+      "reading": "こむぎ",
+      "meaning": "wheat"
+    },
+    {
+      "word": "麦秋",
+      "reading": "ばくしゅう",
+      "meaning": "early summer"
+    },
+    {
+      "word": "麦芽",
+      "reading": "ばくが",
+      "meaning": "malt"
+    },
+    {
+      "word": "麦",
+      "reading": "むぎ",
+      "meaning": "wheat, barley"
+    },
+    {
+      "word": "大麦",
+      "reading": "おおむぎ",
+      "meaning": "barley"
+    },
+    {
+      "word": "ライ麦",
+      "reading": "ライむぎ",
+      "meaning": "rye"
+    },
+    {
+      "word": "小麦粉",
+      "reading": "こむぎこ",
+      "meaning": "wheat flour"
+    },
+    {
+      "word": "麦畑",
+      "reading": "むぎばたけ",
+      "meaning": "wheat field"
+    },
+    {
+      "word": "麦茶",
+      "reading": "むぎちゃ",
+      "meaning": "barley tea"
+    },
+    {
+      "word": "麦飯",
+      "reading": "むぎめし",
+      "meaning": "rice with barley"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "蕎麦",
+      "reading": "そば",
+      "meaning": "soba (buckwheat noodles)"
+    },
+    {
+      "word": "麦酒",
+      "reading": "ビール",
+      "meaning": "beer"
+    }
+  ],
+  "unicode": "9ea6"
+}

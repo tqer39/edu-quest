@@ -1,20 +1,33 @@
+import type { KanjiGrade } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { KanjiGrade } from '@edu-quest/domain';
-import { BackToTopLink } from '../components/back-to-top-link';
-import { createSchoolGradeParam } from '../utils/school-grade';
 import { Footer } from '../../components/Footer';
+import { DictionaryLink } from '../components/dictionary-link';
 import {
-  QuestHeader,
+  Features,
   GradeCard,
   GradeSelection,
-  Features,
+  QuestHeader,
 } from '../components/quest-layout';
+import { createSchoolGradeParam } from '../utils/school-grade';
 
 const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
-      <a href="/" class="flex items-center gap-2 transition hover:opacity-80">
+      <a href="/" class="transition hover:opacity-80">
+        <img
+          src="/logo.svg"
+          alt="EduQuest Logo"
+          class="h-7 w-7"
+          width="28"
+          height="28"
+        />
+      </a>
+      <span class="text-[var(--mq-outline)]">|</span>
+      <a
+        href="/kanji"
+        class="flex items-center gap-2 transition hover:opacity-80"
+      >
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
@@ -24,7 +37,7 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
       </a>
     </div>
     <div class="flex items-center gap-2">
-      <BackToTopLink />
+      <DictionaryLink />
       {currentUser ? (
         <a
           href="/auth/logout"
@@ -116,6 +129,10 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
             {
               label: 'スコア表示:',
               description: '正解率に応じてメッセージが変わります',
+            },
+            {
+              label: '辞書機能:',
+              description: '小学1年生の漢字を一覧から調べられます',
             },
           ]}
         />

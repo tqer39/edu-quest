@@ -1,0 +1,86 @@
+{
+  "character": "広",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["コウ"],
+    "kunyomi": ["ひろ-い", "ひろ-まる", "ひろ-める", "ひろ-がる", "ひろ-げる"]
+  },
+  "meanings": ["wide", "broad"],
+  "radicals": ["广"],
+  "examples": [
+    {
+      "word": "広大な",
+      "reading": "こうだいな",
+      "meaning": "very large"
+    },
+    {
+      "word": "広範囲",
+      "reading": "こうはんい",
+      "meaning": "vast range"
+    },
+    {
+      "word": "広告",
+      "reading": "こうこく",
+      "meaning": "advertisement"
+    },
+    {
+      "word": "広い",
+      "reading": "ひろい",
+      "meaning": "spacious"
+    },
+    {
+      "word": "広まる",
+      "reading": "ひろまる",
+      "meaning": "spread [v.i.]"
+    },
+    {
+      "word": "広がる",
+      "reading": "ひろがる",
+      "meaning": "spread [v.i.]"
+    },
+    {
+      "word": "広げる",
+      "reading": "ひろげる",
+      "meaning": "spread [v.t.]"
+    },
+    {
+      "word": "広場",
+      "reading": "ひろば",
+      "meaning": "public square"
+    },
+    {
+      "word": "広報",
+      "reading": "こうほう",
+      "meaning": "public relations"
+    },
+    {
+      "word": "広域",
+      "reading": "こういき",
+      "meaning": "wide area"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "背広",
+      "reading": "せびろ",
+      "meaning": "business suit"
+    },
+    {
+      "word": "広場",
+      "reading": "ひろば",
+      "meaning": "plaza"
+    },
+    {
+      "word": "広島",
+      "reading": "ひろしま",
+      "meaning": "Hiroshima"
+    },
+    {
+      "word": "広島県",
+      "reading": "ひろしまけん",
+      "meaning": "Hiroshima prefecture"
+    }
+  ],
+  "unicode": "5e83"
+}

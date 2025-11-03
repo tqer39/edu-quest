@@ -1,0 +1,90 @@
+{
+  "character": "高",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["コウ"],
+    "kunyomi": ["たか-い", "たか", "たか-まる", "たか-める"]
+  },
+  "meanings": ["tall", "high"],
+  "radicals": ["高"],
+  "examples": [
+    {
+      "word": "高貴な",
+      "reading": "こうきな",
+      "meaning": "high class [adj.]"
+    },
+    {
+      "word": "高層ビル",
+      "reading": "こうそうビル",
+      "meaning": "skyscraper"
+    },
+    {
+      "word": "高齢者",
+      "reading": "こうれいしゃ",
+      "meaning": "old person, senior citizen"
+    },
+    {
+      "word": "高校生",
+      "reading": "こうこうせい",
+      "meaning": "senior high school student"
+    },
+    {
+      "word": "高速道路",
+      "reading": "こうそくどうろ",
+      "meaning": "highway"
+    },
+    {
+      "word": "高熱",
+      "reading": "こうねつ",
+      "meaning": "high fever"
+    },
+    {
+      "word": "高価な",
+      "reading": "こうかな",
+      "meaning": "expensive"
+    },
+    {
+      "word": "最高",
+      "reading": "さいこう",
+      "meaning": "supreme"
+    },
+    {
+      "word": "高い",
+      "reading": "たかい",
+      "meaning": "tall, high, expensive"
+    },
+    {
+      "word": "高まる",
+      "reading": "たかまる",
+      "meaning": "rise [v.i.]"
+    },
+    {
+      "word": "高める",
+      "reading": "たかめる",
+      "meaning": "raise, boost [v.t.]"
+    },
+    {
+      "word": "円高",
+      "reading": "えんだか",
+      "meaning": "strong yen"
+    },
+    {
+      "word": "売上高",
+      "reading": "うりあげだか",
+      "meaning": "sales"
+    },
+    {
+      "word": "高卒",
+      "reading": "こうそつ",
+      "meaning": "high school graduate"
+    },
+    {
+      "word": "高原",
+      "reading": "こうげん",
+      "meaning": "plateau"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9ad8"
+}

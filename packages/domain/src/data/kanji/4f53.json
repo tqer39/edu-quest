@@ -1,0 +1,90 @@
+{
+  "character": "体",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["タイ", "テイ"],
+    "kunyomi": ["からだ"]
+  },
+  "meanings": ["body"],
+  "radicals": ["人"],
+  "examples": [
+    {
+      "word": "体裁",
+      "reading": "ていさい",
+      "meaning": "appearance, format, decency"
+    },
+    {
+      "word": "染色体",
+      "reading": "せんしょくたい",
+      "meaning": "chromosome"
+    },
+    {
+      "word": "体操",
+      "reading": "たいそう",
+      "meaning": "gymnastics, physical exercises"
+    },
+    {
+      "word": "体中",
+      "reading": "からだじゅう",
+      "meaning": "throughout the body"
+    },
+    {
+      "word": "体調",
+      "reading": "たいちょう",
+      "meaning": "physical condition"
+    },
+    {
+      "word": "体質",
+      "reading": "たいしつ",
+      "meaning": "(physical) constitution"
+    },
+    {
+      "word": "体重",
+      "reading": "たいじゅう",
+      "meaning": "body weight"
+    },
+    {
+      "word": "体力",
+      "reading": "たいりょく",
+      "meaning": "physical strength"
+    },
+    {
+      "word": "大体",
+      "reading": "だいたい",
+      "meaning": "in general, mostly"
+    },
+    {
+      "word": "全体",
+      "reading": "ぜんたい",
+      "meaning": "entirety, whole"
+    },
+    {
+      "word": "団体",
+      "reading": "だんたい",
+      "meaning": "group, team, organization"
+    },
+    {
+      "word": "具体的な",
+      "reading": "ぐたいてきな",
+      "meaning": "concrete"
+    },
+    {
+      "word": "体験する",
+      "reading": "たいけんする",
+      "meaning": "experience"
+    },
+    {
+      "word": "体",
+      "reading": "からだ",
+      "meaning": "body"
+    },
+    {
+      "word": "体育館",
+      "reading": "たいいくかん",
+      "meaning": "gym"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4f53"
+}

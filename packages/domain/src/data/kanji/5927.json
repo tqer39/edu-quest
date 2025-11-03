@@ -1,0 +1,96 @@
+{
+  "character": "大",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["ダイ", "タイ"],
+    "kunyomi": ["おお", "おお-きい", "おお-いに"]
+  },
+  "meanings": ["big", "large"],
+  "radicals": ["大"],
+  "examples": [
+    {
+      "word": "大損",
+      "reading": "おおぞん",
+      "meaning": "heavy loss"
+    },
+    {
+      "word": "大統領",
+      "reading": "だいとうりょう",
+      "meaning": "president (of a nation)"
+    },
+    {
+      "word": "大衆",
+      "reading": "たいしゅう",
+      "meaning": "general public"
+    },
+    {
+      "word": "原寸大",
+      "reading": "げんすんだい",
+      "meaning": "actual size, full size"
+    },
+    {
+      "word": "盛大な",
+      "reading": "せいだいな",
+      "meaning": "grand, prosperous, magnificent"
+    },
+    {
+      "word": "党大会",
+      "reading": "とうたいかい",
+      "meaning": "party convention"
+    },
+    {
+      "word": "大脳",
+      "reading": "だいのう",
+      "meaning": "cerebrum"
+    },
+    {
+      "word": "大雪",
+      "reading": "おおゆき",
+      "meaning": "heavy snow"
+    },
+    {
+      "word": "舟大工",
+      "reading": "ふなだいく",
+      "meaning": "shipwright"
+    },
+    {
+      "word": "大雨",
+      "reading": "おおあめ",
+      "meaning": "heavy rain"
+    },
+    {
+      "word": "駐日大使",
+      "reading": "ちゅうにちたいし",
+      "meaning": "ambassador to Japan"
+    },
+    {
+      "word": "大幅に",
+      "reading": "おおはばに",
+      "meaning": "in large scale, drastically"
+    },
+    {
+      "word": "大体",
+      "reading": "だいたい",
+      "meaning": "in general, mostly"
+    },
+    {
+      "word": "大変な",
+      "reading": "たいへんな",
+      "meaning": "terrible"
+    },
+    {
+      "word": "大使館",
+      "reading": "たいしかん",
+      "meaning": "embassy"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "大和",
+      "reading": "やまと",
+      "meaning": "Yamato, Japan"
+    }
+  ],
+  "unicode": "5927"
+}

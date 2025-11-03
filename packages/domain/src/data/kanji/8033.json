@@ -1,0 +1,65 @@
+{
+  "character": "耳",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ジ"],
+    "kunyomi": ["みみ"]
+  },
+  "meanings": ["ear"],
+  "radicals": ["耳"],
+  "examples": [
+    {
+      "word": "耳鼻科",
+      "reading": "じびか",
+      "meaning": "otolaryngology"
+    },
+    {
+      "word": "耳",
+      "reading": "みみ",
+      "meaning": "ear"
+    },
+    {
+      "word": "初耳",
+      "reading": "はつみみ",
+      "meaning": "heard for the first time"
+    },
+    {
+      "word": "耳鳴り",
+      "reading": "みみなり",
+      "meaning": "buzzing in the ears, tinnitus"
+    },
+    {
+      "word": "耳元",
+      "reading": "みみもと",
+      "meaning": "near the ear"
+    },
+    {
+      "word": "耳打ち",
+      "reading": "みみうち",
+      "meaning": "whisper in someone’s ear"
+    },
+    {
+      "word": "耳栓",
+      "reading": "みみせん",
+      "meaning": "earplugs"
+    },
+    {
+      "word": "耳かき",
+      "reading": "みみかき",
+      "meaning": "ear pick"
+    },
+    {
+      "word": "耳鼻咽喉科",
+      "reading": "じびいんこうか",
+      "meaning": "ear, nose and throat department"
+    },
+    {
+      "word": "耳学問",
+      "reading": "みみがくもん",
+      "meaning": "secondhand knowledge"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8033"
+}

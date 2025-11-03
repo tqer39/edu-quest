@@ -1,0 +1,75 @@
+{
+  "character": "林",
+  "grade": 1,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["リン"],
+    "kunyomi": ["はやし"]
+  },
+  "meanings": ["woods", "forest"],
+  "radicals": ["木"],
+  "examples": [
+    {
+      "word": "針葉樹林",
+      "reading": "しんようじゅりん",
+      "meaning": "conifer, needle-leaved tree"
+    },
+    {
+      "word": "密林",
+      "reading": "みつりん",
+      "meaning": "dense forest, jungle"
+    },
+    {
+      "word": "森林",
+      "reading": "しんりん",
+      "meaning": "forest"
+    },
+    {
+      "word": "竹林",
+      "reading": "ちくりん",
+      "meaning": "bamboo thicket"
+    },
+    {
+      "word": "林業",
+      "reading": "りんぎょう",
+      "meaning": "forestry"
+    },
+    {
+      "word": "山林",
+      "reading": "さんりん",
+      "meaning": "mountain forest"
+    },
+    {
+      "word": "原始林",
+      "reading": "げんしりん",
+      "meaning": "primeval forest, virgin forest"
+    },
+    {
+      "word": "林",
+      "reading": "はやし",
+      "meaning": "woods, forest"
+    },
+    {
+      "word": "松林",
+      "reading": "まつばやし",
+      "meaning": "pine forest"
+    },
+    {
+      "word": "雑木林",
+      "reading": "ぞうきばやし",
+      "meaning": "grove of mixed trees, copse"
+    },
+    {
+      "word": "熱帯雨林",
+      "reading": "ねったいうりん",
+      "meaning": "tropical rainforest"
+    },
+    {
+      "word": "梅林",
+      "reading": "ばいりん",
+      "meaning": "Japanese apricot/plum grove"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6797"
+}

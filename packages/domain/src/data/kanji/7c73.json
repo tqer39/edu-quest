@@ -1,0 +1,90 @@
+{
+  "character": "米",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ベイ", "マイ"],
+    "kunyomi": ["こめ"]
+  },
+  "meanings": ["rice", "America"],
+  "radicals": ["米"],
+  "examples": [
+    {
+      "word": "米俵",
+      "reading": "こめだわら",
+      "meaning": "straw rice bag"
+    },
+    {
+      "word": "欧米",
+      "reading": "おうべい",
+      "meaning": "Europe and America, the West"
+    },
+    {
+      "word": "米粒",
+      "reading": "こめつぶ",
+      "meaning": "grain of rice"
+    },
+    {
+      "word": "渡米する",
+      "reading": "とべいする",
+      "meaning": "go to the U.S.A."
+    },
+    {
+      "word": "米蔵",
+      "reading": "こめぐら",
+      "meaning": "rice granary"
+    },
+    {
+      "word": "米価",
+      "reading": "べいか",
+      "meaning": "rice price"
+    },
+    {
+      "word": "米国",
+      "reading": "べいこく",
+      "meaning": "America, U.S.A."
+    },
+    {
+      "word": "米軍",
+      "reading": "べいぐん",
+      "meaning": "the US armed forces"
+    },
+    {
+      "word": "北米",
+      "reading": "ほくべい",
+      "meaning": "North America"
+    },
+    {
+      "word": "南米",
+      "reading": "なんべい",
+      "meaning": "South America"
+    },
+    {
+      "word": "日米",
+      "reading": "にちべい",
+      "meaning": "Japan-America"
+    },
+    {
+      "word": "玄米",
+      "reading": "げんまい",
+      "meaning": "unpolished rice, unmilled rice"
+    },
+    {
+      "word": "精米",
+      "reading": "せいまい",
+      "meaning": "polished rice"
+    },
+    {
+      "word": "米",
+      "reading": "こめ",
+      "meaning": "uncooked rice"
+    },
+    {
+      "word": "米屋",
+      "reading": "こめや",
+      "meaning": "rice shop, rice dealer"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7c73"
+}

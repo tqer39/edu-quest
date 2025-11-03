@@ -12,39 +12,39 @@ export const gameGradeLevels: readonly GameGradeLevel[] = [
   {
     id: 'elem-1',
     label: '小学1年生',
-    description: '数字 1〜4 の 4×4 パズルからスタート',
-    highlight: '4×4 かんたん',
+    description: '数字 1〜4 の 4×4 数独と太陽・月・星パズルからスタート',
+    highlight: '数独 4×4 かんたん / Stellar Balance gentle',
   },
   {
     id: 'elem-2',
     label: '小学2年生',
-    description: '4×4 を仕上げて 6×6 にチャレンジ',
-    highlight: '4×4 ふつう・6×6 かんたん',
+    description: '4×4 を仕上げて 6×6 と Stellar Balance にチャレンジ',
+    highlight: '数独 4×4 ふつう・6×6 かんたん / Stellar Balance steady',
   },
   {
     id: 'elem-3',
-    label: '小学3年生',
+    label: '小3',
     description: '6×6 の論理パズルで集中力をアップ',
     highlight: '6×6 ふつう',
     disabled: true,
   },
   {
     id: 'elem-4',
-    label: '小学4年生',
+    label: '小4',
     description: '6×6 を極めて 9×9 にステップアップ',
     highlight: '9×9 かんたん',
     disabled: true,
   },
   {
     id: 'elem-5',
-    label: '小学5年生',
+    label: '小5',
     description: '9×9 の標準レベルで推理力を鍛える',
     highlight: '9×9 ふつう',
     disabled: true,
   },
   {
     id: 'elem-6',
-    label: '小学6年生',
+    label: '小6',
     description: '9×9 の難問でロジックを磨こう',
     highlight: '9×9 むずかしい',
     disabled: true,
@@ -61,6 +61,15 @@ export type SudokuPreset = {
   description: string;
   size: SudokuGridSize;
   difficulty: SudokuDifficulty;
+  recommended?: boolean;
+};
+
+export type SentinelPreset = {
+  id: string;
+  icon: string;
+  label: string;
+  description: string;
+  puzzleId: string;
   recommended?: boolean;
 };
 
@@ -222,3 +231,45 @@ export const getSudokuPresetsForGrade = (
   gradeId: GradeId
 ): readonly SudokuPreset[] =>
   sudokuPresetsByGrade[gradeId] || sudokuPresetsByGrade['elem-1'];
+
+export const sentinelPresetsByGrade: Record<
+  GradeId,
+  readonly SentinelPreset[]
+> = {
+  'elem-1': [
+    {
+      id: 'elem-1-sentinel-intro',
+      icon: '🛡️',
+      label: 'センチネル配置 入門',
+      description: 'ナイトの動きを確認しながらゆっくり進めます',
+      puzzleId: 'sentinel-6x6-intro',
+      recommended: true,
+    },
+  ],
+  'elem-2': [
+    {
+      id: 'elem-2-sentinel-standard',
+      icon: '⚔️',
+      label: 'センチネル配置 標準',
+      description: '推理メモを使ってセンチネルの位置を確定させよう',
+      puzzleId: 'sentinel-6x6-standard',
+      recommended: true,
+    },
+    {
+      id: 'elem-2-sentinel-intro',
+      icon: '🛡️',
+      label: 'センチネル配置 入門',
+      description: '入門レベルでもう一度ルールを確認できます',
+      puzzleId: 'sentinel-6x6-intro',
+    },
+  ],
+  'elem-3': [],
+  'elem-4': [],
+  'elem-5': [],
+  'elem-6': [],
+};
+
+export const getSentinelPresetsForGrade = (
+  gradeId: GradeId
+): readonly SentinelPreset[] =>
+  sentinelPresetsByGrade[gradeId] || sentinelPresetsByGrade['elem-1'];

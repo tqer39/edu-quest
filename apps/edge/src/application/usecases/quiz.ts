@@ -1,9 +1,9 @@
-import type { Mode, Question, ExtraStep } from '@edu-quest/domain';
+import type { ExtraStep, Mode, Question } from '@edu-quest/domain';
 import {
-  generateQuestion,
-  evaluateQuestion,
   checkAnswer,
+  evaluateQuestion,
   generateGradeOneQuestion,
+  generateQuestion,
 } from '@edu-quest/domain';
 
 export type GenerateQuizInput = {

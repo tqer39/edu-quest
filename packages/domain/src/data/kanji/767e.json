@@ -1,0 +1,81 @@
+{
+  "character": "百",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ヒャク"],
+    "kunyomi": ["もも"]
+  },
+  "meanings": ["hundred"],
+  "radicals": ["白"],
+  "examples": [
+    {
+      "word": "何百",
+      "reading": "なんびゃく",
+      "meaning": "hundreds"
+    },
+    {
+      "word": "八百",
+      "reading": "はっぴゃく",
+      "meaning": "800"
+    },
+    {
+      "word": "百姓",
+      "reading": "ひゃくしょう",
+      "meaning": "farmer, peasant"
+    },
+    {
+      "word": "百",
+      "reading": "ひゃく",
+      "meaning": "100"
+    },
+    {
+      "word": "百倍",
+      "reading": "ひゃくばい",
+      "meaning": "hundredfold"
+    },
+    {
+      "word": "三百",
+      "reading": "さんびゃく",
+      "meaning": "300"
+    },
+    {
+      "word": "六百",
+      "reading": "ろっぴゃく",
+      "meaning": "600"
+    },
+    {
+      "word": "百科事典",
+      "reading": "ひゃっかじてん",
+      "meaning": "encyclopedia"
+    },
+    {
+      "word": "百周年",
+      "reading": "ひゃくしゅうねん",
+      "meaning": "centennial"
+    },
+    {
+      "word": "百貨店",
+      "reading": "ひゃっかてん",
+      "meaning": "department store"
+    },
+    {
+      "word": "二百",
+      "reading": "にひゃく",
+      "meaning": "two hundred"
+    },
+    {
+      "word": "百円",
+      "reading": "ひゃくえん",
+      "meaning": "100 yen"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "八百屋",
+      "reading": "やおや",
+      "meaning": "greengrocer"
+    }
+  ],
+  "unicode": "767e"
+}

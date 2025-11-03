@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getGradeDescription, type ClockGrade } from '../clock-quest';
+import { type ClockGrade, getGradeDescription } from '../clock-quest';
 
 describe('ClockQuest', () => {
   describe('getGradeDescription', () => {

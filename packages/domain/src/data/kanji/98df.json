@@ -1,0 +1,101 @@
+{
+  "character": "食",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["ショク", "ジキ"],
+    "kunyomi": ["た-べる", "く-う"]
+  },
+  "meanings": ["eat", "food"],
+  "radicals": ["食"],
+  "examples": [
+    {
+      "word": "無銭飲食",
+      "reading": "むせんいんしょく",
+      "meaning": "leaving without paying for food"
+    },
+    {
+      "word": "食堂",
+      "reading": "しょくどう",
+      "meaning": "dining hall"
+    },
+    {
+      "word": "蚕食する",
+      "reading": "さんしょくする",
+      "meaning": "encroach, invade"
+    },
+    {
+      "word": "食い違う",
+      "reading": "くいちがう",
+      "meaning": "clash, run counter to"
+    },
+    {
+      "word": "飲食店",
+      "reading": "いんしょくてん",
+      "meaning": "restaurant"
+    },
+    {
+      "word": "一泊二食付き",
+      "reading": "いっぱくにしょくつき",
+      "meaning": "2 meals included per night"
+    },
+    {
+      "word": "食事",
+      "reading": "しょくじ",
+      "meaning": "meal"
+    },
+    {
+      "word": "試食する",
+      "reading": "ししょくする",
+      "meaning": "taste, sample food"
+    },
+    {
+      "word": "食欲",
+      "reading": "しょくよく",
+      "meaning": "appetite (for food)"
+    },
+    {
+      "word": "夕食",
+      "reading": "ゆうしょく",
+      "meaning": "dinner"
+    },
+    {
+      "word": "外食する",
+      "reading": "がいしょくする",
+      "meaning": "eat out"
+    },
+    {
+      "word": "洋食",
+      "reading": "ようしょく",
+      "meaning": "Western-style meal"
+    },
+    {
+      "word": "食品",
+      "reading": "しょくひん",
+      "meaning": "food product"
+    },
+    {
+      "word": "朝食",
+      "reading": "ちょうしょく",
+      "meaning": "breakfast"
+    },
+    {
+      "word": "断食",
+      "reading": "だんじき",
+      "meaning": "fasting"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "食べ物",
+      "reading": "たべもの",
+      "meaning": "food"
+    },
+    {
+      "word": "食わず嫌い",
+      "reading": "くわずぎらい",
+      "meaning": "prejudiced against (some food)"
+    }
+  ],
+  "unicode": "98df"
+}

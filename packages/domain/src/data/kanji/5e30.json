@@ -1,0 +1,70 @@
+{
+  "character": "帰",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["キ"],
+    "kunyomi": ["かえ-る", "かえ-す"]
+  },
+  "meanings": ["return", "go back"],
+  "radicals": ["巾"],
+  "examples": [
+    {
+      "word": "帰郷する",
+      "reading": "ききょうする",
+      "meaning": "return to one's home"
+    },
+    {
+      "word": "帰依する",
+      "reading": "きえする",
+      "meaning": "devote oneself to (religion)"
+    },
+    {
+      "word": "帰国する",
+      "reading": "きこくする",
+      "meaning": "return to one's own country"
+    },
+    {
+      "word": "帰宅する",
+      "reading": "きたくする",
+      "meaning": "return home"
+    },
+    {
+      "word": "復帰する",
+      "reading": "ふっきする",
+      "meaning": "come back"
+    },
+    {
+      "word": "帰る",
+      "reading": "かえる",
+      "meaning": "go home, go back"
+    },
+    {
+      "word": "日帰り",
+      "reading": "ひがえり",
+      "meaning": "day trip"
+    },
+    {
+      "word": "帰省する",
+      "reading": "きせいする",
+      "meaning": "go home (for a holiday)"
+    },
+    {
+      "word": "帰途",
+      "reading": "きと",
+      "meaning": "on the way back, returning"
+    },
+    {
+      "word": "帰巣本能",
+      "reading": "きそうほんのう",
+      "meaning": "homing instinct"
+    },
+    {
+      "word": "帰国",
+      "reading": "きこく",
+      "meaning": "return to one's country"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5e30"
+}

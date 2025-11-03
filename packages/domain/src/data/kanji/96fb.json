@@ -1,0 +1,90 @@
+{
+  "character": "電",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": ["デン"],
+    "kunyomi": []
+  },
+  "meanings": ["electricity"],
+  "radicals": ["雨"],
+  "examples": [
+    {
+      "word": "電話",
+      "reading": "でんわ",
+      "meaning": "telephone"
+    },
+    {
+      "word": "電磁波",
+      "reading": "でんじは",
+      "meaning": "electromagnetic waves"
+    },
+    {
+      "word": "電車賃",
+      "reading": "でんしゃちん",
+      "meaning": "train fare"
+    },
+    {
+      "word": "電話する",
+      "reading": "でんわする",
+      "meaning": "make a telephone call"
+    },
+    {
+      "word": "発電する",
+      "reading": "はつでんする",
+      "meaning": "generate power"
+    },
+    {
+      "word": "電話番号",
+      "reading": "でんわばんごう",
+      "meaning": "phone number"
+    },
+    {
+      "word": "電気",
+      "reading": "でんき",
+      "meaning": "electricity"
+    },
+    {
+      "word": "電気屋",
+      "reading": "でんきや",
+      "meaning": "electric appliance store"
+    },
+    {
+      "word": "電車",
+      "reading": "でんしゃ",
+      "meaning": "train"
+    },
+    {
+      "word": "電子レンジ",
+      "reading": "でんしレンジ",
+      "meaning": "microwave oven"
+    },
+    {
+      "word": "終電",
+      "reading": "しゅうでん",
+      "meaning": "last train"
+    },
+    {
+      "word": "停電",
+      "reading": "ていでん",
+      "meaning": "loss of electricity, blackout"
+    },
+    {
+      "word": "特急電車",
+      "reading": "とっきゅうでんしゃ",
+      "meaning": "express train"
+    },
+    {
+      "word": "電球",
+      "reading": "でんきゅう",
+      "meaning": "light bulb"
+    },
+    {
+      "word": "電流",
+      "reading": "でんりゅう",
+      "meaning": "electric current"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "96fb"
+}

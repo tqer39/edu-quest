@@ -414,7 +414,7 @@ The platform currently supports and plans to support the following Quest modules
 
 - **MathQuest** (`/math`) - Arithmetic practice with grade-level presets and themed exercises (Available)
 - **KanjiQuest** (`/kanji`) - Kanji learning organized by grade level (Coming Soon)
-- **GameQuest** (`/game`) - Brain-training mini games for pattern recognition, spatial reasoning, and memory (Coming Soon)
+- **GameQuest** (`/game`) - Brain-training mini games for pattern recognition, spatial reasoning, and memory (Sudoku + Stellar Balance tile puzzle)
 - **ClockQuest** (`/clock`) - Time-reading practice with analog and digital clocks (Coming Soon)
 
 ### 6.2. URL Structure
@@ -432,7 +432,7 @@ Route Structure:
   /math/start          → MathQuest configuration wizard
   /math/play           → MathQuest practice session
   /kanji               → KanjiQuest landing page (Coming Soon)
-  /game                → GameQuest landing page (Coming Soon)
+  /game                → GameQuest landing page (Sudoku + Stellar Balance selector)
   /clock               → ClockQuest landing page (Coming Soon)
 ```
 

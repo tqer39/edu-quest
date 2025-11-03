@@ -1,0 +1,65 @@
+{
+  "character": "岩",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["ガン"],
+    "kunyomi": ["いわ"]
+  },
+  "meanings": ["rock", "crag"],
+  "radicals": ["山"],
+  "examples": [
+    {
+      "word": "岩山",
+      "reading": "いわやま",
+      "meaning": "rocky mountain"
+    },
+    {
+      "word": "溶岩",
+      "reading": "ようがん",
+      "meaning": "lava"
+    },
+    {
+      "word": "巨岩",
+      "reading": "きょがん",
+      "meaning": "huge rock, crag"
+    },
+    {
+      "word": "岩石",
+      "reading": "がんせき",
+      "meaning": "rock [n.]"
+    },
+    {
+      "word": "岩塩",
+      "reading": "がんえん",
+      "meaning": "rock salt"
+    },
+    {
+      "word": "火山岩",
+      "reading": "かざんがん",
+      "meaning": "volcanic rock, igneous rock"
+    },
+    {
+      "word": "岩",
+      "reading": "いわ",
+      "meaning": "rock, crag"
+    },
+    {
+      "word": "岩場",
+      "reading": "いわば",
+      "meaning": "rocky area"
+    },
+    {
+      "word": "岩肌",
+      "reading": "いわはだ",
+      "meaning": "rock surface"
+    },
+    {
+      "word": "岩礁",
+      "reading": "がんしょう",
+      "meaning": "reef"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5ca9"
+}

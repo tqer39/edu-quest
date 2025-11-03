@@ -1,0 +1,90 @@
+{
+  "character": "数",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": ["スウ", "ス", "サク"],
+    "kunyomi": ["かず", "かぞ-える"]
+  },
+  "meanings": ["number", "count"],
+  "radicals": ["攴"],
+  "examples": [
+    {
+      "word": "複数",
+      "reading": "ふくすう",
+      "meaning": "plural, multiple"
+    },
+    {
+      "word": "偶数",
+      "reading": "ぐうすう",
+      "meaning": "even number"
+    },
+    {
+      "word": "軒数",
+      "reading": "けんすう",
+      "meaning": "number of houses"
+    },
+    {
+      "word": "振幅数",
+      "reading": "しんぷくすう",
+      "meaning": "amplitude, swing of pendulum"
+    },
+    {
+      "word": "画数",
+      "reading": "かくすう",
+      "meaning": "stroke count"
+    },
+    {
+      "word": "少数",
+      "reading": "しょうすう",
+      "meaning": "minority"
+    },
+    {
+      "word": "人数",
+      "reading": "にんずう",
+      "meaning": "a head count"
+    },
+    {
+      "word": "日数",
+      "reading": "にっすう",
+      "meaning": "a number of days"
+    },
+    {
+      "word": "点数",
+      "reading": "てんすう",
+      "meaning": "points, grade, score"
+    },
+    {
+      "word": "数学",
+      "reading": "すうがく",
+      "meaning": "mathematics"
+    },
+    {
+      "word": "数字",
+      "reading": "すうじ",
+      "meaning": "numeral, number, figures"
+    },
+    {
+      "word": "算数",
+      "reading": "さんすう",
+      "meaning": "arithmetic"
+    },
+    {
+      "word": "多数",
+      "reading": "たすう",
+      "meaning": "great number, majority"
+    },
+    {
+      "word": "総数",
+      "reading": "そうすう",
+      "meaning": "total (number)"
+    },
+    {
+      "word": "奇数",
+      "reading": "きすう",
+      "meaning": "odd number"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6570"
+}

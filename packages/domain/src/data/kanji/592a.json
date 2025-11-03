@@ -1,0 +1,65 @@
+{
+  "character": "太",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["タイ", "タ"],
+    "kunyomi": ["ふと-い", "ふと-る"]
+  },
+  "meanings": ["thick", "fat"],
+  "radicals": ["大"],
+  "examples": [
+    {
+      "word": "皇太后",
+      "reading": "こうたいごう",
+      "meaning": "Queen Mother"
+    },
+    {
+      "word": "太陽",
+      "reading": "たいよう",
+      "meaning": "sun"
+    },
+    {
+      "word": "太鼓",
+      "reading": "たいこ",
+      "meaning": "drum"
+    },
+    {
+      "word": "太平洋",
+      "reading": "たいへいよう",
+      "meaning": "Pacific Ocean"
+    },
+    {
+      "word": "太古",
+      "reading": "たいこ",
+      "meaning": "ancient times"
+    },
+    {
+      "word": "丸太",
+      "reading": "まるた",
+      "meaning": "log"
+    },
+    {
+      "word": "太る",
+      "reading": "ふとる",
+      "meaning": "become fat"
+    },
+    {
+      "word": "太い",
+      "reading": "ふとい",
+      "meaning": "fat, thick"
+    },
+    {
+      "word": "皇太子",
+      "reading": "こうたいし",
+      "meaning": "crown prince"
+    },
+    {
+      "word": "太刀",
+      "reading": "たち",
+      "meaning": "long sword"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "592a"
+}

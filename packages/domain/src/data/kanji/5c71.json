@@ -1,0 +1,90 @@
+{
+  "character": "山",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["サン"],
+    "kunyomi": ["やま"]
+  },
+  "meanings": ["mountain"],
+  "radicals": ["山"],
+  "examples": [
+    {
+      "word": "銅山",
+      "reading": "どうざん",
+      "meaning": "copper mine"
+    },
+    {
+      "word": "富士山",
+      "reading": "ふじさん",
+      "meaning": "Mt. Fuji"
+    },
+    {
+      "word": "山沿い",
+      "reading": "やまぞい",
+      "meaning": "along a mountain"
+    },
+    {
+      "word": "火山灰",
+      "reading": "かざんばい",
+      "meaning": "volcanic ash"
+    },
+    {
+      "word": "山盛り",
+      "reading": "やまもり",
+      "meaning": "a heap"
+    },
+    {
+      "word": "山頂",
+      "reading": "さんちょう",
+      "meaning": "summit"
+    },
+    {
+      "word": "山脈",
+      "reading": "さんみゃく",
+      "meaning": "mountain range"
+    },
+    {
+      "word": "火山",
+      "reading": "かざん",
+      "meaning": "volcano"
+    },
+    {
+      "word": "登山",
+      "reading": "とざん",
+      "meaning": "mountain-climbing"
+    },
+    {
+      "word": "山",
+      "reading": "やま",
+      "meaning": "mountain, pile, climax"
+    },
+    {
+      "word": "岩山",
+      "reading": "いわやま",
+      "meaning": "rocky mountain"
+    },
+    {
+      "word": "山火事",
+      "reading": "やまかじ",
+      "meaning": "bushfire"
+    },
+    {
+      "word": "山田殿",
+      "reading": "やまだどの",
+      "meaning": "Dear Mr. Yamada"
+    },
+    {
+      "word": "山肌",
+      "reading": "やまはだ",
+      "meaning": "bare surface of a mountain"
+    },
+    {
+      "word": "登山帽",
+      "reading": "とざんぼう",
+      "meaning": "climber's hat"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5c71"
+}

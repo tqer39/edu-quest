@@ -1,0 +1,71 @@
+{
+  "character": "雲",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": ["ウン"],
+    "kunyomi": ["くも"]
+  },
+  "meanings": ["cloud"],
+  "radicals": ["雨"],
+  "examples": [
+    {
+      "word": "雨雲",
+      "reading": "あまぐも",
+      "meaning": "rain cloud"
+    },
+    {
+      "word": "雲泥の差",
+      "reading": "うんでいのさ",
+      "meaning": "wide difference"
+    },
+    {
+      "word": "雲海",
+      "reading": "うんかい",
+      "meaning": "sea of clouds"
+    },
+    {
+      "word": "暗雲",
+      "reading": "あんうん",
+      "meaning": "dark clouds"
+    },
+    {
+      "word": "積乱雲",
+      "reading": "せきらんうん",
+      "meaning": "cumulonimbus cloud"
+    },
+    {
+      "word": "雲",
+      "reading": "くも",
+      "meaning": "cloud"
+    },
+    {
+      "word": "雲行き",
+      "reading": "くもゆき",
+      "meaning": "weather, situation"
+    },
+    {
+      "word": "入道雲",
+      "reading": "にゅうどうぐも",
+      "meaning": "cumulonimbus (cloud)"
+    },
+    {
+      "word": "星雲",
+      "reading": "せいうん",
+      "meaning": "nebula, galaxy"
+    },
+    {
+      "word": "雲母",
+      "reading": "うんも",
+      "meaning": "mica"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "出雲大社",
+      "reading": "いずもたいしゃ",
+      "meaning": "Izumo shrine"
+    }
+  ],
+  "unicode": "96f2"
+}

@@ -1,15 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import {
+  calculateKanjiScore,
+  generateKanjiQuestions,
+  generateRadicalQuestion,
   generateReadingQuestion,
   generateStrokeCountQuestion,
-  generateRadicalQuestion,
-  generateKanjiQuestions,
-  verifyKanjiAnswer,
-  calculateKanjiScore,
+  getKanjiByUnicode,
+  getKanjiDictionaryByGrade,
+  getKanjiIndexByGrade,
   getKanjiPerformanceMessage,
   type Kanji,
-  type KanjiQuestion,
+  type KanjiGrade,
   type KanjiQuestConfig,
+  type KanjiQuestion,
+  verifyKanjiAnswer,
 } from '../kanji-quest';
 
 // Sample kanji data for testing
@@ -17,6 +21,7 @@ const sampleKanji: Kanji[] = [
   {
     character: '一',
     grade: 1,
+    unicode: '4e00',
     strokeCount: 1,
     readings: {
       onyomi: ['イチ', 'イツ'],
@@ -28,10 +33,12 @@ const sampleKanji: Kanji[] = [
       { word: '一つ', reading: 'ひとつ', meaning: 'one (thing)' },
       { word: '一人', reading: 'ひとり', meaning: 'one person' },
     ],
+    specialExamples: [],
   },
   {
     character: '二',
     grade: 1,
+    unicode: '4e8c',
     strokeCount: 2,
     readings: {
       onyomi: ['ニ'],
@@ -40,10 +47,12 @@ const sampleKanji: Kanji[] = [
     meanings: ['two'],
     radicals: ['二'],
     examples: [{ word: '二つ', reading: 'ふたつ', meaning: 'two (things)' }],
+    specialExamples: [],
   },
   {
     character: '三',
     grade: 1,
+    unicode: '4e09',
     strokeCount: 3,
     readings: {
       onyomi: ['サン'],
@@ -52,10 +61,12 @@ const sampleKanji: Kanji[] = [
     meanings: ['three'],
     radicals: ['一'],
     examples: [{ word: '三つ', reading: 'みっつ', meaning: 'three (things)' }],
+    specialExamples: [],
   },
   {
     character: '四',
     grade: 1,
+    unicode: '56db',
     strokeCount: 5,
     readings: {
       onyomi: ['シ'],
@@ -64,10 +75,12 @@ const sampleKanji: Kanji[] = [
     meanings: ['four'],
     radicals: ['囗'],
     examples: [{ word: '四つ', reading: 'よっつ', meaning: 'four (things)' }],
+    specialExamples: [],
   },
   {
     character: '五',
     grade: 1,
+    unicode: '4e94',
     strokeCount: 4,
     readings: {
       onyomi: ['ゴ'],
@@ -76,6 +89,7 @@ const sampleKanji: Kanji[] = [
     meanings: ['five'],
     radicals: ['二'],
     examples: [{ word: '五つ', reading: 'いつつ', meaning: 'five (things)' }],
+    specialExamples: [],
   },
 ];
 
@@ -230,7 +244,9 @@ describe('generateRadicalQuestion', () => {
     expect(question.character).toBe('四');
     expect(question.questType).toBe('radical');
     expect(question.grade).toBe(1);
-    expect(question.questionText).toBe('「四」の<ruby>部首<rt>ぶしゅ</rt></ruby>は？');
+    expect(question.questionText).toBe(
+      '「四」の<ruby>部首<rt>ぶしゅ</rt></ruby>は？'
+    );
   });
 
   it('includes correct radical among the choices', () => {
@@ -470,6 +486,80 @@ describe('getKanjiPerformanceMessage', () => {
     expect(getKanjiPerformanceMessage(0)).toBe('復習が必要です。');
     expect(getKanjiPerformanceMessage(25)).toBe('復習が必要です。');
     expect(getKanjiPerformanceMessage(49)).toBe('復習が必要です。');
+  });
+});
+
+describe('getKanjiDictionaryByGrade', () => {
+  it('returns kanji entries for the requested grade', () => {
+    const entries = getKanjiDictionaryByGrade(1);
+
+    expect(entries.length).toBeGreaterThan(0);
+    expect(entries.every((entry) => entry.grade === 1)).toBe(true);
+  });
+
+  it('returns deep copies so the source data stays immutable', () => {
+    const originalEntries = getKanjiDictionaryByGrade(1);
+    const mutatedEntries = getKanjiDictionaryByGrade(1);
+
+    mutatedEntries[0]?.readings.onyomi.push('テスト');
+    mutatedEntries[0]?.examples.push({
+      word: 'テスト',
+      reading: 'てすと',
+      meaning: 'test',
+    });
+    mutatedEntries[0]?.specialExamples.push({
+      word: 'テスト特殊',
+      reading: 'てすととくしゅ',
+      meaning: 'special test reading',
+    });
+
+    const freshEntries = getKanjiDictionaryByGrade(1);
+
+    expect(freshEntries[0]?.readings.onyomi).not.toContain('テスト');
+    expect(freshEntries[0]?.examples.some((ex) => ex.word === 'テスト')).toBe(
+      false
+    );
+    expect(
+      freshEntries[0]?.specialExamples.some((ex) => ex.word === 'テスト特殊')
+    ).toBe(false);
+    expect(originalEntries).not.toBe(mutatedEntries);
+  });
+
+  it('guarantees ample examples and special reading arrays for early grades', () => {
+    ([1, 2] as KanjiGrade[]).forEach((grade) => {
+      const entries = getKanjiDictionaryByGrade(grade);
+
+      entries.forEach((entry) => {
+        expect(Array.isArray(entry.examples)).toBe(true);
+        expect(entry.examples.length).toBeGreaterThanOrEqual(10);
+        expect(Array.isArray(entry.specialExamples)).toBe(true);
+      });
+    });
+  });
+});
+
+describe('kanji data access helpers', () => {
+  it('returns index entries for a grade', () => {
+    const indexEntries = getKanjiIndexByGrade(1);
+
+    expect(indexEntries.length).toBeGreaterThan(0);
+    expect(indexEntries.every((entry) => entry.grade === 1)).toBe(true);
+  });
+
+  it('falls back to grade 1 data when grade is unavailable', () => {
+    const indexEntries = getKanjiIndexByGrade(6);
+
+    expect(indexEntries.length).toBeGreaterThan(0);
+    expect(indexEntries.every((entry) => entry.grade === 1)).toBe(true);
+  });
+
+  it('retrieves detailed kanji information by unicode', () => {
+    const kanji = getKanjiByUnicode('4e00');
+
+    expect(kanji?.character).toBe('一');
+    expect(kanji?.unicode).toBe('4e00');
+    expect(kanji?.grade).toBe(1);
+    expect(getKanjiByUnicode('ffff')).toBeUndefined();
   });
 });
 

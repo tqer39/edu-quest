@@ -1,14 +1,14 @@
-import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
+import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { BackToTopLink } from '../components/back-to-top-link';
 import {
-  gradeLevels,
   calculationTypes,
-  practiceThemes,
-  gradePresets,
-  gradeCalculationTypes,
   type GradeId,
+  gradeCalculationTypes,
+  gradeLevels,
+  gradePresets,
+  practiceThemes,
 } from './grade-presets';
 import { renderStartClientScript } from './start.client';
 

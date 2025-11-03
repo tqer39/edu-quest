@@ -1,0 +1,80 @@
+{
+  "character": "冬",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["トウ"],
+    "kunyomi": ["ふゆ"]
+  },
+  "meanings": ["winter"],
+  "radicals": ["夂"],
+  "examples": [
+    {
+      "word": "冬至",
+      "reading": "とうじ",
+      "meaning": "winter solstice"
+    },
+    {
+      "word": "暖冬",
+      "reading": "だんとう",
+      "meaning": "mild winter"
+    },
+    {
+      "word": "冬期",
+      "reading": "とうき",
+      "meaning": "winter term"
+    },
+    {
+      "word": "初冬",
+      "reading": "しょとう",
+      "meaning": "early winter"
+    },
+    {
+      "word": "冬眠",
+      "reading": "とうみん",
+      "meaning": "hibernation"
+    },
+    {
+      "word": "越冬する",
+      "reading": "えっとうする",
+      "meaning": "pass the winter"
+    },
+    {
+      "word": "冬",
+      "reading": "ふゆ",
+      "meaning": "winter"
+    },
+    {
+      "word": "冬学期",
+      "reading": "ふゆがっき",
+      "meaning": "winter semester"
+    },
+    {
+      "word": "真冬",
+      "reading": "まふゆ",
+      "meaning": "midwinter"
+    },
+    {
+      "word": "冬眠する",
+      "reading": "とうみんする",
+      "meaning": "hibernate"
+    },
+    {
+      "word": "厳冬",
+      "reading": "げんとう",
+      "meaning": "severe winter"
+    },
+    {
+      "word": "冬季",
+      "reading": "とうき",
+      "meaning": "winter season"
+    },
+    {
+      "word": "冬休み",
+      "reading": "ふゆやすみ",
+      "meaning": "winter vacation"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "51ac"
+}

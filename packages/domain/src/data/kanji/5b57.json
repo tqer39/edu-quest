@@ -1,0 +1,90 @@
+{
+  "character": "字",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ジ"],
+    "kunyomi": ["あざ"]
+  },
+  "meanings": ["character", "letter"],
+  "radicals": ["子"],
+  "examples": [
+    {
+      "word": "略字",
+      "reading": "りゃくじ",
+      "meaning": "abbreviation, simplified character"
+    },
+    {
+      "word": "赤十字",
+      "reading": "せきじゅうじ",
+      "meaning": "Red Cross"
+    },
+    {
+      "word": "赤字",
+      "reading": "あかじ",
+      "meaning": "deficit"
+    },
+    {
+      "word": "活字",
+      "reading": "かつじ",
+      "meaning": "moveable type"
+    },
+    {
+      "word": "字面",
+      "reading": "じづら",
+      "meaning": "typeface"
+    },
+    {
+      "word": "点字",
+      "reading": "てんじ",
+      "meaning": "Braille"
+    },
+    {
+      "word": "数字",
+      "reading": "すうじ",
+      "meaning": "numeral, number, figures"
+    },
+    {
+      "word": "名字",
+      "reading": "みょうじ",
+      "meaning": "family name"
+    },
+    {
+      "word": "象形文字",
+      "reading": "しょうけいもじ",
+      "meaning": "hieroglyph"
+    },
+    {
+      "word": "常用漢字",
+      "reading": "じょうようかんじ",
+      "meaning": "common use kanji"
+    },
+    {
+      "word": "誤字",
+      "reading": "ごじ",
+      "meaning": "misprint"
+    },
+    {
+      "word": "漢字",
+      "reading": "かんじ",
+      "meaning": "Chinese characters"
+    },
+    {
+      "word": "字",
+      "reading": "じ",
+      "meaning": "character, hand-writing"
+    },
+    {
+      "word": "文字",
+      "reading": "もじ",
+      "meaning": "character"
+    },
+    {
+      "word": "ローマ字",
+      "reading": "ローマじ",
+      "meaning": "Roman letters (alphabet)"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5b57"
+}

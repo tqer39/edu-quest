@@ -1,70 +1,97 @@
+import {
+  type ClockDifficulty,
+  type ClockGrade,
+  getKanjiDictionaryByGrade,
+  getKanjiByUnicode,
+  getKanjiIndexByGrade,
+  type KanjiGrade,
+  type KanjiQuestType,
+} from '@edu-quest/domain';
 import { Hono } from 'hono';
 import { jsxRenderer } from 'hono/jsx-renderer';
 import { logger } from 'hono/logger';
 import { prettyJSON } from 'hono/pretty-json';
-import type { Env } from './env';
-import { i18n } from './middlewares/i18n';
-import { seoControl } from './middlewares/seo-control';
-import { securityHeaders } from './middlewares/security-headers';
-import { quiz } from './routes/apis/quiz';
-import { Home } from './routes/pages/home';
-import { ClockHome } from './routes/pages/clock-home';
-import { ClockSelect } from './routes/pages/clock-select';
-import { ClockQuiz } from './routes/pages/clock-quiz';
-import { ClockResults } from './routes/pages/clock-results';
-import { KanjiHome } from './routes/pages/kanji-home';
-import { KanjiQuiz } from './routes/pages/kanji-quiz';
-import { KanjiResults } from './routes/pages/kanji-results';
-import { KanjiSelect } from './routes/pages/kanji-select';
-import { MathHome } from './routes/pages/math-home';
-import { MathSelect } from './routes/pages/math-select';
-import { GameHome } from './routes/pages/game-home';
-import { GameSelect } from './routes/pages/game-select';
-import { Start } from './routes/pages/start';
-import { Play } from './routes/pages/play';
-import { Sudoku } from './routes/pages/sudoku';
-import { SudokuSelect } from './routes/pages/sudoku-select';
-import { Login } from './routes/pages/login';
-import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
 import { resolveCurrentUser } from './application/session/current-user';
+import type { ClockQuizSession } from './application/usecases/clock-quiz';
 import {
   startClockQuizSession,
   submitClockAnswer,
 } from './application/usecases/clock-quiz';
-import type { ClockQuizSession } from './application/usecases/clock-quiz';
+import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
 import {
+  getKanjiSessionResult,
   startKanjiQuizSession,
   submitKanjiQuizAnswer,
-  getKanjiSessionResult,
 } from './application/usecases/kanji-quiz';
-import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
-import type {
-  ClockDifficulty,
-  ClockGrade,
-  KanjiGrade,
-  KanjiQuestType,
-} from '@edu-quest/domain';
-import {
-  gradeLevels,
-  gradeCalculationTypes,
-  type GradeId,
-} from './routes/pages/grade-presets';
+import type { Env } from './env';
+import type { AssetManifest } from './middlewares/asset-manifest';
+import { assetManifest } from './middlewares/asset-manifest';
+import { i18n } from './middlewares/i18n';
+import { securityHeaders } from './middlewares/security-headers';
+import { seoControl } from './middlewares/seo-control';
+import { quiz } from './routes/apis/quiz';
+import { ClockHome } from './routes/pages/clock-home';
+import { ClockQuest } from './routes/pages/clock-quest';
+import { ClockQuiz } from './routes/pages/clock-quiz';
+import { ClockResults } from './routes/pages/clock-results';
+import { ClockSelect } from './routes/pages/clock-select';
+import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
+import { GameHome } from './routes/pages/game-home';
 import {
   gameGradeLevels,
   getGameGradeById,
   getSudokuPresetsForGrade,
+  getSentinelPresetsForGrade,
 } from './routes/pages/game-presets';
+import { GameQuest } from './routes/pages/game-quest';
+import { GameSelect } from './routes/pages/game-select';
+import {
+  calculationTypes,
+  type GradeId,
+  gradeCalculationTypes,
+  gradeLevels,
+} from './routes/pages/grade-presets';
+import { Home } from './routes/pages/home';
+import { KanjiDetail } from './routes/pages/kanji-detail';
+import {
+  KanjiDictionary,
+  createKanjiSearchIndexEntry,
+} from './routes/pages/kanji-dictionary';
+import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiQuest } from './routes/pages/kanji-quest';
+import { KanjiQuiz } from './routes/pages/kanji-quiz';
+import { KanjiResults } from './routes/pages/kanji-results';
+import { KanjiSelect } from './routes/pages/kanji-select';
+import { Login } from './routes/pages/login';
+import { MathHome } from './routes/pages/math-home';
+import { MathPresetSelect } from './routes/pages/math-preset-select';
+import { getMathPresetsForGradeAndCalc } from './routes/pages/math-presets';
+import { MathQuest } from './routes/pages/math-quest';
+import { MathSelect } from './routes/pages/math-select';
+import { ParentsPage } from './routes/pages/parents';
+import { Play } from './routes/pages/play';
+import { Sentinels } from './routes/pages/sentinels';
+import { SentinelSelect } from './routes/pages/sentinels-select';
+import {
+  getSentinelPuzzleById,
+  type SentinelPuzzleId,
+} from './routes/pages/sentinels-puzzles';
+import { Sudoku } from './routes/pages/sudoku';
+import { SudokuSelect } from './routes/pages/sudoku-select';
+import { StellarBalance } from './routes/pages/stellar-balance';
+import { pickRandomStellarBalancePuzzle } from './routes/pages/stellar-balance-presets';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
   parseSchoolGradeParam,
 } from './routes/utils/school-grade';
-import { Document } from './views/layouts/document';
+import {
+  getSelectedGrade,
+  setSelectedGrade,
+} from './routes/utils/grade-session';
 import type { ReleaseInfo } from './types/release';
-import { assetManifest } from './middlewares/asset-manifest';
-import type { AssetManifest } from './middlewares/asset-manifest';
-import { NotFoundPage, ServerErrorPage } from './routes/pages/error';
+import { Document } from './views/layouts/document';
 
 const GITHUB_RELEASE_ENDPOINT =
   'https://api.github.com/repos/tqer39/edu-quest/releases/latest';
@@ -80,6 +107,32 @@ type GlobalWithProcess = typeof globalThis & {
   };
 };
 
+type GlobalWithReleaseCacheTag = GlobalWithProcess & {
+  __RELEASE_CACHE_TAG__?: string;
+};
+
+const getReleaseCacheTag = (): string => {
+  const globalWithTag = globalThis as GlobalWithReleaseCacheTag;
+
+  if (!globalWithTag.__RELEASE_CACHE_TAG__) {
+    const randomUUID = globalWithTag.crypto?.randomUUID?.bind(
+      globalWithTag.crypto
+    );
+
+    globalWithTag.__RELEASE_CACHE_TAG__ = randomUUID
+      ? randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  }
+
+  return globalWithTag.__RELEASE_CACHE_TAG__;
+};
+
+const createReleaseCacheKey = (): string => {
+  const url = new URL(GITHUB_RELEASE_ENDPOINT);
+  url.searchParams.set('deploy', getReleaseCacheTag());
+  return url.toString();
+};
+
 const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
   try {
     const maybeProcess = (globalThis as GlobalWithProcess).process;
@@ -88,20 +141,20 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
     }
 
     const cache = globalThis.caches?.default;
-    const createCacheRequest = () => new Request(GITHUB_RELEASE_ENDPOINT);
+    const cacheKey = createReleaseCacheKey();
 
     if (cache) {
-      const cached = await cache.match(createCacheRequest());
+      const cached = await cache.match(cacheKey);
       if (cached) {
         try {
           return (await cached.json()) as ReleaseInfo;
         } catch {
-          await cache.delete(createCacheRequest());
+          await cache.delete(cacheKey);
         }
       }
     }
 
-    const response = await fetch(GITHUB_RELEASE_ENDPOINT, {
+    const response = await fetch(cacheKey, {
       headers: {
         'User-Agent': 'edu-quest-worker',
         Accept: 'application/vnd.github+json',
@@ -130,7 +183,7 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
           'Content-Type': 'application/json',
         },
       });
-      await cache.put(createCacheRequest(), cacheResponse);
+      await cache.put(cacheKey, cacheResponse);
     }
 
     return releaseInfo;
@@ -336,16 +389,32 @@ app.get('/parents', async (c) =>
 );
 
 // MathQuest routes
-app.get('/math', async (c) =>
-  c.render(
+app.get('/math', async (c) => {
+  // Cookie から前回選択した学年を取得
+  const savedGradeId = getSelectedGrade(c);
+
+  // 学年が保存されていれば、クエスト選択画面にリダイレクト
+  if (savedGradeId) {
+    const parsedGrade = parseSchoolGradeParam(savedGradeId);
+    if (parsedGrade && parsedGrade.stage === '小学') {
+      const gradeParam = createSchoolGradeParam(parsedGrade);
+      return c.redirect(
+        `/math/select?grade=${encodeURIComponent(gradeParam)}`,
+        302
+      );
+    }
+  }
+
+  // 学年が保存されていない場合は、学年選択画面を表示
+  return c.render(
     <MathHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'MathQuest | 学年を選んで練習をはじめよう',
       description:
         '最初に学年を選択して、ぴったりの算数ミッションを見つけましょう。',
     }
-  )
-);
+  );
+});
 
 app.get('/math/select', async (c) => {
   const gradeParam = c.req.query('grade');
@@ -357,6 +426,11 @@ app.get('/math/select', async (c) => {
 
   const gradeIndex = parsedGrade.grade - 1;
   const selectedGrade = gradeLevels[gradeIndex];
+
+  // 学年選択を Cookie に保存
+  if (selectedGrade && !selectedGrade.disabled) {
+    setSelectedGrade(c, selectedGrade.id);
+  }
 
   if (!selectedGrade || selectedGrade.disabled) {
     return c.redirect('/math', 302);
@@ -372,82 +446,162 @@ app.get('/math/select', async (c) => {
     />,
     {
       title: `MathQuest - ${gradeLabel}`,
+      description: `${gradeLabel}向けの学習方法を選んでください。`,
+    }
+  );
+});
+
+app.get('/math/quest', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeIndex = parsedGrade.grade - 1;
+  const selectedGrade = gradeLevels[gradeIndex];
+
+  // 学年選択を Cookie に保存
+  if (selectedGrade && !selectedGrade.disabled) {
+    setSelectedGrade(c, selectedGrade.id);
+  }
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  return c.render(
+    <MathQuest
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={selectedGrade.id}
+      gradeStage={parsedGrade.stage}
+    />,
+    {
+      title: `MathQuest - ${gradeLabel}`,
       description: `${gradeLabel}向けの算数クエストを選んでください。`,
     }
   );
 });
 
+// Helper function to resolve grade from query parameter
+const resolveGradeFromParam = (
+  gradeParam: string | undefined
+): { index: number; grade: (typeof gradeLevels)[number] } | null => {
+  if (!gradeParam) return null;
+
+  // Try direct ID match
+  let index = gradeLevels.findIndex((grade) => grade.id === gradeParam);
+  if (index >= 0) {
+    return { index, grade: gradeLevels[index] };
+  }
+
+  // Try school grade format
+  const parsedSchoolGrade = parseSchoolGradeParam(gradeParam);
+  if (parsedSchoolGrade && parsedSchoolGrade.stage === '小学') {
+    index = parsedSchoolGrade.grade - 1;
+    if (index >= 0 && index < gradeLevels.length) {
+      return { index, grade: gradeLevels[index] };
+    }
+  }
+
+  // Try numeric format
+  const parsedGrade = Number(gradeParam);
+  if (
+    !Number.isNaN(parsedGrade) &&
+    parsedGrade >= 1 &&
+    parsedGrade <= gradeLevels.length
+  ) {
+    index = parsedGrade - 1;
+    return { index, grade: gradeLevels[index] };
+  }
+
+  return null;
+};
+
+// Helper function to validate calculation type
+const validateCalcType = (
+  calcParam: string | undefined,
+  gradeId: string
+): (typeof calculationTypes)[number] | null => {
+  if (!calcParam) return null;
+
+  const availableCalcIds =
+    gradeCalculationTypes[gradeId as keyof typeof gradeCalculationTypes] ?? [];
+
+  if (!(availableCalcIds as readonly string[]).includes(calcParam)) {
+    return null;
+  }
+
+  return calculationTypes.find((c) => c.id === calcParam) || null;
+};
+
+// Helper function to create calc type info
+const createCalcTypeInfo = (calcType: (typeof calculationTypes)[number]) => {
+  const calcIconMap: Record<string, string> = {
+    'calc-add': '➕',
+    'calc-sub': '➖',
+    'calc-mul': '✖️',
+    'calc-div': '➗',
+    'calc-add-sub-mix': '➕➖',
+    'calc-add-inverse': '🔄',
+    'calc-sub-inverse': '🔄',
+    'calc-mix': '🔢',
+  };
+
+  return {
+    id: calcType.id,
+    label: calcType.label,
+    emoji: calcIconMap[calcType.id] || '🔢',
+  };
+};
+
 app.get('/math/start', async (c) => {
   const gradeParam = c.req.query('grade');
   const calcParam = c.req.query('calc');
-  let selectedGradeIndex = gradeLevels.findIndex(
-    (grade) => grade.id === gradeParam
-  );
-  let selectedGrade =
-    selectedGradeIndex >= 0 ? gradeLevels[selectedGradeIndex] : undefined;
 
-  if (!selectedGrade && gradeParam) {
-    const parsedSchoolGrade = parseSchoolGradeParam(gradeParam);
-    if (parsedSchoolGrade && parsedSchoolGrade.stage === '小学') {
-      selectedGradeIndex = parsedSchoolGrade.grade - 1;
-      selectedGrade = gradeLevels[selectedGradeIndex];
-    }
-  }
-
-  if (!selectedGrade && gradeParam) {
-    const parsedGrade = Number(gradeParam);
-    if (
-      !Number.isNaN(parsedGrade) &&
-      parsedGrade >= 1 &&
-      parsedGrade <= gradeLevels.length
-    ) {
-      selectedGradeIndex = parsedGrade - 1;
-      selectedGrade = gradeLevels[selectedGradeIndex];
-    }
-  }
+  const gradeResult = resolveGradeFromParam(gradeParam);
 
   if (
-    !selectedGrade ||
-    selectedGrade.disabled ||
-    selectedGradeIndex < 0 ||
-    selectedGradeIndex >= gradeLevels.length
+    !gradeResult ||
+    gradeResult.grade.disabled ||
+    gradeResult.index < 0 ||
+    gradeResult.index >= gradeLevels.length
   ) {
     return c.redirect('/math', 302);
   }
 
-  const gradeNumber = selectedGradeIndex + 1;
   const gradeQuery = createSchoolGradeParam({
     stage: '小学',
-    grade: gradeNumber,
+    grade: gradeResult.index + 1,
   });
-  let initialCalcTypeId: string | undefined;
 
-  if (calcParam) {
-    const availableCalcIds =
-      gradeCalculationTypes[
-        selectedGrade.id as keyof typeof gradeCalculationTypes
-      ] ?? [];
-
-    if ((availableCalcIds as readonly string[]).includes(calcParam)) {
-      initialCalcTypeId = calcParam;
-    } else {
-      return c.redirect(
-        `/math/select?grade=${encodeURIComponent(gradeQuery)}`,
-        302
-      );
-    }
+  const calcType = validateCalcType(calcParam, gradeResult.grade.id);
+  if (!calcType) {
+    return c.redirect(
+      `/math/quest?grade=${encodeURIComponent(gradeQuery)}`,
+      302
+    );
   }
 
+  const calcTypeInfo = createCalcTypeInfo(calcType);
+  const presets = getMathPresetsForGradeAndCalc(
+    gradeResult.grade.id,
+    calcParam!
+  );
+
   return c.render(
-    <Start
+    <MathPresetSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
-      selectedGradeId={selectedGrade.id}
-      initialActivity={initialCalcTypeId ? 'math' : undefined}
-      initialCalculationTypeId={initialCalcTypeId}
+      gradeId={gradeResult.grade.id}
+      calcType={calcTypeInfo}
+      presets={presets}
     />,
     {
-      title: `MathQuest | ${selectedGrade.label}の設定`,
-      description: `${selectedGrade.description}向けの問題セットをカスタマイズしましょう。`,
+      title: `MathQuest | ${calcType.label}のテーマを選択`,
+      description: `${gradeResult.grade.label}向けの${calcType.label}テーマを選んで練習をはじめましょう。`,
     }
   );
 });
@@ -462,12 +616,25 @@ app.get('/math/play', async (c) =>
 
 // GameQuest routes
 app.get('/game', async (c) => {
+  // Check if grade is saved in cookie
+  const savedGradeId = getSelectedGrade(c);
+  if (savedGradeId) {
+    const parsedGrade = parseSchoolGradeParam(savedGradeId);
+    if (parsedGrade && parsedGrade.stage === '小学') {
+      const gradeParam = createSchoolGradeParam(parsedGrade);
+      return c.redirect(
+        `/game/select?grade=${encodeURIComponent(gradeParam)}`,
+        302
+      );
+    }
+  }
+
   return c.render(
     <GameHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'GameQuest | 学年からゲームを選ぼう',
       description:
-        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、ぴったりの数独プリセットを選択しよう。',
+        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、数独・Stellar Balance・センチネル配置のプリセットを選択しよう。',
       favicon: '/favicon-game.svg',
     }
   );
@@ -475,8 +642,21 @@ app.get('/game', async (c) => {
 
 app.get('/game/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/game', 302);
+  }
+
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  if (!isGameGradeId(gradeId)) {
+    return c.redirect('/game', 302);
+  }
+
   const grade = getGameGradeById(gradeId);
+
+  // Save grade selection to cookie
+  setSelectedGrade(c, gradeId);
 
   return c.render(
     <GameSelect
@@ -484,8 +664,39 @@ app.get('/game/select', async (c) => {
       gradeId={gradeId}
     />,
     {
+      title: `GameQuest | ${grade.label} - 学習方法選択`,
+      description: `${grade.label}向けの学習方法を選択しましょう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+app.get('/game/quest', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/game', 302);
+  }
+
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  if (!isGameGradeId(gradeId)) {
+    return c.redirect('/game', 302);
+  }
+
+  const grade = getGameGradeById(gradeId);
+
+  // Save grade selection to cookie
+  setSelectedGrade(c, gradeId);
+
+  return c.render(
+    <GameQuest
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={gradeId}
+    />,
+    {
       title: `GameQuest | ${grade.label} - ゲーム選択`,
-      description: `${grade.label}向けの数独パズルに挑戦しよう。${grade.highlight}がおすすめです。`,
+      description: `${grade.label}向けの数独・Stellar Balance・センチネル配置から選べます。${grade.highlight}がおすすめです。`,
       favicon: '/favicon-game.svg',
     }
   );
@@ -494,7 +705,7 @@ app.get('/game/select', async (c) => {
 // Sudoku preset selection page
 app.get('/game/sudoku', async (c) => {
   const gradeParam = c.req.query('grade');
-  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
   const grade = getGameGradeById(gradeId);
 
   return c.render(
@@ -517,7 +728,7 @@ app.get('/game/sudoku/play', async (c) => {
   const sizeParam = c.req.query('size');
   const difficultyParam = c.req.query('difficulty');
 
-  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
   const grade = getGameGradeById(gradeId);
   const size = sizeParam ? Number(sizeParam) : 4;
   const difficulty = difficultyParam || 'easy';
@@ -537,9 +748,88 @@ app.get('/game/sudoku/play', async (c) => {
   );
 });
 
+// Sentinel preset selection page
+app.get('/game/sentinels', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <SentinelSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      presets={getSentinelPresetsForGrade(gradeId)}
+    />,
+    {
+      title: `GameQuest | センチネル配置（${grade.label}向け）`,
+      description: `${grade.label}向けのセンチネル配置でナイトの守りを完成させよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sentinel gameplay page
+app.get('/game/sentinels/play', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const puzzleParam = c.req.query('puzzle');
+
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
+  const grade = getGameGradeById(gradeId);
+  const puzzleId = (puzzleParam || 'sentinel-6x6-intro') as SentinelPuzzleId;
+  const puzzle = getSentinelPuzzleById(puzzleId);
+
+  return c.render(
+    <Sentinels
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      puzzle={puzzle}
+    />,
+    {
+      title: `GameQuest | センチネル配置 - ${grade.label}`,
+      description: '色分けされた領域を守るセンチネルの配置に挑戦しよう。',
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Stellar Balance gameplay page
+app.get('/game/stellar-balance', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
+  const grade = getGameGradeById(gradeId);
+  const puzzle = pickRandomStellarBalancePuzzle(gradeId);
+
+  return c.render(
+    <StellarBalance
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      puzzle={puzzle}
+    />,
+    {
+      title: `GameQuest | Stellar Balance - ${grade.label}`,
+      description:
+        '太陽・月・星のタイルでバランスを整えるロジックパズルに挑戦しよう。',
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
 // KanjiQuest routes
-app.get('/kanji', async (c) =>
-  c.render(
+app.get('/kanji', async (c) => {
+  // Check if grade is saved in cookie
+  const savedGradeId = getSelectedGrade(c);
+  if (savedGradeId) {
+    const parsedGrade = parseSchoolGradeParam(savedGradeId);
+    if (parsedGrade && parsedGrade.stage === '小学') {
+      const gradeParam = createSchoolGradeParam(parsedGrade);
+      return c.redirect(
+        `/kanji/select?grade=${encodeURIComponent(gradeParam)}`,
+        302
+      );
+    }
+  }
+
+  return c.render(
     <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'KanjiQuest | 漢字を楽しくマスターしよう',
@@ -547,8 +837,89 @@ app.get('/kanji', async (c) =>
         '小学校で習う漢字の読み方・部首・画数を練習。楽しく漢字を覚えられます。',
       favicon: '/favicon-kanji.svg',
     }
-  )
-);
+  );
+});
+
+app.get('/kanji/dictionary', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
+  const grade = preferredGrade ?? 1;
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  // Load lightweight index and search data
+  const indexEntries = availableGrades.flatMap((g) => getKanjiIndexByGrade(g));
+  const searchIndex = availableGrades.flatMap((g) =>
+    getKanjiDictionaryByGrade(g).map((kanji) =>
+      createKanjiSearchIndexEntry(kanji)
+    )
+  );
+
+  return c.render(
+    <KanjiDictionary
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      entries={indexEntries}
+      searchIndex={searchIndex}
+    />,
+    {
+      title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
+      description: `${gradeLabel}で学ぶ漢字の読み方・意味・例をまとめた辞書ページです。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kanji/dictionary/:id', async (c) => {
+  const kanjiId = c.req.param('id');
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
+
+  const kanji = getKanjiByUnicode(kanjiId);
+
+  if (!kanji) {
+    return c.notFound();
+  }
+
+  const fallbackGrade = availableGrades.includes(kanji.grade as KanjiGrade)
+    ? (kanji.grade as KanjiGrade)
+    : 1;
+  const grade = preferredGrade ?? fallbackGrade;
+
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  return c.render(
+    <KanjiDetail
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      kanji={kanji}
+    />,
+    {
+      title: `${kanji.character} - ${gradeLabel}の漢字 | KanjiQuest`,
+      description: `${kanji.character}（${kanji.meanings.join(
+        '、'
+      )}）の読み方・意味・例を確認できます。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
 
 // KanjiQuest: クエストタイプ選択画面
 app.get('/kanji/select', async (c) => {
@@ -562,8 +933,41 @@ app.get('/kanji/select', async (c) => {
   const grade = parsedGrade.grade as KanjiGrade;
   const gradeLabel = formatSchoolGradeLabel(parsedGrade);
 
+  // Save grade selection to cookie
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
   return c.render(
     <KanjiSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      gradeStage={parsedGrade.stage}
+    />,
+    {
+      title: `KanjiQuest - ${gradeLabel}`,
+      description: `${gradeLabel}向けの学習方法を選んでください。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kanji/quest', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/kanji', 302);
+  }
+
+  const grade = parsedGrade.grade as KanjiGrade;
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  // Save grade selection to cookie
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
+  return c.render(
+    <KanjiQuest
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
       gradeStage={parsedGrade.stage}
@@ -584,7 +988,7 @@ app.get('/kanji/start', async (c) => {
 
   if (questTypeParam && !isKanjiQuestType(questTypeParam)) {
     const gradeQuery = createSchoolGradeParam({ stage: '小学', grade });
-    return c.redirect(`/kanji/select?grade=${gradeQuery}`, 302);
+    return c.redirect(`/kanji/quest?grade=${gradeQuery}`, 302);
   }
 
   const questType: KanjiQuestType = isKanjiQuestType(questTypeParam)
@@ -829,8 +1233,21 @@ app.get('/kanji/results', async (c) => {
 });
 
 // ClockQuest routes
-app.get('/clock', async (c) =>
-  c.render(
+app.get('/clock', async (c) => {
+  // Check if grade is saved in cookie
+  const savedGradeId = getSelectedGrade(c);
+  if (savedGradeId) {
+    const parsedGrade = parseSchoolGradeParam(savedGradeId);
+    if (parsedGrade && parsedGrade.stage === '小学') {
+      const gradeParam = createSchoolGradeParam(parsedGrade);
+      return c.redirect(
+        `/clock/select?grade=${encodeURIComponent(gradeParam)}`,
+        302
+      );
+    }
+  }
+
+  return c.render(
     <ClockHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
       title: 'ClockQuest | 時計の読み方をマスターしよう',
@@ -838,21 +1255,52 @@ app.get('/clock', async (c) =>
         'アナログ時計とデジタル時計の読み方を練習。楽しく時間の概念を学べます。',
       favicon: '/favicon-clock.svg',
     }
-  )
-);
+  );
+});
 
 app.get('/clock/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  // elem-1 形式から数字を抽出
-  const gradeMatch = gradeParam?.match(/^elem-(\d)$/);
-  const grade = gradeMatch ? (Number(gradeMatch[1]) as ClockGrade) : null;
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
 
-  if (!grade || grade < 1 || grade > 6) {
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
     return c.redirect('/clock', 302);
   }
 
+  const grade = parsedGrade.grade as ClockGrade;
+
+  // Save grade selection to cookie
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
   return c.render(
     <ClockSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+    />,
+    {
+      title: `ClockQuest | 小学${grade}年生の学習方法選択`,
+      description: `小学${grade}年生向けの学習方法を選択しましょう。`,
+      favicon: '/favicon-clock.svg',
+    }
+  );
+});
+
+app.get('/clock/quest', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/clock', 302);
+  }
+
+  const grade = parsedGrade.grade as ClockGrade;
+
+  // Save grade selection to cookie
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
+  return c.render(
+    <ClockQuest
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
     />,

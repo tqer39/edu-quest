@@ -1,0 +1,71 @@
+{
+  "character": "毎",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["マイ"],
+    "kunyomi": []
+  },
+  "meanings": ["every"],
+  "radicals": ["母"],
+  "examples": [
+    {
+      "word": "毎分",
+      "reading": "まいふん",
+      "meaning": "every minute"
+    },
+    {
+      "word": "毎月",
+      "reading": "まいつき",
+      "meaning": "every month"
+    },
+    {
+      "word": "毎月",
+      "reading": "まいげつ",
+      "meaning": "every month"
+    },
+    {
+      "word": "毎朝",
+      "reading": "まいあさ",
+      "meaning": "every morning"
+    },
+    {
+      "word": "毎日",
+      "reading": "まいにち",
+      "meaning": "every day"
+    },
+    {
+      "word": "毎回",
+      "reading": "まいかい",
+      "meaning": "every time"
+    },
+    {
+      "word": "毎度",
+      "reading": "まいど",
+      "meaning": "each time"
+    },
+    {
+      "word": "毎週",
+      "reading": "まいしゅう",
+      "meaning": "every week"
+    },
+    {
+      "word": "毎晩",
+      "reading": "まいばん",
+      "meaning": "every night"
+    },
+    {
+      "word": "毎秒",
+      "reading": "まいびょう",
+      "meaning": "every second"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "三日毎に",
+      "reading": "みっかごとに",
+      "meaning": "every 3 days"
+    }
+  ],
+  "unicode": "6bce"
+}

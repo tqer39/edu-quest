@@ -2,6 +2,7 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import type { KanjiQuestType } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
+import { DictionaryLink } from '../components/dictionary-link';
 
 type KanjiResultsProps = {
   currentUser: CurrentUser | null;
@@ -47,6 +48,9 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
           <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
             {questTypeLabel}
           </span>
+        </div>
+        <div class="flex items-center gap-2">
+          <DictionaryLink />
         </div>
       </nav>
 

@@ -1,0 +1,90 @@
+{
+  "character": "通",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["ツウ", "ツ"],
+    "kunyomi": ["とお-る", "とお-す", "かよ-う"]
+  },
+  "meanings": ["pass through", "commute"],
+  "radicals": ["辵"],
+  "examples": [
+    {
+      "word": "通報する",
+      "reading": "つうほうする",
+      "meaning": "report [v.t.]"
+    },
+    {
+      "word": "裏通り",
+      "reading": "うらどおり",
+      "meaning": "side street, back street"
+    },
+    {
+      "word": "通知する",
+      "reading": "つうちする",
+      "meaning": "notify by letter"
+    },
+    {
+      "word": "文通する",
+      "reading": "ぶんつうする",
+      "meaning": "correspond, exchange letters"
+    },
+    {
+      "word": "目を通す",
+      "reading": "めをとおす",
+      "meaning": "scan, look over"
+    },
+    {
+      "word": "交通",
+      "reading": "こうつう",
+      "meaning": "traffic"
+    },
+    {
+      "word": "交通事故",
+      "reading": "こうつうじこ",
+      "meaning": "traffic accident"
+    },
+    {
+      "word": "普通",
+      "reading": "ふつう",
+      "meaning": "usually"
+    },
+    {
+      "word": "通勤する",
+      "reading": "つうきんする",
+      "meaning": "commute to work"
+    },
+    {
+      "word": "通学する",
+      "reading": "つうがくする",
+      "meaning": "commute to school"
+    },
+    {
+      "word": "共通する",
+      "reading": "きょうつうする",
+      "meaning": "common"
+    },
+    {
+      "word": "通夜",
+      "reading": "つや",
+      "meaning": "all-night vigil over a body"
+    },
+    {
+      "word": "通る",
+      "reading": "とおる",
+      "meaning": "go through [v.i.]"
+    },
+    {
+      "word": "通す",
+      "reading": "とおす",
+      "meaning": "let pass [v.t.]"
+    },
+    {
+      "word": "通り",
+      "reading": "とおり",
+      "meaning": "avenue"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "901a"
+}

@@ -1,0 +1,70 @@
+{
+  "character": "図",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["ズ", "ト"],
+    "kunyomi": ["はか-る"]
+  },
+  "meanings": ["diagram", "map"],
+  "radicals": ["囗"],
+  "examples": [
+    {
+      "word": "図書館",
+      "reading": "としょかん",
+      "meaning": "library"
+    },
+    {
+      "word": "地図",
+      "reading": "ちず",
+      "meaning": "map"
+    },
+    {
+      "word": "図面",
+      "reading": "ずめん",
+      "meaning": "plan"
+    },
+    {
+      "word": "設計図",
+      "reading": "せっけいず",
+      "meaning": "blueprint"
+    },
+    {
+      "word": "意図する",
+      "reading": "いとする",
+      "meaning": "intend"
+    },
+    {
+      "word": "図書室",
+      "reading": "としょしつ",
+      "meaning": "library room"
+    },
+    {
+      "word": "図る",
+      "reading": "はかる",
+      "meaning": "plot, attempt"
+    },
+    {
+      "word": "構図",
+      "reading": "こうず",
+      "meaning": "composition (of a painting)"
+    },
+    {
+      "word": "製図",
+      "reading": "せいず",
+      "meaning": "drafting, drawing"
+    },
+    {
+      "word": "系図",
+      "reading": "けいず",
+      "meaning": "family tree, pedigree, genealogy"
+    },
+    {
+      "word": "図書",
+      "reading": "としょ",
+      "meaning": "books"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "56f3"
+}

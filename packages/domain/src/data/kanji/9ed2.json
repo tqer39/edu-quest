@@ -1,0 +1,70 @@
+{
+  "character": "黒",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["コク"],
+    "kunyomi": ["くろ", "くろ-い"]
+  },
+  "meanings": ["black"],
+  "radicals": ["黒"],
+  "examples": [
+    {
+      "word": "黒潮",
+      "reading": "くろしお",
+      "meaning": "the Japan Current"
+    },
+    {
+      "word": "黒煙",
+      "reading": "こくえん",
+      "meaning": "black smoke"
+    },
+    {
+      "word": "黒板",
+      "reading": "こくばん",
+      "meaning": "blackboard"
+    },
+    {
+      "word": "暗黒",
+      "reading": "あんこく",
+      "meaning": "darkness"
+    },
+    {
+      "word": "黒い",
+      "reading": "くろい",
+      "meaning": "black"
+    },
+    {
+      "word": "黒髪",
+      "reading": "くろかみ",
+      "meaning": "black hair"
+    },
+    {
+      "word": "白黒",
+      "reading": "しろくろ",
+      "meaning": "black and white"
+    },
+    {
+      "word": "真っ黒な",
+      "reading": "まっくろな",
+      "meaning": "pitch black"
+    },
+    {
+      "word": "大黒柱",
+      "reading": "だいこくばしら",
+      "meaning": "central pillar, breadwinner"
+    },
+    {
+      "word": "浅黒い",
+      "reading": "あさぐろい",
+      "meaning": "darkish, swarthy"
+    },
+    {
+      "word": "黒",
+      "reading": "くろ",
+      "meaning": "black"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9ed2"
+}

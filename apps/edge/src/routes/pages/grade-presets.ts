@@ -1,5 +1,5 @@
-import { deriveDifficultyProfile } from '@edu-quest/domain';
 import type { DifficultyProfile, Mode } from '@edu-quest/domain';
+import { deriveDifficultyProfile } from '@edu-quest/domain';
 
 export const gradeLevels = [
   {

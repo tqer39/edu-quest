@@ -4,6 +4,32 @@
 
 GameQuest is a collection of brain-training mini games designed to reinforce foundational math skills, spatial awareness, and logical reasoning through playful challenges. Each game lasts 60–120 seconds to keep students motivated while providing rapid feedback loops.
 
+## Implemented Mini Game: Stellar Balance
+
+**Summary**: Stellar Balance is the first playable GameQuest experience. Players balance a 6×6 grid of celestial tiles to satisfy spatial rules and maintain visual symmetry.
+
+### Gameplay Overview
+
+- Fill every cell with one of three icons — Sun (☀️), Moon (🌙), or Star (⭐).
+- Each row and column must contain exactly **two** of each icon.
+- Identical icons cannot touch horizontally or vertically.
+- Some tiles are pre-locked to seed the puzzle layout; hint tiles become locked once revealed.
+- A palette lets players pick the active icon, with a sponge button to clear cells.
+
+### Difficulty Sets & Grade Mapping
+
+- **Gentle** (Grades 1–2): Many starter clues that highlight balancing patterns.
+- **Steady** (Grades 2–6): Reduced hints that emphasize counting per row/column.
+- **Expert** (Grades 2–6): Minimal givens that rely on deductive reasoning and adjacency rules.
+- Puzzles are selected at random per page load to keep sessions fresh.
+
+### UX Notes
+
+- Live counters show how many Suns/Moons/Stars are currently placed versus the total target (12 each).
+- "Check Balance" validates all rules, highlights violations, and confirms completion with celebratory styling.
+- Dedicated buttons provide single-cell hints, a full reset, and a reroll for a different preset.
+- Styling reuses the GameQuest green palette with soft gradients to differentiate from MathQuest/ClockQuest themes.
+
 ## Target Users
 
 - Elementary school students (Grades 1-6)
@@ -63,6 +89,24 @@ GameQuest is a collection of brain-training mini games designed to reinforce fou
 - Numbers & equations (e.g., `8` ↔ `4 + 4`)
 - Clock faces & time expressions
 - Geometric shapes & definitions
+
+---
+
+### 4. Sentinel Knights
+
+**Objective**: Develop spatial reasoning and forward-planning by placing knight-style guardians on a shared board.
+
+**Gameplay Loop**:
+
+1. Display a 6×6 grid divided into color-coded regions with a handful of blocked cells.
+2. Learners tap cells to cycle between "Guardian", "Note", and "Empty" states while keeping the knight movement constraints in mind.
+3. The round ends when every row, column, and region contains exactly one guardian that cannot reach another via an L-shaped knight move.
+
+**Unique Mechanics**:
+
+- Knight conflict detection highlights invalid placements and explains the violation.
+- Region quotas encourage learners to balance global and local reasoning.
+- A progressive hint system guides students toward rows, columns, or regions that still lack a guardian.
 
 ---
 
