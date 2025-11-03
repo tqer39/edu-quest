@@ -190,9 +190,12 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
           </div>
           <div id="regular-example-list" class="space-y-3">
             {kanji.examples.map((example) => (
-              <div
+              <a
                 key={`${kanji.character}-${example.word}`}
-                class="example-item rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition-all"
+                href={`/kanji/vocabulary/${encodeURIComponent(
+                  example.word
+                )}?grade=${gradeParam}`}
+                class="example-item rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
                 data-reading={example.reading}
               >
                 <div class="flex items-baseline gap-3">
@@ -202,7 +205,7 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                   <div class="text-sm text-[#5e718a]">{example.reading}</div>
                 </div>
                 <div class="mt-2 text-sm text-[#4f6076]">{example.meaning}</div>
-              </div>
+              </a>
             ))}
           </div>
         </section>
@@ -217,9 +220,12 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
             </p>
             <div class="space-y-3">
               {kanji.specialExamples.map((example) => (
-                <div
+                <a
                   key={`${kanji.character}-special-${example.word}-${example.reading}`}
-                  class="rounded-2xl border border-dashed border-[var(--mq-primary)] bg-[var(--mq-surface)] p-4"
+                  href={`/kanji/vocabulary/${encodeURIComponent(
+                    example.word
+                  )}?grade=${gradeParam}`}
+                  class="block rounded-2xl border border-dashed border-[var(--mq-primary)] bg-[var(--mq-surface)] p-4 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
                 >
                   <div class="flex items-baseline gap-3">
                     <div class="text-xl font-bold text-[var(--mq-primary-strong)]">
@@ -230,7 +236,7 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                   <div class="mt-2 text-sm text-[#4f6076]">
                     {example.meaning}
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </section>

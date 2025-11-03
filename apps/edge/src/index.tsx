@@ -59,6 +59,7 @@ import {
   KanjiDictionary,
   createKanjiSearchIndexEntry,
 } from './routes/pages/kanji-dictionary';
+import { VocabularyDetail } from './routes/pages/vocabulary-detail';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiLearn } from './routes/pages/kanji-learn';
 import { KanjiQuest } from './routes/pages/kanji-quest';
@@ -904,6 +905,124 @@ app.get('/kanji/dictionary/:id', async (c) => {
       description: `${kanji.character}（${kanji.meanings.join(
         '、'
       )}）の読み方・意味・例を確認できます。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+/**
+ * Extract kanji characters from a vocabulary word
+ */
+function extractRelatedKanji(
+  word: string,
+  kanjiDict: ReturnType<typeof getKanjiDictionaryByGrade>,
+  exampleReading: string
+): Array<{ character: string; unicode: string; reading: string }> {
+  const relatedKanji: Array<{
+    character: string;
+    unicode: string;
+    reading: string;
+  }> = [];
+
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i];
+    const matchingKanji = kanjiDict.find((k) => k.character === char);
+    if (matchingKanji) {
+      const reading =
+        exampleReading.includes('onyomi') ||
+        matchingKanji.readings.onyomi.some((r) => exampleReading.includes(r))
+          ? matchingKanji.readings.onyomi[0] || ''
+          : matchingKanji.readings.kunyomi[0] || '';
+
+      relatedKanji.push({
+        character: matchingKanji.character,
+        unicode: matchingKanji.unicode,
+        reading,
+      });
+    }
+  }
+
+  return relatedKanji;
+}
+
+/**
+ * Find vocabulary entry from kanji dictionary examples
+ */
+function findVocabularyEntry(
+  word: string,
+  kanjiDict: ReturnType<typeof getKanjiDictionaryByGrade>
+): {
+  entry: { word: string; reading: string; meaning: string } | null;
+  relatedKanji: Array<{ character: string; unicode: string; reading: string }>;
+} {
+  // Search in regular examples
+  for (const kanji of kanjiDict) {
+    const example = kanji.examples.find((ex) => ex.word === word);
+    if (example) {
+      const relatedKanji = extractRelatedKanji(
+        word,
+        kanjiDict,
+        example.reading
+      );
+      return { entry: example, relatedKanji };
+    }
+  }
+
+  // Search in special examples
+  for (const kanji of kanjiDict) {
+    const specialExample = kanji.specialExamples?.find(
+      (ex) => ex.word === word
+    );
+    if (specialExample) {
+      const relatedKanji = extractRelatedKanji(
+        word,
+        kanjiDict,
+        specialExample.reading
+      );
+      return { entry: specialExample, relatedKanji };
+    }
+  }
+
+  return { entry: null, relatedKanji: [] };
+}
+
+// Vocabulary Dictionary: 用語辞典の詳細画面
+app.get('/kanji/vocabulary/:word', async (c) => {
+  const word = decodeURIComponent(c.req.param('word'));
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+
+  const kanjiDict = getKanjiDictionaryByGrade(grade);
+  const { entry: vocabularyEntry, relatedKanji } = findVocabularyEntry(
+    word,
+    kanjiDict
+  );
+
+  if (!vocabularyEntry) {
+    return c.notFound();
+  }
+
+  return c.render(
+    <VocabularyDetail
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      vocabulary={{
+        word,
+        reading: vocabularyEntry.reading,
+        meaning: vocabularyEntry.meaning,
+        relatedKanji,
+      }}
+    />,
+    {
+      title: `${word} - 用語辞典 | KanjiQuest`,
+      description: `${word}（${vocabularyEntry.reading}）の意味・使われている漢字を確認できます。`,
       favicon: '/favicon-kanji.svg',
     }
   );
