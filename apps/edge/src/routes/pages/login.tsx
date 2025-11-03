@@ -15,7 +15,7 @@ export const Login: FC<LoginPageProps> = ({
   redirect,
 }) => (
   <div class="flex min-h-screen w-full flex-col gap-10">
-    <Header currentUser={null} />
+    <Header currentUser={null} hideAuthActions />
     <div class="flex flex-col items-center justify-center px-4 sm:px-8 lg:px-16 xl:px-24">
       <div class="w-full max-w-md space-y-6 rounded-3xl border border-[var(--mq-outline)] bg-white p-8 text-[var(--mq-ink)] shadow-xl">
         <header class="space-y-2 text-center">
