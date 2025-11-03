@@ -70,8 +70,7 @@ const MODULE_SOURCE = `
         '<span aria-hidden="true">' + SYMBOL_DISPLAY[value].icon + '</span>';
     } else {
       cell.dataset.symbol = '';
-      cell.innerHTML =
-        '<span class="text-sm font-semibold text-slate-400">？</span>';
+      cell.innerHTML = '';
     }
   };
 

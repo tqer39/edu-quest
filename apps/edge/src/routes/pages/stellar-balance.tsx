@@ -261,11 +261,7 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
                   >
                     {symbolInfo ? (
                       <span aria-hidden="true">{symbolInfo.icon}</span>
-                    ) : (
-                      <span class="text-sm font-semibold text-slate-400">
-                        ？
-                      </span>
-                    )}
+                    ) : null}
                   </button>
                 );
               })
