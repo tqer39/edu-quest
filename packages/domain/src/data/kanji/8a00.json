@@ -1,0 +1,101 @@
+{
+  "character": "言",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "ゲン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "い-う",
+      "こと"
+    ]
+  },
+  "meanings": [
+    "say",
+    "word"
+  ],
+  "radicals": [
+    "言"
+  ],
+  "examples": [
+    {
+      "word": "真言宗",
+      "reading": "しんごんしゅう",
+      "meaning": "mantra sect, Shingon"
+    },
+    {
+      "word": "独立宣言",
+      "reading": "どくりつせんげん",
+      "meaning": "Declaration of Independence"
+    },
+    {
+      "word": "宣言する",
+      "reading": "せんげんする",
+      "meaning": "declare, proclaim, announce"
+    },
+    {
+      "word": "言い掛ける",
+      "reading": "いいかける",
+      "meaning": "begin speaking"
+    },
+    {
+      "word": "言い逃れ",
+      "reading": "いいのがれ",
+      "meaning": "evasion, excuse"
+    },
+    {
+      "word": "言質を取る",
+      "reading": "げんちをとる",
+      "meaning": "keep someone to a pledge"
+    },
+    {
+      "word": "方言",
+      "reading": "ほうげん",
+      "meaning": "dialect"
+    },
+    {
+      "word": "失言",
+      "reading": "しつげん",
+      "meaning": "improper words"
+    },
+    {
+      "word": "断言する",
+      "reading": "だんげんする",
+      "meaning": "assert"
+    },
+    {
+      "word": "証言する",
+      "reading": "しょうげんする",
+      "meaning": "testify"
+    },
+    {
+      "word": "言語学",
+      "reading": "げんごがく",
+      "meaning": "linguistics"
+    },
+    {
+      "word": "伝言する",
+      "reading": "でんごんする",
+      "meaning": "leave a message"
+    },
+    {
+      "word": "無言",
+      "reading": "むごん",
+      "meaning": "silence"
+    },
+    {
+      "word": "言う",
+      "reading": "いう",
+      "meaning": "say"
+    },
+    {
+      "word": "言葉",
+      "reading": "ことば",
+      "meaning": "word(s), language"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8a00"
+}

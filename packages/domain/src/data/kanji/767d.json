@@ -1,0 +1,101 @@
+{
+  "character": "白",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ハク",
+      "ビャク"
+    ],
+    "kunyomi": [
+      "しろ",
+      "しろ-い",
+      "しら"
+    ]
+  },
+  "meanings": [
+    "white"
+  ],
+  "radicals": [
+    "白"
+  ],
+  "examples": [
+    {
+      "word": "灰白色",
+      "reading": "かいはくしょく",
+      "meaning": "grayish white"
+    },
+    {
+      "word": "紅白",
+      "reading": "こうはく",
+      "meaning": "red and white, auspicious colors"
+    },
+    {
+      "word": "白紙",
+      "reading": "はくし",
+      "meaning": "white paper"
+    },
+    {
+      "word": "卵白",
+      "reading": "らんぱく",
+      "meaning": "white of an egg, albumin"
+    },
+    {
+      "word": "白髪",
+      "reading": "はくはつ",
+      "meaning": "white hair, grey hair"
+    },
+    {
+      "word": "白髪",
+      "reading": "しらが",
+      "meaning": "white hair, grey hair"
+    },
+    {
+      "word": "腕白な",
+      "reading": "わんぱくな",
+      "meaning": "naughty, mischievous"
+    },
+    {
+      "word": "白人",
+      "reading": "はくじん",
+      "meaning": "Caucasian"
+    },
+    {
+      "word": "白鳥",
+      "reading": "はくちょう",
+      "meaning": "swan"
+    },
+    {
+      "word": "空白",
+      "reading": "くうはく",
+      "meaning": "blank space"
+    },
+    {
+      "word": "明白な",
+      "reading": "めいはくな",
+      "meaning": "obvious"
+    },
+    {
+      "word": "白夜",
+      "reading": "びゃくや",
+      "meaning": "white (arctic) night"
+    },
+    {
+      "word": "白い",
+      "reading": "しろい",
+      "meaning": "white"
+    },
+    {
+      "word": "青白い",
+      "reading": "あおじろい",
+      "meaning": "pale"
+    },
+    {
+      "word": "白黒",
+      "reading": "しろくろ",
+      "meaning": "black and white"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "767d"
+}

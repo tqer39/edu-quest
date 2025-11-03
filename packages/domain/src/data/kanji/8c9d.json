@@ -1,0 +1,84 @@
+{
+  "character": "貝",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "バイ"
+    ],
+    "kunyomi": [
+      "かい"
+    ]
+  },
+  "meanings": [
+    "shellfish",
+    "shell"
+  ],
+  "radicals": [
+    "貝"
+  ],
+  "examples": [
+    {
+      "word": "貝",
+      "reading": "かい",
+      "meaning": "shell, shellfish"
+    },
+    {
+      "word": "貝柱",
+      "reading": "かいばしら",
+      "meaning": "adductor muscle (of shellfish)"
+    },
+    {
+      "word": "貝殻",
+      "reading": "かいがら",
+      "meaning": "shell"
+    },
+    {
+      "word": "貝塚",
+      "reading": "かいづか",
+      "meaning": "shell mound"
+    },
+    {
+      "word": "貝細工",
+      "reading": "かいざいく",
+      "meaning": "shell craft"
+    },
+    {
+      "word": "貝料理",
+      "reading": "かいりょうり",
+      "meaning": "shellfish dishes"
+    },
+    {
+      "word": "貝拾い",
+      "reading": "かいひろい",
+      "meaning": "shell collecting"
+    },
+    {
+      "word": "貝合わせ",
+      "reading": "かいあわせ",
+      "meaning": "shell matching game"
+    },
+    {
+      "word": "貝化石",
+      "reading": "かいかせき",
+      "meaning": "shell fossil"
+    },
+    {
+      "word": "巻き貝",
+      "reading": "まきがい",
+      "meaning": "spiral shell"
+    },
+    {
+      "word": "貝がら",
+      "reading": "かいがら",
+      "meaning": "seashell"
+    },
+    {
+      "word": "貝類",
+      "reading": "かいるい",
+      "meaning": "shellfish"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8c9d"
+}

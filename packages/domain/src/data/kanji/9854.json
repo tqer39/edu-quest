@@ -1,0 +1,88 @@
+{
+  "character": "顔",
+  "grade": 2,
+  "strokeCount": 18,
+  "readings": {
+    "onyomi": [
+      "ガン"
+    ],
+    "kunyomi": [
+      "かお"
+    ]
+  },
+  "meanings": [
+    "face"
+  ],
+  "radicals": [
+    "頁"
+  ],
+  "examples": [
+    {
+      "word": "顔色",
+      "reading": "かおいろ",
+      "meaning": "complexion"
+    },
+    {
+      "word": "寝顔",
+      "reading": "ねがお",
+      "meaning": "sleeping face"
+    },
+    {
+      "word": "泣き顔",
+      "reading": "なきがお",
+      "meaning": "tear-stained face"
+    },
+    {
+      "word": "洗顔する",
+      "reading": "せんがんする",
+      "meaning": "wash one's face"
+    },
+    {
+      "word": "童顔",
+      "reading": "どうがん",
+      "meaning": "baby-faced"
+    },
+    {
+      "word": "厚顔無恥",
+      "reading": "こうがんむち",
+      "meaning": "brazen and unscrupulous"
+    },
+    {
+      "word": "顔",
+      "reading": "かお",
+      "meaning": "(a person's) face"
+    },
+    {
+      "word": "素顔",
+      "reading": "すがお",
+      "meaning": "face with no make-up"
+    },
+    {
+      "word": "笑顔",
+      "reading": "えがお",
+      "meaning": "smile, smiling face"
+    },
+    {
+      "word": "御顔",
+      "reading": "おかお",
+      "meaning": "face [hon.]"
+    },
+    {
+      "word": "厚顔無恥な",
+      "reading": "こうがんむちな",
+      "meaning": "brazen and unscrupulous"
+    },
+    {
+      "word": "丸顔",
+      "reading": "まるがお",
+      "meaning": "round face"
+    },
+    {
+      "word": "似顔絵",
+      "reading": "にがおえ",
+      "meaning": "portrait"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9854"
+}

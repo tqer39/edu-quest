@@ -1,0 +1,92 @@
+{
+  "character": "弱",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": [
+      "ジャク"
+    ],
+    "kunyomi": [
+      "よわ-い",
+      "よわ-る",
+      "よわ-まる",
+      "よわ-める"
+    ]
+  },
+  "meanings": [
+    "weak"
+  ],
+  "radicals": [
+    "弓"
+  ],
+  "examples": [
+    {
+      "word": "軟弱な",
+      "reading": "なんじゃくな",
+      "meaning": "weak"
+    },
+    {
+      "word": "薄弱な",
+      "reading": "はくじゃくな",
+      "meaning": "feeble, weak"
+    },
+    {
+      "word": "弱者",
+      "reading": "じゃくしゃ",
+      "meaning": "the weak"
+    },
+    {
+      "word": "弱点",
+      "reading": "じゃくてん",
+      "meaning": "weakness"
+    },
+    {
+      "word": "弱震",
+      "reading": "じゃくしん",
+      "meaning": "mild earthquake"
+    },
+    {
+      "word": "十ドル弱",
+      "reading": "じゅうドルじゃく",
+      "meaning": "a little less than ten dollars"
+    },
+    {
+      "word": "弱い",
+      "reading": "よわい",
+      "meaning": "weak, frail"
+    },
+    {
+      "word": "弱る",
+      "reading": "よわる",
+      "meaning": "be weakened, be troubled [v.i.]"
+    },
+    {
+      "word": "弱める",
+      "reading": "よわめる",
+      "meaning": "weaken [v.t.]"
+    },
+    {
+      "word": "弱まる",
+      "reading": "よわまる",
+      "meaning": "abate, be weakened [v.i.]"
+    },
+    {
+      "word": "貧弱な",
+      "reading": "ひんじゃくな",
+      "meaning": "meagre, insubstantial"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "弱腰",
+      "reading": "よわごし",
+      "meaning": "weak attitude"
+    },
+    {
+      "word": "弱虫",
+      "reading": "よわむし",
+      "meaning": "coward, weakling"
+    }
+  ],
+  "unicode": "5f31"
+}

@@ -1,0 +1,83 @@
+{
+  "character": "夕",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "セキ"
+    ],
+    "kunyomi": [
+      "ゆう"
+    ]
+  },
+  "meanings": [
+    "evening"
+  ],
+  "radicals": [
+    "夕"
+  ],
+  "examples": [
+    {
+      "word": "夕刻",
+      "reading": "ゆうこく",
+      "meaning": "evening, evening hour"
+    },
+    {
+      "word": "夕映え",
+      "reading": "ゆうばえ",
+      "meaning": "sunset glow"
+    },
+    {
+      "word": "夕方",
+      "reading": "ゆうがた",
+      "meaning": "evening"
+    },
+    {
+      "word": "一朝一夕",
+      "reading": "いっちょういっせき",
+      "meaning": "in a brief space of time"
+    },
+    {
+      "word": "夕食",
+      "reading": "ゆうしょく",
+      "meaning": "dinner"
+    },
+    {
+      "word": "夕日",
+      "reading": "ゆうひ",
+      "meaning": "the evening sun"
+    },
+    {
+      "word": "夕刊",
+      "reading": "ゆうかん",
+      "meaning": "evening paper"
+    },
+    {
+      "word": "夕暮れ",
+      "reading": "ゆうぐれ",
+      "meaning": "twilight"
+    },
+    {
+      "word": "夕飯",
+      "reading": "ゆうはん",
+      "meaning": "dinner"
+    },
+    {
+      "word": "夕焼け",
+      "reading": "ゆうやけ",
+      "meaning": "sunset"
+    },
+    {
+      "word": "夕",
+      "reading": "ゆう",
+      "meaning": "evening"
+    },
+    {
+      "word": "朝夕",
+      "reading": "あさゆう",
+      "meaning": "morning and evening"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5915"
+}

@@ -1,0 +1,100 @@
+{
+  "character": "引",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "イン"
+    ],
+    "kunyomi": [
+      "ひ-く",
+      "ひ-ける"
+    ]
+  },
+  "meanings": [
+    "pull",
+    "draw"
+  ],
+  "radicals": [
+    "弓"
+  ],
+  "examples": [
+    {
+      "word": "割り引く",
+      "reading": "わりびく",
+      "meaning": "discount [v.t.]"
+    },
+    {
+      "word": "引き潮",
+      "reading": "ひきしお",
+      "meaning": "ebb tide"
+    },
+    {
+      "word": "引っ込める",
+      "reading": "ひっこめる",
+      "meaning": "draw in, take in, retract"
+    },
+    {
+      "word": "引き出し",
+      "reading": "ひきだし",
+      "meaning": "drawer"
+    },
+    {
+      "word": "引力",
+      "reading": "いんりょく",
+      "meaning": "gravity"
+    },
+    {
+      "word": "強引な",
+      "reading": "ごういんな",
+      "meaning": "pushy"
+    },
+    {
+      "word": "引用する",
+      "reading": "いんようする",
+      "meaning": "quote"
+    },
+    {
+      "word": "引退する",
+      "reading": "いんたいする",
+      "meaning": "retire"
+    },
+    {
+      "word": "引く",
+      "reading": "ひく",
+      "meaning": "pull"
+    },
+    {
+      "word": "引っ越し",
+      "reading": "ひっこし",
+      "meaning": "moving (e.g. residence)"
+    },
+    {
+      "word": "引っ越す",
+      "reading": "ひっこす",
+      "meaning": "move [v.i.]"
+    },
+    {
+      "word": "引率する",
+      "reading": "いんそつする",
+      "meaning": "lead (a group)"
+    },
+    {
+      "word": "引っ張る",
+      "reading": "ひっぱる",
+      "meaning": "pull, stretch"
+    },
+    {
+      "word": "値引きする",
+      "reading": "ねびきする",
+      "meaning": "discount [v.t.]"
+    },
+    {
+      "word": "引き算",
+      "reading": "ひきざん",
+      "meaning": "subtraction"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5f15"
+}

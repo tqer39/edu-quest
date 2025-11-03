@@ -1,0 +1,97 @@
+{
+  "character": "肉",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "ニク"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "meat",
+    "flesh"
+  ],
+  "radicals": [
+    "肉"
+  ],
+  "examples": [
+    {
+      "word": "筋肉痛",
+      "reading": "きんにくつう",
+      "meaning": "muscular pain"
+    },
+    {
+      "word": "牛肉",
+      "reading": "ぎゅうにく",
+      "meaning": "beef"
+    },
+    {
+      "word": "皮肉",
+      "reading": "ひにく",
+      "meaning": "cynicism, sarcasm, irony, satire"
+    },
+    {
+      "word": "肉屋",
+      "reading": "にくや",
+      "meaning": "butcher [n.]"
+    },
+    {
+      "word": "肉食",
+      "reading": "にくしょく",
+      "meaning": "meat-eating, carnivorous"
+    },
+    {
+      "word": "肉体",
+      "reading": "にくたい",
+      "meaning": "body, flesh"
+    },
+    {
+      "word": "肉親",
+      "reading": "にくしん",
+      "meaning": "blood relative"
+    },
+    {
+      "word": "肉眼",
+      "reading": "にくがん",
+      "meaning": "naked eye"
+    },
+    {
+      "word": "肉筆",
+      "reading": "にくひつ",
+      "meaning": "one's own handwriting"
+    },
+    {
+      "word": "豚肉",
+      "reading": "ぶたにく",
+      "meaning": "pork"
+    },
+    {
+      "word": "鳥肉",
+      "reading": "とりにく",
+      "meaning": "chicken meat"
+    },
+    {
+      "word": "筋肉",
+      "reading": "きんにく",
+      "meaning": "muscle, sinew"
+    },
+    {
+      "word": "挽き肉",
+      "reading": "ひきにく",
+      "meaning": "minced, ground meat"
+    },
+    {
+      "word": "羊頭狗肉",
+      "reading": "ようとうくにく",
+      "meaning": "deceptive advertising"
+    },
+    {
+      "word": "肉",
+      "reading": "にく",
+      "meaning": "meat"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8089"
+}

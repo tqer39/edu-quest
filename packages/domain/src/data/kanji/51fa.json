@@ -1,0 +1,148 @@
+{
+  "character": "出",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "シュツ",
+      "スイ"
+    ],
+    "kunyomi": [
+      "で-る",
+      "だ-す"
+    ]
+  },
+  "meanings": [
+    "exit",
+    "leave",
+    "go out"
+  ],
+  "radicals": [
+    "凵"
+  ],
+  "examples": [
+    {
+      "word": "出版社",
+      "reading": "しゅっぱんしゃ",
+      "meaning": "publisher"
+    },
+    {
+      "word": "出版する",
+      "reading": "しゅっぱんする",
+      "meaning": "publish"
+    },
+    {
+      "word": "出納係",
+      "reading": "すいとうがかり",
+      "meaning": "cashier, treasurer, teller"
+    },
+    {
+      "word": "掘り出し物",
+      "reading": "ほりだしもの",
+      "meaning": "good buy, bargain, treasure"
+    },
+    {
+      "word": "歳出",
+      "reading": "さいしゅつ",
+      "meaning": "annual expenditure"
+    },
+    {
+      "word": "吹き出す",
+      "reading": "ふきだす",
+      "meaning": "spurt, burst in laughter"
+    },
+    {
+      "word": "脱出する",
+      "reading": "だっしゅつする",
+      "meaning": "escape [v.i.]"
+    },
+    {
+      "word": "思い出す",
+      "reading": "おもいだす",
+      "meaning": "recall"
+    },
+    {
+      "word": "出身",
+      "reading": "しゅっしん",
+      "meaning": "birth place, alma mater"
+    },
+    {
+      "word": "出席する",
+      "reading": "しゅっせきする",
+      "meaning": "attend"
+    },
+    {
+      "word": "出発する",
+      "reading": "しゅっぱつする",
+      "meaning": "depart"
+    },
+    {
+      "word": "輸出する",
+      "reading": "ゆしゅつする",
+      "meaning": "export"
+    },
+    {
+      "word": "外出する",
+      "reading": "がいしゅつする",
+      "meaning": "go out"
+    },
+    {
+      "word": "出納",
+      "reading": "すいとう",
+      "meaning": "receipts and expenditure"
+    },
+    {
+      "word": "出る",
+      "reading": "でる",
+      "meaning": "come out [v.i.]"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "出掛ける",
+      "reading": "でかける",
+      "meaning": "got out, depart"
+    },
+    {
+      "word": "吹き出物",
+      "reading": "ふきでもの",
+      "meaning": "pimple, acne"
+    },
+    {
+      "word": "思い出",
+      "reading": "おもいで",
+      "meaning": "memories"
+    },
+    {
+      "word": "出かける",
+      "reading": "でかける",
+      "meaning": "go out"
+    },
+    {
+      "word": "出口",
+      "reading": "でぐち",
+      "meaning": "exit [n.]"
+    },
+    {
+      "word": "家出する",
+      "reading": "いえでする",
+      "meaning": "run away from home"
+    },
+    {
+      "word": "門出",
+      "reading": "かどで",
+      "meaning": "departure, setting out"
+    },
+    {
+      "word": "出雲大社",
+      "reading": "いずもたいしゃ",
+      "meaning": "Izumo shrine"
+    },
+    {
+      "word": "出来栄え",
+      "reading": "できばえ",
+      "meaning": "quality of finished product"
+    }
+  ],
+  "unicode": "51fa"
+}

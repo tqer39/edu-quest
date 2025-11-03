@@ -1,0 +1,99 @@
+{
+  "character": "画",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "ガ",
+      "カク"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "picture",
+    "drawing",
+    "stroke"
+  ],
+  "radicals": [
+    "田"
+  ],
+  "examples": [
+    {
+      "word": "版画",
+      "reading": "はんが",
+      "meaning": "art print"
+    },
+    {
+      "word": "映画",
+      "reading": "えいが",
+      "meaning": "movie"
+    },
+    {
+      "word": "映画館",
+      "reading": "えいがかん",
+      "meaning": "movie theater"
+    },
+    {
+      "word": "漫画",
+      "reading": "まんが",
+      "meaning": "comic"
+    },
+    {
+      "word": "絵画",
+      "reading": "かいが",
+      "meaning": "painting"
+    },
+    {
+      "word": "画面",
+      "reading": "がめん",
+      "meaning": "screen"
+    },
+    {
+      "word": "計画する",
+      "reading": "けいかくする",
+      "meaning": "plan"
+    },
+    {
+      "word": "企画する",
+      "reading": "きかくする",
+      "meaning": "plan (e.g. project)"
+    },
+    {
+      "word": "画数",
+      "reading": "かくすう",
+      "meaning": "stroke count"
+    },
+    {
+      "word": "画期的",
+      "reading": "かっきてき",
+      "meaning": "epoch-making"
+    },
+    {
+      "word": "画期的な",
+      "reading": "かっきてきな",
+      "meaning": "epoch-making"
+    },
+    {
+      "word": "企画",
+      "reading": "きかく",
+      "meaning": "project [n.]"
+    },
+    {
+      "word": "映画化する",
+      "reading": "えいがかする",
+      "meaning": "adapt (a book) to film"
+    },
+    {
+      "word": "画像",
+      "reading": "がぞう",
+      "meaning": "image, picture [n.]"
+    },
+    {
+      "word": "自画像",
+      "reading": "じがぞう",
+      "meaning": "self portrait"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "753b"
+}

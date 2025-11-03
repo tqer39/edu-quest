@@ -1,0 +1,98 @@
+{
+  "character": "公",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "おおやけ"
+    ]
+  },
+  "meanings": [
+    "public"
+  ],
+  "radicals": [
+    "八"
+  ],
+  "examples": [
+    {
+      "word": "公務員",
+      "reading": "こうむいん",
+      "meaning": "civil servant"
+    },
+    {
+      "word": "公衆",
+      "reading": "こうしゅう",
+      "meaning": "the public"
+    },
+    {
+      "word": "公開する",
+      "reading": "こうかいする",
+      "meaning": "present to the public"
+    },
+    {
+      "word": "不公平な",
+      "reading": "ふこうへいな",
+      "meaning": "unfair"
+    },
+    {
+      "word": "公僕",
+      "reading": "こうぼく",
+      "meaning": "public servant"
+    },
+    {
+      "word": "公式",
+      "reading": "こうしき",
+      "meaning": "formula [n.], official [adj.]"
+    },
+    {
+      "word": "公共",
+      "reading": "こうきょう",
+      "meaning": "public"
+    },
+    {
+      "word": "公平な",
+      "reading": "こうへいな",
+      "meaning": "fair, impartial"
+    },
+    {
+      "word": "公募する",
+      "reading": "こうぼする",
+      "meaning": "advertise, make public appeal"
+    },
+    {
+      "word": "非公式な",
+      "reading": "ひこうしきな",
+      "meaning": "informal"
+    },
+    {
+      "word": "公園",
+      "reading": "こうえん",
+      "meaning": "park"
+    },
+    {
+      "word": "公害",
+      "reading": "こうがい",
+      "meaning": "public nuisance, pollution"
+    },
+    {
+      "word": "公判",
+      "reading": "こうはん",
+      "meaning": "public hearing, trial"
+    },
+    {
+      "word": "公立",
+      "reading": "こうりつ",
+      "meaning": "public"
+    },
+    {
+      "word": "主人公",
+      "reading": "しゅじんこう",
+      "meaning": "main character, hero"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "516c"
+}

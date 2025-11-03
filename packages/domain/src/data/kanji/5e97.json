@@ -1,0 +1,89 @@
+{
+  "character": "店",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "テン"
+    ],
+    "kunyomi": [
+      "みせ"
+    ]
+  },
+  "meanings": [
+    "shop",
+    "store"
+  ],
+  "radicals": [
+    "广"
+  ],
+  "examples": [
+    {
+      "word": "閉店する",
+      "reading": "へいてんする",
+      "meaning": "close shop"
+    },
+    {
+      "word": "飲食店",
+      "reading": "いんしょくてん",
+      "meaning": "restaurant"
+    },
+    {
+      "word": "喫茶店",
+      "reading": "きっさてん",
+      "meaning": "coffee shop"
+    },
+    {
+      "word": "店頭",
+      "reading": "てんとう",
+      "meaning": "shop front"
+    },
+    {
+      "word": "店先",
+      "reading": "みせさき",
+      "meaning": "store front"
+    },
+    {
+      "word": "商店",
+      "reading": "しょうてん",
+      "meaning": "shop [n.]"
+    },
+    {
+      "word": "書店",
+      "reading": "しょてん",
+      "meaning": "bookstore"
+    },
+    {
+      "word": "売店",
+      "reading": "ばいてん",
+      "meaning": "stand [n.]"
+    },
+    {
+      "word": "本店",
+      "reading": "ほんてん",
+      "meaning": "head office"
+    },
+    {
+      "word": "支店",
+      "reading": "してん",
+      "meaning": "branch office"
+    },
+    {
+      "word": "店員",
+      "reading": "てんいん",
+      "meaning": "salesperson"
+    },
+    {
+      "word": "店",
+      "reading": "みせ",
+      "meaning": "store [n.]"
+    },
+    {
+      "word": "商店街",
+      "reading": "しょうてんがい",
+      "meaning": "shopping district"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5e97"
+}

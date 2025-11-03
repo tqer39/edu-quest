@@ -1,0 +1,81 @@
+{
+  "character": "少",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "すく-ない",
+      "すこ-し"
+    ]
+  },
+  "meanings": [
+    "few",
+    "little"
+  ],
+  "radicals": [
+    "小"
+  ],
+  "examples": [
+    {
+      "word": "幼少",
+      "reading": "ようしょう",
+      "meaning": "infancy, childhood, tender age"
+    },
+    {
+      "word": "少々",
+      "reading": "しょうしょう",
+      "meaning": "few, a little, somewhat"
+    },
+    {
+      "word": "多少",
+      "reading": "たしょう",
+      "meaning": "more or less"
+    },
+    {
+      "word": "少数",
+      "reading": "しょうすう",
+      "meaning": "minority"
+    },
+    {
+      "word": "少量",
+      "reading": "しょうりょう",
+      "meaning": "small quantity"
+    },
+    {
+      "word": "少額",
+      "reading": "しょうがく",
+      "meaning": "small sum (of money)"
+    },
+    {
+      "word": "少年",
+      "reading": "しょうねん",
+      "meaning": "boy"
+    },
+    {
+      "word": "減少する",
+      "reading": "げんしょうする",
+      "meaning": "decrease [v.i.]"
+    },
+    {
+      "word": "少ない",
+      "reading": "すくない",
+      "meaning": "a few, a little"
+    },
+    {
+      "word": "少し",
+      "reading": "すこし",
+      "meaning": "small quantity, a little"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "少なくとも",
+      "reading": "すくなくとも",
+      "meaning": "at least"
+    }
+  ],
+  "unicode": "5c11"
+}

@@ -1,0 +1,100 @@
+{
+  "character": "夜",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "ヤ"
+    ],
+    "kunyomi": [
+      "よ",
+      "よる"
+    ]
+  },
+  "meanings": [
+    "night",
+    "evening"
+  ],
+  "radicals": [
+    "夕"
+  ],
+  "examples": [
+    {
+      "word": "夜更かし",
+      "reading": "よふかし",
+      "meaning": "staying up late"
+    },
+    {
+      "word": "夜遅く",
+      "reading": "よるおそく",
+      "meaning": "late at night"
+    },
+    {
+      "word": "今夜",
+      "reading": "こんや",
+      "meaning": "tonight"
+    },
+    {
+      "word": "深夜",
+      "reading": "しんや",
+      "meaning": "midnight"
+    },
+    {
+      "word": "夜間",
+      "reading": "やかん",
+      "meaning": "nighttime"
+    },
+    {
+      "word": "徹夜する",
+      "reading": "てつやする",
+      "meaning": "stay up all night"
+    },
+    {
+      "word": "夜更かしする",
+      "reading": "よふかしする",
+      "meaning": "stay up late"
+    },
+    {
+      "word": "夜中",
+      "reading": "よなか",
+      "meaning": "late at night"
+    },
+    {
+      "word": "夜明け",
+      "reading": "よあけ",
+      "meaning": "dawn"
+    },
+    {
+      "word": "夜空",
+      "reading": "よぞら",
+      "meaning": "night sky"
+    },
+    {
+      "word": "月夜",
+      "reading": "つきよ",
+      "meaning": "moonlit night"
+    },
+    {
+      "word": "夜",
+      "reading": "よる",
+      "meaning": "night"
+    },
+    {
+      "word": "白夜",
+      "reading": "びゃくや",
+      "meaning": "white (arctic) night"
+    },
+    {
+      "word": "通夜",
+      "reading": "つや",
+      "meaning": "all-night vigil over a body"
+    },
+    {
+      "word": "夜勤",
+      "reading": "やきん",
+      "meaning": "night shift"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "591c"
+}

@@ -1,0 +1,79 @@
+{
+  "character": "刀",
+  "grade": 2,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "かたな"
+    ]
+  },
+  "meanings": [
+    "sword",
+    "blade"
+  ],
+  "radicals": [
+    "刀"
+  ],
+  "examples": [
+    {
+      "word": "刀剣",
+      "reading": "とうけん",
+      "meaning": "swords"
+    },
+    {
+      "word": "刀身",
+      "reading": "とうしん",
+      "meaning": "sword blade"
+    },
+    {
+      "word": "名刀",
+      "reading": "めいとう",
+      "meaning": "famous sword, excellent sword"
+    },
+    {
+      "word": "短刀",
+      "reading": "たんとう",
+      "meaning": "short sword, dagger, dirk"
+    },
+    {
+      "word": "日本刀",
+      "reading": "にほんとう",
+      "meaning": "Japanese sword"
+    },
+    {
+      "word": "刀",
+      "reading": "かたな",
+      "meaning": "sword, blade"
+    },
+    {
+      "word": "小刀",
+      "reading": "こがたな",
+      "meaning": "small knife, short sword"
+    },
+    {
+      "word": "刀工",
+      "reading": "とうこう",
+      "meaning": "swordsmith"
+    },
+    {
+      "word": "刀傷",
+      "reading": "かたなきず",
+      "meaning": "sword wound"
+    },
+    {
+      "word": "帯刀",
+      "reading": "たいとう",
+      "meaning": "wearing a sword"
+    },
+    {
+      "word": "包丁",
+      "reading": "ほうちょう",
+      "meaning": "kitchen knife"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5200"
+}

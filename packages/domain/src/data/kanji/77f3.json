@@ -1,0 +1,116 @@
+{
+  "character": "石",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "セキ",
+      "シャク"
+    ],
+    "kunyomi": [
+      "いし"
+    ]
+  },
+  "meanings": [
+    "stone",
+    "rock"
+  ],
+  "radicals": [
+    "石"
+  ],
+  "examples": [
+    {
+      "word": "磁石",
+      "reading": "じしゃく",
+      "meaning": "magnet"
+    },
+    {
+      "word": "宝石",
+      "reading": "ほうせき",
+      "meaning": "gem, jewel"
+    },
+    {
+      "word": "要石",
+      "reading": "かなめいし",
+      "meaning": "keystone"
+    },
+    {
+      "word": "石像",
+      "reading": "せきぞう",
+      "meaning": "stone statue"
+    },
+    {
+      "word": "石炭",
+      "reading": "せきたん",
+      "meaning": "coal"
+    },
+    {
+      "word": "石油",
+      "reading": "せきゆ",
+      "meaning": "petroleum"
+    },
+    {
+      "word": "石",
+      "reading": "いし",
+      "meaning": "stone"
+    },
+    {
+      "word": "石庭",
+      "reading": "せきてい",
+      "meaning": "rock garden"
+    },
+    {
+      "word": "石段",
+      "reading": "せきだん",
+      "meaning": "stone steps"
+    },
+    {
+      "word": "一石二鳥",
+      "reading": "いっせきにちょう",
+      "meaning": "killing two birds with one stone"
+    },
+    {
+      "word": "玉石混淆",
+      "reading": "ぎょくせきこんこう",
+      "meaning": "mixture of wheat and chaff"
+    },
+    {
+      "word": "石仏",
+      "reading": "せきぶつ",
+      "meaning": "stone statue of Buddha"
+    },
+    {
+      "word": "礎石",
+      "reading": "そせき",
+      "meaning": "foundation stone, cornerstone"
+    },
+    {
+      "word": "石油王",
+      "reading": "せきゆおう",
+      "meaning": "oil magnate"
+    },
+    {
+      "word": "岩石",
+      "reading": "がんせき",
+      "meaning": "rock [n.]"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "石灰",
+      "reading": "せっかい",
+      "meaning": "lime, quicklime, caustic lime"
+    },
+    {
+      "word": "石鹸",
+      "reading": "せっけん",
+      "meaning": "soap"
+    },
+    {
+      "word": "石",
+      "reading": "こく",
+      "meaning": "unit of measurement"
+    }
+  ],
+  "unicode": "77f3"
+}

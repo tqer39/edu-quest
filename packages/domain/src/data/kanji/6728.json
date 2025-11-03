@@ -1,0 +1,107 @@
+{
+  "character": "木",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ボク",
+      "モク"
+    ],
+    "kunyomi": [
+      "き",
+      "こ"
+    ]
+  },
+  "meanings": [
+    "tree",
+    "wood"
+  ],
+  "radicals": [
+    "木"
+  ],
+  "examples": [
+    {
+      "word": "樹木",
+      "reading": "じゅもく",
+      "meaning": "trees and shrubs, arbor"
+    },
+    {
+      "word": "木枯らし",
+      "reading": "こがらし",
+      "meaning": "cold wintry wind"
+    },
+    {
+      "word": "枯れ木",
+      "reading": "かれき",
+      "meaning": "dead tree, withered tree"
+    },
+    {
+      "word": "木の実",
+      "reading": "きのみ",
+      "meaning": "nut"
+    },
+    {
+      "word": "大木",
+      "reading": "たいぼく",
+      "meaning": "large tree"
+    },
+    {
+      "word": "木曜日",
+      "reading": "もくようび",
+      "meaning": "Thursday"
+    },
+    {
+      "word": "木材",
+      "reading": "もくざい",
+      "meaning": "lumber"
+    },
+    {
+      "word": "木造",
+      "reading": "もくぞう",
+      "meaning": "wooden"
+    },
+    {
+      "word": "木村",
+      "reading": "きむら",
+      "meaning": "Kimura (surname)"
+    },
+    {
+      "word": "青木",
+      "reading": "あおき",
+      "meaning": "Aoki (surname)"
+    },
+    {
+      "word": "植木",
+      "reading": "うえき",
+      "meaning": "garden shrubs"
+    },
+    {
+      "word": "木の葉",
+      "reading": "このは",
+      "meaning": "foliage, leaf"
+    },
+    {
+      "word": "木製",
+      "reading": "もくせい",
+      "meaning": "made of wood"
+    },
+    {
+      "word": "並木",
+      "reading": "なみき",
+      "meaning": "row of trees"
+    },
+    {
+      "word": "雑木林",
+      "reading": "ぞうきばやし",
+      "meaning": "grove of mixed trees, copse"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "木綿",
+      "reading": "もめん",
+      "meaning": "cotton"
+    }
+  ],
+  "unicode": "6728"
+}

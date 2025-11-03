@@ -1,0 +1,99 @@
+{
+  "character": "心",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "こころ"
+    ]
+  },
+  "meanings": [
+    "heart",
+    "mind"
+  ],
+  "radicals": [
+    "心"
+  ],
+  "examples": [
+    {
+      "word": "愛郷心",
+      "reading": "あいきょうしん",
+      "meaning": "love of one's hometown"
+    },
+    {
+      "word": "克己心",
+      "reading": "こっきしん",
+      "meaning": "spirit of self-denial/self-control"
+    },
+    {
+      "word": "誠心誠意",
+      "reading": "せいしんせいい",
+      "meaning": "in all sincerity"
+    },
+    {
+      "word": "心臓",
+      "reading": "しんぞう",
+      "meaning": "heart"
+    },
+    {
+      "word": "腹心",
+      "reading": "ふくしん",
+      "meaning": "confidant, trusted friend"
+    },
+    {
+      "word": "用心棒",
+      "reading": "ようじんぼう",
+      "meaning": "bodyguard"
+    },
+    {
+      "word": "幼心",
+      "reading": "おさなごころ",
+      "meaning": "child's mind, child's heart"
+    },
+    {
+      "word": "依頼心",
+      "reading": "いらいしん",
+      "meaning": "spirit of dependence"
+    },
+    {
+      "word": "心掛ける",
+      "reading": "こころがける",
+      "meaning": "bear in mind, aim to"
+    },
+    {
+      "word": "以心伝心",
+      "reading": "いしんでんしん",
+      "meaning": "tacit understanding"
+    },
+    {
+      "word": "心理学",
+      "reading": "しんりがく",
+      "meaning": "psychology"
+    },
+    {
+      "word": "決心する",
+      "reading": "けっしんする",
+      "meaning": "resolve to do something"
+    },
+    {
+      "word": "心臓病",
+      "reading": "しんぞうびょう",
+      "meaning": "heart disease"
+    },
+    {
+      "word": "心臓まひ",
+      "reading": "しんぞうまひ",
+      "meaning": "heart attack"
+    },
+    {
+      "word": "中心",
+      "reading": "ちゅうしん",
+      "meaning": "center"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5fc3"
+}

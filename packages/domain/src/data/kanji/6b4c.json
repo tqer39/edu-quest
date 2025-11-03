@@ -1,0 +1,95 @@
+{
+  "character": "歌",
+  "grade": 2,
+  "strokeCount": 14,
+  "readings": {
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "うた",
+      "うた-う"
+    ]
+  },
+  "meanings": [
+    "song",
+    "sing"
+  ],
+  "radicals": [
+    "欠"
+  ],
+  "examples": [
+    {
+      "word": "歌舞伎",
+      "reading": "かぶき",
+      "meaning": "kabuki"
+    },
+    {
+      "word": "短歌",
+      "reading": "たんか",
+      "meaning": "Japanese poetic form"
+    },
+    {
+      "word": "歌手",
+      "reading": "かしゅ",
+      "meaning": "singer"
+    },
+    {
+      "word": "歌詞",
+      "reading": "かし",
+      "meaning": "song lyrics"
+    },
+    {
+      "word": "国歌",
+      "reading": "こっか",
+      "meaning": "national anthem"
+    },
+    {
+      "word": "和歌",
+      "reading": "わか",
+      "meaning": "Japanese poem"
+    },
+    {
+      "word": "歌",
+      "reading": "うた",
+      "meaning": "song"
+    },
+    {
+      "word": "歌う",
+      "reading": "うたう",
+      "meaning": "sing"
+    },
+    {
+      "word": "詩歌",
+      "reading": "しいか",
+      "meaning": "poem"
+    },
+    {
+      "word": "子守歌",
+      "reading": "こもりうた",
+      "meaning": "lullaby"
+    },
+    {
+      "word": "歌劇",
+      "reading": "かげき",
+      "meaning": "opera"
+    },
+    {
+      "word": "聖歌",
+      "reading": "せいか",
+      "meaning": "hymn"
+    },
+    {
+      "word": "牧歌的な",
+      "reading": "ぼっかてきな",
+      "meaning": "pastoral, idyllic"
+    },
+    {
+      "word": "童歌",
+      "reading": "わらべうた",
+      "meaning": "children's song"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6b4c"
+}

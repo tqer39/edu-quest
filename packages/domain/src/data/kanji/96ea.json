@@ -1,0 +1,94 @@
+{
+  "character": "雪",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": [
+      "セツ"
+    ],
+    "kunyomi": [
+      "ゆき"
+    ]
+  },
+  "meanings": [
+    "snow"
+  ],
+  "radicals": [
+    "雨"
+  ],
+  "examples": [
+    {
+      "word": "積雪",
+      "reading": "せきせつ",
+      "meaning": "fallen snow"
+    },
+    {
+      "word": "新雪",
+      "reading": "しんせつ",
+      "meaning": "new snow"
+    },
+    {
+      "word": "豪雪地帯",
+      "reading": "ごうせつちたい",
+      "meaning": "area of heavy snowfall"
+    },
+    {
+      "word": "雪",
+      "reading": "ゆき",
+      "meaning": "snow"
+    },
+    {
+      "word": "大雪",
+      "reading": "おおゆき",
+      "meaning": "heavy snow"
+    },
+    {
+      "word": "初雪",
+      "reading": "はつゆき",
+      "meaning": "first snow (of season)"
+    },
+    {
+      "word": "雪合戦",
+      "reading": "ゆきがっせん",
+      "meaning": "snowball fight"
+    },
+    {
+      "word": "雪国",
+      "reading": "ゆきぐに",
+      "meaning": "snow country"
+    },
+    {
+      "word": "雪掻き",
+      "reading": "ゆきかき",
+      "meaning": "snow plow"
+    },
+    {
+      "word": "残雪",
+      "reading": "ざんせつ",
+      "meaning": "lingering snow"
+    },
+    {
+      "word": "除雪する",
+      "reading": "じょせつする",
+      "meaning": "remove snow"
+    },
+    {
+      "word": "雪辱",
+      "reading": "せつじょく",
+      "meaning": "vindication of one's honor"
+    },
+    {
+      "word": "雪だるま",
+      "reading": "ゆきだるま",
+      "meaning": "snowman"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "吹雪",
+      "reading": "ふぶき",
+      "meaning": "driving snow, blizzard"
+    }
+  ],
+  "unicode": "96ea"
+}

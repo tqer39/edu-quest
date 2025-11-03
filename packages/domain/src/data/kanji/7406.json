@@ -1,0 +1,97 @@
+{
+  "character": "理",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": [
+      "リ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "logic",
+    "reason"
+  ],
+  "radicals": [
+    "玉"
+  ],
+  "examples": [
+    {
+      "word": "税理士",
+      "reading": "ぜいりし",
+      "meaning": "tax counsellor"
+    },
+    {
+      "word": "処理する",
+      "reading": "しょりする",
+      "meaning": "process, deal with"
+    },
+    {
+      "word": "中華料理",
+      "reading": "ちゅうかりょうり",
+      "meaning": "Chinese food"
+    },
+    {
+      "word": "物理",
+      "reading": "ぶつり",
+      "meaning": "physics"
+    },
+    {
+      "word": "理由",
+      "reading": "りゆう",
+      "meaning": "reason"
+    },
+    {
+      "word": "無理な",
+      "reading": "むりな",
+      "meaning": "impossible"
+    },
+    {
+      "word": "料理する",
+      "reading": "りょうりする",
+      "meaning": "cook"
+    },
+    {
+      "word": "理解する",
+      "reading": "りかいする",
+      "meaning": "understand"
+    },
+    {
+      "word": "修理する",
+      "reading": "しゅうりする",
+      "meaning": "repair, fix"
+    },
+    {
+      "word": "整理する",
+      "reading": "せいりする",
+      "meaning": "sort, arrange, order"
+    },
+    {
+      "word": "理想",
+      "reading": "りそう",
+      "meaning": "ideal"
+    },
+    {
+      "word": "心理学",
+      "reading": "しんりがく",
+      "meaning": "psychology"
+    },
+    {
+      "word": "真理",
+      "reading": "しんり",
+      "meaning": "truth"
+    },
+    {
+      "word": "論理",
+      "reading": "ろんり",
+      "meaning": "logic"
+    },
+    {
+      "word": "合理的な",
+      "reading": "ごうりてきな",
+      "meaning": "rational"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7406"
+}

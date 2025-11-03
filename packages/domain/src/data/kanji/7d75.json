@@ -1,0 +1,83 @@
+{
+  "character": "絵",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "カイ",
+      "エ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "picture",
+    "drawing"
+  ],
+  "radicals": [
+    "糸"
+  ],
+  "examples": [
+    {
+      "word": "絵巻物",
+      "reading": "えまきもの",
+      "meaning": "picture scroll"
+    },
+    {
+      "word": "塗り絵",
+      "reading": "ぬりえ",
+      "meaning": "picture for coloring in"
+    },
+    {
+      "word": "浮世絵",
+      "reading": "うきよえ",
+      "meaning": "ukiyoe"
+    },
+    {
+      "word": "絵画",
+      "reading": "かいが",
+      "meaning": "painting"
+    },
+    {
+      "word": "似顔絵",
+      "reading": "にがおえ",
+      "meaning": "portrait"
+    },
+    {
+      "word": "絵",
+      "reading": "え",
+      "meaning": "drawing, painting"
+    },
+    {
+      "word": "絵はがき",
+      "reading": "えはがき",
+      "meaning": "picture postcard"
+    },
+    {
+      "word": "絵描き",
+      "reading": "えかき",
+      "meaning": "painter"
+    },
+    {
+      "word": "絵本",
+      "reading": "えほん",
+      "meaning": "picture book"
+    },
+    {
+      "word": "油絵",
+      "reading": "あぶらえ",
+      "meaning": "oil painting"
+    },
+    {
+      "word": "墨絵",
+      "reading": "すみえ",
+      "meaning": "ink painting"
+    },
+    {
+      "word": "絵馬",
+      "reading": "えま",
+      "meaning": "votive picture"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7d75"
+}

@@ -1,0 +1,100 @@
+{
+  "character": "声",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "こえ",
+      "こわ"
+    ]
+  },
+  "meanings": [
+    "voice"
+  ],
+  "radicals": [
+    "士"
+  ],
+  "examples": [
+    {
+      "word": "叫び声",
+      "reading": "さけびごえ",
+      "meaning": "shout, scream [n.]"
+    },
+    {
+      "word": "涙声",
+      "reading": "なみだごえ",
+      "meaning": "tearful voice"
+    },
+    {
+      "word": "泣き声",
+      "reading": "なきごえ",
+      "meaning": "crying voice"
+    },
+    {
+      "word": "怒声",
+      "reading": "どせい",
+      "meaning": "angry voice"
+    },
+    {
+      "word": "発声する",
+      "reading": "はっせいする",
+      "meaning": "make an utterance"
+    },
+    {
+      "word": "音声",
+      "reading": "おんせい",
+      "meaning": "voice, sound"
+    },
+    {
+      "word": "名声",
+      "reading": "めいせい",
+      "meaning": "fame"
+    },
+    {
+      "word": "擬声語",
+      "reading": "ぎせいご",
+      "meaning": "onomatopoeia"
+    },
+    {
+      "word": "声援",
+      "reading": "せいえん",
+      "meaning": "cheering"
+    },
+    {
+      "word": "大音声",
+      "reading": "だいおんじょう",
+      "meaning": "very loud voice"
+    },
+    {
+      "word": "声",
+      "reading": "こえ",
+      "meaning": "voice"
+    },
+    {
+      "word": "大声",
+      "reading": "おおごえ",
+      "meaning": "loud voice"
+    },
+    {
+      "word": "小声",
+      "reading": "こごえ",
+      "meaning": "low voice"
+    },
+    {
+      "word": "声色",
+      "reading": "こわいろ",
+      "meaning": "tone of voice"
+    },
+    {
+      "word": "産声",
+      "reading": "うぶごえ",
+      "meaning": "baby's first cry"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "58f0"
+}

@@ -1,0 +1,98 @@
+{
+  "character": "花",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "はな"
+    ]
+  },
+  "meanings": [
+    "flower"
+  ],
+  "radicals": [
+    "艸"
+  ],
+  "examples": [
+    {
+      "word": "綿花",
+      "reading": "めんか",
+      "meaning": "raw cotton, cotton wool"
+    },
+    {
+      "word": "紅花",
+      "reading": "べにばな",
+      "meaning": "safflower"
+    },
+    {
+      "word": "花瓶",
+      "reading": "かびん",
+      "meaning": "vase"
+    },
+    {
+      "word": "花見",
+      "reading": "はなみ",
+      "meaning": "cherry-blossom viewing"
+    },
+    {
+      "word": "花壇",
+      "reading": "かだん",
+      "meaning": "flower bed"
+    },
+    {
+      "word": "造花",
+      "reading": "ぞうか",
+      "meaning": "artificial flowers"
+    },
+    {
+      "word": "花粉",
+      "reading": "かふん",
+      "meaning": "pollen"
+    },
+    {
+      "word": "開花する",
+      "reading": "かいかする",
+      "meaning": "bloom"
+    },
+    {
+      "word": "花",
+      "reading": "はな",
+      "meaning": "flower"
+    },
+    {
+      "word": "花屋",
+      "reading": "はなや",
+      "meaning": "florist"
+    },
+    {
+      "word": "生け花",
+      "reading": "いけばな",
+      "meaning": "flower arrangement"
+    },
+    {
+      "word": "花嫁",
+      "reading": "はなよめ",
+      "meaning": "bride"
+    },
+    {
+      "word": "花火",
+      "reading": "はなび",
+      "meaning": "fireworks"
+    },
+    {
+      "word": "お花見",
+      "reading": "おはなみ",
+      "meaning": "cherry-blossom viewing"
+    },
+    {
+      "word": "草花",
+      "reading": "くさばな",
+      "meaning": "plants and flowers"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "82b1"
+}

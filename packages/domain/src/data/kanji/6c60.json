@@ -1,0 +1,73 @@
+{
+  "character": "池",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "チ"
+    ],
+    "kunyomi": [
+      "いけ"
+    ]
+  },
+  "meanings": [
+    "pond"
+  ],
+  "radicals": [
+    "水"
+  ],
+  "examples": [
+    {
+      "word": "乾電池",
+      "reading": "かんでんち",
+      "meaning": "dry cell, battery"
+    },
+    {
+      "word": "電池",
+      "reading": "でんち",
+      "meaning": "battery"
+    },
+    {
+      "word": "貯水池",
+      "reading": "ちょすいち",
+      "meaning": "reservoir"
+    },
+    {
+      "word": "用水池",
+      "reading": "ようすいち",
+      "meaning": "water reservoir"
+    },
+    {
+      "word": "池",
+      "reading": "いけ",
+      "meaning": "pond"
+    },
+    {
+      "word": "古池",
+      "reading": "ふるいけ",
+      "meaning": "old pond"
+    },
+    {
+      "word": "池袋",
+      "reading": "いけぶくろ",
+      "meaning": "Ikebukuro (district)"
+    },
+    {
+      "word": "池田湖",
+      "reading": "いけだこ",
+      "meaning": "Lake Ikeda"
+    },
+    {
+      "word": "池畔",
+      "reading": "ちはん",
+      "meaning": "pondside"
+    },
+    {
+      "word": "遊水池",
+      "reading": "ゆうすいち",
+      "meaning": "retarding basin"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6c60"
+}

@@ -1,0 +1,74 @@
+{
+  "character": "里",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "リ"
+    ],
+    "kunyomi": [
+      "さと"
+    ]
+  },
+  "meanings": [
+    "village",
+    "hometown"
+  ],
+  "radicals": [
+    "里"
+  ],
+  "examples": [
+    {
+      "word": "郷里",
+      "reading": "きょうり",
+      "meaning": "birth-place, home town"
+    },
+    {
+      "word": "海里",
+      "reading": "かいり",
+      "meaning": "nautical mile, 1852m, 6080ft"
+    },
+    {
+      "word": "一里塚",
+      "reading": "いちりづか",
+      "meaning": "milestone"
+    },
+    {
+      "word": "里",
+      "reading": "さと",
+      "meaning": "home, village"
+    },
+    {
+      "word": "里芋",
+      "reading": "さといも",
+      "meaning": "taro (type of tuber)"
+    },
+    {
+      "word": "山里",
+      "reading": "やまざと",
+      "meaning": "mountain hamlet"
+    },
+    {
+      "word": "里山",
+      "reading": "さとやま",
+      "meaning": "woodlands near villages"
+    },
+    {
+      "word": "里帰り",
+      "reading": "さとがえり",
+      "meaning": "homecoming"
+    },
+    {
+      "word": "里親",
+      "reading": "さとおや",
+      "meaning": "foster parent"
+    },
+    {
+      "word": "故里",
+      "reading": "ふるさと",
+      "meaning": "one’s hometown"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "91cc"
+}

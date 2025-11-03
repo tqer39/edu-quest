@@ -1,0 +1,91 @@
+{
+  "character": "遠",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": [
+      "エン",
+      "オン"
+    ],
+    "kunyomi": [
+      "とお-い"
+    ]
+  },
+  "meanings": [
+    "far",
+    "distant"
+  ],
+  "radicals": [
+    "辵"
+  ],
+  "examples": [
+    {
+      "word": "遠慮する",
+      "reading": "えんりょする",
+      "meaning": "refrain, exercise restraint"
+    },
+    {
+      "word": "遠足",
+      "reading": "えんそく",
+      "meaning": "field trip"
+    },
+    {
+      "word": "永遠",
+      "reading": "えいえん",
+      "meaning": "eternity"
+    },
+    {
+      "word": "久遠",
+      "reading": "くおん",
+      "meaning": "eternity"
+    },
+    {
+      "word": "遠い",
+      "reading": "とおい",
+      "meaning": "far"
+    },
+    {
+      "word": "望遠鏡",
+      "reading": "ぼうえんきょう",
+      "meaning": "telescope"
+    },
+    {
+      "word": "敬遠する",
+      "reading": "けいえんする",
+      "meaning": "keep at a distance"
+    },
+    {
+      "word": "遠泳",
+      "reading": "えんえい",
+      "meaning": "long-distance swimming"
+    },
+    {
+      "word": "遠征する",
+      "reading": "えんせいする",
+      "meaning": "invade, make an expedition"
+    },
+    {
+      "word": "遠回り",
+      "reading": "とおまわり",
+      "meaning": "detour"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "遠く",
+      "reading": "とおく",
+      "meaning": "far"
+    },
+    {
+      "word": "遠回りする",
+      "reading": "とおまわりする",
+      "meaning": "detour"
+    },
+    {
+      "word": "遠浅",
+      "reading": "とおあさ",
+      "meaning": "wide shallow beach"
+    }
+  ],
+  "unicode": "9060"
+}

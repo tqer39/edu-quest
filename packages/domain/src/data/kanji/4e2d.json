@@ -1,0 +1,112 @@
+{
+  "character": "中",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "チュウ"
+    ],
+    "kunyomi": [
+      "なか",
+      "うち"
+    ]
+  },
+  "meanings": [
+    "middle",
+    "inside",
+    "center"
+  ],
+  "radicals": [
+    "丨"
+  ],
+  "examples": [
+    {
+      "word": "話し中",
+      "reading": "はなしちゅう",
+      "meaning": "while talking, the line is busy"
+    },
+    {
+      "word": "中傷する",
+      "reading": "ちゅうしょうする",
+      "meaning": "slander, defame"
+    },
+    {
+      "word": "脳卒中",
+      "reading": "のうそっちゅう",
+      "meaning": "stroke, cerebral hemorrhage"
+    },
+    {
+      "word": "療養中",
+      "reading": "りょうようちゅう",
+      "meaning": "under medical care"
+    },
+    {
+      "word": "授業中",
+      "reading": "じゅぎょうちゅう",
+      "meaning": "while in class, during a class"
+    },
+    {
+      "word": "夜中",
+      "reading": "よなか",
+      "meaning": "late at night"
+    },
+    {
+      "word": "中国",
+      "reading": "ちゅうごく",
+      "meaning": "China"
+    },
+    {
+      "word": "中年",
+      "reading": "ちゅうねん",
+      "meaning": "middle-age"
+    },
+    {
+      "word": "中学校",
+      "reading": "ちゅうがっこう",
+      "meaning": "junior high school"
+    },
+    {
+      "word": "中華料理",
+      "reading": "ちゅうかりょうり",
+      "meaning": "Chinese food"
+    },
+    {
+      "word": "途中",
+      "reading": "とちゅう",
+      "meaning": "on the way"
+    },
+    {
+      "word": "工事中",
+      "reading": "こうじちゅう",
+      "meaning": "under construction"
+    },
+    {
+      "word": "中",
+      "reading": "なか",
+      "meaning": "inside"
+    },
+    {
+      "word": "中村",
+      "reading": "なかむら",
+      "meaning": "Nakamura (surname)"
+    },
+    {
+      "word": "中川",
+      "reading": "なかがわ",
+      "meaning": "Nakagawa (surname)"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "体中",
+      "reading": "からだじゅう",
+      "meaning": "throughout the body"
+    },
+    {
+      "word": "今年中 に",
+      "reading": "ことしじゅうに",
+      "meaning": "within this year"
+    }
+  ],
+  "unicode": "4e2d"
+}

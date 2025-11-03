@@ -1,0 +1,105 @@
+{
+  "character": "火",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "ひ",
+      "ほ"
+    ]
+  },
+  "meanings": [
+    "fire"
+  ],
+  "radicals": [
+    "火"
+  ],
+  "examples": [
+    {
+      "word": "火山灰",
+      "reading": "かざんばい",
+      "meaning": "volcanic ash"
+    },
+    {
+      "word": "火山",
+      "reading": "かざん",
+      "meaning": "volcano"
+    },
+    {
+      "word": "山火事",
+      "reading": "やまかじ",
+      "meaning": "bushfire"
+    },
+    {
+      "word": "火事",
+      "reading": "かじ",
+      "meaning": "fire"
+    },
+    {
+      "word": "花火",
+      "reading": "はなび",
+      "meaning": "fireworks"
+    },
+    {
+      "word": "火力",
+      "reading": "かりょく",
+      "meaning": "thermal power"
+    },
+    {
+      "word": "火曜日",
+      "reading": "かようび",
+      "meaning": "Tuesday"
+    },
+    {
+      "word": "火",
+      "reading": "ひ",
+      "meaning": "flame, fire"
+    },
+    {
+      "word": "活火山",
+      "reading": "かっかざん",
+      "meaning": "active volcano"
+    },
+    {
+      "word": "放火する",
+      "reading": "ほうかする",
+      "meaning": "set fire to"
+    },
+    {
+      "word": "火薬",
+      "reading": "かやく",
+      "meaning": "gunpowder"
+    },
+    {
+      "word": "消火器",
+      "reading": "しょうかき",
+      "meaning": "fire extinguisher"
+    },
+    {
+      "word": "消火する",
+      "reading": "しょうかする",
+      "meaning": "extinguish a fire"
+    },
+    {
+      "word": "火災",
+      "reading": "かさい",
+      "meaning": "fire (disaster)"
+    },
+    {
+      "word": "聖火",
+      "reading": "せいか",
+      "meaning": "sacred fire, Olympic flame"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "火傷",
+      "reading": "やけど",
+      "meaning": "burn [n.]"
+    }
+  ],
+  "unicode": "706b"
+}

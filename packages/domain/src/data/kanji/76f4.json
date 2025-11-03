@@ -1,0 +1,123 @@
+{
+  "character": "直",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "チョク",
+      "ジキ"
+    ],
+    "kunyomi": [
+      "ただ-ちに",
+      "なお-す",
+      "なお-る"
+    ]
+  },
+  "meanings": [
+    "straight",
+    "direct"
+  ],
+  "radicals": [
+    "目"
+  ],
+  "examples": [
+    {
+      "word": "垂直な",
+      "reading": "すいちょくな",
+      "meaning": "vertical, perpendicular"
+    },
+    {
+      "word": "硬直する",
+      "reading": "こうちょくする",
+      "meaning": "stiffen"
+    },
+    {
+      "word": "直接",
+      "reading": "ちょくせつ",
+      "meaning": "direct"
+    },
+    {
+      "word": "直後",
+      "reading": "ちょくご",
+      "meaning": "immediately following"
+    },
+    {
+      "word": "直前",
+      "reading": "ちょくぜん",
+      "meaning": "just before"
+    },
+    {
+      "word": "直感する",
+      "reading": "ちょっかんする",
+      "meaning": "gain intuition"
+    },
+    {
+      "word": "直結する",
+      "reading": "ちょっけつする",
+      "meaning": "connect directly"
+    },
+    {
+      "word": "直行便",
+      "reading": "ちょっこうびん",
+      "meaning": "direct (nonstop) flight"
+    },
+    {
+      "word": "正直な",
+      "reading": "しょうじきな",
+      "meaning": "honest"
+    },
+    {
+      "word": "直に",
+      "reading": "じきに",
+      "meaning": "directly"
+    },
+    {
+      "word": "直す",
+      "reading": "なおす",
+      "meaning": "cure, fix [v.t.]"
+    },
+    {
+      "word": "書き直す",
+      "reading": "かきなおす",
+      "meaning": "rewrite"
+    },
+    {
+      "word": "直る",
+      "reading": "なおる",
+      "meaning": "be cured, be fixed [v.i.]"
+    },
+    {
+      "word": "直面する",
+      "reading": "ちょくめんする",
+      "meaning": "confront"
+    },
+    {
+      "word": "直線",
+      "reading": "ちょくせん",
+      "meaning": "straight line"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "直に",
+      "reading": "じかに",
+      "meaning": "directly"
+    },
+    {
+      "word": "直す",
+      "reading": "ただす",
+      "meaning": "cure, fix [v.t.]"
+    },
+    {
+      "word": "真っ直ぐ",
+      "reading": "まっすぐ",
+      "meaning": "straight"
+    },
+    {
+      "word": "素直な",
+      "reading": "すなおな",
+      "meaning": "obedient, docile"
+    }
+  ],
+  "unicode": "76f4"
+}

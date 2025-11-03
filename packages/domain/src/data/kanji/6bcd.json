@@ -1,0 +1,104 @@
+{
+  "character": "母",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ボ"
+    ],
+    "kunyomi": [
+      "はは"
+    ]
+  },
+  "meanings": [
+    "mother"
+  ],
+  "radicals": [
+    "母"
+  ],
+  "examples": [
+    {
+      "word": "祖父母",
+      "reading": "そふぼ",
+      "meaning": "grandparents"
+    },
+    {
+      "word": "母音",
+      "reading": "ぼいん",
+      "meaning": "vowel"
+    },
+    {
+      "word": "母校",
+      "reading": "ぼこう",
+      "meaning": "alma mater"
+    },
+    {
+      "word": "母乳",
+      "reading": "ぼにゅう",
+      "meaning": "mother's milk"
+    },
+    {
+      "word": "母性愛",
+      "reading": "ぼせいあい",
+      "meaning": "maternal love"
+    },
+    {
+      "word": "義母",
+      "reading": "ぎぼ",
+      "meaning": "mother-in-law"
+    },
+    {
+      "word": "父母",
+      "reading": "ふぼ",
+      "meaning": "one's own father and mother"
+    },
+    {
+      "word": "母国語",
+      "reading": "ぼこくご",
+      "meaning": "mother tongue"
+    },
+    {
+      "word": "祖母",
+      "reading": "そぼ",
+      "meaning": "grandmother"
+    },
+    {
+      "word": "母",
+      "reading": "はは",
+      "meaning": "one's own mother"
+    },
+    {
+      "word": "母親",
+      "reading": "ははおや",
+      "meaning": "mother"
+    },
+    {
+      "word": "亡き母",
+      "reading": "なきはは",
+      "meaning": "one's deceased mother"
+    },
+    {
+      "word": "寮母",
+      "reading": "りょうぼ",
+      "meaning": "dorm mother"
+    },
+    {
+      "word": "聖母",
+      "reading": "せいぼ",
+      "meaning": "Virgin Mary"
+    },
+    {
+      "word": "賢母",
+      "reading": "けんぼ",
+      "meaning": "wise mother"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "お母さん",
+      "reading": "おかあさん",
+      "meaning": "mother [hon.]"
+    }
+  ],
+  "unicode": "6bcd"
+}

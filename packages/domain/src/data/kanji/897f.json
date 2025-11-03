@@ -1,0 +1,74 @@
+{
+  "character": "西",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "セイ",
+      "サイ"
+    ],
+    "kunyomi": [
+      "にし"
+    ]
+  },
+  "meanings": [
+    "west"
+  ],
+  "radicals": [
+    "西"
+  ],
+  "examples": [
+    {
+      "word": "西欧",
+      "reading": "せいおう",
+      "meaning": "Western Europe"
+    },
+    {
+      "word": "西洋",
+      "reading": "せいよう",
+      "meaning": "the west"
+    },
+    {
+      "word": "大西洋",
+      "reading": "たいせいよう",
+      "meaning": "Atlantic Ocean"
+    },
+    {
+      "word": "関西",
+      "reading": "かんさい",
+      "meaning": "south-western half of Japan"
+    },
+    {
+      "word": "関西弁",
+      "reading": "かんさいべん",
+      "meaning": "Kansai dialect"
+    },
+    {
+      "word": "東西南北",
+      "reading": "とうざいなんぼく",
+      "meaning": "east, west, south and north"
+    },
+    {
+      "word": "西部",
+      "reading": "せいぶ",
+      "meaning": "western part"
+    },
+    {
+      "word": "西暦",
+      "reading": "せいれき",
+      "meaning": "Christian Era"
+    },
+    {
+      "word": "東西",
+      "reading": "とうざい",
+      "meaning": "east and west"
+    },
+    {
+      "word": "西",
+      "reading": "にし",
+      "meaning": "west"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "897f"
+}

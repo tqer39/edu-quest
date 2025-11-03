@@ -1,0 +1,115 @@
+{
+  "character": "分",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ブン",
+      "フン",
+      "ブ"
+    ],
+    "kunyomi": [
+      "わ-ける",
+      "わ-かれる",
+      "わ-かる",
+      "わ-かつ"
+    ]
+  },
+  "meanings": [
+    "divide",
+    "minute"
+  ],
+  "radicals": [
+    "刀"
+  ],
+  "examples": [
+    {
+      "word": "一分",
+      "reading": "いっぷん",
+      "meaning": "one minute"
+    },
+    {
+      "word": "何分",
+      "reading": "なんぷん",
+      "meaning": "how many minutes"
+    },
+    {
+      "word": "八分",
+      "reading": "はっぷん",
+      "meaning": "8 minutes"
+    },
+    {
+      "word": "余分な",
+      "reading": "よぶんな",
+      "meaning": "extra, excessive"
+    },
+    {
+      "word": "十分な",
+      "reading": "じゅうぶんな",
+      "meaning": "enough"
+    },
+    {
+      "word": "十分",
+      "reading": "じゅっぷん",
+      "meaning": "10 minutes"
+    },
+    {
+      "word": "分割する",
+      "reading": "ぶんかつする",
+      "meaning": "partition, divide, separate"
+    },
+    {
+      "word": "株分け",
+      "reading": "かぶわけ",
+      "meaning": "root division"
+    },
+    {
+      "word": "五分刻みに",
+      "reading": "ごふんきざみに",
+      "meaning": "every 5 minutes"
+    },
+    {
+      "word": "処分する",
+      "reading": "しょぶんする",
+      "meaning": "dispose of, deal with, punish"
+    },
+    {
+      "word": "糖分",
+      "reading": "とうぶん",
+      "meaning": "sugar content"
+    },
+    {
+      "word": "幾分",
+      "reading": "いくぶん",
+      "meaning": "somewhat"
+    },
+    {
+      "word": "秋分",
+      "reading": "しゅうぶん",
+      "meaning": "autumn equinox"
+    },
+    {
+      "word": "分離する",
+      "reading": "ぶんりする",
+      "meaning": "separate"
+    },
+    {
+      "word": "分野",
+      "reading": "ぶんや",
+      "meaning": "field"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "分かれ道",
+      "reading": "わかれみち",
+      "meaning": "crossroads"
+    },
+    {
+      "word": "草分け",
+      "reading": "くさわけ",
+      "meaning": "pioneer, trailblazer"
+    }
+  ],
+  "unicode": "5206"
+}

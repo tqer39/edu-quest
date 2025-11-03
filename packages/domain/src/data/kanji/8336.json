@@ -1,0 +1,72 @@
+{
+  "character": "茶",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "チャ",
+      "サ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "tea"
+  ],
+  "radicals": [
+    "艸"
+  ],
+  "examples": [
+    {
+      "word": "紅茶",
+      "reading": "こうちゃ",
+      "meaning": "black tea"
+    },
+    {
+      "word": "茶筒",
+      "reading": "ちゃづつ",
+      "meaning": "tea caddy"
+    },
+    {
+      "word": "緑茶",
+      "reading": "りょくちゃ",
+      "meaning": "green tea"
+    },
+    {
+      "word": "茶色",
+      "reading": "ちゃいろ",
+      "meaning": "brown"
+    },
+    {
+      "word": "お茶",
+      "reading": "おちゃ",
+      "meaning": "tea"
+    },
+    {
+      "word": "茶の湯",
+      "reading": "ちゃのゆ",
+      "meaning": "tea ceremony"
+    },
+    {
+      "word": "喫茶店",
+      "reading": "きっさてん",
+      "meaning": "coffee shop"
+    },
+    {
+      "word": "茶道",
+      "reading": "さどう",
+      "meaning": "Way of Tea"
+    },
+    {
+      "word": "茶畑",
+      "reading": "ちゃばたけ",
+      "meaning": "tea plantation"
+    },
+    {
+      "word": "茶菓子",
+      "reading": "ちゃがし",
+      "meaning": "sweets served with tea"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8336"
+}

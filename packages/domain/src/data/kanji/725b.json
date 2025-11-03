@@ -1,0 +1,74 @@
+{
+  "character": "牛",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ギュウ"
+    ],
+    "kunyomi": [
+      "うし"
+    ]
+  },
+  "meanings": [
+    "cow",
+    "cattle"
+  ],
+  "radicals": [
+    "牛"
+  ],
+  "examples": [
+    {
+      "word": "牛乳",
+      "reading": "ぎゅうにゅう",
+      "meaning": "(cow) milk"
+    },
+    {
+      "word": "牛肉",
+      "reading": "ぎゅうにく",
+      "meaning": "beef"
+    },
+    {
+      "word": "闘牛",
+      "reading": "とうぎゅう",
+      "meaning": "bull fight"
+    },
+    {
+      "word": "牛",
+      "reading": "うし",
+      "meaning": "cow"
+    },
+    {
+      "word": "子牛",
+      "reading": "こうし",
+      "meaning": "calf"
+    },
+    {
+      "word": "乳牛",
+      "reading": "にゅうぎゅう",
+      "meaning": "dairy cattle"
+    },
+    {
+      "word": "牛若丸",
+      "reading": "うしわかまる",
+      "meaning": "Ushiwakamaru (name of a boy)"
+    },
+    {
+      "word": "牛革",
+      "reading": "ぎゅうかわ",
+      "meaning": "cowhide"
+    },
+    {
+      "word": "牛舎",
+      "reading": "ぎゅうしゃ",
+      "meaning": "cowshed"
+    },
+    {
+      "word": "牛丼",
+      "reading": "ぎゅうどん",
+      "meaning": "beef bowl"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "725b"
+}

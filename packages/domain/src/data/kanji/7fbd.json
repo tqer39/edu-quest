@@ -1,0 +1,86 @@
+{
+  "character": "羽",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "ウ"
+    ],
+    "kunyomi": [
+      "は",
+      "はね"
+    ]
+  },
+  "meanings": [
+    "feather",
+    "wing"
+  ],
+  "radicals": [
+    "羽"
+  ],
+  "examples": [
+    {
+      "word": "羽毛",
+      "reading": "うもう",
+      "meaning": "feathers, plumage, down,"
+    },
+    {
+      "word": "羽化する",
+      "reading": "うかする",
+      "meaning": "emerge (insects, etc.)"
+    },
+    {
+      "word": "羽衣",
+      "reading": "はごろも",
+      "meaning": "angel's raiment"
+    },
+    {
+      "word": "羽音",
+      "reading": "はおと",
+      "meaning": "buzz, hum [n.]"
+    },
+    {
+      "word": "羽織",
+      "reading": "はおり",
+      "meaning": "haori (type of clothing)"
+    },
+    {
+      "word": "羽",
+      "reading": "はね",
+      "meaning": "feather, plume, wing"
+    },
+    {
+      "word": "羽根突き",
+      "reading": "はねつき",
+      "meaning": "New Year shuttlecock game"
+    },
+    {
+      "word": "羽ばたき",
+      "reading": "はばたき",
+      "meaning": "flapping wings"
+    },
+    {
+      "word": "羽根車",
+      "reading": "はねぐるま",
+      "meaning": "impeller wheel"
+    },
+    {
+      "word": "羽飾り",
+      "reading": "はねかざり",
+      "meaning": "feather ornament"
+    },
+    {
+      "word": "羽根",
+      "reading": "はね",
+      "meaning": "feather"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "一羽",
+      "reading": "いちわ",
+      "meaning": "one (bird)"
+    }
+  ],
+  "unicode": "7fbd"
+}

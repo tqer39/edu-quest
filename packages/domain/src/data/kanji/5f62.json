@@ -1,0 +1,107 @@
+{
+  "character": "形",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "ケイ",
+      "ギョウ"
+    ],
+    "kunyomi": [
+      "かた",
+      "かたち"
+    ]
+  },
+  "meanings": [
+    "shape",
+    "form"
+  ],
+  "radicals": [
+    "彡"
+  ],
+  "examples": [
+    {
+      "word": "操り人形",
+      "reading": "あやつりにんぎょう",
+      "meaning": "puppet, marionette"
+    },
+    {
+      "word": "卵形",
+      "reading": "たまごがた",
+      "meaning": "oval, egg-shaped"
+    },
+    {
+      "word": "跡形",
+      "reading": "あとかた",
+      "meaning": "trace, vestige, evidence"
+    },
+    {
+      "word": "円筒形",
+      "reading": "えんとうけい",
+      "meaning": "cylindrical shape"
+    },
+    {
+      "word": "使役形",
+      "reading": "しえきけい",
+      "meaning": "causative form"
+    },
+    {
+      "word": "四角形",
+      "reading": "しかくけい",
+      "meaning": "square"
+    },
+    {
+      "word": "形式",
+      "reading": "けいしき",
+      "meaning": "form, format"
+    },
+    {
+      "word": "形容詞",
+      "reading": "けいようし",
+      "meaning": "adjective"
+    },
+    {
+      "word": "正方形",
+      "reading": "せいほうけい",
+      "meaning": "square"
+    },
+    {
+      "word": "長方形",
+      "reading": "ちょうほうけい",
+      "meaning": "rectangle"
+    },
+    {
+      "word": "形成する",
+      "reading": "けいせいする",
+      "meaning": "form [v.t.]"
+    },
+    {
+      "word": "変形する",
+      "reading": "へんけいする",
+      "meaning": "be transformed, transform"
+    },
+    {
+      "word": "人形",
+      "reading": "にんぎょう",
+      "meaning": "doll"
+    },
+    {
+      "word": "形見",
+      "reading": "かたみ",
+      "meaning": "memento"
+    },
+    {
+      "word": "手形",
+      "reading": "てがた",
+      "meaning": "draft, promissory note"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "弓形",
+      "reading": "ゆみなり",
+      "meaning": "arched, crescent-shaped"
+    }
+  ],
+  "unicode": "5f62"
+}

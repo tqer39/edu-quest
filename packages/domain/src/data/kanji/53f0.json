@@ -1,0 +1,83 @@
+{
+  "character": "台",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ダイ",
+      "タイ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "stand",
+    "platform"
+  ],
+  "radicals": [
+    "厶"
+  ],
+  "examples": [
+    {
+      "word": "天台宗",
+      "reading": "てんだいしゅう",
+      "meaning": "Tendai sect"
+    },
+    {
+      "word": "舞台",
+      "reading": "ぶたい",
+      "meaning": "stage, scene or setting"
+    },
+    {
+      "word": "台湾",
+      "reading": "たいわん",
+      "meaning": "Taiwan"
+    },
+    {
+      "word": "台所",
+      "reading": "だいどころ",
+      "meaning": "kitchen"
+    },
+    {
+      "word": "台風",
+      "reading": "たいふう",
+      "meaning": "typhoon"
+    },
+    {
+      "word": "台",
+      "reading": "だい",
+      "meaning": "stand, rack"
+    },
+    {
+      "word": "台座",
+      "reading": "だいざ",
+      "meaning": "pedestal"
+    },
+    {
+      "word": "台地",
+      "reading": "だいち",
+      "meaning": "plateau"
+    },
+    {
+      "word": "一台",
+      "reading": "いちだい",
+      "meaning": "one (machine)"
+    },
+    {
+      "word": "気象台",
+      "reading": "きしょうだい",
+      "meaning": "meteorological observatory"
+    },
+    {
+      "word": "鏡台",
+      "reading": "きょうだい",
+      "meaning": "dressing table"
+    },
+    {
+      "word": "灯台",
+      "reading": "とうだい",
+      "meaning": "lighthouse"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "53f0"
+}

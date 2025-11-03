@@ -1,0 +1,98 @@
+{
+  "character": "室",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "シツ"
+    ],
+    "kunyomi": [
+      "むろ"
+    ]
+  },
+  "meanings": [
+    "room"
+  ],
+  "radicals": [
+    "宀"
+  ],
+  "examples": [
+    {
+      "word": "待合室",
+      "reading": "まちあいしつ",
+      "meaning": "waiting room"
+    },
+    {
+      "word": "密室",
+      "reading": "みっしつ",
+      "meaning": "closed-door, locked room"
+    },
+    {
+      "word": "更衣室",
+      "reading": "こういしつ",
+      "meaning": "locker room, changing room"
+    },
+    {
+      "word": "教室",
+      "reading": "きょうしつ",
+      "meaning": "classroom"
+    },
+    {
+      "word": "寝室",
+      "reading": "しんしつ",
+      "meaning": "bedroom"
+    },
+    {
+      "word": "図書室",
+      "reading": "としょしつ",
+      "meaning": "library room"
+    },
+    {
+      "word": "研究室",
+      "reading": "けんきゅうしつ",
+      "meaning": "seminar room, prof's office"
+    },
+    {
+      "word": "個室",
+      "reading": "こしつ",
+      "meaning": "private room"
+    },
+    {
+      "word": "和室",
+      "reading": "わしつ",
+      "meaning": "Japanese-style room"
+    },
+    {
+      "word": "温室",
+      "reading": "おんしつ",
+      "meaning": "greenhouse"
+    },
+    {
+      "word": "根室",
+      "reading": "ねむろ",
+      "meaning": "Nemuro"
+    },
+    {
+      "word": "職員室",
+      "reading": "しょくいんしつ",
+      "meaning": "teachers'/faculty room"
+    },
+    {
+      "word": "皇室",
+      "reading": "こうしつ",
+      "meaning": "Imperial household"
+    },
+    {
+      "word": "控え室",
+      "reading": "ひかえしつ",
+      "meaning": "waiting room"
+    },
+    {
+      "word": "暗室",
+      "reading": "あんしつ",
+      "meaning": "dark room"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5ba4"
+}

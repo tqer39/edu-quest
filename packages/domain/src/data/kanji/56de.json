@@ -1,0 +1,102 @@
+{
+  "character": "回",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "カイ",
+      "エ"
+    ],
+    "kunyomi": [
+      "まわ-る",
+      "まわ-す"
+    ]
+  },
+  "meanings": [
+    "times",
+    "round",
+    "rotate"
+  ],
+  "radicals": [
+    "囗"
+  ],
+  "examples": [
+    {
+      "word": "何回",
+      "reading": "なんかい",
+      "meaning": "how many times"
+    },
+    {
+      "word": "七回",
+      "reading": "ななかい",
+      "meaning": "7 times"
+    },
+    {
+      "word": "八回",
+      "reading": "はっかい",
+      "meaning": "8 times"
+    },
+    {
+      "word": "九回",
+      "reading": "きゅうかい",
+      "meaning": "9 times"
+    },
+    {
+      "word": "上回る",
+      "reading": "うわまわる",
+      "meaning": "exceed"
+    },
+    {
+      "word": "回覧する",
+      "reading": "かいらんする",
+      "meaning": "circulate (a magazine, etc.)"
+    },
+    {
+      "word": "前回",
+      "reading": "ぜんかい",
+      "meaning": "last time"
+    },
+    {
+      "word": "遠回りする",
+      "reading": "とおまわりする",
+      "meaning": "detour"
+    },
+    {
+      "word": "次回",
+      "reading": "じかい",
+      "meaning": "next time"
+    },
+    {
+      "word": "回答する",
+      "reading": "かいとうする",
+      "meaning": "reply [v.i.]"
+    },
+    {
+      "word": "今回",
+      "reading": "こんかい",
+      "meaning": "this time"
+    },
+    {
+      "word": "回復する",
+      "reading": "かいふくする",
+      "meaning": "recover (from illness)"
+    },
+    {
+      "word": "毎回",
+      "reading": "まいかい",
+      "meaning": "every time"
+    },
+    {
+      "word": "根回し",
+      "reading": "ねまわし",
+      "meaning": "groundwork, preparatory work"
+    },
+    {
+      "word": "回数券",
+      "reading": "かいすうけん",
+      "meaning": "book of tickets"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "56de"
+}

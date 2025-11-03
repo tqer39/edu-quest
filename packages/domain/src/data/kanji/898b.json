@@ -1,0 +1,147 @@
+{
+  "character": "見",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "ケン"
+    ],
+    "kunyomi": [
+      "み-る",
+      "み-える"
+    ]
+  },
+  "meanings": [
+    "see",
+    "look",
+    "watch"
+  ],
+  "radicals": [
+    "見"
+  ],
+  "examples": [
+    {
+      "word": "拝見する",
+      "reading": "はいけんする",
+      "meaning": "look at, see [hum.]"
+    },
+    {
+      "word": "見物する",
+      "reading": "けんぶつする",
+      "meaning": "go sightseeing"
+    },
+    {
+      "word": "見学する",
+      "reading": "けんがくする",
+      "meaning": "study, take a research trip"
+    },
+    {
+      "word": "発見する",
+      "reading": "はっけんする",
+      "meaning": "discover"
+    },
+    {
+      "word": "意見",
+      "reading": "いけん",
+      "meaning": "opinion"
+    },
+    {
+      "word": "偏見",
+      "reading": "へんけん",
+      "meaning": "prejudice"
+    },
+    {
+      "word": "見る",
+      "reading": "みる",
+      "meaning": "see"
+    },
+    {
+      "word": "見える",
+      "reading": "みえる",
+      "meaning": "be seen, seem"
+    },
+    {
+      "word": "卓見",
+      "reading": "たくけん",
+      "meaning": "penetration, excellent idea"
+    },
+    {
+      "word": "見直す",
+      "reading": "みなおす",
+      "meaning": "review; reconsider"
+    },
+    {
+      "word": "見学",
+      "reading": "けんがく",
+      "meaning": "field trip, tour"
+    },
+    {
+      "word": "花見",
+      "reading": "はなみ",
+      "meaning": "cherry blossom viewing"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "見損なう",
+      "reading": "みそこなう",
+      "meaning": "misjudge, miss, fail to see"
+    },
+    {
+      "word": "姿見",
+      "reading": "すがたみ",
+      "meaning": "full-length mirror"
+    },
+    {
+      "word": "見せ掛ける",
+      "reading": "みせかける",
+      "meaning": "pretend, feign"
+    },
+    {
+      "word": "見逃す",
+      "reading": "みのがす",
+      "meaning": "miss, overlook"
+    },
+    {
+      "word": "見舞う",
+      "reading": "みまう",
+      "meaning": "ask after, visit (a sick person)"
+    },
+    {
+      "word": "見習い",
+      "reading": "みならい",
+      "meaning": "apprentice"
+    },
+    {
+      "word": "見つかる",
+      "reading": "みつかる",
+      "meaning": "be found [v.i.]"
+    },
+    {
+      "word": "見つける",
+      "reading": "みつける",
+      "meaning": "find [v.t.]"
+    },
+    {
+      "word": "見せる",
+      "reading": "みせる",
+      "meaning": "show"
+    },
+    {
+      "word": "花見",
+      "reading": "はなみ",
+      "meaning": "cherry-blossom viewing"
+    },
+    {
+      "word": "お花見",
+      "reading": "おはなみ",
+      "meaning": "cherry-blossom viewing"
+    },
+    {
+      "word": "暑中見舞",
+      "reading": "しょちゅうみまい",
+      "meaning": "summer greeting card"
+    }
+  ],
+  "unicode": "898b"
+}

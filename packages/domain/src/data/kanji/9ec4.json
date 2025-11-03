@@ -1,0 +1,81 @@
+{
+  "character": "黄",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": [
+      "コウ",
+      "オウ"
+    ],
+    "kunyomi": [
+      "き",
+      "こ"
+    ]
+  },
+  "meanings": [
+    "yellow"
+  ],
+  "radicals": [
+    "黄"
+  ],
+  "examples": [
+    {
+      "word": "卵黄",
+      "reading": "らんおう",
+      "meaning": "egg yolk"
+    },
+    {
+      "word": "黄色",
+      "reading": "きいろ",
+      "meaning": "yellow"
+    },
+    {
+      "word": "黄砂",
+      "reading": "こうさ",
+      "meaning": "golden sands"
+    },
+    {
+      "word": "黄金",
+      "reading": "おうごん",
+      "meaning": "gold"
+    },
+    {
+      "word": "硫黄",
+      "reading": "いおう",
+      "meaning": "sulfur, sulphur"
+    },
+    {
+      "word": "黄ばむ",
+      "reading": "きばむ",
+      "meaning": "turn yellow"
+    },
+    {
+      "word": "黄金",
+      "reading": "こがね",
+      "meaning": "gold"
+    },
+    {
+      "word": "黄土",
+      "reading": "おうど",
+      "meaning": "loess"
+    },
+    {
+      "word": "黄熱病",
+      "reading": "おうねつびょう",
+      "meaning": "yellow fever"
+    },
+    {
+      "word": "黄緑色",
+      "reading": "きみどりいろ",
+      "meaning": "yellow-green color"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "黄昏",
+      "reading": "たそがれ",
+      "meaning": "dusk, twilight"
+    }
+  ],
+  "unicode": "9ec4"
+}

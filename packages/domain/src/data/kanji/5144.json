@@ -1,0 +1,80 @@
+{
+  "character": "兄",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ケイ",
+      "キョウ"
+    ],
+    "kunyomi": [
+      "あに"
+    ]
+  },
+  "meanings": [
+    "older brother"
+  ],
+  "radicals": [
+    "儿"
+  ],
+  "examples": [
+    {
+      "word": "父兄",
+      "reading": "ふけい",
+      "meaning": "guardians"
+    },
+    {
+      "word": "兄弟",
+      "reading": "きょうだい",
+      "meaning": "siblings"
+    },
+    {
+      "word": "兄",
+      "reading": "あに",
+      "meaning": "one's own older brother"
+    },
+    {
+      "word": "兄弟子",
+      "reading": "あにでし",
+      "meaning": "senior apprentice"
+    },
+    {
+      "word": "兄嫁",
+      "reading": "あによめ",
+      "meaning": "older brother's wife"
+    },
+    {
+      "word": "実兄",
+      "reading": "じっけい",
+      "meaning": "biological older brother"
+    },
+    {
+      "word": "兄貴",
+      "reading": "あにき",
+      "meaning": "big brother; boss"
+    },
+    {
+      "word": "兄弟愛",
+      "reading": "きょうだいあい",
+      "meaning": "sibling love"
+    },
+    {
+      "word": "義兄",
+      "reading": "ぎけい",
+      "meaning": "older brother-in-law"
+    },
+    {
+      "word": "兄弟分",
+      "reading": "きょうだいぶん",
+      "meaning": "sworn brother"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "お兄さん",
+      "reading": "おにいさん",
+      "meaning": "older brother [hon.]"
+    }
+  ],
+  "unicode": "5144"
+}

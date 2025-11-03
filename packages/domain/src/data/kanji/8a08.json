@@ -1,0 +1,100 @@
+{
+  "character": "計",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "ケイ"
+    ],
+    "kunyomi": [
+      "はか-る",
+      "はか-らう"
+    ]
+  },
+  "meanings": [
+    "measure",
+    "plan"
+  ],
+  "radicals": [
+    "言"
+  ],
+  "examples": [
+    {
+      "word": "余計な",
+      "reading": "よけいな",
+      "meaning": "extra, excessive"
+    },
+    {
+      "word": "寒暖計",
+      "reading": "かんだんけい",
+      "meaning": "thermometer"
+    },
+    {
+      "word": "腕時計",
+      "reading": "うでどけい",
+      "meaning": "wristwatch"
+    },
+    {
+      "word": "計画する",
+      "reading": "けいかくする",
+      "meaning": "plan"
+    },
+    {
+      "word": "会計士",
+      "reading": "かいけいし",
+      "meaning": "accountant"
+    },
+    {
+      "word": "設計図",
+      "reading": "せっけいず",
+      "meaning": "blueprint"
+    },
+    {
+      "word": "時計",
+      "reading": "とけい",
+      "meaning": "watch, clock"
+    },
+    {
+      "word": "統計",
+      "reading": "とうけい",
+      "meaning": "statistics"
+    },
+    {
+      "word": "体温計",
+      "reading": "たいおんけい",
+      "meaning": "medical thermometer"
+    },
+    {
+      "word": "温度計",
+      "reading": "おんどけい",
+      "meaning": "thermometer"
+    },
+    {
+      "word": "計算する",
+      "reading": "けいさんする",
+      "meaning": "calculate"
+    },
+    {
+      "word": "設計する",
+      "reading": "せっけいする",
+      "meaning": "design"
+    },
+    {
+      "word": "合計する",
+      "reading": "ごうけいする",
+      "meaning": "add up"
+    },
+    {
+      "word": "計る",
+      "reading": "はかる",
+      "meaning": "measure"
+    },
+    {
+      "word": "柱時計",
+      "reading": "はしらどけい",
+      "meaning": "wall clock"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8a08"
+}

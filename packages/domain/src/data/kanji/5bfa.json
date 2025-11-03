@@ -1,0 +1,73 @@
+{
+  "character": "寺",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "ジ"
+    ],
+    "kunyomi": [
+      "てら"
+    ]
+  },
+  "meanings": [
+    "temple"
+  ],
+  "radicals": [
+    "寸"
+  ],
+  "examples": [
+    {
+      "word": "金閣寺",
+      "reading": "きんかくじ",
+      "meaning": "Kinkakuji Temple"
+    },
+    {
+      "word": "銀閣寺",
+      "reading": "ぎんかくじ",
+      "meaning": "Ginkakuji Temple"
+    },
+    {
+      "word": "鹿苑寺",
+      "reading": "ろくおんじ",
+      "meaning": "formal name of Kinkakuji Temple"
+    },
+    {
+      "word": "寺院",
+      "reading": "じいん",
+      "meaning": "temple"
+    },
+    {
+      "word": "社寺",
+      "reading": "しゃじ",
+      "meaning": "shrines and temples"
+    },
+    {
+      "word": "東大寺",
+      "reading": "とうだいじ",
+      "meaning": "Todaiji Temple"
+    },
+    {
+      "word": "寺",
+      "reading": "てら",
+      "meaning": "temple"
+    },
+    {
+      "word": "寺参り",
+      "reading": "てらまいり",
+      "meaning": "ritual visits to a temple"
+    },
+    {
+      "word": "尼寺",
+      "reading": "あまでら",
+      "meaning": "nunnery, convent"
+    },
+    {
+      "word": "山寺",
+      "reading": "やまでら",
+      "meaning": "mountain temple"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5bfa"
+}

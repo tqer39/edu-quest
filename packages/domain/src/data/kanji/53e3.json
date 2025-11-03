@@ -1,0 +1,99 @@
+{
+  "character": "口",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "コウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "くち"
+    ]
+  },
+  "meanings": [
+    "mouth"
+  ],
+  "radicals": [
+    "口"
+  ],
+  "examples": [
+    {
+      "word": "口述する",
+      "reading": "こうじゅつする",
+      "meaning": "state verbally"
+    },
+    {
+      "word": "口紅",
+      "reading": "くちべに",
+      "meaning": "lipstick"
+    },
+    {
+      "word": "傷口",
+      "reading": "きずぐち",
+      "meaning": "wound"
+    },
+    {
+      "word": "裏口",
+      "reading": "うらぐち",
+      "meaning": "backdoor, rear entrance"
+    },
+    {
+      "word": "昇降口",
+      "reading": "しょうこうぐち",
+      "meaning": "entrance, hatch"
+    },
+    {
+      "word": "憎まれ口",
+      "reading": "にくまれぐち",
+      "meaning": "abusive language"
+    },
+    {
+      "word": "湾口",
+      "reading": "わんこう",
+      "meaning": "entrance or mouth of a bay"
+    },
+    {
+      "word": "入り口",
+      "reading": "いりぐち",
+      "meaning": "entrance"
+    },
+    {
+      "word": "人口",
+      "reading": "じんこう",
+      "meaning": "population"
+    },
+    {
+      "word": "悪口",
+      "reading": "わるくち",
+      "meaning": "slander, abuse [n.]"
+    },
+    {
+      "word": "乗降口",
+      "reading": "じょうこうぐち",
+      "meaning": "door for getting on and off"
+    },
+    {
+      "word": "利口な",
+      "reading": "りこうな",
+      "meaning": "clever"
+    },
+    {
+      "word": "口調",
+      "reading": "くちょう",
+      "meaning": "tone of voice"
+    },
+    {
+      "word": "異口同音",
+      "reading": "いくどうおん",
+      "meaning": "say something in unison"
+    },
+    {
+      "word": "口",
+      "reading": "くち",
+      "meaning": "mouth"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "53e3"
+}

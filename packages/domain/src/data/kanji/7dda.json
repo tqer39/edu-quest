@@ -1,0 +1,96 @@
+{
+  "character": "線",
+  "grade": 2,
+  "strokeCount": 15,
+  "readings": {
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "line"
+  ],
+  "radicals": [
+    "糸"
+  ],
+  "examples": [
+    {
+      "word": "沿線",
+      "reading": "えんせん",
+      "meaning": "along a railroad line"
+    },
+    {
+      "word": "垂線",
+      "reading": "すいせん",
+      "meaning": "perpendicular line"
+    },
+    {
+      "word": "梅雨前線",
+      "reading": "ばいうぜんせん",
+      "meaning": "seasonal rain front"
+    },
+    {
+      "word": "脱線する",
+      "reading": "だっせんする",
+      "meaning": "digress, derail [v.i.]"
+    },
+    {
+      "word": "新幹線",
+      "reading": "しんかんせん",
+      "meaning": "Shinkansen"
+    },
+    {
+      "word": "曲線",
+      "reading": "きょくせん",
+      "meaning": "curve"
+    },
+    {
+      "word": "地平線",
+      "reading": "ちへいせん",
+      "meaning": "horizon"
+    },
+    {
+      "word": "赤外線",
+      "reading": "せきがいせん",
+      "meaning": "infrared rays"
+    },
+    {
+      "word": "点線",
+      "reading": "てんせん",
+      "meaning": "dotted line"
+    },
+    {
+      "word": "光線",
+      "reading": "こうせん",
+      "meaning": "light ray"
+    },
+    {
+      "word": "線",
+      "reading": "せん",
+      "meaning": "line [n.]"
+    },
+    {
+      "word": "線路",
+      "reading": "せんろ",
+      "meaning": "train track"
+    },
+    {
+      "word": "直線",
+      "reading": "ちょくせん",
+      "meaning": "straight line"
+    },
+    {
+      "word": "電線",
+      "reading": "でんせん",
+      "meaning": "electric wire"
+    },
+    {
+      "word": "戦線",
+      "reading": "せんせん",
+      "meaning": "front (in a war)"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7dda"
+}

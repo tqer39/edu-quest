@@ -1,0 +1,99 @@
+{
+  "character": "毛",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "モウ"
+    ],
+    "kunyomi": [
+      "け"
+    ]
+  },
+  "meanings": [
+    "hair",
+    "fur"
+  ],
+  "radicals": [
+    "毛"
+  ],
+  "examples": [
+    {
+      "word": "毛織",
+      "reading": "けおり",
+      "meaning": "woolen fabric, woolen cloth"
+    },
+    {
+      "word": "毛髪",
+      "reading": "もうはつ",
+      "meaning": "hair"
+    },
+    {
+      "word": "髪の毛",
+      "reading": "かみのけ",
+      "meaning": "hair (on the head)"
+    },
+    {
+      "word": "毛布",
+      "reading": "もうふ",
+      "meaning": "blanket"
+    },
+    {
+      "word": "毛筆",
+      "reading": "もうひつ",
+      "meaning": "(writing) brush"
+    },
+    {
+      "word": "羽毛",
+      "reading": "うもう",
+      "meaning": "feathers, plumage, down,"
+    },
+    {
+      "word": "羊毛",
+      "reading": "ようもう",
+      "meaning": "wool,"
+    },
+    {
+      "word": "純毛",
+      "reading": "じゅんもう",
+      "meaning": "100 % wool"
+    },
+    {
+      "word": "不毛",
+      "reading": "ふもう",
+      "meaning": "sterile, barren, unproductive [n.]"
+    },
+    {
+      "word": "毛",
+      "reading": "け",
+      "meaning": "hair, fur"
+    },
+    {
+      "word": "毛糸",
+      "reading": "けいと",
+      "meaning": "knitting wool"
+    },
+    {
+      "word": "鼻毛",
+      "reading": "はなげ",
+      "meaning": "nose hair"
+    },
+    {
+      "word": "赤毛",
+      "reading": "あかげ",
+      "meaning": "red hair"
+    },
+    {
+      "word": "毛虫",
+      "reading": "けむし",
+      "meaning": "caterpillar"
+    },
+    {
+      "word": "毛皮",
+      "reading": "けがわ",
+      "meaning": "fur, skin, pelt"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6bdb"
+}

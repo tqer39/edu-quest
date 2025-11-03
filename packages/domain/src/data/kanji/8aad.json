@@ -1,0 +1,100 @@
+{
+  "character": "読",
+  "grade": 2,
+  "strokeCount": 14,
+  "readings": {
+    "onyomi": [
+      "ドク",
+      "トク",
+      "トウ"
+    ],
+    "kunyomi": [
+      "よ-む"
+    ]
+  },
+  "meanings": [
+    "read"
+  ],
+  "radicals": [
+    "言"
+  ],
+  "examples": [
+    {
+      "word": "読者層",
+      "reading": "どくしゃそう",
+      "meaning": "class of readers"
+    },
+    {
+      "word": "棒読み",
+      "reading": "ぼうよみ",
+      "meaning": "read in monotone [n.]"
+    },
+    {
+      "word": "朗読する",
+      "reading": "ろうどくする",
+      "meaning": "read aloud, recite"
+    },
+    {
+      "word": "音読み",
+      "reading": "おんよみ",
+      "meaning": "on (Chinese) reading of kanji"
+    },
+    {
+      "word": "必読書",
+      "reading": "ひつどくしょ",
+      "meaning": "a must-read book"
+    },
+    {
+      "word": "読者",
+      "reading": "どくしゃ",
+      "meaning": "reader"
+    },
+    {
+      "word": "句読点",
+      "reading": "くとうてん",
+      "meaning": "punctuation marks"
+    },
+    {
+      "word": "訓読み",
+      "reading": "くんよみ",
+      "meaning": "Japanese reading of kanji"
+    },
+    {
+      "word": "訓読",
+      "reading": "くんどく",
+      "meaning": "Japanese reading of Chinese text"
+    },
+    {
+      "word": "読書",
+      "reading": "どくしょ",
+      "meaning": "reading"
+    },
+    {
+      "word": "読解力",
+      "reading": "どっかいりょく",
+      "meaning": "reading ability"
+    },
+    {
+      "word": "読本",
+      "reading": "とくほん",
+      "meaning": "a reading primer"
+    },
+    {
+      "word": "読点",
+      "reading": "とうてん",
+      "meaning": "comma"
+    },
+    {
+      "word": "読む",
+      "reading": "よむ",
+      "meaning": "read"
+    },
+    {
+      "word": "読売新聞",
+      "reading": "よみうりしんぶん",
+      "meaning": "Yomiuri (newspaper)"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8aad"
+}

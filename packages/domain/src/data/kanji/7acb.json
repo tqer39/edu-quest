@@ -1,0 +1,112 @@
+{
+  "character": "立",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "リツ",
+      "リュウ"
+    ],
+    "kunyomi": [
+      "た-つ",
+      "た-てる"
+    ]
+  },
+  "meanings": [
+    "stand",
+    "rise"
+  ],
+  "radicals": [
+    "立"
+  ],
+  "examples": [
+    {
+      "word": "立憲",
+      "reading": "りっけん",
+      "meaning": "constitutionalism"
+    },
+    {
+      "word": "立憲政治",
+      "reading": "りっけんせいじ",
+      "meaning": "constitutional government"
+    },
+    {
+      "word": "樹立する",
+      "reading": "じゅりつする",
+      "meaning": "establish, found, set up"
+    },
+    {
+      "word": "独立宣言",
+      "reading": "どくりつせんげん",
+      "meaning": "Declaration of Independence"
+    },
+    {
+      "word": "立腹する",
+      "reading": "りっぷくする",
+      "meaning": "anger, get angry"
+    },
+    {
+      "word": "腹を立てる",
+      "reading": "はらをたてる",
+      "meaning": "take offense, get angry [v.t.]"
+    },
+    {
+      "word": "腹が立つ",
+      "reading": "はらがたつ",
+      "meaning": "take offense, get angry [v.i.]"
+    },
+    {
+      "word": "棒立ち",
+      "reading": "ぼうだち",
+      "meaning": "stand bolt upright [n.]"
+    },
+    {
+      "word": "国立",
+      "reading": "こくりつ",
+      "meaning": "nationally owned (institution)"
+    },
+    {
+      "word": "立春",
+      "reading": "りっしゅん",
+      "meaning": "1st day of spring"
+    },
+    {
+      "word": "旅立つ",
+      "reading": "たびだつ",
+      "meaning": "begin a trip [v.i.]"
+    },
+    {
+      "word": "建立する",
+      "reading": "こんりゅうする",
+      "meaning": "erect (building) [v.t.]"
+    },
+    {
+      "word": "対立する",
+      "reading": "たいりつする",
+      "meaning": "confront"
+    },
+    {
+      "word": "立場",
+      "reading": "たちば",
+      "meaning": "standpoint"
+    },
+    {
+      "word": "成立する",
+      "reading": "せいりつする",
+      "meaning": "form, be born, be completed"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "塗り立て",
+      "reading": "ぬりたて",
+      "meaning": "freshly painted [n.]"
+    },
+    {
+      "word": "埋め立て地",
+      "reading": "うめたてち",
+      "meaning": "reclaimed land"
+    }
+  ],
+  "unicode": "7acb"
+}

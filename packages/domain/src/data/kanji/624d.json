@@ -1,0 +1,78 @@
+{
+  "character": "才",
+  "grade": 2,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "サイ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "talent",
+    "ability"
+  ],
+  "radicals": [
+    "手"
+  ],
+  "examples": [
+    {
+      "word": "何才",
+      "reading": "なんさい",
+      "meaning": "how old"
+    },
+    {
+      "word": "七才",
+      "reading": "ななさい",
+      "meaning": "7 years old"
+    },
+    {
+      "word": "天才",
+      "reading": "てんさい",
+      "meaning": "genius"
+    },
+    {
+      "word": "才能",
+      "reading": "さいのう",
+      "meaning": "talent"
+    },
+    {
+      "word": "偉才",
+      "reading": "いさい",
+      "meaning": "great talent"
+    },
+    {
+      "word": "十八才",
+      "reading": "じゅうはっさい",
+      "meaning": "18 years old"
+    },
+    {
+      "word": "漫才",
+      "reading": "まんざい",
+      "meaning": "comic dialogue"
+    },
+    {
+      "word": "六才",
+      "reading": "ろくさい",
+      "meaning": "6 years old"
+    },
+    {
+      "word": "才女",
+      "reading": "さいじょ",
+      "meaning": "talented woman"
+    },
+    {
+      "word": "才気",
+      "reading": "さいき",
+      "meaning": "wit; brilliance"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "二十才",
+      "reading": "はたち",
+      "meaning": "20 years old"
+    }
+  ],
+  "unicode": "624d"
+}

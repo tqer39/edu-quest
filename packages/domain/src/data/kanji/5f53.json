@@ -1,0 +1,106 @@
+{
+  "character": "当",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "あ-たる",
+      "あ-てる"
+    ]
+  },
+  "meanings": [
+    "hit",
+    "appropriate"
+  ],
+  "radicals": [
+    "彐"
+  ],
+  "examples": [
+    {
+      "word": "当日",
+      "reading": "とうじつ",
+      "meaning": "very day"
+    },
+    {
+      "word": "当時",
+      "reading": "とうじ",
+      "meaning": "in those days, then, at the time"
+    },
+    {
+      "word": "本当",
+      "reading": "ほんとう",
+      "meaning": "truth"
+    },
+    {
+      "word": "弁当",
+      "reading": "べんとう",
+      "meaning": "lunch vendor, boxed lunch"
+    },
+    {
+      "word": "当選する",
+      "reading": "とうせんする",
+      "meaning": "be elected, win a prize"
+    },
+    {
+      "word": "担当する",
+      "reading": "たんとうする",
+      "meaning": "have responsibility for"
+    },
+    {
+      "word": "当たる",
+      "reading": "あたる",
+      "meaning": "be hit [v.i.]"
+    },
+    {
+      "word": "日当たり",
+      "reading": "ひあたり",
+      "meaning": "exposure to the sun"
+    },
+    {
+      "word": "当たり前",
+      "reading": "あたりまえ",
+      "meaning": "usual, natural, ordinary"
+    },
+    {
+      "word": "当てる",
+      "reading": "あてる",
+      "meaning": "hit [v.t.]"
+    },
+    {
+      "word": "当番",
+      "reading": "とうばん",
+      "meaning": "being on duty"
+    },
+    {
+      "word": "当然",
+      "reading": "とうぜん",
+      "meaning": "as a matter of course"
+    },
+    {
+      "word": "配当金",
+      "reading": "はいとうきん",
+      "meaning": "share (money)"
+    },
+    {
+      "word": "本当に",
+      "reading": "ほんとうに",
+      "meaning": "really"
+    },
+    {
+      "word": "差し当たり",
+      "reading": "さしあたり",
+      "meaning": "for the time being, at present"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "手当てする",
+      "reading": "てあてする",
+      "meaning": "provide medical care"
+    }
+  ],
+  "unicode": "5f53"
+}

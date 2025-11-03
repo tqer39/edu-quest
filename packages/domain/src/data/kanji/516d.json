@@ -1,0 +1,91 @@
+{
+  "character": "六",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ロク"
+    ],
+    "kunyomi": [
+      "む",
+      "む-つ",
+      "むっ-つ",
+      "むい"
+    ]
+  },
+  "meanings": [
+    "six"
+  ],
+  "radicals": [
+    "八"
+  ],
+  "examples": [
+    {
+      "word": "五臓六腑",
+      "reading": "ごぞうろっぷ",
+      "meaning": "the internal organs"
+    },
+    {
+      "word": "六百",
+      "reading": "ろっぴゃく",
+      "meaning": "600"
+    },
+    {
+      "word": "第六感",
+      "reading": "だいろっかん",
+      "meaning": "sixth sense"
+    },
+    {
+      "word": "六本",
+      "reading": "ろっぽん",
+      "meaning": "6 (long cylindrical objects)"
+    },
+    {
+      "word": "六匹",
+      "reading": "ろっぴき",
+      "meaning": "6 (animals)"
+    },
+    {
+      "word": "六時",
+      "reading": "ろくじ",
+      "meaning": "6 o'clock"
+    },
+    {
+      "word": "六才",
+      "reading": "ろくさい",
+      "meaning": "6 years old"
+    },
+    {
+      "word": "六番目",
+      "reading": "ろくばんめ",
+      "meaning": "6th"
+    },
+    {
+      "word": "六月",
+      "reading": "ろくがつ",
+      "meaning": "June"
+    },
+    {
+      "word": "六つ",
+      "reading": "むっつ",
+      "meaning": "6 (pieces)"
+    },
+    {
+      "word": "六日",
+      "reading": "むいか",
+      "meaning": "6 days, 6th of the month"
+    },
+    {
+      "word": "六人",
+      "reading": "ろくにん",
+      "meaning": "six people"
+    },
+    {
+      "word": "六年生",
+      "reading": "ろくねんせい",
+      "meaning": "6th grader"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "516d"
+}

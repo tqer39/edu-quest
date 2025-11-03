@@ -1,0 +1,106 @@
+{
+  "character": "来",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "ライ"
+    ],
+    "kunyomi": [
+      "く-る",
+      "きた-る",
+      "きた-す"
+    ]
+  },
+  "meanings": [
+    "come"
+  ],
+  "radicals": [
+    "人"
+  ],
+  "examples": [
+    {
+      "word": "持って来る",
+      "reading": "もってくる",
+      "meaning": "bring"
+    },
+    {
+      "word": "以来",
+      "reading": "いらい",
+      "meaning": "since"
+    },
+    {
+      "word": "由来する",
+      "reading": "ゆらいする",
+      "meaning": "originate"
+    },
+    {
+      "word": "来月",
+      "reading": "らいげつ",
+      "meaning": "next month"
+    },
+    {
+      "word": "未来",
+      "reading": "みらい",
+      "meaning": "future [n.]"
+    },
+    {
+      "word": "将来",
+      "reading": "しょうらい",
+      "meaning": "future, prospects"
+    },
+    {
+      "word": "来週",
+      "reading": "らいしゅう",
+      "meaning": "next week"
+    },
+    {
+      "word": "来年",
+      "reading": "らいねん",
+      "meaning": "next year"
+    },
+    {
+      "word": "来日する",
+      "reading": "らいにちする",
+      "meaning": "visit Japan"
+    },
+    {
+      "word": "来る",
+      "reading": "くる",
+      "meaning": "come"
+    },
+    {
+      "word": "来す",
+      "reading": "きたす",
+      "meaning": "cause"
+    },
+    {
+      "word": "来客",
+      "reading": "らいきゃく",
+      "meaning": "visitor"
+    },
+    {
+      "word": "再来月",
+      "reading": "さらいげつ",
+      "meaning": "month after next"
+    },
+    {
+      "word": "再来週",
+      "reading": "さらいしゅう",
+      "meaning": "week after next"
+    },
+    {
+      "word": "再来年",
+      "reading": "さらいねん",
+      "meaning": "year after next"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "出来栄え",
+      "reading": "できばえ",
+      "meaning": "quality of finished product"
+    }
+  ],
+  "unicode": "6765"
+}

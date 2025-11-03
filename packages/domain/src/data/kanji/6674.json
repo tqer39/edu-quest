@@ -1,0 +1,86 @@
+{
+  "character": "晴",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "セイ"
+    ],
+    "kunyomi": [
+      "は-れる",
+      "は-らす"
+    ]
+  },
+  "meanings": [
+    "clear up",
+    "sunny"
+  ],
+  "radicals": [
+    "日"
+  ],
+  "examples": [
+    {
+      "word": "晴天",
+      "reading": "せいてん",
+      "meaning": "fine weather"
+    },
+    {
+      "word": "晴れる",
+      "reading": "はれる",
+      "meaning": "become sunny"
+    },
+    {
+      "word": "晴らす",
+      "reading": "はらす",
+      "meaning": "clear away"
+    },
+    {
+      "word": "素晴らしい",
+      "reading": "すばらしい",
+      "meaning": "wonderful"
+    },
+    {
+      "word": "気晴らし",
+      "reading": "きばらし",
+      "meaning": "recreation"
+    },
+    {
+      "word": "快晴",
+      "reading": "かいせい",
+      "meaning": "good weather"
+    },
+    {
+      "word": "晴れ間",
+      "reading": "はれま",
+      "meaning": "break in the clouds"
+    },
+    {
+      "word": "晴れ着",
+      "reading": "はれぎ",
+      "meaning": "festive attire"
+    },
+    {
+      "word": "晴れ舞台",
+      "reading": "はれぶたい",
+      "meaning": "moment in the spotlight"
+    },
+    {
+      "word": "晴れ模様",
+      "reading": "はれもよう",
+      "meaning": "clearing weather pattern"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "五月晴れ",
+      "reading": "さつきばれ",
+      "meaning": "early summer fine weather"
+    },
+    {
+      "word": "晴れ渡る",
+      "reading": "はれわたる",
+      "meaning": "clear up"
+    }
+  ],
+  "unicode": "6674"
+}

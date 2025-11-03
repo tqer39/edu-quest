@@ -1,0 +1,86 @@
+{
+  "character": "週",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": [
+      "シュウ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "week"
+  ],
+  "radicals": [
+    "辵"
+  ],
+  "examples": [
+    {
+      "word": "七週間",
+      "reading": "ななしゅうかん",
+      "meaning": "7 weeks"
+    },
+    {
+      "word": "翌週",
+      "reading": "よくしゅう",
+      "meaning": "the following week"
+    },
+    {
+      "word": "先週",
+      "reading": "せんしゅう",
+      "meaning": "last week"
+    },
+    {
+      "word": "一週間",
+      "reading": "いっしゅうかん",
+      "meaning": "one week"
+    },
+    {
+      "word": "次週",
+      "reading": "じしゅう",
+      "meaning": "next week"
+    },
+    {
+      "word": "今週",
+      "reading": "こんしゅう",
+      "meaning": "this week"
+    },
+    {
+      "word": "週休",
+      "reading": "しゅうきゅう",
+      "meaning": "weekly holiday"
+    },
+    {
+      "word": "週刊誌",
+      "reading": "しゅうかんし",
+      "meaning": "weekly publication"
+    },
+    {
+      "word": "来週",
+      "reading": "らいしゅう",
+      "meaning": "next week"
+    },
+    {
+      "word": "毎週",
+      "reading": "まいしゅう",
+      "meaning": "every week"
+    },
+    {
+      "word": "再来週",
+      "reading": "さらいしゅう",
+      "meaning": "week after next"
+    },
+    {
+      "word": "週末",
+      "reading": "しゅうまつ",
+      "meaning": "weekend"
+    },
+    {
+      "word": "週間",
+      "reading": "しゅうかん",
+      "meaning": "week"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9031"
+}

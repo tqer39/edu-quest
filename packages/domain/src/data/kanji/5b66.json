@@ -1,0 +1,100 @@
+{
+  "character": "学",
+  "grade": 1,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "ガク"
+    ],
+    "kunyomi": [
+      "まな-ぶ"
+    ]
+  },
+  "meanings": [
+    "study",
+    "learning",
+    "school"
+  ],
+  "radicals": [
+    "子"
+  ],
+  "examples": [
+    {
+      "word": "幾何学",
+      "reading": "きかがく",
+      "meaning": "geometry"
+    },
+    {
+      "word": "退学する",
+      "reading": "たいがくする",
+      "meaning": "drop out of school"
+    },
+    {
+      "word": "就学する",
+      "reading": "しゅうがくする",
+      "meaning": "enter school, attend school"
+    },
+    {
+      "word": "秋学期",
+      "reading": "あきがっき",
+      "meaning": "autumn semester/quarter"
+    },
+    {
+      "word": "学者肌",
+      "reading": "がくしゃはだ",
+      "meaning": "scholarly bent of mind"
+    },
+    {
+      "word": "学齢期",
+      "reading": "がくれいき",
+      "meaning": "school age"
+    },
+    {
+      "word": "中学校",
+      "reading": "ちゅうがっこう",
+      "meaning": "junior high school"
+    },
+    {
+      "word": "学習する",
+      "reading": "がくしゅうする",
+      "meaning": "learn"
+    },
+    {
+      "word": "入学する",
+      "reading": "にゅうがくする",
+      "meaning": "entry school or university"
+    },
+    {
+      "word": "女子学生",
+      "reading": "じょしがくせい",
+      "meaning": "female student"
+    },
+    {
+      "word": "男子学生",
+      "reading": "だんしがくせい",
+      "meaning": "male student"
+    },
+    {
+      "word": "人類学",
+      "reading": "じんるいがく",
+      "meaning": "anthropology"
+    },
+    {
+      "word": "心理学",
+      "reading": "しんりがく",
+      "meaning": "psychology"
+    },
+    {
+      "word": "言語学",
+      "reading": "げんごがく",
+      "meaning": "linguistics"
+    },
+    {
+      "word": "見学する",
+      "reading": "けんがくする",
+      "meaning": "study, take a research trip"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5b66"
+}

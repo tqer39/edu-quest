@@ -1,0 +1,100 @@
+{
+  "character": "天",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "テン"
+    ],
+    "kunyomi": [
+      "あま",
+      "あめ"
+    ]
+  },
+  "meanings": [
+    "heaven",
+    "sky"
+  ],
+  "radicals": [
+    "大"
+  ],
+  "examples": [
+    {
+      "word": "天気予報",
+      "reading": "てんきよほう",
+      "meaning": "weather forecast"
+    },
+    {
+      "word": "天守閣",
+      "reading": "てんしゅかく",
+      "meaning": "castle tower"
+    },
+    {
+      "word": "天台宗",
+      "reading": "てんだいしゅう",
+      "meaning": "Tendai sect"
+    },
+    {
+      "word": "有頂天",
+      "reading": "うちょうてん",
+      "meaning": "ecstasy, rapture"
+    },
+    {
+      "word": "天皇陛下",
+      "reading": "てんのうへいか",
+      "meaning": "His Majesty the Emperor"
+    },
+    {
+      "word": "天幕",
+      "reading": "てんまく",
+      "meaning": "curtain, tent, pavilion"
+    },
+    {
+      "word": "露天堀り",
+      "reading": "ろてんぼり",
+      "meaning": "open air strip mining"
+    },
+    {
+      "word": "昇天する",
+      "reading": "しょうてんする",
+      "meaning": "die, ascend to heaven"
+    },
+    {
+      "word": "天気",
+      "reading": "てんき",
+      "meaning": "weather"
+    },
+    {
+      "word": "天候",
+      "reading": "てんこう",
+      "meaning": "weather"
+    },
+    {
+      "word": "天国",
+      "reading": "てんごく",
+      "meaning": "heaven"
+    },
+    {
+      "word": "天皇",
+      "reading": "てんのう",
+      "meaning": "emperor"
+    },
+    {
+      "word": "天才",
+      "reading": "てんさい",
+      "meaning": "genius"
+    },
+    {
+      "word": "晴天",
+      "reading": "せいてん",
+      "meaning": "fine weather"
+    },
+    {
+      "word": "雨天",
+      "reading": "うてん",
+      "meaning": "rainy weather"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5929"
+}

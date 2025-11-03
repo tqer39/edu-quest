@@ -1,0 +1,96 @@
+{
+  "character": "八",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": [
+      "ハチ"
+    ],
+    "kunyomi": [
+      "や",
+      "や-つ",
+      "やっ-つ",
+      "よう"
+    ]
+  },
+  "meanings": [
+    "eight"
+  ],
+  "radicals": [
+    "八"
+  ],
+  "examples": [
+    {
+      "word": "八月",
+      "reading": "はちがつ",
+      "meaning": "August"
+    },
+    {
+      "word": "八時間",
+      "reading": "はちじかん",
+      "meaning": "8 hours"
+    },
+    {
+      "word": "尺八",
+      "reading": "しゃくはち",
+      "meaning": "bamboo flute"
+    },
+    {
+      "word": "八回",
+      "reading": "はっかい",
+      "meaning": "8 times"
+    },
+    {
+      "word": "八分",
+      "reading": "はっぷん",
+      "meaning": "8 minutes"
+    },
+    {
+      "word": "八百",
+      "reading": "はっぴゃく",
+      "meaning": "800"
+    },
+    {
+      "word": "八つ",
+      "reading": "やっつ",
+      "meaning": "8 (objects)"
+    },
+    {
+      "word": "八百屋",
+      "reading": "やおや",
+      "meaning": "greengrocer"
+    },
+    {
+      "word": "八重桜",
+      "reading": "やえざくら",
+      "meaning": "double-flowered cherry-tree"
+    },
+    {
+      "word": "八日",
+      "reading": "ようか",
+      "meaning": "8 days, 8th of the month"
+    },
+    {
+      "word": "八千",
+      "reading": "はっせん",
+      "meaning": "8000"
+    },
+    {
+      "word": "十八才",
+      "reading": "じゅうはっさい",
+      "meaning": "18 years old"
+    },
+    {
+      "word": "八匹",
+      "reading": "はっぴき",
+      "meaning": "8 (animals)"
+    },
+    {
+      "word": "八人",
+      "reading": "はちにん",
+      "meaning": "eight people"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "516b"
+}

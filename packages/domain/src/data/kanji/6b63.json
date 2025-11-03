@@ -1,0 +1,108 @@
+{
+  "character": "正",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "ただ-しい",
+      "まさ"
+    ]
+  },
+  "meanings": [
+    "correct",
+    "right",
+    "proper"
+  ],
+  "radicals": [
+    "止"
+  ],
+  "examples": [
+    {
+      "word": "正絹",
+      "reading": "しょうけん",
+      "meaning": "pure silk"
+    },
+    {
+      "word": "正装する",
+      "reading": "せいそうする",
+      "meaning": "dress up, wear full dress"
+    },
+    {
+      "word": "補正する",
+      "reading": "ほせいする",
+      "meaning": "revise, correct"
+    },
+    {
+      "word": "正直な",
+      "reading": "しょうじきな",
+      "meaning": "honest"
+    },
+    {
+      "word": "校正する",
+      "reading": "こうせいする",
+      "meaning": "proofread"
+    },
+    {
+      "word": "正午",
+      "reading": "しょうご",
+      "meaning": "noon"
+    },
+    {
+      "word": "正月",
+      "reading": "しょうがつ",
+      "meaning": "New Year"
+    },
+    {
+      "word": "正規",
+      "reading": "せいき",
+      "meaning": "regular"
+    },
+    {
+      "word": "正解",
+      "reading": "せいかい",
+      "meaning": "correct answer"
+    },
+    {
+      "word": "正義",
+      "reading": "せいぎ",
+      "meaning": "justice"
+    },
+    {
+      "word": "正確な",
+      "reading": "せいかくな",
+      "meaning": "accurate"
+    },
+    {
+      "word": "正常な",
+      "reading": "せいじょうな",
+      "meaning": "normal"
+    },
+    {
+      "word": "不正な",
+      "reading": "ふせいな",
+      "meaning": "unjust"
+    },
+    {
+      "word": "修正する",
+      "reading": "しゅうせいする",
+      "meaning": "revise"
+    },
+    {
+      "word": "正気",
+      "reading": "しょうき",
+      "meaning": "sanity"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "正す",
+      "reading": "ただす",
+      "meaning": "straighten"
+    }
+  ],
+  "unicode": "6b63"
+}

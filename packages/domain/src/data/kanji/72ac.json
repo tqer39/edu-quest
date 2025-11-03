@@ -1,0 +1,78 @@
+{
+  "character": "犬",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ケン"
+    ],
+    "kunyomi": [
+      "いぬ"
+    ]
+  },
+  "meanings": [
+    "dog"
+  ],
+  "radicals": [
+    "犬"
+  ],
+  "examples": [
+    {
+      "word": "飼い犬",
+      "reading": "かいいぬ",
+      "meaning": "pet dog"
+    },
+    {
+      "word": "野良犬",
+      "reading": "のらいぬ",
+      "meaning": "stray dog"
+    },
+    {
+      "word": "負け犬",
+      "reading": "まけいぬ",
+      "meaning": "underdog, loser"
+    },
+    {
+      "word": "盲導犬",
+      "reading": "もうどうけん",
+      "meaning": "seeing eye dog"
+    },
+    {
+      "word": "狂犬病",
+      "reading": "きょうけんびょう",
+      "meaning": "rabies, hydrophobia"
+    },
+    {
+      "word": "番犬",
+      "reading": "ばんけん",
+      "meaning": "watchdog"
+    },
+    {
+      "word": "犬",
+      "reading": "いぬ",
+      "meaning": "dog"
+    },
+    {
+      "word": "子犬",
+      "reading": "こいぬ",
+      "meaning": "puppy"
+    },
+    {
+      "word": "牧羊犬",
+      "reading": "ぼくようけん",
+      "meaning": "sheepdog"
+    },
+    {
+      "word": "警察犬",
+      "reading": "けいさつけん",
+      "meaning": "police dog"
+    },
+    {
+      "word": "犬小屋",
+      "reading": "いぬごや",
+      "meaning": "doghouse"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "72ac"
+}

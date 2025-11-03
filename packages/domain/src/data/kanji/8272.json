@@ -1,0 +1,99 @@
+{
+  "character": "色",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "ショク",
+      "シキ"
+    ],
+    "kunyomi": [
+      "いろ"
+    ]
+  },
+  "meanings": [
+    "color"
+  ],
+  "radicals": [
+    "色"
+  ],
+  "examples": [
+    {
+      "word": "何色",
+      "reading": "なにいろ",
+      "meaning": "what color"
+    },
+    {
+      "word": "十人十色",
+      "reading": "じゅうにんといろ",
+      "meaning": "several men, several minds"
+    },
+    {
+      "word": "灰白色",
+      "reading": "かいはくしょく",
+      "meaning": "grayish white"
+    },
+    {
+      "word": "灰色",
+      "reading": "はいいろ",
+      "meaning": "grey, ashen"
+    },
+    {
+      "word": "紅色",
+      "reading": "べにいろ",
+      "meaning": "red color"
+    },
+    {
+      "word": "鋼色",
+      "reading": "はがねいろ",
+      "meaning": "steel blue"
+    },
+    {
+      "word": "染色",
+      "reading": "せんしょく",
+      "meaning": "staining, stain, dyeing"
+    },
+    {
+      "word": "染色体",
+      "reading": "せんしょくたい",
+      "meaning": "chromosome"
+    },
+    {
+      "word": "染色する",
+      "reading": "せんしょくする",
+      "meaning": "stain, dye"
+    },
+    {
+      "word": "色香",
+      "reading": "いろか",
+      "meaning": "color & scent, charm [n.]"
+    },
+    {
+      "word": "肌色",
+      "reading": "はだいろ",
+      "meaning": "skin-colored"
+    },
+    {
+      "word": "色々",
+      "reading": "いろいろ",
+      "meaning": "various"
+    },
+    {
+      "word": "脱色する",
+      "reading": "だっしょくする",
+      "meaning": "bleach, decolorize"
+    },
+    {
+      "word": "地方色",
+      "reading": "ちほうしょく",
+      "meaning": "local color"
+    },
+    {
+      "word": "景色",
+      "reading": "けしき",
+      "meaning": "scenery, landscape"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8272"
+}

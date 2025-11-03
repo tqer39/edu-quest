@@ -1,0 +1,112 @@
+{
+  "character": "文",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ブン",
+      "モン"
+    ],
+    "kunyomi": [
+      "ふみ"
+    ]
+  },
+  "meanings": [
+    "sentence",
+    "writing",
+    "text"
+  ],
+  "radicals": [
+    "文"
+  ],
+  "examples": [
+    {
+      "word": "序文",
+      "reading": "じょぶん",
+      "meaning": "preface, foreword"
+    },
+    {
+      "word": "肯定文",
+      "reading": "こうていぶん",
+      "meaning": "affirmative sentence"
+    },
+    {
+      "word": "文法",
+      "reading": "ぶんぽう",
+      "meaning": "grammar"
+    },
+    {
+      "word": "文章",
+      "reading": "ぶんしょう",
+      "meaning": "sentence"
+    },
+    {
+      "word": "文学",
+      "reading": "ぶんがく",
+      "meaning": "literature"
+    },
+    {
+      "word": "文化",
+      "reading": "ぶんか",
+      "meaning": "culture"
+    },
+    {
+      "word": "文明",
+      "reading": "ぶんめい",
+      "meaning": "civilization"
+    },
+    {
+      "word": "文庫本",
+      "reading": "ぶんこぼん",
+      "meaning": "paperback"
+    },
+    {
+      "word": "文房具",
+      "reading": "ぶんぼうぐ",
+      "meaning": "stationery"
+    },
+    {
+      "word": "論文",
+      "reading": "ろんぶん",
+      "meaning": "thesis"
+    },
+    {
+      "word": "文通する",
+      "reading": "ぶんつうする",
+      "meaning": "correspond, exchange letters"
+    },
+    {
+      "word": "文部省",
+      "reading": "もんぶしょう",
+      "meaning": "Ministry of Education"
+    },
+    {
+      "word": "文句",
+      "reading": "もんく",
+      "meaning": "phrase, complaint"
+    },
+    {
+      "word": "恋文",
+      "reading": "こいぶみ",
+      "meaning": "love-letter"
+    },
+    {
+      "word": "文芸",
+      "reading": "ぶんげい",
+      "meaning": "belles-lettres"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "象形文字",
+      "reading": "しょうけいもじ",
+      "meaning": "hieroglyph"
+    },
+    {
+      "word": "文字",
+      "reading": "もじ",
+      "meaning": "character"
+    }
+  ],
+  "unicode": "6587"
+}

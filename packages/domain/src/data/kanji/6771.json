@@ -1,0 +1,98 @@
+{
+  "character": "東",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "ひがし"
+    ]
+  },
+  "meanings": [
+    "east"
+  ],
+  "radicals": [
+    "木"
+  ],
+  "examples": [
+    {
+      "word": "東欧",
+      "reading": "とうおう",
+      "meaning": "Eastern Europe"
+    },
+    {
+      "word": "東京湾",
+      "reading": "とうきょうわん",
+      "meaning": "Tokyo Bay"
+    },
+    {
+      "word": "東京駅",
+      "reading": "とうきょうえき",
+      "meaning": "Tokyo station"
+    },
+    {
+      "word": "東洋",
+      "reading": "とうよう",
+      "meaning": "East Asia"
+    },
+    {
+      "word": "関東",
+      "reading": "かんとう",
+      "meaning": "eastern half of Japan"
+    },
+    {
+      "word": "東京都",
+      "reading": "とうきょうと",
+      "meaning": "Tokyo Metropolitan area"
+    },
+    {
+      "word": "東側",
+      "reading": "ひがしがわ",
+      "meaning": "east side"
+    },
+    {
+      "word": "東京",
+      "reading": "とうきょう",
+      "meaning": "Tokyo"
+    },
+    {
+      "word": "東部",
+      "reading": "とうぶ",
+      "meaning": "eastern part"
+    },
+    {
+      "word": "東北",
+      "reading": "とうほく",
+      "meaning": "Touhoku"
+    },
+    {
+      "word": "東西南北",
+      "reading": "とうざいなんぼく",
+      "meaning": "east, west, south and north"
+    },
+    {
+      "word": "中東",
+      "reading": "ちゅうとう",
+      "meaning": "Middle East"
+    },
+    {
+      "word": "東",
+      "reading": "ひがし",
+      "meaning": "east"
+    },
+    {
+      "word": "東大寺",
+      "reading": "とうだいじ",
+      "meaning": "Todaiji Temple"
+    },
+    {
+      "word": "東京都23区",
+      "reading": "とうきょうと23く",
+      "meaning": "Tokyo metro area, 23 wards"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6771"
+}

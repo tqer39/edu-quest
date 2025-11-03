@@ -1,0 +1,74 @@
+{
+  "character": "古",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [
+      "ふる-い",
+      "ふる-す"
+    ]
+  },
+  "meanings": [
+    "old"
+  ],
+  "radicals": [
+    "口"
+  ],
+  "examples": [
+    {
+      "word": "太古",
+      "reading": "たいこ",
+      "meaning": "ancient times"
+    },
+    {
+      "word": "考古学",
+      "reading": "こうこがく",
+      "meaning": "archaeology"
+    },
+    {
+      "word": "古池",
+      "reading": "ふるいけ",
+      "meaning": "old pond"
+    },
+    {
+      "word": "古典",
+      "reading": "こてん",
+      "meaning": "classics"
+    },
+    {
+      "word": "古代",
+      "reading": "こだい",
+      "meaning": "ancient times"
+    },
+    {
+      "word": "古い",
+      "reading": "ふるい",
+      "meaning": "old"
+    },
+    {
+      "word": "古新聞",
+      "reading": "ふるしんぶん",
+      "meaning": "old newspapers"
+    },
+    {
+      "word": "古巣",
+      "reading": "ふるす",
+      "meaning": "old haunts, former homes"
+    },
+    {
+      "word": "古語",
+      "reading": "こご",
+      "meaning": "archaic word"
+    },
+    {
+      "word": "中古車",
+      "reading": "ちゅうこしゃ",
+      "meaning": "used car"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "53e4"
+}

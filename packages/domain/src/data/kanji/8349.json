@@ -1,0 +1,100 @@
+{
+  "character": "草",
+  "grade": 1,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "ソウ"
+    ],
+    "kunyomi": [
+      "くさ"
+    ]
+  },
+  "meanings": [
+    "grass",
+    "herb"
+  ],
+  "radicals": [
+    "艸"
+  ],
+  "examples": [
+    {
+      "word": "草花",
+      "reading": "くさばな",
+      "meaning": "plants and flowers"
+    },
+    {
+      "word": "草原",
+      "reading": "そうげん",
+      "meaning": "grass-covered plain, grasslands"
+    },
+    {
+      "word": "草食",
+      "reading": "そうしょく",
+      "meaning": "herbivorous"
+    },
+    {
+      "word": "草稿",
+      "reading": "そうこう",
+      "meaning": "notes, draft, manuscript"
+    },
+    {
+      "word": "草案",
+      "reading": "そうあん",
+      "meaning": "draft"
+    },
+    {
+      "word": "雑草",
+      "reading": "ざっそう",
+      "meaning": "weed"
+    },
+    {
+      "word": "野草",
+      "reading": "やそう",
+      "meaning": "wild grasses, wildflowers"
+    },
+    {
+      "word": "海草",
+      "reading": "かいそう",
+      "meaning": "seaweed"
+    },
+    {
+      "word": "除草剤",
+      "reading": "じょそうざい",
+      "meaning": "herbicide"
+    },
+    {
+      "word": "草",
+      "reading": "くさ",
+      "meaning": "grass"
+    },
+    {
+      "word": "草分け",
+      "reading": "くさわけ",
+      "meaning": "pioneer, trailblazer"
+    },
+    {
+      "word": "牧草",
+      "reading": "ぼくそう",
+      "meaning": "pasture, grass"
+    },
+    {
+      "word": "草笛",
+      "reading": "くさぶえ",
+      "meaning": "reed pipe"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "草履",
+      "reading": "ぞうり",
+      "meaning": "zori, straw sandals"
+    },
+    {
+      "word": "煙草",
+      "reading": "たばこ",
+      "meaning": "tobacco"
+    }
+  ],
+  "unicode": "8349"
+}

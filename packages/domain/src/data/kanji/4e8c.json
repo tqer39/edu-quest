@@ -1,0 +1,120 @@
+{
+  "character": "二",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": [
+      "ニ"
+    ],
+    "kunyomi": [
+      "ふた",
+      "ふた-つ"
+    ]
+  },
+  "meanings": [
+    "two"
+  ],
+  "radicals": [
+    "二"
+  ],
+  "examples": [
+    {
+      "word": "二枚舌",
+      "reading": "にまいじた",
+      "meaning": "double-dealing, double-tongued"
+    },
+    {
+      "word": "二重奏",
+      "reading": "にじゅうそう",
+      "meaning": "instrumental duo"
+    },
+    {
+      "word": "二班",
+      "reading": "にはん",
+      "meaning": "two groups, second group"
+    },
+    {
+      "word": "二泊三日",
+      "reading": "にはくみっか",
+      "meaning": "3 days 2 nights"
+    },
+    {
+      "word": "一泊二食付き",
+      "reading": "いっぱくにしょくつき",
+      "meaning": "2 meals included per night"
+    },
+    {
+      "word": "二人",
+      "reading": "ふたり",
+      "meaning": "two people"
+    },
+    {
+      "word": "二時間",
+      "reading": "にじかん",
+      "meaning": "two hours"
+    },
+    {
+      "word": "二月",
+      "reading": "にがつ",
+      "meaning": "February"
+    },
+    {
+      "word": "二枚目",
+      "reading": "にまいめ",
+      "meaning": "second (flat object)"
+    },
+    {
+      "word": "二つ",
+      "reading": "ふたつ",
+      "meaning": "two (pieces)"
+    },
+    {
+      "word": "二重",
+      "reading": "ふたえ",
+      "meaning": "two layers"
+    },
+    {
+      "word": "二年半",
+      "reading": "にねんはん",
+      "meaning": "two and a half years"
+    },
+    {
+      "word": "二階建て",
+      "reading": "にかいだて",
+      "meaning": "two-storied building"
+    },
+    {
+      "word": "二等分する",
+      "reading": "にとうぶんする",
+      "meaning": "bisect"
+    },
+    {
+      "word": "二個所",
+      "reading": "にかしょ",
+      "meaning": "2 places"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "二十才",
+      "reading": "はたち",
+      "meaning": "20 years old"
+    },
+    {
+      "word": "二十日",
+      "reading": "はつか",
+      "meaning": "20 days, 20th day of the month"
+    },
+    {
+      "word": "二十歳",
+      "reading": "はたち",
+      "meaning": "twenty years old"
+    },
+    {
+      "word": "二日",
+      "reading": "ふつか",
+      "meaning": "2nd of the month, 2 days"
+    }
+  ],
+  "unicode": "4e8c"
+}

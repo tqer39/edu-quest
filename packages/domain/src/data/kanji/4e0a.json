@@ -1,0 +1,122 @@
+{
+  "character": "上",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "ジョウ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "うえ",
+      "うわ",
+      "かみ",
+      "あ-げる",
+      "あ-がる",
+      "のぼ-る"
+    ]
+  },
+  "meanings": [
+    "above",
+    "up",
+    "upper"
+  ],
+  "radicals": [
+    "一"
+  ],
+  "examples": [
+    {
+      "word": "上述する",
+      "reading": "じょうじゅつする",
+      "meaning": "state above"
+    },
+    {
+      "word": "干上がる",
+      "reading": "ひあがる",
+      "meaning": "dry up, parch"
+    },
+    {
+      "word": "至上",
+      "reading": "しじょう",
+      "meaning": "supremacy"
+    },
+    {
+      "word": "上層",
+      "reading": "じょうそう",
+      "meaning": "upper stratum"
+    },
+    {
+      "word": "頂上",
+      "reading": "ちょうじょう",
+      "meaning": "top, summit, peak"
+    },
+    {
+      "word": "上下する",
+      "reading": "じょうげする",
+      "meaning": "go up and down"
+    },
+    {
+      "word": "上手",
+      "reading": "じょうず",
+      "meaning": "skillful"
+    },
+    {
+      "word": "以上",
+      "reading": "いじょう",
+      "meaning": "more than, above"
+    },
+    {
+      "word": "上人",
+      "reading": "しょうにん",
+      "meaning": "priest"
+    },
+    {
+      "word": "上",
+      "reading": "うえ",
+      "meaning": "above, on top, upper part of"
+    },
+    {
+      "word": "目上",
+      "reading": "めうえ",
+      "meaning": "superior(s)"
+    },
+    {
+      "word": "上回る",
+      "reading": "うわまわる",
+      "meaning": "exceed"
+    },
+    {
+      "word": "川上",
+      "reading": "かわかみ",
+      "meaning": "upper reaches of a river"
+    },
+    {
+      "word": "上がる",
+      "reading": "あがる",
+      "meaning": "rise, climb up [v.i.]"
+    },
+    {
+      "word": "上げる",
+      "reading": "あげる",
+      "meaning": "raise [v.t.]"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "賃上げ",
+      "reading": "ちんあげ",
+      "meaning": "wage increase"
+    },
+    {
+      "word": "売上高",
+      "reading": "うりあげだか",
+      "meaning": "sales"
+    },
+    {
+      "word": "値上げ",
+      "reading": "ねあげ",
+      "meaning": "mark-up"
+    }
+  ],
+  "unicode": "4e0a"
+}

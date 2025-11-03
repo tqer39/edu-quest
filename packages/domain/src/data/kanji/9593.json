@@ -1,0 +1,102 @@
+{
+  "character": "間",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "カン",
+      "ケン"
+    ],
+    "kunyomi": [
+      "あいだ",
+      "ま"
+    ]
+  },
+  "meanings": [
+    "interval",
+    "space",
+    "between"
+  ],
+  "radicals": [
+    "門"
+  ],
+  "examples": [
+    {
+      "word": "七週間",
+      "reading": "ななしゅうかん",
+      "meaning": "7 weeks"
+    },
+    {
+      "word": "間接税",
+      "reading": "かんせつぜい",
+      "meaning": "indirect tax"
+    },
+    {
+      "word": "八時間",
+      "reading": "はちじかん",
+      "meaning": "8 hours"
+    },
+    {
+      "word": "就業時間",
+      "reading": "しゅうぎょうじかん",
+      "meaning": "working hours"
+    },
+    {
+      "word": "手間賃",
+      "reading": "てまちん",
+      "meaning": "wages for labor, pay"
+    },
+    {
+      "word": "間違い",
+      "reading": "まちがい",
+      "meaning": "mistake [n.]"
+    },
+    {
+      "word": "間違える",
+      "reading": "まちがえる",
+      "meaning": "err, make a mistake"
+    },
+    {
+      "word": "床の間",
+      "reading": "とこのま",
+      "meaning": "alcove"
+    },
+    {
+      "word": "間一髪",
+      "reading": "かんいっぱつ",
+      "meaning": "hair's breadth"
+    },
+    {
+      "word": "人間業",
+      "reading": "にんげんわざ",
+      "meaning": "the work of man"
+    },
+    {
+      "word": "夜間",
+      "reading": "やかん",
+      "meaning": "nighttime"
+    },
+    {
+      "word": "長時間",
+      "reading": "ちょうじかん",
+      "meaning": "long-term, long-range"
+    },
+    {
+      "word": "短期間",
+      "reading": "たんきかん",
+      "meaning": "short term"
+    },
+    {
+      "word": "仲間入り",
+      "reading": "なかまいり",
+      "meaning": "join a group"
+    },
+    {
+      "word": "就寝時間",
+      "reading": "しゅうしんじかん",
+      "meaning": "bedtime"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9593"
+}

@@ -1,0 +1,92 @@
+{
+  "character": "番",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "バン"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "number",
+    "turn"
+  ],
+  "radicals": [
+    "田"
+  ],
+  "examples": [
+    {
+      "word": "一番",
+      "reading": "いちばん",
+      "meaning": "number one"
+    },
+    {
+      "word": "電話番号",
+      "reading": "でんわばんごう",
+      "meaning": "phone number"
+    },
+    {
+      "word": "番号",
+      "reading": "ばんごう",
+      "meaning": "number"
+    },
+    {
+      "word": "番地",
+      "reading": "ばんち",
+      "meaning": "house number, address"
+    },
+    {
+      "word": "交番",
+      "reading": "こうばん",
+      "meaning": "police box"
+    },
+    {
+      "word": "当番",
+      "reading": "とうばん",
+      "meaning": "being on duty"
+    },
+    {
+      "word": "留守番",
+      "reading": "るすばん",
+      "meaning": "house-watching"
+    },
+    {
+      "word": "テレビ番組",
+      "reading": "テレビばんぐみ",
+      "meaning": "TV program"
+    },
+    {
+      "word": "留守番電話",
+      "reading": "るすばんでんわ",
+      "meaning": "answering machine"
+    },
+    {
+      "word": "一番線",
+      "reading": "いちばんせん",
+      "meaning": "Track No. 1"
+    },
+    {
+      "word": "番組",
+      "reading": "ばんぐみ",
+      "meaning": "program (TV)"
+    },
+    {
+      "word": "番犬",
+      "reading": "ばんけん",
+      "meaning": "watchdog"
+    },
+    {
+      "word": "順番",
+      "reading": "じゅんばん",
+      "meaning": "order, turn [n.]"
+    },
+    {
+      "word": "六番目",
+      "reading": "ろくばんめ",
+      "meaning": "6th"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "756a"
+}

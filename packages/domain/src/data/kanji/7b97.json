@@ -1,0 +1,97 @@
+{
+  "character": "算",
+  "grade": 2,
+  "strokeCount": 14,
+  "readings": {
+    "onyomi": [
+      "サン"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "calculate",
+    "count"
+  ],
+  "radicals": [
+    "竹"
+  ],
+  "examples": [
+    {
+      "word": "割り算",
+      "reading": "わりざん",
+      "meaning": "division"
+    },
+    {
+      "word": "掛け算",
+      "reading": "かけざん",
+      "meaning": "multiplication"
+    },
+    {
+      "word": "計算する",
+      "reading": "けいさんする",
+      "meaning": "calculate"
+    },
+    {
+      "word": "予算",
+      "reading": "よさん",
+      "meaning": "budget"
+    },
+    {
+      "word": "算数",
+      "reading": "さんすう",
+      "meaning": "arithmetic"
+    },
+    {
+      "word": "打算的な",
+      "reading": "ださんてきな",
+      "meaning": "calculating, mercenary"
+    },
+    {
+      "word": "換算する",
+      "reading": "かんさんする",
+      "meaning": "convert (calculation)"
+    },
+    {
+      "word": "清算する",
+      "reading": "せいさんする",
+      "meaning": "liquidate, settle (an account)"
+    },
+    {
+      "word": "誤算",
+      "reading": "ごさん",
+      "meaning": "miscalculation"
+    },
+    {
+      "word": "精算する",
+      "reading": "せいさんする",
+      "meaning": "adjust the fare"
+    },
+    {
+      "word": "採算",
+      "reading": "さいさん",
+      "meaning": "profit"
+    },
+    {
+      "word": "暗算",
+      "reading": "あんざん",
+      "meaning": "mental arithmetic"
+    },
+    {
+      "word": "足し算",
+      "reading": "たしざん",
+      "meaning": "addition"
+    },
+    {
+      "word": "引き算",
+      "reading": "ひきざん",
+      "meaning": "subtraction"
+    },
+    {
+      "word": "概算する",
+      "reading": "がいさんする",
+      "meaning": "approximate, estimate"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7b97"
+}

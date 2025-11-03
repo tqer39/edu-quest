@@ -1,0 +1,108 @@
+{
+  "character": "空",
+  "grade": 1,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "クウ"
+    ],
+    "kunyomi": [
+      "そら",
+      "あ-く",
+      "あ-ける",
+      "から"
+    ]
+  },
+  "meanings": [
+    "sky",
+    "empty"
+  ],
+  "radicals": [
+    "穴"
+  ],
+  "examples": [
+    {
+      "word": "領空",
+      "reading": "りょうくう",
+      "meaning": "territorial airspace"
+    },
+    {
+      "word": "空腹",
+      "reading": "くうふく",
+      "meaning": "hunger"
+    },
+    {
+      "word": "空き缶",
+      "reading": "あきかん",
+      "meaning": "empty can"
+    },
+    {
+      "word": "空き瓶",
+      "reading": "あきびん",
+      "meaning": "empty bottle"
+    },
+    {
+      "word": "夜空",
+      "reading": "よぞら",
+      "meaning": "night sky"
+    },
+    {
+      "word": "空白",
+      "reading": "くうはく",
+      "meaning": "blank space"
+    },
+    {
+      "word": "青空",
+      "reading": "あおぞら",
+      "meaning": "blue sky"
+    },
+    {
+      "word": "机上の空論",
+      "reading": "きじょうのくうろん",
+      "meaning": "empty theory"
+    },
+    {
+      "word": "空間",
+      "reading": "くうかん",
+      "meaning": "space"
+    },
+    {
+      "word": "空港",
+      "reading": "くうこう",
+      "meaning": "airport"
+    },
+    {
+      "word": "空気",
+      "reading": "くうき",
+      "meaning": "air"
+    },
+    {
+      "word": "空車",
+      "reading": "くうしゃ",
+      "meaning": "free taxi"
+    },
+    {
+      "word": "航空会社",
+      "reading": "こうくうがいしゃ",
+      "meaning": "airline company"
+    },
+    {
+      "word": "空",
+      "reading": "そら",
+      "meaning": "sky"
+    },
+    {
+      "word": "空く",
+      "reading": "あく",
+      "meaning": "open [v.i.]"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "空しい",
+      "reading": "むなしい",
+      "meaning": "feel empty [adj.]"
+    }
+  ],
+  "unicode": "7a7a"
+}

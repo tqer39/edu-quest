@@ -1,0 +1,83 @@
+{
+  "character": "門",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "モン"
+    ],
+    "kunyomi": [
+      "かど"
+    ]
+  },
+  "meanings": [
+    "gate"
+  ],
+  "radicals": [
+    "門"
+  ],
+  "examples": [
+    {
+      "word": "専門",
+      "reading": "せんもん",
+      "meaning": "speciality"
+    },
+    {
+      "word": "門",
+      "reading": "もん",
+      "meaning": "gate"
+    },
+    {
+      "word": "正門",
+      "reading": "せいもん",
+      "meaning": "main gate"
+    },
+    {
+      "word": "校門",
+      "reading": "こうもん",
+      "meaning": "school gate"
+    },
+    {
+      "word": "部門",
+      "reading": "ぶもん",
+      "meaning": "category"
+    },
+    {
+      "word": "名門",
+      "reading": "めいもん",
+      "meaning": "distinguished family"
+    },
+    {
+      "word": "入門する",
+      "reading": "にゅうもんする",
+      "meaning": "enter an institute"
+    },
+    {
+      "word": "破門する",
+      "reading": "はもんする",
+      "meaning": "expel"
+    },
+    {
+      "word": "門",
+      "reading": "かど",
+      "meaning": "gate"
+    },
+    {
+      "word": "門出",
+      "reading": "かどで",
+      "meaning": "departure, setting out"
+    },
+    {
+      "word": "門戸",
+      "reading": "もんこ",
+      "meaning": "gate and door"
+    },
+    {
+      "word": "門松",
+      "reading": "かどまつ",
+      "meaning": "New Year's decorative pine trees"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9580"
+}

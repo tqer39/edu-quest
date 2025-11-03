@@ -1,0 +1,100 @@
+{
+  "character": "本",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ホン"
+    ],
+    "kunyomi": [
+      "もと"
+    ]
+  },
+  "meanings": [
+    "book",
+    "origin",
+    "main"
+  ],
+  "radicals": [
+    "木"
+  ],
+  "examples": [
+    {
+      "word": "初版本",
+      "reading": "しょはんぼん",
+      "meaning": "first edition"
+    },
+    {
+      "word": "十本",
+      "reading": "じゅっぽん",
+      "meaning": "10 (long cylindrical objects)"
+    },
+    {
+      "word": "本領",
+      "reading": "ほんりょう",
+      "meaning": "characteristic, speciality"
+    },
+    {
+      "word": "本籍",
+      "reading": "ほんせき",
+      "meaning": "legal residence"
+    },
+    {
+      "word": "本当",
+      "reading": "ほんとう",
+      "meaning": "truth"
+    },
+    {
+      "word": "日本髪",
+      "reading": "にほんがみ",
+      "meaning": "Japanese coiffure"
+    },
+    {
+      "word": "日本舞踊",
+      "reading": "にほんぶよう",
+      "meaning": "traditional Japanese dance"
+    },
+    {
+      "word": "本腰",
+      "reading": "ほんごし",
+      "meaning": "strenuous effort, earnestness"
+    },
+    {
+      "word": "本質",
+      "reading": "ほんしつ",
+      "meaning": "essence"
+    },
+    {
+      "word": "日本人",
+      "reading": "にほんじん",
+      "meaning": "Japanese person"
+    },
+    {
+      "word": "本音",
+      "reading": "ほんね",
+      "meaning": "real intention"
+    },
+    {
+      "word": "文庫本",
+      "reading": "ぶんこぼん",
+      "meaning": "paperback"
+    },
+    {
+      "word": "日本的な",
+      "reading": "にほんてきな",
+      "meaning": "typically Japanese"
+    },
+    {
+      "word": "本社",
+      "reading": "ほんしゃ",
+      "meaning": "headquarters"
+    },
+    {
+      "word": "本屋",
+      "reading": "ほんや",
+      "meaning": "bookstore"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "672c"
+}

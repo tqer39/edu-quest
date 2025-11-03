@@ -1,0 +1,90 @@
+{
+  "character": "休",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "キュウ"
+    ],
+    "kunyomi": [
+      "やす-む",
+      "やす-める"
+    ]
+  },
+  "meanings": [
+    "rest",
+    "break"
+  ],
+  "radicals": [
+    "人"
+  ],
+  "examples": [
+    {
+      "word": "休館する",
+      "reading": "きゅうかんする",
+      "meaning": "close a library or museum"
+    },
+    {
+      "word": "連休",
+      "reading": "れんきゅう",
+      "meaning": "consecutive holidays"
+    },
+    {
+      "word": "定休日",
+      "reading": "ていきゅうび",
+      "meaning": "regular holiday"
+    },
+    {
+      "word": "休日",
+      "reading": "きゅうじつ",
+      "meaning": "holiday"
+    },
+    {
+      "word": "週休",
+      "reading": "しゅうきゅう",
+      "meaning": "weekly holiday"
+    },
+    {
+      "word": "休講",
+      "reading": "きゅうこう",
+      "meaning": "a cancelled lecture"
+    },
+    {
+      "word": "休暇",
+      "reading": "きゅうか",
+      "meaning": "vacation"
+    },
+    {
+      "word": "休み",
+      "reading": "やすみ",
+      "meaning": "rest, absence, break, recess"
+    },
+    {
+      "word": "休む",
+      "reading": "やすむ",
+      "meaning": "rest [v.i.]"
+    },
+    {
+      "word": "休める",
+      "reading": "やすめる",
+      "meaning": "put to rest [v.t.]"
+    },
+    {
+      "word": "休養する",
+      "reading": "きゅうようする",
+      "meaning": "rest [v.i.]"
+    },
+    {
+      "word": "休息する",
+      "reading": "きゅうそくする",
+      "meaning": "take a rest"
+    },
+    {
+      "word": "昼休み",
+      "reading": "ひるやすみ",
+      "meaning": "lunch break"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4f11"
+}

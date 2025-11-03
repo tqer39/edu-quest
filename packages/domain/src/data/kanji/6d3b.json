@@ -1,0 +1,97 @@
+{
+  "character": "活",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "カツ"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "lively",
+    "active"
+  ],
+  "radicals": [
+    "水"
+  ],
+  "examples": [
+    {
+      "word": "活版",
+      "reading": "かっぱん",
+      "meaning": "printing, typography"
+    },
+    {
+      "word": "肺活量",
+      "reading": "はいかつりょう",
+      "meaning": "lung capacity"
+    },
+    {
+      "word": "活動",
+      "reading": "かつどう",
+      "meaning": "activity"
+    },
+    {
+      "word": "活気",
+      "reading": "かっき",
+      "meaning": "liveliness"
+    },
+    {
+      "word": "活字",
+      "reading": "かつじ",
+      "meaning": "moveable type"
+    },
+    {
+      "word": "活火山",
+      "reading": "かっかざん",
+      "meaning": "active volcano"
+    },
+    {
+      "word": "活発な",
+      "reading": "かっぱつな",
+      "meaning": "active"
+    },
+    {
+      "word": "活動する",
+      "reading": "かつどうする",
+      "meaning": "act [v.i.]"
+    },
+    {
+      "word": "活躍する",
+      "reading": "かつやくする",
+      "meaning": "be in full activity"
+    },
+    {
+      "word": "生活する",
+      "reading": "せいかつする",
+      "meaning": "live"
+    },
+    {
+      "word": "復活する",
+      "reading": "ふっかつする",
+      "meaning": "revive [v.i.]"
+    },
+    {
+      "word": "生活費",
+      "reading": "せいかつひ",
+      "meaning": "living expenses"
+    },
+    {
+      "word": "快活な",
+      "reading": "かいかつな",
+      "meaning": "cheerful, lively"
+    },
+    {
+      "word": "救援活動",
+      "reading": "きゅうえんかつどう",
+      "meaning": "rescue operation"
+    },
+    {
+      "word": "生活",
+      "reading": "せいかつ",
+      "meaning": "life, living"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6d3b"
+}

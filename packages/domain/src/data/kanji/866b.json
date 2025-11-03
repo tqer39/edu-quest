@@ -1,0 +1,99 @@
+{
+  "character": "虫",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "チュウ"
+    ],
+    "kunyomi": [
+      "むし"
+    ]
+  },
+  "meanings": [
+    "insect",
+    "bug"
+  ],
+  "radicals": [
+    "虫"
+  ],
+  "examples": [
+    {
+      "word": "防虫剤",
+      "reading": "ぼうちゅうざい",
+      "meaning": "insecticide"
+    },
+    {
+      "word": "虫垂炎",
+      "reading": "ちゅうすいえん",
+      "meaning": "appendicitis"
+    },
+    {
+      "word": "幼虫",
+      "reading": "ようちゅう",
+      "meaning": "larva, chrysalis"
+    },
+    {
+      "word": "益虫",
+      "reading": "えきちゅう",
+      "meaning": "useful insect species"
+    },
+    {
+      "word": "虫害",
+      "reading": "ちゅうがい",
+      "meaning": "insect damage"
+    },
+    {
+      "word": "昆虫",
+      "reading": "こんちゅう",
+      "meaning": "insect, bug"
+    },
+    {
+      "word": "防虫",
+      "reading": "ぼうちゅう",
+      "meaning": "pesticide"
+    },
+    {
+      "word": "害虫",
+      "reading": "がいちゅう",
+      "meaning": "harmful insect, noxious insect"
+    },
+    {
+      "word": "殺虫剤",
+      "reading": "さっちゅうざい",
+      "meaning": "insecticide, pesticide"
+    },
+    {
+      "word": "寄生虫",
+      "reading": "きせいちゅう",
+      "meaning": "parasite"
+    },
+    {
+      "word": "虫",
+      "reading": "むし",
+      "meaning": "insect"
+    },
+    {
+      "word": "虫歯",
+      "reading": "むしば",
+      "meaning": "(tooth) cavity"
+    },
+    {
+      "word": "毛虫",
+      "reading": "けむし",
+      "meaning": "caterpillar"
+    },
+    {
+      "word": "水虫",
+      "reading": "みずむし",
+      "meaning": "athlete's foot"
+    },
+    {
+      "word": "弱虫",
+      "reading": "よわむし",
+      "meaning": "coward, weakling"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "866b"
+}

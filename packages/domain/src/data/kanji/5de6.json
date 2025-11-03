@@ -1,0 +1,83 @@
+{
+  "character": "左",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "サ"
+    ],
+    "kunyomi": [
+      "ひだり"
+    ]
+  },
+  "meanings": [
+    "left"
+  ],
+  "radicals": [
+    "工"
+  ],
+  "examples": [
+    {
+      "word": "左傾する",
+      "reading": "さけいする",
+      "meaning": "leaning the (political) left"
+    },
+    {
+      "word": "左腕投手",
+      "reading": "さわんとうしゅ",
+      "meaning": "left-handed baseball pitcher"
+    },
+    {
+      "word": "左右する",
+      "reading": "さゆうする",
+      "meaning": "influence, control, command"
+    },
+    {
+      "word": "左派",
+      "reading": "さは",
+      "meaning": "(political) left wing"
+    },
+    {
+      "word": "左",
+      "reading": "ひだり",
+      "meaning": "left"
+    },
+    {
+      "word": "左側",
+      "reading": "ひだりがわ",
+      "meaning": "left side"
+    },
+    {
+      "word": "左向き",
+      "reading": "ひだりむき",
+      "meaning": "left facing"
+    },
+    {
+      "word": "左利き",
+      "reading": "ひだりきき",
+      "meaning": "left handed"
+    },
+    {
+      "word": "左折する",
+      "reading": "させつする",
+      "meaning": "turn left"
+    },
+    {
+      "word": "右往左往する",
+      "reading": "うおうさおうする",
+      "meaning": "go every which way"
+    },
+    {
+      "word": "左手",
+      "reading": "ひだりて",
+      "meaning": "left hand"
+    },
+    {
+      "word": "左右",
+      "reading": "さゆう",
+      "meaning": "left and right"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5de6"
+}

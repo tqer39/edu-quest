@@ -1,0 +1,78 @@
+{
+  "character": "千",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "ち"
+    ]
+  },
+  "meanings": [
+    "thousand"
+  ],
+  "radicals": [
+    "十"
+  ],
+  "examples": [
+    {
+      "word": "千",
+      "reading": "せん",
+      "meaning": "1000"
+    },
+    {
+      "word": "三千",
+      "reading": "さんぜん",
+      "meaning": "3000"
+    },
+    {
+      "word": "八千",
+      "reading": "はっせん",
+      "meaning": "8000"
+    },
+    {
+      "word": "千切れる",
+      "reading": "ちぎれる",
+      "meaning": "be torn off"
+    },
+    {
+      "word": "千鳥",
+      "reading": "ちどり",
+      "meaning": "plover"
+    },
+    {
+      "word": "千円",
+      "reading": "せんえん",
+      "meaning": "a thousand yen"
+    },
+    {
+      "word": "千円札",
+      "reading": "せんえんさつ",
+      "meaning": "1,000 Yen bill"
+    },
+    {
+      "word": "千年",
+      "reading": "せんねん",
+      "meaning": "one thousand years"
+    },
+    {
+      "word": "千羽鶴",
+      "reading": "せんばづる",
+      "meaning": "thousand crane offering"
+    },
+    {
+      "word": "千葉県",
+      "reading": "ちばけん",
+      "meaning": "Chiba Prefecture"
+    },
+    {
+      "word": "二千",
+      "reading": "にせん",
+      "meaning": "two thousand"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5343"
+}

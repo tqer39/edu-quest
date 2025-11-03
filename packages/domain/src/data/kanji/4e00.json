@@ -1,0 +1,111 @@
+{
+  "character": "一",
+  "grade": 1,
+  "strokeCount": 1,
+  "readings": {
+    "onyomi": [
+      "イチ",
+      "イツ"
+    ],
+    "kunyomi": [
+      "ひと",
+      "ひと-つ"
+    ]
+  },
+  "meanings": [
+    "one"
+  ],
+  "radicals": [
+    "一"
+  ],
+  "examples": [
+    {
+      "word": "一年生",
+      "reading": "いちねんせい",
+      "meaning": "first-year student"
+    },
+    {
+      "word": "一番",
+      "reading": "いちばん",
+      "meaning": "number one"
+    },
+    {
+      "word": "一度",
+      "reading": "いちど",
+      "meaning": "once"
+    },
+    {
+      "word": "一杯",
+      "reading": "いっぱい",
+      "meaning": "one cup of, a lot of"
+    },
+    {
+      "word": "一緒",
+      "reading": "いっしょ",
+      "meaning": "together"
+    },
+    {
+      "word": "一分",
+      "reading": "いっぷん",
+      "meaning": "one minute"
+    },
+    {
+      "word": "一枚",
+      "reading": "いちまい",
+      "meaning": "one (flat object)"
+    },
+    {
+      "word": "一つ",
+      "reading": "ひとつ",
+      "meaning": "one (object)"
+    },
+    {
+      "word": "一人",
+      "reading": "ひとり",
+      "meaning": "one person"
+    },
+    {
+      "word": "一俵",
+      "reading": "いっぴょう",
+      "meaning": "one straw bag"
+    },
+    {
+      "word": "一割",
+      "reading": "いちわり",
+      "meaning": "ten percent"
+    },
+    {
+      "word": "第一巻",
+      "reading": "だいいっかん",
+      "meaning": "first volume"
+    },
+    {
+      "word": "刻一刻",
+      "reading": "こくいっこく",
+      "meaning": "moment by moment"
+    },
+    {
+      "word": "一寸",
+      "reading": "いっすん",
+      "meaning": "one sun (3.03 cm), a little"
+    },
+    {
+      "word": "一覧表",
+      "reading": "いちらんひょう",
+      "meaning": "list, table"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "一日",
+      "reading": "ついたち",
+      "meaning": "1st of the month"
+    },
+    {
+      "word": "一昨日",
+      "reading": "おととい",
+      "meaning": "day before yesterday"
+    }
+  ],
+  "unicode": "4e00"
+}

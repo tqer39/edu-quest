@@ -1,0 +1,107 @@
+{
+  "character": "風",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "フウ",
+      "フ"
+    ],
+    "kunyomi": [
+      "かぜ",
+      "かざ"
+    ]
+  },
+  "meanings": [
+    "wind",
+    "style"
+  ],
+  "radicals": [
+    "風"
+  ],
+  "examples": [
+    {
+      "word": "貿易風",
+      "reading": "ぼうえきふう",
+      "meaning": "trade wind"
+    },
+    {
+      "word": "秋風",
+      "reading": "あきかぜ",
+      "meaning": "autumn breeze"
+    },
+    {
+      "word": "風下",
+      "reading": "かざしも",
+      "meaning": "leeward"
+    },
+    {
+      "word": "爆風",
+      "reading": "ばくふう",
+      "meaning": "blast [n.]"
+    },
+    {
+      "word": "涼風",
+      "reading": "りょうふう",
+      "meaning": "cool breeze, refreshing breeze"
+    },
+    {
+      "word": "風習",
+      "reading": "ふうしゅう",
+      "meaning": "custom"
+    },
+    {
+      "word": "風景",
+      "reading": "ふうけい",
+      "meaning": "scenery"
+    },
+    {
+      "word": "台風",
+      "reading": "たいふう",
+      "meaning": "typhoon"
+    },
+    {
+      "word": "扇風機",
+      "reading": "せんぷうき",
+      "meaning": "electric fan"
+    },
+    {
+      "word": "風呂",
+      "reading": "ふろ",
+      "meaning": "bath"
+    },
+    {
+      "word": "風",
+      "reading": "かぜ",
+      "meaning": "wind"
+    },
+    {
+      "word": "北風",
+      "reading": "きたかぜ",
+      "meaning": "north wind"
+    },
+    {
+      "word": "風向き",
+      "reading": "かざむき",
+      "meaning": "wind's direction"
+    },
+    {
+      "word": "今風",
+      "reading": "いまふう",
+      "meaning": "modern style"
+    },
+    {
+      "word": "風情",
+      "reading": "ふぜい",
+      "meaning": "taste, appearance"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "風邪",
+      "reading": "かぜ",
+      "meaning": "cold (illness)"
+    }
+  ],
+  "unicode": "98a8"
+}

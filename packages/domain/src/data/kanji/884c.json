@@ -1,0 +1,103 @@
+{
+  "character": "行",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "コウ",
+      "ギョウ",
+      "アン"
+    ],
+    "kunyomi": [
+      "い-く",
+      "ゆ-く",
+      "おこな-う"
+    ]
+  },
+  "meanings": [
+    "go",
+    "conduct"
+  ],
+  "radicals": [
+    "行"
+  ],
+  "examples": [
+    {
+      "word": "犯行",
+      "reading": "はんこう",
+      "meaning": "criminal act"
+    },
+    {
+      "word": "親孝行な",
+      "reading": "おやこうこうな",
+      "meaning": "having filial piety [adj.]"
+    },
+    {
+      "word": "孝行する",
+      "reading": "こうこうする",
+      "meaning": "exercise filial piety [v.i.]"
+    },
+    {
+      "word": "諸行無常",
+      "reading": "しょぎょうむじょう",
+      "meaning": "impermanence of worldly things"
+    },
+    {
+      "word": "善行",
+      "reading": "ぜんこう",
+      "meaning": "good deed"
+    },
+    {
+      "word": "仮装行列",
+      "reading": "かそうぎょうれつ",
+      "meaning": "costume parade"
+    },
+    {
+      "word": "宇宙飛行士",
+      "reading": "うちゅうひこうし",
+      "meaning": "astronaut"
+    },
+    {
+      "word": "直行便",
+      "reading": "ちょっこうびん",
+      "meaning": "direct (nonstop) flight"
+    },
+    {
+      "word": "持って行く",
+      "reading": "もっていく",
+      "meaning": "take"
+    },
+    {
+      "word": "行動する",
+      "reading": "こうどうする",
+      "meaning": "act, conduct,"
+    },
+    {
+      "word": "試行錯誤",
+      "reading": "しこうさくご",
+      "meaning": "trial and error"
+    },
+    {
+      "word": "連れて行く",
+      "reading": "つれていく",
+      "meaning": "take someone along"
+    },
+    {
+      "word": "行き交う",
+      "reading": "いきかう",
+      "meaning": "go past each other"
+    },
+    {
+      "word": "勤行",
+      "reading": "ごんぎょう",
+      "meaning": "Buddhist religious service"
+    },
+    {
+      "word": "行使する",
+      "reading": "こうしする",
+      "meaning": "exercise [v.t.]"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "884c"
+}

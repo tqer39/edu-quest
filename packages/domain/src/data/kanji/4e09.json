@@ -1,0 +1,100 @@
+{
+  "character": "三",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "サン"
+    ],
+    "kunyomi": [
+      "み",
+      "み-つ",
+      "みっ-つ"
+    ]
+  },
+  "meanings": [
+    "three"
+  ],
+  "radicals": [
+    "一"
+  ],
+  "examples": [
+    {
+      "word": "七五三",
+      "reading": "しちごさん",
+      "meaning": "festival for children aged 7, 5 & 3"
+    },
+    {
+      "word": "二泊三日",
+      "reading": "にはくみっか",
+      "meaning": "3 days 2 nights"
+    },
+    {
+      "word": "三次元",
+      "reading": "さんじげん",
+      "meaning": "3 dimensions"
+    },
+    {
+      "word": "三時頃",
+      "reading": "さんじごろ",
+      "meaning": "about 3 o'clock"
+    },
+    {
+      "word": "三割五分",
+      "reading": "さんわりごぶ",
+      "meaning": "35 percent"
+    },
+    {
+      "word": "三角",
+      "reading": "さんかく",
+      "meaning": "triangle"
+    },
+    {
+      "word": "三人",
+      "reading": "さんにん",
+      "meaning": "3 people"
+    },
+    {
+      "word": "三時",
+      "reading": "さんじ",
+      "meaning": "3 o'clock"
+    },
+    {
+      "word": "三枚",
+      "reading": "さんまい",
+      "meaning": "3 (flat objects)"
+    },
+    {
+      "word": "三月",
+      "reading": "さんがつ",
+      "meaning": "March"
+    },
+    {
+      "word": "三日",
+      "reading": "みっか",
+      "meaning": "3 days, 3rd day of the month"
+    },
+    {
+      "word": "三つ",
+      "reading": "みっつ",
+      "meaning": "3 (pieces)"
+    },
+    {
+      "word": "三世",
+      "reading": "さんせい",
+      "meaning": "3rd generation"
+    },
+    {
+      "word": "三百",
+      "reading": "さんびゃく",
+      "meaning": "300"
+    },
+    {
+      "word": "三千",
+      "reading": "さんぜん",
+      "meaning": "3000"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4e09"
+}

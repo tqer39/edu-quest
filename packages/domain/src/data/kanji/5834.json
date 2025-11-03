@@ -1,0 +1,99 @@
+{
+  "character": "場",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "ジョウ"
+    ],
+    "kunyomi": [
+      "ば"
+    ]
+  },
+  "meanings": [
+    "place",
+    "field"
+  ],
+  "radicals": [
+    "土"
+  ],
+  "examples": [
+    {
+      "word": "退場する",
+      "reading": "たいじょうする",
+      "meaning": "leave, exit"
+    },
+    {
+      "word": "砂場",
+      "reading": "すなば",
+      "meaning": "sand pit"
+    },
+    {
+      "word": "磁場",
+      "reading": "じば",
+      "meaning": "magnetic field"
+    },
+    {
+      "word": "臨場感",
+      "reading": "りんじょうかん",
+      "meaning": "(stage, personal) presence"
+    },
+    {
+      "word": "舟着き場",
+      "reading": "ふなつきば",
+      "meaning": "wharf"
+    },
+    {
+      "word": "駐車場",
+      "reading": "ちゅうしゃじょう",
+      "meaning": "parking lot, parking place"
+    },
+    {
+      "word": "駐輪場",
+      "reading": "ちゅうりんじょう",
+      "meaning": "parking area for bicycles"
+    },
+    {
+      "word": "広場",
+      "reading": "ひろば",
+      "meaning": "plaza"
+    },
+    {
+      "word": "道場",
+      "reading": "どうじょう",
+      "meaning": "hall used for martial arts training"
+    },
+    {
+      "word": "工場",
+      "reading": "こうじょう",
+      "meaning": "factory"
+    },
+    {
+      "word": "場所",
+      "reading": "ばしょ",
+      "meaning": "place"
+    },
+    {
+      "word": "入場料",
+      "reading": "にゅうじょうりょう",
+      "meaning": "admission fee"
+    },
+    {
+      "word": "職場",
+      "reading": "しょくば",
+      "meaning": "workplace"
+    },
+    {
+      "word": "飛行場",
+      "reading": "ひこうじょう",
+      "meaning": "airport"
+    },
+    {
+      "word": "場面",
+      "reading": "ばめん",
+      "meaning": "scene"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5834"
+}

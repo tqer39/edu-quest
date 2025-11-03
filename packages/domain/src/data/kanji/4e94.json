@@ -1,0 +1,100 @@
+{
+  "character": "五",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "いつ",
+      "いつ-つ"
+    ]
+  },
+  "meanings": [
+    "five"
+  ],
+  "radicals": [
+    "二"
+  ],
+  "examples": [
+    {
+      "word": "七五三",
+      "reading": "しちごさん",
+      "meaning": "festival for children aged 7, 5 & 3"
+    },
+    {
+      "word": "五分刻みに",
+      "reading": "ごふんきざみに",
+      "meaning": "every 5 minutes"
+    },
+    {
+      "word": "五穀",
+      "reading": "ごこく",
+      "meaning": "the 5 grains"
+    },
+    {
+      "word": "五臓六腑",
+      "reading": "ごぞうろっぷ",
+      "meaning": "the internal organs"
+    },
+    {
+      "word": "五重の塔",
+      "reading": "ごじゅうのとう",
+      "meaning": "five-storied pagoda"
+    },
+    {
+      "word": "三割五分",
+      "reading": "さんわりごぶ",
+      "meaning": "35 percent"
+    },
+    {
+      "word": "四捨五入",
+      "reading": "ししゃごにゅう",
+      "meaning": "rounding up (fractions)"
+    },
+    {
+      "word": "五階",
+      "reading": "ごかい",
+      "meaning": "fifth floor"
+    },
+    {
+      "word": "五月",
+      "reading": "ごがつ",
+      "meaning": "May"
+    },
+    {
+      "word": "五時間",
+      "reading": "ごじかん",
+      "meaning": "5 hours"
+    },
+    {
+      "word": "五人",
+      "reading": "ごにん",
+      "meaning": "5 people"
+    },
+    {
+      "word": "五つ",
+      "reading": "いつつ",
+      "meaning": "5 (objects)"
+    },
+    {
+      "word": "五日",
+      "reading": "いつか",
+      "meaning": "5 days, 5th of the month"
+    },
+    {
+      "word": "五年生",
+      "reading": "ごねんせい",
+      "meaning": "5th grader"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "五月晴れ",
+      "reading": "さつきばれ",
+      "meaning": "early summer fine weather"
+    }
+  ],
+  "unicode": "4e94"
+}

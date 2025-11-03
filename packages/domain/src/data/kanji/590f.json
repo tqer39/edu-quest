@@ -1,0 +1,74 @@
+{
+  "character": "夏",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": [
+      "カ",
+      "ゲ"
+    ],
+    "kunyomi": [
+      "なつ"
+    ]
+  },
+  "meanings": [
+    "summer"
+  ],
+  "radicals": [
+    "夊"
+  ],
+  "examples": [
+    {
+      "word": "夏至",
+      "reading": "げし",
+      "meaning": "summer solstice"
+    },
+    {
+      "word": "夏期講座",
+      "reading": "かきこうざ",
+      "meaning": "course in summer term"
+    },
+    {
+      "word": "初夏",
+      "reading": "しょか",
+      "meaning": "early summer"
+    },
+    {
+      "word": "夏",
+      "reading": "なつ",
+      "meaning": "summer"
+    },
+    {
+      "word": "真夏",
+      "reading": "まなつ",
+      "meaning": "midsummer"
+    },
+    {
+      "word": "常夏",
+      "reading": "とこなつ",
+      "meaning": "everlasting summer"
+    },
+    {
+      "word": "夏祭",
+      "reading": "なつまつり",
+      "meaning": "summer festival"
+    },
+    {
+      "word": "夏季",
+      "reading": "かき",
+      "meaning": "summer season"
+    },
+    {
+      "word": "夏休み",
+      "reading": "なつやすみ",
+      "meaning": "summer vacation"
+    },
+    {
+      "word": "夏野菜",
+      "reading": "なつやさい",
+      "meaning": "summer vegetables"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "590f"
+}

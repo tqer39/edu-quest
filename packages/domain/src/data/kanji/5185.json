@@ -1,0 +1,99 @@
+{
+  "character": "内",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ナイ",
+      "ダイ"
+    ],
+    "kunyomi": [
+      "うち"
+    ]
+  },
+  "meanings": [
+    "inside"
+  ],
+  "radicals": [
+    "入"
+  ],
+  "examples": [
+    {
+      "word": "領内",
+      "reading": "りょうない",
+      "meaning": "territory, domains"
+    },
+    {
+      "word": "宇内",
+      "reading": "うだい",
+      "meaning": "the whole world"
+    },
+    {
+      "word": "内閣",
+      "reading": "ないかく",
+      "meaning": "cabinet, ministry"
+    },
+    {
+      "word": "内臓",
+      "reading": "ないぞう",
+      "meaning": "internal organs, intestines"
+    },
+    {
+      "word": "内幕",
+      "reading": "ないまく",
+      "meaning": "inside information"
+    },
+    {
+      "word": "内緒",
+      "reading": "ないしょ",
+      "meaning": "secrecy, secret"
+    },
+    {
+      "word": "湾内",
+      "reading": "わんない",
+      "meaning": "inside the bay"
+    },
+    {
+      "word": "以内",
+      "reading": "いない",
+      "meaning": "within, less than"
+    },
+    {
+      "word": "内部",
+      "reading": "ないぶ",
+      "meaning": "inside, interior, inward"
+    },
+    {
+      "word": "屋内",
+      "reading": "おくない",
+      "meaning": "indoor"
+    },
+    {
+      "word": "内容",
+      "reading": "ないよう",
+      "meaning": "content"
+    },
+    {
+      "word": "内科",
+      "reading": "ないか",
+      "meaning": "internal medicine"
+    },
+    {
+      "word": "内面",
+      "reading": "ないめん",
+      "meaning": "internal (e.g. personality)"
+    },
+    {
+      "word": "家内",
+      "reading": "かない",
+      "meaning": "my wife"
+    },
+    {
+      "word": "国内",
+      "reading": "こくない",
+      "meaning": "domestic (vs. international)"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5185"
+}

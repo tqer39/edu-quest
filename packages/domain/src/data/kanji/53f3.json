@@ -1,0 +1,79 @@
+{
+  "character": "右",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ウ",
+      "ユウ"
+    ],
+    "kunyomi": [
+      "みぎ"
+    ]
+  },
+  "meanings": [
+    "right"
+  ],
+  "radicals": [
+    "口"
+  ],
+  "examples": [
+    {
+      "word": "右傾する",
+      "reading": "うけいする",
+      "meaning": "lean to the (political) right"
+    },
+    {
+      "word": "右折する",
+      "reading": "うせつする",
+      "meaning": "turn to the right"
+    },
+    {
+      "word": "右派",
+      "reading": "うは",
+      "meaning": "(political) right wing"
+    },
+    {
+      "word": "左右する",
+      "reading": "さゆうする",
+      "meaning": "influence, control, command"
+    },
+    {
+      "word": "右",
+      "reading": "みぎ",
+      "meaning": "right"
+    },
+    {
+      "word": "右手",
+      "reading": "みぎて",
+      "meaning": "right hand, right side"
+    },
+    {
+      "word": "右側",
+      "reading": "みぎがわ",
+      "meaning": "right side"
+    },
+    {
+      "word": "右端",
+      "reading": "みぎはし",
+      "meaning": "right end"
+    },
+    {
+      "word": "座右の書",
+      "reading": "ざゆうのしょ",
+      "meaning": "one's bedside book"
+    },
+    {
+      "word": "右往左往する",
+      "reading": "うおうさおうする",
+      "meaning": "go every which way"
+    },
+    {
+      "word": "左右",
+      "reading": "さゆう",
+      "meaning": "left and right"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "53f3"
+}

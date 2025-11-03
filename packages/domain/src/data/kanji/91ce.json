@@ -1,0 +1,94 @@
+{
+  "character": "野",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": [
+      "ヤ"
+    ],
+    "kunyomi": [
+      "の"
+    ]
+  },
+  "meanings": [
+    "field",
+    "plain"
+  ],
+  "radicals": [
+    "里"
+  ],
+  "examples": [
+    {
+      "word": "視野",
+      "reading": "しや",
+      "meaning": "field of vision, outlook"
+    },
+    {
+      "word": "野党",
+      "reading": "やとう",
+      "meaning": "opposition party"
+    },
+    {
+      "word": "荒野",
+      "reading": "こうや",
+      "meaning": "wasteland, wilderness"
+    },
+    {
+      "word": "荒野",
+      "reading": "あらの",
+      "meaning": "wasteland, wilderness"
+    },
+    {
+      "word": "野球",
+      "reading": "やきゅう",
+      "meaning": "baseball"
+    },
+    {
+      "word": "野菜",
+      "reading": "やさい",
+      "meaning": "vegetable"
+    },
+    {
+      "word": "平野",
+      "reading": "へいや",
+      "meaning": "plain"
+    },
+    {
+      "word": "分野",
+      "reading": "ぶんや",
+      "meaning": "field"
+    },
+    {
+      "word": "野原",
+      "reading": "のはら",
+      "meaning": "field"
+    },
+    {
+      "word": "野良犬",
+      "reading": "のらいぬ",
+      "meaning": "stray dog"
+    },
+    {
+      "word": "野球場",
+      "reading": "やきゅうじょう",
+      "meaning": "baseball field"
+    },
+    {
+      "word": "野暮",
+      "reading": "やぼ",
+      "meaning": "uncouthness"
+    },
+    {
+      "word": "野鳥",
+      "reading": "やちょう",
+      "meaning": "wild bird"
+    },
+    {
+      "word": "野草",
+      "reading": "やそう",
+      "meaning": "wild grasses, wildflowers"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "91ce"
+}

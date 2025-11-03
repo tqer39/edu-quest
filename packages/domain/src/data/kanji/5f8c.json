@@ -1,0 +1,113 @@
+{
+  "character": "後",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "ゴ",
+      "コウ"
+    ],
+    "kunyomi": [
+      "のち",
+      "うし-ろ",
+      "あと"
+    ]
+  },
+  "meanings": [
+    "after",
+    "behind"
+  ],
+  "radicals": [
+    "彳"
+  ],
+  "examples": [
+    {
+      "word": "善後策",
+      "reading": "ぜんごさく",
+      "meaning": "remedy, countermeasure"
+    },
+    {
+      "word": "後ろ姿",
+      "reading": "うしろすがた",
+      "meaning": "back view"
+    },
+    {
+      "word": "午後",
+      "reading": "ごご",
+      "meaning": "afternoon, p.m."
+    },
+    {
+      "word": "最後",
+      "reading": "さいご",
+      "meaning": "last, ending"
+    },
+    {
+      "word": "以後",
+      "reading": "いご",
+      "meaning": "from now on"
+    },
+    {
+      "word": "後半",
+      "reading": "こうはん",
+      "meaning": "second half"
+    },
+    {
+      "word": "後ほど",
+      "reading": "のちほど",
+      "meaning": "later"
+    },
+    {
+      "word": "後ろ",
+      "reading": "うしろ",
+      "meaning": "back, behind"
+    },
+    {
+      "word": "後で",
+      "reading": "あとで",
+      "meaning": "later, afterwards"
+    },
+    {
+      "word": "直後",
+      "reading": "ちょくご",
+      "meaning": "immediately following"
+    },
+    {
+      "word": "背後",
+      "reading": "はいご",
+      "meaning": "back"
+    },
+    {
+      "word": "後味",
+      "reading": "あとあじ",
+      "meaning": "aftertaste"
+    },
+    {
+      "word": "死後",
+      "reading": "しご",
+      "meaning": "after death"
+    },
+    {
+      "word": "今後",
+      "reading": "こんご",
+      "meaning": "from now on"
+    },
+    {
+      "word": "放課後",
+      "reading": "ほうかご",
+      "meaning": "after school"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "手後れ",
+      "reading": "ておくれ",
+      "meaning": "being (too) late"
+    },
+    {
+      "word": "明後日",
+      "reading": "あさって",
+      "meaning": "day after tomorrow"
+    }
+  ],
+  "unicode": "5f8c"
+}

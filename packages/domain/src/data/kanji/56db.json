@@ -1,0 +1,96 @@
+{
+  "character": "四",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "よ",
+      "よ-つ",
+      "よっ-つ",
+      "よん"
+    ]
+  },
+  "meanings": [
+    "four"
+  ],
+  "radicals": [
+    "囗"
+  ],
+  "examples": [
+    {
+      "word": "四隅",
+      "reading": "よすみ",
+      "meaning": "four corners"
+    },
+    {
+      "word": "四国",
+      "reading": "しこく",
+      "meaning": "Shikoku"
+    },
+    {
+      "word": "四角形",
+      "reading": "しかくけい",
+      "meaning": "square"
+    },
+    {
+      "word": "四つ角",
+      "reading": "よつかど",
+      "meaning": "crossroads"
+    },
+    {
+      "word": "四捨五入",
+      "reading": "ししゃごにゅう",
+      "meaning": "rounding up (fractions)"
+    },
+    {
+      "word": "四季",
+      "reading": "しき",
+      "meaning": "four seasons"
+    },
+    {
+      "word": "四月",
+      "reading": "しがつ",
+      "meaning": "April"
+    },
+    {
+      "word": "四角",
+      "reading": "しかく",
+      "meaning": "square"
+    },
+    {
+      "word": "四時",
+      "reading": "よじ",
+      "meaning": "4 o'clock"
+    },
+    {
+      "word": "四つ",
+      "reading": "よっつ",
+      "meaning": "4 (objects)"
+    },
+    {
+      "word": "四日",
+      "reading": "よっか",
+      "meaning": "4 days, 4th of the month"
+    },
+    {
+      "word": "四回",
+      "reading": "よんかい",
+      "meaning": "4 times"
+    },
+    {
+      "word": "四人",
+      "reading": "よにん",
+      "meaning": "four people"
+    },
+    {
+      "word": "四年生",
+      "reading": "よねんせい",
+      "meaning": "4th grader"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "56db"
+}

@@ -1,0 +1,100 @@
+{
+  "character": "語",
+  "grade": 2,
+  "strokeCount": 14,
+  "readings": {
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "かた-る",
+      "かた-らう"
+    ]
+  },
+  "meanings": [
+    "language",
+    "word"
+  ],
+  "radicals": [
+    "言"
+  ],
+  "examples": [
+    {
+      "word": "述語",
+      "reading": "じゅつご",
+      "meaning": "predicate [n.]"
+    },
+    {
+      "word": "略語",
+      "reading": "りゃくご",
+      "meaning": "abbreviation, acronym"
+    },
+    {
+      "word": "源氏物語",
+      "reading": "げんじものがたり",
+      "meaning": "the Tale of the Genji"
+    },
+    {
+      "word": "語源",
+      "reading": "ごげん",
+      "meaning": "word root, etymology"
+    },
+    {
+      "word": "単語",
+      "reading": "たんご",
+      "meaning": "word"
+    },
+    {
+      "word": "言語学",
+      "reading": "げんごがく",
+      "meaning": "linguistics"
+    },
+    {
+      "word": "英語",
+      "reading": "えいご",
+      "meaning": "English language"
+    },
+    {
+      "word": "今昔物語",
+      "reading": "こんじゃくものがたり",
+      "meaning": "Tales of past and present"
+    },
+    {
+      "word": "日本語",
+      "reading": "にほんご",
+      "meaning": "Japanese language"
+    },
+    {
+      "word": "同義語",
+      "reading": "どうぎご",
+      "meaning": "synonym"
+    },
+    {
+      "word": "擬声語",
+      "reading": "ぎせいご",
+      "meaning": "onomatopoeia"
+    },
+    {
+      "word": "落語",
+      "reading": "らくご",
+      "meaning": "rakugo (comic story-telling)"
+    },
+    {
+      "word": "母国語",
+      "reading": "ぼこくご",
+      "meaning": "mother tongue"
+    },
+    {
+      "word": "共通語",
+      "reading": "きょうつうご",
+      "meaning": "common language"
+    },
+    {
+      "word": "術語",
+      "reading": "じゅつご",
+      "meaning": "technical term"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8a9e"
+}

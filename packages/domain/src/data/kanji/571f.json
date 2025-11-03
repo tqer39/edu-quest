@@ -1,0 +1,102 @@
+{
+  "character": "土",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "ド",
+      "ト"
+    ],
+    "kunyomi": [
+      "つち"
+    ]
+  },
+  "meanings": [
+    "soil",
+    "earth",
+    "ground"
+  ],
+  "radicals": [
+    "土"
+  ],
+  "examples": [
+    {
+      "word": "土俵",
+      "reading": "どひょう",
+      "meaning": "sumo ring"
+    },
+    {
+      "word": "領土",
+      "reading": "りょうど",
+      "meaning": "dominion, territory"
+    },
+    {
+      "word": "郷土",
+      "reading": "きょうど",
+      "meaning": "native place, birth-place"
+    },
+    {
+      "word": "土砂",
+      "reading": "どしゃ",
+      "meaning": "earth and sand"
+    },
+    {
+      "word": "土砂崩れ",
+      "reading": "どしゃくずれ",
+      "meaning": "landslide"
+    },
+    {
+      "word": "浄土宗",
+      "reading": "じょうどしゅう",
+      "meaning": "Pure Land sect, Jodo"
+    },
+    {
+      "word": "泥土",
+      "reading": "でいど",
+      "meaning": "mud"
+    },
+    {
+      "word": "土地",
+      "reading": "とち",
+      "meaning": "plot of land"
+    },
+    {
+      "word": "土砂降り",
+      "reading": "どしゃぶり",
+      "meaning": "downpour"
+    },
+    {
+      "word": "土曜日",
+      "reading": "どようび",
+      "meaning": "Saturday"
+    },
+    {
+      "word": "土日",
+      "reading": "どにち",
+      "meaning": "Saturday and Sunday"
+    },
+    {
+      "word": "土",
+      "reading": "つち",
+      "meaning": "soil"
+    },
+    {
+      "word": "土色",
+      "reading": "つちいろ",
+      "meaning": "earth colored"
+    },
+    {
+      "word": "焦土",
+      "reading": "しょうど",
+      "meaning": "scorched earth"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "土産",
+      "reading": "みやげ",
+      "meaning": "local product, souvenir"
+    }
+  ],
+  "unicode": "571f"
+}

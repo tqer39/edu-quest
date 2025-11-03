@@ -1,0 +1,117 @@
+{
+  "character": "入",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": [
+      "ニュウ"
+    ],
+    "kunyomi": [
+      "い-る",
+      "い-れる",
+      "はい-る"
+    ]
+  },
+  "meanings": [
+    "enter",
+    "insert"
+  ],
+  "radicals": [
+    "入"
+  ],
+  "examples": [
+    {
+      "word": "納入する",
+      "reading": "のうにゅうする",
+      "meaning": "pay, supply"
+    },
+    {
+      "word": "歳入",
+      "reading": "さいにゅう",
+      "meaning": "annual revenue or income"
+    },
+    {
+      "word": "入籍する",
+      "reading": "にゅうせきする",
+      "meaning": "enter name in family register"
+    },
+    {
+      "word": "収入",
+      "reading": "しゅうにゅう",
+      "meaning": "income"
+    },
+    {
+      "word": "入学する",
+      "reading": "にゅうがくする",
+      "meaning": "entry school or university"
+    },
+    {
+      "word": "入国する",
+      "reading": "にゅうこくする",
+      "meaning": "entry a country"
+    },
+    {
+      "word": "輸入する",
+      "reading": "ゆにゅうする",
+      "meaning": "import"
+    },
+    {
+      "word": "気に入る",
+      "reading": "きにいる",
+      "meaning": "be pleased with, come to like"
+    },
+    {
+      "word": "入り口",
+      "reading": "いりぐち",
+      "meaning": "entrance"
+    },
+    {
+      "word": "仲間入り",
+      "reading": "なかまいり",
+      "meaning": "join a group"
+    },
+    {
+      "word": "入れる",
+      "reading": "いれる",
+      "meaning": "put in, let in [v.t.]"
+    },
+    {
+      "word": "入る",
+      "reading": "はいる",
+      "meaning": "enter, get in [v.i.]"
+    },
+    {
+      "word": "入社する",
+      "reading": "にゅうしゃする",
+      "meaning": "join a company"
+    },
+    {
+      "word": "入場料",
+      "reading": "にゅうじょうりょう",
+      "meaning": "admission fee"
+    },
+    {
+      "word": "入場する",
+      "reading": "にゅうじょうする",
+      "meaning": "enter"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "押し入れ",
+      "reading": "おしいれ",
+      "meaning": "closet"
+    },
+    {
+      "word": "入れ物",
+      "reading": "いれもの",
+      "meaning": "container"
+    },
+    {
+      "word": "札入れ",
+      "reading": "さついれ",
+      "meaning": "wallet, billfold"
+    }
+  ],
+  "unicode": "5165"
+}

@@ -1,0 +1,93 @@
+{
+  "character": "戸",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [
+      "と"
+    ]
+  },
+  "meanings": [
+    "door"
+  ],
+  "radicals": [
+    "戸"
+  ],
+  "examples": [
+    {
+      "word": "納戸",
+      "reading": "なんど",
+      "meaning": "back room, storage room"
+    },
+    {
+      "word": "戸籍",
+      "reading": "こせき",
+      "meaning": "census, family register"
+    },
+    {
+      "word": "江戸川",
+      "reading": "えどがわ",
+      "meaning": "Edo River"
+    },
+    {
+      "word": "神戸",
+      "reading": "こうべ",
+      "meaning": "Kobe"
+    },
+    {
+      "word": "戸主",
+      "reading": "こしゅ",
+      "meaning": "head of a household"
+    },
+    {
+      "word": "戸外",
+      "reading": "こがい",
+      "meaning": "open-air, outdoors"
+    },
+    {
+      "word": "門戸",
+      "reading": "もんこ",
+      "meaning": "gate and door"
+    },
+    {
+      "word": "戸",
+      "reading": "と",
+      "meaning": "door"
+    },
+    {
+      "word": "戸棚",
+      "reading": "とだな",
+      "meaning": "cupboard"
+    },
+    {
+      "word": "雨戸",
+      "reading": "あまど",
+      "meaning": "sliding storm door"
+    },
+    {
+      "word": "井戸",
+      "reading": "いど",
+      "meaning": "water well"
+    },
+    {
+      "word": "ガラス戸",
+      "reading": "ガラスど",
+      "meaning": "glass door"
+    },
+    {
+      "word": "格子戸",
+      "reading": "こうしど",
+      "meaning": "lattice door"
+    },
+    {
+      "word": "戸口",
+      "reading": "とぐち",
+      "meaning": "doorway"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6238"
+}

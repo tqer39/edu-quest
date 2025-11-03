@@ -1,0 +1,162 @@
+{
+  "character": "日",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "ニチ",
+      "ジツ"
+    ],
+    "kunyomi": [
+      "ひ",
+      "か"
+    ]
+  },
+  "meanings": [
+    "day",
+    "sun"
+  ],
+  "radicals": [
+    "日"
+  ],
+  "examples": [
+    {
+      "word": "七日",
+      "reading": "なのか",
+      "meaning": "7 days, 7th of the month"
+    },
+    {
+      "word": "八日",
+      "reading": "ようか",
+      "meaning": "8 days, 8th of the month"
+    },
+    {
+      "word": "十九日",
+      "reading": "じゅうくにち",
+      "meaning": "19 days, 19th of the month"
+    },
+    {
+      "word": "九日",
+      "reading": "ここのか",
+      "meaning": "9 days, 9th of the month"
+    },
+    {
+      "word": "十日",
+      "reading": "とおか",
+      "meaning": "10 days, 10th of the month"
+    },
+    {
+      "word": "二十日",
+      "reading": "はつか",
+      "meaning": "20 days, 20th day of the month"
+    },
+    {
+      "word": "誕生日",
+      "reading": "たんじょうび",
+      "meaning": "birthday"
+    },
+    {
+      "word": "翌日",
+      "reading": "よくじつ",
+      "meaning": "the next day"
+    },
+    {
+      "word": "翌々日",
+      "reading": "よくよくじつ",
+      "meaning": "two days later"
+    },
+    {
+      "word": "幾日も",
+      "reading": "いくにちも",
+      "meaning": "for many days, for some days"
+    },
+    {
+      "word": "日雇い",
+      "reading": "ひやとい",
+      "meaning": "day labor"
+    },
+    {
+      "word": "当日",
+      "reading": "とうじつ",
+      "meaning": "very day"
+    },
+    {
+      "word": "日当たり",
+      "reading": "ひあたり",
+      "meaning": "exposure to the sun"
+    },
+    {
+      "word": "駐日大使",
+      "reading": "ちゅうにちたいし",
+      "meaning": "ambassador to Japan"
+    },
+    {
+      "word": "二泊三日",
+      "reading": "にはくみっか",
+      "meaning": "3 days 2 nights"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "日本舞踊",
+      "reading": "にほんぶよう",
+      "meaning": "traditional Japanese dance"
+    },
+    {
+      "word": "明後日",
+      "reading": "あさって",
+      "meaning": "day after tomorrow"
+    },
+    {
+      "word": "日本人",
+      "reading": "にほんじん",
+      "meaning": "Japanese person"
+    },
+    {
+      "word": "日本的な",
+      "reading": "にほんてきな",
+      "meaning": "typically Japanese"
+    },
+    {
+      "word": "一日",
+      "reading": "ついたち",
+      "meaning": "1st of the month"
+    },
+    {
+      "word": "今日",
+      "reading": "きょう",
+      "meaning": "today"
+    },
+    {
+      "word": "明日",
+      "reading": "あした",
+      "meaning": "tomorrow"
+    },
+    {
+      "word": "昨日",
+      "reading": "きのう",
+      "meaning": "yesterday"
+    },
+    {
+      "word": "一昨日",
+      "reading": "おととい",
+      "meaning": "day before yesterday"
+    },
+    {
+      "word": "日本語",
+      "reading": "にほんご",
+      "meaning": "Japanese language"
+    },
+    {
+      "word": "日本列島",
+      "reading": "にほんれっとう",
+      "meaning": "Japanese archipelago"
+    },
+    {
+      "word": "昨日",
+      "reading": "*きのう",
+      "meaning": "yesterday"
+    }
+  ],
+  "unicode": "65e5"
+}

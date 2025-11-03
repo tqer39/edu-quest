@@ -1,0 +1,89 @@
+{
+  "character": "首",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "シュ"
+    ],
+    "kunyomi": [
+      "くび"
+    ]
+  },
+  "meanings": [
+    "neck",
+    "head"
+  ],
+  "radicals": [
+    "首"
+  ],
+  "examples": [
+    {
+      "word": "党首",
+      "reading": "とうしゅ",
+      "meaning": "party leader"
+    },
+    {
+      "word": "首脳",
+      "reading": "しゅのう",
+      "meaning": "head, brains"
+    },
+    {
+      "word": "首相",
+      "reading": "しゅしょう",
+      "meaning": "Prime Minister"
+    },
+    {
+      "word": "首都",
+      "reading": "しゅと",
+      "meaning": "capital city"
+    },
+    {
+      "word": "首府",
+      "reading": "しゅふ",
+      "meaning": "metropolis"
+    },
+    {
+      "word": "首席",
+      "reading": "しゅせき",
+      "meaning": "top seat"
+    },
+    {
+      "word": "首位",
+      "reading": "しゅい",
+      "meaning": "first place, head position"
+    },
+    {
+      "word": "部首",
+      "reading": "ぶしゅ",
+      "meaning": "radical (of kanji)"
+    },
+    {
+      "word": "機首",
+      "reading": "きしゅ",
+      "meaning": "nose of a plane"
+    },
+    {
+      "word": "絞首刑",
+      "reading": "こうしゅけい",
+      "meaning": "death by hanging"
+    },
+    {
+      "word": "自首する",
+      "reading": "じしゅする",
+      "meaning": "surrender, give oneself up"
+    },
+    {
+      "word": "首",
+      "reading": "くび",
+      "meaning": "neck"
+    },
+    {
+      "word": "手首",
+      "reading": "てくび",
+      "meaning": "wrist"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9996"
+}

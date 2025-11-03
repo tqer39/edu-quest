@@ -1,0 +1,101 @@
+{
+  "character": "歩",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "ホ",
+      "ブ",
+      "フ"
+    ],
+    "kunyomi": [
+      "ある-く",
+      "あゆ-む"
+    ]
+  },
+  "meanings": [
+    "walk"
+  ],
+  "radicals": [
+    "止"
+  ],
+  "examples": [
+    {
+      "word": "歩道",
+      "reading": "ほどう",
+      "meaning": "sidewalk"
+    },
+    {
+      "word": "横断歩道",
+      "reading": "おうだんほどう",
+      "meaning": "pedestrian crossing"
+    },
+    {
+      "word": "歩道橋",
+      "reading": "ほどうきょう",
+      "meaning": "pedestrian bridge"
+    },
+    {
+      "word": "歩調",
+      "reading": "ほちょう",
+      "meaning": "pace (walking)"
+    },
+    {
+      "word": "歩行者",
+      "reading": "ほこうしゃ",
+      "meaning": "pedestrian"
+    },
+    {
+      "word": "徒歩",
+      "reading": "とほ",
+      "meaning": "on foot [n.]"
+    },
+    {
+      "word": "初歩",
+      "reading": "しょほ",
+      "meaning": "elementary"
+    },
+    {
+      "word": "散歩する",
+      "reading": "さんぽする",
+      "meaning": "take a walk"
+    },
+    {
+      "word": "進歩する",
+      "reading": "しんぽする",
+      "meaning": "make progress"
+    },
+    {
+      "word": "歩合",
+      "reading": "ぶあい",
+      "meaning": "rate"
+    },
+    {
+      "word": "歩",
+      "reading": "ふ",
+      "meaning": "pawn (in chess or shogi)"
+    },
+    {
+      "word": "歩く",
+      "reading": "あるく",
+      "meaning": "walk"
+    },
+    {
+      "word": "歩む",
+      "reading": "あゆむ",
+      "meaning": "walk"
+    },
+    {
+      "word": "歩行する",
+      "reading": "ほこうする",
+      "meaning": "walk"
+    },
+    {
+      "word": "散歩",
+      "reading": "さんぽ",
+      "meaning": "walk, stroll [n.]"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6b69"
+}

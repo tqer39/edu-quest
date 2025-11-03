@@ -1,0 +1,73 @@
+{
+  "character": "妹",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "マイ"
+    ],
+    "kunyomi": [
+      "いもうと"
+    ]
+  },
+  "meanings": [
+    "younger sister"
+  ],
+  "radicals": [
+    "女"
+  ],
+  "examples": [
+    {
+      "word": "姉妹",
+      "reading": "しまい",
+      "meaning": "sisters"
+    },
+    {
+      "word": "姉妹校",
+      "reading": "しまいこう",
+      "meaning": "sister school"
+    },
+    {
+      "word": "妹",
+      "reading": "いもうと",
+      "meaning": "one's own younger sister"
+    },
+    {
+      "word": "義妹",
+      "reading": "ぎまい",
+      "meaning": "younger sister-in-law"
+    },
+    {
+      "word": "実妹",
+      "reading": "じつまい",
+      "meaning": "biological younger sister"
+    },
+    {
+      "word": "妹分",
+      "reading": "いもうとぶん",
+      "meaning": "girl treated like a kid sister"
+    },
+    {
+      "word": "妹弟",
+      "reading": "まいてい",
+      "meaning": "younger brothers and sisters"
+    },
+    {
+      "word": "妹婿",
+      "reading": "いもうとむこ",
+      "meaning": "younger sister's husband"
+    },
+    {
+      "word": "妹夫婦",
+      "reading": "いもうとふうふ",
+      "meaning": "sister and her husband"
+    },
+    {
+      "word": "姉妹店",
+      "reading": "しまいてん",
+      "meaning": "sister store"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "59b9"
+}

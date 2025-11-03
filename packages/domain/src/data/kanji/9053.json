@@ -1,0 +1,100 @@
+{
+  "character": "道",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "ドウ",
+      "トウ"
+    ],
+    "kunyomi": [
+      "みち"
+    ]
+  },
+  "meanings": [
+    "road",
+    "way"
+  ],
+  "radicals": [
+    "辵"
+  ],
+  "examples": [
+    {
+      "word": "道徳",
+      "reading": "どうとく",
+      "meaning": "morals"
+    },
+    {
+      "word": "武道",
+      "reading": "ぶどう",
+      "meaning": "martial arts, Bushido"
+    },
+    {
+      "word": "報道",
+      "reading": "ほうどう",
+      "meaning": "information, report"
+    },
+    {
+      "word": "沿道",
+      "reading": "えんどう",
+      "meaning": "route, course, roadside"
+    },
+    {
+      "word": "書道",
+      "reading": "しょどう",
+      "meaning": "calligraphy"
+    },
+    {
+      "word": "柔道",
+      "reading": "じゅうどう",
+      "meaning": "judo"
+    },
+    {
+      "word": "逃げ道",
+      "reading": "にげみち",
+      "meaning": "way out, escape route"
+    },
+    {
+      "word": "高速道路",
+      "reading": "こうそくどうろ",
+      "meaning": "highway"
+    },
+    {
+      "word": "茶道",
+      "reading": "さどう",
+      "meaning": "Way of Tea"
+    },
+    {
+      "word": "道路",
+      "reading": "どうろ",
+      "meaning": "road"
+    },
+    {
+      "word": "道場",
+      "reading": "どうじょう",
+      "meaning": "hall used for martial arts training"
+    },
+    {
+      "word": "歩道",
+      "reading": "ほどう",
+      "meaning": "sidewalk"
+    },
+    {
+      "word": "水道",
+      "reading": "すいどう",
+      "meaning": "water supply"
+    },
+    {
+      "word": "地下道",
+      "reading": "ちかどう",
+      "meaning": "underground tunnel"
+    },
+    {
+      "word": "神道",
+      "reading": "しんとう",
+      "meaning": "Shintoism"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9053"
+}

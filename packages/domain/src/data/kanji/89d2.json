@@ -1,0 +1,96 @@
+{
+  "character": "角",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "カク"
+    ],
+    "kunyomi": [
+      "かど",
+      "つの"
+    ]
+  },
+  "meanings": [
+    "angle",
+    "corner",
+    "horn"
+  ],
+  "radicals": [
+    "角"
+  ],
+  "examples": [
+    {
+      "word": "鋭角",
+      "reading": "えいかく",
+      "meaning": "acute angle"
+    },
+    {
+      "word": "触角",
+      "reading": "しょっかく",
+      "meaning": "feeler, antenna"
+    },
+    {
+      "word": "鈍角",
+      "reading": "どんかく",
+      "meaning": "obtuse angle"
+    },
+    {
+      "word": "曲り角",
+      "reading": "まがりかど",
+      "meaning": "corner"
+    },
+    {
+      "word": "角度",
+      "reading": "かくど",
+      "meaning": "angle"
+    },
+    {
+      "word": "三角",
+      "reading": "さんかく",
+      "meaning": "triangle"
+    },
+    {
+      "word": "四角形",
+      "reading": "しかくけい",
+      "meaning": "square"
+    },
+    {
+      "word": "角",
+      "reading": "かど",
+      "meaning": "corner"
+    },
+    {
+      "word": "四つ角",
+      "reading": "よつかど",
+      "meaning": "crossroads"
+    },
+    {
+      "word": "角",
+      "reading": "つの",
+      "meaning": "horn"
+    },
+    {
+      "word": "三角州",
+      "reading": "さんかくす",
+      "meaning": "delta"
+    },
+    {
+      "word": "街角",
+      "reading": "まちかど",
+      "meaning": "street corner"
+    },
+    {
+      "word": "互角",
+      "reading": "ごかく",
+      "meaning": "equality, evenness, par"
+    },
+    {
+      "word": "四角",
+      "reading": "しかく",
+      "meaning": "square"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "89d2"
+}

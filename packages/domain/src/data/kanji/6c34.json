@@ -1,0 +1,98 @@
+{
+  "character": "水",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "スイ"
+    ],
+    "kunyomi": [
+      "みず"
+    ]
+  },
+  "meanings": [
+    "water"
+  ],
+  "radicals": [
+    "水"
+  ],
+  "examples": [
+    {
+      "word": "防水",
+      "reading": "ぼうすい",
+      "meaning": "waterproofing"
+    },
+    {
+      "word": "水域",
+      "reading": "すいいき",
+      "meaning": "waters, water area"
+    },
+    {
+      "word": "汚水",
+      "reading": "おすい",
+      "meaning": "filthy water, sewage"
+    },
+    {
+      "word": "水菓子",
+      "reading": "みずがし",
+      "meaning": "fruit"
+    },
+    {
+      "word": "香水",
+      "reading": "こうすい",
+      "meaning": "perfume"
+    },
+    {
+      "word": "飲料水",
+      "reading": "いんりょうすい",
+      "meaning": "drinking water"
+    },
+    {
+      "word": "泥水",
+      "reading": "でいすい",
+      "meaning": "muddy water"
+    },
+    {
+      "word": "水滴",
+      "reading": "すいてき",
+      "meaning": "drop of water"
+    },
+    {
+      "word": "水筒",
+      "reading": "すいとう",
+      "meaning": "canteen, flask, water bottle"
+    },
+    {
+      "word": "軟水",
+      "reading": "なんすい",
+      "meaning": "soft water"
+    },
+    {
+      "word": "水溶性",
+      "reading": "すいようせい",
+      "meaning": "water-soluble"
+    },
+    {
+      "word": "清涼飲料水",
+      "reading": "せいりょういんりょうすい",
+      "meaning": "soft drink"
+    },
+    {
+      "word": "水着",
+      "reading": "みずぎ",
+      "meaning": "bathing suit"
+    },
+    {
+      "word": "水田",
+      "reading": "すいでん",
+      "meaning": "rice field"
+    },
+    {
+      "word": "水道",
+      "reading": "すいどう",
+      "meaning": "water supply"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6c34"
+}

@@ -1,0 +1,98 @@
+{
+  "character": "川",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "かわ"
+    ]
+  },
+  "meanings": [
+    "river"
+  ],
+  "radicals": [
+    "川"
+  ],
+  "examples": [
+    {
+      "word": "川沿い",
+      "reading": "かわぞい",
+      "meaning": "along a river"
+    },
+    {
+      "word": "川上",
+      "reading": "かわかみ",
+      "meaning": "upper reaches of a river"
+    },
+    {
+      "word": "中川",
+      "reading": "なかがわ",
+      "meaning": "Nakagawa (surname)"
+    },
+    {
+      "word": "河川",
+      "reading": "かせん",
+      "meaning": "rivers"
+    },
+    {
+      "word": "川",
+      "reading": "かわ",
+      "meaning": "river"
+    },
+    {
+      "word": "川下",
+      "reading": "かわしも",
+      "meaning": "downstream"
+    },
+    {
+      "word": "江戸川",
+      "reading": "えどがわ",
+      "meaning": "Edo River"
+    },
+    {
+      "word": "小川",
+      "reading": "おがわ",
+      "meaning": "small stream, brook"
+    },
+    {
+      "word": "天の川",
+      "reading": "あまのがわ",
+      "meaning": "Milky Way"
+    },
+    {
+      "word": "川辺",
+      "reading": "かわべ",
+      "meaning": "riverside"
+    },
+    {
+      "word": "徳川家",
+      "reading": "とくがわけ",
+      "meaning": "the House of Tokugawa"
+    },
+    {
+      "word": "谷川",
+      "reading": "たにがわ",
+      "meaning": "valley river"
+    },
+    {
+      "word": "川底",
+      "reading": "かわぞこ",
+      "meaning": "riverbed"
+    },
+    {
+      "word": "川口",
+      "reading": "かわぐち",
+      "meaning": "mouth of a river"
+    },
+    {
+      "word": "川岸",
+      "reading": "かわぎし",
+      "meaning": "riverbank"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5ddd"
+}

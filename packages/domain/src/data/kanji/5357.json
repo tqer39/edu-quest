@@ -1,0 +1,79 @@
+{
+  "character": "南",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "ナン",
+      "ナ"
+    ],
+    "kunyomi": [
+      "みなみ"
+    ]
+  },
+  "meanings": [
+    "south"
+  ],
+  "radicals": [
+    "十"
+  ],
+  "examples": [
+    {
+      "word": "南欧",
+      "reading": "なんおう",
+      "meaning": "Southern Europe"
+    },
+    {
+      "word": "南極",
+      "reading": "なんきょく",
+      "meaning": "south pole, Antarctic"
+    },
+    {
+      "word": "東西南北",
+      "reading": "とうざいなんぼく",
+      "meaning": "east, west, south and north"
+    },
+    {
+      "word": "南京",
+      "reading": "なんきん",
+      "meaning": "Nanjing"
+    },
+    {
+      "word": "南米",
+      "reading": "なんべい",
+      "meaning": "South America"
+    },
+    {
+      "word": "南北",
+      "reading": "なんぼく",
+      "meaning": "south and north"
+    },
+    {
+      "word": "南部",
+      "reading": "なんぶ",
+      "meaning": "southern part"
+    },
+    {
+      "word": "東南アジア",
+      "reading": "とうなんアジア",
+      "meaning": "Southeast Asia"
+    },
+    {
+      "word": "南",
+      "reading": "みなみ",
+      "meaning": "south"
+    },
+    {
+      "word": "南半球",
+      "reading": "みなみはんきゅう",
+      "meaning": "southern hemisphere"
+    },
+    {
+      "word": "東南",
+      "reading": "とうなん",
+      "meaning": "southeast"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5357"
+}

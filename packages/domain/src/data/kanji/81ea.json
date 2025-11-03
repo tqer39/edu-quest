@@ -1,0 +1,106 @@
+{
+  "character": "自",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "ジ",
+      "シ"
+    ],
+    "kunyomi": [
+      "みずか-ら"
+    ]
+  },
+  "meanings": [
+    "self",
+    "oneself"
+  ],
+  "radicals": [
+    "自"
+  ],
+  "examples": [
+    {
+      "word": "自己",
+      "reading": "じこ",
+      "meaning": "self, oneself"
+    },
+    {
+      "word": "超自然的な",
+      "reading": "ちょうしぜんてきな",
+      "meaning": "supernatural"
+    },
+    {
+      "word": "自動販売機",
+      "reading": "じどうはんばいき",
+      "meaning": "vending machine"
+    },
+    {
+      "word": "自動車",
+      "reading": "じどうしゃ",
+      "meaning": "automobile"
+    },
+    {
+      "word": "自動ドア",
+      "reading": "じどうドア",
+      "meaning": "automatic door"
+    },
+    {
+      "word": "自慢する",
+      "reading": "じまんする",
+      "meaning": "boast"
+    },
+    {
+      "word": "自転車",
+      "reading": "じてんしゃ",
+      "meaning": "bicycle"
+    },
+    {
+      "word": "自由",
+      "reading": "じゆう",
+      "meaning": "freedom"
+    },
+    {
+      "word": "自分",
+      "reading": "じぶん",
+      "meaning": "oneself"
+    },
+    {
+      "word": "自信",
+      "reading": "じしん",
+      "meaning": "self-confidence"
+    },
+    {
+      "word": "独自",
+      "reading": "どくじ",
+      "meaning": "original, independent"
+    },
+    {
+      "word": "自然な",
+      "reading": "しぜんな",
+      "meaning": "natural"
+    },
+    {
+      "word": "自ら",
+      "reading": "みずから",
+      "meaning": "by one's self"
+    },
+    {
+      "word": "自発性",
+      "reading": "じはつせい",
+      "meaning": "spontaneity, initiative"
+    },
+    {
+      "word": "自然",
+      "reading": "しぜん",
+      "meaning": "nature"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "自ずから",
+      "reading": "おのずから",
+      "meaning": "naturally"
+    }
+  ],
+  "unicode": "81ea"
+}

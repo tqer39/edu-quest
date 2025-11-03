@@ -1,0 +1,73 @@
+{
+  "character": "村",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "ソン"
+    ],
+    "kunyomi": [
+      "むら"
+    ]
+  },
+  "meanings": [
+    "village"
+  ],
+  "radicals": [
+    "木"
+  ],
+  "examples": [
+    {
+      "word": "中村",
+      "reading": "なかむら",
+      "meaning": "Nakamura (surname)"
+    },
+    {
+      "word": "農村",
+      "reading": "のうそん",
+      "meaning": "farm village"
+    },
+    {
+      "word": "漁村",
+      "reading": "ぎょそん",
+      "meaning": "fishing village"
+    },
+    {
+      "word": "村落",
+      "reading": "そんらく",
+      "meaning": "village"
+    },
+    {
+      "word": "村",
+      "reading": "むら",
+      "meaning": "village"
+    },
+    {
+      "word": "村人",
+      "reading": "むらびと",
+      "meaning": "villager"
+    },
+    {
+      "word": "木村",
+      "reading": "きむら",
+      "meaning": "Kimura (surname)"
+    },
+    {
+      "word": "市町村",
+      "reading": "しちょうそん",
+      "meaning": "cities, towns and villages"
+    },
+    {
+      "word": "村役場",
+      "reading": "むらやくば",
+      "meaning": "village office"
+    },
+    {
+      "word": "村祭り",
+      "reading": "むらまつり",
+      "meaning": "village festival"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6751"
+}

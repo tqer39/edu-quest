@@ -1,0 +1,78 @@
+{
+  "character": "買",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": [
+      "バイ"
+    ],
+    "kunyomi": [
+      "か-う"
+    ]
+  },
+  "meanings": [
+    "buy"
+  ],
+  "radicals": [
+    "貝"
+  ],
+  "examples": [
+    {
+      "word": "買い物",
+      "reading": "かいもの",
+      "meaning": "shopping"
+    },
+    {
+      "word": "買い戻す",
+      "reading": "かいもどす",
+      "meaning": "buy back"
+    },
+    {
+      "word": "買収する",
+      "reading": "ばいしゅうする",
+      "meaning": "purchase, buy, bribe"
+    },
+    {
+      "word": "売買する",
+      "reading": "ばいばいする",
+      "meaning": "trade"
+    },
+    {
+      "word": "購買",
+      "reading": "こうばい",
+      "meaning": "purchasing"
+    },
+    {
+      "word": "買う",
+      "reading": "かう",
+      "meaning": "buy"
+    },
+    {
+      "word": "買い手",
+      "reading": "かいて",
+      "meaning": "buyer"
+    },
+    {
+      "word": "仲買人",
+      "reading": "なかがいにん",
+      "meaning": "broker, middleman"
+    },
+    {
+      "word": "買い占め",
+      "reading": "かいしめ",
+      "meaning": "panic buying"
+    },
+    {
+      "word": "買い換える",
+      "reading": "かいかえる",
+      "meaning": "replace by buying new"
+    },
+    {
+      "word": "売買",
+      "reading": "ばいばい",
+      "meaning": "buying and selling"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8cb7"
+}

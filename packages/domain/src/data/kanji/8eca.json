@@ -1,0 +1,100 @@
+{
+  "character": "車",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "シャ"
+    ],
+    "kunyomi": [
+      "くるま"
+    ]
+  },
+  "meanings": [
+    "car",
+    "vehicle",
+    "wheel"
+  ],
+  "radicals": [
+    "車"
+  ],
+  "examples": [
+    {
+      "word": "消防車",
+      "reading": "しょうぼうしゃ",
+      "meaning": "fire-engine"
+    },
+    {
+      "word": "電車賃",
+      "reading": "でんしゃちん",
+      "meaning": "train fare"
+    },
+    {
+      "word": "観覧車",
+      "reading": "かんらんしゃ",
+      "meaning": "Ferris wheel"
+    },
+    {
+      "word": "香車",
+      "reading": "きょうしゃ",
+      "meaning": "lance (shogi game)"
+    },
+    {
+      "word": "駐車場",
+      "reading": "ちゅうしゃじょう",
+      "meaning": "parking lot, parking place"
+    },
+    {
+      "word": "駐停車する",
+      "reading": "ちゅうていしゃする",
+      "meaning": "stop or park a vehicle"
+    },
+    {
+      "word": "電車",
+      "reading": "でんしゃ",
+      "meaning": "train"
+    },
+    {
+      "word": "自動車",
+      "reading": "じどうしゃ",
+      "meaning": "automobile"
+    },
+    {
+      "word": "自転車",
+      "reading": "じてんしゃ",
+      "meaning": "bicycle"
+    },
+    {
+      "word": "駐車する",
+      "reading": "ちゅうしゃする",
+      "meaning": "park a car"
+    },
+    {
+      "word": "停車する",
+      "reading": "ていしゃする",
+      "meaning": "stop a car or train"
+    },
+    {
+      "word": "車",
+      "reading": "くるま",
+      "meaning": "car"
+    },
+    {
+      "word": "車いす",
+      "reading": "くるまいす",
+      "meaning": "wheel chair"
+    },
+    {
+      "word": "3号車",
+      "reading": "さんごうしゃ",
+      "meaning": "3rd compartment (e.g. train)"
+    },
+    {
+      "word": "特急電車",
+      "reading": "とっきゅうでんしゃ",
+      "meaning": "express train"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8eca"
+}

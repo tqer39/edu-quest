@@ -1,0 +1,74 @@
+{
+  "character": "昼",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "チュウ"
+    ],
+    "kunyomi": [
+      "ひる"
+    ]
+  },
+  "meanings": [
+    "daytime",
+    "noon"
+  ],
+  "radicals": [
+    "日"
+  ],
+  "examples": [
+    {
+      "word": "昼時",
+      "reading": "ひるどき",
+      "meaning": "noon"
+    },
+    {
+      "word": "昼間",
+      "reading": "ひるま",
+      "meaning": "day time"
+    },
+    {
+      "word": "昼御飯",
+      "reading": "ひるごはん",
+      "meaning": "lunch"
+    },
+    {
+      "word": "昼食",
+      "reading": "ちゅうしょく",
+      "meaning": "lunch"
+    },
+    {
+      "word": "昼",
+      "reading": "ひる",
+      "meaning": "noon"
+    },
+    {
+      "word": "真昼",
+      "reading": "まひる",
+      "meaning": "midday"
+    },
+    {
+      "word": "昼過ぎ",
+      "reading": "ひるすぎ",
+      "meaning": "afternoon"
+    },
+    {
+      "word": "昼休み",
+      "reading": "ひるやすみ",
+      "meaning": "lunch break"
+    },
+    {
+      "word": "昼寝",
+      "reading": "ひるね",
+      "meaning": "nap"
+    },
+    {
+      "word": "昼下がり",
+      "reading": "ひるさがり",
+      "meaning": "early afternoon"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "663c"
+}

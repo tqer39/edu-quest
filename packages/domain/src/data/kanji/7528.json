@@ -1,0 +1,99 @@
+{
+  "character": "用",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "ヨウ"
+    ],
+    "kunyomi": [
+      "もち-いる"
+    ]
+  },
+  "meanings": [
+    "use",
+    "business"
+  ],
+  "radicals": [
+    "用"
+  ],
+  "examples": [
+    {
+      "word": "用心棒",
+      "reading": "ようじんぼう",
+      "meaning": "bodyguard"
+    },
+    {
+      "word": "用紙",
+      "reading": "ようし",
+      "meaning": "blank form"
+    },
+    {
+      "word": "終身雇用制",
+      "reading": "しゅうしんこようせい",
+      "meaning": "system of lifetime employment"
+    },
+    {
+      "word": "雇用する",
+      "reading": "こようする",
+      "meaning": "employ, hire"
+    },
+    {
+      "word": "引用する",
+      "reading": "いんようする",
+      "meaning": "quote"
+    },
+    {
+      "word": "用事",
+      "reading": "ようじ",
+      "meaning": "business, engagement"
+    },
+    {
+      "word": "使用する",
+      "reading": "しようする",
+      "meaning": "use [v.t.]"
+    },
+    {
+      "word": "急用",
+      "reading": "きゅうよう",
+      "meaning": "urgent business"
+    },
+    {
+      "word": "費用",
+      "reading": "ひよう",
+      "meaning": "cost"
+    },
+    {
+      "word": "家庭用",
+      "reading": "かていよう",
+      "meaning": "for home (vs. business) use"
+    },
+    {
+      "word": "用心深い",
+      "reading": "ようじんぶかい",
+      "meaning": "watchful"
+    },
+    {
+      "word": "利用する",
+      "reading": "りようする",
+      "meaning": "utilize"
+    },
+    {
+      "word": "用意する",
+      "reading": "よういする",
+      "meaning": "prepare"
+    },
+    {
+      "word": "採用する",
+      "reading": "さいようする",
+      "meaning": "adopt"
+    },
+    {
+      "word": "信用する",
+      "reading": "しんようする",
+      "meaning": "believe"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7528"
+}

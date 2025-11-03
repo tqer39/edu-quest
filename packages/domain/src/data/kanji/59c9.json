@@ -1,0 +1,79 @@
+{
+  "character": "姉",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "あね"
+    ]
+  },
+  "meanings": [
+    "older sister"
+  ],
+  "radicals": [
+    "女"
+  ],
+  "examples": [
+    {
+      "word": "姉妹",
+      "reading": "しまい",
+      "meaning": "sisters"
+    },
+    {
+      "word": "姉",
+      "reading": "あね",
+      "meaning": "one's own older sister"
+    },
+    {
+      "word": "姉妹校",
+      "reading": "しまいこう",
+      "meaning": "sister school"
+    },
+    {
+      "word": "義姉",
+      "reading": "ぎし",
+      "meaning": "older sister-in-law"
+    },
+    {
+      "word": "実姉",
+      "reading": "じっし",
+      "meaning": "biological older sister"
+    },
+    {
+      "word": "姉貴",
+      "reading": "あねき",
+      "meaning": "big sister"
+    },
+    {
+      "word": "姉御",
+      "reading": "あねご",
+      "meaning": "boss lady"
+    },
+    {
+      "word": "姉弟",
+      "reading": "してい",
+      "meaning": "older sister and younger brother"
+    },
+    {
+      "word": "姉夫婦",
+      "reading": "あねふうふ",
+      "meaning": "older sister and her husband"
+    },
+    {
+      "word": "姉妹都市",
+      "reading": "しまいとし",
+      "meaning": "sister city"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "お姉さん",
+      "reading": "おねえさん",
+      "meaning": "older sister [hon.]"
+    }
+  ],
+  "unicode": "59c9"
+}

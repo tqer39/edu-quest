@@ -1,0 +1,88 @@
+{
+  "character": "鳥",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "とり"
+    ]
+  },
+  "meanings": [
+    "bird"
+  ],
+  "radicals": [
+    "鳥"
+  ],
+  "examples": [
+    {
+      "word": "白鳥",
+      "reading": "はくちょう",
+      "meaning": "swan"
+    },
+    {
+      "word": "渡り鳥",
+      "reading": "わたりどり",
+      "meaning": "migratory bird"
+    },
+    {
+      "word": "千鳥",
+      "reading": "ちどり",
+      "meaning": "plover"
+    },
+    {
+      "word": "小鳥",
+      "reading": "ことり",
+      "meaning": "small bird"
+    },
+    {
+      "word": "益鳥",
+      "reading": "えきちょう",
+      "meaning": "useful bird species"
+    },
+    {
+      "word": "鳥肉",
+      "reading": "とりにく",
+      "meaning": "chicken meat"
+    },
+    {
+      "word": "鳥類",
+      "reading": "ちょうるい",
+      "meaning": "birds, avian"
+    },
+    {
+      "word": "野鳥",
+      "reading": "やちょう",
+      "meaning": "wild bird"
+    },
+    {
+      "word": "一石二鳥",
+      "reading": "いっせきにちょう",
+      "meaning": "killing two birds with one stone"
+    },
+    {
+      "word": "七面鳥",
+      "reading": "しちめんちょう",
+      "meaning": "turkey"
+    },
+    {
+      "word": "鳥",
+      "reading": "とり",
+      "meaning": "bird, fowl, poultry"
+    },
+    {
+      "word": "鳥居",
+      "reading": "とりい",
+      "meaning": "torii, gateway to a Shinto shrine"
+    },
+    {
+      "word": "焼き鳥",
+      "reading": "やきとり",
+      "meaning": "grilled chicken on a stick"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9ce5"
+}

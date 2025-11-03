@@ -1,0 +1,80 @@
+{
+  "character": "九",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": [
+      "キュウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "ここの",
+      "ここの-つ"
+    ]
+  },
+  "meanings": [
+    "nine"
+  ],
+  "radicals": [
+    "乙"
+  ],
+  "examples": [
+    {
+      "word": "九州",
+      "reading": "きゅうしゅう",
+      "meaning": "Kyuushuu"
+    },
+    {
+      "word": "九回",
+      "reading": "きゅうかい",
+      "meaning": "9 times"
+    },
+    {
+      "word": "九年",
+      "reading": "きゅうねん",
+      "meaning": "9 years"
+    },
+    {
+      "word": "九月",
+      "reading": "くがつ",
+      "meaning": "September"
+    },
+    {
+      "word": "九時",
+      "reading": "くじ",
+      "meaning": "9 o'clock"
+    },
+    {
+      "word": "十九日",
+      "reading": "じゅうくにち",
+      "meaning": "19 days, 19th of the month"
+    },
+    {
+      "word": "九日",
+      "reading": "ここのか",
+      "meaning": "9 days, 9th of the month"
+    },
+    {
+      "word": "九つ",
+      "reading": "ここのつ",
+      "meaning": "9 (objects)"
+    },
+    {
+      "word": "第九条",
+      "reading": "だいきゅうじょう",
+      "meaning": "article number nine"
+    },
+    {
+      "word": "九重",
+      "reading": "ここのえ",
+      "meaning": "imperial court; ninefold layers"
+    },
+    {
+      "word": "九人",
+      "reading": "きゅうにん",
+      "meaning": "nine people"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4e5d"
+}

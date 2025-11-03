@@ -1,0 +1,107 @@
+{
+  "character": "音",
+  "grade": 1,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": [
+      "オン",
+      "イン"
+    ],
+    "kunyomi": [
+      "おと",
+      "ね"
+    ]
+  },
+  "meanings": [
+    "sound",
+    "noise"
+  ],
+  "radicals": [
+    "音"
+  ],
+  "examples": [
+    {
+      "word": "防音",
+      "reading": "ぼうおん",
+      "meaning": "soundproofing"
+    },
+    {
+      "word": "靴音",
+      "reading": "くつおと",
+      "meaning": "walking sound, footsteps"
+    },
+    {
+      "word": "超音波",
+      "reading": "ちょうおんぱ",
+      "meaning": "ultrasonic waves"
+    },
+    {
+      "word": "音楽",
+      "reading": "おんがく",
+      "meaning": "music"
+    },
+    {
+      "word": "音頭",
+      "reading": "おんど",
+      "meaning": "marching songs"
+    },
+    {
+      "word": "発音する",
+      "reading": "はつおんする",
+      "meaning": "pronounce"
+    },
+    {
+      "word": "録音する",
+      "reading": "ろくおんする",
+      "meaning": "record"
+    },
+    {
+      "word": "音読み",
+      "reading": "おんよみ",
+      "meaning": "on (Chinese) reading of kanji"
+    },
+    {
+      "word": "母音",
+      "reading": "ぼいん",
+      "meaning": "vowel"
+    },
+    {
+      "word": "子音",
+      "reading": "しいん",
+      "meaning": "consonant"
+    },
+    {
+      "word": "音",
+      "reading": "おと",
+      "meaning": "sound"
+    },
+    {
+      "word": "足音",
+      "reading": "あしおと",
+      "meaning": "footsteps (sound)"
+    },
+    {
+      "word": "音色",
+      "reading": "ねいろ",
+      "meaning": "tone"
+    },
+    {
+      "word": "本音",
+      "reading": "ほんね",
+      "meaning": "real intention"
+    },
+    {
+      "word": "音符",
+      "reading": "おんぷ",
+      "meaning": "(musical) note"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "観音様",
+      "reading": "かんのんさま",
+      "meaning": "Kannon, Goddess of Mercy"
+    }
+  ],
+  "unicode": "97f3"
+}

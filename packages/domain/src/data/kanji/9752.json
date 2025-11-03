@@ -1,0 +1,86 @@
+{
+  "character": "青",
+  "grade": 1,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "あお",
+      "あお-い"
+    ]
+  },
+  "meanings": [
+    "blue",
+    "green"
+  ],
+  "radicals": [
+    "青"
+  ],
+  "examples": [
+    {
+      "word": "青銅",
+      "reading": "せいどう",
+      "meaning": "bronze"
+    },
+    {
+      "word": "青畳",
+      "reading": "あおだたみ",
+      "meaning": "new tatami mat"
+    },
+    {
+      "word": "青春",
+      "reading": "せいしゅん",
+      "meaning": "springtime of life"
+    },
+    {
+      "word": "青年",
+      "reading": "せいねん",
+      "meaning": "youth"
+    },
+    {
+      "word": "緑青",
+      "reading": "ろくしょう",
+      "meaning": "copper rust"
+    },
+    {
+      "word": "青い",
+      "reading": "あおい",
+      "meaning": "blue, pale"
+    },
+    {
+      "word": "青空",
+      "reading": "あおぞら",
+      "meaning": "blue sky"
+    },
+    {
+      "word": "青白い",
+      "reading": "あおじろい",
+      "meaning": "pale"
+    },
+    {
+      "word": "青信号",
+      "reading": "あおしんごう",
+      "meaning": "green light"
+    },
+    {
+      "word": "青木",
+      "reading": "あおき",
+      "meaning": "Aoki (surname)"
+    },
+    {
+      "word": "青菜",
+      "reading": "あおな",
+      "meaning": "greens"
+    },
+    {
+      "word": "青",
+      "reading": "あお",
+      "meaning": "blue"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9752"
+}

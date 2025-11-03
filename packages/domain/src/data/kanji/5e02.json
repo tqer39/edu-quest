@@ -1,0 +1,99 @@
+{
+  "character": "市",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "いち"
+    ]
+  },
+  "meanings": [
+    "city",
+    "market"
+  ],
+  "radicals": [
+    "巾"
+  ],
+  "examples": [
+    {
+      "word": "市況",
+      "reading": "しきょう",
+      "meaning": "market conditions"
+    },
+    {
+      "word": "市販する",
+      "reading": "しはんする",
+      "meaning": "put on the market, market"
+    },
+    {
+      "word": "市長",
+      "reading": "しちょう",
+      "meaning": "mayor"
+    },
+    {
+      "word": "市町村",
+      "reading": "しちょうそん",
+      "meaning": "cities, towns and villages"
+    },
+    {
+      "word": "横浜市",
+      "reading": "よこはまし",
+      "meaning": "Yokohama city"
+    },
+    {
+      "word": "都市",
+      "reading": "とし",
+      "meaning": "city, urban area"
+    },
+    {
+      "word": "市内",
+      "reading": "しない",
+      "meaning": "(within a) city"
+    },
+    {
+      "word": "市外",
+      "reading": "しがい",
+      "meaning": "outside the city"
+    },
+    {
+      "word": "市民",
+      "reading": "しみん",
+      "meaning": "citizen"
+    },
+    {
+      "word": "市役所",
+      "reading": "しやくしょ",
+      "meaning": "city hall"
+    },
+    {
+      "word": "市場",
+      "reading": "しじょう",
+      "meaning": "market (business) / market place"
+    },
+    {
+      "word": "市場",
+      "reading": "いちば",
+      "meaning": "market (business) / market place"
+    },
+    {
+      "word": "市",
+      "reading": "いち",
+      "meaning": "market place"
+    },
+    {
+      "word": "競り市",
+      "reading": "せりいち",
+      "meaning": "auction market"
+    },
+    {
+      "word": "市営",
+      "reading": "しえい",
+      "meaning": "run by the city, municipal"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5e02"
+}

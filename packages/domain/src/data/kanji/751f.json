@@ -1,0 +1,155 @@
+{
+  "character": "生",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "い-きる",
+      "い-かす",
+      "う-まれる",
+      "なま"
+    ]
+  },
+  "meanings": [
+    "life",
+    "birth",
+    "live"
+  ],
+  "radicals": [
+    "生"
+  ],
+  "examples": [
+    {
+      "word": "一年生",
+      "reading": "いちねんせい",
+      "meaning": "first-year student"
+    },
+    {
+      "word": "誕生日",
+      "reading": "たんじょうび",
+      "meaning": "birthday"
+    },
+    {
+      "word": "生誕",
+      "reading": "せいたん",
+      "meaning": "birth, nativity"
+    },
+    {
+      "word": "誕生する",
+      "reading": "たんじょうする",
+      "meaning": "be born"
+    },
+    {
+      "word": "更生する",
+      "reading": "こうせいする",
+      "meaning": "rehabilitate, regenerate"
+    },
+    {
+      "word": "双生児",
+      "reading": "そうせいじ",
+      "meaning": "twins"
+    },
+    {
+      "word": "畜生",
+      "reading": "ちくしょう",
+      "meaning": "beast, brute, Damn!"
+    },
+    {
+      "word": "高校生",
+      "reading": "こうこうせい",
+      "meaning": "senior high school student"
+    },
+    {
+      "word": "女子学生",
+      "reading": "じょしがくせい",
+      "meaning": "female student"
+    },
+    {
+      "word": "先生方",
+      "reading": "せんせいがた",
+      "meaning": "teachers, doctors"
+    },
+    {
+      "word": "男子学生",
+      "reading": "だんしがくせい",
+      "meaning": "male student"
+    },
+    {
+      "word": "人生",
+      "reading": "じんせい",
+      "meaning": "(human) life"
+    },
+    {
+      "word": "先生",
+      "reading": "せんせい",
+      "meaning": "teacher, master, doctor"
+    },
+    {
+      "word": "生年月日",
+      "reading": "せいねんがっぴ",
+      "meaning": "birth date"
+    },
+    {
+      "word": "生活する",
+      "reading": "せいかつする",
+      "meaning": "live"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "生憎",
+      "reading": "あいにく",
+      "meaning": "unfortunately; Sorry, but ..."
+    },
+    {
+      "word": "生き埋め",
+      "reading": "いきうめ",
+      "meaning": "burying alive"
+    },
+    {
+      "word": "生き返る",
+      "reading": "いきかえる",
+      "meaning": "revive"
+    },
+    {
+      "word": "生け花",
+      "reading": "いけばな",
+      "meaning": "flower arrangement"
+    },
+    {
+      "word": "生い立ち",
+      "reading": "おいたち",
+      "meaning": "upbringing, background"
+    },
+    {
+      "word": "生える",
+      "reading": "はえる",
+      "meaning": "grow [v.i.]"
+    },
+    {
+      "word": "生やす",
+      "reading": "はやす",
+      "meaning": "grow [v.t.]"
+    },
+    {
+      "word": "生地",
+      "reading": "きじ",
+      "meaning": "cloth"
+    },
+    {
+      "word": "芝生",
+      "reading": "しばふ",
+      "meaning": "lawn"
+    },
+    {
+      "word": "芽生える",
+      "reading": "めばえる",
+      "meaning": "bud, sprout [v.i.]"
+    }
+  ],
+  "unicode": "751f"
+}

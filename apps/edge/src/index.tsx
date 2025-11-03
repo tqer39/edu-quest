@@ -2,6 +2,8 @@ import {
   type ClockDifficulty,
   type ClockGrade,
   getKanjiDictionaryByGrade,
+  getKanjiByUnicode,
+  getKanjiIndexByGrade,
   type KanjiGrade,
   type KanjiQuestType,
 } from '@edu-quest/domain';
@@ -51,7 +53,10 @@ import {
 } from './routes/pages/grade-presets';
 import { Home } from './routes/pages/home';
 import { KanjiDetail } from './routes/pages/kanji-detail';
-import { KanjiDictionary } from './routes/pages/kanji-dictionary';
+import {
+  KanjiDictionary,
+  createKanjiSearchIndexEntry,
+} from './routes/pages/kanji-dictionary';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuest } from './routes/pages/kanji-quest';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
@@ -717,19 +722,28 @@ app.get('/kanji/dictionary', async (c) => {
       : 1;
 
   const availableGrades: KanjiGrade[] = [1, 2];
-  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
+  const grade = preferredGrade ?? 1;
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
 
-  // Load all available grades' data for client-side filtering
-  const allEntries = availableGrades.flatMap((g) =>
-    getKanjiDictionaryByGrade(g)
+  // Load lightweight index and search data
+  const indexEntries = availableGrades.flatMap((g) =>
+    getKanjiIndexByGrade(g)
+  );
+  const searchIndex = availableGrades.flatMap((g) =>
+    getKanjiDictionaryByGrade(g).map((kanji) =>
+      createKanjiSearchIndexEntry(kanji)
+    )
   );
 
   return c.render(
     <KanjiDictionary
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
-      entries={allEntries}
+      entries={indexEntries}
+      searchIndex={searchIndex}
     />,
     {
       title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
@@ -749,18 +763,20 @@ app.get('/kanji/dictionary/:id', async (c) => {
       : 1;
 
   const availableGrades: KanjiGrade[] = [1, 2];
-  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
 
-  // Convert hex ID back to character
-  const character = String.fromCodePoint(Number.parseInt(kanjiId, 16));
-
-  // Find the kanji in the dictionary
-  const allKanji = getKanjiDictionaryByGrade(grade);
-  const kanji = allKanji.find((k) => k.character === character);
+  const kanji = getKanjiByUnicode(kanjiId);
 
   if (!kanji) {
     return c.notFound();
   }
+
+  const fallbackGrade = availableGrades.includes(kanji.grade as KanjiGrade)
+    ? (kanji.grade as KanjiGrade)
+    : 1;
+  const grade = preferredGrade ?? fallbackGrade;
 
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
 

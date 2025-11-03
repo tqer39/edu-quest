@@ -1,0 +1,98 @@
+{
+  "character": "工",
+  "grade": 2,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "コウ",
+      "ク"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "craft",
+    "construction"
+  ],
+  "radicals": [
+    "工"
+  ],
+  "examples": [
+    {
+      "word": "工賃",
+      "reading": "こうちん",
+      "meaning": "wages, pay"
+    },
+    {
+      "word": "舟大工",
+      "reading": "ふなだいく",
+      "meaning": "shipwright"
+    },
+    {
+      "word": "工事中",
+      "reading": "こうじちゅう",
+      "meaning": "under construction"
+    },
+    {
+      "word": "工事",
+      "reading": "こうじ",
+      "meaning": "construction work"
+    },
+    {
+      "word": "工場",
+      "reading": "こうじょう",
+      "meaning": "factory"
+    },
+    {
+      "word": "工学部",
+      "reading": "こうがくぶ",
+      "meaning": "engineering department"
+    },
+    {
+      "word": "人工的な",
+      "reading": "じんこうてきな",
+      "meaning": "artificial"
+    },
+    {
+      "word": "加工する",
+      "reading": "かこうする",
+      "meaning": "process [v.t.]"
+    },
+    {
+      "word": "大工",
+      "reading": "だいく",
+      "meaning": "carpenter"
+    },
+    {
+      "word": "細工する",
+      "reading": "さいくする",
+      "meaning": "craft"
+    },
+    {
+      "word": "工夫する",
+      "reading": "くふうする",
+      "meaning": "devise"
+    },
+    {
+      "word": "工面する",
+      "reading": "くめんする",
+      "meaning": "raise (money)"
+    },
+    {
+      "word": "工芸",
+      "reading": "こうげい",
+      "meaning": "industrial arts"
+    },
+    {
+      "word": "軽工業",
+      "reading": "けいこうぎょう",
+      "meaning": "light industry"
+    },
+    {
+      "word": "人工芝",
+      "reading": "じんこうしば",
+      "meaning": "artificial grass"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5de5"
+}

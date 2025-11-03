@@ -1,0 +1,90 @@
+{
+  "character": "多",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "タ"
+    ],
+    "kunyomi": [
+      "おお-い"
+    ]
+  },
+  "meanings": [
+    "many",
+    "much"
+  ],
+  "radicals": [
+    "夕"
+  ],
+  "examples": [
+    {
+      "word": "薄利多売",
+      "reading": "はくりたばい",
+      "meaning": "small profits & quick returns"
+    },
+    {
+      "word": "多分",
+      "reading": "たぶん",
+      "meaning": "perhaps"
+    },
+    {
+      "word": "多量",
+      "reading": "たりょう",
+      "meaning": "large quantity"
+    },
+    {
+      "word": "多少",
+      "reading": "たしょう",
+      "meaning": "more or less"
+    },
+    {
+      "word": "多目的",
+      "reading": "たもくてき",
+      "meaning": "multipurpose"
+    },
+    {
+      "word": "多い",
+      "reading": "おおい",
+      "meaning": "many"
+    },
+    {
+      "word": "多忙な",
+      "reading": "たぼうな",
+      "meaning": "busy"
+    },
+    {
+      "word": "多数",
+      "reading": "たすう",
+      "meaning": "great number, majority"
+    },
+    {
+      "word": "多弁な",
+      "reading": "たべんな",
+      "meaning": "verbose"
+    },
+    {
+      "word": "多極化する",
+      "reading": "たきょくかする",
+      "meaning": "become multipolar"
+    },
+    {
+      "word": "多額",
+      "reading": "たがく",
+      "meaning": "large amount of money"
+    },
+    {
+      "word": "雑多な",
+      "reading": "ざったな",
+      "meaning": "miscellaneous, mixed"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "多めに",
+      "reading": "おおめに",
+      "meaning": "generously"
+    }
+  ],
+  "unicode": "591a"
+}

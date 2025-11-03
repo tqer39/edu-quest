@@ -1,0 +1,73 @@
+{
+  "character": "竹",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": [
+      "チク"
+    ],
+    "kunyomi": [
+      "たけ"
+    ]
+  },
+  "meanings": [
+    "bamboo"
+  ],
+  "radicals": [
+    "竹"
+  ],
+  "examples": [
+    {
+      "word": "竹馬の友",
+      "reading": "ちくばのとも",
+      "meaning": "childhood friend"
+    },
+    {
+      "word": "竹林",
+      "reading": "ちくりん",
+      "meaning": "bamboo thicket"
+    },
+    {
+      "word": "竹",
+      "reading": "たけ",
+      "meaning": "bamboo"
+    },
+    {
+      "word": "竹の子",
+      "reading": "たけのこ",
+      "meaning": "bamboo shoot"
+    },
+    {
+      "word": "竹馬",
+      "reading": "たけうま",
+      "meaning": "stilts, bamboo horse"
+    },
+    {
+      "word": "竹細工",
+      "reading": "たけざいく",
+      "meaning": "bamboo working/crafting"
+    },
+    {
+      "word": "松竹梅",
+      "reading": "しょうちくばい",
+      "meaning": "pine, bamboo, plum"
+    },
+    {
+      "word": "竹刀",
+      "reading": "しない",
+      "meaning": "bamboo practice sword"
+    },
+    {
+      "word": "竹炭",
+      "reading": "たけずみ",
+      "meaning": "bamboo charcoal"
+    },
+    {
+      "word": "竹笛",
+      "reading": "たけぶえ",
+      "meaning": "bamboo flute"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7af9"
+}

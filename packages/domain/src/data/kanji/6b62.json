@@ -1,0 +1,115 @@
+{
+  "character": "止",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "と-まる",
+      "と-める"
+    ]
+  },
+  "meanings": [
+    "stop"
+  ],
+  "radicals": [
+    "止"
+  ],
+  "examples": [
+    {
+      "word": "防止する",
+      "reading": "ぼうしする",
+      "meaning": "prevent"
+    },
+    {
+      "word": "停止する",
+      "reading": "ていしする",
+      "meaning": "stop"
+    },
+    {
+      "word": "中止する",
+      "reading": "ちゅうしする",
+      "meaning": "cancel"
+    },
+    {
+      "word": "廃止する",
+      "reading": "はいしする",
+      "meaning": "abolish"
+    },
+    {
+      "word": "禁止する",
+      "reading": "きんしする",
+      "meaning": "prohibit"
+    },
+    {
+      "word": "止まる",
+      "reading": "とまる",
+      "meaning": "stop [v.i.]"
+    },
+    {
+      "word": "止める",
+      "reading": "とめる",
+      "meaning": "stop [v.t.]"
+    },
+    {
+      "word": "終止符",
+      "reading": "しゅうしふ",
+      "meaning": "period"
+    },
+    {
+      "word": "静止する",
+      "reading": "せいしする",
+      "meaning": "stand still"
+    },
+    {
+      "word": "抑止力",
+      "reading": "よくしりょく",
+      "meaning": "(nuclear) deterrent"
+    },
+    {
+      "word": "丁々発止",
+      "reading": "ちょうちょうはっし",
+      "meaning": "crossing of swords, argument"
+    },
+    {
+      "word": "中止",
+      "reading": "ちゅうし",
+      "meaning": "cancellation"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "止む",
+      "reading": "やむ",
+      "meaning": "(e.g. rain) stop [v.i.]"
+    },
+    {
+      "word": "止める",
+      "reading": "やめる",
+      "meaning": "stop [v.t.], give up, quit"
+    },
+    {
+      "word": "痛み止め",
+      "reading": "いたみどめ",
+      "meaning": "painkiller"
+    },
+    {
+      "word": "止むを得ない",
+      "reading": "やむをえない",
+      "meaning": "unavoidable, inevitable"
+    },
+    {
+      "word": "歯止め",
+      "reading": "はどめ",
+      "meaning": "brake [n.]"
+    },
+    {
+      "word": "波止場",
+      "reading": "はとば",
+      "meaning": "wharf, jetty"
+    }
+  ],
+  "unicode": "6b62"
+}

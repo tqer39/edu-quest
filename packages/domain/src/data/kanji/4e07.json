@@ -1,0 +1,87 @@
+{
+  "character": "万",
+  "grade": 2,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": [
+      "マン",
+      "バン"
+    ],
+    "kunyomi": []
+  },
+  "meanings": [
+    "ten thousand"
+  ],
+  "radicals": [
+    "一"
+  ],
+  "examples": [
+    {
+      "word": "万歳",
+      "reading": "ばんざい",
+      "meaning": "banzai! (cheer)"
+    },
+    {
+      "word": "万能な",
+      "reading": "ばんのうな",
+      "meaning": "all-purpose"
+    },
+    {
+      "word": "拾万円",
+      "reading": "じゅうまんえん",
+      "meaning": "100,000 yen"
+    },
+    {
+      "word": "万年筆",
+      "reading": "まんねんひつ",
+      "meaning": "fountain pen"
+    },
+    {
+      "word": "一万円",
+      "reading": "いちまんえん",
+      "meaning": "ten thousand yen"
+    },
+    {
+      "word": "万引きする",
+      "reading": "まんびきする",
+      "meaning": "shoplift"
+    },
+    {
+      "word": "万能",
+      "reading": "ばんのう",
+      "meaning": "all-purpose"
+    },
+    {
+      "word": "万事",
+      "reading": "ばんじ",
+      "meaning": "everything"
+    },
+    {
+      "word": "波乱万丈",
+      "reading": "はらんばんじょう",
+      "meaning": "full of ups and downs"
+    },
+    {
+      "word": "億万長者",
+      "reading": "おくまんちょうじゃ",
+      "meaning": "billionaire"
+    },
+    {
+      "word": "万歳三唱",
+      "reading": "ばんざいさんしょう",
+      "meaning": "three cheers"
+    },
+    {
+      "word": "万博",
+      "reading": "ばんぱく",
+      "meaning": "world fair"
+    },
+    {
+      "word": "一万",
+      "reading": "いちまん",
+      "meaning": "ten thousand"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4e07"
+}

@@ -1,0 +1,84 @@
+{
+  "character": "走",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": [
+      "ソウ"
+    ],
+    "kunyomi": [
+      "はし-る"
+    ]
+  },
+  "meanings": [
+    "run"
+  ],
+  "radicals": [
+    "走"
+  ],
+  "examples": [
+    {
+      "word": "逃走する",
+      "reading": "とうそうする",
+      "meaning": "run away, escape"
+    },
+    {
+      "word": "滑走路",
+      "reading": "かっそうろ",
+      "meaning": "runway"
+    },
+    {
+      "word": "御馳走する",
+      "reading": "ごちそうする",
+      "meaning": "treat someone to a meal"
+    },
+    {
+      "word": "競走する",
+      "reading": "きょうそうする",
+      "meaning": "race"
+    },
+    {
+      "word": "脱走する",
+      "reading": "だっそうする",
+      "meaning": "escape [v.i.]"
+    },
+    {
+      "word": "走る",
+      "reading": "はしる",
+      "meaning": "run"
+    },
+    {
+      "word": "御馳走",
+      "reading": "ごちそう",
+      "meaning": "feast [n.]"
+    },
+    {
+      "word": "独走する",
+      "reading": "どくそうする",
+      "meaning": "run alone, do as one likes"
+    },
+    {
+      "word": "暴走する",
+      "reading": "ぼうそうする",
+      "meaning": "run wildly"
+    },
+    {
+      "word": "疾走",
+      "reading": "しっそう",
+      "meaning": "dash; sprint"
+    },
+    {
+      "word": "走者",
+      "reading": "そうしゃ",
+      "meaning": "runner"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "師走",
+      "reading": "しわす",
+      "meaning": "traditional name for December"
+    }
+  ],
+  "unicode": "8d70"
+}
