@@ -116,6 +116,14 @@ export const GameQuest: FC<{
         '太陽・月・星のタイルで宇宙のバランスを整える新作ロジックパズル。',
       href: `/game/stellar-balance?grade=${gradeId}`,
     },
+    {
+      id: 'sentinels',
+      title: 'センチネル配置',
+      icon: '🛡️',
+      description:
+        'ナイトの動きで守護者を配置する新作パズル。色つき領域をすべて守ろう。',
+      href: `/game/sentinels?grade=${gradeId}`,
+    },
   ];
 
   return (
