@@ -1,0 +1,76 @@
+{
+  "character": "馬",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["バ"],
+    "kunyomi": ["うま"]
+  },
+  "meanings": ["horse"],
+  "radicals": ["馬"],
+  "examples": [
+    {
+      "word": "乗馬する",
+      "reading": "じょうばする",
+      "meaning": "ride a horse"
+    },
+    {
+      "word": "落馬する",
+      "reading": "らくばする",
+      "meaning": "fall from a horse"
+    },
+    {
+      "word": "競馬",
+      "reading": "けいば",
+      "meaning": "horse racing"
+    },
+    {
+      "word": "馬車",
+      "reading": "ばしゃ",
+      "meaning": "horse-drawn vehicle"
+    },
+    {
+      "word": "馬力",
+      "reading": "ばりき",
+      "meaning": "horse-power, h.p."
+    },
+    {
+      "word": "乗馬",
+      "reading": "じょうば",
+      "meaning": "horseback riding"
+    },
+    {
+      "word": "馬鹿な",
+      "reading": "ばかな",
+      "meaning": "stupid, silly"
+    },
+    {
+      "word": "竹馬の友",
+      "reading": "ちくばのとも",
+      "meaning": "childhood friend"
+    },
+    {
+      "word": "出馬する",
+      "reading": "しゅつばする",
+      "meaning": "stand as a candidate"
+    },
+    {
+      "word": "馬",
+      "reading": "うま",
+      "meaning": "horse"
+    },
+    {
+      "word": "竹馬",
+      "reading": "たけうま",
+      "meaning": "stilts, bamboo horse"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "絵馬",
+      "reading": "えま",
+      "meaning": "votive picture"
+    }
+  ],
+  "unicode": "99ac"
+}

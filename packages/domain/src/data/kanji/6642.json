@@ -1,0 +1,101 @@
+{
+  "character": "時",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["ジ"],
+    "kunyomi": ["とき"]
+  },
+  "meanings": ["time", "hour"],
+  "radicals": ["日"],
+  "examples": [
+    {
+      "word": "何時",
+      "reading": "なんじ",
+      "meaning": "what time"
+    },
+    {
+      "word": "七時",
+      "reading": "しちじ",
+      "meaning": "7 o'clock"
+    },
+    {
+      "word": "八時間",
+      "reading": "はちじかん",
+      "meaning": "8 hours"
+    },
+    {
+      "word": "九時",
+      "reading": "くじ",
+      "meaning": "9 o'clock"
+    },
+    {
+      "word": "時刻",
+      "reading": "じこく",
+      "meaning": "time, moment"
+    },
+    {
+      "word": "就業時間",
+      "reading": "しゅうぎょうじかん",
+      "meaning": "working hours"
+    },
+    {
+      "word": "寸時",
+      "reading": "すんじ",
+      "meaning": "moment, very short time"
+    },
+    {
+      "word": "潮時",
+      "reading": "しおどき",
+      "meaning": "timing of tides, opportunity"
+    },
+    {
+      "word": "臨時",
+      "reading": "りんじ",
+      "meaning": "temporary, extraordinary"
+    },
+    {
+      "word": "当時",
+      "reading": "とうじ",
+      "meaning": "in those days, then, at the time"
+    },
+    {
+      "word": "零時",
+      "reading": "れいじ",
+      "meaning": "twelve o'clock"
+    },
+    {
+      "word": "長時間",
+      "reading": "ちょうじかん",
+      "meaning": "long-term, long-range"
+    },
+    {
+      "word": "就寝時間",
+      "reading": "しゅうしんじかん",
+      "meaning": "bedtime"
+    },
+    {
+      "word": "二時間",
+      "reading": "にじかん",
+      "meaning": "two hours"
+    },
+    {
+      "word": "時間切れ",
+      "reading": "じかんぎれ",
+      "meaning": "run out of time"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "腕時計",
+      "reading": "うでどけい",
+      "meaning": "wristwatch"
+    },
+    {
+      "word": "時計",
+      "reading": "とけい",
+      "meaning": "watch, clock"
+    }
+  ],
+  "unicode": "6642"
+}

@@ -1,0 +1,90 @@
+{
+  "character": "国",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["コク"],
+    "kunyomi": ["くに"]
+  },
+  "meanings": ["country"],
+  "radicals": ["囗"],
+  "examples": [
+    {
+      "word": "祖国",
+      "reading": "そこく",
+      "meaning": "fatherland, native country"
+    },
+    {
+      "word": "富国強兵",
+      "reading": "ふこくきょうへい",
+      "meaning": "national prosperity & defense"
+    },
+    {
+      "word": "アメリカ合衆国",
+      "reading": "がっしゅうこく",
+      "meaning": "the United States of America"
+    },
+    {
+      "word": "諸国",
+      "reading": "しょこく",
+      "meaning": "various countries"
+    },
+    {
+      "word": "国王陛下",
+      "reading": "こくおうへいか",
+      "meaning": "His Majesty the King"
+    },
+    {
+      "word": "国宝",
+      "reading": "こくほう",
+      "meaning": "national treasure"
+    },
+    {
+      "word": "雪国",
+      "reading": "ゆきぐに",
+      "meaning": "snow country"
+    },
+    {
+      "word": "国籍",
+      "reading": "こくせき",
+      "meaning": "nationality"
+    },
+    {
+      "word": "国々",
+      "reading": "くにぐに",
+      "meaning": "countries"
+    },
+    {
+      "word": "中国",
+      "reading": "ちゅうごく",
+      "meaning": "China"
+    },
+    {
+      "word": "国会",
+      "reading": "こっかい",
+      "meaning": "parliament"
+    },
+    {
+      "word": "入国する",
+      "reading": "にゅうこくする",
+      "meaning": "entry a country"
+    },
+    {
+      "word": "天国",
+      "reading": "てんごく",
+      "meaning": "heaven"
+    },
+    {
+      "word": "英国",
+      "reading": "えいこく",
+      "meaning": "England"
+    },
+    {
+      "word": "英国人",
+      "reading": "えいこくじん",
+      "meaning": "English person"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "56fd"
+}

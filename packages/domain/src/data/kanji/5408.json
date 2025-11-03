@@ -1,0 +1,90 @@
+{
+  "character": "合",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ゴウ", "ガッ", "カッ"],
+    "kunyomi": ["あ-う", "あ-わす", "あ-わせる"]
+  },
+  "meanings": ["combine", "fit"],
+  "radicals": ["口"],
+  "examples": [
+    {
+      "word": "複合する",
+      "reading": "ふくごうする",
+      "meaning": "combine"
+    },
+    {
+      "word": "割合",
+      "reading": "わりあい",
+      "meaning": "rate, ratio, proportion"
+    },
+    {
+      "word": "待ち合わせる",
+      "reading": "まちあわせる",
+      "meaning": "rendezvous"
+    },
+    {
+      "word": "待合室",
+      "reading": "まちあいしつ",
+      "meaning": "waiting room"
+    },
+    {
+      "word": "合憲的な",
+      "reading": "ごうけんてきな",
+      "meaning": "constitutional"
+    },
+    {
+      "word": "源平合戦",
+      "reading": "げんぺいがっせん",
+      "meaning": "battle b/t Genji & Heike clans"
+    },
+    {
+      "word": "アメリカ合衆国",
+      "reading": "がっしゅうこく",
+      "meaning": "the United States of America"
+    },
+    {
+      "word": "親善試合",
+      "reading": "しんぜんじあい",
+      "meaning": "friendly match"
+    },
+    {
+      "word": "合奏する",
+      "reading": "がっそうする",
+      "meaning": "play in concert"
+    },
+    {
+      "word": "雪合戦",
+      "reading": "ゆきがっせん",
+      "meaning": "snowball fight"
+    },
+    {
+      "word": "触れ合う",
+      "reading": "ふれあう",
+      "meaning": "come in contact with, touch"
+    },
+    {
+      "word": "知り合い",
+      "reading": "しりあい",
+      "meaning": "acquaintance"
+    },
+    {
+      "word": "問い合わせる",
+      "reading": "といあわせる",
+      "meaning": "seek information, inquire"
+    },
+    {
+      "word": "合理的な",
+      "reading": "ごうりてきな",
+      "meaning": "rational"
+    },
+    {
+      "word": "試合",
+      "reading": "しあい",
+      "meaning": "game"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5408"
+}

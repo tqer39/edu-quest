@@ -1,0 +1,90 @@
+{
+  "character": "科",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["カ"],
+    "kunyomi": []
+  },
+  "meanings": ["department", "course"],
+  "radicals": ["禾"],
+  "examples": [
+    {
+      "word": "教科書",
+      "reading": "きょうかしょ",
+      "meaning": "text book"
+    },
+    {
+      "word": "皮膚科",
+      "reading": "ひふか",
+      "meaning": "dermatology"
+    },
+    {
+      "word": "内科",
+      "reading": "ないか",
+      "meaning": "internal medicine"
+    },
+    {
+      "word": "歯科医",
+      "reading": "しかい",
+      "meaning": "dentist"
+    },
+    {
+      "word": "科学者",
+      "reading": "かがくしゃ",
+      "meaning": "scientist"
+    },
+    {
+      "word": "外科",
+      "reading": "げか",
+      "meaning": "surgical department"
+    },
+    {
+      "word": "耳鼻科",
+      "reading": "じびか",
+      "meaning": "otolaryngology"
+    },
+    {
+      "word": "科学",
+      "reading": "かがく",
+      "meaning": "science"
+    },
+    {
+      "word": "科目",
+      "reading": "かもく",
+      "meaning": "(school) subject"
+    },
+    {
+      "word": "学科",
+      "reading": "がっか",
+      "meaning": "course of study"
+    },
+    {
+      "word": "理科",
+      "reading": "りか",
+      "meaning": "science"
+    },
+    {
+      "word": "百科事典",
+      "reading": "ひゃっかじてん",
+      "meaning": "encyclopedia"
+    },
+    {
+      "word": "歯科",
+      "reading": "しか",
+      "meaning": "dentistry"
+    },
+    {
+      "word": "小児科",
+      "reading": "しょうにか",
+      "meaning": "pediatrics"
+    },
+    {
+      "word": "前科",
+      "reading": "ぜんか",
+      "meaning": "criminal record"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "79d1"
+}

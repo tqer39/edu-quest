@@ -1,0 +1,90 @@
+{
+  "character": "何",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["カ"],
+    "kunyomi": ["なに", "なん"]
+  },
+  "meanings": ["what"],
+  "radicals": ["人"],
+  "examples": [
+    {
+      "word": "幾何学",
+      "reading": "きかがく",
+      "meaning": "geometry"
+    },
+    {
+      "word": "何",
+      "reading": "なに",
+      "meaning": "what"
+    },
+    {
+      "word": "何色",
+      "reading": "なにいろ",
+      "meaning": "what color"
+    },
+    {
+      "word": "何しろ",
+      "reading": "なにしろ",
+      "meaning": "at any rate, anyway"
+    },
+    {
+      "word": "何か",
+      "reading": "なにか",
+      "meaning": "something"
+    },
+    {
+      "word": "何分",
+      "reading": "なんぷん",
+      "meaning": "how many minutes"
+    },
+    {
+      "word": "何時",
+      "reading": "なんじ",
+      "meaning": "what time"
+    },
+    {
+      "word": "何回",
+      "reading": "なんかい",
+      "meaning": "how many times"
+    },
+    {
+      "word": "何百",
+      "reading": "なんびゃく",
+      "meaning": "hundreds"
+    },
+    {
+      "word": "何度も",
+      "reading": "なんども",
+      "meaning": "many times"
+    },
+    {
+      "word": "何才",
+      "reading": "なんさい",
+      "meaning": "how old"
+    },
+    {
+      "word": "何軒",
+      "reading": "なんげん",
+      "meaning": "how many houses"
+    },
+    {
+      "word": "何歳",
+      "reading": "なんさい",
+      "meaning": "how old?, what age?"
+    },
+    {
+      "word": "誰何",
+      "reading": "すいか",
+      "meaning": "asking a person's identity"
+    },
+    {
+      "word": "何枚",
+      "reading": "なんまい",
+      "meaning": "how many flat objects"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4f55"
+}

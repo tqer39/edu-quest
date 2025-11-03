@@ -1,0 +1,90 @@
+{
+  "character": "作",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["サク", "サ"],
+    "kunyomi": ["つく-る"]
+  },
+  "meanings": ["make", "create"],
+  "radicals": ["人"],
+  "examples": [
+    {
+      "word": "操作する",
+      "reading": "そうさする",
+      "meaning": "operate, manage"
+    },
+    {
+      "word": "作業班",
+      "reading": "さぎょうはん",
+      "meaning": "work group"
+    },
+    {
+      "word": "作業する",
+      "reading": "さぎょうする",
+      "meaning": "work"
+    },
+    {
+      "word": "発作",
+      "reading": "ほっさ",
+      "meaning": "fit, attack, paroxysm"
+    },
+    {
+      "word": "試作する",
+      "reading": "しさくする",
+      "meaning": "make a prototype"
+    },
+    {
+      "word": "作曲家",
+      "reading": "さっきょくか",
+      "meaning": "composer"
+    },
+    {
+      "word": "作曲する",
+      "reading": "さっきょくする",
+      "meaning": "compose"
+    },
+    {
+      "word": "作品",
+      "reading": "さくひん",
+      "meaning": "work (of fiction, etc.) [n.]"
+    },
+    {
+      "word": "作家",
+      "reading": "さっか",
+      "meaning": "writer, artist"
+    },
+    {
+      "word": "著作",
+      "reading": "ちょさく",
+      "meaning": "book"
+    },
+    {
+      "word": "著作権",
+      "reading": "ちょさくけん",
+      "meaning": "copyright"
+    },
+    {
+      "word": "作詞する",
+      "reading": "さくしする",
+      "meaning": "write a song"
+    },
+    {
+      "word": "作成する",
+      "reading": "さくせいする",
+      "meaning": "produce"
+    },
+    {
+      "word": "作戦",
+      "reading": "さくせん",
+      "meaning": "strategy"
+    },
+    {
+      "word": "動作",
+      "reading": "どうさ",
+      "meaning": "movements"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4f5c"
+}

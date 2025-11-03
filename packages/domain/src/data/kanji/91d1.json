@@ -1,0 +1,90 @@
+{
+  "character": "金",
+  "grade": 1,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["キン", "コン"],
+    "kunyomi": ["かね", "かな"]
+  },
+  "meanings": ["gold", "money", "metal"],
+  "radicals": ["金"],
+  "examples": [
+    {
+      "word": "税金",
+      "reading": "ぜいきん",
+      "meaning": "tax, duty"
+    },
+    {
+      "word": "金銭",
+      "reading": "きんせん",
+      "meaning": "money, cash"
+    },
+    {
+      "word": "金属",
+      "reading": "きんぞく",
+      "meaning": "metal"
+    },
+    {
+      "word": "金閣寺",
+      "reading": "きんかくじ",
+      "meaning": "Kinkakuji Temple"
+    },
+    {
+      "word": "貴金属",
+      "reading": "ききんぞく",
+      "meaning": "precious metal"
+    },
+    {
+      "word": "砂金",
+      "reading": "さきん",
+      "meaning": "gold dust"
+    },
+    {
+      "word": "針金",
+      "reading": "はりがね",
+      "meaning": "wire"
+    },
+    {
+      "word": "賃金",
+      "reading": "ちんぎん",
+      "meaning": "wages"
+    },
+    {
+      "word": "拝金主義",
+      "reading": "はいきんしゅぎ",
+      "meaning": "worship of money"
+    },
+    {
+      "word": "金髪",
+      "reading": "きんぱつ",
+      "meaning": "blond hair"
+    },
+    {
+      "word": "金持ち",
+      "reading": "かねもち",
+      "meaning": "rich person"
+    },
+    {
+      "word": "借金",
+      "reading": "しゃっきん",
+      "meaning": "debt"
+    },
+    {
+      "word": "礼金",
+      "reading": "れいきん",
+      "meaning": "finder's fee, reward"
+    },
+    {
+      "word": "料金",
+      "reading": "りょうきん",
+      "meaning": "fee"
+    },
+    {
+      "word": "配当金",
+      "reading": "はいとうきん",
+      "meaning": "share (money)"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "91d1"
+}

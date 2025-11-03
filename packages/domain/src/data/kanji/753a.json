@@ -1,0 +1,65 @@
+{
+  "character": "町",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["チョウ"],
+    "kunyomi": ["まち"]
+  },
+  "meanings": ["town"],
+  "radicals": ["田"],
+  "examples": [
+    {
+      "word": "町長",
+      "reading": "ちょうちょう",
+      "meaning": "town headman"
+    },
+    {
+      "word": "町名",
+      "reading": "ちょうめい",
+      "meaning": "name of a town"
+    },
+    {
+      "word": "市町村",
+      "reading": "しちょうそん",
+      "meaning": "cities, towns and villages"
+    },
+    {
+      "word": "町",
+      "reading": "まち",
+      "meaning": "town"
+    },
+    {
+      "word": "町並み",
+      "reading": "まちなみ",
+      "meaning": "the appearance of a town/street"
+    },
+    {
+      "word": "下町",
+      "reading": "したまち",
+      "meaning": "old commercial area of Tokyo"
+    },
+    {
+      "word": "城下町",
+      "reading": "じょうかまち",
+      "meaning": "castle town"
+    },
+    {
+      "word": "港町",
+      "reading": "みなとまち",
+      "meaning": "port city"
+    },
+    {
+      "word": "町内会",
+      "reading": "ちょうないかい",
+      "meaning": "neighborhood association"
+    },
+    {
+      "word": "町工場",
+      "reading": "まちこうば",
+      "meaning": "small urban factory"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "753a"
+}

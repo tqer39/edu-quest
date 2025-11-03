@@ -1,0 +1,90 @@
+{
+  "character": "記",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["キ"],
+    "kunyomi": ["しる-す"]
+  },
+  "meanings": ["write down", "record"],
+  "radicals": ["言"],
+  "examples": [
+    {
+      "word": "記述する",
+      "reading": "きじゅつする",
+      "meaning": "describe"
+    },
+    {
+      "word": "記号",
+      "reading": "きごう",
+      "meaning": "symbol"
+    },
+    {
+      "word": "記者",
+      "reading": "きしゃ",
+      "meaning": "reporter"
+    },
+    {
+      "word": "記念日",
+      "reading": "きねんび",
+      "meaning": "anniversary"
+    },
+    {
+      "word": "記念する",
+      "reading": "きねんする",
+      "meaning": "commemorate"
+    },
+    {
+      "word": "記事",
+      "reading": "きじ",
+      "meaning": "news story"
+    },
+    {
+      "word": "日記",
+      "reading": "にっき",
+      "meaning": "diary"
+    },
+    {
+      "word": "伝記",
+      "reading": "でんき",
+      "meaning": "biography"
+    },
+    {
+      "word": "下記",
+      "reading": "かき",
+      "meaning": "things mentioned below (writing)"
+    },
+    {
+      "word": "記憶する",
+      "reading": "きおくする",
+      "meaning": "remember"
+    },
+    {
+      "word": "記録する",
+      "reading": "きろくする",
+      "meaning": "record, document [v.t.]"
+    },
+    {
+      "word": "記入する",
+      "reading": "きにゅうする",
+      "meaning": "fill in forms"
+    },
+    {
+      "word": "暗記する",
+      "reading": "あんきする",
+      "meaning": "memorize, learn by heart"
+    },
+    {
+      "word": "記す",
+      "reading": "しるす",
+      "meaning": "write down"
+    },
+    {
+      "word": "創世記",
+      "reading": "そうせいき",
+      "meaning": "Genesis"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8a18"
+}

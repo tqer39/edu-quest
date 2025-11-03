@@ -1,0 +1,85 @@
+{
+  "character": "船",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["セン"],
+    "kunyomi": ["ふね", "ふな"]
+  },
+  "meanings": ["ship", "boat"],
+  "radicals": ["舟"],
+  "examples": [
+    {
+      "word": "捕鯨船",
+      "reading": "ほげいせん",
+      "meaning": "whaling ship"
+    },
+    {
+      "word": "飛行船",
+      "reading": "ひこうせん",
+      "meaning": "airship"
+    },
+    {
+      "word": "漁船",
+      "reading": "ぎょせん",
+      "meaning": "fishing boat"
+    },
+    {
+      "word": "造船",
+      "reading": "ぞうせん",
+      "meaning": "shipbuilding"
+    },
+    {
+      "word": "湯船",
+      "reading": "ゆぶね",
+      "meaning": "bathtub"
+    },
+    {
+      "word": "汽船",
+      "reading": "きせん",
+      "meaning": "steamship"
+    },
+    {
+      "word": "船舶",
+      "reading": "せんぱく",
+      "meaning": "ship [n.]"
+    },
+    {
+      "word": "船長",
+      "reading": "せんちょう",
+      "meaning": "ship's captain"
+    },
+    {
+      "word": "風船",
+      "reading": "ふうせん",
+      "meaning": "balloon"
+    },
+    {
+      "word": "船",
+      "reading": "ふね",
+      "meaning": "ship, boat, watercraft, vessel"
+    },
+    {
+      "word": "屋形船",
+      "reading": "やかたぶね",
+      "meaning": "pleasure boat, houseboat"
+    },
+    {
+      "word": "助け船",
+      "reading": "たすけぶね",
+      "meaning": "lifeboat, help"
+    },
+    {
+      "word": "船乗り",
+      "reading": "ふなのり",
+      "meaning": "sailor, seaman"
+    },
+    {
+      "word": "船旅",
+      "reading": "ふなたび",
+      "meaning": "trip by boat"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8239"
+}

@@ -1,0 +1,70 @@
+{
+  "character": "男",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["ダン", "ナン"],
+    "kunyomi": ["おとこ"]
+  },
+  "meanings": ["man", "male"],
+  "radicals": ["田"],
+  "examples": [
+    {
+      "word": "長男",
+      "reading": "ちょうなん",
+      "meaning": "eldest son"
+    },
+    {
+      "word": "老若男女",
+      "reading": "ろうにゃくなんにょ",
+      "meaning": "men and women of all ages"
+    },
+    {
+      "word": "男子学生",
+      "reading": "だんしがくせい",
+      "meaning": "male student"
+    },
+    {
+      "word": "男性",
+      "reading": "だんせい",
+      "meaning": "male"
+    },
+    {
+      "word": "男",
+      "reading": "おとこ",
+      "meaning": "man"
+    },
+    {
+      "word": "次男",
+      "reading": "じなん",
+      "meaning": "second son"
+    },
+    {
+      "word": "男優",
+      "reading": "だんゆう",
+      "meaning": "actor"
+    },
+    {
+      "word": "男勝り",
+      "reading": "おとこまさり",
+      "meaning": "strong-minded, manly"
+    },
+    {
+      "word": "男性陣",
+      "reading": "だんせいじん",
+      "meaning": "male members"
+    },
+    {
+      "word": "男児",
+      "reading": "だんじ",
+      "meaning": "male child"
+    },
+    {
+      "word": "男の子",
+      "reading": "おとこのこ",
+      "meaning": "boy"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7537"
+}

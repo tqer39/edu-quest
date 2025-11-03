@@ -1,0 +1,91 @@
+{
+  "character": "田",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["デン"],
+    "kunyomi": ["た"]
+  },
+  "meanings": ["rice field", "rice paddy"],
+  "radicals": ["田"],
+  "examples": [
+    {
+      "word": "山田殿",
+      "reading": "やまだどの",
+      "meaning": "Dear Mr. Yamada"
+    },
+    {
+      "word": "田中",
+      "reading": "たなか",
+      "meaning": "Tanaka (surname)"
+    },
+    {
+      "word": "水田",
+      "reading": "すいでん",
+      "meaning": "rice field"
+    },
+    {
+      "word": "田園",
+      "reading": "でんえん",
+      "meaning": "rural area"
+    },
+    {
+      "word": "田んぼ",
+      "reading": "たんぼ",
+      "meaning": "rice field"
+    },
+    {
+      "word": "田植え",
+      "reading": "たうえ",
+      "meaning": "rice planting"
+    },
+    {
+      "word": "松田",
+      "reading": "まつだ",
+      "meaning": "Matsuda (surname)"
+    },
+    {
+      "word": "田中君",
+      "reading": "たなかくん",
+      "meaning": "Tanaka (surname)"
+    },
+    {
+      "word": "早稲田",
+      "reading": "わせだ",
+      "meaning": "Waseda (place name)"
+    },
+    {
+      "word": "故田中氏",
+      "reading": "こたなかし",
+      "meaning": "the late Mr. Tanaka"
+    },
+    {
+      "word": "田中氏",
+      "reading": "たなかし",
+      "meaning": "Mr. Tanaka"
+    },
+    {
+      "word": "田畑",
+      "reading": "たはた",
+      "meaning": "rice fields and dry fields"
+    },
+    {
+      "word": "新田郡",
+      "reading": "にったぐん",
+      "meaning": "Nitta County"
+    },
+    {
+      "word": "田",
+      "reading": "た",
+      "meaning": "rice field"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "田舎",
+      "reading": "いなか",
+      "meaning": "country side, home town"
+    }
+  ],
+  "unicode": "7530"
+}

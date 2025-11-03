@@ -1,0 +1,90 @@
+{
+  "character": "売",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["バイ"],
+    "kunyomi": ["う-る", "う-れる"]
+  },
+  "meanings": ["sell"],
+  "radicals": ["士"],
+  "examples": [
+    {
+      "word": "密売する",
+      "reading": "みつばいする",
+      "meaning": "smuggle, bootleg"
+    },
+    {
+      "word": "押し売り",
+      "reading": "おしうり",
+      "meaning": "high-pressure salesmanship"
+    },
+    {
+      "word": "薄利多売",
+      "reading": "はくりたばい",
+      "meaning": "small profits & quick returns"
+    },
+    {
+      "word": "自動販売機",
+      "reading": "じどうはんばいき",
+      "meaning": "vending machine"
+    },
+    {
+      "word": "販売する",
+      "reading": "はんばいする",
+      "meaning": "sell, market"
+    },
+    {
+      "word": "前売り",
+      "reading": "まえうり",
+      "meaning": "advance sale"
+    },
+    {
+      "word": "売上高",
+      "reading": "うりあげだか",
+      "meaning": "sales"
+    },
+    {
+      "word": "売店",
+      "reading": "ばいてん",
+      "meaning": "stand [n.]"
+    },
+    {
+      "word": "競売",
+      "reading": "きょうばい",
+      "meaning": "auction"
+    },
+    {
+      "word": "非売品",
+      "reading": "ひばいひん",
+      "meaning": "article not for sale"
+    },
+    {
+      "word": "商売敵",
+      "reading": "しょうばいがたき",
+      "meaning": "business rival"
+    },
+    {
+      "word": "商売",
+      "reading": "しょうばい",
+      "meaning": "business"
+    },
+    {
+      "word": "読売新聞",
+      "reading": "よみうりしんぶん",
+      "meaning": "Yomiuri (newspaper)"
+    },
+    {
+      "word": "売買する",
+      "reading": "ばいばいする",
+      "meaning": "trade"
+    },
+    {
+      "word": "商売する",
+      "reading": "しょうばいする",
+      "meaning": "do business"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "58f2"
+}

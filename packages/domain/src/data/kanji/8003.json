@@ -1,0 +1,76 @@
+{
+  "character": "考",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["コウ"],
+    "kunyomi": ["かんが-える"]
+  },
+  "meanings": ["think", "consider"],
+  "radicals": ["老"],
+  "examples": [
+    {
+      "word": "参考書",
+      "reading": "さんこうしょ",
+      "meaning": "reference book"
+    },
+    {
+      "word": "沈思黙考する",
+      "reading": "ちんしもっこうする",
+      "meaning": "be sunk in deep thought"
+    },
+    {
+      "word": "思考する",
+      "reading": "しこうする",
+      "meaning": "think"
+    },
+    {
+      "word": "考古学",
+      "reading": "こうこがく",
+      "meaning": "archaeology"
+    },
+    {
+      "word": "考慮する",
+      "reading": "こうりょする",
+      "meaning": "take into consideration"
+    },
+    {
+      "word": "選考する",
+      "reading": "せんこうする",
+      "meaning": "screen [v.t.]"
+    },
+    {
+      "word": "考える",
+      "reading": "かんがえる",
+      "meaning": "think"
+    },
+    {
+      "word": "考案する",
+      "reading": "こうあんする",
+      "meaning": "plan, devise, contrive"
+    },
+    {
+      "word": "考察する",
+      "reading": "こうさつする",
+      "meaning": "consider, inquire"
+    },
+    {
+      "word": "考え方",
+      "reading": "かんがえかた",
+      "meaning": "way of thinking"
+    },
+    {
+      "word": "参考",
+      "reading": "さんこう",
+      "meaning": "reference"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "考え",
+      "reading": "かんがえ",
+      "meaning": "ideas"
+    }
+  ],
+  "unicode": "8003"
+}

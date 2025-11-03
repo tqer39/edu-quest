@@ -1,0 +1,80 @@
+{
+  "character": "思",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["シ"],
+    "kunyomi": ["おも-う"]
+  },
+  "meanings": ["think"],
+  "radicals": ["心"],
+  "examples": [
+    {
+      "word": "沈思黙考する",
+      "reading": "ちんしもっこうする",
+      "meaning": "be sunk in deep thought"
+    },
+    {
+      "word": "思考する",
+      "reading": "しこうする",
+      "meaning": "think"
+    },
+    {
+      "word": "意思",
+      "reading": "いし",
+      "meaning": "intention"
+    },
+    {
+      "word": "思想",
+      "reading": "しそう",
+      "meaning": "thought, ideas"
+    },
+    {
+      "word": "不思議な",
+      "reading": "ふしぎな",
+      "meaning": "strange, mysterious"
+    },
+    {
+      "word": "思う",
+      "reading": "おもう",
+      "meaning": "feel, think"
+    },
+    {
+      "word": "思い出す",
+      "reading": "おもいだす",
+      "meaning": "recall"
+    },
+    {
+      "word": "思い出",
+      "reading": "おもいで",
+      "meaning": "memories"
+    },
+    {
+      "word": "相思相愛",
+      "reading": "そうしそうあい",
+      "meaning": "mutual love"
+    },
+    {
+      "word": "思いの外",
+      "reading": "おもいのほか",
+      "meaning": "unexpected"
+    },
+    {
+      "word": "片思い",
+      "reading": "かたおもい",
+      "meaning": "unrequited love"
+    },
+    {
+      "word": "断腸の思い",
+      "reading": "だんちょうのおもい",
+      "meaning": "heartrending grief"
+    },
+    {
+      "word": "思考",
+      "reading": "しこう",
+      "meaning": "thought, thinking"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "601d"
+}

@@ -1,0 +1,75 @@
+{
+  "character": "星",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["セイ", "ショウ"],
+    "kunyomi": ["ほし"]
+  },
+  "meanings": ["star"],
+  "radicals": ["日"],
+  "examples": [
+    {
+      "word": "占星術",
+      "reading": "せんせいじゅつ",
+      "meaning": "astrology"
+    },
+    {
+      "word": "星占い",
+      "reading": "ほしうらない",
+      "meaning": "astrology, horoscope"
+    },
+    {
+      "word": "星条旗",
+      "reading": "せいじょうき",
+      "meaning": "Stars and Stripes"
+    },
+    {
+      "word": "星座",
+      "reading": "せいざ",
+      "meaning": "constellation"
+    },
+    {
+      "word": "衛星",
+      "reading": "えいせい",
+      "meaning": "satellite"
+    },
+    {
+      "word": "星雲",
+      "reading": "せいうん",
+      "meaning": "nebula, galaxy"
+    },
+    {
+      "word": "惑星",
+      "reading": "わくせい",
+      "meaning": "planet"
+    },
+    {
+      "word": "火星",
+      "reading": "かせい",
+      "meaning": "Mars"
+    },
+    {
+      "word": "一等星",
+      "reading": "いっとうせい",
+      "meaning": "first-magnitude star"
+    },
+    {
+      "word": "北極星",
+      "reading": "ほっきょくせい",
+      "meaning": "Polaris, north star"
+    },
+    {
+      "word": "明星",
+      "reading": "みょうじょう",
+      "meaning": "morning star, Venus, Lucifer"
+    },
+    {
+      "word": "星",
+      "reading": "ほし",
+      "meaning": "star"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "661f"
+}

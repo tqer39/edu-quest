@@ -1,0 +1,76 @@
+{
+  "character": "京",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["キョウ", "ケイ"],
+    "kunyomi": []
+  },
+  "meanings": ["capital"],
+  "radicals": ["亠"],
+  "examples": [
+    {
+      "word": "東京湾",
+      "reading": "とうきょうわん",
+      "meaning": "Tokyo Bay"
+    },
+    {
+      "word": "東京駅",
+      "reading": "とうきょうえき",
+      "meaning": "Tokyo station"
+    },
+    {
+      "word": "東京都",
+      "reading": "とうきょうと",
+      "meaning": "Tokyo Metropolitan area"
+    },
+    {
+      "word": "京都",
+      "reading": "きょうと",
+      "meaning": "Kyoto"
+    },
+    {
+      "word": "京都府",
+      "reading": "きょうとふ",
+      "meaning": "Kyoto prefecture"
+    },
+    {
+      "word": "東京",
+      "reading": "とうきょう",
+      "meaning": "Tokyo"
+    },
+    {
+      "word": "上京する",
+      "reading": "じょうきょうする",
+      "meaning": "travel to the capital"
+    },
+    {
+      "word": "京浜",
+      "reading": "けいひん",
+      "meaning": "Tokyo and Yokohama"
+    },
+    {
+      "word": "京阪神",
+      "reading": "けいはんしん",
+      "meaning": "Kyoto-Osaka-Kobe"
+    },
+    {
+      "word": "東京都23区",
+      "reading": "とうきょうと23く",
+      "meaning": "Tokyo metro area, 23 wards"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "北京",
+      "reading": "ぺきん",
+      "meaning": "Beijing"
+    },
+    {
+      "word": "南京",
+      "reading": "なんきん",
+      "meaning": "Nanjing"
+    }
+  ],
+  "unicode": "4eac"
+}

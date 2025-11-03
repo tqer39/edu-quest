@@ -1,0 +1,96 @@
+{
+  "character": "王",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["オウ"],
+    "kunyomi": []
+  },
+  "meanings": ["king"],
+  "radicals": ["玉"],
+  "examples": [
+    {
+      "word": "仁王",
+      "reading": "におう",
+      "meaning": "the two guardian Deva kings"
+    },
+    {
+      "word": "国王陛下",
+      "reading": "こくおうへいか",
+      "meaning": "His Majesty the King"
+    },
+    {
+      "word": "女王陛下",
+      "reading": "じょおうへいか",
+      "meaning": "Her Majesty the Queen"
+    },
+    {
+      "word": "王将",
+      "reading": "おうしょう",
+      "meaning": "king (shogi game)"
+    },
+    {
+      "word": "王座",
+      "reading": "おうざ",
+      "meaning": "throne"
+    },
+    {
+      "word": "王様",
+      "reading": "おうさま",
+      "meaning": "king"
+    },
+    {
+      "word": "王国",
+      "reading": "おうこく",
+      "meaning": "kingdom, monarchy"
+    },
+    {
+      "word": "王者",
+      "reading": "おうじゃ",
+      "meaning": "king, monarch, ruler"
+    },
+    {
+      "word": "王子",
+      "reading": "おうじ",
+      "meaning": "prince"
+    },
+    {
+      "word": "王女",
+      "reading": "おうじょ",
+      "meaning": "princess"
+    },
+    {
+      "word": "女王",
+      "reading": "じょおう",
+      "meaning": "queen"
+    },
+    {
+      "word": "法王",
+      "reading": "ほうおう",
+      "meaning": "Pope"
+    },
+    {
+      "word": "帝王",
+      "reading": "ていおう",
+      "meaning": "sovereign, emperor"
+    },
+    {
+      "word": "石油王",
+      "reading": "せきゆおう",
+      "meaning": "oil magnate"
+    },
+    {
+      "word": "王宮",
+      "reading": "おうきゅう",
+      "meaning": "royal palace"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "親王",
+      "reading": "しんのう",
+      "meaning": "imperial prince"
+    }
+  ],
+  "unicode": "738b"
+}

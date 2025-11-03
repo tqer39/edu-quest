@@ -1,4 +1,4 @@
-import type { Kanji, KanjiGrade } from '@edu-quest/domain';
+import type { Kanji, KanjiGrade, KanjiIndexEntry } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
@@ -61,10 +61,18 @@ const KanjiDictionaryNav: FC<{
   </nav>
 );
 
+type KanjiSearchIndexEntry = {
+  char: string;
+  id?: string;
+  idx: string;
+  grade: KanjiGrade;
+};
+
 type KanjiDictionaryProps = {
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
-  entries: Kanji[];
+  entries: KanjiIndexEntry[];
+  searchIndex: KanjiSearchIndexEntry[];
 };
 
 const buildSearchIndex = (kanji: Kanji): string => {
@@ -102,24 +110,27 @@ const buildSearchIndex = (kanji: Kanji): string => {
   return [...base, ...exampleTokens].join(' ').toLowerCase();
 };
 
+export const createKanjiSearchIndexEntry = (
+  kanji: Kanji
+): KanjiSearchIndexEntry => ({
+  char: kanji.character,
+  id: kanji.unicode,
+  idx: buildSearchIndex(kanji),
+  grade: kanji.grade as KanjiGrade,
+});
+
 export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
   currentUser,
   grade,
   entries,
+  searchIndex,
 }) => {
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
   const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
   const totalCount = entries.length;
 
   // Prepare search data for client-side filtering
-  const searchDataJson = JSON.stringify(
-    entries.map((kanji) => ({
-      char: kanji.character,
-      id: kanji.character.codePointAt(0)?.toString(16),
-      idx: buildSearchIndex(kanji),
-      grade: kanji.grade,
-    }))
-  );
+  const searchDataJson = JSON.stringify(searchIndex);
 
   return (
     <div
@@ -202,7 +213,7 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
           style="display: grid; grid-template-columns: repeat(10, 1fr); overflow: hidden; border-radius: 1.5rem; border: 3px solid var(--mq-outline); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);"
         >
           {entries.map((kanji) => {
-            const kanjiId = kanji.character.codePointAt(0)?.toString(16);
+            const kanjiId = kanji.unicode;
             return (
               <a
                 key={kanji.character}

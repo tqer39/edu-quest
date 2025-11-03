@@ -1,0 +1,96 @@
+{
+  "character": "足",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["ソク"],
+    "kunyomi": ["あし", "た-りる", "た-す"]
+  },
+  "meanings": ["foot", "leg", "sufficient"],
+  "radicals": ["足"],
+  "examples": [
+    {
+      "word": "補足する",
+      "reading": "ほそくする",
+      "meaning": "supplement, complement"
+    },
+    {
+      "word": "足跡",
+      "reading": "そくせき",
+      "meaning": "footprints"
+    },
+    {
+      "word": "足跡",
+      "reading": "あしあと",
+      "meaning": "footprints"
+    },
+    {
+      "word": "足腰",
+      "reading": "あしこし",
+      "meaning": "legs and loins"
+    },
+    {
+      "word": "遠足",
+      "reading": "えんそく",
+      "meaning": "field trip"
+    },
+    {
+      "word": "足音",
+      "reading": "あしおと",
+      "meaning": "footsteps (sound)"
+    },
+    {
+      "word": "発足する",
+      "reading": "ほっそくする",
+      "meaning": "start an organization"
+    },
+    {
+      "word": "自給自足",
+      "reading": "じきゅうじそく",
+      "meaning": "self-sufficiency"
+    },
+    {
+      "word": "満足する",
+      "reading": "まんぞくする",
+      "meaning": "be satisfied"
+    },
+    {
+      "word": "足",
+      "reading": "あし",
+      "meaning": "leg"
+    },
+    {
+      "word": "足りる",
+      "reading": "たりる",
+      "meaning": "be enough [v.i.]"
+    },
+    {
+      "word": "足す",
+      "reading": "たす",
+      "meaning": "add [v.t.]"
+    },
+    {
+      "word": "不足する",
+      "reading": "ふそくする",
+      "meaning": "be short of"
+    },
+    {
+      "word": "素足",
+      "reading": "すあし",
+      "meaning": "bare feet"
+    },
+    {
+      "word": "足し算",
+      "reading": "たしざん",
+      "meaning": "addition"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "足袋",
+      "reading": "たび",
+      "meaning": "tabi"
+    }
+  ],
+  "unicode": "8db3"
+}

@@ -1,0 +1,91 @@
+{
+  "character": "赤",
+  "grade": 1,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["セキ", "シャク"],
+    "kunyomi": ["あか", "あか-い"]
+  },
+  "meanings": ["red"],
+  "radicals": ["赤"],
+  "examples": [
+    {
+      "word": "赤帽",
+      "reading": "あかぼう",
+      "meaning": "redcap, porter"
+    },
+    {
+      "word": "赤外線",
+      "reading": "せきがいせん",
+      "meaning": "infrared rays"
+    },
+    {
+      "word": "赤十字",
+      "reading": "せきじゅうじ",
+      "meaning": "Red Cross"
+    },
+    {
+      "word": "赤道",
+      "reading": "せきどう",
+      "meaning": "equator"
+    },
+    {
+      "word": "赤面する",
+      "reading": "せきめんする",
+      "meaning": "blush"
+    },
+    {
+      "word": "赤銅色",
+      "reading": "しゃくどういろ",
+      "meaning": "tanned color"
+    },
+    {
+      "word": "赤い",
+      "reading": "あかい",
+      "meaning": "red"
+    },
+    {
+      "word": "赤ちゃん",
+      "reading": "あかちゃん",
+      "meaning": "baby"
+    },
+    {
+      "word": "赤ん坊",
+      "reading": "あかんぼう",
+      "meaning": "baby"
+    },
+    {
+      "word": "赤字",
+      "reading": "あかじ",
+      "meaning": "deficit"
+    },
+    {
+      "word": "赤らめる",
+      "reading": "あからめる",
+      "meaning": "redden"
+    },
+    {
+      "word": "赤毛",
+      "reading": "あかげ",
+      "meaning": "red hair"
+    },
+    {
+      "word": "赤",
+      "reading": "あか",
+      "meaning": "red"
+    },
+    {
+      "word": "赤色",
+      "reading": "あかいろ",
+      "meaning": "red color"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "真っ赤な",
+      "reading": "まっかな",
+      "meaning": "deep red"
+    }
+  ],
+  "unicode": "8d64"
+}

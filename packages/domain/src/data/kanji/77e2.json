@@ -1,0 +1,65 @@
+{
+  "character": "矢",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["シ"],
+    "kunyomi": ["や"]
+  },
+  "meanings": ["arrow"],
+  "radicals": ["矢"],
+  "examples": [
+    {
+      "word": "矢印",
+      "reading": "やじるし",
+      "meaning": "arrow mark, signpost"
+    },
+    {
+      "word": "弓矢",
+      "reading": "ゆみや",
+      "meaning": "bow and arrow"
+    },
+    {
+      "word": "一矢",
+      "reading": "いっし",
+      "meaning": "an arrow, a retort"
+    },
+    {
+      "word": "矢",
+      "reading": "や",
+      "meaning": "arrow"
+    },
+    {
+      "word": "矢先",
+      "reading": "やさき",
+      "meaning": "arrowhead, brunt, target"
+    },
+    {
+      "word": "矢面",
+      "reading": "やおもて",
+      "meaning": "line of fire"
+    },
+    {
+      "word": "矢継ぎ早",
+      "reading": "やつぎばや",
+      "meaning": "rapid succession"
+    },
+    {
+      "word": "矢羽根",
+      "reading": "やばね",
+      "meaning": "arrow feather"
+    },
+    {
+      "word": "矢筒",
+      "reading": "やづつ",
+      "meaning": "quiver"
+    },
+    {
+      "word": "矢倉",
+      "reading": "やぐら",
+      "meaning": "watchtower; turret"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "77e2"
+}

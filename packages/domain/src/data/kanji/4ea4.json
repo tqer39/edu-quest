@@ -1,0 +1,98 @@
+{
+  "character": "交",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["コウ"],
+    "kunyomi": [
+      "まじ-わる",
+      "まじ-える",
+      "ま-じる",
+      "ま-ざる",
+      "ま-ぜる",
+      "か-う",
+      "か-わす"
+    ]
+  },
+  "meanings": ["mix", "exchange"],
+  "radicals": ["亠"],
+  "examples": [
+    {
+      "word": "交替する",
+      "reading": "こうたいする",
+      "meaning": "alternate, take turns"
+    },
+    {
+      "word": "交番",
+      "reading": "こうばん",
+      "meaning": "police box"
+    },
+    {
+      "word": "交通",
+      "reading": "こうつう",
+      "meaning": "traffic"
+    },
+    {
+      "word": "国交",
+      "reading": "こっこう",
+      "meaning": "diplomatic relations"
+    },
+    {
+      "word": "交換する",
+      "reading": "こうかんする",
+      "meaning": "exchange [v.t.]"
+    },
+    {
+      "word": "交流する",
+      "reading": "こうりゅうする",
+      "meaning": "intermingle"
+    },
+    {
+      "word": "交際する",
+      "reading": "こうさいする",
+      "meaning": "keep company, date"
+    },
+    {
+      "word": "交わる",
+      "reading": "まじわる",
+      "meaning": "cross, join [v.i.]"
+    },
+    {
+      "word": "交ざる",
+      "reading": "まざる",
+      "meaning": "be mixed, join [v.i.]"
+    },
+    {
+      "word": "交じる",
+      "reading": "まじる",
+      "meaning": "be mixed [v.i.]"
+    },
+    {
+      "word": "飛び交う",
+      "reading": "とびかう",
+      "meaning": "fly past each other"
+    },
+    {
+      "word": "行き交う",
+      "reading": "いきかう",
+      "meaning": "go past each other"
+    },
+    {
+      "word": "交通事故",
+      "reading": "こうつうじこ",
+      "meaning": "traffic accident"
+    },
+    {
+      "word": "交差点",
+      "reading": "こうさてん",
+      "meaning": "intersection"
+    },
+    {
+      "word": "交響曲",
+      "reading": "こうきょうきょく",
+      "meaning": "symphony"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4ea4"
+}

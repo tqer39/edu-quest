@@ -1,0 +1,96 @@
+{
+  "character": "家",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["カ", "ケ"],
+    "kunyomi": ["いえ", "や"]
+  },
+  "meanings": ["house", "home", "family"],
+  "radicals": ["宀"],
+  "examples": [
+    {
+      "word": "著述家",
+      "reading": "ちょじゅつか",
+      "meaning": "writer"
+    },
+    {
+      "word": "宗家",
+      "reading": "そうけ",
+      "meaning": "head family of families"
+    },
+    {
+      "word": "家賃",
+      "reading": "やちん",
+      "meaning": "rent"
+    },
+    {
+      "word": "家宝",
+      "reading": "かほう",
+      "meaning": "heirloom"
+    },
+    {
+      "word": "一軒家",
+      "reading": "いっけんや",
+      "meaning": "an isolated house"
+    },
+    {
+      "word": "家宅捜査",
+      "reading": "かたくそうさ",
+      "meaning": "household search"
+    },
+    {
+      "word": "家畜",
+      "reading": "かちく",
+      "meaning": "livestock, cattle"
+    },
+    {
+      "word": "借家",
+      "reading": "しゃくや",
+      "meaning": "rented house"
+    },
+    {
+      "word": "好事家",
+      "reading": "こうずか",
+      "meaning": "dilettante"
+    },
+    {
+      "word": "貸家",
+      "reading": "かしや",
+      "meaning": "house for rent"
+    },
+    {
+      "word": "家庭用",
+      "reading": "かていよう",
+      "meaning": "for home (vs. business) use"
+    },
+    {
+      "word": "家内",
+      "reading": "かない",
+      "meaning": "my wife"
+    },
+    {
+      "word": "作曲家",
+      "reading": "さっきょくか",
+      "meaning": "composer"
+    },
+    {
+      "word": "一家の主",
+      "reading": "いっかのあるじ",
+      "meaning": "master of the household"
+    },
+    {
+      "word": "家族",
+      "reading": "かぞく",
+      "meaning": "family"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "家",
+      "reading": "うち",
+      "meaning": "house, family"
+    }
+  ],
+  "unicode": "5bb6"
+}

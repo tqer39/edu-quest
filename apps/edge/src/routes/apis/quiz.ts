@@ -36,6 +36,73 @@ quiz.post('/questions/next', async (c) => {
   return c.json({ question: { ...question, expression } });
 });
 
+// Helper function to validate answer check payload
+const validateAnswerCheckPayload = (
+  baseQuestion: unknown,
+  value: unknown
+): boolean => {
+  if (
+    !baseQuestion ||
+    typeof baseQuestion !== 'object' ||
+    !('a' in baseQuestion) ||
+    !('b' in baseQuestion) ||
+    !('op' in baseQuestion)
+  ) {
+    return false;
+  }
+
+  const q = baseQuestion as { a: unknown; b: unknown; op: unknown };
+
+  return (
+    typeof q.a === 'number' &&
+    typeof q.b === 'number' &&
+    (q.op === '+' || q.op === '-' || q.op === '×') &&
+    typeof value === 'number'
+  );
+};
+
+// Helper function to extract and filter extras
+const extractExtras = (extras: unknown): ExtraStep[] | undefined => {
+  if (!Array.isArray(extras)) return undefined;
+
+  const filtered = extras.filter(
+    (step) =>
+      step &&
+      typeof step === 'object' &&
+      'value' in step &&
+      'op' in step &&
+      typeof step.value === 'number' &&
+      (step.op === '+' || step.op === '-')
+  );
+
+  return filtered.length > 0 ? (filtered as ExtraStep[]) : undefined;
+};
+
+// Helper function to build question for checking
+const buildQuestionForCheck = (
+  baseQuestion: {
+    a: number;
+    b: number;
+    op: '+' | '-' | '×';
+    extras?: ExtraStep[];
+    isInverse?: boolean;
+    inverseSide?: 'left' | 'right';
+    answer?: number;
+  },
+  extras: ExtraStep[] | undefined
+) => {
+  return {
+    a: baseQuestion.a,
+    b: baseQuestion.b,
+    op: baseQuestion.op,
+    extras,
+    isInverse: 'isInverse' in baseQuestion ? baseQuestion.isInverse : undefined,
+    inverseSide:
+      'inverseSide' in baseQuestion ? baseQuestion.inverseSide : undefined,
+    answer: 'answer' in baseQuestion ? baseQuestion.answer : undefined,
+  };
+};
+
 quiz.post('/answers/check', async (c) => {
   const payload = (await c.req.json()) as {
     question?: {
@@ -56,6 +123,7 @@ quiz.post('/answers/check', async (c) => {
     mode?: Mode;
     max?: number;
   };
+
   const baseQuestion = payload.question ?? {
     a: payload.a,
     b: payload.b,
@@ -63,63 +131,41 @@ quiz.post('/answers/check', async (c) => {
     extras: payload.extras,
   };
 
-  if (
-    !baseQuestion ||
-    typeof baseQuestion.a !== 'number' ||
-    typeof baseQuestion.b !== 'number' ||
-    (baseQuestion.op !== '+' &&
-      baseQuestion.op !== '-' &&
-      baseQuestion.op !== '×') ||
-    typeof payload.value !== 'number'
-  ) {
+  if (!validateAnswerCheckPayload(baseQuestion, payload.value)) {
     return c.json({ error: 'invalid payload' }, 400);
   }
 
-  const extras = Array.isArray(baseQuestion.extras)
-    ? baseQuestion.extras.filter(
-        (step) =>
-          step &&
-          typeof step.value === 'number' &&
-          (step.op === '+' || step.op === '-')
-      )
-    : undefined;
-
-  const isInverse =
-    'isInverse' in baseQuestion ? baseQuestion.isInverse : undefined;
-  const inverseSide =
-    'inverseSide' in baseQuestion ? baseQuestion.inverseSide : undefined;
-  const providedAnswer =
-    'answer' in baseQuestion ? baseQuestion.answer : undefined;
-
-  const questionForCheck = {
-    a: baseQuestion.a,
-    b: baseQuestion.b,
-    op: baseQuestion.op,
-    extras,
-    isInverse,
-    inverseSide,
-    answer: providedAnswer,
+  const typedBaseQuestion = baseQuestion as {
+    a: number;
+    b: number;
+    op: '+' | '-' | '×';
+    extras?: ExtraStep[];
+    isInverse?: boolean;
+    inverseSide?: 'left' | 'right';
+    answer?: number;
   };
+
+  const extras = extractExtras(typedBaseQuestion.extras);
+  const questionForCheck = buildQuestionForCheck(typedBaseQuestion, extras);
 
   const { ok, correctAnswer } = verifyAnswer({
     question: questionForCheck,
     value: payload.value,
   });
 
-  // formatQuestionはanswerが必須なので、correctAnswerを使用
   const expression = formatQuestion({
-    a: baseQuestion.a,
-    b: baseQuestion.b,
-    op: baseQuestion.op,
+    a: typedBaseQuestion.a,
+    b: typedBaseQuestion.b,
+    op: typedBaseQuestion.op,
     extras,
-    isInverse,
-    inverseSide,
+    isInverse: questionForCheck.isInverse,
+    inverseSide: questionForCheck.inverseSide,
     answer: correctAnswer,
   });
 
   const fallbackMax = Math.max(
-    Math.abs(baseQuestion.a),
-    Math.abs(baseQuestion.b),
+    Math.abs(typedBaseQuestion.a),
+    Math.abs(typedBaseQuestion.b),
     Math.abs(correctAnswer),
     ...(extras ?? []).map((step) => Math.abs(step.value))
   );
@@ -131,13 +177,13 @@ quiz.post('/answers/check', async (c) => {
 
   const difficultyProfile = deriveDifficultyFromQuestion({
     question: {
-      a: baseQuestion.a,
-      b: baseQuestion.b,
-      op: baseQuestion.op,
+      a: typedBaseQuestion.a,
+      b: typedBaseQuestion.b,
+      op: typedBaseQuestion.op,
       extras,
       answer: correctAnswer,
-      isInverse,
-      inverseSide,
+      isInverse: questionForCheck.isInverse,
+      inverseSide: questionForCheck.inverseSide,
     },
     mode: payload.mode ?? 'mix',
     max: configuredMax,

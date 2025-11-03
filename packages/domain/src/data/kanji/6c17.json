@@ -1,0 +1,90 @@
+{
+  "character": "気",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["キ", "ケ"],
+    "kunyomi": []
+  },
+  "meanings": ["spirit", "air", "atmosphere"],
+  "radicals": ["气"],
+  "examples": [
+    {
+      "word": "天気予報",
+      "reading": "てんきよほう",
+      "meaning": "weather forecast"
+    },
+    {
+      "word": "磁気",
+      "reading": "じき",
+      "meaning": "magnetism"
+    },
+    {
+      "word": "蒸気",
+      "reading": "じょうき",
+      "meaning": "steam, vapor"
+    },
+    {
+      "word": "暖気",
+      "reading": "だんき",
+      "meaning": "warmth"
+    },
+    {
+      "word": "気象庁",
+      "reading": "きしょうちょう",
+      "meaning": "the Department of Meteorology"
+    },
+    {
+      "word": "気詰まり",
+      "reading": "きづまり",
+      "meaning": "feel ill at ease, constraint [n.]"
+    },
+    {
+      "word": "湿気",
+      "reading": "しっけ",
+      "meaning": "moisture, humidity, dampness"
+    },
+    {
+      "word": "浮気",
+      "reading": "うわき",
+      "meaning": "illicit love affair"
+    },
+    {
+      "word": "電気",
+      "reading": "でんき",
+      "meaning": "electricity"
+    },
+    {
+      "word": "電気屋",
+      "reading": "でんきや",
+      "meaning": "electric appliance store"
+    },
+    {
+      "word": "気持ち",
+      "reading": "きもち",
+      "meaning": "feeling"
+    },
+    {
+      "word": "低気圧",
+      "reading": "ていきあつ",
+      "meaning": "low (atmospheric) pressure"
+    },
+    {
+      "word": "短気な",
+      "reading": "たんきな",
+      "meaning": "quick tempered"
+    },
+    {
+      "word": "気に入る",
+      "reading": "きにいる",
+      "meaning": "be pleased with, come to like"
+    },
+    {
+      "word": "元気な",
+      "reading": "げんきな",
+      "meaning": "energetic"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6c17"
+}

@@ -1,0 +1,91 @@
+{
+  "character": "細",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["サイ"],
+    "kunyomi": ["ほそ-い", "ほそ-る", "こま-か", "こま-かい"]
+  },
+  "meanings": ["thin", "fine", "detailed"],
+  "radicals": ["糸"],
+  "examples": [
+    {
+      "word": "脳細胞",
+      "reading": "のうさいぼう",
+      "meaning": "brain cell"
+    },
+    {
+      "word": "零細企業",
+      "reading": "れいさいきぎょう",
+      "meaning": "small business"
+    },
+    {
+      "word": "細工する",
+      "reading": "さいくする",
+      "meaning": "craft"
+    },
+    {
+      "word": "詳細",
+      "reading": "しょうさい",
+      "meaning": "detail"
+    },
+    {
+      "word": "竹細工",
+      "reading": "たけざいく",
+      "meaning": "bamboo working/crafting"
+    },
+    {
+      "word": "細胞",
+      "reading": "さいぼう",
+      "meaning": "cell"
+    },
+    {
+      "word": "細菌",
+      "reading": "さいきん",
+      "meaning": "bacillus, bacterium, germ"
+    },
+    {
+      "word": "細部",
+      "reading": "さいぶ",
+      "meaning": "details"
+    },
+    {
+      "word": "毛細血管",
+      "reading": "もうさいけっかん",
+      "meaning": "capillary vessel, capillary"
+    },
+    {
+      "word": "詳細な",
+      "reading": "しょうさいな",
+      "meaning": "details, particulars"
+    },
+    {
+      "word": "繊細な",
+      "reading": "せんさいな",
+      "meaning": "fine, nice, delicate, subtle"
+    },
+    {
+      "word": "細い",
+      "reading": "ほそい",
+      "meaning": "thin, slender, fine"
+    },
+    {
+      "word": "心細い",
+      "reading": "こころぼそい",
+      "meaning": "helpless, forlorn, lonely"
+    },
+    {
+      "word": "細かい",
+      "reading": "こまかい",
+      "meaning": "small, fine, minute"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "細々した",
+      "reading": "こまごました",
+      "meaning": "sundry, miscellaneous"
+    }
+  ],
+  "unicode": "7d30"
+}

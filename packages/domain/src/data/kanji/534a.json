@@ -1,0 +1,90 @@
+{
+  "character": "半",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["ハン"],
+    "kunyomi": ["なか-ば"]
+  },
+  "meanings": ["half"],
+  "radicals": ["十"],
+  "examples": [
+    {
+      "word": "後半",
+      "reading": "こうはん",
+      "meaning": "second half"
+    },
+    {
+      "word": "半分",
+      "reading": "はんぶん",
+      "meaning": "half"
+    },
+    {
+      "word": "半額",
+      "reading": "はんがく",
+      "meaning": "half price"
+    },
+    {
+      "word": "半導体",
+      "reading": "はんどうたい",
+      "meaning": "semiconductor"
+    },
+    {
+      "word": "半熟",
+      "reading": "はんじゅく",
+      "meaning": "soft-boiled"
+    },
+    {
+      "word": "一時半",
+      "reading": "いちじはん",
+      "meaning": "half past one"
+    },
+    {
+      "word": "二年半",
+      "reading": "にねんはん",
+      "meaning": "two and a half years"
+    },
+    {
+      "word": "月半ば",
+      "reading": "つきなかば",
+      "meaning": "middle of the month"
+    },
+    {
+      "word": "半島",
+      "reading": "はんとう",
+      "meaning": "peninsula"
+    },
+    {
+      "word": "半年",
+      "reading": "はんとし",
+      "meaning": "half a year"
+    },
+    {
+      "word": "半信半疑",
+      "reading": "はんしんはんぎ",
+      "meaning": "half in doubt"
+    },
+    {
+      "word": "半減する",
+      "reading": "はんげんする",
+      "meaning": "reduce by half"
+    },
+    {
+      "word": "南半球",
+      "reading": "みなみはんきゅう",
+      "meaning": "southern hemisphere"
+    },
+    {
+      "word": "北半球",
+      "reading": "きたはんきゅう",
+      "meaning": "northern hemisphere"
+    },
+    {
+      "word": "半旗",
+      "reading": "はんき",
+      "meaning": "flag at half-mast"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "534a"
+}

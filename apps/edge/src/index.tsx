@@ -2,6 +2,8 @@ import {
   type ClockDifficulty,
   type ClockGrade,
   getKanjiDictionaryByGrade,
+  getKanjiByUnicode,
+  getKanjiIndexByGrade,
   type KanjiGrade,
   type KanjiQuestType,
 } from '@edu-quest/domain';
@@ -51,7 +53,10 @@ import {
 } from './routes/pages/grade-presets';
 import { Home } from './routes/pages/home';
 import { KanjiDetail } from './routes/pages/kanji-detail';
-import { KanjiDictionary } from './routes/pages/kanji-dictionary';
+import {
+  KanjiDictionary,
+  createKanjiSearchIndexEntry,
+} from './routes/pages/kanji-dictionary';
 import { KanjiHome } from './routes/pages/kanji-home';
 import { KanjiQuest } from './routes/pages/kanji-quest';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
@@ -435,80 +440,60 @@ app.get('/math/quest', async (c) => {
   );
 });
 
-app.get('/math/start', async (c) => {
-  const gradeParam = c.req.query('grade');
-  const calcParam = c.req.query('calc');
-  let selectedGradeIndex = gradeLevels.findIndex(
-    (grade) => grade.id === gradeParam
-  );
-  let selectedGrade =
-    selectedGradeIndex >= 0 ? gradeLevels[selectedGradeIndex] : undefined;
+// Helper function to resolve grade from query parameter
+const resolveGradeFromParam = (
+  gradeParam: string | undefined
+): { index: number; grade: (typeof gradeLevels)[number] } | null => {
+  if (!gradeParam) return null;
 
-  if (!selectedGrade && gradeParam) {
-    const parsedSchoolGrade = parseSchoolGradeParam(gradeParam);
-    if (parsedSchoolGrade && parsedSchoolGrade.stage === '小学') {
-      selectedGradeIndex = parsedSchoolGrade.grade - 1;
-      selectedGrade = gradeLevels[selectedGradeIndex];
+  // Try direct ID match
+  let index = gradeLevels.findIndex((grade) => grade.id === gradeParam);
+  if (index >= 0) {
+    return { index, grade: gradeLevels[index] };
+  }
+
+  // Try school grade format
+  const parsedSchoolGrade = parseSchoolGradeParam(gradeParam);
+  if (parsedSchoolGrade && parsedSchoolGrade.stage === '小学') {
+    index = parsedSchoolGrade.grade - 1;
+    if (index >= 0 && index < gradeLevels.length) {
+      return { index, grade: gradeLevels[index] };
     }
   }
 
-  if (!selectedGrade && gradeParam) {
-    const parsedGrade = Number(gradeParam);
-    if (
-      !Number.isNaN(parsedGrade) &&
-      parsedGrade >= 1 &&
-      parsedGrade <= gradeLevels.length
-    ) {
-      selectedGradeIndex = parsedGrade - 1;
-      selectedGrade = gradeLevels[selectedGradeIndex];
-    }
-  }
-
+  // Try numeric format
+  const parsedGrade = Number(gradeParam);
   if (
-    !selectedGrade ||
-    selectedGrade.disabled ||
-    selectedGradeIndex < 0 ||
-    selectedGradeIndex >= gradeLevels.length
+    !Number.isNaN(parsedGrade) &&
+    parsedGrade >= 1 &&
+    parsedGrade <= gradeLevels.length
   ) {
-    return c.redirect('/math', 302);
+    index = parsedGrade - 1;
+    return { index, grade: gradeLevels[index] };
   }
 
-  const gradeNumber = selectedGradeIndex + 1;
-  const gradeQuery = createSchoolGradeParam({
-    stage: '小学',
-    grade: gradeNumber,
-  });
+  return null;
+};
 
-  // 計算タイプを検証
-  if (!calcParam) {
-    return c.redirect(
-      `/math/quest?grade=${encodeURIComponent(gradeQuery)}`,
-      302
-    );
-  }
+// Helper function to validate calculation type
+const validateCalcType = (
+  calcParam: string | undefined,
+  gradeId: string
+): (typeof calculationTypes)[number] | null => {
+  if (!calcParam) return null;
 
   const availableCalcIds =
-    gradeCalculationTypes[
-      selectedGrade.id as keyof typeof gradeCalculationTypes
-    ] ?? [];
+    gradeCalculationTypes[gradeId as keyof typeof gradeCalculationTypes] ?? [];
 
   if (!(availableCalcIds as readonly string[]).includes(calcParam)) {
-    return c.redirect(
-      `/math/quest?grade=${encodeURIComponent(gradeQuery)}`,
-      302
-    );
+    return null;
   }
 
-  // 計算タイプの情報を取得
-  const calcType = calculationTypes.find((c) => c.id === calcParam);
-  if (!calcType) {
-    return c.redirect(
-      `/math/quest?grade=${encodeURIComponent(gradeQuery)}`,
-      302
-    );
-  }
+  return calculationTypes.find((c) => c.id === calcParam) || null;
+};
 
-  // アイコンマッピング
+// Helper function to create calc type info
+const createCalcTypeInfo = (calcType: (typeof calculationTypes)[number]) => {
   const calcIconMap: Record<string, string> = {
     'calc-add': '➕',
     'calc-sub': '➖',
@@ -520,25 +505,57 @@ app.get('/math/start', async (c) => {
     'calc-mix': '🔢',
   };
 
-  const calcTypeInfo = {
+  return {
     id: calcType.id,
     label: calcType.label,
     emoji: calcIconMap[calcType.id] || '🔢',
   };
+};
 
-  // プリセットを取得
-  const presets = getMathPresetsForGradeAndCalc(selectedGrade.id, calcParam);
+app.get('/math/start', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const calcParam = c.req.query('calc');
+
+  const gradeResult = resolveGradeFromParam(gradeParam);
+
+  if (
+    !gradeResult ||
+    gradeResult.grade.disabled ||
+    gradeResult.index < 0 ||
+    gradeResult.index >= gradeLevels.length
+  ) {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeQuery = createSchoolGradeParam({
+    stage: '小学',
+    grade: gradeResult.index + 1,
+  });
+
+  const calcType = validateCalcType(calcParam, gradeResult.grade.id);
+  if (!calcType) {
+    return c.redirect(
+      `/math/quest?grade=${encodeURIComponent(gradeQuery)}`,
+      302
+    );
+  }
+
+  const calcTypeInfo = createCalcTypeInfo(calcType);
+  const presets = getMathPresetsForGradeAndCalc(
+    gradeResult.grade.id,
+    calcParam!
+  );
 
   return c.render(
     <MathPresetSelect
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
-      gradeId={selectedGrade.id}
+      gradeId={gradeResult.grade.id}
       calcType={calcTypeInfo}
       presets={presets}
     />,
     {
       title: `MathQuest | ${calcType.label}のテーマを選択`,
-      description: `${selectedGrade.label}向けの${calcType.label}テーマを選んで練習をはじめましょう。`,
+      description: `${gradeResult.grade.label}向けの${calcType.label}テーマを選んで練習をはじめましょう。`,
     }
   );
 });
@@ -740,19 +757,26 @@ app.get('/kanji/dictionary', async (c) => {
       : 1;
 
   const availableGrades: KanjiGrade[] = [1, 2];
-  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
+  const grade = preferredGrade ?? 1;
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
 
-  // Load all available grades' data for client-side filtering
-  const allEntries = availableGrades.flatMap((g) =>
-    getKanjiDictionaryByGrade(g)
+  // Load lightweight index and search data
+  const indexEntries = availableGrades.flatMap((g) => getKanjiIndexByGrade(g));
+  const searchIndex = availableGrades.flatMap((g) =>
+    getKanjiDictionaryByGrade(g).map((kanji) =>
+      createKanjiSearchIndexEntry(kanji)
+    )
   );
 
   return c.render(
     <KanjiDictionary
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
-      entries={allEntries}
+      entries={indexEntries}
+      searchIndex={searchIndex}
     />,
     {
       title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
@@ -772,18 +796,20 @@ app.get('/kanji/dictionary/:id', async (c) => {
       : 1;
 
   const availableGrades: KanjiGrade[] = [1, 2];
-  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
 
-  // Convert hex ID back to character
-  const character = String.fromCodePoint(Number.parseInt(kanjiId, 16));
-
-  // Find the kanji in the dictionary
-  const allKanji = getKanjiDictionaryByGrade(grade);
-  const kanji = allKanji.find((k) => k.character === character);
+  const kanji = getKanjiByUnicode(kanjiId);
 
   if (!kanji) {
     return c.notFound();
   }
+
+  const fallbackGrade = availableGrades.includes(kanji.grade as KanjiGrade)
+    ? (kanji.grade as KanjiGrade)
+    : 1;
+  const grade = preferredGrade ?? fallbackGrade;
 
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
 

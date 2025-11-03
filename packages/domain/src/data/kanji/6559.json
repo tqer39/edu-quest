@@ -1,0 +1,90 @@
+{
+  "character": "教",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["キョウ"],
+    "kunyomi": ["おし-える", "おそ-わる"]
+  },
+  "meanings": ["teach", "education"],
+  "radicals": ["攴"],
+  "examples": [
+    {
+      "word": "教祖",
+      "reading": "きょうそ",
+      "meaning": "founder of a religious sect, guru"
+    },
+    {
+      "word": "宗教",
+      "reading": "しゅうきょう",
+      "meaning": "religion"
+    },
+    {
+      "word": "宣教師",
+      "reading": "せんきょうし",
+      "meaning": "missionary"
+    },
+    {
+      "word": "教科書",
+      "reading": "きょうかしょ",
+      "meaning": "text book"
+    },
+    {
+      "word": "教授",
+      "reading": "きょうじゅ",
+      "meaning": "professor"
+    },
+    {
+      "word": "教育する",
+      "reading": "きょういくする",
+      "meaning": "educate"
+    },
+    {
+      "word": "教師",
+      "reading": "きょうし",
+      "meaning": "teacher"
+    },
+    {
+      "word": "教室",
+      "reading": "きょうしつ",
+      "meaning": "classroom"
+    },
+    {
+      "word": "教養",
+      "reading": "きょうよう",
+      "meaning": "cultivation, culture"
+    },
+    {
+      "word": "教会",
+      "reading": "きょうかい",
+      "meaning": "church"
+    },
+    {
+      "word": "仏教",
+      "reading": "ぶっきょう",
+      "meaning": "Buddhism"
+    },
+    {
+      "word": "教える",
+      "reading": "おしえる",
+      "meaning": "teach, inform [v.t.]"
+    },
+    {
+      "word": "教わる",
+      "reading": "おそわる",
+      "meaning": "be taught [v.i.]"
+    },
+    {
+      "word": "説教する",
+      "reading": "せっきょうする",
+      "meaning": "preach, sermon"
+    },
+    {
+      "word": "助教授",
+      "reading": "じょきょうじゅ",
+      "meaning": "assistant professor"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6559"
+}

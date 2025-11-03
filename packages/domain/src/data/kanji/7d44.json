@@ -1,0 +1,90 @@
+{
+  "character": "組",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["ソ"],
+    "kunyomi": ["く-む", "くみ"]
+  },
+  "meanings": ["group", "class"],
+  "radicals": ["糸"],
+  "examples": [
+    {
+      "word": "組織",
+      "reading": "そしき",
+      "meaning": "organization, structure"
+    },
+    {
+      "word": "組閣する",
+      "reading": "そかくする",
+      "meaning": "form a cabinet"
+    },
+    {
+      "word": "テレビ番組",
+      "reading": "テレビばんぐみ",
+      "meaning": "TV program"
+    },
+    {
+      "word": "仕組み",
+      "reading": "しくみ",
+      "meaning": "structure"
+    },
+    {
+      "word": "取り組む",
+      "reading": "とりくむ",
+      "meaning": "tackle"
+    },
+    {
+      "word": "組織する",
+      "reading": "そしきする",
+      "meaning": "organize"
+    },
+    {
+      "word": "労組",
+      "reading": "ろうそ",
+      "meaning": "labor union"
+    },
+    {
+      "word": "組む",
+      "reading": "くむ",
+      "meaning": "put together"
+    },
+    {
+      "word": "組",
+      "reading": "くみ",
+      "meaning": "class, team, set"
+    },
+    {
+      "word": "一年一組",
+      "reading": "いちねんいちくみ",
+      "meaning": "1st grade, homeroom 1"
+    },
+    {
+      "word": "組合",
+      "reading": "くみあい",
+      "meaning": "union, association"
+    },
+    {
+      "word": "番組",
+      "reading": "ばんぐみ",
+      "meaning": "program (TV)"
+    },
+    {
+      "word": "三人組",
+      "reading": "さんにんぐみ",
+      "meaning": "trio"
+    },
+    {
+      "word": "骨組み",
+      "reading": "ほねぐみ",
+      "meaning": "skeleton, framework"
+    },
+    {
+      "word": "労働組合",
+      "reading": "ろうどうくみあい",
+      "meaning": "labor union"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7d44"
+}

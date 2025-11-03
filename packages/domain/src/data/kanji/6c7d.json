@@ -1,0 +1,65 @@
+{
+  "character": "汽",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["キ"],
+    "kunyomi": []
+  },
+  "meanings": ["steam", "vapor"],
+  "radicals": ["水"],
+  "examples": [
+    {
+      "word": "汽車",
+      "reading": "きしゃ",
+      "meaning": "train [n.]"
+    },
+    {
+      "word": "汽船",
+      "reading": "きせん",
+      "meaning": "steamship"
+    },
+    {
+      "word": "汽笛",
+      "reading": "きてき",
+      "meaning": "steam whistle"
+    },
+    {
+      "word": "汽船場",
+      "reading": "きせんば",
+      "meaning": "steamship pier"
+    },
+    {
+      "word": "汽艇",
+      "reading": "きてい",
+      "meaning": "steam launch"
+    },
+    {
+      "word": "汽缶",
+      "reading": "きかん",
+      "meaning": "steam boiler"
+    },
+    {
+      "word": "汽水湖",
+      "reading": "きすいこ",
+      "meaning": "brackish-water lake"
+    },
+    {
+      "word": "汽水域",
+      "reading": "きすいいき",
+      "meaning": "brackish zone"
+    },
+    {
+      "word": "汽車道",
+      "reading": "きしゃみち",
+      "meaning": "old rail line promenade"
+    },
+    {
+      "word": "汽船会社",
+      "reading": "きせんがいしゃ",
+      "meaning": "steamship company"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6c7d"
+}
