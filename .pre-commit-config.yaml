@@ -102,7 +102,7 @@ repos:
       - id: biome-lint
         name: Biome lint
         language: system
-        entry: bash -lc 'eval "$(mise activate bash)" && pnpm exec biome lint --write --files-ignore-unknown=true --no-errors-on-unmatched'
+        entry: bash -lc 'eval "$(mise activate bash)" && pnpm exec biome lint --write --files-ignore-unknown=true --no-errors-on-unmatched --diagnostic-level=error'
         types: [file]
         files: '\.(jsx?|tsx?|[cm]js|json)$'
         pass_filenames: true

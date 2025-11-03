@@ -1,48 +1,73 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import { BackToTopLink } from '../components/back-to-top-link';
-import type { GameGradeLevel, SudokuPreset } from './game-presets';
+import { Footer } from '../../components/Footer';
+import { GradeDropdown } from '../../components/GradeDropdown';
+import type { SchoolStage } from '../utils/school-grade';
+import {
+  gameGradeLevels,
+  type GameGradeLevel,
+  type SudokuPreset,
+} from './game-presets';
 
 const SudokuNav: FC<{
   currentUser: CurrentUser | null;
   gradeId: string;
   gradeLabel: string;
-}> = ({ currentUser, gradeId, gradeLabel }) => (
-  <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
-    <div class="flex items-center gap-2">
-      <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-        🎮
-      </span>
-      <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-        GameQuest - {gradeLabel} - 数独
-      </span>
-    </div>
-    <div class="flex flex-wrap gap-2">
-      <BackToTopLink />
-      <a
-        href={`/game/select?grade=${gradeId}`}
-        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-      >
-        ← ゲーム選択に戻る
-      </a>
-      {currentUser ? (
-        <a
-          href="/auth/logout"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ログアウト
+}> = ({ currentUser, gradeId, gradeLabel }) => {
+  const gradeIndex = gameGradeLevels.findIndex((level) => level.id === gradeId);
+  const gradeNumber = gradeIndex >= 0 ? gradeIndex + 1 : 1;
+
+  const availableGrades = gameGradeLevels.map((level, index) => ({
+    stage: '小学' as SchoolStage,
+    grade: index + 1,
+    disabled: level.disabled,
+  }));
+
+  return (
+    <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex items-center gap-2">
+        <a href="/" class="transition hover:opacity-80">
+          <img
+            src="/logo.svg"
+            alt="EduQuest Logo"
+            class="h-7 w-7"
+            width="28"
+            height="28"
+          />
         </a>
-      ) : (
-        <a
-          href="/auth/login"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ログイン
+        <span class="text-[var(--mq-outline)]">|</span>
+        <a href="/game" class="transition hover:opacity-80">
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            🎮
+          </span>
         </a>
-      )}
-    </div>
-  </nav>
-);
+        <GradeDropdown
+          currentGrade={gradeNumber}
+          currentStage="小学"
+          availableGrades={availableGrades}
+          baseUrl="/game/sudoku"
+        />
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {currentUser ? (
+          <a
+            href="/auth/logout"
+            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          >
+            ログアウト
+          </a>
+        ) : (
+          <a
+            href="/auth/login"
+            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          >
+            ログイン
+          </a>
+        )}
+      </div>
+    </nav>
+  );
+};
 
 type SudokuSelectProps = {
   currentUser: CurrentUser | null;
@@ -57,7 +82,7 @@ export const SudokuSelect: FC<SudokuSelectProps> = ({
 }) => {
   return (
     <div
-      class="flex flex-1 w-full flex-col gap-10"
+      class="flex min-h-screen w-full flex-col gap-10"
       style="--mq-primary: #5DB996; --mq-primary-strong: #3AA07A; --mq-primary-soft: #D6F5E7; --mq-accent: #A8EBD0; --mq-outline: rgba(93, 185, 150, 0.45); --mq-ink: #0f172a; --mq-surface: #f8fafc; --mq-surface-strong: #e2e8f0;"
     >
       <SudokuNav
@@ -124,6 +149,7 @@ export const SudokuSelect: FC<SudokuSelectProps> = ({
           )}
         </section>
       </div>
+      <Footer />
     </div>
   );
 };

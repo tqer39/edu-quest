@@ -11,15 +11,15 @@ export type GameGradeLevel = {
 export const gameGradeLevels: readonly GameGradeLevel[] = [
   {
     id: 'elem-1',
-    label: '小1',
-    description: '数字 1〜4 の 4×4 パズルからスタート',
-    highlight: '4×4 かんたん',
+    label: '小学1年生',
+    description: '数字 1〜4 の 4×4 数独と太陽・月・星パズルからスタート',
+    highlight: '数独 4×4 かんたん / Stellar Balance gentle',
   },
   {
     id: 'elem-2',
-    label: '小2',
-    description: '4×4 を仕上げて 6×6 にチャレンジ',
-    highlight: '4×4 ふつう・6×6 かんたん',
+    label: '小学2年生',
+    description: '4×4 を仕上げて 6×6 と Stellar Balance にチャレンジ',
+    highlight: '数独 4×4 ふつう・6×6 かんたん / Stellar Balance steady',
   },
   {
     id: 'elem-3',
