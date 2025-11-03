@@ -199,7 +199,20 @@ const app = new Hono<{
 
 const isKanjiQuestType = (
   value: string | null | undefined
-): value is KanjiQuestType => value === 'reading' || value === 'stroke-count';
+): value is KanjiQuestType =>
+  value === 'reading' || value === 'stroke-count' || value === 'radical';
+
+const kanjiQuestTypeLabels: Record<KanjiQuestType, string> = {
+  reading: '読みクエスト',
+  'stroke-count': '画数クエスト',
+  radical: '部首クエスト',
+};
+
+const kanjiQuestDescriptions: Record<KanjiQuestType, string> = {
+  reading: '漢字の読み方クイズに挑戦中',
+  'stroke-count': '漢字の画数クイズに挑戦中',
+  radical: '漢字の部首クイズに挑戦中',
+};
 
 const isGameGradeId = (value: string | null | undefined): value is GradeId =>
   typeof value === 'string' &&
@@ -819,8 +832,9 @@ app.get('/kanji', async (c) => {
   return c.render(
     <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
-      title: 'KanjiQuest | 漢字の読み方をマスターしよう',
-      description: '小学校で習う漢字の読み方を練習。楽しく漢字を覚えられます。',
+      title: 'KanjiQuest | 漢字を楽しくマスターしよう',
+      description:
+        '小学校で習う漢字の読み方・部首・画数を練習。楽しく漢字を覚えられます。',
       favicon: '/favicon-kanji.svg',
     }
   );
@@ -986,6 +1000,11 @@ app.get('/kanji/start', async (c) => {
     return c.redirect('/kanji', 302);
   }
 
+  if (questType === 'radical' && grade !== 1) {
+    const gradeQuery = createSchoolGradeParam({ stage: '小学', grade });
+    return c.redirect(`/kanji/select?grade=${gradeQuery}`, 302);
+  }
+
   // クイズセッションを開始（10問固定）
   const session = startKanjiQuizSession(grade, 10, questType);
 
@@ -1034,6 +1053,8 @@ app.get('/kanji/quiz', async (c) => {
       return c.redirect('/kanji', 302);
     }
 
+    const questType = session.quiz.config.questType;
+
     return c.render(
       <KanjiQuiz
         currentUser={await resolveCurrentUser(c.env, c.req.raw)}
@@ -1042,10 +1063,11 @@ app.get('/kanji/quiz', async (c) => {
         totalQuestions={session.quiz.questions.length}
         score={session.quiz.correct}
         grade={session.quiz.config.grade}
+        questType={questType}
       />,
       {
-        title: `KanjiQuest | ${session.quiz.config.grade}年生`,
-        description: '漢字の読み方クイズに挑戦中',
+        title: `KanjiQuest | ${session.quiz.config.grade}年生 ${kanjiQuestTypeLabels[questType]}`,
+        description: kanjiQuestDescriptions[questType],
       }
     );
   } catch (error) {
@@ -1116,12 +1138,17 @@ app.post('/kanji/quiz', async (c) => {
     // クイズが終了した場合
     if (!result.nextSession) {
       const quizResult = getKanjiSessionResult(session);
+      const resultPayload = {
+        ...quizResult,
+        grade: session.quiz.config.grade,
+        questType: session.quiz.config.questType,
+      };
 
       // 結果用のセッションIDを生成してKVに保存
       const resultId = crypto.randomUUID();
       await c.env.KV_QUIZ_SESSION.put(
         `kanji_result:${resultId}`,
-        JSON.stringify(quizResult),
+        JSON.stringify(resultPayload),
         { expirationTtl: 300 } // 5分
       );
 
@@ -1176,11 +1203,14 @@ app.get('/kanji/results', async (c) => {
       return c.redirect('/kanji', 302);
     }
 
-    const result: ReturnType<typeof getKanjiSessionResult> =
-      JSON.parse(resultData);
+    type StoredKanjiResult = ReturnType<typeof getKanjiSessionResult> & {
+      grade: KanjiGrade;
+      questType: KanjiQuestType;
+    };
 
-    // TODO: 結果に学年情報も含めるように改善
-    const grade = 1;
+    const result: StoredKanjiResult = JSON.parse(resultData);
+    const grade = result.grade;
+    const questType = result.questType;
 
     return c.render(
       <KanjiResults
@@ -1189,10 +1219,11 @@ app.get('/kanji/results', async (c) => {
         total={result.totalQuestions}
         grade={grade}
         message={result.message}
+        questType={questType}
       />,
       {
-        title: 'KanjiQuest | 結果',
-        description: `漢字クイズの結果: ${result.score}点`,
+        title: `KanjiQuest | ${kanjiQuestTypeLabels[questType]} 結果`,
+        description: `${kanjiQuestDescriptions[questType]} - スコア: ${result.score}点`,
       }
     );
   } catch (error) {

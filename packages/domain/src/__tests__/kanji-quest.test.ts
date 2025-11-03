@@ -2,10 +2,11 @@ import { describe, expect, it } from 'vitest';
 import {
   calculateKanjiScore,
   generateKanjiQuestions,
+  generateRadicalQuestion,
   generateReadingQuestion,
   generateStrokeCountQuestion,
-  getKanjiDictionaryByGrade,
   getKanjiByUnicode,
+  getKanjiDictionaryByGrade,
   getKanjiIndexByGrade,
   getKanjiPerformanceMessage,
   type Kanji,
@@ -235,6 +236,34 @@ describe('generateStrokeCountQuestion', () => {
   });
 });
 
+describe('generateRadicalQuestion', () => {
+  it('generates a radical question with ruby for lower grades', () => {
+    const kanji = sampleKanji[3]; // 四 -> radical 囗
+    const question = generateRadicalQuestion(kanji, sampleKanji);
+
+    expect(question.character).toBe('四');
+    expect(question.questType).toBe('radical');
+    expect(question.grade).toBe(1);
+    expect(question.questionText).toBe(
+      '「四」の<ruby>部首<rt>ぶしゅ</rt></ruby>は？'
+    );
+  });
+
+  it('includes correct radical among the choices', () => {
+    const kanji = sampleKanji[0];
+    const question = generateRadicalQuestion(kanji, sampleKanji);
+
+    expect(question.choices).toHaveLength(4);
+    expect(question.choices).toContain(question.correctAnswer);
+
+    const wrongChoices = question.choices.filter(
+      (choice) => choice !== question.correctAnswer
+    );
+    expect(wrongChoices).toHaveLength(3);
+    expect(wrongChoices).not.toContain(question.correctAnswer);
+  });
+});
+
 describe('generateKanjiQuestions', () => {
   it('generates correct number of questions', () => {
     const config: KanjiQuestConfig = {
@@ -305,6 +334,21 @@ describe('generateKanjiQuestions', () => {
       // Grade 1-2 kanji should have ruby tags for 画数
       expect(q.questionText).toContain('画数');
       expect(q.correctAnswer).toMatch(/^\d+$/); // Should be a number string
+    });
+  });
+
+  it('generates radical quest questions', () => {
+    const config: KanjiQuestConfig = {
+      grade: 1,
+      questType: 'radical',
+      questionCount: 3,
+    };
+    const questions = generateKanjiQuestions(config);
+
+    questions.forEach((q) => {
+      expect(q.questType).toBe('radical');
+      expect(q.questionText).toContain('部首');
+      expect(q.choices).toHaveLength(4);
     });
   });
 
