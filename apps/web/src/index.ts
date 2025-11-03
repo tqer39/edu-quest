@@ -1,8 +1,8 @@
-import { Hono } from 'hono';
+import type { AddressInfo } from 'node:net';
+import net from 'node:net';
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
-import net from 'node:net';
-import type { AddressInfo } from 'node:net';
+import { Hono } from 'hono';
 
 const app = new Hono();
 

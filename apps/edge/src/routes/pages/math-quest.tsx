@@ -6,6 +6,45 @@ import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
 import { type GradeId, gradeLevels } from './grade-presets';
 
+type MathQuestOption = {
+  id: 'calc-add' | 'calc-sub' | 'calc-mul' | 'calc-div';
+  label: string;
+  emoji: string;
+  description: string;
+  minGrade: number;
+};
+
+const mathQuestOptions: readonly MathQuestOption[] = [
+  {
+    id: 'calc-add',
+    label: 'たし算',
+    emoji: '➕',
+    description: '2つや3つの数をたして計算しましょう。',
+    minGrade: 1,
+  },
+  {
+    id: 'calc-sub',
+    label: 'ひき算',
+    emoji: '➖',
+    description: '数をひいて差を求める練習です。',
+    minGrade: 1,
+  },
+  {
+    id: 'calc-mul',
+    label: 'かけ算',
+    emoji: '✖️',
+    description: '九九やかけ算の計算にチャレンジ。',
+    minGrade: 3,
+  },
+  {
+    id: 'calc-div',
+    label: 'わり算',
+    emoji: '➗',
+    description: 'あまりのないわり算を練習しましょう。',
+    minGrade: 4,
+  },
+] satisfies readonly MathQuestOption[];
+
 const MathNav: FC<{
   currentUser: CurrentUser | null;
   gradeId: GradeId;
@@ -51,7 +90,7 @@ const MathNav: FC<{
           currentGrade={gradeNumber}
           currentStage={gradeStage}
           availableGrades={availableGrades}
-          baseUrl="/math/select"
+          baseUrl="/math/quest"
         />
       </div>
       <div class="flex flex-wrap gap-2">
@@ -75,33 +114,53 @@ const MathNav: FC<{
   );
 };
 
-type ModeOption = {
-  id: 'learn' | 'quest';
-  title: string;
-  icon: string;
-  description: string;
-  href: string;
+const MathQuestCard: FC<{
+  option: MathQuestOption;
+  gradeId: GradeId;
+  gradeStage: SchoolStage;
+}> = ({ option, gradeId, gradeStage }) => {
+  const gradeIndex = Math.max(
+    gradeLevels.findIndex((grade) => grade.id === gradeId),
+    0
+  );
+  const gradeNumber = gradeIndex + 1;
+  const gradeLabel = formatSchoolGradeLabel({
+    stage: gradeStage,
+    grade: gradeNumber,
+  });
+  const isAvailable = gradeNumber >= option.minGrade;
+
+  if (!isAvailable) {
+    return (
+      <div class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-gray-50 to-gray-100 p-8 text-left text-[#94a3b8] shadow-inner">
+        <div class="text-5xl">{option.emoji}</div>
+        <div class="text-2xl font-bold">{option.label}</div>
+        <div class="text-sm">{option.description}</div>
+        <div class="mt-2 inline-flex items-center gap-2 text-xs font-semibold">
+          🔒 {option.label}は小学{option.minGrade}年生から
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={`/math/start?grade=${encodeURIComponent(gradeId)}&calc=${
+        option.id
+      }`}
+      class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+    >
+      <div class="text-5xl">{option.emoji}</div>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">{option.label}</div>
+      <div class="text-sm text-[#5e718a]">{option.description}</div>
+      <div class="text-xs font-semibold text-[var(--mq-primary-strong)]">
+        {gradeLabel}向け
+      </div>
+    </a>
+  );
 };
 
-const ModeCard: FC<{ mode: ModeOption }> = ({ mode }) => (
-  <a
-    href={mode.href}
-    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-  >
-    <span class="text-5xl" aria-hidden="true">
-      {mode.icon}
-    </span>
-    <div class="space-y-2">
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">{mode.title}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{mode.description}</p>
-    </div>
-    <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
-      選択する →
-    </span>
-  </a>
-);
-
-export const MathSelect: FC<{
+export const MathQuest: FC<{
   currentUser: CurrentUser | null;
   gradeId: GradeId;
   gradeStage: SchoolStage;
@@ -115,24 +174,6 @@ export const MathSelect: FC<{
     stage: gradeStage,
     grade: gradeNumber,
   });
-
-  const modeOptions: ModeOption[] = [
-    {
-      id: 'learn',
-      title: '学ぶ',
-      icon: '📚',
-      description:
-        '算数の基本を学びましょう。わかりやすい説明で、しっかり理解できます。',
-      href: `/math/learn?grade=${encodeURIComponent(gradeId)}`,
-    },
-    {
-      id: 'quest',
-      title: 'クエストに挑戦する',
-      icon: '🎯',
-      description: '問題を解いてスキルアップ！楽しく算数の力を伸ばしましょう。',
-      href: `/math/quest?grade=${encodeURIComponent(gradeId)}`,
-    },
-  ];
 
   return (
     <div
@@ -150,25 +191,42 @@ export const MathSelect: FC<{
           <span class="text-6xl">🔢</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              学習方法を選んでください
+              クエストを選んでください
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              {gradeLabel}向けの算数学習を始めましょう。
+              {gradeLabel}向けの算数クエストを用意しました。
               <br />
-              「学ぶ」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
+              今の学年にぴったりの内容から選んで練習をはじめましょう。
             </p>
           </div>
         </header>
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            学習モードを選択
+            クエストを選択
           </h2>
-          <div class="grid gap-6 sm:grid-cols-2">
-            {modeOptions.map((mode) => (
-              <ModeCard key={mode.id} mode={mode} />
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {mathQuestOptions.map((option) => (
+              <MathQuestCard
+                key={option.id}
+                option={option}
+                gradeId={gradeId}
+                gradeStage={gradeStage}
+              />
             ))}
           </div>
+        </section>
+
+        <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
+          <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
+            クエストの特徴
+          </h2>
+          <ul class="space-y-2 text-sm text-[#5e718a]">
+            <li>✓ たし算・ひき算は小学1年生から挑戦できます。</li>
+            <li>✓ かけ算は小学3年生、わり算は小学4年生から選べます。</li>
+            <li>✓ 選んだクエストに合わせておすすめのテーマを表示します。</li>
+            <li>✓ あとからほかのクエストに切り替えることもできます。</li>
+          </ul>
         </section>
       </div>
 

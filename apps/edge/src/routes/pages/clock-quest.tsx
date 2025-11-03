@@ -1,23 +1,16 @@
-import type { KanjiGrade } from '@edu-quest/domain';
+import type { ClockDifficulty, ClockGrade } from '@edu-quest/domain';
+import { getGradeDescription } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
 import { GradeDropdown } from '../../components/GradeDropdown';
-import { DictionaryLink } from '../components/dictionary-link';
 import type { SchoolStage } from '../utils/school-grade';
-import {
-  createSchoolGradeParam,
-  formatSchoolGradeLabel,
-} from '../utils/school-grade';
 
-const KanjiNav: FC<{
-  currentUser: CurrentUser | null;
-  grade: KanjiGrade;
-  stage: SchoolStage;
-}> = ({ currentUser, grade, stage }) => {
-  const gradeParam = createSchoolGradeParam({ stage, grade });
-
-  // 利用可能な学年リスト（小学1-2年生のみ、KanjiQuestは現在1-2年生のみ対応）
+const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
+  currentUser,
+  grade,
+}) => {
+  // 利用可能な学年リスト（小学1-6年生）
   const availableGrades: readonly {
     stage: SchoolStage;
     grade: number;
@@ -25,10 +18,10 @@ const KanjiNav: FC<{
   }[] = [
     { stage: '小学', grade: 1 },
     { stage: '小学', grade: 2 },
-    { stage: '小学', grade: 3, disabled: true },
-    { stage: '小学', grade: 4, disabled: true },
-    { stage: '小学', grade: 5, disabled: true },
-    { stage: '小学', grade: 6, disabled: true },
+    { stage: '小学', grade: 3 },
+    { stage: '小学', grade: 4 },
+    { stage: '小学', grade: 5 },
+    { stage: '小学', grade: 6 },
   ];
 
   return (
@@ -44,20 +37,19 @@ const KanjiNav: FC<{
           />
         </a>
         <span class="text-[var(--mq-outline)]">|</span>
-        <a href="/kanji" class="transition hover:opacity-80">
+        <a href="/clock" class="transition hover:opacity-80">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-            ✏️
+            🕐
           </span>
         </a>
         <GradeDropdown
           currentGrade={grade}
-          currentStage={stage}
+          currentStage="小学"
           availableGrades={availableGrades}
-          baseUrl="/kanji/select"
+          baseUrl="/clock/quest"
         />
       </div>
       <div class="flex flex-wrap gap-2">
-        <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
         {currentUser ? (
           <a
             href="/auth/logout"
@@ -78,87 +70,102 @@ const KanjiNav: FC<{
   );
 };
 
-type ModeOption = {
-  id: 'learn' | 'quest';
+const questOptions: {
+  id: 'reading' | 'conversion' | 'arithmetic' | 'variety';
   title: string;
-  icon: string;
   description: string;
-  href: string;
-};
+  icon: string;
+  difficulty: ClockDifficulty;
+}[] = [
+  {
+    id: 'reading',
+    title: 'アナログ・デジタル時計の読み問題',
+    description:
+      '長針・短針やデジタル表示を読み取って、正しい時刻を答えるクエストです。',
+    icon: '🕒',
+    difficulty: 1,
+  },
+  {
+    id: 'conversion',
+    title: 'アナログ・デジタルの変換問題',
+    description:
+      'アナログ表示とデジタル表示を切り替えながら、同じ時刻を表す力を鍛えます。',
+    icon: '🔄',
+    difficulty: 2,
+  },
+  {
+    id: 'arithmetic',
+    title: '時間のたし算・引き算',
+    description:
+      '○時△分からの経過時間や、合計時間を求める計算問題に挑戦しましょう。',
+    icon: '➕',
+    difficulty: 4,
+  },
+  {
+    id: 'variety',
+    title: 'その他色々',
+    description:
+      'カレンダーや日常生活のスケジュールなど、多彩な時計クイズをランダムに出題します。',
+    icon: '✨',
+    difficulty: 5,
+  },
+];
 
-const ModeCard: FC<{ mode: ModeOption }> = ({ mode }) => (
+const QuestCard: FC<{
+  grade: ClockGrade;
+  option: (typeof questOptions)[number];
+}> = ({ grade, option }) => (
   <a
-    href={mode.href}
-    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+    href={`/clock/start?grade=elem-${grade}&type=${option.id}&difficulty=${option.difficulty}`}
+    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
-    <span class="text-5xl" aria-hidden="true">
-      {mode.icon}
+    <span class="text-4xl" aria-hidden="true">
+      {option.icon}
     </span>
     <div class="space-y-2">
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">{mode.title}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{mode.description}</p>
+      <div class="text-xl font-bold text-[var(--mq-ink)]">{option.title}</div>
+      <p class="text-sm leading-relaxed text-[#5e718a]">{option.description}</p>
     </div>
     <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
-      選択する →
+      クエスト開始 →
     </span>
   </a>
 );
 
-export const KanjiSelect: FC<{
+export const ClockQuest: FC<{
   currentUser: CurrentUser | null;
-  grade: KanjiGrade;
-  gradeStage: SchoolStage;
-}> = ({ currentUser, grade, gradeStage }) => {
-  const gradeLabel = formatSchoolGradeLabel({ stage: gradeStage, grade });
-  const gradeParam = createSchoolGradeParam({ stage: gradeStage, grade });
-
-  const modeOptions: ModeOption[] = [
-    {
-      id: 'learn',
-      title: '学ぶ',
-      icon: '📚',
-      description:
-        '漢字の読み方や書き方を学びましょう。わかりやすい説明で、しっかり覚えられます。',
-      href: `/kanji/learn?grade=${encodeURIComponent(gradeParam)}`,
-    },
-    {
-      id: 'quest',
-      title: 'クエストに挑戦する',
-      icon: '🎯',
-      description:
-        '問題を解いて漢字をマスター！楽しく学習して実力をつけましょう。',
-      href: `/kanji/quest?grade=${encodeURIComponent(gradeParam)}`,
-    },
-  ];
+  grade: ClockGrade;
+}> = ({ currentUser, grade }) => {
+  const gradeDescription = getGradeDescription(grade);
 
   return (
     <div
       class="flex flex-1 w-full flex-col gap-10"
-      style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45);"
+      style="--mq-primary: #F5A85F; --mq-primary-strong: #E88D3D; --mq-primary-soft: #FEE9D5; --mq-accent: #FFCC99; --mq-outline: rgba(245, 168, 95, 0.45);"
     >
-      <KanjiNav currentUser={currentUser} grade={grade} stage={gradeStage} />
+      <ClockNav currentUser={currentUser} grade={grade} />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">✏️</span>
+          <span class="text-6xl">🕐</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              学習方法を選んでください
+              クエストを選んでください
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              {gradeLabel}の漢字学習を始めましょう。
+              {grade}年生向けのおすすめ:
               <br />
-              「学ぶ」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
+              {gradeDescription}
             </p>
           </div>
         </header>
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            学習モードを選択
+            チャレンジするクエスト
           </h2>
-          <div class="grid gap-6 sm:grid-cols-2">
-            {modeOptions.map((mode) => (
-              <ModeCard key={mode.id} mode={mode} />
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+            {questOptions.map((option) => (
+              <QuestCard key={option.id} grade={grade} option={option} />
             ))}
           </div>
         </section>

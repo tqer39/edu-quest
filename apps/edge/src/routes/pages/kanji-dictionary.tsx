@@ -1,9 +1,8 @@
+import type { Kanji, KanjiGrade } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { Kanji, KanjiGrade } from '@edu-quest/domain';
-import { BackToTopLink } from '../components/back-to-top-link';
-import { DictionaryLink } from '../components/dictionary-link';
 import { Footer } from '../../components/Footer';
+import { DictionaryLink } from '../components/dictionary-link';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
@@ -16,22 +15,24 @@ const KanjiDictionaryNav: FC<{
 }> = ({ currentUser, gradeLabel, gradeParam }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
-      <a
-        href="/kanji"
-        class="flex items-center gap-2 transition hover:opacity-80"
-      >
+      <a href="/" class="transition hover:opacity-80">
+        <img
+          src="/logo.svg"
+          alt="EduQuest Logo"
+          class="h-7 w-7"
+          width="28"
+          height="28"
+        />
+      </a>
+      <span class="text-[var(--mq-outline)]">|</span>
+      <a href="/kanji" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
-        <div class="flex flex-col leading-tight">
-          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest
-          </span>
-          <span class="text-[10px] font-semibold text-[var(--mq-primary-strong)]">
-            {gradeLabel} 辞書
-          </span>
-        </div>
       </a>
+      <span class="text-xs font-semibold text-[var(--mq-ink)]">
+        {gradeLabel} 辞書
+      </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
       <DictionaryLink current />
@@ -41,7 +42,6 @@ const KanjiDictionaryNav: FC<{
       >
         ← クエスト選択へ戻る
       </a>
-      <BackToTopLink />
       {currentUser ? (
         <a
           href="/auth/logout"

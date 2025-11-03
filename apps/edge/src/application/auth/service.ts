@@ -1,6 +1,6 @@
 import { and, eq } from 'drizzle-orm';
-import { createDb, schema } from '../../infrastructure/database/client';
 import type { Env } from '../../env';
+import { createDb, schema } from '../../infrastructure/database/client';
 import type { CurrentUser } from '../session/current-user';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

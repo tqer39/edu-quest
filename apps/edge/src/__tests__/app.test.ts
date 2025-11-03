@@ -1,7 +1,7 @@
-import { describe, expect, it, beforeAll } from 'vitest';
-import app from '../index';
+import type { D1Database, KVNamespace } from '@cloudflare/workers-types';
+import { beforeAll, describe, expect, it } from 'vitest';
 import type { Env } from '../env';
-import type { KVNamespace, D1Database } from '@cloudflare/workers-types';
+import app from '../index';
 
 const createTestEnv = (): Env => ({
   KV_FREE_TRIAL: {} as unknown as KVNamespace,

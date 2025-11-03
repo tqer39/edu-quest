@@ -1,15 +1,15 @@
-import type {
-  ClockDifficulty,
-  ClockQuestion,
-  ClockAnswer,
-  ClockGrade,
-} from '@edu-quest/domain';
+import type { ClockQuiz } from '@edu-quest/app';
 import {
+  checkClockAnswerApp,
   createClockQuiz,
   nextClockQuestion,
-  checkClockAnswerApp,
 } from '@edu-quest/app';
-import type { ClockQuiz } from '@edu-quest/app';
+import type {
+  ClockAnswer,
+  ClockDifficulty,
+  ClockGrade,
+  ClockQuestion,
+} from '@edu-quest/domain';
 
 export type ClockQuizSession = {
   quiz: ClockQuiz;

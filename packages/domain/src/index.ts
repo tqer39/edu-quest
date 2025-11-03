@@ -411,20 +411,19 @@ export const formatQuestion = (
   return parts.join(' ');
 };
 
-export {
-  createDifficultyContextFromQuestion,
-  deriveDifficultyFromQuestion,
-  deriveDifficultyProfile,
-} from './difficulty';
+// ClockQuest exports
+export * from './clock-quest';
 
 export type {
   DifficultyContext,
   DifficultyCreature,
   DifficultyProfile,
 } from './difficulty';
-
-// ClockQuest exports
-export * from './clock-quest';
+export {
+  createDifficultyContextFromQuestion,
+  deriveDifficultyFromQuestion,
+  deriveDifficultyProfile,
+} from './difficulty';
 
 // KanjiQuest exports
 export * from './kanji-quest';
