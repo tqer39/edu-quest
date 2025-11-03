@@ -12,7 +12,7 @@ const MODULE_SOURCE = `
     return;
   }
 
-  const SYMBOLS = ['S', 'M', 'N'];
+  const SYMBOLS = ['S', 'M', 'N', null]; // null は消去
   const SYMBOL_DISPLAY = {
     S: { icon: '☀️', label: '太陽' },
     M: { icon: '🌙', label: '月' },
@@ -32,7 +32,7 @@ const MODULE_SOURCE = `
     return;
   }
 
-  const targetPerLine = gridSize / SYMBOLS.length;
+  const targetPerLine = gridSize / 3; // 太陽・月・星の3種類
   const totalPerSymbol = targetPerLine * gridSize;
 
   const initialGrid = parsed.puzzle.map((row) =>
@@ -51,44 +51,17 @@ const MODULE_SOURCE = `
 
   const gridElement = document.getElementById('stellar-grid');
   const feedbackElement = document.getElementById('stellar-feedback');
-  const countsElement = document.getElementById('stellar-counts');
   const checkButton = document.getElementById('stellar-check');
   const hintButton = document.getElementById('stellar-hint');
   const resetButton = document.getElementById('stellar-reset');
   const newButton = document.getElementById('stellar-new');
 
-  if (!gridElement || !feedbackElement || !countsElement) {
+  if (!gridElement || !feedbackElement) {
     return;
   }
 
-  const paletteButtons = Array.from(
-    document.querySelectorAll('[data-stellar-symbol]')
-  );
-
-  let activeSymbol = 'S';
-
   const getIsLocked = (row, col) =>
     lockedByInitial[row][col] || lockedByHint[row][col];
-
-  const updatePaletteState = () => {
-    paletteButtons.forEach((button) => {
-      const isActive = button.dataset.stellarSymbol === activeSymbol;
-      button.dataset.active = isActive ? 'true' : 'false';
-    });
-  };
-
-  updatePaletteState();
-
-  paletteButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const symbol = button.dataset.stellarSymbol;
-      if (!symbol) {
-        return;
-      }
-      activeSymbol = symbol;
-      updatePaletteState();
-    });
-  });
 
   const renderCell = (cell, value) => {
     if (value) {
@@ -101,36 +74,6 @@ const MODULE_SOURCE = `
         '<span class="text-sm font-semibold text-slate-400">？</span>';
     }
   };
-
-  const updateCounts = () => {
-    const totals = { S: 0, M: 0, N: 0 };
-    gridState.forEach((row) => {
-      row.forEach((value) => {
-        if (value) {
-          totals[value] += 1;
-        }
-      });
-    });
-
-    SYMBOLS.forEach((symbol) => {
-      const rowElement = countsElement.querySelector(
-        '[data-symbol="' + symbol + '"]'
-      );
-      if (!rowElement) {
-        return;
-      }
-      const current = rowElement.querySelector('[data-role="current"]');
-      const target = rowElement.querySelector('[data-role="target"]');
-      if (current) {
-        current.textContent = String(totals[symbol]);
-      }
-      if (target) {
-        target.textContent = String(totalPerSymbol);
-      }
-    });
-  };
-
-  updateCounts();
 
   const setFeedback = (message, variant) => {
     feedbackElement.textContent = message;
@@ -173,6 +116,7 @@ const MODULE_SOURCE = `
       errors.add(row + ':' + col);
     };
 
+    // 行チェック
     for (let row = 0; row < gridSize; row++) {
       const counts = { S: 0, M: 0, N: 0 };
       let rowHasEmpty = false;
@@ -185,7 +129,8 @@ const MODULE_SOURCE = `
         }
         counts[value] += 1;
       }
-      SYMBOLS.forEach((symbol) => {
+      // 各シンボルが多すぎる場合
+      ['S', 'M', 'N'].forEach((symbol) => {
         if (counts[symbol] > targetPerLine) {
           for (let col = 0; col < gridSize; col++) {
             if (gridState[row][col] === symbol) {
@@ -194,7 +139,8 @@ const MODULE_SOURCE = `
           }
         }
       });
-      if (!rowHasEmpty && SYMBOLS.some((symbol) => counts[symbol] !== targetPerLine)) {
+      // 行が埋まっているのに数が合わない場合
+      if (!rowHasEmpty && ['S', 'M', 'N'].some((symbol) => counts[symbol] !== targetPerLine)) {
         for (let col = 0; col < gridSize; col++) {
           if (gridState[row][col]) {
             addError(row, col);
@@ -203,6 +149,7 @@ const MODULE_SOURCE = `
       }
     }
 
+    // 列チェック
     for (let col = 0; col < gridSize; col++) {
       const counts = { S: 0, M: 0, N: 0 };
       let columnHasEmpty = false;
@@ -214,7 +161,7 @@ const MODULE_SOURCE = `
         }
         counts[value] += 1;
       }
-      SYMBOLS.forEach((symbol) => {
+      ['S', 'M', 'N'].forEach((symbol) => {
         if (counts[symbol] > targetPerLine) {
           for (let row = 0; row < gridSize; row++) {
             if (gridState[row][col] === symbol) {
@@ -223,7 +170,7 @@ const MODULE_SOURCE = `
           }
         }
       });
-      if (!columnHasEmpty && SYMBOLS.some((symbol) => counts[symbol] !== targetPerLine)) {
+      if (!columnHasEmpty && ['S', 'M', 'N'].some((symbol) => counts[symbol] !== targetPerLine)) {
         for (let row = 0; row < gridSize; row++) {
           if (gridState[row][col]) {
             addError(row, col);
@@ -232,6 +179,7 @@ const MODULE_SOURCE = `
       }
     }
 
+    // 隣接チェック
     for (let row = 0; row < gridSize; row++) {
       for (let col = 0; col < gridSize; col++) {
         const value = gridState[row][col];
@@ -308,7 +256,6 @@ const MODULE_SOURCE = `
         renderCell(cell, gridState[row][col]);
       }
     }
-    updateCounts();
     setFeedback('グリッドをリセットしました。もう一度バランスを整えてみましょう。');
   };
 
@@ -345,7 +292,6 @@ const MODULE_SOURCE = `
       cell.dataset.state = '';
     }
 
-    updateCounts();
     setFeedback('ヒントを 1 マス表示しました。ほかのマスもバランスが合うように考えてみましょう。');
   };
 
@@ -364,16 +310,17 @@ const MODULE_SOURCE = `
         return;
       }
 
-      if (activeSymbol === '.') {
-        gridState[row][col] = null;
-      } else {
-        gridState[row][col] = activeSymbol;
-      }
+      // 現在の値を取得
+      const currentValue = gridState[row][col];
+      // 次の値を決定: 太陽 → 月 → 星 → null → 太陽...
+      const currentIndex = SYMBOLS.indexOf(currentValue);
+      const nextIndex = (currentIndex + 1) % SYMBOLS.length;
+      const nextValue = SYMBOLS[nextIndex];
 
-      renderCell(cell, gridState[row][col]);
-      updateCounts();
+      gridState[row][col] = nextValue;
+      renderCell(cell, nextValue);
       clearErrorStates();
-      setFeedback('バランスを整えています。判定ボタンでいつでもチェックできます。');
+      setFeedback('タイルをタップして配置しよう。もう一度タップすると次のタイルに変わります。');
     });
   });
 
