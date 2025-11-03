@@ -1,4 +1,8 @@
 import type { GradeId } from './grade-presets';
+import {
+  generateStellarBalancePuzzle,
+  getDifficultyForGrade,
+} from './stellar-balance-generator';
 
 export type StellarBalanceSymbol = 'S' | 'M' | 'N';
 
@@ -52,12 +56,11 @@ const puzzles = [
 export const getStellarBalancePuzzlesForGrade = (gradeId: GradeId) =>
   puzzles.filter((puzzle) => puzzle.gradeIds.includes(gradeId));
 
+/**
+ * ランダムな問題を選択（動的生成を使用）
+ */
 export const pickRandomStellarBalancePuzzle = (gradeId: GradeId) => {
-  const available = getStellarBalancePuzzlesForGrade(gradeId);
-  if (available.length === 0) {
-    return puzzles[0];
-  }
-
-  const randomIndex = Math.floor(Math.random() * available.length);
-  return available[randomIndex];
+  // 学年に応じた難易度で新しい問題を生成
+  const difficulty = getDifficultyForGrade(gradeId);
+  return generateStellarBalancePuzzle(gradeId, difficulty);
 };
