@@ -26,6 +26,7 @@ import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
 import { SudokuSelect } from './routes/pages/sudoku-select';
+import { StellarBalance } from './routes/pages/stellar-balance';
 import { Login } from './routes/pages/login';
 import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
@@ -58,6 +59,7 @@ import {
   getGameGradeById,
   getSudokuPresetsForGrade,
 } from './routes/pages/game-presets';
+import { pickRandomStellarBalancePuzzle } from './routes/pages/stellar-balance-presets';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
@@ -457,7 +459,7 @@ app.get('/game', async (c) => {
     {
       title: 'GameQuest | 学年からゲームを選ぼう',
       description:
-        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、ぴったりの数独プリセットを選択しよう。',
+        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、数独や Stellar Balance のプリセットを選択しよう。',
       favicon: '/favicon-game.svg',
     }
   );
@@ -465,7 +467,7 @@ app.get('/game', async (c) => {
 
 app.get('/game/select', async (c) => {
   const gradeParam = c.req.query('grade');
-  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
   const grade = getGameGradeById(gradeId);
 
   return c.render(
@@ -475,7 +477,7 @@ app.get('/game/select', async (c) => {
     />,
     {
       title: `GameQuest | ${grade.label} - ゲーム選択`,
-      description: `${grade.label}向けの数独パズルに挑戦しよう。${grade.highlight}がおすすめです。`,
+      description: `${grade.label}向けの数独と Stellar Balance に挑戦しよう。${grade.highlight}がおすすめです。`,
       favicon: '/favicon-game.svg',
     }
   );
@@ -484,7 +486,7 @@ app.get('/game/select', async (c) => {
 // Sudoku preset selection page
 app.get('/game/sudoku', async (c) => {
   const gradeParam = c.req.query('grade');
-  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
   const grade = getGameGradeById(gradeId);
 
   return c.render(
@@ -507,7 +509,7 @@ app.get('/game/sudoku/play', async (c) => {
   const sizeParam = c.req.query('size');
   const difficultyParam = c.req.query('difficulty');
 
-  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
   const grade = getGameGradeById(gradeId);
   const size = sizeParam ? Number(sizeParam) : 4;
   const difficulty = difficultyParam || 'easy';
@@ -522,6 +524,27 @@ app.get('/game/sudoku/play', async (c) => {
     {
       title: `GameQuest | 数独 - ${grade.label}`,
       description: `数独パズルで集中力を鍛えよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+app.get('/game/stellar-balance', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
+  const grade = getGameGradeById(gradeId);
+  const puzzle = pickRandomStellarBalancePuzzle(gradeId);
+
+  return c.render(
+    <StellarBalance
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      puzzle={puzzle}
+    />,
+    {
+      title: `GameQuest | Stellar Balance - ${grade.label}`,
+      description:
+        '太陽・月・星のタイルでバランスを整えるロジックパズルに挑戦しよう。',
       favicon: '/favicon-game.svg',
     }
   );

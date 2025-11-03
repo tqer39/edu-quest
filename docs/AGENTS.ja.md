@@ -12,7 +12,7 @@ EduQuest は複数の「Quest」モジュールを通じて様々な教育コン
 
 - **MathQuest** (`/math`) - 算数練習。学年別プリセットとテーマ練習を提供（利用可能）
 - **KanjiQuest** (`/kanji`) - 学年別に整理された漢字学習（準備中）
-- **GameQuest** (`/game`) - パターン認識・空間認識・記憶力を鍛える脳トレミニゲーム（準備中）
+- **GameQuest** (`/game`) - パターン認識・空間認識・記憶力を鍛える脳トレミニゲーム（数独と Stellar Balance を提供）
 - **ClockQuest** (`/clock`) - アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
 ## 現在の主要機能
@@ -237,7 +237,7 @@ pnpm workspacesによるmonorepo構成：
   - `/math/start`: MathQuest 設定ウィザード
   - `/math/play`: MathQuest 練習セッション
   - `/kanji`: KanjiQuest トップページ（準備中）
-  - `/game`: GameQuest トップページ（準備中）
+  - `/game`: GameQuest トップページ（数独と Stellar Balance を選択）
   - `/clock`: ClockQuest トップページ（準備中）
 
 - **Backward Compatibility**:

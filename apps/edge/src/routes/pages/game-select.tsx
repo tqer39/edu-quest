@@ -95,6 +95,14 @@ export const GameSelect: FC<{
         '論理パズルで集中力アップ。数字を使った推理ゲームに挑戦しよう。',
       href: `/game/sudoku?grade=${gradeId}`,
     },
+    {
+      id: 'stellar-balance',
+      title: 'Stellar Balance',
+      icon: '🌌',
+      description:
+        '太陽・月・星のタイルで宇宙のバランスを整える新作ロジックパズル。',
+      href: `/game/stellar-balance?grade=${gradeId}`,
+    },
   ];
 
   return (
