@@ -49,7 +49,7 @@ export const renderSentinelsClientScript = () => html`
         return;
       }
 
-      elements.grid.style.gridTemplateColumns = `repeat(${size}, minmax(0, 1fr))`;
+      elements.grid.style.gridTemplateColumns = 'repeat(' + size + ', minmax(0, 1fr))';
 
       const cells = Array.from({ length: size }, () =>
         Array.from({ length: size }, () => null)
@@ -58,7 +58,7 @@ export const renderSentinelsClientScript = () => html`
         Array.from({ length: size }, () => 'empty')
       );
 
-      const keyFrom = (row, col) => `${row},${col}`;
+      const keyFrom = (row, col) => row + ',' + col;
       const blocked = new Set(
         (puzzle.blockedCells || []).map(([row, col]) => keyFrom(row, col))
       );
@@ -180,10 +180,10 @@ export const renderSentinelsClientScript = () => html`
 
         rows.forEach((cellsInRow, rowIndex) => {
           if (cellsInRow.length === 0) {
-            warnings.push(`${rowIndex + 1} 行目にセンチネルがありません。`);
+            warnings.push((rowIndex + 1) + ' 行目にセンチネルがありません。');
           }
           if (cellsInRow.length > 1) {
-            warnings.push(`${rowIndex + 1} 行目にセンチネルが 2 体以上あります。`);
+            warnings.push((rowIndex + 1) + ' 行目にセンチネルが 2 体以上あります。');
             cellsInRow.forEach((cellIndex) => {
               const r = Math.floor(cellIndex / size);
               const c = cellIndex % size;
@@ -194,10 +194,10 @@ export const renderSentinelsClientScript = () => html`
 
         cols.forEach((cellsInCol, colIndex) => {
           if (cellsInCol.length === 0) {
-            warnings.push(`${colIndex + 1} 列目にセンチネルがありません。`);
+            warnings.push((colIndex + 1) + ' 列目にセンチネルがありません。');
           }
           if (cellsInCol.length > 1) {
-            warnings.push(`${colIndex + 1} 列目にセンチネルが 2 体以上あります。`);
+            warnings.push((colIndex + 1) + ' 列目にセンチネルが 2 体以上あります。');
             cellsInCol.forEach((cellIndex) => {
               const r = Math.floor(cellIndex / size);
               const c = cellIndex % size;
@@ -208,10 +208,10 @@ export const renderSentinelsClientScript = () => html`
 
         Object.entries(regions).forEach(([region, regionCells]) => {
           if (regionCells.length === 0) {
-            warnings.push(`${region} の領域にセンチネルがありません。`);
+            warnings.push(region + ' の領域にセンチネルがありません。');
           }
           if (regionCells.length > 1) {
-            warnings.push(`${region} の領域にセンチネルが 2 体以上あります。`);
+            warnings.push(region + ' の領域にセンチネルが 2 体以上あります。');
             regionCells.forEach(([row, col]) => {
               conflicts.add(keyFrom(row, col));
             });
@@ -240,13 +240,13 @@ export const renderSentinelsClientScript = () => html`
           .toString()
           .padStart(2, '0');
         const rest = (seconds % 60).toString().padStart(2, '0');
-        return `${minutes}:${rest}`;
+        return minutes + ':' + rest;
       };
 
       let elapsedSeconds = 0;
       const timerInterval = window.setInterval(() => {
         elapsedSeconds += 1;
-        elements.timer.textContent = `⏱ ${formatTime(elapsedSeconds)}`;
+        elements.timer.textContent = '⏱ ' + formatTime(elapsedSeconds);
       }, 1000);
 
       const updateStatusCounters = (positions) => {
@@ -270,17 +270,17 @@ export const renderSentinelsClientScript = () => html`
         ).length;
 
         if (elements.rowStatus) {
-          elements.rowStatus.textContent = `行: ${rowsSatisfied} / ${targetCount}`;
+          elements.rowStatus.textContent = '行: ' + rowsSatisfied + ' / ' + targetCount;
           elements.rowStatus.dataset.state =
             rowsSatisfied === targetCount ? 'good' : 'warning';
         }
         if (elements.columnStatus) {
-          elements.columnStatus.textContent = `列: ${colsSatisfied} / ${targetCount}`;
+          elements.columnStatus.textContent = '列: ' + colsSatisfied + ' / ' + targetCount;
           elements.columnStatus.dataset.state =
             colsSatisfied === targetCount ? 'good' : 'warning';
         }
         if (elements.regionStatus) {
-          elements.regionStatus.textContent = `領域: ${regionsSatisfied} / ${totalRegions}`;
+          elements.regionStatus.textContent = '領域: ' + regionsSatisfied + ' / ' + totalRegions;
           elements.regionStatus.dataset.state =
             regionsSatisfied === totalRegions ? 'good' : 'warning';
         }
@@ -288,7 +288,7 @@ export const renderSentinelsClientScript = () => html`
 
       const updateProgress = (positions) => {
         const placed = positions.length;
-        elements.progress.textContent = `🛡️ ${placed} / ${targetCount}`;
+        elements.progress.textContent = '🛡️ ' + placed + ' / ' + targetCount;
         if (placed === targetCount) {
           elements.progress.dataset.state = 'good';
         } else if (placed > targetCount) {
@@ -394,7 +394,7 @@ export const renderSentinelsClientScript = () => html`
               cell.dataset.hint = 'true';
             }
           }
-          showFeedback(`${missingRow + 1} 行目にセンチネルを置けるマスを探してみましょう。`, 'info');
+          showFeedback((missingRow + 1) + ' 行目にセンチネルを置けるマスを探してみましょう。', 'info');
           return;
         }
 
@@ -406,7 +406,7 @@ export const renderSentinelsClientScript = () => html`
               cell.dataset.hint = 'true';
             }
           }
-          showFeedback(`${missingCol + 1} 列目にセンチネルを置けるマスを考えましょう。`, 'info');
+          showFeedback((missingCol + 1) + ' 列目にセンチネルを置けるマスを考えましょう。', 'info');
           return;
         }
 
@@ -423,7 +423,7 @@ export const renderSentinelsClientScript = () => html`
               }
             }
           }
-          showFeedback(`${missingRegion} の領域にセンチネルを置ける場所を考えてみましょう。`, 'info');
+          showFeedback(missingRegion + ' の領域にセンチネルを置ける場所を考えてみましょう。', 'info');
           return;
         }
 
