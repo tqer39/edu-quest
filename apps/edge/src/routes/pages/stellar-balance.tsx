@@ -290,6 +290,7 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
                 </p>
               </div>
 
+              {/* biome-ignore lint/a11y/useSemanticElements: Interactive game grid, not a data table */}
               <div
                 class="stellar-grid"
                 id="stellar-grid"
@@ -330,6 +331,7 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
                 )}
               </div>
 
+              {/* biome-ignore lint/a11y/useSemanticElements: Interactive toolbar for game controls */}
               <div
                 class="stellar-toolbar"
                 role="group"
