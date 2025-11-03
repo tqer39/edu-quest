@@ -118,8 +118,8 @@ export const KanjiSelect: FC<{
       title: '学ぶ',
       icon: '📚',
       description:
-        '漢字の読み方や書き方を学びましょう。わかりやすい説明で、しっかり覚えられます。',
-      href: `/kanji/learn?grade=${encodeURIComponent(gradeParam)}`,
+        '漢字の読み方や書き方を辞書で確認しましょう。例や意味もあわせて復習できます。',
+      href: `/kanji/dictionary?grade=${encodeURIComponent(gradeParam)}`,
     },
     {
       id: 'quest',
@@ -147,7 +147,7 @@ export const KanjiSelect: FC<{
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
               {gradeLabel}の漢字学習を始めましょう。
               <br />
-              「学ぶ」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
+              「学ぶ」で辞書を使って基礎を確認してから、「クエストに挑戦する」で実践しましょう。
             </p>
           </div>
         </header>
