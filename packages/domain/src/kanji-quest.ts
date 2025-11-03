@@ -195,6 +195,48 @@ export function generateReadingQuestion(
     actualReadingType === 'onyomi'
       ? kanji.readings.onyomi
       : kanji.readings.kunyomi;
+
+  // If the selected reading type has no readings, try the other type
+  if (readings.length === 0) {
+    const fallbackReadings =
+      actualReadingType === 'onyomi'
+        ? kanji.readings.kunyomi
+        : kanji.readings.onyomi;
+
+    if (fallbackReadings.length === 0) {
+      throw new Error(`Kanji "${kanji.character}" has no readings available`);
+    }
+
+    actualReadingType = actualReadingType === 'onyomi' ? 'kunyomi' : 'onyomi';
+    const correctAnswer =
+      fallbackReadings[Math.floor(Math.random() * fallbackReadings.length)];
+
+    // Generate wrong answer choices
+    const wrongAnswers = generateWrongReadings(
+      correctAnswer,
+      allKanji,
+      actualReadingType,
+      3
+    );
+
+    // Combine and shuffle choices
+    const choices = shuffleArray([correctAnswer, ...wrongAnswers]);
+
+    // Generate question text with ruby tags for lower grades
+    const grade = kanji.grade as KanjiGrade;
+    const readingTypeName = formatReadingTypeName(actualReadingType, grade);
+    const questionText = `「${kanji.character}」の${readingTypeName}は？`;
+
+    return {
+      character: kanji.character,
+      questionText,
+      correctAnswer,
+      choices,
+      questType: 'reading',
+      grade,
+    };
+  }
+
   const correctAnswer = readings[Math.floor(Math.random() * readings.length)];
 
   // Generate wrong answer choices
