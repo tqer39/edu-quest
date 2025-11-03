@@ -999,11 +999,23 @@ app.get('/kanji/vocabulary/:word', async (c) => {
   const availableGrades: KanjiGrade[] = [1, 2];
   const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
 
-  const kanjiDict = getKanjiDictionaryByGrade(grade);
-  const { entry: vocabularyEntry, relatedKanji } = findVocabularyEntry(
-    word,
-    kanjiDict
-  );
+  // Search in all available grades' data to find the vocabulary entry
+  let vocabularyEntry = null;
+  let relatedKanji: Array<{
+    character: string;
+    unicode: string;
+    reading: string;
+  }> = [];
+
+  for (const searchGrade of availableGrades) {
+    const kanjiDict = getKanjiDictionaryByGrade(searchGrade);
+    const result = findVocabularyEntry(word, kanjiDict);
+    if (result.entry) {
+      vocabularyEntry = result.entry;
+      relatedKanji = result.relatedKanji;
+      break;
+    }
+  }
 
   if (!vocabularyEntry) {
     return c.notFound();
