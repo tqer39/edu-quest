@@ -18,3 +18,6 @@ coverage/
 **/.terraform/
 *.tfstate
 *.tfstate.*
+
+# Client scripts with nested template literals (Prettier can't parse these)
+**/*.client.ts

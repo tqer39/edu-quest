@@ -69,7 +69,7 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
         <QuestHeader
           icon="🎮"
           title="GameQuest"
-          description="学年に合わせた数独や Stellar Balance に挑戦しよう。まずは学年をえらんで、ぴったりのゲームを選択してください。"
+          description="学年に合わせた数独・Stellar Balance・センチネル配置に挑戦しよう。まずは学年をえらんで、ぴったりのゲームを選択してください。"
         />
 
         <GradeSelection title="学年を選ぶ">
@@ -91,11 +91,15 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
             { description: '学年に合わせた難易度で論理パズルに挑戦できます' },
             {
               description:
-                '数独パズルや新作「Stellar Balance」で思考力を磨けます',
+                '数独パズルや「Stellar Balance」「センチネル配置」で思考力を磨けます',
             },
             {
               description:
                 '太陽・月・星タイルのバランスを考える空間認識トレーニングができます',
+            },
+            {
+              description:
+                'ナイトの動きで領域を守る「センチネル配置」で論理的思考力を育てられます',
             },
             { description: '4×4 から 9×9 まで段階的にステップアップできます' },
           ]}

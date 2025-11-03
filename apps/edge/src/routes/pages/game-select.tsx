@@ -119,6 +119,14 @@ export const GameSelect: FC<{
         '楽しいゲームで遊びながら学習！集中力と論理的思考を鍛えましょう。',
       href: `/game/quest?grade=${encodeURIComponent(gradeId)}`,
     },
+    {
+      id: 'sentinels',
+      title: 'センチネル配置',
+      icon: '🛡️',
+      description:
+        'ナイトの動きで守護者を配置する新作パズル。色つき領域をすべて守ろう。',
+      href: `/game/sentinels?grade=${gradeId}`,
+    },
   ];
 
   return (

@@ -64,6 +64,15 @@ export type SudokuPreset = {
   recommended?: boolean;
 };
 
+export type SentinelPreset = {
+  id: string;
+  icon: string;
+  label: string;
+  description: string;
+  puzzleId: string;
+  recommended?: boolean;
+};
+
 const createPreset = (preset: SudokuPreset) => preset;
 
 export const sudokuPresetsByGrade: Record<GradeId, readonly SudokuPreset[]> = {
@@ -222,3 +231,45 @@ export const getSudokuPresetsForGrade = (
   gradeId: GradeId
 ): readonly SudokuPreset[] =>
   sudokuPresetsByGrade[gradeId] || sudokuPresetsByGrade['elem-1'];
+
+export const sentinelPresetsByGrade: Record<
+  GradeId,
+  readonly SentinelPreset[]
+> = {
+  'elem-1': [
+    {
+      id: 'elem-1-sentinel-intro',
+      icon: '🛡️',
+      label: 'センチネル配置 入門',
+      description: 'ナイトの動きを確認しながらゆっくり進めます',
+      puzzleId: 'sentinel-6x6-intro',
+      recommended: true,
+    },
+  ],
+  'elem-2': [
+    {
+      id: 'elem-2-sentinel-standard',
+      icon: '⚔️',
+      label: 'センチネル配置 標準',
+      description: '推理メモを使ってセンチネルの位置を確定させよう',
+      puzzleId: 'sentinel-6x6-standard',
+      recommended: true,
+    },
+    {
+      id: 'elem-2-sentinel-intro',
+      icon: '🛡️',
+      label: 'センチネル配置 入門',
+      description: '入門レベルでもう一度ルールを確認できます',
+      puzzleId: 'sentinel-6x6-intro',
+    },
+  ],
+  'elem-3': [],
+  'elem-4': [],
+  'elem-5': [],
+  'elem-6': [],
+};
+
+export const getSentinelPresetsForGrade = (
+  gradeId: GradeId
+): readonly SentinelPreset[] =>
+  sentinelPresetsByGrade[gradeId] || sentinelPresetsByGrade['elem-1'];

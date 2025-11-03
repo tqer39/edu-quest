@@ -42,6 +42,7 @@ import {
   gameGradeLevels,
   getGameGradeById,
   getSudokuPresetsForGrade,
+  getSentinelPresetsForGrade,
 } from './routes/pages/game-presets';
 import { GameQuest } from './routes/pages/game-quest';
 import { GameSelect } from './routes/pages/game-select';
@@ -70,6 +71,12 @@ import { MathQuest } from './routes/pages/math-quest';
 import { MathSelect } from './routes/pages/math-select';
 import { ParentsPage } from './routes/pages/parents';
 import { Play } from './routes/pages/play';
+import { Sentinels } from './routes/pages/sentinels';
+import { SentinelSelect } from './routes/pages/sentinels-select';
+import {
+  getSentinelPuzzleById,
+  type SentinelPuzzleId,
+} from './routes/pages/sentinels-puzzles';
 import { Sudoku } from './routes/pages/sudoku';
 import { SudokuSelect } from './routes/pages/sudoku-select';
 import { StellarBalance } from './routes/pages/stellar-balance';
@@ -588,7 +595,7 @@ app.get('/game', async (c) => {
     {
       title: 'GameQuest | 学年からゲームを選ぼう',
       description:
-        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、数独や Stellar Balance のプリセットを選択しよう。',
+        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、数独・Stellar Balance・センチネル配置のプリセットを選択しよう。',
       favicon: '/favicon-game.svg',
     }
   );
@@ -650,7 +657,7 @@ app.get('/game/quest', async (c) => {
     />,
     {
       title: `GameQuest | ${grade.label} - ゲーム選択`,
-      description: `${grade.label}向けの数独と Stellar Balance に挑戦しよう。${grade.highlight}がおすすめです。`,
+      description: `${grade.label}向けの数独・Stellar Balance・センチネル配置から選べます。${grade.highlight}がおすすめです。`,
       favicon: '/favicon-game.svg',
     }
   );
@@ -702,6 +709,51 @@ app.get('/game/sudoku/play', async (c) => {
   );
 });
 
+// Sentinel preset selection page
+app.get('/game/sentinels', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <SentinelSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      presets={getSentinelPresetsForGrade(gradeId)}
+    />,
+    {
+      title: `GameQuest | センチネル配置（${grade.label}向け）`,
+      description: `${grade.label}向けのセンチネル配置でナイトの守りを完成させよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sentinel gameplay page
+app.get('/game/sentinels/play', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const puzzleParam = c.req.query('puzzle');
+
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';
+  const grade = getGameGradeById(gradeId);
+  const puzzleId = (puzzleParam || 'sentinel-6x6-intro') as SentinelPuzzleId;
+  const puzzle = getSentinelPuzzleById(puzzleId);
+
+  return c.render(
+    <Sentinels
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      puzzle={puzzle}
+    />,
+    {
+      title: `GameQuest | センチネル配置 - ${grade.label}`,
+      description: '色分けされた領域を守るセンチネルの配置に挑戦しよう。',
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Stellar Balance gameplay page
 app.get('/game/stellar-balance', async (c) => {
   const gradeParam = c.req.query('grade');
   const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'elem-1';

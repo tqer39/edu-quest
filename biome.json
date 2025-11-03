@@ -17,7 +17,9 @@
       "!**/*.min.js",
       "!**/*.min.css",
       "!**/src/styles/tailwind.css",
-      "!**/src/types/hono.d.ts"
+      "!**/src/types/hono.d.ts",
+      "!**/sentinels.client.ts",
+      "!**/stellar-balance.client.ts"
     ]
   },
   "formatter": {
