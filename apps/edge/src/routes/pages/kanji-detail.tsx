@@ -195,14 +195,17 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                 href={`/kanji/vocabulary/${encodeURIComponent(
                   example.word
                 )}?grade=${gradeParam}`}
-                class="example-item rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition-all hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                class="example-item block rounded-2xl border border-dashed border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition-all hover:border-[var(--mq-primary)] hover:border-solid hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
                 data-reading={example.reading}
               >
                 <div class="flex items-baseline gap-3">
-                  <div class="text-xl font-bold text-[var(--mq-ink)]">
+                  <div class="text-xl font-bold text-[var(--mq-ink)] underline decoration-dashed decoration-[var(--mq-primary)] decoration-2 underline-offset-4">
                     {example.word}
                   </div>
                   <div class="text-sm text-[#5e718a]">{example.reading}</div>
+                  <div class="ml-auto flex-shrink-0 text-[var(--mq-primary)] opacity-60">
+                    →
+                  </div>
                 </div>
                 <div class="mt-2 text-sm text-[#4f6076]">{example.meaning}</div>
               </a>
@@ -225,13 +228,16 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
                   href={`/kanji/vocabulary/${encodeURIComponent(
                     example.word
                   )}?grade=${gradeParam}`}
-                  class="block rounded-2xl border border-dashed border-[var(--mq-primary)] bg-[var(--mq-surface)] p-4 transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+                  class="block rounded-2xl border border-dashed border-[var(--mq-primary)] bg-[var(--mq-surface)] p-4 transition hover:border-solid hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
                 >
                   <div class="flex items-baseline gap-3">
-                    <div class="text-xl font-bold text-[var(--mq-primary-strong)]">
+                    <div class="text-xl font-bold text-[var(--mq-primary-strong)] underline decoration-dashed decoration-[var(--mq-primary)] decoration-2 underline-offset-4">
                       {example.word}
                     </div>
                     <div class="text-sm text-[#5e718a]">{example.reading}</div>
+                    <div class="ml-auto flex-shrink-0 text-[var(--mq-primary)] opacity-60">
+                      →
+                    </div>
                   </div>
                   <div class="mt-2 text-sm text-[#4f6076]">
                     {example.meaning}
