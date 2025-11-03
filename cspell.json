@@ -7,7 +7,9 @@
     ".pre-commit-config.yaml",
     "pyproject.toml",
     "pnpm-lock.yaml",
-    "pnpm-workspace.yaml"
+    "pnpm-workspace.yaml",
+    "apps/edge/src/routes/pages/sentinels-puzzles.ts",
+    "apps/edge/src/routes/pages/stellar-balance-presets.ts"
   ],
   "words": [
     "ACMR",
