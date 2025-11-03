@@ -1,4 +1,4 @@
-import type { KanjiGrade } from '@edu-quest/domain';
+import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
@@ -53,7 +53,7 @@ const KanjiNav: FC<{
           currentGrade={grade}
           currentStage={stage}
           availableGrades={availableGrades}
-          baseUrl="/kanji/select"
+          baseUrl="/kanji/quest"
         />
       </div>
       <div class="flex flex-wrap gap-2">
@@ -78,58 +78,56 @@ const KanjiNav: FC<{
   );
 };
 
-type ModeOption = {
-  id: 'learn' | 'quest';
-  title: string;
-  icon: string;
-  description: string;
-  href: string;
+type QuestTypeCardProps = {
+  questType: KanjiQuestType;
+  grade: KanjiGrade;
 };
 
-const ModeCard: FC<{ mode: ModeOption }> = ({ mode }) => (
-  <a
-    href={mode.href}
-    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-  >
-    <span class="text-5xl" aria-hidden="true">
-      {mode.icon}
-    </span>
-    <div class="space-y-2">
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">{mode.title}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{mode.description}</p>
-    </div>
-    <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
-      選択する →
-    </span>
-  </a>
-);
+const getQuestTypeInfo = (
+  questType: KanjiQuestType
+): {
+  title: string;
+  emoji: string;
+  description: string;
+} => {
+  switch (questType) {
+    case 'reading':
+      return {
+        title: '読みクエスト',
+        emoji: '📖',
+        description: '漢字の音読み・訓読みを答えます',
+      };
+    case 'stroke-count':
+      return {
+        title: '画数クエスト',
+        emoji: '✍️',
+        description: '漢字の画数を数えて答えます',
+      };
+  }
+};
 
-export const KanjiSelect: FC<{
+const QuestTypeCard: FC<QuestTypeCardProps> = ({ questType, grade }) => {
+  const info = getQuestTypeInfo(questType);
+
+  return (
+    <a
+      href={`/kanji/start?grade=${grade}&questType=${questType}`}
+      class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+    >
+      <div class="text-5xl">{info.emoji}</div>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">{info.title}</div>
+      <div class="text-sm text-[#5e718a]">{info.description}</div>
+    </a>
+  );
+};
+
+export const KanjiQuest: FC<{
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
   gradeStage: SchoolStage;
 }> = ({ currentUser, grade, gradeStage }) => {
+  const questTypes: KanjiQuestType[] = ['reading', 'stroke-count'];
   const gradeLabel = formatSchoolGradeLabel({ stage: gradeStage, grade });
-  const gradeParam = createSchoolGradeParam({ stage: gradeStage, grade });
-
-  const modeOptions: ModeOption[] = [
-    {
-      id: 'learn',
-      title: '学ぶ',
-      icon: '📚',
-      description:
-        '漢字の読み方や書き方を学びましょう。わかりやすい説明で、しっかり覚えられます。',
-      href: `/kanji/learn?grade=${encodeURIComponent(gradeParam)}`,
-    },
-    {
-      id: 'quest',
-      title: 'クエストに挑戦する',
-      icon: '🎯',
-      description:
-        '問題を解いて漢字をマスター！楽しく学習して実力をつけましょう。',
-      href: `/kanji/quest?grade=${encodeURIComponent(gradeParam)}`,
-    },
-  ];
 
   return (
     <div
@@ -142,25 +140,50 @@ export const KanjiSelect: FC<{
           <span class="text-6xl">✏️</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              学習方法を選んでください
+              クエストを選んでください
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              {gradeLabel}の漢字学習を始めましょう。
+              {gradeLabel}の漢字で遊びましょう！
               <br />
-              「学ぶ」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
+              挑戦したいクエストを選んでください。
             </p>
           </div>
         </header>
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            学習モードを選択
+            クエストタイプ
           </h2>
           <div class="grid gap-6 sm:grid-cols-2">
-            {modeOptions.map((mode) => (
-              <ModeCard key={mode.id} mode={mode} />
+            {questTypes.map((questType) => (
+              <QuestTypeCard
+                key={questType}
+                questType={questType}
+                grade={grade}
+              />
             ))}
           </div>
+        </section>
+
+        <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
+          <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
+            クエストについて
+          </h2>
+          <ul class="space-y-2 text-sm text-[#5e718a]">
+            <li>
+              ✓ <strong>読みクエスト:</strong>{' '}
+              漢字の音読み・訓読みを4択から選びます
+            </li>
+            <li>
+              ✓ <strong>画数クエスト:</strong> 漢字の画数を数えて4択から選びます
+            </li>
+            <li>
+              ✓ <strong>問題数:</strong> 各クエスト10問で構成されています
+            </li>
+            <li>
+              ✓ <strong>スコア:</strong> 正解率に応じてメッセージが変わります
+            </li>
+          </ul>
         </section>
       </div>
 

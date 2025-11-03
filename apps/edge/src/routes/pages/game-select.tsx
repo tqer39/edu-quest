@@ -2,19 +2,17 @@ import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
 import { GradeDropdown } from '../../components/GradeDropdown';
-import { gameGradeLevels, getGameGradeById } from './game-presets';
-import type { GradeId } from './grade-presets';
 import type { SchoolStage } from '../utils/school-grade';
+import { formatSchoolGradeLabel } from '../utils/school-grade';
+import { type GradeId, gameGradeLevels } from './game-presets';
 
 const GameNav: FC<{
   currentUser: CurrentUser | null;
   gradeId: GradeId;
 }> = ({ currentUser, gradeId }) => {
-  // GradeIdからgrade numberに変換
   const gradeIndex = gameGradeLevels.findIndex((level) => level.id === gradeId);
   const gradeNumber = gradeIndex >= 0 ? gradeIndex + 1 : 1;
 
-  // 利用可能な学年リスト（小学1-6年生）
   const availableGrades = gameGradeLevels.map((level, index) => ({
     stage: '小学' as SchoolStage,
     grade: index + 1,
@@ -67,25 +65,25 @@ const GameNav: FC<{
   );
 };
 
-type GameType = {
-  id: string;
+type ModeOption = {
+  id: 'learn' | 'quest';
   title: string;
   icon: string;
   description: string;
   href: string;
 };
 
-const GameTypeCard: FC<{ game: GameType }> = ({ game }) => (
+const ModeCard: FC<{ mode: ModeOption }> = ({ mode }) => (
   <a
-    href={game.href}
+    href={mode.href}
     class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
     <span class="text-5xl" aria-hidden="true">
-      {game.icon}
+      {mode.icon}
     </span>
     <div class="space-y-2">
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">{game.title}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{game.description}</p>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">{mode.title}</div>
+      <p class="text-sm leading-relaxed text-[#5e718a]">{mode.description}</p>
     </div>
     <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
       選択する →
@@ -97,16 +95,29 @@ export const GameSelect: FC<{
   currentUser: CurrentUser | null;
   gradeId: GradeId;
 }> = ({ currentUser, gradeId }) => {
-  const grade = getGameGradeById(gradeId);
+  const gradeIndex = gameGradeLevels.findIndex((level) => level.id === gradeId);
+  const gradeNumber = gradeIndex >= 0 ? gradeIndex + 1 : 1;
+  const gradeLabel = formatSchoolGradeLabel({
+    stage: '小学',
+    grade: gradeNumber,
+  });
 
-  const gameTypes: GameType[] = [
+  const modeOptions: ModeOption[] = [
     {
-      id: 'sudoku',
-      title: '数独',
-      icon: '🧩',
+      id: 'learn',
+      title: '学ぶ',
+      icon: '📚',
       description:
-        '論理パズルで集中力アップ。数字を使った推理ゲームに挑戦しよう。',
-      href: `/game/sudoku?grade=${gradeId}`,
+        'ゲームのルールや遊び方を学びましょう。わかりやすい説明で楽しく始められます。',
+      href: `/game/learn?grade=${encodeURIComponent(gradeId)}`,
+    },
+    {
+      id: 'quest',
+      title: 'ゲームで遊ぶ',
+      icon: '🎯',
+      description:
+        '楽しいゲームで遊びながら学習！集中力と論理的思考を鍛えましょう。',
+      href: `/game/quest?grade=${encodeURIComponent(gradeId)}`,
     },
   ];
 
@@ -121,23 +132,23 @@ export const GameSelect: FC<{
           <span class="text-6xl">🎮</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              ゲームを選んでください
+              学習方法を選んでください
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              {grade.label}向けのおすすめ:
+              {gradeLabel}向けのゲーム学習を始めましょう。
               <br />
-              {grade.highlight}
+              「学ぶ」でルールを理解してから、「ゲームで遊ぶ」で楽しく学習しましょう。
             </p>
           </div>
         </header>
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            遊べるゲーム
+            学習モードを選択
           </h2>
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {gameTypes.map((game) => (
-              <GameTypeCard key={game.id} game={game} />
+          <div class="grid gap-6 sm:grid-cols-2">
+            {modeOptions.map((mode) => (
+              <ModeCard key={mode.id} mode={mode} />
             ))}
           </div>
         </section>
