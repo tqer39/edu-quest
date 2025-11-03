@@ -119,14 +119,6 @@ export const GameSelect: FC<{
         '楽しいゲームで遊びながら学習！集中力と論理的思考を鍛えましょう。',
       href: `/game/quest?grade=${encodeURIComponent(gradeId)}`,
     },
-    {
-      id: 'stellar-balance',
-      title: 'Stellar Balance',
-      icon: '🌌',
-      description:
-        '太陽・月・星のタイルで宇宙のバランスを整える新作ロジックパズル。',
-      href: `/game/stellar-balance?grade=${gradeId}`,
-    },
   ];
 
   return (
