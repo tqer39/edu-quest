@@ -58,12 +58,6 @@ const KanjiNav: FC<{
       </div>
       <div class="flex flex-wrap gap-2">
         <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
-        <a
-          href="/kanji"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ← 学年選択へ戻る
-        </a>
         {currentUser ? (
           <a
             href="/auth/logout"
