@@ -1,0 +1,19 @@
+{
+  "id": "gakken-rainbow",
+  "type": "private",
+  "title": "学研 新レインボー小学国語辞典",
+  "provider": "学研プラス",
+  "description": "小学生向けに語義・用例・漢字学習をわかりやすくまとめた民間の国語辞典です。カラー図解や豆知識が豊富です。",
+  "gradeRange": { "min": 1, "max": 6 },
+  "features": [
+    "語義・用例・漢字情報をカラーで掲載",
+    "全学年の学習漢字・語彙をカバー",
+    "QRコード付きでデジタルコンテンツにもアクセス可能"
+  ],
+  "link": "https://gakken-plus.co.jp/catalog/s-series/s02/s0201/",
+  "cta": "学研の辞典を見る",
+  "source": {
+    "label": "学研プラス 新レインボー小学国語辞典 特設ページ",
+    "url": "https://gakken-plus.co.jp/catalog/s-series/s02/s0201/"
+  }
+}

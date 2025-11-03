@@ -57,7 +57,7 @@ const KanjiNav: FC<{
         />
       </div>
       <div class="flex flex-wrap gap-2">
-        <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
+        <DictionaryLink href={`/kanji/learn?grade=${gradeParam}`} />
         {currentUser ? (
           <a
             href="/auth/logout"
@@ -115,10 +115,10 @@ export const KanjiSelect: FC<{
   const modeOptions: ModeOption[] = [
     {
       id: 'learn',
-      title: '学ぶ',
+      title: '学習する',
       icon: '📚',
       description:
-        '漢字の読み方や書き方を学びましょう。わかりやすい説明で、しっかり覚えられます。',
+        '文科省の公式資料や民間の国語辞典を選んで、語彙を確認しましょう。基礎知識のインプットに最適です。',
       href: `/kanji/learn?grade=${encodeURIComponent(gradeParam)}`,
     },
     {
@@ -147,7 +147,7 @@ export const KanjiSelect: FC<{
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
               {gradeLabel}の漢字学習を始めましょう。
               <br />
-              「学ぶ」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
+              「学習する」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
             </p>
           </div>
         </header>

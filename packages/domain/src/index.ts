@@ -505,6 +505,7 @@ export {
 
 // KanjiQuest exports
 export * from './kanji-quest';
+export * from './kokugo-dictionaries';
 
 // Helper function to generate binary addition inverse question
 const generateBinaryAdditionInverse = (

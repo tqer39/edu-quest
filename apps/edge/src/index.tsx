@@ -4,6 +4,7 @@ import {
   getKanjiDictionaryByGrade,
   getKanjiByUnicode,
   getKanjiIndexByGrade,
+  getKokugoDictionariesByGrade,
   type KanjiGrade,
   type KanjiQuestType,
 } from '@edu-quest/domain';
@@ -59,6 +60,7 @@ import {
   createKanjiSearchIndexEntry,
 } from './routes/pages/kanji-dictionary';
 import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiLearn } from './routes/pages/kanji-learn';
 import { KanjiQuest } from './routes/pages/kanji-quest';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
@@ -932,6 +934,37 @@ app.get('/kanji/select', async (c) => {
     {
       title: `KanjiQuest - ${gradeLabel}`,
       description: `${gradeLabel}向けの学習方法を選んでください。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kanji/learn', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/kanji', 302);
+  }
+
+  const grade = parsedGrade.grade as KanjiGrade;
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
+  const dictionaries = getKokugoDictionariesByGrade(grade);
+
+  return c.render(
+    <KanjiLearn
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      gradeStage={parsedGrade.stage}
+      dictionaries={dictionaries}
+    />,
+    {
+      title: `KanjiQuest - ${gradeLabel}の国語辞典`,
+      description: `${gradeLabel}向けの国語辞典・公式資料を選べます。`,
       favicon: '/favicon-kanji.svg',
     }
   );
