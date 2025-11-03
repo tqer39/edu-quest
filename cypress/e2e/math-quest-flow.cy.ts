@@ -1,7 +1,7 @@
 describe('MathQuest Flow', () => {
   describe('Start Configuration Page', () => {
     beforeEach(() => {
-      cy.visit('/math/start?grade=1&calc=calc-add');
+      cy.visit('/math/start?grade=grade-1&calc=calc-add');
     });
 
     it('should load the start configuration page', () => {
@@ -26,7 +26,7 @@ describe('MathQuest Flow', () => {
 
   describe('Play Page Navigation', () => {
     it('should navigate to play page after configuration', () => {
-      cy.visit('/math/start?grade=1&calc=calc-add');
+      cy.visit('/math/start?grade=grade-1&calc=calc-add');
 
       // Start the quiz
       cy.contains('button', 'はじめる').click();
@@ -36,7 +36,7 @@ describe('MathQuest Flow', () => {
     });
 
     it('should display question on play page', () => {
-      cy.visit('/math/start?grade=1&calc=calc-add');
+      cy.visit('/math/start?grade=grade-1&calc=calc-add');
 
       // Quick start with default settings
       cy.contains('button', 'はじめる').click();
