@@ -98,83 +98,63 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
     >
       {html`
         <style>
-          @media (max-width: 768px) {
-            .stellar-grid {
-              gap: 4px;
-              padding: 0.75rem;
-            }
-
-            .stellar-cell {
-              font-size: 1.5rem;
-              border-radius: 0.5rem;
-            }
-          }
-
           .stellar-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 6px;
-            padding: 1rem;
-            border-radius: 1rem;
-            background: linear-gradient(
-              135deg,
-              rgba(214, 245, 231, 0.8),
-              rgba(168, 235, 208, 0.65)
-            );
-            border: 1px solid rgba(93, 185, 150, 0.4);
+            gap: 1px;
+            padding: 0;
+            border-radius: 0.5rem;
+            background: rgba(148, 163, 184, 0.3);
+            border: 2px solid rgba(148, 163, 184, 0.5);
+            overflow: hidden;
           }
 
           .stellar-cell {
             width: 100%;
             aspect-ratio: 1;
-            border-radius: 0.75rem;
-            border: 2px solid rgba(15, 23, 42, 0.08);
-            background: rgba(255, 255, 255, 0.92);
+            border: none;
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
             color: #0f172a;
             cursor: pointer;
             transition:
               transform 0.15s ease,
-              box-shadow 0.15s ease,
-              border-color 0.15s ease;
+              background-color 0.15s ease;
             -webkit-tap-highlight-color: transparent;
             touch-action: manipulation;
           }
 
           .stellar-cell:hover:not([data-locked='true']) {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
-            border-color: rgba(58, 160, 122, 0.7);
-            background: white;
+            background: rgba(214, 245, 231, 0.5);
           }
 
           .stellar-cell[data-locked='true'] {
-            background: linear-gradient(135deg, #d6f5e7 0%, #c0ebd9 100%);
-            border-color: rgba(58, 160, 122, 0.8);
+            background: rgba(214, 245, 231, 0.6);
             cursor: default;
           }
 
           .stellar-cell[data-hinted='true'] {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-color: rgba(217, 119, 6, 0.8);
+            background: rgba(254, 243, 199, 0.8);
           }
 
           .stellar-cell[data-state='error'] {
-            border-color: rgba(239, 68, 68, 0.85);
-            box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.35);
+            background: rgba(254, 226, 226, 0.9);
+            box-shadow: inset 0 0 0 3px rgba(239, 68, 68, 0.6);
           }
 
           .stellar-cell[data-state='complete'] {
-            background: linear-gradient(
-              135deg,
-              rgba(167, 243, 208, 0.4),
-              rgba(134, 239, 172, 0.4)
-            );
-            border-color: rgba(16, 185, 129, 0.85);
+            background: rgba(220, 252, 231, 0.8);
+          }
+
+          @media (min-width: 640px) {
+            .stellar-grid {
+              gap: 2px;
+              border-radius: 0.75rem;
+            }
           }
 
           .stellar-feedback {
