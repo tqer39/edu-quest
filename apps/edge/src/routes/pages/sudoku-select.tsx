@@ -82,7 +82,7 @@ export const SudokuSelect: FC<SudokuSelectProps> = ({
 }) => {
   return (
     <div
-      class="flex min-h-screen w-full flex-col"
+      class="flex min-h-screen w-full flex-col gap-10"
       style="--mq-primary: #5DB996; --mq-primary-strong: #3AA07A; --mq-primary-soft: #D6F5E7; --mq-accent: #A8EBD0; --mq-outline: rgba(93, 185, 150, 0.45); --mq-ink: #0f172a; --mq-surface: #f8fafc; --mq-surface-strong: #e2e8f0;"
     >
       <SudokuNav
@@ -90,7 +90,7 @@ export const SudokuSelect: FC<SudokuSelectProps> = ({
         gradeId={grade.id}
         gradeLabel={grade.label}
       />
-      <div class="flex flex-1 flex-col gap-10 px-4 py-10 sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
           <span class="text-6xl">🧩</span>
           <div class="space-y-4">
