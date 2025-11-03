@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ソウ",
-      "サッ"
-    ],
-    "kunyomi": [
-      "はや-い"
-    ]
+    "onyomi": ["ソウ", "サッ"],
+    "kunyomi": ["はや-い"]
   },
-  "meanings": [
-    "early",
-    "fast"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["early", "fast"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "早熟な",

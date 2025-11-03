@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 16,
   "readings": {
-    "onyomi": [
-      "シン"
-    ],
-    "kunyomi": [
-      "おや",
-      "した-しい",
-      "した-しむ"
-    ]
+    "onyomi": ["シン"],
+    "kunyomi": ["おや", "した-しい", "した-しむ"]
   },
-  "meanings": [
-    "parent",
-    "intimate"
-  ],
-  "radicals": [
-    "見"
-  ],
+  "meanings": ["parent", "intimate"],
+  "radicals": ["見"],
   "examples": [
     {
       "word": "親孝行な",

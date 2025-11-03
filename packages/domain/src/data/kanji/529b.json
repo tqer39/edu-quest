@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "リョク",
-      "リキ"
-    ],
-    "kunyomi": [
-      "ちから"
-    ]
+    "onyomi": ["リョク", "リキ"],
+    "kunyomi": ["ちから"]
   },
-  "meanings": [
-    "power",
-    "strength",
-    "force"
-  ],
-  "radicals": [
-    "力"
-  ],
+  "meanings": ["power", "strength", "force"],
+  "radicals": ["力"],
   "examples": [
     {
       "word": "武力",

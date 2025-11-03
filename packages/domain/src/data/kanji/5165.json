@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "ニュウ"
-    ],
-    "kunyomi": [
-      "い-る",
-      "い-れる",
-      "はい-る"
-    ]
+    "onyomi": ["ニュウ"],
+    "kunyomi": ["い-る", "い-れる", "はい-る"]
   },
-  "meanings": [
-    "enter",
-    "insert"
-  ],
-  "radicals": [
-    "入"
-  ],
+  "meanings": ["enter", "insert"],
+  "radicals": ["入"],
   "examples": [
     {
       "word": "納入する",

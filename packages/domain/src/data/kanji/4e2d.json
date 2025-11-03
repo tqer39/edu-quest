@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "チュウ"
-    ],
-    "kunyomi": [
-      "なか",
-      "うち"
-    ]
+    "onyomi": ["チュウ"],
+    "kunyomi": ["なか", "うち"]
   },
-  "meanings": [
-    "middle",
-    "inside",
-    "center"
-  ],
-  "radicals": [
-    "丨"
-  ],
+  "meanings": ["middle", "inside", "center"],
+  "radicals": ["丨"],
   "examples": [
     {
       "word": "話し中",

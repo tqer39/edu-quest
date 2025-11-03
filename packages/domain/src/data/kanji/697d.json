@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "ガク",
-      "ラク"
-    ],
-    "kunyomi": [
-      "たの-しい",
-      "たの-しむ"
-    ]
+    "onyomi": ["ガク", "ラク"],
+    "kunyomi": ["たの-しい", "たの-しむ"]
   },
-  "meanings": [
-    "music",
-    "pleasure",
-    "easy"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["music", "pleasure", "easy"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "吹奏楽",

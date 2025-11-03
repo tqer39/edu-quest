@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "セン"
-    ],
-    "kunyomi": [
-      "ふね",
-      "ふな"
-    ]
+    "onyomi": ["セン"],
+    "kunyomi": ["ふね", "ふな"]
   },
-  "meanings": [
-    "ship",
-    "boat"
-  ],
-  "radicals": [
-    "舟"
-  ],
+  "meanings": ["ship", "boat"],
+  "radicals": ["舟"],
   "examples": [
     {
       "word": "捕鯨船",

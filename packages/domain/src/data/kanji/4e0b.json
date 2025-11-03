@@ -3,10 +3,7 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "カ",
-      "ゲ"
-    ],
+    "onyomi": ["カ", "ゲ"],
     "kunyomi": [
       "した",
       "しも",
@@ -17,14 +14,8 @@
       "お-りる"
     ]
   },
-  "meanings": [
-    "below",
-    "down",
-    "under"
-  ],
-  "radicals": [
-    "一"
-  ],
+  "meanings": ["below", "down", "under"],
+  "radicals": ["一"],
   "examples": [
     {
       "word": "閣下",

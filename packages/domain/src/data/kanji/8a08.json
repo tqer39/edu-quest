@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "ケイ"
-    ],
-    "kunyomi": [
-      "はか-る",
-      "はか-らう"
-    ]
+    "onyomi": ["ケイ"],
+    "kunyomi": ["はか-る", "はか-らう"]
   },
-  "meanings": [
-    "measure",
-    "plan"
-  ],
-  "radicals": [
-    "言"
-  ],
+  "meanings": ["measure", "plan"],
+  "radicals": ["言"],
   "examples": [
     {
       "word": "余計な",

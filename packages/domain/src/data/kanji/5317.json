@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ホク"
-    ],
-    "kunyomi": [
-      "きた"
-    ]
+    "onyomi": ["ホク"],
+    "kunyomi": ["きた"]
   },
-  "meanings": [
-    "north"
-  ],
-  "radicals": [
-    "匕"
-  ],
+  "meanings": ["north"],
+  "radicals": ["匕"],
   "examples": [
     {
       "word": "北欧",

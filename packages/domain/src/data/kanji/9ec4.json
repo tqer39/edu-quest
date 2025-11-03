@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "コウ",
-      "オウ"
-    ],
-    "kunyomi": [
-      "き",
-      "こ"
-    ]
+    "onyomi": ["コウ", "オウ"],
+    "kunyomi": ["き", "こ"]
   },
-  "meanings": [
-    "yellow"
-  ],
-  "radicals": [
-    "黄"
-  ],
+  "meanings": ["yellow"],
+  "radicals": ["黄"],
   "examples": [
     {
       "word": "卵黄",

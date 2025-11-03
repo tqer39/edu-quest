@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "トウ"
-    ],
-    "kunyomi": [
-      "かたな"
-    ]
+    "onyomi": ["トウ"],
+    "kunyomi": ["かたな"]
   },
-  "meanings": [
-    "sword",
-    "blade"
-  ],
-  "radicals": [
-    "刀"
-  ],
+  "meanings": ["sword", "blade"],
+  "radicals": ["刀"],
   "examples": [
     {
       "word": "刀剣",

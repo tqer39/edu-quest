@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "ウ"
-    ],
-    "kunyomi": [
-      "あめ",
-      "あま"
-    ]
+    "onyomi": ["ウ"],
+    "kunyomi": ["あめ", "あま"]
   },
-  "meanings": [
-    "rain"
-  ],
-  "radicals": [
-    "雨"
-  ],
+  "meanings": ["rain"],
+  "radicals": ["雨"],
   "examples": [
     {
       "word": "雨垂れ",

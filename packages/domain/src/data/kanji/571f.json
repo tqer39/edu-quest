@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "ド",
-      "ト"
-    ],
-    "kunyomi": [
-      "つち"
-    ]
+    "onyomi": ["ド", "ト"],
+    "kunyomi": ["つち"]
   },
-  "meanings": [
-    "soil",
-    "earth",
-    "ground"
-  ],
-  "radicals": [
-    "土"
-  ],
+  "meanings": ["soil", "earth", "ground"],
+  "radicals": ["土"],
   "examples": [
     {
       "word": "土俵",

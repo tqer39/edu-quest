@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ブン",
-      "モン"
-    ],
-    "kunyomi": [
-      "ふみ"
-    ]
+    "onyomi": ["ブン", "モン"],
+    "kunyomi": ["ふみ"]
   },
-  "meanings": [
-    "sentence",
-    "writing",
-    "text"
-  ],
-  "radicals": [
-    "文"
-  ],
+  "meanings": ["sentence", "writing", "text"],
+  "radicals": ["文"],
   "examples": [
     {
       "word": "序文",

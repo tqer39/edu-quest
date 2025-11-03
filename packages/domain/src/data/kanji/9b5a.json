@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "ギョ"
-    ],
-    "kunyomi": [
-      "さかな"
-    ]
+    "onyomi": ["ギョ"],
+    "kunyomi": ["さかな"]
   },
-  "meanings": [
-    "fish"
-  ],
-  "radicals": [
-    "魚"
-  ],
+  "meanings": ["fish"],
+  "radicals": ["魚"],
   "examples": [
     {
       "word": "金魚",

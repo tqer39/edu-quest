@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ホウ"
-    ],
-    "kunyomi": [
-      "かた"
-    ]
+    "onyomi": ["ホウ"],
+    "kunyomi": ["かた"]
   },
-  "meanings": [
-    "direction",
-    "way"
-  ],
-  "radicals": [
-    "方"
-  ],
+  "meanings": ["direction", "way"],
+  "radicals": ["方"],
   "examples": [
     {
       "word": "方策",

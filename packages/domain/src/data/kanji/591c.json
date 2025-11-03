@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "ヤ"
-    ],
-    "kunyomi": [
-      "よ",
-      "よる"
-    ]
+    "onyomi": ["ヤ"],
+    "kunyomi": ["よ", "よる"]
   },
-  "meanings": [
-    "night",
-    "evening"
-  ],
-  "radicals": [
-    "夕"
-  ],
+  "meanings": ["night", "evening"],
+  "radicals": ["夕"],
   "examples": [
     {
       "word": "夜更かし",

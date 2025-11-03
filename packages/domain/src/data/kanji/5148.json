@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "セン"
-    ],
-    "kunyomi": [
-      "さき"
-    ]
+    "onyomi": ["セン"],
+    "kunyomi": ["さき"]
   },
-  "meanings": [
-    "before",
-    "ahead",
-    "previous"
-  ],
-  "radicals": [
-    "儿"
-  ],
+  "meanings": ["before", "ahead", "previous"],
+  "radicals": ["儿"],
   "examples": [
     {
       "word": "祖先",

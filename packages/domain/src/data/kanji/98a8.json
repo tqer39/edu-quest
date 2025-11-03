@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "フウ",
-      "フ"
-    ],
-    "kunyomi": [
-      "かぜ",
-      "かざ"
-    ]
+    "onyomi": ["フウ", "フ"],
+    "kunyomi": ["かぜ", "かざ"]
   },
-  "meanings": [
-    "wind",
-    "style"
-  ],
-  "radicals": [
-    "風"
-  ],
+  "meanings": ["wind", "style"],
+  "radicals": ["風"],
   "examples": [
     {
       "word": "貿易風",

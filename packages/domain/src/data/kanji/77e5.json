@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "チ"
-    ],
-    "kunyomi": [
-      "し-る"
-    ]
+    "onyomi": ["チ"],
+    "kunyomi": ["し-る"]
   },
-  "meanings": [
-    "know",
-    "wisdom"
-  ],
-  "radicals": [
-    "矢"
-  ],
+  "meanings": ["know", "wisdom"],
+  "radicals": ["矢"],
   "examples": [
     {
       "word": "知能犯",

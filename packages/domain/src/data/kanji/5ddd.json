@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "セン"
-    ],
-    "kunyomi": [
-      "かわ"
-    ]
+    "onyomi": ["セン"],
+    "kunyomi": ["かわ"]
   },
-  "meanings": [
-    "river"
-  ],
-  "radicals": [
-    "川"
-  ],
+  "meanings": ["river"],
+  "radicals": ["川"],
   "examples": [
     {
       "word": "川沿い",

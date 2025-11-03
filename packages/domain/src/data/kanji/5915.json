@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "セキ"
-    ],
-    "kunyomi": [
-      "ゆう"
-    ]
+    "onyomi": ["セキ"],
+    "kunyomi": ["ゆう"]
   },
-  "meanings": [
-    "evening"
-  ],
-  "radicals": [
-    "夕"
-  ],
+  "meanings": ["evening"],
+  "radicals": ["夕"],
   "examples": [
     {
       "word": "夕刻",

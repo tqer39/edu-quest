@@ -3,23 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "セイ",
-      "ショウ"
-    ],
-    "kunyomi": [
-      "ただ-しい",
-      "まさ"
-    ]
+    "onyomi": ["セイ", "ショウ"],
+    "kunyomi": ["ただ-しい", "まさ"]
   },
-  "meanings": [
-    "correct",
-    "right",
-    "proper"
-  ],
-  "radicals": [
-    "止"
-  ],
+  "meanings": ["correct", "right", "proper"],
+  "radicals": ["止"],
   "examples": [
     {
       "word": "正絹",

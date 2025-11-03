@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ソン"
-    ],
-    "kunyomi": [
-      "むら"
-    ]
+    "onyomi": ["ソン"],
+    "kunyomi": ["むら"]
   },
-  "meanings": [
-    "village"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["village"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "中村",

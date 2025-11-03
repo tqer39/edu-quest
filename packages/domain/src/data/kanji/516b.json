@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "ハチ"
-    ],
-    "kunyomi": [
-      "や",
-      "や-つ",
-      "やっ-つ",
-      "よう"
-    ]
+    "onyomi": ["ハチ"],
+    "kunyomi": ["や", "や-つ", "やっ-つ", "よう"]
   },
-  "meanings": [
-    "eight"
-  ],
-  "radicals": [
-    "八"
-  ],
+  "meanings": ["eight"],
+  "radicals": ["八"],
   "examples": [
     {
       "word": "八月",

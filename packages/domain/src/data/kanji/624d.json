@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "サイ"
-    ],
+    "onyomi": ["サイ"],
     "kunyomi": []
   },
-  "meanings": [
-    "talent",
-    "ability"
-  ],
-  "radicals": [
-    "手"
-  ],
+  "meanings": ["talent", "ability"],
+  "radicals": ["手"],
   "examples": [
     {
       "word": "何才",

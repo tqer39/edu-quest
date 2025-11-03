@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ジ"
-    ],
-    "kunyomi": [
-      "てら"
-    ]
+    "onyomi": ["ジ"],
+    "kunyomi": ["てら"]
   },
-  "meanings": [
-    "temple"
-  ],
-  "radicals": [
-    "寸"
-  ],
+  "meanings": ["temple"],
+  "radicals": ["寸"],
   "examples": [
     {
       "word": "金閣寺",

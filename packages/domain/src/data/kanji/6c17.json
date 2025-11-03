@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "キ",
-      "ケ"
-    ],
+    "onyomi": ["キ", "ケ"],
     "kunyomi": []
   },
-  "meanings": [
-    "spirit",
-    "air",
-    "atmosphere"
-  ],
-  "radicals": [
-    "气"
-  ],
+  "meanings": ["spirit", "air", "atmosphere"],
+  "radicals": ["气"],
   "examples": [
     {
       "word": "天気予報",

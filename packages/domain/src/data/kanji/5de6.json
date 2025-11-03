@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "サ"
-    ],
-    "kunyomi": [
-      "ひだり"
-    ]
+    "onyomi": ["サ"],
+    "kunyomi": ["ひだり"]
   },
-  "meanings": [
-    "left"
-  ],
-  "radicals": [
-    "工"
-  ],
+  "meanings": ["left"],
+  "radicals": ["工"],
   "examples": [
     {
       "word": "左傾する",

@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ハン"
-    ],
-    "kunyomi": [
-      "なか-ば"
-    ]
+    "onyomi": ["ハン"],
+    "kunyomi": ["なか-ば"]
   },
-  "meanings": [
-    "half"
-  ],
-  "radicals": [
-    "十"
-  ],
+  "meanings": ["half"],
+  "radicals": ["十"],
   "examples": [
     {
       "word": "後半",

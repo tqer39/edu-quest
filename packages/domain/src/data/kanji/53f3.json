@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ウ",
-      "ユウ"
-    ],
-    "kunyomi": [
-      "みぎ"
-    ]
+    "onyomi": ["ウ", "ユウ"],
+    "kunyomi": ["みぎ"]
   },
-  "meanings": [
-    "right"
-  ],
-  "radicals": [
-    "口"
-  ],
+  "meanings": ["right"],
+  "radicals": ["口"],
   "examples": [
     {
       "word": "右傾する",

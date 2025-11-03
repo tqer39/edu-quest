@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "バク"
-    ],
-    "kunyomi": [
-      "むぎ"
-    ]
+    "onyomi": ["バク"],
+    "kunyomi": ["むぎ"]
   },
-  "meanings": [
-    "wheat",
-    "barley"
-  ],
-  "radicals": [
-    "麦"
-  ],
+  "meanings": ["wheat", "barley"],
+  "radicals": ["麦"],
   "examples": [
     {
       "word": "小麦",

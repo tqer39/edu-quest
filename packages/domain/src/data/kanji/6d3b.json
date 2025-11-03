@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "カツ"
-    ],
+    "onyomi": ["カツ"],
     "kunyomi": []
   },
-  "meanings": [
-    "lively",
-    "active"
-  ],
-  "radicals": [
-    "水"
-  ],
+  "meanings": ["lively", "active"],
+  "radicals": ["水"],
   "examples": [
     {
       "word": "活版",

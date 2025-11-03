@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "トウ"
-    ],
-    "kunyomi": [
-      "こた-える",
-      "こた-え"
-    ]
+    "onyomi": ["トウ"],
+    "kunyomi": ["こた-える", "こた-え"]
   },
-  "meanings": [
-    "answer"
-  ],
-  "radicals": [
-    "竹"
-  ],
+  "meanings": ["answer"],
+  "radicals": ["竹"],
   "examples": [
     {
       "word": "押し問答",

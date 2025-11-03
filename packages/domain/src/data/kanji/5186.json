@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "エン"
-    ],
-    "kunyomi": [
-      "まる-い"
-    ]
+    "onyomi": ["エン"],
+    "kunyomi": ["まる-い"]
   },
-  "meanings": [
-    "circle",
-    "yen"
-  ],
-  "radicals": [
-    "囗"
-  ],
+  "meanings": ["circle", "yen"],
+  "radicals": ["囗"],
   "examples": [
     {
       "word": "円筒形",

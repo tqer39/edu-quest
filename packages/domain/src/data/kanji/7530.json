@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "デン"
-    ],
-    "kunyomi": [
-      "た"
-    ]
+    "onyomi": ["デン"],
+    "kunyomi": ["た"]
   },
-  "meanings": [
-    "rice field",
-    "rice paddy"
-  ],
-  "radicals": [
-    "田"
-  ],
+  "meanings": ["rice field", "rice paddy"],
+  "radicals": ["田"],
   "examples": [
     {
       "word": "山田殿",

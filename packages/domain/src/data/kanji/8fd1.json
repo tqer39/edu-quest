@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "キン"
-    ],
-    "kunyomi": [
-      "ちか-い"
-    ]
+    "onyomi": ["キン"],
+    "kunyomi": ["ちか-い"]
   },
-  "meanings": [
-    "near",
-    "close"
-  ],
-  "radicals": [
-    "辵"
-  ],
+  "meanings": ["near", "close"],
+  "radicals": ["辵"],
   "examples": [
     {
       "word": "近郷",

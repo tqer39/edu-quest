@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "ショウ"
-    ],
-    "kunyomi": [
-      "ちい-さい",
-      "こ",
-      "お"
-    ]
+    "onyomi": ["ショウ"],
+    "kunyomi": ["ちい-さい", "こ", "お"]
   },
-  "meanings": [
-    "small",
-    "little"
-  ],
-  "radicals": [
-    "小"
-  ],
+  "meanings": ["small", "little"],
+  "radicals": ["小"],
   "examples": [
     {
       "word": "小銭",

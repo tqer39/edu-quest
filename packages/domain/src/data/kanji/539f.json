@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "ゲン"
-    ],
-    "kunyomi": [
-      "はら"
-    ]
+    "onyomi": ["ゲン"],
+    "kunyomi": ["はら"]
   },
-  "meanings": [
-    "plain",
-    "field",
-    "origin"
-  ],
-  "radicals": [
-    "厂"
-  ],
+  "meanings": ["plain", "field", "origin"],
+  "radicals": ["厂"],
   "examples": [
     {
       "word": "原寸大",

@@ -3,24 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "サイ"
-    ],
-    "kunyomi": [
-      "ほそ-い",
-      "ほそ-る",
-      "こま-か",
-      "こま-かい"
-    ]
+    "onyomi": ["サイ"],
+    "kunyomi": ["ほそ-い", "ほそ-る", "こま-か", "こま-かい"]
   },
-  "meanings": [
-    "thin",
-    "fine",
-    "detailed"
-  ],
-  "radicals": [
-    "糸"
-  ],
+  "meanings": ["thin", "fine", "detailed"],
+  "radicals": ["糸"],
   "examples": [
     {
       "word": "脳細胞",

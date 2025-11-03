@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "シン"
-    ],
-    "kunyomi": [
-      "あたら-しい",
-      "あら-た",
-      "にい"
-    ]
+    "onyomi": ["シン"],
+    "kunyomi": ["あたら-しい", "あら-た", "にい"]
   },
-  "meanings": [
-    "new"
-  ],
-  "radicals": [
-    "斤"
-  ],
+  "meanings": ["new"],
+  "radicals": ["斤"],
   "examples": [
     {
       "word": "新婦",

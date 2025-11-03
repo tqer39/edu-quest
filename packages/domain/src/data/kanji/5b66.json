@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "ガク"
-    ],
-    "kunyomi": [
-      "まな-ぶ"
-    ]
+    "onyomi": ["ガク"],
+    "kunyomi": ["まな-ぶ"]
   },
-  "meanings": [
-    "study",
-    "learning",
-    "school"
-  ],
-  "radicals": [
-    "子"
-  ],
+  "meanings": ["study", "learning", "school"],
+  "radicals": ["子"],
   "examples": [
     {
       "word": "幾何学",

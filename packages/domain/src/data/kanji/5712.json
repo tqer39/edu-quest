@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "エン"
-    ],
-    "kunyomi": [
-      "その"
-    ]
+    "onyomi": ["エン"],
+    "kunyomi": ["その"]
   },
-  "meanings": [
-    "garden",
-    "park"
-  ],
-  "radicals": [
-    "囗"
-  ],
+  "meanings": ["garden", "park"],
+  "radicals": ["囗"],
   "examples": [
     {
       "word": "果樹園",

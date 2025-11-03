@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "キョウ",
-      "ケイ"
-    ],
+    "onyomi": ["キョウ", "ケイ"],
     "kunyomi": []
   },
-  "meanings": [
-    "capital"
-  ],
-  "radicals": [
-    "亠"
-  ],
+  "meanings": ["capital"],
+  "radicals": ["亠"],
   "examples": [
     {
       "word": "東京湾",

@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ヒャク"
-    ],
-    "kunyomi": [
-      "もも"
-    ]
+    "onyomi": ["ヒャク"],
+    "kunyomi": ["もも"]
   },
-  "meanings": [
-    "hundred"
-  ],
-  "radicals": [
-    "白"
-  ],
+  "meanings": ["hundred"],
+  "radicals": ["白"],
   "examples": [
     {
       "word": "何百",

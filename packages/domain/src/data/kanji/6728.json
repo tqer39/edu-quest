@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ボク",
-      "モク"
-    ],
-    "kunyomi": [
-      "き",
-      "こ"
-    ]
+    "onyomi": ["ボク", "モク"],
+    "kunyomi": ["き", "こ"]
   },
-  "meanings": [
-    "tree",
-    "wood"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["tree", "wood"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "樹木",

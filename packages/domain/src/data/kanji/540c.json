@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ドウ"
-    ],
-    "kunyomi": [
-      "おな-じ"
-    ]
+    "onyomi": ["ドウ"],
+    "kunyomi": ["おな-じ"]
   },
-  "meanings": [
-    "same"
-  ],
-  "radicals": [
-    "口"
-  ],
+  "meanings": ["same"],
+  "radicals": ["口"],
   "examples": [
     {
       "word": "同郷",

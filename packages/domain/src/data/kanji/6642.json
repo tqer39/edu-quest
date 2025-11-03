@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "ジ"
-    ],
-    "kunyomi": [
-      "とき"
-    ]
+    "onyomi": ["ジ"],
+    "kunyomi": ["とき"]
   },
-  "meanings": [
-    "time",
-    "hour"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["time", "hour"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "何時",

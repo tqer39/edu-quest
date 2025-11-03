@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "マイ"
-    ],
-    "kunyomi": [
-      "いもうと"
-    ]
+    "onyomi": ["マイ"],
+    "kunyomi": ["いもうと"]
   },
-  "meanings": [
-    "younger sister"
-  ],
-  "radicals": [
-    "女"
-  ],
+  "meanings": ["younger sister"],
+  "radicals": ["女"],
   "examples": [
     {
       "word": "姉妹",

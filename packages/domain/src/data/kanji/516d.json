@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ロク"
-    ],
-    "kunyomi": [
-      "む",
-      "む-つ",
-      "むっ-つ",
-      "むい"
-    ]
+    "onyomi": ["ロク"],
+    "kunyomi": ["む", "む-つ", "むっ-つ", "むい"]
   },
-  "meanings": [
-    "six"
-  ],
-  "radicals": [
-    "八"
-  ],
+  "meanings": ["six"],
+  "radicals": ["八"],
   "examples": [
     {
       "word": "五臓六腑",

@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 14,
   "readings": {
-    "onyomi": [
-      "メイ"
-    ],
-    "kunyomi": [
-      "な-く",
-      "な-る",
-      "な-らす"
-    ]
+    "onyomi": ["メイ"],
+    "kunyomi": ["な-く", "な-る", "な-らす"]
   },
-  "meanings": [
-    "cry",
-    "sound"
-  ],
-  "radicals": [
-    "鳥"
-  ],
+  "meanings": ["cry", "sound"],
+  "radicals": ["鳥"],
   "examples": [
     {
       "word": "怒鳴る",

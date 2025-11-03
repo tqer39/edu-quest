@@ -3,17 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "マイ"
-    ],
+    "onyomi": ["マイ"],
     "kunyomi": []
   },
-  "meanings": [
-    "every"
-  ],
-  "radicals": [
-    "母"
-  ],
+  "meanings": ["every"],
+  "radicals": ["母"],
   "examples": [
     {
       "word": "毎分",

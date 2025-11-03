@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "トウ"
-    ],
-    "kunyomi": [
-      "ふゆ"
-    ]
+    "onyomi": ["トウ"],
+    "kunyomi": ["ふゆ"]
   },
-  "meanings": [
-    "winter"
-  ],
-  "radicals": [
-    "夂"
-  ],
+  "meanings": ["winter"],
+  "radicals": ["夂"],
   "examples": [
     {
       "word": "冬至",

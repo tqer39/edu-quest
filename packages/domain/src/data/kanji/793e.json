@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "シャ"
-    ],
-    "kunyomi": [
-      "やしろ"
-    ]
+    "onyomi": ["シャ"],
+    "kunyomi": ["やしろ"]
   },
-  "meanings": [
-    "company",
-    "shrine"
-  ],
-  "radicals": [
-    "示"
-  ],
+  "meanings": ["company", "shrine"],
+  "radicals": ["示"],
   "examples": [
     {
       "word": "出版社",

@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "セツ",
-      "サイ"
-    ],
-    "kunyomi": [
-      "き-る",
-      "き-れる"
-    ]
+    "onyomi": ["セツ", "サイ"],
+    "kunyomi": ["き-る", "き-れる"]
   },
-  "meanings": [
-    "cut"
-  ],
-  "radicals": [
-    "刀"
-  ],
+  "meanings": ["cut"],
+  "radicals": ["刀"],
   "examples": [
     {
       "word": "切り株",

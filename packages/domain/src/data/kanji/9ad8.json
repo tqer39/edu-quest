@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "コウ"
-    ],
-    "kunyomi": [
-      "たか-い",
-      "たか",
-      "たか-まる",
-      "たか-める"
-    ]
+    "onyomi": ["コウ"],
+    "kunyomi": ["たか-い", "たか", "たか-まる", "たか-める"]
   },
-  "meanings": [
-    "tall",
-    "high"
-  ],
-  "radicals": [
-    "高"
-  ],
+  "meanings": ["tall", "high"],
+  "radicals": ["高"],
   "examples": [
     {
       "word": "高貴な",

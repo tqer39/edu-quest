@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "カ",
-      "ケ"
-    ],
-    "kunyomi": [
-      "いえ",
-      "や"
-    ]
+    "onyomi": ["カ", "ケ"],
+    "kunyomi": ["いえ", "や"]
   },
-  "meanings": [
-    "house",
-    "home",
-    "family"
-  ],
-  "radicals": [
-    "宀"
-  ],
+  "meanings": ["house", "home", "family"],
+  "radicals": ["宀"],
   "examples": [
     {
       "word": "著述家",

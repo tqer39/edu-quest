@@ -3,11 +3,7 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "メイ",
-      "ミョウ",
-      "ミン"
-    ],
+    "onyomi": ["メイ", "ミョウ", "ミン"],
     "kunyomi": [
       "あ-かり",
       "あか-るい",
@@ -20,13 +16,8 @@
       "あ-かす"
     ]
   },
-  "meanings": [
-    "bright",
-    "clear"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["bright", "clear"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "明朗な",

@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "キョウ"
-    ],
-    "kunyomi": [
-      "おし-える",
-      "おそ-わる"
-    ]
+    "onyomi": ["キョウ"],
+    "kunyomi": ["おし-える", "おそ-わる"]
   },
-  "meanings": [
-    "teach",
-    "education"
-  ],
-  "radicals": [
-    "攴"
-  ],
+  "meanings": ["teach", "education"],
+  "radicals": ["攴"],
   "examples": [
     {
       "word": "教祖",

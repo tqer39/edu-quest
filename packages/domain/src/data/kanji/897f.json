@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "セイ",
-      "サイ"
-    ],
-    "kunyomi": [
-      "にし"
-    ]
+    "onyomi": ["セイ", "サイ"],
+    "kunyomi": ["にし"]
   },
-  "meanings": [
-    "west"
-  ],
-  "radicals": [
-    "西"
-  ],
+  "meanings": ["west"],
+  "radicals": ["西"],
   "examples": [
     {
       "word": "西欧",

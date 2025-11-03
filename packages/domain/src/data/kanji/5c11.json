@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ショウ"
-    ],
-    "kunyomi": [
-      "すく-ない",
-      "すこ-し"
-    ]
+    "onyomi": ["ショウ"],
+    "kunyomi": ["すく-ない", "すこ-し"]
   },
-  "meanings": [
-    "few",
-    "little"
-  ],
-  "radicals": [
-    "小"
-  ],
+  "meanings": ["few", "little"],
+  "radicals": ["小"],
   "examples": [
     {
       "word": "幼少",

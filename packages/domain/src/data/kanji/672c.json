@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ホン"
-    ],
-    "kunyomi": [
-      "もと"
-    ]
+    "onyomi": ["ホン"],
+    "kunyomi": ["もと"]
   },
-  "meanings": [
-    "book",
-    "origin",
-    "main"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["book", "origin", "main"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "初版本",

@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ヨウ"
-    ],
-    "kunyomi": [
-      "もち-いる"
-    ]
+    "onyomi": ["ヨウ"],
+    "kunyomi": ["もち-いる"]
   },
-  "meanings": [
-    "use",
-    "business"
-  ],
-  "radicals": [
-    "用"
-  ],
+  "meanings": ["use", "business"],
+  "radicals": ["用"],
   "examples": [
     {
       "word": "用心棒",

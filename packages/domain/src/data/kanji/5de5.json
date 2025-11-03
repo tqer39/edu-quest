@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "コウ",
-      "ク"
-    ],
+    "onyomi": ["コウ", "ク"],
     "kunyomi": []
   },
-  "meanings": [
-    "craft",
-    "construction"
-  ],
-  "radicals": [
-    "工"
-  ],
+  "meanings": ["craft", "construction"],
+  "radicals": ["工"],
   "examples": [
     {
       "word": "工賃",

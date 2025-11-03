@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "カ"
-    ],
+    "onyomi": ["カ"],
     "kunyomi": []
   },
-  "meanings": [
-    "department",
-    "course"
-  ],
-  "radicals": [
-    "禾"
-  ],
+  "meanings": ["department", "course"],
+  "radicals": ["禾"],
   "examples": [
     {
       "word": "教科書",

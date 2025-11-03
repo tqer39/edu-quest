@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 14,
   "readings": {
-    "onyomi": [
-      "ブン",
-      "モン"
-    ],
-    "kunyomi": [
-      "き-く",
-      "き-こえる"
-    ]
+    "onyomi": ["ブン", "モン"],
+    "kunyomi": ["き-く", "き-こえる"]
   },
-  "meanings": [
-    "hear",
-    "ask"
-  ],
-  "radicals": [
-    "耳"
-  ],
+  "meanings": ["hear", "ask"],
+  "radicals": ["耳"],
   "examples": [
     {
       "word": "新聞紙",

@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 16,
   "readings": {
-    "onyomi": [
-      "トウ",
-      "ズ",
-      "ト"
-    ],
-    "kunyomi": [
-      "あたま",
-      "かしら"
-    ]
+    "onyomi": ["トウ", "ズ", "ト"],
+    "kunyomi": ["あたま", "かしら"]
   },
-  "meanings": [
-    "head"
-  ],
-  "radicals": [
-    "頁"
-  ],
+  "meanings": ["head"],
+  "radicals": ["頁"],
   "examples": [
     {
       "word": "頭脳",

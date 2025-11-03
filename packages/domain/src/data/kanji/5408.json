@@ -3,24 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ゴウ",
-      "ガッ",
-      "カッ"
-    ],
-    "kunyomi": [
-      "あ-う",
-      "あ-わす",
-      "あ-わせる"
-    ]
+    "onyomi": ["ゴウ", "ガッ", "カッ"],
+    "kunyomi": ["あ-う", "あ-わす", "あ-わせる"]
   },
-  "meanings": [
-    "combine",
-    "fit"
-  ],
-  "radicals": [
-    "口"
-  ],
+  "meanings": ["combine", "fit"],
+  "radicals": ["口"],
   "examples": [
     {
       "word": "複合する",

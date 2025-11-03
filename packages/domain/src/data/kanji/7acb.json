@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "リツ",
-      "リュウ"
-    ],
-    "kunyomi": [
-      "た-つ",
-      "た-てる"
-    ]
+    "onyomi": ["リツ", "リュウ"],
+    "kunyomi": ["た-つ", "た-てる"]
   },
-  "meanings": [
-    "stand",
-    "rise"
-  ],
-  "radicals": [
-    "立"
-  ],
+  "meanings": ["stand", "rise"],
+  "radicals": ["立"],
   "examples": [
     {
       "word": "立憲",

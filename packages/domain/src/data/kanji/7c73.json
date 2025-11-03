@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ベイ",
-      "マイ"
-    ],
-    "kunyomi": [
-      "こめ"
-    ]
+    "onyomi": ["ベイ", "マイ"],
+    "kunyomi": ["こめ"]
   },
-  "meanings": [
-    "rice",
-    "America"
-  ],
-  "radicals": [
-    "米"
-  ],
+  "meanings": ["rice", "America"],
+  "radicals": ["米"],
   "examples": [
     {
       "word": "米俵",

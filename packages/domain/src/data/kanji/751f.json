@@ -3,25 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "セイ",
-      "ショウ"
-    ],
-    "kunyomi": [
-      "い-きる",
-      "い-かす",
-      "う-まれる",
-      "なま"
-    ]
+    "onyomi": ["セイ", "ショウ"],
+    "kunyomi": ["い-きる", "い-かす", "う-まれる", "なま"]
   },
-  "meanings": [
-    "life",
-    "birth",
-    "live"
-  ],
-  "radicals": [
-    "生"
-  ],
+  "meanings": ["life", "birth", "live"],
+  "radicals": ["生"],
   "examples": [
     {
       "word": "一年生",

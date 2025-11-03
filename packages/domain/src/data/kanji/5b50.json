@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "シ",
-      "ス"
-    ],
-    "kunyomi": [
-      "こ"
-    ]
+    "onyomi": ["シ", "ス"],
+    "kunyomi": ["こ"]
   },
-  "meanings": [
-    "child"
-  ],
-  "radicals": [
-    "子"
-  ],
+  "meanings": ["child"],
+  "radicals": ["子"],
   "examples": [
     {
       "word": "綿菓子",

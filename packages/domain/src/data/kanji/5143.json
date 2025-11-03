@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ゲン",
-      "ガン"
-    ],
-    "kunyomi": [
-      "もと"
-    ]
+    "onyomi": ["ゲン", "ガン"],
+    "kunyomi": ["もと"]
   },
-  "meanings": [
-    "origin",
-    "source"
-  ],
-  "radicals": [
-    "儿"
-  ],
+  "meanings": ["origin", "source"],
+  "radicals": ["儿"],
   "examples": [
     {
       "word": "元祖",

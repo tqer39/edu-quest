@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ダイ",
-      "タイ"
-    ],
+    "onyomi": ["ダイ", "タイ"],
     "kunyomi": []
   },
-  "meanings": [
-    "stand",
-    "platform"
-  ],
-  "radicals": [
-    "厶"
-  ],
+  "meanings": ["stand", "platform"],
+  "radicals": ["厶"],
   "examples": [
     {
       "word": "天台宗",

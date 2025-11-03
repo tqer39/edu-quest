@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "ジュウ",
-      "ジッ"
-    ],
-    "kunyomi": [
-      "とお",
-      "と"
-    ]
+    "onyomi": ["ジュウ", "ジッ"],
+    "kunyomi": ["とお", "と"]
   },
-  "meanings": [
-    "ten"
-  ],
-  "radicals": [
-    "十"
-  ],
+  "meanings": ["ten"],
+  "radicals": ["十"],
   "examples": [
     {
       "word": "十七",

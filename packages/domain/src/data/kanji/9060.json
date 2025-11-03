@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "エン",
-      "オン"
-    ],
-    "kunyomi": [
-      "とお-い"
-    ]
+    "onyomi": ["エン", "オン"],
+    "kunyomi": ["とお-い"]
   },
-  "meanings": [
-    "far",
-    "distant"
-  ],
-  "radicals": [
-    "辵"
-  ],
+  "meanings": ["far", "distant"],
+  "radicals": ["辵"],
   "examples": [
     {
       "word": "遠慮する",

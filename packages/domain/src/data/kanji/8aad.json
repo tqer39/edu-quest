@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 14,
   "readings": {
-    "onyomi": [
-      "ドク",
-      "トク",
-      "トウ"
-    ],
-    "kunyomi": [
-      "よ-む"
-    ]
+    "onyomi": ["ドク", "トク", "トウ"],
+    "kunyomi": ["よ-む"]
   },
-  "meanings": [
-    "read"
-  ],
-  "radicals": [
-    "言"
-  ],
+  "meanings": ["read"],
+  "radicals": ["言"],
   "examples": [
     {
       "word": "読者層",

@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ナイ",
-      "ダイ"
-    ],
-    "kunyomi": [
-      "うち"
-    ]
+    "onyomi": ["ナイ", "ダイ"],
+    "kunyomi": ["うち"]
   },
-  "meanings": [
-    "inside"
-  ],
-  "radicals": [
-    "入"
-  ],
+  "meanings": ["inside"],
+  "radicals": ["入"],
   "examples": [
     {
       "word": "領内",

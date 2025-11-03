@@ -3,17 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "シュウ"
-    ],
+    "onyomi": ["シュウ"],
     "kunyomi": []
   },
-  "meanings": [
-    "week"
-  ],
-  "radicals": [
-    "辵"
-  ],
+  "meanings": ["week"],
+  "radicals": ["辵"],
   "examples": [
     {
       "word": "七週間",

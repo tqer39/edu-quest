@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "フ"
-    ],
-    "kunyomi": [
-      "ちち"
-    ]
+    "onyomi": ["フ"],
+    "kunyomi": ["ちち"]
   },
-  "meanings": [
-    "father"
-  ],
-  "radicals": [
-    "父"
-  ],
+  "meanings": ["father"],
+  "radicals": ["父"],
   "examples": [
     {
       "word": "祖父母",

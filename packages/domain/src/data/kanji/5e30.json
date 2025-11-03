@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "キ"
-    ],
-    "kunyomi": [
-      "かえ-る",
-      "かえ-す"
-    ]
+    "onyomi": ["キ"],
+    "kunyomi": ["かえ-る", "かえ-す"]
   },
-  "meanings": [
-    "return",
-    "go back"
-  ],
-  "radicals": [
-    "巾"
-  ],
+  "meanings": ["return", "go back"],
+  "radicals": ["巾"],
   "examples": [
     {
       "word": "帰郷する",

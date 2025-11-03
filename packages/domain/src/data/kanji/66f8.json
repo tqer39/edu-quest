@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "ショ"
-    ],
-    "kunyomi": [
-      "か-く"
-    ]
+    "onyomi": ["ショ"],
+    "kunyomi": ["か-く"]
   },
-  "meanings": [
-    "write",
-    "book"
-  ],
-  "radicals": [
-    "曰"
-  ],
+  "meanings": ["write", "book"],
+  "radicals": ["曰"],
   "examples": [
     {
       "word": "領収書",

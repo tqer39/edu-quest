@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "バイ"
-    ],
-    "kunyomi": [
-      "う-る",
-      "う-れる"
-    ]
+    "onyomi": ["バイ"],
+    "kunyomi": ["う-る", "う-れる"]
   },
-  "meanings": [
-    "sell"
-  ],
-  "radicals": [
-    "士"
-  ],
+  "meanings": ["sell"],
+  "radicals": ["士"],
   "examples": [
     {
       "word": "密売する",

@@ -1,8 +1,4 @@
-import type {
-  Kanji,
-  KanjiGrade,
-  KanjiIndexEntry,
-} from '@edu-quest/domain';
+import type { Kanji, KanjiGrade, KanjiIndexEntry } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';

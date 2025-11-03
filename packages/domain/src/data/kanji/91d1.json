@@ -3,23 +3,11 @@
   "grade": 1,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "キン",
-      "コン"
-    ],
-    "kunyomi": [
-      "かね",
-      "かな"
-    ]
+    "onyomi": ["キン", "コン"],
+    "kunyomi": ["かね", "かな"]
   },
-  "meanings": [
-    "gold",
-    "money",
-    "metal"
-  ],
-  "radicals": [
-    "金"
-  ],
+  "meanings": ["gold", "money", "metal"],
+  "radicals": ["金"],
   "examples": [
     {
       "word": "税金",

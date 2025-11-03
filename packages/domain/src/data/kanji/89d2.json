@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "カク"
-    ],
-    "kunyomi": [
-      "かど",
-      "つの"
-    ]
+    "onyomi": ["カク"],
+    "kunyomi": ["かど", "つの"]
   },
-  "meanings": [
-    "angle",
-    "corner",
-    "horn"
-  ],
-  "radicals": [
-    "角"
-  ],
+  "meanings": ["angle", "corner", "horn"],
+  "radicals": ["角"],
   "examples": [
     {
       "word": "鋭角",

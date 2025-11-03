@@ -3,17 +3,11 @@
   "grade": 2,
   "strokeCount": 18,
   "readings": {
-    "onyomi": [
-      "ヨウ"
-    ],
+    "onyomi": ["ヨウ"],
     "kunyomi": []
   },
-  "meanings": [
-    "day of the week"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["day of the week"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "月曜日",

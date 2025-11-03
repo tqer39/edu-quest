@@ -3,9 +3,7 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "コウ"
-    ],
+    "onyomi": ["コウ"],
     "kunyomi": [
       "まじ-わる",
       "まじ-える",
@@ -16,13 +14,8 @@
       "か-わす"
     ]
   },
-  "meanings": [
-    "mix",
-    "exchange"
-  ],
-  "radicals": [
-    "亠"
-  ],
+  "meanings": ["mix", "exchange"],
+  "radicals": ["亠"],
   "examples": [
     {
       "word": "交替する",

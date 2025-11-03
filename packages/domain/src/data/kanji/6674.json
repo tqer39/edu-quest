@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "セイ"
-    ],
-    "kunyomi": [
-      "は-れる",
-      "は-らす"
-    ]
+    "onyomi": ["セイ"],
+    "kunyomi": ["は-れる", "は-らす"]
   },
-  "meanings": [
-    "clear up",
-    "sunny"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["clear up", "sunny"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "晴天",

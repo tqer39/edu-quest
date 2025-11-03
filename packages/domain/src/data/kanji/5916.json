@@ -3,24 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ガイ",
-      "ゲ"
-    ],
-    "kunyomi": [
-      "そと",
-      "ほか",
-      "はず-す",
-      "はず-れる"
-    ]
+    "onyomi": ["ガイ", "ゲ"],
+    "kunyomi": ["そと", "ほか", "はず-す", "はず-れる"]
   },
-  "meanings": [
-    "outside",
-    "foreign"
-  ],
-  "radicals": [
-    "夕"
-  ],
+  "meanings": ["outside", "foreign"],
+  "radicals": ["夕"],
   "examples": [
     {
       "word": "外務省",

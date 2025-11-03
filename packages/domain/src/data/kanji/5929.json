@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "テン"
-    ],
-    "kunyomi": [
-      "あま",
-      "あめ"
-    ]
+    "onyomi": ["テン"],
+    "kunyomi": ["あま", "あめ"]
   },
-  "meanings": [
-    "heaven",
-    "sky"
-  ],
-  "radicals": [
-    "大"
-  ],
+  "meanings": ["heaven", "sky"],
+  "radicals": ["大"],
   "examples": [
     {
       "word": "天気予報",

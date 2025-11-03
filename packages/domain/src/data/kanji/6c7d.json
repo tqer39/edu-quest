@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "キ"
-    ],
+    "onyomi": ["キ"],
     "kunyomi": []
   },
-  "meanings": [
-    "steam",
-    "vapor"
-  ],
-  "radicals": [
-    "水"
-  ],
+  "meanings": ["steam", "vapor"],
+  "radicals": ["水"],
   "examples": [
     {
       "word": "汽車",

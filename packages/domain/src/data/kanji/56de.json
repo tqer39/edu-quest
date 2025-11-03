@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "カイ",
-      "エ"
-    ],
-    "kunyomi": [
-      "まわ-る",
-      "まわ-す"
-    ]
+    "onyomi": ["カイ", "エ"],
+    "kunyomi": ["まわ-る", "まわ-す"]
   },
-  "meanings": [
-    "times",
-    "round",
-    "rotate"
-  ],
-  "radicals": [
-    "囗"
-  ],
+  "meanings": ["times", "round", "rotate"],
+  "radicals": ["囗"],
   "examples": [
     {
       "word": "何回",

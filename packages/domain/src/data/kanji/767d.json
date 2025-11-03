@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ハク",
-      "ビャク"
-    ],
-    "kunyomi": [
-      "しろ",
-      "しろ-い",
-      "しら"
-    ]
+    "onyomi": ["ハク", "ビャク"],
+    "kunyomi": ["しろ", "しろ-い", "しら"]
   },
-  "meanings": [
-    "white"
-  ],
-  "radicals": [
-    "白"
-  ],
+  "meanings": ["white"],
+  "radicals": ["白"],
   "examples": [
     {
       "word": "灰白色",

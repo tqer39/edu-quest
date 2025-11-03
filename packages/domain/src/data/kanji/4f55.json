@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "カ"
-    ],
-    "kunyomi": [
-      "なに",
-      "なん"
-    ]
+    "onyomi": ["カ"],
+    "kunyomi": ["なに", "なん"]
   },
-  "meanings": [
-    "what"
-  ],
-  "radicals": [
-    "人"
-  ],
+  "meanings": ["what"],
+  "radicals": ["人"],
   "examples": [
     {
       "word": "幾何学",

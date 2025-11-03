@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "チュウ"
-    ],
-    "kunyomi": [
-      "むし"
-    ]
+    "onyomi": ["チュウ"],
+    "kunyomi": ["むし"]
   },
-  "meanings": [
-    "insect",
-    "bug"
-  ],
-  "radicals": [
-    "虫"
-  ],
+  "meanings": ["insect", "bug"],
+  "radicals": ["虫"],
   "examples": [
     {
       "word": "防虫剤",

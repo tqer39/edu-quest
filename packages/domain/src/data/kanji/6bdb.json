@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "モウ"
-    ],
-    "kunyomi": [
-      "け"
-    ]
+    "onyomi": ["モウ"],
+    "kunyomi": ["け"]
   },
-  "meanings": [
-    "hair",
-    "fur"
-  ],
-  "radicals": [
-    "毛"
-  ],
+  "meanings": ["hair", "fur"],
+  "radicals": ["毛"],
   "examples": [
     {
       "word": "毛織",

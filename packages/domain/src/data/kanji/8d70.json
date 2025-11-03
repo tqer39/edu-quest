@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ソウ"
-    ],
-    "kunyomi": [
-      "はし-る"
-    ]
+    "onyomi": ["ソウ"],
+    "kunyomi": ["はし-る"]
   },
-  "meanings": [
-    "run"
-  ],
-  "radicals": [
-    "走"
-  ],
+  "meanings": ["run"],
+  "radicals": ["走"],
   "examples": [
     {
       "word": "逃走する",

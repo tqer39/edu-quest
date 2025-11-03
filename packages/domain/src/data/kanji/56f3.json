@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ズ",
-      "ト"
-    ],
-    "kunyomi": [
-      "はか-る"
-    ]
+    "onyomi": ["ズ", "ト"],
+    "kunyomi": ["はか-る"]
   },
-  "meanings": [
-    "diagram",
-    "map"
-  ],
-  "radicals": [
-    "囗"
-  ],
+  "meanings": ["diagram", "map"],
+  "radicals": ["囗"],
   "examples": [
     {
       "word": "図書館",

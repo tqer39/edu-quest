@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "コウ"
-    ],
-    "kunyomi": [
-      "かんが-える"
-    ]
+    "onyomi": ["コウ"],
+    "kunyomi": ["かんが-える"]
   },
-  "meanings": [
-    "think",
-    "consider"
-  ],
-  "radicals": [
-    "老"
-  ],
+  "meanings": ["think", "consider"],
+  "radicals": ["老"],
   "examples": [
     {
       "word": "参考書",

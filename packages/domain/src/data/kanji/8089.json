@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ニク"
-    ],
+    "onyomi": ["ニク"],
     "kunyomi": []
   },
-  "meanings": [
-    "meat",
-    "flesh"
-  ],
-  "radicals": [
-    "肉"
-  ],
+  "meanings": ["meat", "flesh"],
+  "radicals": ["肉"],
   "examples": [
     {
       "word": "筋肉痛",

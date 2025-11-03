@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "タ"
-    ],
-    "kunyomi": [
-      "おお-い"
-    ]
+    "onyomi": ["タ"],
+    "kunyomi": ["おお-い"]
   },
-  "meanings": [
-    "many",
-    "much"
-  ],
-  "radicals": [
-    "夕"
-  ],
+  "meanings": ["many", "much"],
+  "radicals": ["夕"],
   "examples": [
     {
       "word": "薄利多売",

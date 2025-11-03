@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "トウ"
-    ],
-    "kunyomi": [
-      "ひがし"
-    ]
+    "onyomi": ["トウ"],
+    "kunyomi": ["ひがし"]
   },
-  "meanings": [
-    "east"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["east"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "東欧",

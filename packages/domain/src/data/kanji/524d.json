@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "ゼン"
-    ],
-    "kunyomi": [
-      "まえ"
-    ]
+    "onyomi": ["ゼン"],
+    "kunyomi": ["まえ"]
   },
-  "meanings": [
-    "front",
-    "before"
-  ],
-  "radicals": [
-    "刀"
-  ],
+  "meanings": ["front", "before"],
+  "radicals": ["刀"],
   "examples": [
     {
       "word": "寸前に",

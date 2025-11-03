@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "セイ",
-      "ショウ"
-    ],
-    "kunyomi": [
-      "こえ",
-      "こわ"
-    ]
+    "onyomi": ["セイ", "ショウ"],
+    "kunyomi": ["こえ", "こわ"]
   },
-  "meanings": [
-    "voice"
-  ],
-  "radicals": [
-    "士"
-  ],
+  "meanings": ["voice"],
+  "radicals": ["士"],
   "examples": [
     {
       "word": "叫び声",

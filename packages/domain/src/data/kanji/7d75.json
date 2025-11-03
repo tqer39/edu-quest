@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "カイ",
-      "エ"
-    ],
+    "onyomi": ["カイ", "エ"],
     "kunyomi": []
   },
-  "meanings": [
-    "picture",
-    "drawing"
-  ],
-  "radicals": [
-    "糸"
-  ],
+  "meanings": ["picture", "drawing"],
+  "radicals": ["糸"],
   "examples": [
     {
       "word": "絵巻物",

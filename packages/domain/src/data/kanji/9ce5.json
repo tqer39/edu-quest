@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "チョウ"
-    ],
-    "kunyomi": [
-      "とり"
-    ]
+    "onyomi": ["チョウ"],
+    "kunyomi": ["とり"]
   },
-  "meanings": [
-    "bird"
-  ],
-  "radicals": [
-    "鳥"
-  ],
+  "meanings": ["bird"],
+  "radicals": ["鳥"],
   "examples": [
     {
       "word": "白鳥",

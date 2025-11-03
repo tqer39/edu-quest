@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "セキ",
-      "シャク"
-    ],
-    "kunyomi": [
-      "あか",
-      "あか-い"
-    ]
+    "onyomi": ["セキ", "シャク"],
+    "kunyomi": ["あか", "あか-い"]
   },
-  "meanings": [
-    "red"
-  ],
-  "radicals": [
-    "赤"
-  ],
+  "meanings": ["red"],
+  "radicals": ["赤"],
   "examples": [
     {
       "word": "赤帽",

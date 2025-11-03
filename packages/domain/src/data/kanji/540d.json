@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "メイ",
-      "ミョウ"
-    ],
-    "kunyomi": [
-      "な"
-    ]
+    "onyomi": ["メイ", "ミョウ"],
+    "kunyomi": ["な"]
   },
-  "meanings": [
-    "name"
-  ],
-  "radicals": [
-    "口"
-  ],
+  "meanings": ["name"],
+  "radicals": ["口"],
   "examples": [
     {
       "word": "署名する",

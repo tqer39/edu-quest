@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "タイ",
-      "タ"
-    ],
-    "kunyomi": [
-      "ふと-い",
-      "ふと-る"
-    ]
+    "onyomi": ["タイ", "タ"],
+    "kunyomi": ["ふと-い", "ふと-る"]
   },
-  "meanings": [
-    "thick",
-    "fat"
-  ],
-  "radicals": [
-    "大"
-  ],
+  "meanings": ["thick", "fat"],
+  "radicals": ["大"],
   "examples": [
     {
       "word": "皇太后",

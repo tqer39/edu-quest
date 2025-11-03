@@ -3,25 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ブン",
-      "フン",
-      "ブ"
-    ],
-    "kunyomi": [
-      "わ-ける",
-      "わ-かれる",
-      "わ-かる",
-      "わ-かつ"
-    ]
+    "onyomi": ["ブン", "フン", "ブ"],
+    "kunyomi": ["わ-ける", "わ-かれる", "わ-かる", "わ-かつ"]
   },
-  "meanings": [
-    "divide",
-    "minute"
-  ],
-  "radicals": [
-    "刀"
-  ],
+  "meanings": ["divide", "minute"],
+  "radicals": ["刀"],
   "examples": [
     {
       "word": "一分",

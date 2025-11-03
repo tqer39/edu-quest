@@ -3,23 +3,11 @@
   "grade": 1,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "クウ"
-    ],
-    "kunyomi": [
-      "そら",
-      "あ-く",
-      "あ-ける",
-      "から"
-    ]
+    "onyomi": ["クウ"],
+    "kunyomi": ["そら", "あ-く", "あ-ける", "から"]
   },
-  "meanings": [
-    "sky",
-    "empty"
-  ],
-  "radicals": [
-    "穴"
-  ],
+  "meanings": ["sky", "empty"],
+  "radicals": ["穴"],
   "examples": [
     {
       "word": "領空",

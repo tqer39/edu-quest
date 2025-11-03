@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "セイ",
-      "ショウ"
-    ],
-    "kunyomi": [
-      "ほし"
-    ]
+    "onyomi": ["セイ", "ショウ"],
+    "kunyomi": ["ほし"]
   },
-  "meanings": [
-    "star"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["star"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "占星術",

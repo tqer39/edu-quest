@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "ソ"
-    ],
-    "kunyomi": [
-      "く-む",
-      "くみ"
-    ]
+    "onyomi": ["ソ"],
+    "kunyomi": ["く-む", "くみ"]
   },
-  "meanings": [
-    "group",
-    "class"
-  ],
-  "radicals": [
-    "糸"
-  ],
+  "meanings": ["group", "class"],
+  "radicals": ["糸"],
   "examples": [
     {
       "word": "組織",

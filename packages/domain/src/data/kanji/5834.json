@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "ジョウ"
-    ],
-    "kunyomi": [
-      "ば"
-    ]
+    "onyomi": ["ジョウ"],
+    "kunyomi": ["ば"]
   },
-  "meanings": [
-    "place",
-    "field"
-  ],
-  "radicals": [
-    "土"
-  ],
+  "meanings": ["place", "field"],
+  "radicals": ["土"],
   "examples": [
     {
       "word": "退場する",

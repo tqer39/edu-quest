@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "や"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["や"]
   },
-  "meanings": [
-    "arrow"
-  ],
-  "radicals": [
-    "矢"
-  ],
+  "meanings": ["arrow"],
+  "radicals": ["矢"],
   "examples": [
     {
       "word": "矢印",

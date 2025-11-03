@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "カ"
-    ],
-    "kunyomi": [
-      "ひ",
-      "ほ"
-    ]
+    "onyomi": ["カ"],
+    "kunyomi": ["ひ", "ほ"]
   },
-  "meanings": [
-    "fire"
-  ],
-  "radicals": [
-    "火"
-  ],
+  "meanings": ["fire"],
+  "radicals": ["火"],
   "examples": [
     {
       "word": "火山灰",

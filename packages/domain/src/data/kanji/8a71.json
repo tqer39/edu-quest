@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "ワ"
-    ],
-    "kunyomi": [
-      "はな-す",
-      "はなし"
-    ]
+    "onyomi": ["ワ"],
+    "kunyomi": ["はな-す", "はなし"]
   },
-  "meanings": [
-    "talk",
-    "speak"
-  ],
-  "radicals": [
-    "言"
-  ],
+  "meanings": ["talk", "speak"],
+  "radicals": ["言"],
   "examples": [
     {
       "word": "電話",

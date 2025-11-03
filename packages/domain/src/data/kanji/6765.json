@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ライ"
-    ],
-    "kunyomi": [
-      "く-る",
-      "きた-る",
-      "きた-す"
-    ]
+    "onyomi": ["ライ"],
+    "kunyomi": ["く-る", "きた-る", "きた-す"]
   },
-  "meanings": [
-    "come"
-  ],
-  "radicals": [
-    "人"
-  ],
+  "meanings": ["come"],
+  "radicals": ["人"],
   "examples": [
     {
       "word": "持って来る",

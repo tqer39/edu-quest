@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ウ"
-    ],
-    "kunyomi": [
-      "は",
-      "はね"
-    ]
+    "onyomi": ["ウ"],
+    "kunyomi": ["は", "はね"]
   },
-  "meanings": [
-    "feather",
-    "wing"
-  ],
-  "radicals": [
-    "羽"
-  ],
+  "meanings": ["feather", "wing"],
+  "radicals": ["羽"],
   "examples": [
     {
       "word": "羽毛",

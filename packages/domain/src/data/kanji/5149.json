@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "コウ"
-    ],
-    "kunyomi": [
-      "ひか-る",
-      "ひかり"
-    ]
+    "onyomi": ["コウ"],
+    "kunyomi": ["ひか-る", "ひかり"]
   },
-  "meanings": [
-    "light",
-    "shine"
-  ],
-  "radicals": [
-    "儿"
-  ],
+  "meanings": ["light", "shine"],
+  "radicals": ["儿"],
   "examples": [
     {
       "word": "光熱費",

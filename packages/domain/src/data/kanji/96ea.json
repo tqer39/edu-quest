@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "セツ"
-    ],
-    "kunyomi": [
-      "ゆき"
-    ]
+    "onyomi": ["セツ"],
+    "kunyomi": ["ゆき"]
   },
-  "meanings": [
-    "snow"
-  ],
-  "radicals": [
-    "雨"
-  ],
+  "meanings": ["snow"],
+  "radicals": ["雨"],
   "examples": [
     {
       "word": "積雪",

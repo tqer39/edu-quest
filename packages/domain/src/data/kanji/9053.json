@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "ドウ",
-      "トウ"
-    ],
-    "kunyomi": [
-      "みち"
-    ]
+    "onyomi": ["ドウ", "トウ"],
+    "kunyomi": ["みち"]
   },
-  "meanings": [
-    "road",
-    "way"
-  ],
-  "radicals": [
-    "辵"
-  ],
+  "meanings": ["road", "way"],
+  "radicals": ["辵"],
   "examples": [
     {
       "word": "道徳",

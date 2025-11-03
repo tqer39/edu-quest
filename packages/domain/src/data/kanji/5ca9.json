@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "ガン"
-    ],
-    "kunyomi": [
-      "いわ"
-    ]
+    "onyomi": ["ガン"],
+    "kunyomi": ["いわ"]
   },
-  "meanings": [
-    "rock",
-    "crag"
-  ],
-  "radicals": [
-    "山"
-  ],
+  "meanings": ["rock", "crag"],
+  "radicals": ["山"],
   "examples": [
     {
       "word": "岩山",

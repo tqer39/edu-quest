@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ケイ",
-      "ギョウ"
-    ],
-    "kunyomi": [
-      "かた",
-      "かたち"
-    ]
+    "onyomi": ["ケイ", "ギョウ"],
+    "kunyomi": ["かた", "かたち"]
   },
-  "meanings": [
-    "shape",
-    "form"
-  ],
-  "radicals": [
-    "彡"
-  ],
+  "meanings": ["shape", "form"],
+  "radicals": ["彡"],
   "examples": [
     {
       "word": "操り人形",

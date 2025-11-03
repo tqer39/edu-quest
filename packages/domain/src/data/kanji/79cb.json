@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "シュウ"
-    ],
-    "kunyomi": [
-      "あき"
-    ]
+    "onyomi": ["シュウ"],
+    "kunyomi": ["あき"]
   },
-  "meanings": [
-    "autumn",
-    "fall"
-  ],
-  "radicals": [
-    "禾"
-  ],
+  "meanings": ["autumn", "fall"],
+  "radicals": ["禾"],
   "examples": [
     {
       "word": "秋分",

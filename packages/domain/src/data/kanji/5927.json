@@ -3,23 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "ダイ",
-      "タイ"
-    ],
-    "kunyomi": [
-      "おお",
-      "おお-きい",
-      "おお-いに"
-    ]
+    "onyomi": ["ダイ", "タイ"],
+    "kunyomi": ["おお", "おお-きい", "おお-いに"]
   },
-  "meanings": [
-    "big",
-    "large"
-  ],
-  "radicals": [
-    "大"
-  ],
+  "meanings": ["big", "large"],
+  "radicals": ["大"],
   "examples": [
     {
       "word": "大損",

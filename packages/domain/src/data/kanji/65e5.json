@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ニチ",
-      "ジツ"
-    ],
-    "kunyomi": [
-      "ひ",
-      "か"
-    ]
+    "onyomi": ["ニチ", "ジツ"],
+    "kunyomi": ["ひ", "か"]
   },
-  "meanings": [
-    "day",
-    "sun"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["day", "sun"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "七日",

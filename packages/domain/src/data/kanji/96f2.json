@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "ウン"
-    ],
-    "kunyomi": [
-      "くも"
-    ]
+    "onyomi": ["ウン"],
+    "kunyomi": ["くも"]
   },
-  "meanings": [
-    "cloud"
-  ],
-  "radicals": [
-    "雨"
-  ],
+  "meanings": ["cloud"],
+  "radicals": ["雨"],
   "examples": [
     {
       "word": "雨雲",

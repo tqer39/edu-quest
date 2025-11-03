@@ -3,23 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "シュツ",
-      "スイ"
-    ],
-    "kunyomi": [
-      "で-る",
-      "だ-す"
-    ]
+    "onyomi": ["シュツ", "スイ"],
+    "kunyomi": ["で-る", "だ-す"]
   },
-  "meanings": [
-    "exit",
-    "leave",
-    "go out"
-  ],
-  "radicals": [
-    "凵"
-  ],
+  "meanings": ["exit", "leave", "go out"],
+  "radicals": ["凵"],
   "examples": [
     {
       "word": "出版社",

@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "スウ",
-      "ス",
-      "サク"
-    ],
-    "kunyomi": [
-      "かず",
-      "かぞ-える"
-    ]
+    "onyomi": ["スウ", "ス", "サク"],
+    "kunyomi": ["かず", "かぞ-える"]
   },
-  "meanings": [
-    "number",
-    "count"
-  ],
-  "radicals": [
-    "攴"
-  ],
+  "meanings": ["number", "count"],
+  "radicals": ["攴"],
   "examples": [
     {
       "word": "複数",

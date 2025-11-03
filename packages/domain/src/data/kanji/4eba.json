@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "ジン",
-      "ニン"
-    ],
-    "kunyomi": [
-      "ひと"
-    ]
+    "onyomi": ["ジン", "ニン"],
+    "kunyomi": ["ひと"]
   },
-  "meanings": [
-    "person",
-    "people"
-  ],
-  "radicals": [
-    "人"
-  ],
+  "meanings": ["person", "people"],
+  "radicals": ["人"],
   "examples": [
     {
       "word": "一人",

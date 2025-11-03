@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "カ",
-      "ゲ"
-    ],
-    "kunyomi": [
-      "なつ"
-    ]
+    "onyomi": ["カ", "ゲ"],
+    "kunyomi": ["なつ"]
   },
-  "meanings": [
-    "summer"
-  ],
-  "radicals": [
-    "夊"
-  ],
+  "meanings": ["summer"],
+  "radicals": ["夊"],
   "examples": [
     {
       "word": "夏至",

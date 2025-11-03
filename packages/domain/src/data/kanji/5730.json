@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "チ",
-      "ジ"
-    ],
+    "onyomi": ["チ", "ジ"],
     "kunyomi": []
   },
-  "meanings": [
-    "ground",
-    "earth"
-  ],
-  "radicals": [
-    "土"
-  ],
+  "meanings": ["ground", "earth"],
+  "radicals": ["土"],
   "examples": [
     {
       "word": "墓地",

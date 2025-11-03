@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ゴ"
-    ],
-    "kunyomi": [
-      "いつ",
-      "いつ-つ"
-    ]
+    "onyomi": ["ゴ"],
+    "kunyomi": ["いつ", "いつ-つ"]
   },
-  "meanings": [
-    "five"
-  ],
-  "radicals": [
-    "二"
-  ],
+  "meanings": ["five"],
+  "radicals": ["二"],
   "examples": [
     {
       "word": "七五三",

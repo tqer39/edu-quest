@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "ショク",
-      "ジキ"
-    ],
-    "kunyomi": [
-      "た-べる",
-      "く-う"
-    ]
+    "onyomi": ["ショク", "ジキ"],
+    "kunyomi": ["た-べる", "く-う"]
   },
-  "meanings": [
-    "eat",
-    "food"
-  ],
-  "radicals": [
-    "食"
-  ],
+  "meanings": ["eat", "food"],
+  "radicals": ["食"],
   "examples": [
     {
       "word": "無銭飲食",

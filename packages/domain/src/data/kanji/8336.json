@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "チャ",
-      "サ"
-    ],
+    "onyomi": ["チャ", "サ"],
     "kunyomi": []
   },
-  "meanings": [
-    "tea"
-  ],
-  "radicals": [
-    "艸"
-  ],
+  "meanings": ["tea"],
+  "radicals": ["艸"],
   "examples": [
     {
       "word": "紅茶",

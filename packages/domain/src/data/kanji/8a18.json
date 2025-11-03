@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "キ"
-    ],
-    "kunyomi": [
-      "しる-す"
-    ]
+    "onyomi": ["キ"],
+    "kunyomi": ["しる-す"]
   },
-  "meanings": [
-    "write down",
-    "record"
-  ],
-  "radicals": [
-    "言"
-  ],
+  "meanings": ["write down", "record"],
+  "radicals": ["言"],
   "examples": [
     {
       "word": "記述する",

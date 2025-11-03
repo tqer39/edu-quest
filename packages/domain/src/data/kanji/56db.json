@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "よ",
-      "よ-つ",
-      "よっ-つ",
-      "よん"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["よ", "よ-つ", "よっ-つ", "よん"]
   },
-  "meanings": [
-    "four"
-  ],
-  "radicals": [
-    "囗"
-  ],
+  "meanings": ["four"],
+  "radicals": ["囗"],
   "examples": [
     {
       "word": "四隅",

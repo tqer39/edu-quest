@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "コク"
-    ],
-    "kunyomi": [
-      "くに"
-    ]
+    "onyomi": ["コク"],
+    "kunyomi": ["くに"]
   },
-  "meanings": [
-    "country"
-  ],
-  "radicals": [
-    "囗"
-  ],
+  "meanings": ["country"],
+  "radicals": ["囗"],
   "examples": [
     {
       "word": "祖国",

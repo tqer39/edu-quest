@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "コク"
-    ],
-    "kunyomi": [
-      "くろ",
-      "くろ-い"
-    ]
+    "onyomi": ["コク"],
+    "kunyomi": ["くろ", "くろ-い"]
   },
-  "meanings": [
-    "black"
-  ],
-  "radicals": [
-    "黒"
-  ],
+  "meanings": ["black"],
+  "radicals": ["黒"],
   "examples": [
     {
       "word": "黒潮",

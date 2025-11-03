@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "サン"
-    ],
-    "kunyomi": [
-      "やま"
-    ]
+    "onyomi": ["サン"],
+    "kunyomi": ["やま"]
   },
-  "meanings": [
-    "mountain"
-  ],
-  "radicals": [
-    "山"
-  ],
+  "meanings": ["mountain"],
+  "radicals": ["山"],
   "examples": [
     {
       "word": "銅山",

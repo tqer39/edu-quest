@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ジ"
-    ],
-    "kunyomi": [
-      "みみ"
-    ]
+    "onyomi": ["ジ"],
+    "kunyomi": ["みみ"]
   },
-  "meanings": [
-    "ear"
-  ],
-  "radicals": [
-    "耳"
-  ],
+  "meanings": ["ear"],
+  "radicals": ["耳"],
   "examples": [
     {
       "word": "耳鼻科",

@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "いと"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["いと"]
   },
-  "meanings": [
-    "thread",
-    "string"
-  ],
-  "radicals": [
-    "糸"
-  ],
+  "meanings": ["thread", "string"],
+  "radicals": ["糸"],
   "examples": [
     {
       "word": "綿糸",

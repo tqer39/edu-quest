@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "と-まる",
-      "と-める"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["と-まる", "と-める"]
   },
-  "meanings": [
-    "stop"
-  ],
-  "radicals": [
-    "止"
-  ],
+  "meanings": ["stop"],
+  "radicals": ["止"],
   "examples": [
     {
       "word": "防止する",

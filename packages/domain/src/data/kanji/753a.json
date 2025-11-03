@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "チョウ"
-    ],
-    "kunyomi": [
-      "まち"
-    ]
+    "onyomi": ["チョウ"],
+    "kunyomi": ["まち"]
   },
-  "meanings": [
-    "town"
-  ],
-  "radicals": [
-    "田"
-  ],
+  "meanings": ["town"],
+  "radicals": ["田"],
   "examples": [
     {
       "word": "町長",

@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "いち"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["いち"]
   },
-  "meanings": [
-    "city",
-    "market"
-  ],
-  "radicals": [
-    "巾"
-  ],
+  "meanings": ["city", "market"],
+  "radicals": ["巾"],
   "examples": [
     {
       "word": "市況",

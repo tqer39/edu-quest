@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "テン"
-    ],
-    "kunyomi": [
-      "みせ"
-    ]
+    "onyomi": ["テン"],
+    "kunyomi": ["みせ"]
   },
-  "meanings": [
-    "shop",
-    "store"
-  ],
-  "radicals": [
-    "广"
-  ],
+  "meanings": ["shop", "store"],
+  "radicals": ["广"],
   "examples": [
     {
       "word": "閉店する",

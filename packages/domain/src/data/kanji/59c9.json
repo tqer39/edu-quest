@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "あね"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["あね"]
   },
-  "meanings": [
-    "older sister"
-  ],
-  "radicals": [
-    "女"
-  ],
+  "meanings": ["older sister"],
+  "radicals": ["女"],
   "examples": [
     {
       "word": "姉妹",

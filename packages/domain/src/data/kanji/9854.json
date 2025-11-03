@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 18,
   "readings": {
-    "onyomi": [
-      "ガン"
-    ],
-    "kunyomi": [
-      "かお"
-    ]
+    "onyomi": ["ガン"],
+    "kunyomi": ["かお"]
   },
-  "meanings": [
-    "face"
-  ],
-  "radicals": [
-    "頁"
-  ],
+  "meanings": ["face"],
+  "radicals": ["頁"],
   "examples": [
     {
       "word": "顔色",

@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "キュウ"
-    ],
-    "kunyomi": [
-      "やす-む",
-      "やす-める"
-    ]
+    "onyomi": ["キュウ"],
+    "kunyomi": ["やす-む", "やす-める"]
   },
-  "meanings": [
-    "rest",
-    "break"
-  ],
-  "radicals": [
-    "人"
-  ],
+  "meanings": ["rest", "break"],
+  "radicals": ["人"],
   "examples": [
     {
       "word": "休館する",

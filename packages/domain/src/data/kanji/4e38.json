@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "ガン"
-    ],
-    "kunyomi": [
-      "まる",
-      "まる-い"
-    ]
+    "onyomi": ["ガン"],
+    "kunyomi": ["まる", "まる-い"]
   },
-  "meanings": [
-    "round",
-    "circle"
-  ],
-  "radicals": [
-    "丶"
-  ],
+  "meanings": ["round", "circle"],
+  "radicals": ["丶"],
   "examples": [
     {
       "word": "丸太",

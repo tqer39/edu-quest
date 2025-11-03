@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "コ"
-    ],
-    "kunyomi": [
-      "と"
-    ]
+    "onyomi": ["コ"],
+    "kunyomi": ["と"]
   },
-  "meanings": [
-    "door"
-  ],
-  "radicals": [
-    "戸"
-  ],
+  "meanings": ["door"],
+  "radicals": ["戸"],
   "examples": [
     {
       "word": "納戸",

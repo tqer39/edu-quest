@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "カ"
-    ],
-    "kunyomi": [
-      "はな"
-    ]
+    "onyomi": ["カ"],
+    "kunyomi": ["はな"]
   },
-  "meanings": [
-    "flower"
-  ],
-  "radicals": [
-    "艸"
-  ],
+  "meanings": ["flower"],
+  "radicals": ["艸"],
   "examples": [
     {
       "word": "綿花",

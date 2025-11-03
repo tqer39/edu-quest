@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "ツウ",
-      "ツ"
-    ],
-    "kunyomi": [
-      "とお-る",
-      "とお-す",
-      "かよ-う"
-    ]
+    "onyomi": ["ツウ", "ツ"],
+    "kunyomi": ["とお-る", "とお-す", "かよ-う"]
   },
-  "meanings": [
-    "pass through",
-    "commute"
-  ],
-  "radicals": [
-    "辵"
-  ],
+  "meanings": ["pass through", "commute"],
+  "radicals": ["辵"],
   "examples": [
     {
       "word": "通報する",

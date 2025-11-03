@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "サク",
-      "サ"
-    ],
-    "kunyomi": [
-      "つく-る"
-    ]
+    "onyomi": ["サク", "サ"],
+    "kunyomi": ["つく-る"]
   },
-  "meanings": [
-    "make",
-    "create"
-  ],
-  "radicals": [
-    "人"
-  ],
+  "meanings": ["make", "create"],
+  "radicals": ["人"],
   "examples": [
     {
       "word": "操作する",

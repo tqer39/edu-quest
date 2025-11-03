@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "バイ"
-    ],
-    "kunyomi": [
-      "かい"
-    ]
+    "onyomi": ["バイ"],
+    "kunyomi": ["かい"]
   },
-  "meanings": [
-    "shellfish",
-    "shell"
-  ],
-  "radicals": [
-    "貝"
-  ],
+  "meanings": ["shellfish", "shell"],
+  "radicals": ["貝"],
   "examples": [
     {
       "word": "貝",

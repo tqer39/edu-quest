@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "チュウ"
-    ],
-    "kunyomi": [
-      "ひる"
-    ]
+    "onyomi": ["チュウ"],
+    "kunyomi": ["ひる"]
   },
-  "meanings": [
-    "daytime",
-    "noon"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["daytime", "noon"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "昼時",

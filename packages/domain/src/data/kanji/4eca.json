@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "コン",
-      "キン"
-    ],
-    "kunyomi": [
-      "いま"
-    ]
+    "onyomi": ["コン", "キン"],
+    "kunyomi": ["いま"]
   },
-  "meanings": [
-    "now",
-    "present"
-  ],
-  "radicals": [
-    "人"
-  ],
+  "meanings": ["now", "present"],
+  "radicals": ["人"],
   "examples": [
     {
       "word": "今更",

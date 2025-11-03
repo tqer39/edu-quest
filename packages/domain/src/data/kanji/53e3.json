@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "コウ",
-      "ク"
-    ],
-    "kunyomi": [
-      "くち"
-    ]
+    "onyomi": ["コウ", "ク"],
+    "kunyomi": ["くち"]
   },
-  "meanings": [
-    "mouth"
-  ],
-  "radicals": [
-    "口"
-  ],
+  "meanings": ["mouth"],
+  "radicals": ["口"],
   "examples": [
     {
       "word": "口述する",

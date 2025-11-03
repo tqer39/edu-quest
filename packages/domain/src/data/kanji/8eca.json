@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "シャ"
-    ],
-    "kunyomi": [
-      "くるま"
-    ]
+    "onyomi": ["シャ"],
+    "kunyomi": ["くるま"]
   },
-  "meanings": [
-    "car",
-    "vehicle",
-    "wheel"
-  ],
-  "radicals": [
-    "車"
-  ],
+  "meanings": ["car", "vehicle", "wheel"],
+  "radicals": ["車"],
   "examples": [
     {
       "word": "消防車",

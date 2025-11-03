@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "シン"
-    ],
-    "kunyomi": [
-      "こころ"
-    ]
+    "onyomi": ["シン"],
+    "kunyomi": ["こころ"]
   },
-  "meanings": [
-    "heart",
-    "mind"
-  ],
-  "radicals": [
-    "心"
-  ],
+  "meanings": ["heart", "mind"],
+  "radicals": ["心"],
   "examples": [
     {
       "word": "愛郷心",

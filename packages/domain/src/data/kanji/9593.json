@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "カン",
-      "ケン"
-    ],
-    "kunyomi": [
-      "あいだ",
-      "ま"
-    ]
+    "onyomi": ["カン", "ケン"],
+    "kunyomi": ["あいだ", "ま"]
   },
-  "meanings": [
-    "interval",
-    "space",
-    "between"
-  ],
-  "radicals": [
-    "門"
-  ],
+  "meanings": ["interval", "space", "between"],
+  "radicals": ["門"],
   "examples": [
     {
       "word": "七週間",

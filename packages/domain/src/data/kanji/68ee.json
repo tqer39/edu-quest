@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "シン"
-    ],
-    "kunyomi": [
-      "もり"
-    ]
+    "onyomi": ["シン"],
+    "kunyomi": ["もり"]
   },
-  "meanings": [
-    "forest"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["forest"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "森林",

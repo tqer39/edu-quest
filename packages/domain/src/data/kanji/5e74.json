@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ネン"
-    ],
-    "kunyomi": [
-      "とし"
-    ]
+    "onyomi": ["ネン"],
+    "kunyomi": ["とし"]
   },
-  "meanings": [
-    "year"
-  ],
-  "radicals": [
-    "干"
-  ],
+  "meanings": ["year"],
+  "radicals": ["干"],
   "examples": [
     {
       "word": "一年生",

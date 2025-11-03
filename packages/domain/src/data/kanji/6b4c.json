@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 14,
   "readings": {
-    "onyomi": [
-      "カ"
-    ],
-    "kunyomi": [
-      "うた",
-      "うた-う"
-    ]
+    "onyomi": ["カ"],
+    "kunyomi": ["うた", "うた-う"]
   },
-  "meanings": [
-    "song",
-    "sing"
-  ],
-  "radicals": [
-    "欠"
-  ],
+  "meanings": ["song", "sing"],
+  "radicals": ["欠"],
   "examples": [
     {
       "word": "歌舞伎",

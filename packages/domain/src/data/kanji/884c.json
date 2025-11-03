@@ -3,24 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "コウ",
-      "ギョウ",
-      "アン"
-    ],
-    "kunyomi": [
-      "い-く",
-      "ゆ-く",
-      "おこな-う"
-    ]
+    "onyomi": ["コウ", "ギョウ", "アン"],
+    "kunyomi": ["い-く", "ゆ-く", "おこな-う"]
   },
-  "meanings": [
-    "go",
-    "conduct"
-  ],
-  "radicals": [
-    "行"
-  ],
+  "meanings": ["go", "conduct"],
+  "radicals": ["行"],
   "examples": [
     {
       "word": "犯行",

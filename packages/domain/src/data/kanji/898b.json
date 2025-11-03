@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ケン"
-    ],
-    "kunyomi": [
-      "み-る",
-      "み-える"
-    ]
+    "onyomi": ["ケン"],
+    "kunyomi": ["み-る", "み-える"]
   },
-  "meanings": [
-    "see",
-    "look",
-    "watch"
-  ],
-  "radicals": [
-    "見"
-  ],
+  "meanings": ["see", "look", "watch"],
+  "radicals": ["見"],
   "examples": [
     {
       "word": "拝見する",

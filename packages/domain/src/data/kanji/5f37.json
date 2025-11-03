@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "キョウ",
-      "ゴウ"
-    ],
-    "kunyomi": [
-      "つよ-い",
-      "つよ-まる",
-      "つよ-める"
-    ]
+    "onyomi": ["キョウ", "ゴウ"],
+    "kunyomi": ["つよ-い", "つよ-まる", "つよ-める"]
   },
-  "meanings": [
-    "strong"
-  ],
-  "radicals": [
-    "弓"
-  ],
+  "meanings": ["strong"],
+  "radicals": ["弓"],
   "examples": [
     {
       "word": "富国強兵",

@@ -3,17 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ゴ"
-    ],
+    "onyomi": ["ゴ"],
     "kunyomi": []
   },
-  "meanings": [
-    "noon"
-  ],
-  "radicals": [
-    "十"
-  ],
+  "meanings": ["noon"],
+  "radicals": ["十"],
   "examples": [
     {
       "word": "午前",

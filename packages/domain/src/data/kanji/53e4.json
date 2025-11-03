@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "コ"
-    ],
-    "kunyomi": [
-      "ふる-い",
-      "ふる-す"
-    ]
+    "onyomi": ["コ"],
+    "kunyomi": ["ふる-い", "ふる-す"]
   },
-  "meanings": [
-    "old"
-  ],
-  "radicals": [
-    "口"
-  ],
+  "meanings": ["old"],
+  "radicals": ["口"],
   "examples": [
     {
       "word": "太古",

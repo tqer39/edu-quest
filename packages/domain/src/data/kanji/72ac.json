@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ケン"
-    ],
-    "kunyomi": [
-      "いぬ"
-    ]
+    "onyomi": ["ケン"],
+    "kunyomi": ["いぬ"]
   },
-  "meanings": [
-    "dog"
-  ],
-  "radicals": [
-    "犬"
-  ],
+  "meanings": ["dog"],
+  "radicals": ["犬"],
   "examples": [
     {
       "word": "飼い犬",

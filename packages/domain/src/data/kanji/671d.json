@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "チョウ"
-    ],
-    "kunyomi": [
-      "あさ"
-    ]
+    "onyomi": ["チョウ"],
+    "kunyomi": ["あさ"]
   },
-  "meanings": [
-    "morning"
-  ],
-  "radicals": [
-    "月"
-  ],
+  "meanings": ["morning"],
+  "radicals": ["月"],
   "examples": [
     {
       "word": "翌朝",

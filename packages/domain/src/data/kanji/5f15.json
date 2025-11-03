@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "イン"
-    ],
-    "kunyomi": [
-      "ひ-く",
-      "ひ-ける"
-    ]
+    "onyomi": ["イン"],
+    "kunyomi": ["ひ-く", "ひ-ける"]
   },
-  "meanings": [
-    "pull",
-    "draw"
-  ],
-  "radicals": [
-    "弓"
-  ],
+  "meanings": ["pull", "draw"],
+  "radicals": ["弓"],
   "examples": [
     {
       "word": "割り引く",

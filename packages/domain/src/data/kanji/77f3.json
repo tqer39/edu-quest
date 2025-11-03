@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "セキ",
-      "シャク"
-    ],
-    "kunyomi": [
-      "いし"
-    ]
+    "onyomi": ["セキ", "シャク"],
+    "kunyomi": ["いし"]
   },
-  "meanings": [
-    "stone",
-    "rock"
-  ],
-  "radicals": [
-    "石"
-  ],
+  "meanings": ["stone", "rock"],
+  "radicals": ["石"],
   "examples": [
     {
       "word": "磁石",

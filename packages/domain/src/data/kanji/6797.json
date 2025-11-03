@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "リン"
-    ],
-    "kunyomi": [
-      "はやし"
-    ]
+    "onyomi": ["リン"],
+    "kunyomi": ["はやし"]
   },
-  "meanings": [
-    "woods",
-    "forest"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["woods", "forest"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "針葉樹林",

@@ -3,17 +3,11 @@
   "grade": 2,
   "strokeCount": 13,
   "readings": {
-    "onyomi": [
-      "デン"
-    ],
+    "onyomi": ["デン"],
     "kunyomi": []
   },
-  "meanings": [
-    "electricity"
-  ],
-  "radicals": [
-    "雨"
-  ],
+  "meanings": ["electricity"],
+  "radicals": ["雨"],
   "examples": [
     {
       "word": "電話",

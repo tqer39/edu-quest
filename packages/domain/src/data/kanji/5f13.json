@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "キュウ"
-    ],
-    "kunyomi": [
-      "ゆみ"
-    ]
+    "onyomi": ["キュウ"],
+    "kunyomi": ["ゆみ"]
   },
-  "meanings": [
-    "bow",
-    "archery"
-  ],
-  "radicals": [
-    "弓"
-  ],
+  "meanings": ["bow", "archery"],
+  "radicals": ["弓"],
   "examples": [
     {
       "word": "弓道",

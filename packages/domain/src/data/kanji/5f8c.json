@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "ゴ",
-      "コウ"
-    ],
-    "kunyomi": [
-      "のち",
-      "うし-ろ",
-      "あと"
-    ]
+    "onyomi": ["ゴ", "コウ"],
+    "kunyomi": ["のち", "うし-ろ", "あと"]
   },
-  "meanings": [
-    "after",
-    "behind"
-  ],
-  "radicals": [
-    "彳"
-  ],
+  "meanings": ["after", "behind"],
+  "radicals": ["彳"],
   "examples": [
     {
       "word": "善後策",

@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "ジャク"
-    ],
-    "kunyomi": [
-      "よわ-い",
-      "よわ-る",
-      "よわ-まる",
-      "よわ-める"
-    ]
+    "onyomi": ["ジャク"],
+    "kunyomi": ["よわ-い", "よわ-る", "よわ-まる", "よわ-める"]
   },
-  "meanings": [
-    "weak"
-  ],
-  "radicals": [
-    "弓"
-  ],
+  "meanings": ["weak"],
+  "radicals": ["弓"],
   "examples": [
     {
       "word": "軟弱な",

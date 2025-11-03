@@ -3,27 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "ジョウ",
-      "ショウ"
-    ],
-    "kunyomi": [
-      "うえ",
-      "うわ",
-      "かみ",
-      "あ-げる",
-      "あ-がる",
-      "のぼ-る"
-    ]
+    "onyomi": ["ジョウ", "ショウ"],
+    "kunyomi": ["うえ", "うわ", "かみ", "あ-げる", "あ-がる", "のぼ-る"]
   },
-  "meanings": [
-    "above",
-    "up",
-    "upper"
-  ],
-  "radicals": [
-    "一"
-  ],
+  "meanings": ["above", "up", "upper"],
+  "radicals": ["一"],
   "examples": [
     {
       "word": "上述する",

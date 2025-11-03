@@ -3,17 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "オウ"
-    ],
+    "onyomi": ["オウ"],
     "kunyomi": []
   },
-  "meanings": [
-    "king"
-  ],
-  "radicals": [
-    "玉"
-  ],
+  "meanings": ["king"],
+  "radicals": ["玉"],
   "examples": [
     {
       "word": "仁王",

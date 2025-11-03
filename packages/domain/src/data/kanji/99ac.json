@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "バ"
-    ],
-    "kunyomi": [
-      "うま"
-    ]
+    "onyomi": ["バ"],
+    "kunyomi": ["うま"]
   },
-  "meanings": [
-    "horse"
-  ],
-  "radicals": [
-    "馬"
-  ],
+  "meanings": ["horse"],
+  "radicals": ["馬"],
   "examples": [
     {
       "word": "乗馬する",

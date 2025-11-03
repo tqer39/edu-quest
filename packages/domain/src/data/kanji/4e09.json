@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "サン"
-    ],
-    "kunyomi": [
-      "み",
-      "み-つ",
-      "みっ-つ"
-    ]
+    "onyomi": ["サン"],
+    "kunyomi": ["み", "み-つ", "みっ-つ"]
   },
-  "meanings": [
-    "three"
-  ],
-  "radicals": [
-    "一"
-  ],
+  "meanings": ["three"],
+  "radicals": ["一"],
   "examples": [
     {
       "word": "七五三",

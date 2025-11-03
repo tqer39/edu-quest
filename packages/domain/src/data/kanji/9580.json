@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "モン"
-    ],
-    "kunyomi": [
-      "かど"
-    ]
+    "onyomi": ["モン"],
+    "kunyomi": ["かど"]
   },
-  "meanings": [
-    "gate"
-  ],
-  "radicals": [
-    "門"
-  ],
+  "meanings": ["gate"],
+  "radicals": ["門"],
   "examples": [
     {
       "word": "専門",

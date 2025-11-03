@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "ガ",
-      "カク"
-    ],
+    "onyomi": ["ガ", "カク"],
     "kunyomi": []
   },
-  "meanings": [
-    "picture",
-    "drawing",
-    "stroke"
-  ],
-  "radicals": [
-    "田"
-  ],
+  "meanings": ["picture", "drawing", "stroke"],
+  "radicals": ["田"],
   "examples": [
     {
       "word": "版画",

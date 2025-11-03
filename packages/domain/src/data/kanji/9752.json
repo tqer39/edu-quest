@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "セイ",
-      "ショウ"
-    ],
-    "kunyomi": [
-      "あお",
-      "あお-い"
-    ]
+    "onyomi": ["セイ", "ショウ"],
+    "kunyomi": ["あお", "あお-い"]
   },
-  "meanings": [
-    "blue",
-    "green"
-  ],
-  "radicals": [
-    "青"
-  ],
+  "meanings": ["blue", "green"],
+  "radicals": ["青"],
   "examples": [
     {
       "word": "青銅",

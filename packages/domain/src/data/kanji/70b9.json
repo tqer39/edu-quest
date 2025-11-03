@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "テン"
-    ],
+    "onyomi": ["テン"],
     "kunyomi": []
   },
-  "meanings": [
-    "point",
-    "dot"
-  ],
-  "radicals": [
-    "黒"
-  ],
+  "meanings": ["point", "dot"],
+  "radicals": ["黒"],
   "examples": [
     {
       "word": "視点",

@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "チ"
-    ],
-    "kunyomi": [
-      "いけ"
-    ]
+    "onyomi": ["チ"],
+    "kunyomi": ["いけ"]
   },
-  "meanings": [
-    "pond"
-  ],
-  "radicals": [
-    "水"
-  ],
+  "meanings": ["pond"],
+  "radicals": ["水"],
   "examples": [
     {
       "word": "乾電池",

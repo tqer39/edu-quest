@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "バン"
-    ],
+    "onyomi": ["バン"],
     "kunyomi": []
   },
-  "meanings": [
-    "number",
-    "turn"
-  ],
-  "radicals": [
-    "田"
-  ],
+  "meanings": ["number", "turn"],
+  "radicals": ["田"],
   "examples": [
     {
       "word": "一番",

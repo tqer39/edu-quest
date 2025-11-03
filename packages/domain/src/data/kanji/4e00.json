@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 1,
   "readings": {
-    "onyomi": [
-      "イチ",
-      "イツ"
-    ],
-    "kunyomi": [
-      "ひと",
-      "ひと-つ"
-    ]
+    "onyomi": ["イチ", "イツ"],
+    "kunyomi": ["ひと", "ひと-つ"]
   },
-  "meanings": [
-    "one"
-  ],
-  "radicals": [
-    "一"
-  ],
+  "meanings": ["one"],
+  "radicals": ["一"],
   "examples": [
     {
       "word": "一年生",

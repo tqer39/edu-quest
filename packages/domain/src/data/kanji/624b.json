@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "シュ"
-    ],
-    "kunyomi": [
-      "て",
-      "た"
-    ]
+    "onyomi": ["シュ"],
+    "kunyomi": ["て", "た"]
   },
-  "meanings": [
-    "hand"
-  ],
-  "radicals": [
-    "手"
-  ],
+  "meanings": ["hand"],
+  "radicals": ["手"],
   "examples": [
     {
       "word": "手間賃",

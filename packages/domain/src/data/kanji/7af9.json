@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "チク"
-    ],
-    "kunyomi": [
-      "たけ"
-    ]
+    "onyomi": ["チク"],
+    "kunyomi": ["たけ"]
   },
-  "meanings": [
-    "bamboo"
-  ],
-  "radicals": [
-    "竹"
-  ],
+  "meanings": ["bamboo"],
+  "radicals": ["竹"],
   "examples": [
     {
       "word": "竹馬の友",

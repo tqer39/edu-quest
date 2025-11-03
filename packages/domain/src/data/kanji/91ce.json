@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "ヤ"
-    ],
-    "kunyomi": [
-      "の"
-    ]
+    "onyomi": ["ヤ"],
+    "kunyomi": ["の"]
   },
-  "meanings": [
-    "field",
-    "plain"
-  ],
-  "radicals": [
-    "里"
-  ],
+  "meanings": ["field", "plain"],
+  "radicals": ["里"],
   "examples": [
     {
       "word": "視野",

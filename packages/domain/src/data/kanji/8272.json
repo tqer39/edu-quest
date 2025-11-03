@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ショク",
-      "シキ"
-    ],
-    "kunyomi": [
-      "いろ"
-    ]
+    "onyomi": ["ショク", "シキ"],
+    "kunyomi": ["いろ"]
   },
-  "meanings": [
-    "color"
-  ],
-  "radicals": [
-    "色"
-  ],
+  "meanings": ["color"],
+  "radicals": ["色"],
   "examples": [
     {
       "word": "何色",

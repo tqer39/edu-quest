@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 12,
   "readings": {
-    "onyomi": [
-      "バイ"
-    ],
-    "kunyomi": [
-      "か-う"
-    ]
+    "onyomi": ["バイ"],
+    "kunyomi": ["か-う"]
   },
-  "meanings": [
-    "buy"
-  ],
-  "radicals": [
-    "貝"
-  ],
+  "meanings": ["buy"],
+  "radicals": ["貝"],
   "examples": [
     {
       "word": "買い物",

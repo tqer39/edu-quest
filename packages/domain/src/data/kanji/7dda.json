@@ -3,17 +3,11 @@
   "grade": 2,
   "strokeCount": 15,
   "readings": {
-    "onyomi": [
-      "セン"
-    ],
+    "onyomi": ["セン"],
     "kunyomi": []
   },
-  "meanings": [
-    "line"
-  ],
-  "radicals": [
-    "糸"
-  ],
+  "meanings": ["line"],
+  "radicals": ["糸"],
   "examples": [
     {
       "word": "沿線",

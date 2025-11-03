@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ジ"
-    ],
-    "kunyomi": [
-      "あざ"
-    ]
+    "onyomi": ["ジ"],
+    "kunyomi": ["あざ"]
   },
-  "meanings": [
-    "character",
-    "letter"
-  ],
-  "radicals": [
-    "子"
-  ],
+  "meanings": ["character", "letter"],
+  "radicals": ["子"],
   "examples": [
     {
       "word": "略字",

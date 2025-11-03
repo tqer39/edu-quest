@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "オン",
-      "イン"
-    ],
-    "kunyomi": [
-      "おと",
-      "ね"
-    ]
+    "onyomi": ["オン", "イン"],
+    "kunyomi": ["おと", "ね"]
   },
-  "meanings": [
-    "sound",
-    "noise"
-  ],
-  "radicals": [
-    "音"
-  ],
+  "meanings": ["sound", "noise"],
+  "radicals": ["音"],
   "examples": [
     {
       "word": "防音",

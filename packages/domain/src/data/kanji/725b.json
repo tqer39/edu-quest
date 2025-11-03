@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ギュウ"
-    ],
-    "kunyomi": [
-      "うし"
-    ]
+    "onyomi": ["ギュウ"],
+    "kunyomi": ["うし"]
   },
-  "meanings": [
-    "cow",
-    "cattle"
-  ],
-  "radicals": [
-    "牛"
-  ],
+  "meanings": ["cow", "cattle"],
+  "radicals": ["牛"],
   "examples": [
     {
       "word": "牛乳",

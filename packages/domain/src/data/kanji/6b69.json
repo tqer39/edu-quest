@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "ホ",
-      "ブ",
-      "フ"
-    ],
-    "kunyomi": [
-      "ある-く",
-      "あゆ-む"
-    ]
+    "onyomi": ["ホ", "ブ", "フ"],
+    "kunyomi": ["ある-く", "あゆ-む"]
   },
-  "meanings": [
-    "walk"
-  ],
-  "radicals": [
-    "止"
-  ],
+  "meanings": ["walk"],
+  "radicals": ["止"],
   "examples": [
     {
       "word": "歩道",

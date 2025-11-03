@@ -3,17 +3,11 @@
   "grade": 1,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "コウ"
-    ],
+    "onyomi": ["コウ"],
     "kunyomi": []
   },
-  "meanings": [
-    "school"
-  ],
-  "radicals": [
-    "木"
-  ],
+  "meanings": ["school"],
+  "radicals": ["木"],
   "examples": [
     {
       "word": "中学校",

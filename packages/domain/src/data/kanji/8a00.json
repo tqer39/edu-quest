@@ -3,22 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ゲン",
-      "ゴン"
-    ],
-    "kunyomi": [
-      "い-う",
-      "こと"
-    ]
+    "onyomi": ["ゲン", "ゴン"],
+    "kunyomi": ["い-う", "こと"]
   },
-  "meanings": [
-    "say",
-    "word"
-  ],
-  "radicals": [
-    "言"
-  ],
+  "meanings": ["say", "word"],
+  "radicals": ["言"],
   "examples": [
     {
       "word": "真言宗",

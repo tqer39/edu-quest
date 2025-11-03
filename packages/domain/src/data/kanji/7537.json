@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ダン",
-      "ナン"
-    ],
-    "kunyomi": [
-      "おとこ"
-    ]
+    "onyomi": ["ダン", "ナン"],
+    "kunyomi": ["おとこ"]
   },
-  "meanings": [
-    "man",
-    "male"
-  ],
-  "radicals": [
-    "田"
-  ],
+  "meanings": ["man", "male"],
+  "radicals": ["田"],
   "examples": [
     {
       "word": "長男",

@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 11,
   "readings": {
-    "onyomi": [
-      "リ"
-    ],
+    "onyomi": ["リ"],
     "kunyomi": []
   },
-  "meanings": [
-    "logic",
-    "reason"
-  ],
-  "radicals": [
-    "玉"
-  ],
+  "meanings": ["logic", "reason"],
+  "radicals": ["玉"],
   "examples": [
     {
       "word": "税理士",

@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "ジ",
-      "シ"
-    ],
-    "kunyomi": [
-      "みずか-ら"
-    ]
+    "onyomi": ["ジ", "シ"],
+    "kunyomi": ["みずか-ら"]
   },
-  "meanings": [
-    "self",
-    "oneself"
-  ],
-  "radicals": [
-    "自"
-  ],
+  "meanings": ["self", "oneself"],
+  "radicals": ["自"],
   "examples": [
     {
       "word": "自己",

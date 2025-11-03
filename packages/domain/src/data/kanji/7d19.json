@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 10,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "かみ"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["かみ"]
   },
-  "meanings": [
-    "paper"
-  ],
-  "radicals": [
-    "糸"
-  ],
+  "meanings": ["paper"],
+  "radicals": ["糸"],
   "examples": [
     {
       "word": "包装紙",

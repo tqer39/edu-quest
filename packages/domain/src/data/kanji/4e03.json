@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "シチ"
-    ],
-    "kunyomi": [
-      "なな",
-      "なな-つ",
-      "なの"
-    ]
+    "onyomi": ["シチ"],
+    "kunyomi": ["なな", "なな-つ", "なの"]
   },
-  "meanings": [
-    "seven"
-  ],
-  "radicals": [
-    "一"
-  ],
+  "meanings": ["seven"],
+  "radicals": ["一"],
   "examples": [
     {
       "word": "七時",

@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "ニ"
-    ],
-    "kunyomi": [
-      "ふた",
-      "ふた-つ"
-    ]
+    "onyomi": ["ニ"],
+    "kunyomi": ["ふた", "ふた-つ"]
   },
-  "meanings": [
-    "two"
-  ],
-  "radicals": [
-    "二"
-  ],
+  "meanings": ["two"],
+  "radicals": ["二"],
   "examples": [
     {
       "word": "二枚舌",

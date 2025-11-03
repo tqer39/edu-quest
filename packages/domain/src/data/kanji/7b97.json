@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 14,
   "readings": {
-    "onyomi": [
-      "サン"
-    ],
+    "onyomi": ["サン"],
     "kunyomi": []
   },
-  "meanings": [
-    "calculate",
-    "count"
-  ],
-  "radicals": [
-    "竹"
-  ],
+  "meanings": ["calculate", "count"],
+  "radicals": ["竹"],
   "examples": [
     {
       "word": "割り算",

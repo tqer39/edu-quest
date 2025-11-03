@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 14,
   "readings": {
-    "onyomi": [
-      "ゴ"
-    ],
-    "kunyomi": [
-      "かた-る",
-      "かた-らう"
-    ]
+    "onyomi": ["ゴ"],
+    "kunyomi": ["かた-る", "かた-らう"]
   },
-  "meanings": [
-    "language",
-    "word"
-  ],
-  "radicals": [
-    "言"
-  ],
+  "meanings": ["language", "word"],
+  "radicals": ["言"],
   "examples": [
     {
       "word": "述語",

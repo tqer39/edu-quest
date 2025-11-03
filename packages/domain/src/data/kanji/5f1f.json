@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "テイ",
-      "ダイ",
-      "デ"
-    ],
-    "kunyomi": [
-      "おとうと"
-    ]
+    "onyomi": ["テイ", "ダイ", "デ"],
+    "kunyomi": ["おとうと"]
   },
-  "meanings": [
-    "younger brother"
-  ],
-  "radicals": [
-    "弓"
-  ],
+  "meanings": ["younger brother"],
+  "radicals": ["弓"],
   "examples": [
     {
       "word": "兄弟",

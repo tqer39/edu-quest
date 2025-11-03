@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ユウ"
-    ],
-    "kunyomi": [
-      "とも"
-    ]
+    "onyomi": ["ユウ"],
+    "kunyomi": ["とも"]
   },
-  "meanings": [
-    "friend"
-  ],
-  "radicals": [
-    "又"
-  ],
+  "meanings": ["friend"],
+  "radicals": ["又"],
   "examples": [
     {
       "word": "友人",

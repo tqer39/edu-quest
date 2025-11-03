@@ -3,23 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "チョク",
-      "ジキ"
-    ],
-    "kunyomi": [
-      "ただ-ちに",
-      "なお-す",
-      "なお-る"
-    ]
+    "onyomi": ["チョク", "ジキ"],
+    "kunyomi": ["ただ-ちに", "なお-す", "なお-る"]
   },
-  "meanings": [
-    "straight",
-    "direct"
-  ],
-  "radicals": [
-    "目"
-  ],
+  "meanings": ["straight", "direct"],
+  "radicals": ["目"],
   "examples": [
     {
       "word": "垂直な",

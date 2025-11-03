@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ボ"
-    ],
-    "kunyomi": [
-      "はは"
-    ]
+    "onyomi": ["ボ"],
+    "kunyomi": ["はは"]
   },
-  "meanings": [
-    "mother"
-  ],
-  "radicals": [
-    "母"
-  ],
+  "meanings": ["mother"],
+  "radicals": ["母"],
   "examples": [
     {
       "word": "祖父母",

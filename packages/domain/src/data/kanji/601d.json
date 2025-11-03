@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "シ"
-    ],
-    "kunyomi": [
-      "おも-う"
-    ]
+    "onyomi": ["シ"],
+    "kunyomi": ["おも-う"]
   },
-  "meanings": [
-    "think"
-  ],
-  "radicals": [
-    "心"
-  ],
+  "meanings": ["think"],
+  "radicals": ["心"],
   "examples": [
     {
       "word": "沈思黙考する",

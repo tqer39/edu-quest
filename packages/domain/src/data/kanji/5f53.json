@@ -3,21 +3,11 @@
   "grade": 2,
   "strokeCount": 6,
   "readings": {
-    "onyomi": [
-      "トウ"
-    ],
-    "kunyomi": [
-      "あ-たる",
-      "あ-てる"
-    ]
+    "onyomi": ["トウ"],
+    "kunyomi": ["あ-たる", "あ-てる"]
   },
-  "meanings": [
-    "hit",
-    "appropriate"
-  ],
-  "radicals": [
-    "彐"
-  ],
+  "meanings": ["hit", "appropriate"],
+  "radicals": ["彐"],
   "examples": [
     {
       "word": "当日",

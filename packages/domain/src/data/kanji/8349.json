@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "ソウ"
-    ],
-    "kunyomi": [
-      "くさ"
-    ]
+    "onyomi": ["ソウ"],
+    "kunyomi": ["くさ"]
   },
-  "meanings": [
-    "grass",
-    "herb"
-  ],
-  "radicals": [
-    "艸"
-  ],
+  "meanings": ["grass", "herb"],
+  "radicals": ["艸"],
   "examples": [
     {
       "word": "草花",

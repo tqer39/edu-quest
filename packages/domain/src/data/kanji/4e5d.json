@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 2,
   "readings": {
-    "onyomi": [
-      "キュウ",
-      "ク"
-    ],
-    "kunyomi": [
-      "ここの",
-      "ここの-つ"
-    ]
+    "onyomi": ["キュウ", "ク"],
+    "kunyomi": ["ここの", "ここの-つ"]
   },
-  "meanings": [
-    "nine"
-  ],
-  "radicals": [
-    "乙"
-  ],
+  "meanings": ["nine"],
+  "radicals": ["乙"],
   "examples": [
     {
       "word": "九州",

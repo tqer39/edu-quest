@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "コク"
-    ],
-    "kunyomi": [
-      "たに"
-    ]
+    "onyomi": ["コク"],
+    "kunyomi": ["たに"]
   },
-  "meanings": [
-    "valley"
-  ],
-  "radicals": [
-    "谷"
-  ],
+  "meanings": ["valley"],
+  "radicals": ["谷"],
   "examples": [
     {
       "word": "渓谷",

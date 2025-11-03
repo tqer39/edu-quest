@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 4,
   "readings": {
-    "onyomi": [
-      "ゲツ",
-      "ガツ"
-    ],
-    "kunyomi": [
-      "つき"
-    ]
+    "onyomi": ["ゲツ", "ガツ"],
+    "kunyomi": ["つき"]
   },
-  "meanings": [
-    "month",
-    "moon"
-  ],
-  "radicals": [
-    "月"
-  ],
+  "meanings": ["month", "moon"],
+  "radicals": ["月"],
   "examples": [
     {
       "word": "八月",

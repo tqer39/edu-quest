@@ -3,22 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "ジョ",
-      "ニョ"
-    ],
-    "kunyomi": [
-      "おんな",
-      "め"
-    ]
+    "onyomi": ["ジョ", "ニョ"],
+    "kunyomi": ["おんな", "め"]
   },
-  "meanings": [
-    "woman",
-    "female"
-  ],
-  "radicals": [
-    "女"
-  ],
+  "meanings": ["woman", "female"],
+  "radicals": ["女"],
   "examples": [
     {
       "word": "処女",

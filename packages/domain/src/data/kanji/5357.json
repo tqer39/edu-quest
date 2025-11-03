@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "ナン",
-      "ナ"
-    ],
-    "kunyomi": [
-      "みなみ"
-    ]
+    "onyomi": ["ナン", "ナ"],
+    "kunyomi": ["みなみ"]
   },
-  "meanings": [
-    "south"
-  ],
-  "radicals": [
-    "十"
-  ],
+  "meanings": ["south"],
+  "radicals": ["十"],
   "examples": [
     {
       "word": "南欧",

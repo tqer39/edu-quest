@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ケイ",
-      "キョウ"
-    ],
-    "kunyomi": [
-      "あに"
-    ]
+    "onyomi": ["ケイ", "キョウ"],
+    "kunyomi": ["あに"]
   },
-  "meanings": [
-    "older brother"
-  ],
-  "radicals": [
-    "儿"
-  ],
+  "meanings": ["older brother"],
+  "radicals": ["儿"],
   "examples": [
     {
       "word": "父兄",

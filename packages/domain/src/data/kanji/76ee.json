@@ -3,21 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "モク",
-      "ボク"
-    ],
-    "kunyomi": [
-      "め",
-      "ま"
-    ]
+    "onyomi": ["モク", "ボク"],
+    "kunyomi": ["め", "ま"]
   },
-  "meanings": [
-    "eye"
-  ],
-  "radicals": [
-    "目"
-  ],
+  "meanings": ["eye"],
+  "radicals": ["目"],
   "examples": [
     {
       "word": "織り目",

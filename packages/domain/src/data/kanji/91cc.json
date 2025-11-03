@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "リ"
-    ],
-    "kunyomi": [
-      "さと"
-    ]
+    "onyomi": ["リ"],
+    "kunyomi": ["さと"]
   },
-  "meanings": [
-    "village",
-    "hometown"
-  ],
-  "radicals": [
-    "里"
-  ],
+  "meanings": ["village", "hometown"],
+  "radicals": ["里"],
   "examples": [
     {
       "word": "郷里",

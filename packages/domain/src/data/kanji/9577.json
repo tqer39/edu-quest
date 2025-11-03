@@ -3,20 +3,11 @@
   "grade": 2,
   "strokeCount": 8,
   "readings": {
-    "onyomi": [
-      "チョウ"
-    ],
-    "kunyomi": [
-      "なが-い"
-    ]
+    "onyomi": ["チョウ"],
+    "kunyomi": ["なが-い"]
   },
-  "meanings": [
-    "long",
-    "chief"
-  ],
-  "radicals": [
-    "長"
-  ],
+  "meanings": ["long", "chief"],
+  "radicals": ["長"],
   "examples": [
     {
       "word": "婦長",

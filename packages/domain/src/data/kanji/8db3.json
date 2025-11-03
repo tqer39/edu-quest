@@ -3,23 +3,11 @@
   "grade": 1,
   "strokeCount": 7,
   "readings": {
-    "onyomi": [
-      "ソク"
-    ],
-    "kunyomi": [
-      "あし",
-      "た-りる",
-      "た-す"
-    ]
+    "onyomi": ["ソク"],
+    "kunyomi": ["あし", "た-りる", "た-す"]
   },
-  "meanings": [
-    "foot",
-    "leg",
-    "sufficient"
-  ],
-  "radicals": [
-    "足"
-  ],
+  "meanings": ["foot", "leg", "sufficient"],
+  "radicals": ["足"],
   "examples": [
     {
       "word": "補足する",

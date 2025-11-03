@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "シツ"
-    ],
-    "kunyomi": [
-      "むろ"
-    ]
+    "onyomi": ["シツ"],
+    "kunyomi": ["むろ"]
   },
-  "meanings": [
-    "room"
-  ],
-  "radicals": [
-    "宀"
-  ],
+  "meanings": ["room"],
+  "radicals": ["宀"],
   "examples": [
     {
       "word": "待合室",

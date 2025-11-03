@@ -3,19 +3,11 @@
   "grade": 2,
   "strokeCount": 9,
   "readings": {
-    "onyomi": [
-      "シュン"
-    ],
-    "kunyomi": [
-      "はる"
-    ]
+    "onyomi": ["シュン"],
+    "kunyomi": ["はる"]
   },
-  "meanings": [
-    "spring"
-  ],
-  "radicals": [
-    "日"
-  ],
+  "meanings": ["spring"],
+  "radicals": ["日"],
   "examples": [
     {
       "word": "翌春",

@@ -3,20 +3,11 @@
   "grade": 1,
   "strokeCount": 5,
   "readings": {
-    "onyomi": [
-      "ギョク"
-    ],
-    "kunyomi": [
-      "たま"
-    ]
+    "onyomi": ["ギョク"],
+    "kunyomi": ["たま"]
   },
-  "meanings": [
-    "ball",
-    "jewel"
-  ],
-  "radicals": [
-    "玉"
-  ],
+  "meanings": ["ball", "jewel"],
+  "radicals": ["玉"],
   "examples": [
     {
       "word": "替え玉",

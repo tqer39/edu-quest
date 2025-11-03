@@ -3,18 +3,11 @@
   "grade": 2,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "マン",
-      "バン"
-    ],
+    "onyomi": ["マン", "バン"],
     "kunyomi": []
   },
-  "meanings": [
-    "ten thousand"
-  ],
-  "radicals": [
-    "一"
-  ],
+  "meanings": ["ten thousand"],
+  "radicals": ["一"],
   "examples": [
     {
       "word": "万歳",

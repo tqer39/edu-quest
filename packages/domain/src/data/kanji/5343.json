@@ -3,19 +3,11 @@
   "grade": 1,
   "strokeCount": 3,
   "readings": {
-    "onyomi": [
-      "セン"
-    ],
-    "kunyomi": [
-      "ち"
-    ]
+    "onyomi": ["セン"],
+    "kunyomi": ["ち"]
   },
-  "meanings": [
-    "thousand"
-  ],
-  "radicals": [
-    "十"
-  ],
+  "meanings": ["thousand"],
+  "radicals": ["十"],
   "examples": [
     {
       "word": "千",
