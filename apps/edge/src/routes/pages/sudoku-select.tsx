@@ -1,7 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { GameGradeLevel, SudokuPreset } from './game-presets';
 import { BackToTopLink } from '../components/back-to-top-link';
+import type { GameGradeLevel, SudokuPreset } from './game-presets';
 
 const SudokuNav: FC<{
   currentUser: CurrentUser | null;

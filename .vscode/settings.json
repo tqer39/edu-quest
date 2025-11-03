@@ -2,6 +2,14 @@
   "css.validate": true,
   "css.lint.validProperties": [],
   "css.customData": [],
+  "commitollama.custom.emojis": {
+    "feat": "✨",
+    "fix": "🐛",
+    "docs": "📝",
+    "refactor": "♻️",
+    "test": "✅",
+    "chore": "🔧"
+  },
   "files.associations": {
     "**/*.min.css": "plaintext",
     "**/*.min.js": "plaintext"
