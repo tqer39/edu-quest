@@ -1,0 +1,90 @@
+{
+  "character": "月",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["ゲツ", "ガツ"],
+    "kunyomi": ["つき"]
+  },
+  "meanings": ["month", "moon"],
+  "radicals": ["月"],
+  "examples": [
+    {
+      "word": "八月",
+      "reading": "はちがつ",
+      "meaning": "August"
+    },
+    {
+      "word": "九月",
+      "reading": "くがつ",
+      "meaning": "September"
+    },
+    {
+      "word": "十か月",
+      "reading": "じゅっかげつ",
+      "meaning": "10 months"
+    },
+    {
+      "word": "翌月",
+      "reading": "よくげつ",
+      "meaning": "the following month"
+    },
+    {
+      "word": "歳月",
+      "reading": "さいげつ",
+      "meaning": "time, years"
+    },
+    {
+      "word": "月齢",
+      "reading": "げつれい",
+      "meaning": "age of the moon"
+    },
+    {
+      "word": "月夜",
+      "reading": "つきよ",
+      "meaning": "moonlit night"
+    },
+    {
+      "word": "二月",
+      "reading": "にがつ",
+      "meaning": "February"
+    },
+    {
+      "word": "先月",
+      "reading": "せんげつ",
+      "meaning": "last month"
+    },
+    {
+      "word": "月半ば",
+      "reading": "つきなかば",
+      "meaning": "middle of the month"
+    },
+    {
+      "word": "来月",
+      "reading": "らいげつ",
+      "meaning": "next month"
+    },
+    {
+      "word": "月曜日",
+      "reading": "げつようび",
+      "meaning": "Monday"
+    },
+    {
+      "word": "今月",
+      "reading": "こんげつ",
+      "meaning": "this month"
+    },
+    {
+      "word": "満月",
+      "reading": "まんげつ",
+      "meaning": "full moon"
+    },
+    {
+      "word": "正月",
+      "reading": "しょうがつ",
+      "meaning": "New Year"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6708"
+}

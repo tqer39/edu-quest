@@ -1,0 +1,90 @@
+{
+  "character": "同",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ドウ"],
+    "kunyomi": ["おな-じ"]
+  },
+  "meanings": ["same"],
+  "radicals": ["口"],
+  "examples": [
+    {
+      "word": "同郷",
+      "reading": "どうきょう",
+      "meaning": "from the same birthplace"
+    },
+    {
+      "word": "同盟",
+      "reading": "どうめい",
+      "meaning": "alliance, union, league"
+    },
+    {
+      "word": "呉越同舟",
+      "reading": "ごえつどうしゅう",
+      "meaning": "bitter enemies in the same boat"
+    },
+    {
+      "word": "同姓同名",
+      "reading": "どうせいどうめい",
+      "meaning": "same family & personal name"
+    },
+    {
+      "word": "同封する",
+      "reading": "どうふうする",
+      "meaning": "enclose"
+    },
+    {
+      "word": "同一",
+      "reading": "どういつ",
+      "meaning": "identical"
+    },
+    {
+      "word": "同様",
+      "reading": "どうよう",
+      "meaning": "same"
+    },
+    {
+      "word": "同時に",
+      "reading": "どうじに",
+      "meaning": "at the same time"
+    },
+    {
+      "word": "同好会",
+      "reading": "どうこうかい",
+      "meaning": "club of like-minded people"
+    },
+    {
+      "word": "同窓会",
+      "reading": "どうそうかい",
+      "meaning": "alumni meeting"
+    },
+    {
+      "word": "同意する",
+      "reading": "どういする",
+      "meaning": "agree"
+    },
+    {
+      "word": "同情する",
+      "reading": "どうじょうする",
+      "meaning": "sympathize"
+    },
+    {
+      "word": "同居する",
+      "reading": "どうきょする",
+      "meaning": "live together"
+    },
+    {
+      "word": "共同する",
+      "reading": "きょうどうする",
+      "meaning": "collaborate"
+    },
+    {
+      "word": "同じ",
+      "reading": "おなじ",
+      "meaning": "same"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "540c"
+}

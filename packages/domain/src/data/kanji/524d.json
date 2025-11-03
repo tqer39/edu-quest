@@ -1,0 +1,90 @@
+{
+  "character": "前",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["ゼン"],
+    "kunyomi": ["まえ"]
+  },
+  "meanings": ["front", "before"],
+  "radicals": ["刀"],
+  "examples": [
+    {
+      "word": "寸前に",
+      "reading": "すんぜんに",
+      "meaning": "just before"
+    },
+    {
+      "word": "手前",
+      "reading": "てまえ",
+      "meaning": "in front of oneself, this side"
+    },
+    {
+      "word": "梅雨前線",
+      "reading": "ばいうぜんせん",
+      "meaning": "seasonal rain front"
+    },
+    {
+      "word": "当たり前",
+      "reading": "あたりまえ",
+      "meaning": "usual, natural, ordinary"
+    },
+    {
+      "word": "午前",
+      "reading": "ごぜん",
+      "meaning": "morning, a.m."
+    },
+    {
+      "word": "前日",
+      "reading": "ぜんじつ",
+      "meaning": "previous day"
+    },
+    {
+      "word": "前回",
+      "reading": "ぜんかい",
+      "meaning": "last time"
+    },
+    {
+      "word": "前",
+      "reading": "まえ",
+      "meaning": "before, ago, former"
+    },
+    {
+      "word": "この前",
+      "reading": "このまえ",
+      "meaning": "the other day"
+    },
+    {
+      "word": "名前",
+      "reading": "なまえ",
+      "meaning": "name"
+    },
+    {
+      "word": "駅前",
+      "reading": "えきまえ",
+      "meaning": "in front of the train station"
+    },
+    {
+      "word": "斜め前",
+      "reading": "ななめまえ",
+      "meaning": "diagonally in front of"
+    },
+    {
+      "word": "前売り",
+      "reading": "まえうり",
+      "meaning": "advance sale"
+    },
+    {
+      "word": "腕前",
+      "reading": "うでまえ",
+      "meaning": "ability, skill, facility"
+    },
+    {
+      "word": "直前",
+      "reading": "ちょくぜん",
+      "meaning": "just before"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "524d"
+}

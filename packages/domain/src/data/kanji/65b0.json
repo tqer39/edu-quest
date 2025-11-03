@@ -1,0 +1,96 @@
+{
+  "character": "新",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": ["シン"],
+    "kunyomi": ["あたら-しい", "あら-た", "にい"]
+  },
+  "meanings": ["new"],
+  "radicals": ["斤"],
+  "examples": [
+    {
+      "word": "新婦",
+      "reading": "しんぷ",
+      "meaning": "bride"
+    },
+    {
+      "word": "新聞紙",
+      "reading": "しんぶんし",
+      "meaning": "newspaper"
+    },
+    {
+      "word": "新鋭",
+      "reading": "しんえい",
+      "meaning": "new & powerful, fresh"
+    },
+    {
+      "word": "更新する",
+      "reading": "こうしんする",
+      "meaning": "renew, update"
+    },
+    {
+      "word": "新雪",
+      "reading": "しんせつ",
+      "meaning": "new snow"
+    },
+    {
+      "word": "新聞",
+      "reading": "しんぶん",
+      "meaning": "newspaper"
+    },
+    {
+      "word": "新年",
+      "reading": "しんねん",
+      "meaning": "New Year"
+    },
+    {
+      "word": "新製品",
+      "reading": "しんせいひん",
+      "meaning": "new product"
+    },
+    {
+      "word": "新幹線",
+      "reading": "しんかんせん",
+      "meaning": "Shinkansen"
+    },
+    {
+      "word": "最新式",
+      "reading": "さいしんしき",
+      "meaning": "latest style"
+    },
+    {
+      "word": "新鮮な",
+      "reading": "しんせんな",
+      "meaning": "fresh"
+    },
+    {
+      "word": "革新的な",
+      "reading": "かくしんてきな",
+      "meaning": "liberal"
+    },
+    {
+      "word": "新しい",
+      "reading": "あたらしい",
+      "meaning": "new"
+    },
+    {
+      "word": "新たな",
+      "reading": "あらたな",
+      "meaning": "new"
+    },
+    {
+      "word": "新妻",
+      "reading": "にいづま",
+      "meaning": "newly-wed wife"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "新田郡",
+      "reading": "にったぐん",
+      "meaning": "Nitta County"
+    }
+  ],
+  "unicode": "65b0"
+}

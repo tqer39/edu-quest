@@ -1,0 +1,111 @@
+{
+  "character": "切",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["セツ", "サイ"],
+    "kunyomi": ["き-る", "き-れる"]
+  },
+  "meanings": ["cut"],
+  "radicals": ["刀"],
+  "examples": [
+    {
+      "word": "切り株",
+      "reading": "きりかぶ",
+      "meaning": "stump, stubble"
+    },
+    {
+      "word": "切腹する",
+      "reading": "せっぷくする",
+      "meaning": "commit seppuku"
+    },
+    {
+      "word": "裏切る",
+      "reading": "うらぎる",
+      "meaning": "betray"
+    },
+    {
+      "word": "缶切り",
+      "reading": "かんきり",
+      "meaning": "can opener"
+    },
+    {
+      "word": "切断する",
+      "reading": "せつだんする",
+      "meaning": "cut"
+    },
+    {
+      "word": "親切な",
+      "reading": "しんせつな",
+      "meaning": "kind"
+    },
+    {
+      "word": "大切な",
+      "reading": "たいせつな",
+      "meaning": "important"
+    },
+    {
+      "word": "切腹",
+      "reading": "せっぷく",
+      "meaning": "seppuku, harakiri"
+    },
+    {
+      "word": "一切",
+      "reading": "いっさい",
+      "meaning": "all"
+    },
+    {
+      "word": "切る",
+      "reading": "きる",
+      "meaning": "cut"
+    },
+    {
+      "word": "締め切り",
+      "reading": "しめきり",
+      "meaning": "deadline"
+    },
+    {
+      "word": "貸し切り",
+      "reading": "かしきり",
+      "meaning": "reservation"
+    },
+    {
+      "word": "不親切な",
+      "reading": "ふしんせつな",
+      "meaning": "unkind"
+    },
+    {
+      "word": "千切れる",
+      "reading": "ちぎれる",
+      "meaning": "be torn off"
+    },
+    {
+      "word": "値切る",
+      "reading": "ねぎる",
+      "meaning": "knock down a price"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "時間切れ",
+      "reading": "じかんぎれ",
+      "meaning": "run out of time"
+    },
+    {
+      "word": "切符",
+      "reading": "きっぷ",
+      "meaning": "ticket"
+    },
+    {
+      "word": "品切れ",
+      "reading": "しなぎれ",
+      "meaning": "out of stock"
+    },
+    {
+      "word": "売り切れ",
+      "reading": "うりきれ",
+      "meaning": "sold-out"
+    }
+  ],
+  "unicode": "5207"
+}

@@ -1,0 +1,70 @@
+{
+  "character": "森",
+  "grade": 1,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": ["シン"],
+    "kunyomi": ["もり"]
+  },
+  "meanings": ["forest"],
+  "radicals": ["木"],
+  "examples": [
+    {
+      "word": "森林",
+      "reading": "しんりん",
+      "meaning": "forest"
+    },
+    {
+      "word": "森",
+      "reading": "もり",
+      "meaning": "woods"
+    },
+    {
+      "word": "森林浴",
+      "reading": "しんりんよく",
+      "meaning": "forest bathing"
+    },
+    {
+      "word": "森林火災",
+      "reading": "しんりんかさい",
+      "meaning": "forest fire"
+    },
+    {
+      "word": "森林公園",
+      "reading": "しんりんこうえん",
+      "meaning": "forest park"
+    },
+    {
+      "word": "森林伐採",
+      "reading": "しんりんばっさい",
+      "meaning": "logging"
+    },
+    {
+      "word": "森林資源",
+      "reading": "しんりんしげん",
+      "meaning": "forest resources"
+    },
+    {
+      "word": "森番",
+      "reading": "もりばん",
+      "meaning": "forest guard"
+    },
+    {
+      "word": "森閑",
+      "reading": "しんかん",
+      "meaning": "deep silence"
+    },
+    {
+      "word": "森林限界",
+      "reading": "しんりんげんかい",
+      "meaning": "tree line"
+    },
+    {
+      "word": "青森",
+      "reading": "あおもり",
+      "meaning": "Aomori (place name)"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "68ee"
+}

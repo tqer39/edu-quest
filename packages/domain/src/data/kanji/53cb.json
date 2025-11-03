@@ -1,0 +1,70 @@
+{
+  "character": "友",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["ユウ"],
+    "kunyomi": ["とも"]
+  },
+  "meanings": ["friend"],
+  "radicals": ["又"],
+  "examples": [
+    {
+      "word": "友人",
+      "reading": "ゆうじん",
+      "meaning": "friend"
+    },
+    {
+      "word": "友情",
+      "reading": "ゆうじょう",
+      "meaning": "friendship"
+    },
+    {
+      "word": "親友",
+      "reading": "しんゆう",
+      "meaning": "close friend"
+    },
+    {
+      "word": "友達",
+      "reading": "ともだち",
+      "meaning": "friend"
+    },
+    {
+      "word": "盟友",
+      "reading": "めいゆう",
+      "meaning": "sworn friend"
+    },
+    {
+      "word": "級友",
+      "reading": "きゅうゆう",
+      "meaning": "classmate"
+    },
+    {
+      "word": "竹馬の友",
+      "reading": "ちくばのとも",
+      "meaning": "childhood friend"
+    },
+    {
+      "word": "学友",
+      "reading": "がくゆう",
+      "meaning": "schoolmate"
+    },
+    {
+      "word": "戦友",
+      "reading": "せんゆう",
+      "meaning": "war buddy"
+    },
+    {
+      "word": "友好",
+      "reading": "ゆうこう",
+      "meaning": "friendship"
+    },
+    {
+      "word": "友",
+      "reading": "とも",
+      "meaning": "friend"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "53cb"
+}

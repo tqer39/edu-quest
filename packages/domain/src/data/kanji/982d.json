@@ -1,0 +1,80 @@
+{
+  "character": "頭",
+  "grade": 2,
+  "strokeCount": 16,
+  "readings": {
+    "onyomi": ["トウ", "ズ", "ト"],
+    "kunyomi": ["あたま", "かしら"]
+  },
+  "meanings": ["head"],
+  "radicals": ["頁"],
+  "examples": [
+    {
+      "word": "頭脳",
+      "reading": "ずのう",
+      "meaning": "head, brains, intellect"
+    },
+    {
+      "word": "頭髪",
+      "reading": "とうはつ",
+      "meaning": "hair (on the head)"
+    },
+    {
+      "word": "頭痛",
+      "reading": "ずつう",
+      "meaning": "headache"
+    },
+    {
+      "word": "没頭する",
+      "reading": "ぼっとうする",
+      "meaning": "immerse oneself"
+    },
+    {
+      "word": "頭部",
+      "reading": "とうぶ",
+      "meaning": "head"
+    },
+    {
+      "word": "店頭",
+      "reading": "てんとう",
+      "meaning": "shop front"
+    },
+    {
+      "word": "音頭",
+      "reading": "おんど",
+      "meaning": "marching songs"
+    },
+    {
+      "word": "頭",
+      "reading": "あたま",
+      "meaning": "head"
+    },
+    {
+      "word": "目頭",
+      "reading": "めがしら",
+      "meaning": "the corner of the eye"
+    },
+    {
+      "word": "波頭",
+      "reading": "なみがしら",
+      "meaning": "whitecaps"
+    },
+    {
+      "word": "冒頭",
+      "reading": "ぼうとう",
+      "meaning": "opening (of a story, article, etc.)"
+    },
+    {
+      "word": "偏頭痛",
+      "reading": "へんずつう",
+      "meaning": "migraine headache"
+    },
+    {
+      "word": "羊頭狗肉",
+      "reading": "ようとうくにく",
+      "meaning": "deceptive advertising"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "982d"
+}

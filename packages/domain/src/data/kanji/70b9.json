@@ -1,0 +1,90 @@
+{
+  "character": "点",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["テン"],
+    "kunyomi": []
+  },
+  "meanings": ["point", "dot"],
+  "radicals": ["黒"],
+  "examples": [
+    {
+      "word": "視点",
+      "reading": "してん",
+      "meaning": "point of view"
+    },
+    {
+      "word": "頂点",
+      "reading": "ちょうてん",
+      "meaning": "top, summit"
+    },
+    {
+      "word": "斑点",
+      "reading": "はんてん",
+      "meaning": "speck, fleck"
+    },
+    {
+      "word": "汚点",
+      "reading": "おてん",
+      "meaning": "stain, blot, flaw, disgrace"
+    },
+    {
+      "word": "点滴",
+      "reading": "てんてき",
+      "meaning": "intravenous drip"
+    },
+    {
+      "word": "沸点",
+      "reading": "ふってん",
+      "meaning": "boiling point"
+    },
+    {
+      "word": "零点",
+      "reading": "れいてん",
+      "meaning": "zero point, no marks"
+    },
+    {
+      "word": "原点",
+      "reading": "げんてん",
+      "meaning": "starting point"
+    },
+    {
+      "word": "接点",
+      "reading": "せってん",
+      "meaning": "point of contact"
+    },
+    {
+      "word": "及第点",
+      "reading": "きゅうだいてん",
+      "meaning": "the cutoff point (for exams)"
+    },
+    {
+      "word": "点",
+      "reading": "てん",
+      "meaning": "point, dot"
+    },
+    {
+      "word": "点線",
+      "reading": "てんせん",
+      "meaning": "dotted line"
+    },
+    {
+      "word": "点字",
+      "reading": "てんじ",
+      "meaning": "Braille"
+    },
+    {
+      "word": "点数",
+      "reading": "てんすう",
+      "meaning": "points, grade, score"
+    },
+    {
+      "word": "得点",
+      "reading": "とくてん",
+      "meaning": "points, score"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "70b9"
+}

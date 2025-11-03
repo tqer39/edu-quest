@@ -1,0 +1,90 @@
+{
+  "character": "子",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["シ", "ス"],
+    "kunyomi": ["こ"]
+  },
+  "meanings": ["child"],
+  "radicals": ["子"],
+  "examples": [
+    {
+      "word": "綿菓子",
+      "reading": "わたがし",
+      "meaning": "cotton candy"
+    },
+    {
+      "word": "子供達",
+      "reading": "こどもたち",
+      "meaning": "children"
+    },
+    {
+      "word": "幼子",
+      "reading": "おさなご",
+      "meaning": "infant, baby, little child"
+    },
+    {
+      "word": "菓子",
+      "reading": "かし",
+      "meaning": "pastry"
+    },
+    {
+      "word": "菓子屋",
+      "reading": "かしや",
+      "meaning": "confectionery shop"
+    },
+    {
+      "word": "和菓子",
+      "reading": "わがし",
+      "meaning": "Japanese confectionery"
+    },
+    {
+      "word": "洋菓子",
+      "reading": "ようがし",
+      "meaning": "Western confectionery"
+    },
+    {
+      "word": "水菓子",
+      "reading": "みずがし",
+      "meaning": "fruit"
+    },
+    {
+      "word": "折り畳み椅子",
+      "reading": "おりたたみいす",
+      "meaning": "folding chair"
+    },
+    {
+      "word": "双子",
+      "reading": "ふたご",
+      "meaning": "twins, a twin"
+    },
+    {
+      "word": "憎まれっ子",
+      "reading": "にくまれっこ",
+      "meaning": "bad boy"
+    },
+    {
+      "word": "帽子",
+      "reading": "ぼうし",
+      "meaning": "hat"
+    },
+    {
+      "word": "踊り子",
+      "reading": "おどりこ",
+      "meaning": "dancer"
+    },
+    {
+      "word": "粒子",
+      "reading": "りゅうし",
+      "meaning": "particle, grain"
+    },
+    {
+      "word": "素粒子",
+      "reading": "そりゅうし",
+      "meaning": "elementary particle, particle"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5b50"
+}

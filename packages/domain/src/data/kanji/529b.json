@@ -1,0 +1,90 @@
+{
+  "character": "力",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": ["リョク", "リキ"],
+    "kunyomi": ["ちから"]
+  },
+  "meanings": ["power", "strength", "force"],
+  "radicals": ["力"],
+  "examples": [
+    {
+      "word": "武力",
+      "reading": "ぶりょく",
+      "meaning": "military power"
+    },
+    {
+      "word": "視力",
+      "reading": "しりょく",
+      "meaning": "eyesight"
+    },
+    {
+      "word": "磁力",
+      "reading": "じりょく",
+      "meaning": "magnetism, magnetic force"
+    },
+    {
+      "word": "浮力",
+      "reading": "ふりょく",
+      "meaning": "buoyancy, floating power"
+    },
+    {
+      "word": "腕力",
+      "reading": "わんりょく",
+      "meaning": "physical strength, brute strength"
+    },
+    {
+      "word": "引力",
+      "reading": "いんりょく",
+      "meaning": "gravity"
+    },
+    {
+      "word": "体力",
+      "reading": "たいりょく",
+      "meaning": "physical strength"
+    },
+    {
+      "word": "実力",
+      "reading": "じつりょく",
+      "meaning": "real ability"
+    },
+    {
+      "word": "全力",
+      "reading": "ぜんりょく",
+      "meaning": "all one's power"
+    },
+    {
+      "word": "火力",
+      "reading": "かりょく",
+      "meaning": "thermal power"
+    },
+    {
+      "word": "有力な",
+      "reading": "ゆうりょくな",
+      "meaning": "influential, powerful"
+    },
+    {
+      "word": "協力する",
+      "reading": "きょうりょくする",
+      "meaning": "cooperate"
+    },
+    {
+      "word": "能力",
+      "reading": "のうりょく",
+      "meaning": "ability"
+    },
+    {
+      "word": "努力",
+      "reading": "どりょく",
+      "meaning": "effort"
+    },
+    {
+      "word": "暴力",
+      "reading": "ぼうりょく",
+      "meaning": "violence"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "529b"
+}

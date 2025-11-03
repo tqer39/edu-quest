@@ -1,0 +1,90 @@
+{
+  "character": "園",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": ["エン"],
+    "kunyomi": ["その"]
+  },
+  "meanings": ["garden", "park"],
+  "radicals": ["囗"],
+  "examples": [
+    {
+      "word": "果樹園",
+      "reading": "かじゅえん",
+      "meaning": "orchard"
+    },
+    {
+      "word": "幼稚園",
+      "reading": "ようちえん",
+      "meaning": "kindergarten"
+    },
+    {
+      "word": "動物園",
+      "reading": "どうぶつえん",
+      "meaning": "zoo"
+    },
+    {
+      "word": "楽園",
+      "reading": "らくえん",
+      "meaning": "paradise"
+    },
+    {
+      "word": "田園",
+      "reading": "でんえん",
+      "meaning": "rural area"
+    },
+    {
+      "word": "遊園地",
+      "reading": "ゆうえんち",
+      "meaning": "amusement park"
+    },
+    {
+      "word": "園芸",
+      "reading": "えんげい",
+      "meaning": "gardening"
+    },
+    {
+      "word": "庭園",
+      "reading": "ていえん",
+      "meaning": "garden, park"
+    },
+    {
+      "word": "保育園",
+      "reading": "ほいくえん",
+      "meaning": "nursery school"
+    },
+    {
+      "word": "公園",
+      "reading": "こうえん",
+      "meaning": "park"
+    },
+    {
+      "word": "植物園",
+      "reading": "しょくぶつえん",
+      "meaning": "botanical garden"
+    },
+    {
+      "word": "菜園",
+      "reading": "さいえん",
+      "meaning": "vegetable garden"
+    },
+    {
+      "word": "園児",
+      "reading": "えんじ",
+      "meaning": "kindergarten pupil"
+    },
+    {
+      "word": "園",
+      "reading": "その",
+      "meaning": "garden, park, plantation"
+    },
+    {
+      "word": "花園",
+      "reading": "はなぞの",
+      "meaning": "flower garden"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5712"
+}

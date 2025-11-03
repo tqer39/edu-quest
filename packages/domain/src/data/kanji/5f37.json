@@ -1,0 +1,96 @@
+{
+  "character": "強",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["キョウ", "ゴウ"],
+    "kunyomi": ["つよ-い", "つよ-まる", "つよ-める"]
+  },
+  "meanings": ["strong"],
+  "radicals": ["弓"],
+  "examples": [
+    {
+      "word": "富国強兵",
+      "reading": "ふこくきょうへい",
+      "meaning": "national prosperity & defense"
+    },
+    {
+      "word": "強硬な",
+      "reading": "きょうこうな",
+      "meaning": "firm, unbending, unyielding"
+    },
+    {
+      "word": "強調する",
+      "reading": "きょうちょうする",
+      "meaning": "emphasize"
+    },
+    {
+      "word": "強引な",
+      "reading": "ごういんな",
+      "meaning": "pushy"
+    },
+    {
+      "word": "強盗",
+      "reading": "ごうとう",
+      "meaning": "burglary"
+    },
+    {
+      "word": "強化する",
+      "reading": "きょうかする",
+      "meaning": "strengthen"
+    },
+    {
+      "word": "強情な",
+      "reading": "ごうじょうな",
+      "meaning": "stubborn"
+    },
+    {
+      "word": "強肩",
+      "reading": "きょうけん",
+      "meaning": "strong throwing arm"
+    },
+    {
+      "word": "強制する",
+      "reading": "きょうせいする",
+      "meaning": "coerce"
+    },
+    {
+      "word": "勉強する",
+      "reading": "べんきょうする",
+      "meaning": "study"
+    },
+    {
+      "word": "強力な",
+      "reading": "きょうりょくな",
+      "meaning": "powerful"
+    },
+    {
+      "word": "強い",
+      "reading": "つよい",
+      "meaning": "strong"
+    },
+    {
+      "word": "強まる",
+      "reading": "つよまる",
+      "meaning": "get strong [v.i.]"
+    },
+    {
+      "word": "強める",
+      "reading": "つよめる",
+      "meaning": "strengthen [v.t.]"
+    },
+    {
+      "word": "強敵",
+      "reading": "きょうてき",
+      "meaning": "formidable enemy"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "強いる",
+      "reading": "しいる",
+      "meaning": "force, compel"
+    }
+  ],
+  "unicode": "5f37"
+}

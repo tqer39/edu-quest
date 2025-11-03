@@ -1,16 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import {
+  calculateKanjiScore,
+  generateKanjiQuestions,
   generateReadingQuestion,
   generateStrokeCountQuestion,
-  generateKanjiQuestions,
   getKanjiDictionaryByGrade,
-  verifyKanjiAnswer,
-  calculateKanjiScore,
+  getKanjiByUnicode,
+  getKanjiIndexByGrade,
   getKanjiPerformanceMessage,
   type Kanji,
-  type KanjiQuestion,
-  type KanjiQuestConfig,
   type KanjiGrade,
+  type KanjiQuestConfig,
+  type KanjiQuestion,
+  verifyKanjiAnswer,
 } from '../kanji-quest';
 
 // Sample kanji data for testing
@@ -18,6 +20,7 @@ const sampleKanji: Kanji[] = [
   {
     character: '一',
     grade: 1,
+    unicode: '4e00',
     strokeCount: 1,
     readings: {
       onyomi: ['イチ', 'イツ'],
@@ -34,6 +37,7 @@ const sampleKanji: Kanji[] = [
   {
     character: '二',
     grade: 1,
+    unicode: '4e8c',
     strokeCount: 2,
     readings: {
       onyomi: ['ニ'],
@@ -47,6 +51,7 @@ const sampleKanji: Kanji[] = [
   {
     character: '三',
     grade: 1,
+    unicode: '4e09',
     strokeCount: 3,
     readings: {
       onyomi: ['サン'],
@@ -60,6 +65,7 @@ const sampleKanji: Kanji[] = [
   {
     character: '四',
     grade: 1,
+    unicode: '56db',
     strokeCount: 5,
     readings: {
       onyomi: ['シ'],
@@ -73,6 +79,7 @@ const sampleKanji: Kanji[] = [
   {
     character: '五',
     grade: 1,
+    unicode: '4e94',
     strokeCount: 4,
     readings: {
       onyomi: ['ゴ'],
@@ -484,6 +491,31 @@ describe('getKanjiDictionaryByGrade', () => {
         expect(Array.isArray(entry.specialExamples)).toBe(true);
       });
     });
+  });
+});
+
+describe('kanji data access helpers', () => {
+  it('returns index entries for a grade', () => {
+    const indexEntries = getKanjiIndexByGrade(1);
+
+    expect(indexEntries.length).toBeGreaterThan(0);
+    expect(indexEntries.every((entry) => entry.grade === 1)).toBe(true);
+  });
+
+  it('falls back to grade 1 data when grade is unavailable', () => {
+    const indexEntries = getKanjiIndexByGrade(6);
+
+    expect(indexEntries.length).toBeGreaterThan(0);
+    expect(indexEntries.every((entry) => entry.grade === 1)).toBe(true);
+  });
+
+  it('retrieves detailed kanji information by unicode', () => {
+    const kanji = getKanjiByUnicode('4e00');
+
+    expect(kanji?.character).toBe('一');
+    expect(kanji?.unicode).toBe('4e00');
+    expect(kanji?.grade).toBe(1);
+    expect(getKanjiByUnicode('ffff')).toBeUndefined();
   });
 });
 

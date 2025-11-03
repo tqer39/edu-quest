@@ -1,0 +1,86 @@
+{
+  "character": "北",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["ホク"],
+    "kunyomi": ["きた"]
+  },
+  "meanings": ["north"],
+  "radicals": ["匕"],
+  "examples": [
+    {
+      "word": "北欧",
+      "reading": "ほくおう",
+      "meaning": "Northern Europe"
+    },
+    {
+      "word": "北部",
+      "reading": "ほくぶ",
+      "meaning": "northern part"
+    },
+    {
+      "word": "北風",
+      "reading": "きたかぜ",
+      "meaning": "north wind"
+    },
+    {
+      "word": "敗北する",
+      "reading": "はいぼくする",
+      "meaning": "be defeated [v.i.]"
+    },
+    {
+      "word": "北極",
+      "reading": "ほっきょく",
+      "meaning": "north pole, Arctic"
+    },
+    {
+      "word": "東北",
+      "reading": "とうほく",
+      "meaning": "Touhoku"
+    },
+    {
+      "word": "東西南北",
+      "reading": "とうざいなんぼく",
+      "meaning": "east, west, south and north"
+    },
+    {
+      "word": "北極星",
+      "reading": "ほっきょくせい",
+      "meaning": "Polaris, north star"
+    },
+    {
+      "word": "北米",
+      "reading": "ほくべい",
+      "meaning": "North America"
+    },
+    {
+      "word": "南北",
+      "reading": "なんぼく",
+      "meaning": "south and north"
+    },
+    {
+      "word": "北海道",
+      "reading": "ほっかいどう",
+      "meaning": "Hokkaido"
+    },
+    {
+      "word": "北",
+      "reading": "きた",
+      "meaning": "north"
+    },
+    {
+      "word": "北半球",
+      "reading": "きたはんきゅう",
+      "meaning": "northern hemisphere"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "北京",
+      "reading": "ぺきん",
+      "meaning": "Beijing"
+    }
+  ],
+  "unicode": "5317"
+}

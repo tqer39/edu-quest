@@ -1,0 +1,96 @@
+{
+  "character": "小",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["ショウ"],
+    "kunyomi": ["ちい-さい", "こ", "お"]
+  },
+  "meanings": ["small", "little"],
+  "radicals": ["小"],
+  "examples": [
+    {
+      "word": "小銭",
+      "reading": "こぜに",
+      "meaning": "coins, small change"
+    },
+    {
+      "word": "小刻みに",
+      "reading": "こきざみに",
+      "meaning": "bit by bit"
+    },
+    {
+      "word": "縮小する",
+      "reading": "しゅくしょうする",
+      "meaning": "reduce, curtail"
+    },
+    {
+      "word": "小脳",
+      "reading": "しょうのう",
+      "meaning": "cerebellum"
+    },
+    {
+      "word": "小雨",
+      "reading": "こさめ",
+      "meaning": "light rain"
+    },
+    {
+      "word": "小憎らしい",
+      "reading": "こにくらしい",
+      "meaning": "irritating, maddening"
+    },
+    {
+      "word": "袋小路",
+      "reading": "ふくろこうじ",
+      "meaning": "blind alley, cul-de-sac"
+    },
+    {
+      "word": "小川",
+      "reading": "おがわ",
+      "meaning": "small stream, brook"
+    },
+    {
+      "word": "小学校",
+      "reading": "しょうがっこう",
+      "meaning": "elementary school"
+    },
+    {
+      "word": "最小",
+      "reading": "さいしょう",
+      "meaning": "smallest"
+    },
+    {
+      "word": "小説",
+      "reading": "しょうせつ",
+      "meaning": "a novel"
+    },
+    {
+      "word": "大小",
+      "reading": "だいしょう",
+      "meaning": "size"
+    },
+    {
+      "word": "小さい",
+      "reading": "ちいさい",
+      "meaning": "small"
+    },
+    {
+      "word": "小麦",
+      "reading": "こむぎ",
+      "meaning": "wheat"
+    },
+    {
+      "word": "小鳥",
+      "reading": "ことり",
+      "meaning": "small bird"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "小豆",
+      "reading": "あずき",
+      "meaning": "adzuki beans"
+    }
+  ],
+  "unicode": "5c0f"
+}

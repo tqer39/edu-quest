@@ -1,0 +1,90 @@
+{
+  "character": "社",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["シャ"],
+    "kunyomi": ["やしろ"]
+  },
+  "meanings": ["company", "shrine"],
+  "radicals": ["示"],
+  "examples": [
+    {
+      "word": "出版社",
+      "reading": "しゅっぱんしゃ",
+      "meaning": "publisher"
+    },
+    {
+      "word": "株式会社",
+      "reading": "かぶしきがいしゃ",
+      "meaning": "stock company, corporation"
+    },
+    {
+      "word": "貴社",
+      "reading": "きしゃ",
+      "meaning": "your company [respectful]"
+    },
+    {
+      "word": "社会党",
+      "reading": "しゃかいとう",
+      "meaning": "Socialist Party"
+    },
+    {
+      "word": "会社",
+      "reading": "かいしゃ",
+      "meaning": "company"
+    },
+    {
+      "word": "会社員",
+      "reading": "かいしゃいん",
+      "meaning": "company employee"
+    },
+    {
+      "word": "社長",
+      "reading": "しゃちょう",
+      "meaning": "company president"
+    },
+    {
+      "word": "社会",
+      "reading": "しゃかい",
+      "meaning": "society"
+    },
+    {
+      "word": "本社",
+      "reading": "ほんしゃ",
+      "meaning": "headquarters"
+    },
+    {
+      "word": "支社",
+      "reading": "ししゃ",
+      "meaning": "branch office"
+    },
+    {
+      "word": "神社",
+      "reading": "じんじゃ",
+      "meaning": "Shinto shrine"
+    },
+    {
+      "word": "入社する",
+      "reading": "にゅうしゃする",
+      "meaning": "join a company"
+    },
+    {
+      "word": "お社",
+      "reading": "おやしろ",
+      "meaning": "Shinto shrine [hon.]"
+    },
+    {
+      "word": "会社勤め",
+      "reading": "かいしゃづとめ",
+      "meaning": "to serve in a company [n.]"
+    },
+    {
+      "word": "航空会社",
+      "reading": "こうくうがいしゃ",
+      "meaning": "airline company"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "793e"
+}

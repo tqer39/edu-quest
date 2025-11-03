@@ -1,0 +1,96 @@
+{
+  "character": "原",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["ゲン"],
+    "kunyomi": ["はら"]
+  },
+  "meanings": ["plain", "field", "origin"],
+  "radicals": ["厂"],
+  "examples": [
+    {
+      "word": "原寸大",
+      "reading": "げんすんだい",
+      "meaning": "actual size, full size"
+    },
+    {
+      "word": "原爆",
+      "reading": "げんばく",
+      "meaning": "atomic bomb"
+    },
+    {
+      "word": "野原",
+      "reading": "のはら",
+      "meaning": "field"
+    },
+    {
+      "word": "原稿",
+      "reading": "げんこう",
+      "meaning": "manuscript"
+    },
+    {
+      "word": "原因",
+      "reading": "げんいん",
+      "meaning": "cause, origin"
+    },
+    {
+      "word": "原則",
+      "reading": "げんそく",
+      "meaning": "principle"
+    },
+    {
+      "word": "原点",
+      "reading": "げんてん",
+      "meaning": "starting point"
+    },
+    {
+      "word": "原告",
+      "reading": "げんこく",
+      "meaning": "plaintiff"
+    },
+    {
+      "word": "高原",
+      "reading": "こうげん",
+      "meaning": "plateau"
+    },
+    {
+      "word": "原始的な",
+      "reading": "げんしてきな",
+      "meaning": "primitive"
+    },
+    {
+      "word": "原料",
+      "reading": "げんりょう",
+      "meaning": "raw material"
+    },
+    {
+      "word": "原型",
+      "reading": "げんけい",
+      "meaning": "prototype"
+    },
+    {
+      "word": "草原",
+      "reading": "そうげん",
+      "meaning": "grass-covered plain, grasslands"
+    },
+    {
+      "word": "原始林",
+      "reading": "げんしりん",
+      "meaning": "primeval forest, virgin forest"
+    },
+    {
+      "word": "原典",
+      "reading": "げんてん",
+      "meaning": "original"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "河原",
+      "reading": "かわら",
+      "meaning": "dry river bed, river beach"
+    }
+  ],
+  "unicode": "539f"
+}

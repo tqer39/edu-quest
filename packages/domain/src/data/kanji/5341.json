@@ -1,0 +1,136 @@
+{
+  "character": "十",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": ["ジュウ", "ジッ"],
+    "kunyomi": ["とお", "と"]
+  },
+  "meanings": ["ten"],
+  "radicals": ["十"],
+  "examples": [
+    {
+      "word": "十七",
+      "reading": "じゅうしち",
+      "meaning": "17"
+    },
+    {
+      "word": "十七",
+      "reading": "じゅうなな",
+      "meaning": "17"
+    },
+    {
+      "word": "十九日",
+      "reading": "じゅうくにち",
+      "meaning": "19 days, 19th of the month"
+    },
+    {
+      "word": "十",
+      "reading": "じゅう",
+      "meaning": "10"
+    },
+    {
+      "word": "十年",
+      "reading": "じゅうねん",
+      "meaning": "10 years"
+    },
+    {
+      "word": "十分な",
+      "reading": "じゅうぶんな",
+      "meaning": "enough"
+    },
+    {
+      "word": "十日",
+      "reading": "とおか",
+      "meaning": "10 days, 10th of the month"
+    },
+    {
+      "word": "十人十色",
+      "reading": "じゅうにんといろ",
+      "meaning": "several men, several minds"
+    },
+    {
+      "word": "十分に",
+      "reading": "じゅうぶんに",
+      "meaning": "enough"
+    },
+    {
+      "word": "赤十字",
+      "reading": "せきじゅうじ",
+      "meaning": "Red Cross"
+    },
+    {
+      "word": "十ドル弱",
+      "reading": "じゅうドルじゃく",
+      "meaning": "a little less than ten dollars"
+    },
+    {
+      "word": "十八才",
+      "reading": "じゅうはっさい",
+      "meaning": "18 years old"
+    },
+    {
+      "word": "十円玉",
+      "reading": "じゅうえんだま",
+      "meaning": "10 yen coin"
+    },
+    {
+      "word": "十人",
+      "reading": "じゅうにん",
+      "meaning": "ten people"
+    },
+    {
+      "word": "十月",
+      "reading": "じゅうがつ",
+      "meaning": "October"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "十か月",
+      "reading": "じゅっかげつ",
+      "meaning": "10 months"
+    },
+    {
+      "word": "十冊",
+      "reading": "じゅっさつ",
+      "meaning": "10 (bound objects)"
+    },
+    {
+      "word": "十匹",
+      "reading": "じゅっぴき",
+      "meaning": "10 (animals)"
+    },
+    {
+      "word": "十分",
+      "reading": "じゅっぷん",
+      "meaning": "10 minutes"
+    },
+    {
+      "word": "十本",
+      "reading": "じゅっぽん",
+      "meaning": "10 (long cylindrical objects)"
+    },
+    {
+      "word": "二十才",
+      "reading": "はたち",
+      "meaning": "20 years old"
+    },
+    {
+      "word": "二十日",
+      "reading": "はつか",
+      "meaning": "20 days, 20th day of the month"
+    },
+    {
+      "word": "二十歳",
+      "reading": "はたち",
+      "meaning": "twenty years old"
+    },
+    {
+      "word": "十分位",
+      "reading": "じゅっぷんぐらい",
+      "meaning": "about 10 minutes"
+    }
+  ],
+  "unicode": "5341"
+}

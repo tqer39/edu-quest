@@ -1,0 +1,80 @@
+{
+  "character": "答",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": ["トウ"],
+    "kunyomi": ["こた-える", "こた-え"]
+  },
+  "meanings": ["answer"],
+  "radicals": ["竹"],
+  "examples": [
+    {
+      "word": "押し問答",
+      "reading": "おしもんどう",
+      "meaning": "dispute, heated Q&A"
+    },
+    {
+      "word": "贈答品",
+      "reading": "ぞうとうひん",
+      "meaning": "gift, present"
+    },
+    {
+      "word": "返答する",
+      "reading": "へんとうする",
+      "meaning": "reply"
+    },
+    {
+      "word": "解答する",
+      "reading": "かいとうする",
+      "meaning": "solve, figure out"
+    },
+    {
+      "word": "回答する",
+      "reading": "かいとうする",
+      "meaning": "reply [v.i.]"
+    },
+    {
+      "word": "応答する",
+      "reading": "おうとうする",
+      "meaning": "respond [v.i.]"
+    },
+    {
+      "word": "答案",
+      "reading": "とうあん",
+      "meaning": "examination paper"
+    },
+    {
+      "word": "答える",
+      "reading": "こたえる",
+      "meaning": "answer [v.i.]"
+    },
+    {
+      "word": "答弁する",
+      "reading": "とうべんする",
+      "meaning": "reply (in meeting)"
+    },
+    {
+      "word": "答案用紙",
+      "reading": "とうあんようし",
+      "meaning": "exam answer sheet"
+    },
+    {
+      "word": "質疑応答",
+      "reading": "しつぎおうとう",
+      "meaning": "question and answer session"
+    },
+    {
+      "word": "即答する",
+      "reading": "そくとうする",
+      "meaning": "reply immediately"
+    },
+    {
+      "word": "答え",
+      "reading": "こたえ",
+      "meaning": "answer"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7b54"
+}

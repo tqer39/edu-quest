@@ -1,0 +1,101 @@
+{
+  "character": "海",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["カイ"],
+    "kunyomi": ["うみ"]
+  },
+  "meanings": ["sea", "ocean"],
+  "radicals": ["水"],
+  "examples": [
+    {
+      "word": "海域",
+      "reading": "かいいき",
+      "meaning": "area of ocean"
+    },
+    {
+      "word": "樹海",
+      "reading": "じゅかい",
+      "meaning": "sea of trees"
+    },
+    {
+      "word": "海水",
+      "reading": "かいすい",
+      "meaning": "ocean water"
+    },
+    {
+      "word": "海外旅行",
+      "reading": "かいがいりょこう",
+      "meaning": "overseas travel"
+    },
+    {
+      "word": "日本海",
+      "reading": "にほんかい",
+      "meaning": "Sea of Japan"
+    },
+    {
+      "word": "航海",
+      "reading": "こうかい",
+      "meaning": "sailing"
+    },
+    {
+      "word": "海岸",
+      "reading": "かいがん",
+      "meaning": "coast"
+    },
+    {
+      "word": "海外",
+      "reading": "かいがい",
+      "meaning": "abroad"
+    },
+    {
+      "word": "海水浴",
+      "reading": "かいすいよく",
+      "meaning": "sea bathing"
+    },
+    {
+      "word": "海",
+      "reading": "うみ",
+      "meaning": "sea"
+    },
+    {
+      "word": "海辺",
+      "reading": "うみべ",
+      "meaning": "beach"
+    },
+    {
+      "word": "深海",
+      "reading": "しんかい",
+      "meaning": "deep-sea"
+    },
+    {
+      "word": "海抜",
+      "reading": "かいばつ",
+      "meaning": "height above sea level"
+    },
+    {
+      "word": "海草",
+      "reading": "かいそう",
+      "meaning": "seaweed"
+    },
+    {
+      "word": "雲海",
+      "reading": "うんかい",
+      "meaning": "sea of clouds"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "海老",
+      "reading": "えび",
+      "meaning": "shrimp"
+    },
+    {
+      "word": "海苔",
+      "reading": "のり",
+      "meaning": "sea seed sheet"
+    }
+  ],
+  "unicode": "6d77"
+}

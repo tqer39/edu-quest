@@ -1,113 +1,99 @@
+import type { ClockGrade } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { ClockDifficulty, ClockGrade } from '@edu-quest/domain';
-import { getGradeDescription } from '@edu-quest/domain';
-import { BackToTopLink } from '../components/back-to-top-link';
 import { Footer } from '../../components/Footer';
+import { GradeDropdown } from '../../components/GradeDropdown';
+import type { SchoolStage } from '../utils/school-grade';
+import {
+  createSchoolGradeParam,
+  formatSchoolGradeLabel,
+} from '../utils/school-grade';
 
 const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
   currentUser,
   grade,
-}) => (
-  <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
-    <div class="flex items-center gap-2">
-      <a
-        href="/clock"
-        class="flex items-center gap-2 transition hover:opacity-80"
-      >
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          🕐
-        </span>
-        <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          ClockQuest - {grade}年生
-        </span>
-      </a>
-    </div>
-    <div class="flex flex-wrap gap-2">
-      <BackToTopLink />
-      <a
-        href="/clock"
-        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-      >
-        ← 学年選択に戻る
-      </a>
-      {currentUser ? (
-        <a
-          href="/auth/logout"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ログアウト
-        </a>
-      ) : (
-        <a
-          href="/auth/login"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ログイン
-        </a>
-      )}
-    </div>
-  </nav>
-);
+}) => {
+  const availableGrades: readonly {
+    stage: SchoolStage;
+    grade: number;
+    disabled?: boolean;
+  }[] = [
+    { stage: '小学', grade: 1 },
+    { stage: '小学', grade: 2 },
+    { stage: '小学', grade: 3 },
+    { stage: '小学', grade: 4 },
+    { stage: '小学', grade: 5 },
+    { stage: '小学', grade: 6 },
+  ];
 
-const questOptions: {
-  id: 'reading' | 'conversion' | 'arithmetic' | 'variety';
+  return (
+    <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
+      <div class="flex items-center gap-2">
+        <a href="/" class="transition hover:opacity-80">
+          <img
+            src="/logo.svg"
+            alt="EduQuest Logo"
+            class="h-7 w-7"
+            width="28"
+            height="28"
+          />
+        </a>
+        <span class="text-[var(--mq-outline)]">|</span>
+        <a href="/clock" class="transition hover:opacity-80">
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            🕐
+          </span>
+        </a>
+        <GradeDropdown
+          currentGrade={grade}
+          currentStage="小学"
+          availableGrades={availableGrades}
+          baseUrl="/clock/select"
+        />
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {currentUser ? (
+          <a
+            href="/auth/logout"
+            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          >
+            ログアウト
+          </a>
+        ) : (
+          <a
+            href="/auth/login"
+            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+          >
+            ログイン
+          </a>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+type ModeOption = {
+  id: 'learn' | 'quest';
   title: string;
-  description: string;
   icon: string;
-  difficulty: ClockDifficulty;
-}[] = [
-  {
-    id: 'reading',
-    title: 'アナログ・デジタル時計の読み問題',
-    description:
-      '長針・短針やデジタル表示を読み取って、正しい時刻を答えるクエストです。',
-    icon: '🕒',
-    difficulty: 1,
-  },
-  {
-    id: 'conversion',
-    title: 'アナログ・デジタルの変換問題',
-    description:
-      'アナログ表示とデジタル表示を切り替えながら、同じ時刻を表す力を鍛えます。',
-    icon: '🔄',
-    difficulty: 2,
-  },
-  {
-    id: 'arithmetic',
-    title: '時間のたし算・引き算',
-    description:
-      '○時△分からの経過時間や、合計時間を求める計算問題に挑戦しましょう。',
-    icon: '➕',
-    difficulty: 4,
-  },
-  {
-    id: 'variety',
-    title: 'その他色々',
-    description:
-      'カレンダーや日常生活のスケジュールなど、多彩な時計クイズをランダムに出題します。',
-    icon: '✨',
-    difficulty: 5,
-  },
-];
+  description: string;
+  href: string;
+};
 
-const QuestCard: FC<{
-  grade: ClockGrade;
-  option: (typeof questOptions)[number];
-}> = ({ grade, option }) => (
+const ModeCard: FC<{ mode: ModeOption }> = ({ mode }) => (
   <a
-    href={`/clock/start?grade=elem-${grade}&type=${option.id}&difficulty=${option.difficulty}`}
-    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+    href={mode.href}
+    class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
-    <span class="text-4xl" aria-hidden="true">
-      {option.icon}
+    <span class="text-5xl" aria-hidden="true">
+      {mode.icon}
     </span>
     <div class="space-y-2">
-      <div class="text-xl font-bold text-[var(--mq-ink)]">{option.title}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{option.description}</p>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">{mode.title}</div>
+      <p class="text-sm leading-relaxed text-[#5e718a]">{mode.description}</p>
     </div>
     <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
-      クエスト開始 →
+      選択する →
     </span>
   </a>
 );
@@ -116,7 +102,27 @@ export const ClockSelect: FC<{
   currentUser: CurrentUser | null;
   grade: ClockGrade;
 }> = ({ currentUser, grade }) => {
-  const gradeDescription = getGradeDescription(grade);
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+  const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
+
+  const modeOptions: ModeOption[] = [
+    {
+      id: 'learn',
+      title: '学ぶ',
+      icon: '📚',
+      description:
+        '時計の読み方を学びましょう。アナログとデジタルの両方をわかりやすく説明します。',
+      href: `/clock/learn?grade=${encodeURIComponent(gradeParam)}`,
+    },
+    {
+      id: 'quest',
+      title: 'クエストに挑戦する',
+      icon: '🎯',
+      description:
+        '問題を解いて時計をマスター！楽しく学習して時間の感覚を身につけましょう。',
+      href: `/clock/quest?grade=${encodeURIComponent(gradeParam)}`,
+    },
+  ];
 
   return (
     <div
@@ -129,23 +135,23 @@ export const ClockSelect: FC<{
           <span class="text-6xl">🕐</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              クエストを選んでください
+              学習方法を選んでください
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              {grade}年生向けのおすすめ:
+              {gradeLabel}向けの時計学習を始めましょう。
               <br />
-              {gradeDescription}
+              「学ぶ」で基礎を理解してから、「クエストに挑戦する」で実践しましょう。
             </p>
           </div>
         </header>
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            チャレンジするクエスト
+            学習モードを選択
           </h2>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
-            {questOptions.map((option) => (
-              <QuestCard key={option.id} grade={grade} option={option} />
+          <div class="grid gap-6 sm:grid-cols-2">
+            {modeOptions.map((mode) => (
+              <ModeCard key={mode.id} mode={mode} />
             ))}
           </div>
         </section>

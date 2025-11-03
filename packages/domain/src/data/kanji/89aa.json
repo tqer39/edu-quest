@@ -1,0 +1,90 @@
+{
+  "character": "親",
+  "grade": 2,
+  "strokeCount": 16,
+  "readings": {
+    "onyomi": ["シン"],
+    "kunyomi": ["おや", "した-しい", "した-しむ"]
+  },
+  "meanings": ["parent", "intimate"],
+  "radicals": ["見"],
+  "examples": [
+    {
+      "word": "親孝行な",
+      "reading": "おやこうこうな",
+      "meaning": "having filial piety [adj.]"
+    },
+    {
+      "word": "親不孝な",
+      "reading": "おやふこうな",
+      "meaning": "lacking filial piety [adj.]"
+    },
+    {
+      "word": "親善試合",
+      "reading": "しんぜんじあい",
+      "meaning": "friendly match"
+    },
+    {
+      "word": "親友",
+      "reading": "しんゆう",
+      "meaning": "close friend"
+    },
+    {
+      "word": "親密な",
+      "reading": "しんみつな",
+      "meaning": "intimate, friendly"
+    },
+    {
+      "word": "親掛かり",
+      "reading": "おやがかり",
+      "meaning": "dependent on one's parents"
+    },
+    {
+      "word": "親切な",
+      "reading": "しんせつな",
+      "meaning": "kind"
+    },
+    {
+      "word": "親心",
+      "reading": "おやごころ",
+      "meaning": "parental love"
+    },
+    {
+      "word": "不親切な",
+      "reading": "ふしんせつな",
+      "meaning": "unkind"
+    },
+    {
+      "word": "父親",
+      "reading": "ちちおや",
+      "meaning": "father"
+    },
+    {
+      "word": "母親",
+      "reading": "ははおや",
+      "meaning": "mother"
+    },
+    {
+      "word": "御両親",
+      "reading": "ごりょうしん",
+      "meaning": "parents [hon.]"
+    },
+    {
+      "word": "親指",
+      "reading": "おやゆび",
+      "meaning": "thumb"
+    },
+    {
+      "word": "肉親",
+      "reading": "にくしん",
+      "meaning": "blood relative"
+    },
+    {
+      "word": "親王",
+      "reading": "しんのう",
+      "meaning": "imperial prince"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "89aa"
+}

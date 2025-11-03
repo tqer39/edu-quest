@@ -1,0 +1,90 @@
+{
+  "character": "話",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": ["ワ"],
+    "kunyomi": ["はな-す", "はなし"]
+  },
+  "meanings": ["talk", "speak"],
+  "radicals": ["言"],
+  "examples": [
+    {
+      "word": "電話",
+      "reading": "でんわ",
+      "meaning": "telephone"
+    },
+    {
+      "word": "会話",
+      "reading": "かいわ",
+      "meaning": "conversation"
+    },
+    {
+      "word": "話題",
+      "reading": "わだい",
+      "meaning": "topic"
+    },
+    {
+      "word": "童話",
+      "reading": "どうわ",
+      "meaning": "fairy tale"
+    },
+    {
+      "word": "話す",
+      "reading": "はなす",
+      "meaning": "speak"
+    },
+    {
+      "word": "話し方",
+      "reading": "はなしかた",
+      "meaning": "way of talking"
+    },
+    {
+      "word": "話",
+      "reading": "はなし",
+      "meaning": "story, conversation"
+    },
+    {
+      "word": "話し中",
+      "reading": "はなしちゅう",
+      "meaning": "while talking, the line is busy"
+    },
+    {
+      "word": "笑い話",
+      "reading": "わらいばなし",
+      "meaning": "funny story"
+    },
+    {
+      "word": "昔話",
+      "reading": "むかしばなし",
+      "meaning": "folklore"
+    },
+    {
+      "word": "手話",
+      "reading": "しゅわ",
+      "meaning": "sign language"
+    },
+    {
+      "word": "電話する",
+      "reading": "でんわする",
+      "meaning": "make a telephone call"
+    },
+    {
+      "word": "電話番号",
+      "reading": "でんわばんごう",
+      "meaning": "phone number"
+    },
+    {
+      "word": "英会話",
+      "reading": "えいかいわ",
+      "meaning": "English conversation"
+    },
+    {
+      "word": "世話",
+      "reading": "せわ",
+      "meaning": "assistance"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8a71"
+}

@@ -1,4 +1,4 @@
-import type { KVNamespace, D1Database } from '@cloudflare/workers-types';
+import type { D1Database, KVNamespace } from '@cloudflare/workers-types';
 
 export type Env = {
   KV_FREE_TRIAL: KVNamespace;

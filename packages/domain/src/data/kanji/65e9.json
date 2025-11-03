@@ -1,0 +1,96 @@
+{
+  "character": "早",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ソウ", "サッ"],
+    "kunyomi": ["はや-い"]
+  },
+  "meanings": ["early", "fast"],
+  "radicals": ["日"],
+  "examples": [
+    {
+      "word": "早熟な",
+      "reading": "そうじゅくな",
+      "meaning": "precocious"
+    },
+    {
+      "word": "早朝",
+      "reading": "そうちょう",
+      "meaning": "early morning"
+    },
+    {
+      "word": "早急な",
+      "reading": "そうきゅうな",
+      "meaning": "urgent"
+    },
+    {
+      "word": "早い",
+      "reading": "はやい",
+      "meaning": "early"
+    },
+    {
+      "word": "早速",
+      "reading": "さっそく",
+      "meaning": "immediately, promptly"
+    },
+    {
+      "word": "早送り",
+      "reading": "はやおくり",
+      "meaning": "fast-forward"
+    },
+    {
+      "word": "早口",
+      "reading": "はやくち",
+      "meaning": "fast talk"
+    },
+    {
+      "word": "早寝",
+      "reading": "はやね",
+      "meaning": "going to bed early"
+    },
+    {
+      "word": "早退",
+      "reading": "そうたい",
+      "meaning": "leave early"
+    },
+    {
+      "word": "早産",
+      "reading": "そうざん",
+      "meaning": "premature birth"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "早咲き",
+      "reading": "はやざき",
+      "meaning": "early blooming, early flowering"
+    },
+    {
+      "word": "早起きする",
+      "reading": "はやおきする",
+      "meaning": "wake up early"
+    },
+    {
+      "word": "早稲田",
+      "reading": "わせだ",
+      "meaning": "Waseda (place name)"
+    },
+    {
+      "word": "早まる",
+      "reading": "はやまる",
+      "meaning": "be rash [v.i.]"
+    },
+    {
+      "word": "早める",
+      "reading": "はやめる",
+      "meaning": "hasten [v.t.]"
+    },
+    {
+      "word": "早速",
+      "reading": "さっそく",
+      "meaning": "immediately"
+    }
+  ],
+  "unicode": "65e9"
+}

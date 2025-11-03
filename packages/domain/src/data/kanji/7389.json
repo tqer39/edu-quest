@@ -1,0 +1,75 @@
+{
+  "character": "玉",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["ギョク"],
+    "kunyomi": ["たま"]
+  },
+  "meanings": ["ball", "jewel"],
+  "radicals": ["玉"],
+  "examples": [
+    {
+      "word": "替え玉",
+      "reading": "かえだま",
+      "meaning": "substitute, double [n.]"
+    },
+    {
+      "word": "玉座",
+      "reading": "ぎょくざ",
+      "meaning": "throne"
+    },
+    {
+      "word": "玉石混淆",
+      "reading": "ぎょくせきこんこう",
+      "meaning": "mixture of wheat and chaff"
+    },
+    {
+      "word": "玉",
+      "reading": "たま",
+      "meaning": "ball, jewel"
+    },
+    {
+      "word": "玉子",
+      "reading": "たまご",
+      "meaning": "egg"
+    },
+    {
+      "word": "玉葱",
+      "reading": "たまねぎ",
+      "meaning": "onion"
+    },
+    {
+      "word": "水玉模様",
+      "reading": "みずたまもよう",
+      "meaning": "polka dots"
+    },
+    {
+      "word": "目玉",
+      "reading": "めだま",
+      "meaning": "eyeball"
+    },
+    {
+      "word": "鉄砲玉",
+      "reading": "てっぽうだま",
+      "meaning": "bullet"
+    },
+    {
+      "word": "十円玉",
+      "reading": "じゅうえんだま",
+      "meaning": "10 yen coin"
+    },
+    {
+      "word": "目玉焼き",
+      "reading": "めだまやき",
+      "meaning": "eggs fried sunny-side-up"
+    },
+    {
+      "word": "水玉",
+      "reading": "みずたま",
+      "meaning": "water drop"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7389"
+}

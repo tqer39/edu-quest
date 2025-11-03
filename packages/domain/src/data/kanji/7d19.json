@@ -1,0 +1,65 @@
+{
+  "character": "紙",
+  "grade": 2,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["シ"],
+    "kunyomi": ["かみ"]
+  },
+  "meanings": ["paper"],
+  "radicals": ["糸"],
+  "examples": [
+    {
+      "word": "包装紙",
+      "reading": "ほうそうし",
+      "meaning": "wrapping paper"
+    },
+    {
+      "word": "手紙",
+      "reading": "てがみ",
+      "meaning": "letter"
+    },
+    {
+      "word": "白紙",
+      "reading": "はくし",
+      "meaning": "white paper"
+    },
+    {
+      "word": "用紙",
+      "reading": "ようし",
+      "meaning": "blank form"
+    },
+    {
+      "word": "表紙",
+      "reading": "ひょうし",
+      "meaning": "front cover"
+    },
+    {
+      "word": "新聞紙",
+      "reading": "しんぶんし",
+      "meaning": "newspaper"
+    },
+    {
+      "word": "紙",
+      "reading": "かみ",
+      "meaning": "paper"
+    },
+    {
+      "word": "紙袋",
+      "reading": "かみぶくろ",
+      "meaning": "paper bag"
+    },
+    {
+      "word": "答案用紙",
+      "reading": "とうあんようし",
+      "meaning": "exam answer sheet"
+    },
+    {
+      "word": "折り紙",
+      "reading": "おりがみ",
+      "meaning": "origami"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7d19"
+}

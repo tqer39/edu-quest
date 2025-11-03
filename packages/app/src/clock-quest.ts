@@ -1,10 +1,10 @@
 import type {
-  ClockDifficulty,
-  ClockQuestion,
   ClockAnswer,
+  ClockDifficulty,
   ClockGrade,
+  ClockQuestion,
 } from '@edu-quest/domain';
-import { generateClockQuestion, checkClockAnswer } from '@edu-quest/domain';
+import { checkClockAnswer, generateClockQuestion } from '@edu-quest/domain';
 
 export type StartClockQuizInput = {
   grade: ClockGrade;

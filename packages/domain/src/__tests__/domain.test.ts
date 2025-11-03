@@ -1,15 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import {
-  generateQuestion,
-  generateGradeOneQuestion,
-  generateSingleOperationQuestion,
-  generateInverseQuestion,
-  generateSubtractionInverseQuestion,
-  evaluateQuestion,
   checkAnswer,
+  evaluateQuestion,
   formatQuestion,
-  pickOp,
+  generateGradeOneQuestion,
+  generateInverseQuestion,
+  generateQuestion,
+  generateSingleOperationQuestion,
+  generateSubtractionInverseQuestion,
   type Mode,
+  pickOp,
   type Question,
 } from '../index';
 

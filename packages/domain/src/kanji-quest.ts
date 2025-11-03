@@ -5,8 +5,8 @@
  * based on the Japanese Ministry of Education curriculum.
  */
 
-import kanjiGrade1Data from './data/kanji-grade-1.json';
-import kanjiGrade2Data from './data/kanji-grade-2.json';
+import kanjiIndexData from './data/kanji-index.json';
+import { kanjiDataMap } from './data/kanji-map';
 
 // Vocabulary examples reference resources such as Kanji Alive (CC BY 4.0).
 
@@ -16,6 +16,7 @@ import kanjiGrade2Data from './data/kanji-grade-2.json';
 export interface Kanji {
   character: string;
   grade: number;
+  unicode: string;
   strokeCount: number;
   readings: {
     onyomi: string[]; // 音読み (Chinese reading)
@@ -33,6 +34,39 @@ export interface Kanji {
     reading: string;
     meaning: string;
   }>;
+}
+
+/**
+ * Kanji index entry for lightweight dictionary listings
+ */
+export interface KanjiIndexEntry {
+  unicode: string;
+  grade: KanjiGrade;
+  character: string;
+}
+
+const kanjiIndex = kanjiIndexData as KanjiIndexEntry[];
+
+function cloneKanji(kanji: Kanji): Kanji {
+  return {
+    ...kanji,
+    readings: {
+      onyomi: [...kanji.readings.onyomi],
+      kunyomi: [...kanji.readings.kunyomi],
+    },
+    meanings: [...kanji.meanings],
+    radicals: [...kanji.radicals],
+    examples: kanji.examples.map((example) => ({ ...example })),
+    specialExamples: kanji.specialExamples
+      ? kanji.specialExamples.map((example) => ({ ...example }))
+      : [],
+  };
+}
+
+function loadKanjiByUnicode(unicode: string): Kanji | undefined {
+  const normalizedUnicode = unicode.toLowerCase();
+  const kanji = kanjiDataMap[normalizedUnicode];
+  return kanji ? cloneKanji(kanji) : undefined;
 }
 
 /**
@@ -76,15 +110,15 @@ export interface KanjiQuestConfig {
  * Load kanji data by grade
  */
 function loadKanjiDataByGrade(grade: KanjiGrade): Kanji[] {
-  switch (grade) {
-    case 1:
-      return kanjiGrade1Data as Kanji[];
-    case 2:
-      return kanjiGrade2Data as Kanji[];
-    // TODO: Add grades 3-6 when data is available
-    default:
-      return kanjiGrade1Data as Kanji[];
+  const entries = kanjiIndex.filter((entry) => entry.grade === grade);
+  if (entries.length === 0) {
+    // TODO: Add grades 3-6 when data becomes available
+    return loadKanjiDataByGrade(1);
   }
+
+  return entries
+    .map((entry) => loadKanjiByUnicode(entry.unicode))
+    .filter((kanji): kanji is Kanji => kanji !== undefined);
 }
 
 /**
@@ -94,19 +128,26 @@ function loadKanjiDataByGrade(grade: KanjiGrade): Kanji[] {
 export function getKanjiDictionaryByGrade(grade: KanjiGrade): Kanji[] {
   const kanjiList = loadKanjiDataByGrade(grade);
 
-  return kanjiList.map((kanji) => ({
-    ...kanji,
-    readings: {
-      onyomi: [...kanji.readings.onyomi],
-      kunyomi: [...kanji.readings.kunyomi],
-    },
-    meanings: [...kanji.meanings],
-    radicals: [...kanji.radicals],
-    examples: kanji.examples.map((example) => ({ ...example })),
-    specialExamples: kanji.specialExamples
-      ? kanji.specialExamples.map((example) => ({ ...example }))
-      : [],
-  }));
+  return kanjiList.map((kanji) => cloneKanji(kanji));
+}
+
+/**
+ * Get lightweight kanji index entries for a specific grade.
+ */
+export function getKanjiIndexByGrade(grade: KanjiGrade): KanjiIndexEntry[] {
+  const entries = kanjiIndex.filter((entry) => entry.grade === grade);
+  if (entries.length === 0 && grade !== 1) {
+    return getKanjiIndexByGrade(1);
+  }
+
+  return entries.map((entry) => ({ ...entry }));
+}
+
+/**
+ * Retrieve detailed kanji information by Unicode code point (hex string).
+ */
+export function getKanjiByUnicode(unicode: string): Kanji | undefined {
+  return loadKanjiByUnicode(unicode);
 }
 
 /**
@@ -195,6 +236,48 @@ export function generateReadingQuestion(
     actualReadingType === 'onyomi'
       ? kanji.readings.onyomi
       : kanji.readings.kunyomi;
+
+  // If the selected reading type has no readings, try the other type
+  if (readings.length === 0) {
+    const fallbackReadings =
+      actualReadingType === 'onyomi'
+        ? kanji.readings.kunyomi
+        : kanji.readings.onyomi;
+
+    if (fallbackReadings.length === 0) {
+      throw new Error(`Kanji "${kanji.character}" has no readings available`);
+    }
+
+    actualReadingType = actualReadingType === 'onyomi' ? 'kunyomi' : 'onyomi';
+    const correctAnswer =
+      fallbackReadings[Math.floor(Math.random() * fallbackReadings.length)];
+
+    // Generate wrong answer choices
+    const wrongAnswers = generateWrongReadings(
+      correctAnswer,
+      allKanji,
+      actualReadingType,
+      3
+    );
+
+    // Combine and shuffle choices
+    const choices = shuffleArray([correctAnswer, ...wrongAnswers]);
+
+    // Generate question text with ruby tags for lower grades
+    const grade = kanji.grade as KanjiGrade;
+    const readingTypeName = formatReadingTypeName(actualReadingType, grade);
+    const questionText = `「${kanji.character}」の${readingTypeName}は？`;
+
+    return {
+      character: kanji.character,
+      questionText,
+      correctAnswer,
+      choices,
+      questType: 'reading',
+      grade,
+    };
+  }
+
   const correctAnswer = readings[Math.floor(Math.random() * readings.length)];
 
   // Generate wrong answer choices

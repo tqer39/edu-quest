@@ -1,8 +1,8 @@
-import type { FC } from 'hono/jsx';
 import { html } from 'hono/html';
+import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import { renderPlayClientScript } from './play.client';
 import { gradePresets } from './grade-presets';
+import { renderPlayClientScript } from './play.client';
 
 export const Play: FC<{ currentUser: CurrentUser | null }> = ({
   currentUser,

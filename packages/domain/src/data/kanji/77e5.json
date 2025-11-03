@@ -1,0 +1,106 @@
+{
+  "character": "知",
+  "grade": 2,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["チ"],
+    "kunyomi": ["し-る"]
+  },
+  "meanings": ["know", "wisdom"],
+  "radicals": ["矢"],
+  "examples": [
+    {
+      "word": "知能犯",
+      "reading": "ちのうはん",
+      "meaning": "intellectual criminal"
+    },
+    {
+      "word": "知己",
+      "reading": "ちき",
+      "meaning": "acquaintance, friend"
+    },
+    {
+      "word": "知識層",
+      "reading": "ちしきそう",
+      "meaning": "the intellectual class"
+    },
+    {
+      "word": "承知する",
+      "reading": "しょうちする",
+      "meaning": "consent"
+    },
+    {
+      "word": "通知する",
+      "reading": "つうちする",
+      "meaning": "notify by letter"
+    },
+    {
+      "word": "知識",
+      "reading": "ちしき",
+      "meaning": "knowledge"
+    },
+    {
+      "word": "知恵",
+      "reading": "ちえ",
+      "meaning": "wisdom"
+    },
+    {
+      "word": "知性",
+      "reading": "ちせい",
+      "meaning": "intelligence"
+    },
+    {
+      "word": "知的な",
+      "reading": "ちてきな",
+      "meaning": "intellectual"
+    },
+    {
+      "word": "知人",
+      "reading": "ちじん",
+      "meaning": "acquaintance"
+    },
+    {
+      "word": "知る",
+      "reading": "しる",
+      "meaning": "know"
+    },
+    {
+      "word": "知り合い",
+      "reading": "しりあい",
+      "meaning": "acquaintance"
+    },
+    {
+      "word": "知識欲",
+      "reading": "ちしきよく",
+      "meaning": "intellectual thirst"
+    },
+    {
+      "word": "予知する",
+      "reading": "よちする",
+      "meaning": "know by foresight"
+    },
+    {
+      "word": "知覚する",
+      "reading": "ちかくする",
+      "meaning": "perceive"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "知らせる",
+      "reading": "しらせる",
+      "meaning": "notify"
+    },
+    {
+      "word": "御存知",
+      "reading": "ごぞんじ",
+      "meaning": "know [hon.]"
+    },
+    {
+      "word": "恩知らず",
+      "reading": "おんしらず",
+      "meaning": "ungrateful person"
+    }
+  ],
+  "unicode": "77e5"
+}

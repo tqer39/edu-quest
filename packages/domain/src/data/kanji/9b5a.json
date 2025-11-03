@@ -1,0 +1,86 @@
+{
+  "character": "魚",
+  "grade": 2,
+  "strokeCount": 11,
+  "readings": {
+    "onyomi": ["ギョ"],
+    "kunyomi": ["さかな"]
+  },
+  "meanings": ["fish"],
+  "radicals": ["魚"],
+  "examples": [
+    {
+      "word": "金魚",
+      "reading": "きんぎょ",
+      "meaning": "goldfish"
+    },
+    {
+      "word": "魚類",
+      "reading": "ぎょるい",
+      "meaning": "fish (as class of animal)"
+    },
+    {
+      "word": "魚介類",
+      "reading": "ぎょかいるい",
+      "meaning": "marine products, seafood"
+    },
+    {
+      "word": "鮮魚",
+      "reading": "せんぎょ",
+      "meaning": "fresh fish"
+    },
+    {
+      "word": "人魚",
+      "reading": "にんぎょ",
+      "meaning": "mermaid, merman"
+    },
+    {
+      "word": "深海魚",
+      "reading": "しんかいぎょ",
+      "meaning": "deep-sea fish"
+    },
+    {
+      "word": "熱帯魚",
+      "reading": "ねったいぎょ",
+      "meaning": "tropical fish"
+    },
+    {
+      "word": "魚",
+      "reading": "さかな",
+      "meaning": "fish [n.]"
+    },
+    {
+      "word": "魚屋",
+      "reading": "さかなや",
+      "meaning": "fish market, fish dealer"
+    },
+    {
+      "word": "魚群",
+      "reading": "ぎょぐん",
+      "meaning": "school of fish"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "魚市場",
+      "reading": "うおいちば",
+      "meaning": "fish market"
+    },
+    {
+      "word": "飛び魚",
+      "reading": "とびうお",
+      "meaning": "flying fish"
+    },
+    {
+      "word": "雑魚",
+      "reading": "ざこ",
+      "meaning": "small fish, small fry"
+    },
+    {
+      "word": "魚河岸",
+      "reading": "うおがし",
+      "meaning": "riverside fish market"
+    }
+  ],
+  "unicode": "9b5a"
+}

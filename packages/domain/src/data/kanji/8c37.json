@@ -1,0 +1,65 @@
+{
+  "character": "谷",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["コク"],
+    "kunyomi": ["たに"]
+  },
+  "meanings": ["valley"],
+  "radicals": ["谷"],
+  "examples": [
+    {
+      "word": "渓谷",
+      "reading": "けいこく",
+      "meaning": "valley, ravine, canyon"
+    },
+    {
+      "word": "峡谷",
+      "reading": "きょうこく",
+      "meaning": "glen, ravine, gorge, canyon"
+    },
+    {
+      "word": "谷",
+      "reading": "たに",
+      "meaning": "valley"
+    },
+    {
+      "word": "谷川",
+      "reading": "たにがわ",
+      "meaning": "valley river"
+    },
+    {
+      "word": "谷間",
+      "reading": "たにま",
+      "meaning": "ravine, chasm, dell, valley"
+    },
+    {
+      "word": "谷底",
+      "reading": "たにぞこ",
+      "meaning": "valley floor"
+    },
+    {
+      "word": "谷筋",
+      "reading": "たにすじ",
+      "meaning": "valley line"
+    },
+    {
+      "word": "谷沿い",
+      "reading": "たにぞい",
+      "meaning": "along a valley"
+    },
+    {
+      "word": "谷口",
+      "reading": "たにぐち",
+      "meaning": "valley mouth"
+    },
+    {
+      "word": "谷地形",
+      "reading": "たにちけい",
+      "meaning": "valley landform"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "8c37"
+}

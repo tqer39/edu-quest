@@ -1,0 +1,90 @@
+{
+  "character": "光",
+  "grade": 2,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["コウ"],
+    "kunyomi": ["ひか-る", "ひかり"]
+  },
+  "meanings": ["light", "shine"],
+  "radicals": ["儿"],
+  "examples": [
+    {
+      "word": "光熱費",
+      "reading": "こうねつひ",
+      "meaning": "lighting and heating expenses"
+    },
+    {
+      "word": "光線",
+      "reading": "こうせん",
+      "meaning": "light ray"
+    },
+    {
+      "word": "光景",
+      "reading": "こうけい",
+      "meaning": "scene, spectacle"
+    },
+    {
+      "word": "光年",
+      "reading": "こうねん",
+      "meaning": "light year"
+    },
+    {
+      "word": "日光",
+      "reading": "にっこう",
+      "meaning": "sunlight"
+    },
+    {
+      "word": "月光",
+      "reading": "げっこう",
+      "meaning": "moonlight"
+    },
+    {
+      "word": "栄光",
+      "reading": "えいこう",
+      "meaning": "glory"
+    },
+    {
+      "word": "観光する",
+      "reading": "かんこうする",
+      "meaning": "go sightseeing"
+    },
+    {
+      "word": "発光する",
+      "reading": "はっこうする",
+      "meaning": "luminescence, radiation"
+    },
+    {
+      "word": "光る",
+      "reading": "ひかる",
+      "meaning": "shine [v.i.]"
+    },
+    {
+      "word": "光",
+      "reading": "ひかり",
+      "meaning": "light [n.]"
+    },
+    {
+      "word": "稲光",
+      "reading": "いなびかり",
+      "meaning": "(flash of) lightning"
+    },
+    {
+      "word": "観光客",
+      "reading": "かんこうきゃく",
+      "meaning": "tourist"
+    },
+    {
+      "word": "直射日光",
+      "reading": "ちょくしゃにっこう",
+      "meaning": "direct sunlight"
+    },
+    {
+      "word": "陽光",
+      "reading": "ようこう",
+      "meaning": "sunshine, sunlight"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5149"
+}

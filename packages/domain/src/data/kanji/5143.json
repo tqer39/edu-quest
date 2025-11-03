@@ -1,0 +1,90 @@
+{
+  "character": "元",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["ゲン", "ガン"],
+    "kunyomi": ["もと"]
+  },
+  "meanings": ["origin", "source"],
+  "radicals": ["儿"],
+  "examples": [
+    {
+      "word": "元祖",
+      "reading": "がんそ",
+      "meaning": "originator, founder, pioneer"
+    },
+    {
+      "word": "版元",
+      "reading": "はんもと",
+      "meaning": "publisher"
+    },
+    {
+      "word": "元気な",
+      "reading": "げんきな",
+      "meaning": "energetic"
+    },
+    {
+      "word": "紀元前",
+      "reading": "きげんぜん",
+      "meaning": "B.C.E."
+    },
+    {
+      "word": "三次元",
+      "reading": "さんじげん",
+      "meaning": "3 dimensions"
+    },
+    {
+      "word": "元年",
+      "reading": "がんねん",
+      "meaning": "first year (of a specific reign)"
+    },
+    {
+      "word": "製造元",
+      "reading": "せいぞうもと",
+      "meaning": "manufacturer"
+    },
+    {
+      "word": "地元",
+      "reading": "じもと",
+      "meaning": "local"
+    },
+    {
+      "word": "身元",
+      "reading": "みもと",
+      "meaning": "person's identity"
+    },
+    {
+      "word": "復元する",
+      "reading": "ふくげんする",
+      "meaning": "restore"
+    },
+    {
+      "word": "胸元",
+      "reading": "むなもと",
+      "meaning": "breast, pit of stomach"
+    },
+    {
+      "word": "根元",
+      "reading": "ねもと",
+      "meaning": "root, base"
+    },
+    {
+      "word": "紀元",
+      "reading": "きげん",
+      "meaning": "era, C. E."
+    },
+    {
+      "word": "元",
+      "reading": "もと",
+      "meaning": "origin, source"
+    },
+    {
+      "word": "元気",
+      "reading": "げんき",
+      "meaning": "energetic, healthy"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5143"
+}

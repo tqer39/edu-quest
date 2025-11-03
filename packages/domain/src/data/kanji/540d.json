@@ -1,0 +1,90 @@
+{
+  "character": "名",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["メイ", "ミョウ"],
+    "kunyomi": ["な"]
+  },
+  "meanings": ["name"],
+  "radicals": ["口"],
+  "examples": [
+    {
+      "word": "署名する",
+      "reading": "しょめいする",
+      "meaning": "sign (a document)"
+    },
+    {
+      "word": "汚名",
+      "reading": "おめい",
+      "meaning": "stigma, dishonor, infamy"
+    },
+    {
+      "word": "姓名",
+      "reading": "せいめい",
+      "meaning": "full name"
+    },
+    {
+      "word": "同姓同名",
+      "reading": "どうせいどうめい",
+      "meaning": "same family & personal name"
+    },
+    {
+      "word": "名前",
+      "reading": "なまえ",
+      "meaning": "name"
+    },
+    {
+      "word": "題名",
+      "reading": "だいめい",
+      "meaning": "title"
+    },
+    {
+      "word": "名所",
+      "reading": "めいしょ",
+      "meaning": "famous place"
+    },
+    {
+      "word": "曲名",
+      "reading": "きょくめい",
+      "meaning": "song title"
+    },
+    {
+      "word": "名曲",
+      "reading": "めいきょく",
+      "meaning": "famous song"
+    },
+    {
+      "word": "町名",
+      "reading": "ちょうめい",
+      "meaning": "name of a town"
+    },
+    {
+      "word": "有名な",
+      "reading": "ゆうめいな",
+      "meaning": "famous"
+    },
+    {
+      "word": "送り仮名",
+      "reading": "おくりがな",
+      "meaning": "conjugational ending in kana"
+    },
+    {
+      "word": "名声",
+      "reading": "めいせい",
+      "meaning": "fame"
+    },
+    {
+      "word": "氏名",
+      "reading": "しめい",
+      "meaning": "full name"
+    },
+    {
+      "word": "一名",
+      "reading": "いちめい",
+      "meaning": "one person"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "540d"
+}

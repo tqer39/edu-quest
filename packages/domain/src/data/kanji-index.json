@@ -1,0 +1,1197 @@
+[
+  {
+    "unicode": "4e00",
+    "grade": 1,
+    "character": "一"
+  },
+  {
+    "unicode": "4e8c",
+    "grade": 1,
+    "character": "二"
+  },
+  {
+    "unicode": "4e09",
+    "grade": 1,
+    "character": "三"
+  },
+  {
+    "unicode": "56db",
+    "grade": 1,
+    "character": "四"
+  },
+  {
+    "unicode": "4e94",
+    "grade": 1,
+    "character": "五"
+  },
+  {
+    "unicode": "516d",
+    "grade": 1,
+    "character": "六"
+  },
+  {
+    "unicode": "4e03",
+    "grade": 1,
+    "character": "七"
+  },
+  {
+    "unicode": "516b",
+    "grade": 1,
+    "character": "八"
+  },
+  {
+    "unicode": "4e5d",
+    "grade": 1,
+    "character": "九"
+  },
+  {
+    "unicode": "5341",
+    "grade": 1,
+    "character": "十"
+  },
+  {
+    "unicode": "767e",
+    "grade": 1,
+    "character": "百"
+  },
+  {
+    "unicode": "5343",
+    "grade": 1,
+    "character": "千"
+  },
+  {
+    "unicode": "4e0a",
+    "grade": 1,
+    "character": "上"
+  },
+  {
+    "unicode": "4e0b",
+    "grade": 1,
+    "character": "下"
+  },
+  {
+    "unicode": "5de6",
+    "grade": 1,
+    "character": "左"
+  },
+  {
+    "unicode": "53f3",
+    "grade": 1,
+    "character": "右"
+  },
+  {
+    "unicode": "5927",
+    "grade": 1,
+    "character": "大"
+  },
+  {
+    "unicode": "5c0f",
+    "grade": 1,
+    "character": "小"
+  },
+  {
+    "unicode": "4e2d",
+    "grade": 1,
+    "character": "中"
+  },
+  {
+    "unicode": "65e5",
+    "grade": 1,
+    "character": "日"
+  },
+  {
+    "unicode": "6708",
+    "grade": 1,
+    "character": "月"
+  },
+  {
+    "unicode": "706b",
+    "grade": 1,
+    "character": "火"
+  },
+  {
+    "unicode": "6c34",
+    "grade": 1,
+    "character": "水"
+  },
+  {
+    "unicode": "6728",
+    "grade": 1,
+    "character": "木"
+  },
+  {
+    "unicode": "91d1",
+    "grade": 1,
+    "character": "金"
+  },
+  {
+    "unicode": "571f",
+    "grade": 1,
+    "character": "土"
+  },
+  {
+    "unicode": "5c71",
+    "grade": 1,
+    "character": "山"
+  },
+  {
+    "unicode": "5ddd",
+    "grade": 1,
+    "character": "川"
+  },
+  {
+    "unicode": "7a7a",
+    "grade": 1,
+    "character": "空"
+  },
+  {
+    "unicode": "6c17",
+    "grade": 1,
+    "character": "気"
+  },
+  {
+    "unicode": "5929",
+    "grade": 1,
+    "character": "天"
+  },
+  {
+    "unicode": "96e8",
+    "grade": 1,
+    "character": "雨"
+  },
+  {
+    "unicode": "7af9",
+    "grade": 1,
+    "character": "竹"
+  },
+  {
+    "unicode": "7cf8",
+    "grade": 1,
+    "character": "糸"
+  },
+  {
+    "unicode": "8c9d",
+    "grade": 1,
+    "character": "貝"
+  },
+  {
+    "unicode": "8eca",
+    "grade": 1,
+    "character": "車"
+  },
+  {
+    "unicode": "8d64",
+    "grade": 1,
+    "character": "赤"
+  },
+  {
+    "unicode": "9752",
+    "grade": 1,
+    "character": "青"
+  },
+  {
+    "unicode": "767d",
+    "grade": 1,
+    "character": "白"
+  },
+  {
+    "unicode": "5186",
+    "grade": 1,
+    "character": "円"
+  },
+  {
+    "unicode": "738b",
+    "grade": 1,
+    "character": "王"
+  },
+  {
+    "unicode": "7389",
+    "grade": 1,
+    "character": "玉"
+  },
+  {
+    "unicode": "77f3",
+    "grade": 1,
+    "character": "石"
+  },
+  {
+    "unicode": "97f3",
+    "grade": 1,
+    "character": "音"
+  },
+  {
+    "unicode": "5b57",
+    "grade": 1,
+    "character": "字"
+  },
+  {
+    "unicode": "5b66",
+    "grade": 1,
+    "character": "学"
+  },
+  {
+    "unicode": "6821",
+    "grade": 1,
+    "character": "校"
+  },
+  {
+    "unicode": "6587",
+    "grade": 1,
+    "character": "文"
+  },
+  {
+    "unicode": "4eba",
+    "grade": 1,
+    "character": "人"
+  },
+  {
+    "unicode": "5165",
+    "grade": 1,
+    "character": "入"
+  },
+  {
+    "unicode": "51fa",
+    "grade": 1,
+    "character": "出"
+  },
+  {
+    "unicode": "7acb",
+    "grade": 1,
+    "character": "立"
+  },
+  {
+    "unicode": "4f11",
+    "grade": 1,
+    "character": "休"
+  },
+  {
+    "unicode": "5148",
+    "grade": 1,
+    "character": "先"
+  },
+  {
+    "unicode": "751f",
+    "grade": 1,
+    "character": "生"
+  },
+  {
+    "unicode": "5e74",
+    "grade": 1,
+    "character": "年"
+  },
+  {
+    "unicode": "65e9",
+    "grade": 1,
+    "character": "早"
+  },
+  {
+    "unicode": "8349",
+    "grade": 1,
+    "character": "草"
+  },
+  {
+    "unicode": "82b1",
+    "grade": 1,
+    "character": "花"
+  },
+  {
+    "unicode": "6797",
+    "grade": 1,
+    "character": "林"
+  },
+  {
+    "unicode": "68ee",
+    "grade": 1,
+    "character": "森"
+  },
+  {
+    "unicode": "866b",
+    "grade": 1,
+    "character": "虫"
+  },
+  {
+    "unicode": "72ac",
+    "grade": 1,
+    "character": "犬"
+  },
+  {
+    "unicode": "898b",
+    "grade": 1,
+    "character": "見"
+  },
+  {
+    "unicode": "8033",
+    "grade": 1,
+    "character": "耳"
+  },
+  {
+    "unicode": "76ee",
+    "grade": 1,
+    "character": "目"
+  },
+  {
+    "unicode": "53e3",
+    "grade": 1,
+    "character": "口"
+  },
+  {
+    "unicode": "624b",
+    "grade": 1,
+    "character": "手"
+  },
+  {
+    "unicode": "8db3",
+    "grade": 1,
+    "character": "足"
+  },
+  {
+    "unicode": "529b",
+    "grade": 1,
+    "character": "力"
+  },
+  {
+    "unicode": "7537",
+    "grade": 1,
+    "character": "男"
+  },
+  {
+    "unicode": "5973",
+    "grade": 1,
+    "character": "女"
+  },
+  {
+    "unicode": "5b50",
+    "grade": 1,
+    "character": "子"
+  },
+  {
+    "unicode": "540d",
+    "grade": 1,
+    "character": "名"
+  },
+  {
+    "unicode": "6b63",
+    "grade": 1,
+    "character": "正"
+  },
+  {
+    "unicode": "5915",
+    "grade": 1,
+    "character": "夕"
+  },
+  {
+    "unicode": "672c",
+    "grade": 1,
+    "character": "本"
+  },
+  {
+    "unicode": "6751",
+    "grade": 1,
+    "character": "村"
+  },
+  {
+    "unicode": "753a",
+    "grade": 1,
+    "character": "町"
+  },
+  {
+    "unicode": "7530",
+    "grade": 1,
+    "character": "田"
+  },
+  {
+    "unicode": "5f15",
+    "grade": 2,
+    "character": "引"
+  },
+  {
+    "unicode": "7fbd",
+    "grade": 2,
+    "character": "羽"
+  },
+  {
+    "unicode": "96f2",
+    "grade": 2,
+    "character": "雲"
+  },
+  {
+    "unicode": "5712",
+    "grade": 2,
+    "character": "園"
+  },
+  {
+    "unicode": "9060",
+    "grade": 2,
+    "character": "遠"
+  },
+  {
+    "unicode": "4f55",
+    "grade": 2,
+    "character": "何"
+  },
+  {
+    "unicode": "79d1",
+    "grade": 2,
+    "character": "科"
+  },
+  {
+    "unicode": "590f",
+    "grade": 2,
+    "character": "夏"
+  },
+  {
+    "unicode": "5bb6",
+    "grade": 2,
+    "character": "家"
+  },
+  {
+    "unicode": "6b4c",
+    "grade": 2,
+    "character": "歌"
+  },
+  {
+    "unicode": "753b",
+    "grade": 2,
+    "character": "画"
+  },
+  {
+    "unicode": "56de",
+    "grade": 2,
+    "character": "回"
+  },
+  {
+    "unicode": "6d77",
+    "grade": 2,
+    "character": "海"
+  },
+  {
+    "unicode": "7d75",
+    "grade": 2,
+    "character": "絵"
+  },
+  {
+    "unicode": "5916",
+    "grade": 2,
+    "character": "外"
+  },
+  {
+    "unicode": "89d2",
+    "grade": 2,
+    "character": "角"
+  },
+  {
+    "unicode": "697d",
+    "grade": 2,
+    "character": "楽"
+  },
+  {
+    "unicode": "6d3b",
+    "grade": 2,
+    "character": "活"
+  },
+  {
+    "unicode": "9593",
+    "grade": 2,
+    "character": "間"
+  },
+  {
+    "unicode": "4e38",
+    "grade": 2,
+    "character": "丸"
+  },
+  {
+    "unicode": "5ca9",
+    "grade": 2,
+    "character": "岩"
+  },
+  {
+    "unicode": "9854",
+    "grade": 2,
+    "character": "顔"
+  },
+  {
+    "unicode": "6c7d",
+    "grade": 2,
+    "character": "汽"
+  },
+  {
+    "unicode": "8a18",
+    "grade": 2,
+    "character": "記"
+  },
+  {
+    "unicode": "5e30",
+    "grade": 2,
+    "character": "帰"
+  },
+  {
+    "unicode": "5f13",
+    "grade": 2,
+    "character": "弓"
+  },
+  {
+    "unicode": "725b",
+    "grade": 2,
+    "character": "牛"
+  },
+  {
+    "unicode": "9b5a",
+    "grade": 2,
+    "character": "魚"
+  },
+  {
+    "unicode": "4eac",
+    "grade": 2,
+    "character": "京"
+  },
+  {
+    "unicode": "5f37",
+    "grade": 2,
+    "character": "強"
+  },
+  {
+    "unicode": "6559",
+    "grade": 2,
+    "character": "教"
+  },
+  {
+    "unicode": "8fd1",
+    "grade": 2,
+    "character": "近"
+  },
+  {
+    "unicode": "5144",
+    "grade": 2,
+    "character": "兄"
+  },
+  {
+    "unicode": "5f62",
+    "grade": 2,
+    "character": "形"
+  },
+  {
+    "unicode": "8a08",
+    "grade": 2,
+    "character": "計"
+  },
+  {
+    "unicode": "5143",
+    "grade": 2,
+    "character": "元"
+  },
+  {
+    "unicode": "8a00",
+    "grade": 2,
+    "character": "言"
+  },
+  {
+    "unicode": "539f",
+    "grade": 2,
+    "character": "原"
+  },
+  {
+    "unicode": "6238",
+    "grade": 2,
+    "character": "戸"
+  },
+  {
+    "unicode": "53e4",
+    "grade": 2,
+    "character": "古"
+  },
+  {
+    "unicode": "5348",
+    "grade": 2,
+    "character": "午"
+  },
+  {
+    "unicode": "5f8c",
+    "grade": 2,
+    "character": "後"
+  },
+  {
+    "unicode": "8a9e",
+    "grade": 2,
+    "character": "語"
+  },
+  {
+    "unicode": "5de5",
+    "grade": 2,
+    "character": "工"
+  },
+  {
+    "unicode": "516c",
+    "grade": 2,
+    "character": "公"
+  },
+  {
+    "unicode": "5e83",
+    "grade": 2,
+    "character": "広"
+  },
+  {
+    "unicode": "4ea4",
+    "grade": 2,
+    "character": "交"
+  },
+  {
+    "unicode": "5149",
+    "grade": 2,
+    "character": "光"
+  },
+  {
+    "unicode": "8003",
+    "grade": 2,
+    "character": "考"
+  },
+  {
+    "unicode": "884c",
+    "grade": 2,
+    "character": "行"
+  },
+  {
+    "unicode": "9ad8",
+    "grade": 2,
+    "character": "高"
+  },
+  {
+    "unicode": "9ec4",
+    "grade": 2,
+    "character": "黄"
+  },
+  {
+    "unicode": "5408",
+    "grade": 2,
+    "character": "合"
+  },
+  {
+    "unicode": "8c37",
+    "grade": 2,
+    "character": "谷"
+  },
+  {
+    "unicode": "56fd",
+    "grade": 2,
+    "character": "国"
+  },
+  {
+    "unicode": "9ed2",
+    "grade": 2,
+    "character": "黒"
+  },
+  {
+    "unicode": "4eca",
+    "grade": 2,
+    "character": "今"
+  },
+  {
+    "unicode": "624d",
+    "grade": 2,
+    "character": "才"
+  },
+  {
+    "unicode": "7d30",
+    "grade": 2,
+    "character": "細"
+  },
+  {
+    "unicode": "4f5c",
+    "grade": 2,
+    "character": "作"
+  },
+  {
+    "unicode": "7b97",
+    "grade": 2,
+    "character": "算"
+  },
+  {
+    "unicode": "6b62",
+    "grade": 2,
+    "character": "止"
+  },
+  {
+    "unicode": "5e02",
+    "grade": 2,
+    "character": "市"
+  },
+  {
+    "unicode": "77e2",
+    "grade": 2,
+    "character": "矢"
+  },
+  {
+    "unicode": "59c9",
+    "grade": 2,
+    "character": "姉"
+  },
+  {
+    "unicode": "601d",
+    "grade": 2,
+    "character": "思"
+  },
+  {
+    "unicode": "7d19",
+    "grade": 2,
+    "character": "紙"
+  },
+  {
+    "unicode": "5bfa",
+    "grade": 2,
+    "character": "寺"
+  },
+  {
+    "unicode": "81ea",
+    "grade": 2,
+    "character": "自"
+  },
+  {
+    "unicode": "6642",
+    "grade": 2,
+    "character": "時"
+  },
+  {
+    "unicode": "5ba4",
+    "grade": 2,
+    "character": "室"
+  },
+  {
+    "unicode": "793e",
+    "grade": 2,
+    "character": "社"
+  },
+  {
+    "unicode": "5f31",
+    "grade": 2,
+    "character": "弱"
+  },
+  {
+    "unicode": "9996",
+    "grade": 2,
+    "character": "首"
+  },
+  {
+    "unicode": "79cb",
+    "grade": 2,
+    "character": "秋"
+  },
+  {
+    "unicode": "9031",
+    "grade": 2,
+    "character": "週"
+  },
+  {
+    "unicode": "6625",
+    "grade": 2,
+    "character": "春"
+  },
+  {
+    "unicode": "66f8",
+    "grade": 2,
+    "character": "書"
+  },
+  {
+    "unicode": "5c11",
+    "grade": 2,
+    "character": "少"
+  },
+  {
+    "unicode": "5834",
+    "grade": 2,
+    "character": "場"
+  },
+  {
+    "unicode": "8272",
+    "grade": 2,
+    "character": "色"
+  },
+  {
+    "unicode": "98df",
+    "grade": 2,
+    "character": "食"
+  },
+  {
+    "unicode": "5fc3",
+    "grade": 2,
+    "character": "心"
+  },
+  {
+    "unicode": "65b0",
+    "grade": 2,
+    "character": "新"
+  },
+  {
+    "unicode": "89aa",
+    "grade": 2,
+    "character": "親"
+  },
+  {
+    "unicode": "56f3",
+    "grade": 2,
+    "character": "図"
+  },
+  {
+    "unicode": "6570",
+    "grade": 2,
+    "character": "数"
+  },
+  {
+    "unicode": "897f",
+    "grade": 2,
+    "character": "西"
+  },
+  {
+    "unicode": "58f0",
+    "grade": 2,
+    "character": "声"
+  },
+  {
+    "unicode": "661f",
+    "grade": 2,
+    "character": "星"
+  },
+  {
+    "unicode": "6674",
+    "grade": 2,
+    "character": "晴"
+  },
+  {
+    "unicode": "5207",
+    "grade": 2,
+    "character": "切"
+  },
+  {
+    "unicode": "96ea",
+    "grade": 2,
+    "character": "雪"
+  },
+  {
+    "unicode": "8239",
+    "grade": 2,
+    "character": "船"
+  },
+  {
+    "unicode": "7dda",
+    "grade": 2,
+    "character": "線"
+  },
+  {
+    "unicode": "524d",
+    "grade": 2,
+    "character": "前"
+  },
+  {
+    "unicode": "7d44",
+    "grade": 2,
+    "character": "組"
+  },
+  {
+    "unicode": "8d70",
+    "grade": 2,
+    "character": "走"
+  },
+  {
+    "unicode": "591a",
+    "grade": 2,
+    "character": "多"
+  },
+  {
+    "unicode": "592a",
+    "grade": 2,
+    "character": "太"
+  },
+  {
+    "unicode": "4f53",
+    "grade": 2,
+    "character": "体"
+  },
+  {
+    "unicode": "53f0",
+    "grade": 2,
+    "character": "台"
+  },
+  {
+    "unicode": "5730",
+    "grade": 2,
+    "character": "地"
+  },
+  {
+    "unicode": "6c60",
+    "grade": 2,
+    "character": "池"
+  },
+  {
+    "unicode": "77e5",
+    "grade": 2,
+    "character": "知"
+  },
+  {
+    "unicode": "8336",
+    "grade": 2,
+    "character": "茶"
+  },
+  {
+    "unicode": "663c",
+    "grade": 2,
+    "character": "昼"
+  },
+  {
+    "unicode": "9577",
+    "grade": 2,
+    "character": "長"
+  },
+  {
+    "unicode": "9ce5",
+    "grade": 2,
+    "character": "鳥"
+  },
+  {
+    "unicode": "671d",
+    "grade": 2,
+    "character": "朝"
+  },
+  {
+    "unicode": "76f4",
+    "grade": 2,
+    "character": "直"
+  },
+  {
+    "unicode": "901a",
+    "grade": 2,
+    "character": "通"
+  },
+  {
+    "unicode": "5f1f",
+    "grade": 2,
+    "character": "弟"
+  },
+  {
+    "unicode": "5e97",
+    "grade": 2,
+    "character": "店"
+  },
+  {
+    "unicode": "70b9",
+    "grade": 2,
+    "character": "点"
+  },
+  {
+    "unicode": "96fb",
+    "grade": 2,
+    "character": "電"
+  },
+  {
+    "unicode": "5200",
+    "grade": 2,
+    "character": "刀"
+  },
+  {
+    "unicode": "51ac",
+    "grade": 2,
+    "character": "冬"
+  },
+  {
+    "unicode": "5f53",
+    "grade": 2,
+    "character": "当"
+  },
+  {
+    "unicode": "6771",
+    "grade": 2,
+    "character": "東"
+  },
+  {
+    "unicode": "7b54",
+    "grade": 2,
+    "character": "答"
+  },
+  {
+    "unicode": "982d",
+    "grade": 2,
+    "character": "頭"
+  },
+  {
+    "unicode": "540c",
+    "grade": 2,
+    "character": "同"
+  },
+  {
+    "unicode": "9053",
+    "grade": 2,
+    "character": "道"
+  },
+  {
+    "unicode": "8aad",
+    "grade": 2,
+    "character": "読"
+  },
+  {
+    "unicode": "5185",
+    "grade": 2,
+    "character": "内"
+  },
+  {
+    "unicode": "5357",
+    "grade": 2,
+    "character": "南"
+  },
+  {
+    "unicode": "8089",
+    "grade": 2,
+    "character": "肉"
+  },
+  {
+    "unicode": "99ac",
+    "grade": 2,
+    "character": "馬"
+  },
+  {
+    "unicode": "58f2",
+    "grade": 2,
+    "character": "売"
+  },
+  {
+    "unicode": "8cb7",
+    "grade": 2,
+    "character": "買"
+  },
+  {
+    "unicode": "9ea6",
+    "grade": 2,
+    "character": "麦"
+  },
+  {
+    "unicode": "534a",
+    "grade": 2,
+    "character": "半"
+  },
+  {
+    "unicode": "756a",
+    "grade": 2,
+    "character": "番"
+  },
+  {
+    "unicode": "7236",
+    "grade": 2,
+    "character": "父"
+  },
+  {
+    "unicode": "98a8",
+    "grade": 2,
+    "character": "風"
+  },
+  {
+    "unicode": "5206",
+    "grade": 2,
+    "character": "分"
+  },
+  {
+    "unicode": "805e",
+    "grade": 2,
+    "character": "聞"
+  },
+  {
+    "unicode": "7c73",
+    "grade": 2,
+    "character": "米"
+  },
+  {
+    "unicode": "6b69",
+    "grade": 2,
+    "character": "歩"
+  },
+  {
+    "unicode": "6bcd",
+    "grade": 2,
+    "character": "母"
+  },
+  {
+    "unicode": "65b9",
+    "grade": 2,
+    "character": "方"
+  },
+  {
+    "unicode": "5317",
+    "grade": 2,
+    "character": "北"
+  },
+  {
+    "unicode": "6bce",
+    "grade": 2,
+    "character": "毎"
+  },
+  {
+    "unicode": "59b9",
+    "grade": 2,
+    "character": "妹"
+  },
+  {
+    "unicode": "4e07",
+    "grade": 2,
+    "character": "万"
+  },
+  {
+    "unicode": "660e",
+    "grade": 2,
+    "character": "明"
+  },
+  {
+    "unicode": "9cf4",
+    "grade": 2,
+    "character": "鳴"
+  },
+  {
+    "unicode": "6bdb",
+    "grade": 2,
+    "character": "毛"
+  },
+  {
+    "unicode": "9580",
+    "grade": 2,
+    "character": "門"
+  },
+  {
+    "unicode": "591c",
+    "grade": 2,
+    "character": "夜"
+  },
+  {
+    "unicode": "91ce",
+    "grade": 2,
+    "character": "野"
+  },
+  {
+    "unicode": "53cb",
+    "grade": 2,
+    "character": "友"
+  },
+  {
+    "unicode": "7528",
+    "grade": 2,
+    "character": "用"
+  },
+  {
+    "unicode": "66dc",
+    "grade": 2,
+    "character": "曜"
+  },
+  {
+    "unicode": "6765",
+    "grade": 2,
+    "character": "来"
+  },
+  {
+    "unicode": "91cc",
+    "grade": 2,
+    "character": "里"
+  },
+  {
+    "unicode": "7406",
+    "grade": 2,
+    "character": "理"
+  },
+  {
+    "unicode": "8a71",
+    "grade": 2,
+    "character": "話"
+  }
+]

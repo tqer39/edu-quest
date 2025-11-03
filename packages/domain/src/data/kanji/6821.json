@@ -1,0 +1,85 @@
+{
+  "character": "校",
+  "grade": 1,
+  "strokeCount": 10,
+  "readings": {
+    "onyomi": ["コウ"],
+    "kunyomi": []
+  },
+  "meanings": ["school"],
+  "radicals": ["木"],
+  "examples": [
+    {
+      "word": "中学校",
+      "reading": "ちゅうがっこう",
+      "meaning": "junior high school"
+    },
+    {
+      "word": "高校生",
+      "reading": "こうこうせい",
+      "meaning": "senior high school student"
+    },
+    {
+      "word": "学校",
+      "reading": "がっこう",
+      "meaning": "school"
+    },
+    {
+      "word": "母校",
+      "reading": "ぼこう",
+      "meaning": "alma mater"
+    },
+    {
+      "word": "小学校",
+      "reading": "しょうがっこう",
+      "meaning": "elementary school"
+    },
+    {
+      "word": "予備校",
+      "reading": "よびこう",
+      "meaning": "cram school"
+    },
+    {
+      "word": "校正する",
+      "reading": "こうせいする",
+      "meaning": "proofread"
+    },
+    {
+      "word": "校庭",
+      "reading": "こうてい",
+      "meaning": "campus play ground"
+    },
+    {
+      "word": "姉妹校",
+      "reading": "しまいこう",
+      "meaning": "sister school"
+    },
+    {
+      "word": "校舎",
+      "reading": "こうしゃ",
+      "meaning": "school building"
+    },
+    {
+      "word": "校門",
+      "reading": "こうもん",
+      "meaning": "school gate"
+    },
+    {
+      "word": "校章",
+      "reading": "こうしょう",
+      "meaning": "school badge"
+    },
+    {
+      "word": "登校する",
+      "reading": "とうこうする",
+      "meaning": "attend school [v.i.]"
+    },
+    {
+      "word": "校長",
+      "reading": "こうちょう",
+      "meaning": "principal"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6821"
+}

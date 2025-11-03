@@ -1,0 +1,65 @@
+{
+  "character": "弓",
+  "grade": 2,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["キュウ"],
+    "kunyomi": ["ゆみ"]
+  },
+  "meanings": ["bow", "archery"],
+  "radicals": ["弓"],
+  "examples": [
+    {
+      "word": "弓道",
+      "reading": "きゅうどう",
+      "meaning": "archery"
+    },
+    {
+      "word": "弓状",
+      "reading": "きゅうじょう",
+      "meaning": "bow-shaped, arched"
+    },
+    {
+      "word": "洋弓",
+      "reading": "ようきゅう",
+      "meaning": "Western-style archery"
+    },
+    {
+      "word": "弓",
+      "reading": "ゆみ",
+      "meaning": "bow [n.]"
+    },
+    {
+      "word": "弓矢",
+      "reading": "ゆみや",
+      "meaning": "bow and arrow"
+    },
+    {
+      "word": "弓形",
+      "reading": "ゆみなり",
+      "meaning": "arched, crescent-shaped"
+    },
+    {
+      "word": "弓術",
+      "reading": "きゅうじゅつ",
+      "meaning": "art of archery"
+    },
+    {
+      "word": "弓道場",
+      "reading": "きゅうどうじょう",
+      "meaning": "archery hall"
+    },
+    {
+      "word": "弓師",
+      "reading": "ゆみし",
+      "meaning": "bow maker"
+    },
+    {
+      "word": "弓兵",
+      "reading": "きゅうへい",
+      "meaning": "archer"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5f13"
+}

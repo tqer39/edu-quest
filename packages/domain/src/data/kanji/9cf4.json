@@ -1,0 +1,65 @@
+{
+  "character": "鳴",
+  "grade": 2,
+  "strokeCount": 14,
+  "readings": {
+    "onyomi": ["メイ"],
+    "kunyomi": ["な-く", "な-る", "な-らす"]
+  },
+  "meanings": ["cry", "sound"],
+  "radicals": ["鳥"],
+  "examples": [
+    {
+      "word": "怒鳴る",
+      "reading": "どなる",
+      "meaning": "yell"
+    },
+    {
+      "word": "悲鳴",
+      "reading": "ひめい",
+      "meaning": "scream [n.]"
+    },
+    {
+      "word": "鹿鳴館",
+      "reading": "ろくめいかん",
+      "meaning": "name of a building in Meiji period"
+    },
+    {
+      "word": "鳴動する",
+      "reading": "めいどうする",
+      "meaning": "rumble"
+    },
+    {
+      "word": "共鳴する",
+      "reading": "きょうめいする",
+      "meaning": "resonate, be in sympathy"
+    },
+    {
+      "word": "鳴く",
+      "reading": "なく",
+      "meaning": "sing, cry, make a sound"
+    },
+    {
+      "word": "鳴き声",
+      "reading": "なきごえ",
+      "meaning": "cry , roar, tearful voice"
+    },
+    {
+      "word": "鳴らす",
+      "reading": "ならす",
+      "meaning": "ring, sound [v.t.]"
+    },
+    {
+      "word": "鳴る",
+      "reading": "なる",
+      "meaning": "ring, sound, resound [v.i.]"
+    },
+    {
+      "word": "耳鳴り",
+      "reading": "みみなり",
+      "meaning": "buzzing in the ears, tinnitus"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "9cf4"
+}

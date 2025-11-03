@@ -1,0 +1,90 @@
+{
+  "character": "年",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["ネン"],
+    "kunyomi": ["とし"]
+  },
+  "meanings": ["year"],
+  "radicals": ["干"],
+  "examples": [
+    {
+      "word": "一年生",
+      "reading": "いちねんせい",
+      "meaning": "first-year student"
+    },
+    {
+      "word": "九年",
+      "reading": "きゅうねん",
+      "meaning": "9 years"
+    },
+    {
+      "word": "十年",
+      "reading": "じゅうねん",
+      "meaning": "10 years"
+    },
+    {
+      "word": "幼年期",
+      "reading": "ようねんき",
+      "meaning": "childhood"
+    },
+    {
+      "word": "翌年",
+      "reading": "よくねん",
+      "meaning": "the following year"
+    },
+    {
+      "word": "年齢",
+      "reading": "ねんれい",
+      "meaning": "age, years"
+    },
+    {
+      "word": "中年",
+      "reading": "ちゅうねん",
+      "meaning": "middle-age"
+    },
+    {
+      "word": "今年中 に",
+      "reading": "ことしじゅうに",
+      "meaning": "within this year"
+    },
+    {
+      "word": "忘年会",
+      "reading": "ぼうねんかい",
+      "meaning": "year-end party"
+    },
+    {
+      "word": "若年",
+      "reading": "じゃくねん",
+      "meaning": "youth"
+    },
+    {
+      "word": "新年",
+      "reading": "しんねん",
+      "meaning": "New Year"
+    },
+    {
+      "word": "青年",
+      "reading": "せいねん",
+      "meaning": "youth"
+    },
+    {
+      "word": "元年",
+      "reading": "がんねん",
+      "meaning": "first year (of a specific reign)"
+    },
+    {
+      "word": "少年",
+      "reading": "しょうねん",
+      "meaning": "boy"
+    },
+    {
+      "word": "年号",
+      "reading": "ねんごう",
+      "meaning": "name of an era"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5e74"
+}

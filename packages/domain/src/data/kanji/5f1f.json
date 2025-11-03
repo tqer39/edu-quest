@@ -1,0 +1,65 @@
+{
+  "character": "弟",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["テイ", "ダイ", "デ"],
+    "kunyomi": ["おとうと"]
+  },
+  "meanings": ["younger brother"],
+  "radicals": ["弓"],
+  "examples": [
+    {
+      "word": "兄弟",
+      "reading": "きょうだい",
+      "meaning": "siblings"
+    },
+    {
+      "word": "師弟",
+      "reading": "してい",
+      "meaning": "teacher and student"
+    },
+    {
+      "word": "義弟",
+      "reading": "ぎてい",
+      "meaning": "younger brother-in-law"
+    },
+    {
+      "word": "弟子",
+      "reading": "でし",
+      "meaning": "disciple"
+    },
+    {
+      "word": "弟",
+      "reading": "おとうと",
+      "meaning": "one's own younger brother"
+    },
+    {
+      "word": "徒弟制度",
+      "reading": "とていせいど",
+      "meaning": "apprentice system"
+    },
+    {
+      "word": "孫弟子",
+      "reading": "まごでし",
+      "meaning": "disciples of one's disciples"
+    },
+    {
+      "word": "実弟",
+      "reading": "じってい",
+      "meaning": "biological younger brother"
+    },
+    {
+      "word": "弟分",
+      "reading": "おとうとぶん",
+      "meaning": "boy treated like a kid brother"
+    },
+    {
+      "word": "弟夫婦",
+      "reading": "おとうとふうふ",
+      "meaning": "younger brother and his wife"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5f1f"
+}

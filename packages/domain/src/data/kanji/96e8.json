@@ -1,0 +1,106 @@
+{
+  "character": "雨",
+  "grade": 1,
+  "strokeCount": 8,
+  "readings": {
+    "onyomi": ["ウ"],
+    "kunyomi": ["あめ", "あま"]
+  },
+  "meanings": ["rain"],
+  "radicals": ["雨"],
+  "examples": [
+    {
+      "word": "雨垂れ",
+      "reading": "あまだれ",
+      "meaning": "raindrops"
+    },
+    {
+      "word": "降雨量",
+      "reading": "こううりょう",
+      "meaning": "amount of rainfall"
+    },
+    {
+      "word": "梅雨前線",
+      "reading": "ばいうぜんせん",
+      "meaning": "seasonal rain front"
+    },
+    {
+      "word": "雨期",
+      "reading": "うき",
+      "meaning": "rainy season"
+    },
+    {
+      "word": "雷雨",
+      "reading": "らいう",
+      "meaning": "thunderstorm"
+    },
+    {
+      "word": "雨",
+      "reading": "あめ",
+      "meaning": "rain"
+    },
+    {
+      "word": "大雨",
+      "reading": "おおあめ",
+      "meaning": "heavy rain"
+    },
+    {
+      "word": "雨上がり",
+      "reading": "あめあがり",
+      "meaning": "after the rain"
+    },
+    {
+      "word": "雨蛙",
+      "reading": "あまがえる",
+      "meaning": "tree frog"
+    },
+    {
+      "word": "雨雲",
+      "reading": "あまぐも",
+      "meaning": "rain cloud"
+    },
+    {
+      "word": "雨滴",
+      "reading": "うてき",
+      "meaning": "raindrops"
+    },
+    {
+      "word": "雨粒",
+      "reading": "あまつぶ",
+      "meaning": "raindrop"
+    },
+    {
+      "word": "雨天",
+      "reading": "うてん",
+      "meaning": "rainy weather"
+    },
+    {
+      "word": "雨宿り",
+      "reading": "あまやどり",
+      "meaning": "to take shelter from rain [n.]"
+    },
+    {
+      "word": "暴風雨",
+      "reading": "ぼうふうう",
+      "meaning": "storm"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "小雨",
+      "reading": "こさめ",
+      "meaning": "light rain"
+    },
+    {
+      "word": "氷雨",
+      "reading": "ひさめ",
+      "meaning": "hail, freezing rain"
+    },
+    {
+      "word": "梅雨",
+      "reading": "つゆ",
+      "meaning": "rainy season"
+    }
+  ],
+  "unicode": "96e8"
+}

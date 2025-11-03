@@ -1,0 +1,90 @@
+{
+  "character": "楽",
+  "grade": 2,
+  "strokeCount": 13,
+  "readings": {
+    "onyomi": ["ガク", "ラク"],
+    "kunyomi": ["たの-しい", "たの-しむ"]
+  },
+  "meanings": ["music", "pleasure", "easy"],
+  "radicals": ["木"],
+  "examples": [
+    {
+      "word": "吹奏楽",
+      "reading": "すいそうがく",
+      "meaning": "wind-instrument music"
+    },
+    {
+      "word": "楽器",
+      "reading": "がっき",
+      "meaning": "musical instrument"
+    },
+    {
+      "word": "音楽",
+      "reading": "おんがく",
+      "meaning": "music"
+    },
+    {
+      "word": "楽な",
+      "reading": "らくな",
+      "meaning": "comfortable"
+    },
+    {
+      "word": "楽園",
+      "reading": "らくえん",
+      "meaning": "paradise"
+    },
+    {
+      "word": "楽観する",
+      "reading": "らっかんする",
+      "meaning": "be optimistic"
+    },
+    {
+      "word": "楽観的な",
+      "reading": "らっかんてきな",
+      "meaning": "optimistic"
+    },
+    {
+      "word": "楽しい",
+      "reading": "たのしい",
+      "meaning": "fun"
+    },
+    {
+      "word": "楽しみ",
+      "reading": "たのしみ",
+      "meaning": "enjoyment"
+    },
+    {
+      "word": "楽しむ",
+      "reading": "たのしむ",
+      "meaning": "enjoy oneself"
+    },
+    {
+      "word": "喜怒哀楽",
+      "reading": "きどあいらく",
+      "meaning": "joy, anger, pathos, and humor"
+    },
+    {
+      "word": "快楽",
+      "reading": "かいらく",
+      "meaning": "pleasure"
+    },
+    {
+      "word": "極楽",
+      "reading": "ごくらく",
+      "meaning": "paradise"
+    },
+    {
+      "word": "管楽器",
+      "reading": "かんがっき",
+      "meaning": "wind instrument"
+    },
+    {
+      "word": "楽隊",
+      "reading": "がくたい",
+      "meaning": "band, orchestra"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "697d"
+}

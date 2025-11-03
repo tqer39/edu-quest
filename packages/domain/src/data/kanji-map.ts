@@ -1,0 +1,483 @@
+import type { Kanji } from '../kanji-quest';
+
+import kanji_4e00 from './kanji/4e00.json';
+import kanji_4e8c from './kanji/4e8c.json';
+import kanji_4e09 from './kanji/4e09.json';
+import kanji_56db from './kanji/56db.json';
+import kanji_4e94 from './kanji/4e94.json';
+import kanji_516d from './kanji/516d.json';
+import kanji_4e03 from './kanji/4e03.json';
+import kanji_516b from './kanji/516b.json';
+import kanji_4e5d from './kanji/4e5d.json';
+import kanji_5341 from './kanji/5341.json';
+import kanji_767e from './kanji/767e.json';
+import kanji_5343 from './kanji/5343.json';
+import kanji_4e0a from './kanji/4e0a.json';
+import kanji_4e0b from './kanji/4e0b.json';
+import kanji_5de6 from './kanji/5de6.json';
+import kanji_53f3 from './kanji/53f3.json';
+import kanji_5927 from './kanji/5927.json';
+import kanji_5c0f from './kanji/5c0f.json';
+import kanji_4e2d from './kanji/4e2d.json';
+import kanji_65e5 from './kanji/65e5.json';
+import kanji_6708 from './kanji/6708.json';
+import kanji_706b from './kanji/706b.json';
+import kanji_6c34 from './kanji/6c34.json';
+import kanji_6728 from './kanji/6728.json';
+import kanji_91d1 from './kanji/91d1.json';
+import kanji_571f from './kanji/571f.json';
+import kanji_5c71 from './kanji/5c71.json';
+import kanji_5ddd from './kanji/5ddd.json';
+import kanji_7a7a from './kanji/7a7a.json';
+import kanji_6c17 from './kanji/6c17.json';
+import kanji_5929 from './kanji/5929.json';
+import kanji_96e8 from './kanji/96e8.json';
+import kanji_7af9 from './kanji/7af9.json';
+import kanji_7cf8 from './kanji/7cf8.json';
+import kanji_8c9d from './kanji/8c9d.json';
+import kanji_8eca from './kanji/8eca.json';
+import kanji_8d64 from './kanji/8d64.json';
+import kanji_9752 from './kanji/9752.json';
+import kanji_767d from './kanji/767d.json';
+import kanji_5186 from './kanji/5186.json';
+import kanji_738b from './kanji/738b.json';
+import kanji_7389 from './kanji/7389.json';
+import kanji_77f3 from './kanji/77f3.json';
+import kanji_97f3 from './kanji/97f3.json';
+import kanji_5b57 from './kanji/5b57.json';
+import kanji_5b66 from './kanji/5b66.json';
+import kanji_6821 from './kanji/6821.json';
+import kanji_6587 from './kanji/6587.json';
+import kanji_4eba from './kanji/4eba.json';
+import kanji_5165 from './kanji/5165.json';
+import kanji_51fa from './kanji/51fa.json';
+import kanji_7acb from './kanji/7acb.json';
+import kanji_4f11 from './kanji/4f11.json';
+import kanji_5148 from './kanji/5148.json';
+import kanji_751f from './kanji/751f.json';
+import kanji_5e74 from './kanji/5e74.json';
+import kanji_65e9 from './kanji/65e9.json';
+import kanji_8349 from './kanji/8349.json';
+import kanji_82b1 from './kanji/82b1.json';
+import kanji_6797 from './kanji/6797.json';
+import kanji_68ee from './kanji/68ee.json';
+import kanji_866b from './kanji/866b.json';
+import kanji_72ac from './kanji/72ac.json';
+import kanji_898b from './kanji/898b.json';
+import kanji_8033 from './kanji/8033.json';
+import kanji_76ee from './kanji/76ee.json';
+import kanji_53e3 from './kanji/53e3.json';
+import kanji_624b from './kanji/624b.json';
+import kanji_8db3 from './kanji/8db3.json';
+import kanji_529b from './kanji/529b.json';
+import kanji_7537 from './kanji/7537.json';
+import kanji_5973 from './kanji/5973.json';
+import kanji_5b50 from './kanji/5b50.json';
+import kanji_540d from './kanji/540d.json';
+import kanji_6b63 from './kanji/6b63.json';
+import kanji_5915 from './kanji/5915.json';
+import kanji_672c from './kanji/672c.json';
+import kanji_6751 from './kanji/6751.json';
+import kanji_753a from './kanji/753a.json';
+import kanji_7530 from './kanji/7530.json';
+import kanji_5f15 from './kanji/5f15.json';
+import kanji_7fbd from './kanji/7fbd.json';
+import kanji_96f2 from './kanji/96f2.json';
+import kanji_5712 from './kanji/5712.json';
+import kanji_9060 from './kanji/9060.json';
+import kanji_4f55 from './kanji/4f55.json';
+import kanji_79d1 from './kanji/79d1.json';
+import kanji_590f from './kanji/590f.json';
+import kanji_5bb6 from './kanji/5bb6.json';
+import kanji_6b4c from './kanji/6b4c.json';
+import kanji_753b from './kanji/753b.json';
+import kanji_56de from './kanji/56de.json';
+import kanji_6d77 from './kanji/6d77.json';
+import kanji_7d75 from './kanji/7d75.json';
+import kanji_5916 from './kanji/5916.json';
+import kanji_89d2 from './kanji/89d2.json';
+import kanji_697d from './kanji/697d.json';
+import kanji_6d3b from './kanji/6d3b.json';
+import kanji_9593 from './kanji/9593.json';
+import kanji_4e38 from './kanji/4e38.json';
+import kanji_5ca9 from './kanji/5ca9.json';
+import kanji_9854 from './kanji/9854.json';
+import kanji_6c7d from './kanji/6c7d.json';
+import kanji_8a18 from './kanji/8a18.json';
+import kanji_5e30 from './kanji/5e30.json';
+import kanji_5f13 from './kanji/5f13.json';
+import kanji_725b from './kanji/725b.json';
+import kanji_9b5a from './kanji/9b5a.json';
+import kanji_4eac from './kanji/4eac.json';
+import kanji_5f37 from './kanji/5f37.json';
+import kanji_6559 from './kanji/6559.json';
+import kanji_8fd1 from './kanji/8fd1.json';
+import kanji_5144 from './kanji/5144.json';
+import kanji_5f62 from './kanji/5f62.json';
+import kanji_8a08 from './kanji/8a08.json';
+import kanji_5143 from './kanji/5143.json';
+import kanji_8a00 from './kanji/8a00.json';
+import kanji_539f from './kanji/539f.json';
+import kanji_6238 from './kanji/6238.json';
+import kanji_53e4 from './kanji/53e4.json';
+import kanji_5348 from './kanji/5348.json';
+import kanji_5f8c from './kanji/5f8c.json';
+import kanji_8a9e from './kanji/8a9e.json';
+import kanji_5de5 from './kanji/5de5.json';
+import kanji_516c from './kanji/516c.json';
+import kanji_5e83 from './kanji/5e83.json';
+import kanji_4ea4 from './kanji/4ea4.json';
+import kanji_5149 from './kanji/5149.json';
+import kanji_8003 from './kanji/8003.json';
+import kanji_884c from './kanji/884c.json';
+import kanji_9ad8 from './kanji/9ad8.json';
+import kanji_9ec4 from './kanji/9ec4.json';
+import kanji_5408 from './kanji/5408.json';
+import kanji_8c37 from './kanji/8c37.json';
+import kanji_56fd from './kanji/56fd.json';
+import kanji_9ed2 from './kanji/9ed2.json';
+import kanji_4eca from './kanji/4eca.json';
+import kanji_624d from './kanji/624d.json';
+import kanji_7d30 from './kanji/7d30.json';
+import kanji_4f5c from './kanji/4f5c.json';
+import kanji_7b97 from './kanji/7b97.json';
+import kanji_6b62 from './kanji/6b62.json';
+import kanji_5e02 from './kanji/5e02.json';
+import kanji_77e2 from './kanji/77e2.json';
+import kanji_59c9 from './kanji/59c9.json';
+import kanji_601d from './kanji/601d.json';
+import kanji_7d19 from './kanji/7d19.json';
+import kanji_5bfa from './kanji/5bfa.json';
+import kanji_81ea from './kanji/81ea.json';
+import kanji_6642 from './kanji/6642.json';
+import kanji_5ba4 from './kanji/5ba4.json';
+import kanji_793e from './kanji/793e.json';
+import kanji_5f31 from './kanji/5f31.json';
+import kanji_9996 from './kanji/9996.json';
+import kanji_79cb from './kanji/79cb.json';
+import kanji_9031 from './kanji/9031.json';
+import kanji_6625 from './kanji/6625.json';
+import kanji_66f8 from './kanji/66f8.json';
+import kanji_5c11 from './kanji/5c11.json';
+import kanji_5834 from './kanji/5834.json';
+import kanji_8272 from './kanji/8272.json';
+import kanji_98df from './kanji/98df.json';
+import kanji_5fc3 from './kanji/5fc3.json';
+import kanji_65b0 from './kanji/65b0.json';
+import kanji_89aa from './kanji/89aa.json';
+import kanji_56f3 from './kanji/56f3.json';
+import kanji_6570 from './kanji/6570.json';
+import kanji_897f from './kanji/897f.json';
+import kanji_58f0 from './kanji/58f0.json';
+import kanji_661f from './kanji/661f.json';
+import kanji_6674 from './kanji/6674.json';
+import kanji_5207 from './kanji/5207.json';
+import kanji_96ea from './kanji/96ea.json';
+import kanji_8239 from './kanji/8239.json';
+import kanji_7dda from './kanji/7dda.json';
+import kanji_524d from './kanji/524d.json';
+import kanji_7d44 from './kanji/7d44.json';
+import kanji_8d70 from './kanji/8d70.json';
+import kanji_591a from './kanji/591a.json';
+import kanji_592a from './kanji/592a.json';
+import kanji_4f53 from './kanji/4f53.json';
+import kanji_53f0 from './kanji/53f0.json';
+import kanji_5730 from './kanji/5730.json';
+import kanji_6c60 from './kanji/6c60.json';
+import kanji_77e5 from './kanji/77e5.json';
+import kanji_8336 from './kanji/8336.json';
+import kanji_663c from './kanji/663c.json';
+import kanji_9577 from './kanji/9577.json';
+import kanji_9ce5 from './kanji/9ce5.json';
+import kanji_671d from './kanji/671d.json';
+import kanji_76f4 from './kanji/76f4.json';
+import kanji_901a from './kanji/901a.json';
+import kanji_5f1f from './kanji/5f1f.json';
+import kanji_5e97 from './kanji/5e97.json';
+import kanji_70b9 from './kanji/70b9.json';
+import kanji_96fb from './kanji/96fb.json';
+import kanji_5200 from './kanji/5200.json';
+import kanji_51ac from './kanji/51ac.json';
+import kanji_5f53 from './kanji/5f53.json';
+import kanji_6771 from './kanji/6771.json';
+import kanji_7b54 from './kanji/7b54.json';
+import kanji_982d from './kanji/982d.json';
+import kanji_540c from './kanji/540c.json';
+import kanji_9053 from './kanji/9053.json';
+import kanji_8aad from './kanji/8aad.json';
+import kanji_5185 from './kanji/5185.json';
+import kanji_5357 from './kanji/5357.json';
+import kanji_8089 from './kanji/8089.json';
+import kanji_99ac from './kanji/99ac.json';
+import kanji_58f2 from './kanji/58f2.json';
+import kanji_8cb7 from './kanji/8cb7.json';
+import kanji_9ea6 from './kanji/9ea6.json';
+import kanji_534a from './kanji/534a.json';
+import kanji_756a from './kanji/756a.json';
+import kanji_7236 from './kanji/7236.json';
+import kanji_98a8 from './kanji/98a8.json';
+import kanji_5206 from './kanji/5206.json';
+import kanji_805e from './kanji/805e.json';
+import kanji_7c73 from './kanji/7c73.json';
+import kanji_6b69 from './kanji/6b69.json';
+import kanji_6bcd from './kanji/6bcd.json';
+import kanji_65b9 from './kanji/65b9.json';
+import kanji_5317 from './kanji/5317.json';
+import kanji_6bce from './kanji/6bce.json';
+import kanji_59b9 from './kanji/59b9.json';
+import kanji_4e07 from './kanji/4e07.json';
+import kanji_660e from './kanji/660e.json';
+import kanji_9cf4 from './kanji/9cf4.json';
+import kanji_6bdb from './kanji/6bdb.json';
+import kanji_9580 from './kanji/9580.json';
+import kanji_591c from './kanji/591c.json';
+import kanji_91ce from './kanji/91ce.json';
+import kanji_53cb from './kanji/53cb.json';
+import kanji_7528 from './kanji/7528.json';
+import kanji_66dc from './kanji/66dc.json';
+import kanji_6765 from './kanji/6765.json';
+import kanji_91cc from './kanji/91cc.json';
+import kanji_7406 from './kanji/7406.json';
+import kanji_8a71 from './kanji/8a71.json';
+
+export const kanjiDataMap: Record<string, Kanji> = {
+  '4e00': kanji_4e00 as Kanji,
+  '4e8c': kanji_4e8c as Kanji,
+  '4e09': kanji_4e09 as Kanji,
+  '56db': kanji_56db as Kanji,
+  '4e94': kanji_4e94 as Kanji,
+  '516d': kanji_516d as Kanji,
+  '4e03': kanji_4e03 as Kanji,
+  '516b': kanji_516b as Kanji,
+  '4e5d': kanji_4e5d as Kanji,
+  '5341': kanji_5341 as Kanji,
+  '767e': kanji_767e as Kanji,
+  '5343': kanji_5343 as Kanji,
+  '4e0a': kanji_4e0a as Kanji,
+  '4e0b': kanji_4e0b as Kanji,
+  '5de6': kanji_5de6 as Kanji,
+  '53f3': kanji_53f3 as Kanji,
+  '5927': kanji_5927 as Kanji,
+  '5c0f': kanji_5c0f as Kanji,
+  '4e2d': kanji_4e2d as Kanji,
+  '65e5': kanji_65e5 as Kanji,
+  '6708': kanji_6708 as Kanji,
+  '706b': kanji_706b as Kanji,
+  '6c34': kanji_6c34 as Kanji,
+  '6728': kanji_6728 as Kanji,
+  '91d1': kanji_91d1 as Kanji,
+  '571f': kanji_571f as Kanji,
+  '5c71': kanji_5c71 as Kanji,
+  '5ddd': kanji_5ddd as Kanji,
+  '7a7a': kanji_7a7a as Kanji,
+  '6c17': kanji_6c17 as Kanji,
+  '5929': kanji_5929 as Kanji,
+  '96e8': kanji_96e8 as Kanji,
+  '7af9': kanji_7af9 as Kanji,
+  '7cf8': kanji_7cf8 as Kanji,
+  '8c9d': kanji_8c9d as Kanji,
+  '8eca': kanji_8eca as Kanji,
+  '8d64': kanji_8d64 as Kanji,
+  '9752': kanji_9752 as Kanji,
+  '767d': kanji_767d as Kanji,
+  '5186': kanji_5186 as Kanji,
+  '738b': kanji_738b as Kanji,
+  '7389': kanji_7389 as Kanji,
+  '77f3': kanji_77f3 as Kanji,
+  '97f3': kanji_97f3 as Kanji,
+  '5b57': kanji_5b57 as Kanji,
+  '5b66': kanji_5b66 as Kanji,
+  '6821': kanji_6821 as Kanji,
+  '6587': kanji_6587 as Kanji,
+  '4eba': kanji_4eba as Kanji,
+  '5165': kanji_5165 as Kanji,
+  '51fa': kanji_51fa as Kanji,
+  '7acb': kanji_7acb as Kanji,
+  '4f11': kanji_4f11 as Kanji,
+  '5148': kanji_5148 as Kanji,
+  '751f': kanji_751f as Kanji,
+  '5e74': kanji_5e74 as Kanji,
+  '65e9': kanji_65e9 as Kanji,
+  '8349': kanji_8349 as Kanji,
+  '82b1': kanji_82b1 as Kanji,
+  '6797': kanji_6797 as Kanji,
+  '68ee': kanji_68ee as Kanji,
+  '866b': kanji_866b as Kanji,
+  '72ac': kanji_72ac as Kanji,
+  '898b': kanji_898b as Kanji,
+  '8033': kanji_8033 as Kanji,
+  '76ee': kanji_76ee as Kanji,
+  '53e3': kanji_53e3 as Kanji,
+  '624b': kanji_624b as Kanji,
+  '8db3': kanji_8db3 as Kanji,
+  '529b': kanji_529b as Kanji,
+  '7537': kanji_7537 as Kanji,
+  '5973': kanji_5973 as Kanji,
+  '5b50': kanji_5b50 as Kanji,
+  '540d': kanji_540d as Kanji,
+  '6b63': kanji_6b63 as Kanji,
+  '5915': kanji_5915 as Kanji,
+  '672c': kanji_672c as Kanji,
+  '6751': kanji_6751 as Kanji,
+  '753a': kanji_753a as Kanji,
+  '7530': kanji_7530 as Kanji,
+  '5f15': kanji_5f15 as Kanji,
+  '7fbd': kanji_7fbd as Kanji,
+  '96f2': kanji_96f2 as Kanji,
+  '5712': kanji_5712 as Kanji,
+  '9060': kanji_9060 as Kanji,
+  '4f55': kanji_4f55 as Kanji,
+  '79d1': kanji_79d1 as Kanji,
+  '590f': kanji_590f as Kanji,
+  '5bb6': kanji_5bb6 as Kanji,
+  '6b4c': kanji_6b4c as Kanji,
+  '753b': kanji_753b as Kanji,
+  '56de': kanji_56de as Kanji,
+  '6d77': kanji_6d77 as Kanji,
+  '7d75': kanji_7d75 as Kanji,
+  '5916': kanji_5916 as Kanji,
+  '89d2': kanji_89d2 as Kanji,
+  '697d': kanji_697d as Kanji,
+  '6d3b': kanji_6d3b as Kanji,
+  '9593': kanji_9593 as Kanji,
+  '4e38': kanji_4e38 as Kanji,
+  '5ca9': kanji_5ca9 as Kanji,
+  '9854': kanji_9854 as Kanji,
+  '6c7d': kanji_6c7d as Kanji,
+  '8a18': kanji_8a18 as Kanji,
+  '5e30': kanji_5e30 as Kanji,
+  '5f13': kanji_5f13 as Kanji,
+  '725b': kanji_725b as Kanji,
+  '9b5a': kanji_9b5a as Kanji,
+  '4eac': kanji_4eac as Kanji,
+  '5f37': kanji_5f37 as Kanji,
+  '6559': kanji_6559 as Kanji,
+  '8fd1': kanji_8fd1 as Kanji,
+  '5144': kanji_5144 as Kanji,
+  '5f62': kanji_5f62 as Kanji,
+  '8a08': kanji_8a08 as Kanji,
+  '5143': kanji_5143 as Kanji,
+  '8a00': kanji_8a00 as Kanji,
+  '539f': kanji_539f as Kanji,
+  '6238': kanji_6238 as Kanji,
+  '53e4': kanji_53e4 as Kanji,
+  '5348': kanji_5348 as Kanji,
+  '5f8c': kanji_5f8c as Kanji,
+  '8a9e': kanji_8a9e as Kanji,
+  '5de5': kanji_5de5 as Kanji,
+  '516c': kanji_516c as Kanji,
+  '5e83': kanji_5e83 as Kanji,
+  '4ea4': kanji_4ea4 as Kanji,
+  '5149': kanji_5149 as Kanji,
+  '8003': kanji_8003 as Kanji,
+  '884c': kanji_884c as Kanji,
+  '9ad8': kanji_9ad8 as Kanji,
+  '9ec4': kanji_9ec4 as Kanji,
+  '5408': kanji_5408 as Kanji,
+  '8c37': kanji_8c37 as Kanji,
+  '56fd': kanji_56fd as Kanji,
+  '9ed2': kanji_9ed2 as Kanji,
+  '4eca': kanji_4eca as Kanji,
+  '624d': kanji_624d as Kanji,
+  '7d30': kanji_7d30 as Kanji,
+  '4f5c': kanji_4f5c as Kanji,
+  '7b97': kanji_7b97 as Kanji,
+  '6b62': kanji_6b62 as Kanji,
+  '5e02': kanji_5e02 as Kanji,
+  '77e2': kanji_77e2 as Kanji,
+  '59c9': kanji_59c9 as Kanji,
+  '601d': kanji_601d as Kanji,
+  '7d19': kanji_7d19 as Kanji,
+  '5bfa': kanji_5bfa as Kanji,
+  '81ea': kanji_81ea as Kanji,
+  '6642': kanji_6642 as Kanji,
+  '5ba4': kanji_5ba4 as Kanji,
+  '793e': kanji_793e as Kanji,
+  '5f31': kanji_5f31 as Kanji,
+  '9996': kanji_9996 as Kanji,
+  '79cb': kanji_79cb as Kanji,
+  '9031': kanji_9031 as Kanji,
+  '6625': kanji_6625 as Kanji,
+  '66f8': kanji_66f8 as Kanji,
+  '5c11': kanji_5c11 as Kanji,
+  '5834': kanji_5834 as Kanji,
+  '8272': kanji_8272 as Kanji,
+  '98df': kanji_98df as Kanji,
+  '5fc3': kanji_5fc3 as Kanji,
+  '65b0': kanji_65b0 as Kanji,
+  '89aa': kanji_89aa as Kanji,
+  '56f3': kanji_56f3 as Kanji,
+  '6570': kanji_6570 as Kanji,
+  '897f': kanji_897f as Kanji,
+  '58f0': kanji_58f0 as Kanji,
+  '661f': kanji_661f as Kanji,
+  '6674': kanji_6674 as Kanji,
+  '5207': kanji_5207 as Kanji,
+  '96ea': kanji_96ea as Kanji,
+  '8239': kanji_8239 as Kanji,
+  '7dda': kanji_7dda as Kanji,
+  '524d': kanji_524d as Kanji,
+  '7d44': kanji_7d44 as Kanji,
+  '8d70': kanji_8d70 as Kanji,
+  '591a': kanji_591a as Kanji,
+  '592a': kanji_592a as Kanji,
+  '4f53': kanji_4f53 as Kanji,
+  '53f0': kanji_53f0 as Kanji,
+  '5730': kanji_5730 as Kanji,
+  '6c60': kanji_6c60 as Kanji,
+  '77e5': kanji_77e5 as Kanji,
+  '8336': kanji_8336 as Kanji,
+  '663c': kanji_663c as Kanji,
+  '9577': kanji_9577 as Kanji,
+  '9ce5': kanji_9ce5 as Kanji,
+  '671d': kanji_671d as Kanji,
+  '76f4': kanji_76f4 as Kanji,
+  '901a': kanji_901a as Kanji,
+  '5f1f': kanji_5f1f as Kanji,
+  '5e97': kanji_5e97 as Kanji,
+  '70b9': kanji_70b9 as Kanji,
+  '96fb': kanji_96fb as Kanji,
+  '5200': kanji_5200 as Kanji,
+  '51ac': kanji_51ac as Kanji,
+  '5f53': kanji_5f53 as Kanji,
+  '6771': kanji_6771 as Kanji,
+  '7b54': kanji_7b54 as Kanji,
+  '982d': kanji_982d as Kanji,
+  '540c': kanji_540c as Kanji,
+  '9053': kanji_9053 as Kanji,
+  '8aad': kanji_8aad as Kanji,
+  '5185': kanji_5185 as Kanji,
+  '5357': kanji_5357 as Kanji,
+  '8089': kanji_8089 as Kanji,
+  '99ac': kanji_99ac as Kanji,
+  '58f2': kanji_58f2 as Kanji,
+  '8cb7': kanji_8cb7 as Kanji,
+  '9ea6': kanji_9ea6 as Kanji,
+  '534a': kanji_534a as Kanji,
+  '756a': kanji_756a as Kanji,
+  '7236': kanji_7236 as Kanji,
+  '98a8': kanji_98a8 as Kanji,
+  '5206': kanji_5206 as Kanji,
+  '805e': kanji_805e as Kanji,
+  '7c73': kanji_7c73 as Kanji,
+  '6b69': kanji_6b69 as Kanji,
+  '6bcd': kanji_6bcd as Kanji,
+  '65b9': kanji_65b9 as Kanji,
+  '5317': kanji_5317 as Kanji,
+  '6bce': kanji_6bce as Kanji,
+  '59b9': kanji_59b9 as Kanji,
+  '4e07': kanji_4e07 as Kanji,
+  '660e': kanji_660e as Kanji,
+  '9cf4': kanji_9cf4 as Kanji,
+  '6bdb': kanji_6bdb as Kanji,
+  '9580': kanji_9580 as Kanji,
+  '591c': kanji_591c as Kanji,
+  '91ce': kanji_91ce as Kanji,
+  '53cb': kanji_53cb as Kanji,
+  '7528': kanji_7528 as Kanji,
+  '66dc': kanji_66dc as Kanji,
+  '6765': kanji_6765 as Kanji,
+  '91cc': kanji_91cc as Kanji,
+  '7406': kanji_7406 as Kanji,
+  '8a71': kanji_8a71 as Kanji,
+};

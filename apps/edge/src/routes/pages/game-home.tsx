@@ -1,17 +1,27 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import { gameGradeLevels } from './game-presets';
 import { Footer } from '../../components/Footer';
 import {
-  QuestHeader,
+  Features,
   GradeCard,
   GradeSelection,
-  Features,
+  QuestHeader,
 } from '../components/quest-layout';
+import { gameGradeLevels } from './game-presets';
 
 const GameNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
+      <a href="/" class="transition hover:opacity-80">
+        <img
+          src="/logo.svg"
+          alt="EduQuest Logo"
+          class="h-7 w-7"
+          width="28"
+          height="28"
+        />
+      </a>
+      <span class="text-[var(--mq-outline)]">|</span>
       <a
         href="/game"
         class="flex items-center gap-2 transition hover:opacity-80"
@@ -25,12 +35,6 @@ const GameNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
       </a>
     </div>
     <div class="flex items-center gap-2">
-      <a
-        href="/"
-        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-      >
-        ← トップに戻る
-      </a>
       {currentUser ? (
         <a
           href="/auth/logout"
@@ -65,7 +69,7 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
         <QuestHeader
           icon="🎮"
           title="GameQuest"
-          description="学年に合わせた脳トレゲームに挑戦しよう。まずは学年をえらんで、ぴったりのゲームを選択してください。"
+          description="学年に合わせた数独・Stellar Balance・センチネル配置に挑戦しよう。まずは学年をえらんで、ぴったりのゲームを選択してください。"
         />
 
         <GradeSelection title="学年を選ぶ">
@@ -85,12 +89,19 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
           title="GameQuest でできること"
           items={[
             { description: '学年に合わせた難易度で論理パズルに挑戦できます' },
-            { description: '数独パズルで集中力と推理力を鍛えられます' },
-            { description: 'ナイトの動きで守る「センチネル配置」に挑戦できます' },
             {
-              description: '4×4 から 9×9 まで段階的にステップアップできます',
+              description:
+                '数独パズルや「Stellar Balance」「センチネル配置」で思考力を磨けます',
             },
-            { description: '色分けされた領域を観察しながら楽しみつつ論理的思考力を育てられます' },
+            {
+              description:
+                '太陽・月・星タイルのバランスを考える空間認識トレーニングができます',
+            },
+            {
+              description:
+                'ナイトの動きで領域を守る「センチネル配置」で論理的思考力を育てられます',
+            },
+            { description: '4×4 から 9×9 まで段階的にステップアップできます' },
           ]}
         />
       </div>

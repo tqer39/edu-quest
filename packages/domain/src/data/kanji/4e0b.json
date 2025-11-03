@@ -1,0 +1,114 @@
+{
+  "character": "下",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["カ", "ゲ"],
+    "kunyomi": [
+      "した",
+      "しも",
+      "もと",
+      "さ-げる",
+      "さ-がる",
+      "くだ-る",
+      "お-りる"
+    ]
+  },
+  "meanings": ["below", "down", "under"],
+  "radicals": ["一"],
+  "examples": [
+    {
+      "word": "閣下",
+      "reading": "かっか",
+      "meaning": "Your excellency"
+    },
+    {
+      "word": "皇后陛下",
+      "reading": "こうごうへいか",
+      "meaning": "her majesty the Empress"
+    },
+    {
+      "word": "下層",
+      "reading": "かそう",
+      "meaning": "lower stratum"
+    },
+    {
+      "word": "上下する",
+      "reading": "じょうげする",
+      "meaning": "go up and down"
+    },
+    {
+      "word": "陛下",
+      "reading": "へいか",
+      "meaning": "your Majesty"
+    },
+    {
+      "word": "天皇陛下",
+      "reading": "てんのうへいか",
+      "meaning": "His Majesty the Emperor"
+    },
+    {
+      "word": "国王陛下",
+      "reading": "こくおうへいか",
+      "meaning": "His Majesty the King"
+    },
+    {
+      "word": "女王陛下",
+      "reading": "じょおうへいか",
+      "meaning": "Her Majesty the Queen"
+    },
+    {
+      "word": "靴下",
+      "reading": "くつした",
+      "meaning": "socks"
+    },
+    {
+      "word": "掘り下げる",
+      "reading": "ほりさげる",
+      "meaning": "dig down, delve into"
+    },
+    {
+      "word": "軒下",
+      "reading": "のきした",
+      "meaning": "place under the eaves"
+    },
+    {
+      "word": "床下",
+      "reading": "ゆかした",
+      "meaning": "under the floor"
+    },
+    {
+      "word": "沈下する",
+      "reading": "ちんかする",
+      "meaning": "sink, subside"
+    },
+    {
+      "word": "滴下する",
+      "reading": "てきかする",
+      "meaning": "drip, drop, distill"
+    },
+    {
+      "word": "殿下",
+      "reading": "でんか",
+      "meaning": "Your Highness, His Highness"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "下手な",
+      "reading": "へたな",
+      "meaning": "unskillful"
+    },
+    {
+      "word": "下ろす",
+      "reading": "おろす",
+      "meaning": "take down, lower [v.t.]"
+    },
+    {
+      "word": "下手",
+      "reading": "へた",
+      "meaning": "unskillful"
+    }
+  ],
+  "unicode": "4e0b"
+}

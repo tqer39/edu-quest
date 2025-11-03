@@ -1,0 +1,116 @@
+{
+  "character": "人",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": ["ジン", "ニン"],
+    "kunyomi": ["ひと"]
+  },
+  "meanings": ["person", "people"],
+  "radicals": ["人"],
+  "examples": [
+    {
+      "word": "一人",
+      "reading": "ひとり",
+      "meaning": "one person"
+    },
+    {
+      "word": "人徳",
+      "reading": "じんとく",
+      "meaning": "natural virtue, personal virtue"
+    },
+    {
+      "word": "犯人",
+      "reading": "はんにん",
+      "meaning": "offender, criminal"
+    },
+    {
+      "word": "殺人犯",
+      "reading": "さつじんはん",
+      "meaning": "murderer"
+    },
+    {
+      "word": "婦人",
+      "reading": "ふじん",
+      "meaning": "woman, female"
+    },
+    {
+      "word": "十人十色",
+      "reading": "じゅうにんといろ",
+      "meaning": "several men, several minds"
+    },
+    {
+      "word": "貴婦人",
+      "reading": "きふじん",
+      "meaning": "noblewoman"
+    },
+    {
+      "word": "善人",
+      "reading": "ぜんにん",
+      "meaning": "good people"
+    },
+    {
+      "word": "操り人形",
+      "reading": "あやつりにんぎょう",
+      "meaning": "puppet, marionette"
+    },
+    {
+      "word": "友人",
+      "reading": "ゆうじん",
+      "meaning": "friend"
+    },
+    {
+      "word": "上人",
+      "reading": "しょうにん",
+      "meaning": "priest"
+    },
+    {
+      "word": "俳人",
+      "reading": "はいじん",
+      "meaning": "haiku poet"
+    },
+    {
+      "word": "人込み",
+      "reading": "ひとごみ",
+      "meaning": "crowd of people"
+    },
+    {
+      "word": "超人",
+      "reading": "ちょうじん",
+      "meaning": "superman"
+    },
+    {
+      "word": "知人",
+      "reading": "ちじん",
+      "meaning": "acquaintance"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "一人",
+      "reading": "ひとり",
+      "meaning": "one person"
+    },
+    {
+      "word": "二人",
+      "reading": "ふたり",
+      "meaning": "two people"
+    },
+    {
+      "word": "素人",
+      "reading": "しろうと",
+      "meaning": "amateur"
+    },
+    {
+      "word": "助っ人",
+      "reading": "すけっと",
+      "meaning": "helper"
+    },
+    {
+      "word": "仲人",
+      "reading": "なこうど",
+      "meaning": "matchmaker (for marriages)"
+    }
+  ],
+  "unicode": "4eba"
+}

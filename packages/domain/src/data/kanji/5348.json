@@ -1,0 +1,65 @@
+{
+  "character": "午",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["ゴ"],
+    "kunyomi": []
+  },
+  "meanings": ["noon"],
+  "radicals": ["十"],
+  "examples": [
+    {
+      "word": "午前",
+      "reading": "ごぜん",
+      "meaning": "morning, a.m."
+    },
+    {
+      "word": "午後",
+      "reading": "ごご",
+      "meaning": "afternoon, p.m."
+    },
+    {
+      "word": "正午",
+      "reading": "しょうご",
+      "meaning": "noon"
+    },
+    {
+      "word": "午前中",
+      "reading": "ごぜんちゅう",
+      "meaning": "through the morning"
+    },
+    {
+      "word": "午年",
+      "reading": "うまどし",
+      "meaning": "Year of the Horse"
+    },
+    {
+      "word": "午睡",
+      "reading": "ごすい",
+      "meaning": "afternoon nap"
+    },
+    {
+      "word": "午前零時",
+      "reading": "ごぜんれいじ",
+      "meaning": "midnight"
+    },
+    {
+      "word": "午前休",
+      "reading": "ごぜんきゅう",
+      "meaning": "morning off"
+    },
+    {
+      "word": "午餐",
+      "reading": "ごさん",
+      "meaning": "luncheon"
+    },
+    {
+      "word": "午の刻",
+      "reading": "うまのこく",
+      "meaning": "traditional noon hour"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5348"
+}

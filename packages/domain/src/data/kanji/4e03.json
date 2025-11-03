@@ -1,0 +1,75 @@
+{
+  "character": "七",
+  "grade": 1,
+  "strokeCount": 2,
+  "readings": {
+    "onyomi": ["シチ"],
+    "kunyomi": ["なな", "なな-つ", "なの"]
+  },
+  "meanings": ["seven"],
+  "radicals": ["一"],
+  "examples": [
+    {
+      "word": "七時",
+      "reading": "しちじ",
+      "meaning": "7 o'clock"
+    },
+    {
+      "word": "十七",
+      "reading": "じゅうしち",
+      "meaning": "17"
+    },
+    {
+      "word": "十七",
+      "reading": "じゅうなな",
+      "meaning": "17"
+    },
+    {
+      "word": "七五三",
+      "reading": "しちごさん",
+      "meaning": "festival for children aged 7, 5 & 3"
+    },
+    {
+      "word": "七回",
+      "reading": "ななかい",
+      "meaning": "7 times"
+    },
+    {
+      "word": "七週間",
+      "reading": "ななしゅうかん",
+      "meaning": "7 weeks"
+    },
+    {
+      "word": "七才",
+      "reading": "ななさい",
+      "meaning": "7 years old"
+    },
+    {
+      "word": "七日",
+      "reading": "なのか",
+      "meaning": "7 days, 7th of the month"
+    },
+    {
+      "word": "七つ",
+      "reading": "ななつ",
+      "meaning": "7 (objects)"
+    },
+    {
+      "word": "七面鳥",
+      "reading": "しちめんちょう",
+      "meaning": "turkey"
+    },
+    {
+      "word": "七人",
+      "reading": "しちにん",
+      "meaning": "seven people"
+    },
+    {
+      "word": "七月",
+      "reading": "しちがつ",
+      "meaning": "July"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "4e03"
+}

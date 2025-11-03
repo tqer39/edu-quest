@@ -10,7 +10,7 @@ EduQuest is a learning platform for elementary school students that provides var
 
 - **MathQuest** (`/math`): Arithmetic practice with grade-level presets and themed exercises (e.g., "Addition up to 20," "Addition/Subtraction Mix")
 - **KanjiQuest** (`/kanji`): Kanji learning organized by grade level (Coming Soon)
-- **GameQuest** (`/game`): Brain-training mini games for pattern recognition, spatial reasoning, and memory (Coming Soon)
+- **GameQuest** (`/game`): Brain-training mini games for pattern recognition, spatial reasoning, and memory (Stellar Balance tile puzzle + Sudoku presets)
 - **ClockQuest** (`/clock`): Time-reading practice with analog and digital clocks (Coming Soon)
 
 ## 2. Architecture Overview
@@ -109,7 +109,7 @@ edu-quest/
 1.  The homepage displays available Quest modules as cards with theme colors:
     - **MathQuest** (blue theme): Available for use
     - **KanjiQuest** (purple theme): Coming Soon
-    - **GameQuest** (green theme): Coming Soon
+    - **GameQuest** (green theme): Stellar Balance + Sudoku available
     - **ClockQuest** (orange theme): Coming Soon
 2.  Users can navigate to a specific Quest by clicking the "はじめる" (Start) button.
 3.  Each Quest has its own dedicated color scheme applied via CSS variables.

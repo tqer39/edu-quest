@@ -1,0 +1,90 @@
+{
+  "character": "女",
+  "grade": 1,
+  "strokeCount": 3,
+  "readings": {
+    "onyomi": ["ジョ", "ニョ"],
+    "kunyomi": ["おんな", "め"]
+  },
+  "meanings": ["woman", "female"],
+  "radicals": ["女"],
+  "examples": [
+    {
+      "word": "処女",
+      "reading": "しょじょ",
+      "meaning": "virgin, maiden"
+    },
+    {
+      "word": "女王陛下",
+      "reading": "じょおうへいか",
+      "meaning": "Her Majesty the Queen"
+    },
+    {
+      "word": "幼女",
+      "reading": "ようじょ",
+      "meaning": "little girl"
+    },
+    {
+      "word": "長女",
+      "reading": "ちょうじょ",
+      "meaning": "eldest daughter"
+    },
+    {
+      "word": "老若男女",
+      "reading": "ろうにゃくなんにょ",
+      "meaning": "men and women of all ages"
+    },
+    {
+      "word": "女性",
+      "reading": "じょせい",
+      "meaning": "female"
+    },
+    {
+      "word": "女子学生",
+      "reading": "じょしがくせい",
+      "meaning": "female student"
+    },
+    {
+      "word": "彼女",
+      "reading": "かのじょ",
+      "meaning": "she, girl friend"
+    },
+    {
+      "word": "女人",
+      "reading": "にょにん",
+      "meaning": "women [archaic]"
+    },
+    {
+      "word": "女房",
+      "reading": "にょうぼう",
+      "meaning": "wife"
+    },
+    {
+      "word": "女",
+      "reading": "おんな",
+      "meaning": "woman"
+    },
+    {
+      "word": "女の子",
+      "reading": "おんなのこ",
+      "meaning": "girl"
+    },
+    {
+      "word": "女々しい",
+      "reading": "めめしい",
+      "meaning": "effeminate"
+    },
+    {
+      "word": "女優",
+      "reading": "じょゆう",
+      "meaning": "actress"
+    },
+    {
+      "word": "美女",
+      "reading": "びじょ",
+      "meaning": "beautiful woman"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5973"
+}

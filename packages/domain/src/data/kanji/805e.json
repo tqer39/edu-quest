@@ -1,0 +1,65 @@
+{
+  "character": "聞",
+  "grade": 2,
+  "strokeCount": 14,
+  "readings": {
+    "onyomi": ["ブン", "モン"],
+    "kunyomi": ["き-く", "き-こえる"]
+  },
+  "meanings": ["hear", "ask"],
+  "radicals": ["耳"],
+  "examples": [
+    {
+      "word": "新聞紙",
+      "reading": "しんぶんし",
+      "meaning": "newspaper"
+    },
+    {
+      "word": "新聞",
+      "reading": "しんぶん",
+      "meaning": "newspaper"
+    },
+    {
+      "word": "前代未聞",
+      "reading": "ぜんだいみもん",
+      "meaning": "unheard-of"
+    },
+    {
+      "word": "聞く",
+      "reading": "きく",
+      "meaning": "listen, hear, ask a question [v.t.]"
+    },
+    {
+      "word": "聞こえる",
+      "reading": "きこえる",
+      "meaning": "can be heard, hear [v.i.]"
+    },
+    {
+      "word": "聞き手",
+      "reading": "ききて",
+      "meaning": "listener"
+    },
+    {
+      "word": "盗み聞きする",
+      "reading": "ぬすみぎきする",
+      "meaning": "eavesdrop"
+    },
+    {
+      "word": "読売新聞",
+      "reading": "よみうりしんぶん",
+      "meaning": "Yomiuri (newspaper)"
+    },
+    {
+      "word": "古新聞",
+      "reading": "ふるしんぶん",
+      "meaning": "old newspapers"
+    },
+    {
+      "word": "聞き取り",
+      "reading": "ききとり",
+      "meaning": "listening comprehension"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "805e"
+}

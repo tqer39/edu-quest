@@ -1,0 +1,90 @@
+{
+  "character": "目",
+  "grade": 1,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["モク", "ボク"],
+    "kunyomi": ["め", "ま"]
+  },
+  "meanings": ["eye"],
+  "radicals": ["目"],
+  "examples": [
+    {
+      "word": "織り目",
+      "reading": "おりめ",
+      "meaning": "texture"
+    },
+    {
+      "word": "目測する",
+      "reading": "もくそくする",
+      "meaning": "measure by eye"
+    },
+    {
+      "word": "目盛り",
+      "reading": "めもり",
+      "meaning": "scale, gradation, point [n.]"
+    },
+    {
+      "word": "目上",
+      "reading": "めうえ",
+      "meaning": "superior(s)"
+    },
+    {
+      "word": "多目的",
+      "reading": "たもくてき",
+      "meaning": "multipurpose"
+    },
+    {
+      "word": "目頭",
+      "reading": "めがしら",
+      "meaning": "the corner of the eye"
+    },
+    {
+      "word": "二枚目",
+      "reading": "にまいめ",
+      "meaning": "second (flat object)"
+    },
+    {
+      "word": "目的地",
+      "reading": "もくてきち",
+      "meaning": "destination"
+    },
+    {
+      "word": "目標",
+      "reading": "もくひょう",
+      "meaning": "objective, target"
+    },
+    {
+      "word": "注目する",
+      "reading": "ちゅうもくする",
+      "meaning": "pay attention, take note"
+    },
+    {
+      "word": "目",
+      "reading": "め",
+      "meaning": "eye"
+    },
+    {
+      "word": "目を通す",
+      "reading": "めをとおす",
+      "meaning": "scan, look over"
+    },
+    {
+      "word": "駄目な",
+      "reading": "だめな",
+      "meaning": "useless"
+    },
+    {
+      "word": "真面目な",
+      "reading": "まじめな",
+      "meaning": "serious"
+    },
+    {
+      "word": "３ページ目",
+      "reading": "さんぺージめ",
+      "meaning": "third page"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "76ee"
+}

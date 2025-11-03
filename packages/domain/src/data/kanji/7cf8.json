@@ -1,0 +1,75 @@
+{
+  "character": "糸",
+  "grade": 1,
+  "strokeCount": 6,
+  "readings": {
+    "onyomi": ["シ"],
+    "kunyomi": ["いと"]
+  },
+  "meanings": ["thread", "string"],
+  "radicals": ["糸"],
+  "examples": [
+    {
+      "word": "綿糸",
+      "reading": "めんし",
+      "meaning": "cotton yarn"
+    },
+    {
+      "word": "絹糸",
+      "reading": "きぬいと",
+      "meaning": "silk thread"
+    },
+    {
+      "word": "蚕糸",
+      "reading": "さんし",
+      "meaning": "silk thread, silk yarn"
+    },
+    {
+      "word": "毛糸",
+      "reading": "けいと",
+      "meaning": "knitting wool"
+    },
+    {
+      "word": "抜糸する",
+      "reading": "ばっしする",
+      "meaning": "remove stitches"
+    },
+    {
+      "word": "糸",
+      "reading": "いと",
+      "meaning": "thread, yarn, string"
+    },
+    {
+      "word": "糸口",
+      "reading": "いとぐち",
+      "meaning": "beginning, start, clue"
+    },
+    {
+      "word": "縦糸",
+      "reading": "たていと",
+      "meaning": "warp"
+    },
+    {
+      "word": "横糸",
+      "reading": "よこいと",
+      "meaning": "woof"
+    },
+    {
+      "word": "糸電話",
+      "reading": "いとでんわ",
+      "meaning": "string telephone"
+    },
+    {
+      "word": "糸車",
+      "reading": "いとぐるま",
+      "meaning": "spinning wheel"
+    },
+    {
+      "word": "生糸",
+      "reading": "きいと",
+      "meaning": "raw silk"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "7cf8"
+}

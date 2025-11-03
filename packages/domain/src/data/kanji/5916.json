@@ -1,0 +1,90 @@
+{
+  "character": "外",
+  "grade": 2,
+  "strokeCount": 5,
+  "readings": {
+    "onyomi": ["ガイ", "ゲ"],
+    "kunyomi": ["そと", "ほか", "はず-す", "はず-れる"]
+  },
+  "meanings": ["outside", "foreign"],
+  "radicals": ["夕"],
+  "examples": [
+    {
+      "word": "外務省",
+      "reading": "がいむしょう",
+      "meaning": "Department of Foreign Affairs"
+    },
+    {
+      "word": "郊外",
+      "reading": "こうがい",
+      "meaning": "suburb, outskirts"
+    },
+    {
+      "word": "外泊する",
+      "reading": "がいはくする",
+      "meaning": "spend a night away from home"
+    },
+    {
+      "word": "外出する",
+      "reading": "がいしゅつする",
+      "meaning": "go out"
+    },
+    {
+      "word": "以外",
+      "reading": "いがい",
+      "meaning": "except"
+    },
+    {
+      "word": "屋外",
+      "reading": "おくがい",
+      "meaning": "outdoor"
+    },
+    {
+      "word": "赤外線",
+      "reading": "せきがいせん",
+      "meaning": "infrared rays"
+    },
+    {
+      "word": "外国",
+      "reading": "がいこく",
+      "meaning": "foreign country"
+    },
+    {
+      "word": "外部",
+      "reading": "がいぶ",
+      "meaning": "the outside"
+    },
+    {
+      "word": "国外",
+      "reading": "こくがい",
+      "meaning": "outside the country"
+    },
+    {
+      "word": "海外旅行",
+      "reading": "かいがいりょこう",
+      "meaning": "overseas travel"
+    },
+    {
+      "word": "意外な",
+      "reading": "いがいな",
+      "meaning": "surprising"
+    },
+    {
+      "word": "外食する",
+      "reading": "がいしょくする",
+      "meaning": "eat out"
+    },
+    {
+      "word": "外科",
+      "reading": "げか",
+      "meaning": "surgical department"
+    },
+    {
+      "word": "外",
+      "reading": "そと",
+      "meaning": "outside"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "5916"
+}

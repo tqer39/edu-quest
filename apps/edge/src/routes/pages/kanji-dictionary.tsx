@@ -1,9 +1,8 @@
+import type { Kanji, KanjiGrade, KanjiIndexEntry } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
-import type { Kanji, KanjiGrade } from '@edu-quest/domain';
-import { BackToTopLink } from '../components/back-to-top-link';
-import { DictionaryLink } from '../components/dictionary-link';
 import { Footer } from '../../components/Footer';
+import { DictionaryLink } from '../components/dictionary-link';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
@@ -16,22 +15,24 @@ const KanjiDictionaryNav: FC<{
 }> = ({ currentUser, gradeLabel, gradeParam }) => (
   <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
     <div class="flex items-center gap-2">
-      <a
-        href="/kanji"
-        class="flex items-center gap-2 transition hover:opacity-80"
-      >
+      <a href="/" class="transition hover:opacity-80">
+        <img
+          src="/logo.svg"
+          alt="EduQuest Logo"
+          class="h-7 w-7"
+          width="28"
+          height="28"
+        />
+      </a>
+      <span class="text-[var(--mq-outline)]">|</span>
+      <a href="/kanji" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
-        <div class="flex flex-col leading-tight">
-          <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest
-          </span>
-          <span class="text-[10px] font-semibold text-[var(--mq-primary-strong)]">
-            {gradeLabel} 辞書
-          </span>
-        </div>
       </a>
+      <span class="text-xs font-semibold text-[var(--mq-ink)]">
+        {gradeLabel} 辞書
+      </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
       <DictionaryLink current />
@@ -41,7 +42,6 @@ const KanjiDictionaryNav: FC<{
       >
         ← クエスト選択へ戻る
       </a>
-      <BackToTopLink />
       {currentUser ? (
         <a
           href="/auth/logout"
@@ -61,10 +61,18 @@ const KanjiDictionaryNav: FC<{
   </nav>
 );
 
+type KanjiSearchIndexEntry = {
+  char: string;
+  id?: string;
+  idx: string;
+  grade: KanjiGrade;
+};
+
 type KanjiDictionaryProps = {
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
-  entries: Kanji[];
+  entries: KanjiIndexEntry[];
+  searchIndex: KanjiSearchIndexEntry[];
 };
 
 const buildSearchIndex = (kanji: Kanji): string => {
@@ -102,24 +110,27 @@ const buildSearchIndex = (kanji: Kanji): string => {
   return [...base, ...exampleTokens].join(' ').toLowerCase();
 };
 
+export const createKanjiSearchIndexEntry = (
+  kanji: Kanji
+): KanjiSearchIndexEntry => ({
+  char: kanji.character,
+  id: kanji.unicode,
+  idx: buildSearchIndex(kanji),
+  grade: kanji.grade as KanjiGrade,
+});
+
 export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
   currentUser,
   grade,
   entries,
+  searchIndex,
 }) => {
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
   const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
   const totalCount = entries.length;
 
   // Prepare search data for client-side filtering
-  const searchDataJson = JSON.stringify(
-    entries.map((kanji) => ({
-      char: kanji.character,
-      id: kanji.character.codePointAt(0)?.toString(16),
-      idx: buildSearchIndex(kanji),
-      grade: kanji.grade,
-    }))
-  );
+  const searchDataJson = JSON.stringify(searchIndex);
 
   return (
     <div
@@ -202,7 +213,7 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
           style="display: grid; grid-template-columns: repeat(10, 1fr); overflow: hidden; border-radius: 1.5rem; border: 3px solid var(--mq-outline); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);"
         >
           {entries.map((kanji) => {
-            const kanjiId = kanji.character.codePointAt(0)?.toString(16);
+            const kanjiId = kanji.unicode;
             return (
               <a
                 key={kanji.character}

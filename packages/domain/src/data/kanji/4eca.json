@@ -1,0 +1,101 @@
+{
+  "character": "今",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["コン", "キン"],
+    "kunyomi": ["いま"]
+  },
+  "meanings": ["now", "present"],
+  "radicals": ["人"],
+  "examples": [
+    {
+      "word": "今更",
+      "reading": "いまさら",
+      "meaning": "at this late time"
+    },
+    {
+      "word": "今夜",
+      "reading": "こんや",
+      "meaning": "tonight"
+    },
+    {
+      "word": "今度",
+      "reading": "こんど",
+      "meaning": "this time, next time"
+    },
+    {
+      "word": "今月",
+      "reading": "こんげつ",
+      "meaning": "this month"
+    },
+    {
+      "word": "今昔物語",
+      "reading": "こんじゃくものがたり",
+      "meaning": "Tales of past and present"
+    },
+    {
+      "word": "今週",
+      "reading": "こんしゅう",
+      "meaning": "this week"
+    },
+    {
+      "word": "今晩",
+      "reading": "こんばん",
+      "meaning": "tonight"
+    },
+    {
+      "word": "今後",
+      "reading": "こんご",
+      "meaning": "from now on"
+    },
+    {
+      "word": "今回",
+      "reading": "こんかい",
+      "meaning": "this time"
+    },
+    {
+      "word": "今上",
+      "reading": "きんじょう",
+      "meaning": "current emperor"
+    },
+    {
+      "word": "今",
+      "reading": "いま",
+      "meaning": "now"
+    },
+    {
+      "word": "今風",
+      "reading": "いまふう",
+      "meaning": "modern style"
+    },
+    {
+      "word": "今日",
+      "reading": "きょう",
+      "meaning": "today"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "今年中 に",
+      "reading": "ことしじゅうに",
+      "meaning": "within this year"
+    },
+    {
+      "word": "今日",
+      "reading": "きょう",
+      "meaning": "today"
+    },
+    {
+      "word": "今年",
+      "reading": "ことし",
+      "meaning": "this year"
+    },
+    {
+      "word": "今朝",
+      "reading": "けさ",
+      "meaning": "this morning"
+    }
+  ],
+  "unicode": "4eca"
+}

@@ -1,0 +1,65 @@
+{
+  "character": "秋",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["シュウ"],
+    "kunyomi": ["あき"]
+  },
+  "meanings": ["autumn", "fall"],
+  "radicals": ["禾"],
+  "examples": [
+    {
+      "word": "秋分",
+      "reading": "しゅうぶん",
+      "meaning": "autumn equinox"
+    },
+    {
+      "word": "秋",
+      "reading": "あき",
+      "meaning": "autumn"
+    },
+    {
+      "word": "秋風",
+      "reading": "あきかぜ",
+      "meaning": "autumn breeze"
+    },
+    {
+      "word": "秋学期",
+      "reading": "あきがっき",
+      "meaning": "autumn semester/quarter"
+    },
+    {
+      "word": "麦秋",
+      "reading": "ばくしゅう",
+      "meaning": "early summer"
+    },
+    {
+      "word": "秋雨",
+      "reading": "あきさめ",
+      "meaning": "autumn rain"
+    },
+    {
+      "word": "秋晴れ",
+      "reading": "あきばれ",
+      "meaning": "clear autumn weather"
+    },
+    {
+      "word": "秋祭り",
+      "reading": "あきまつり",
+      "meaning": "autumn festival"
+    },
+    {
+      "word": "晩秋",
+      "reading": "ばんしゅう",
+      "meaning": "late autumn"
+    },
+    {
+      "word": "秋桜",
+      "reading": "あきざくら",
+      "meaning": "cosmos flower"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "79cb"
+}

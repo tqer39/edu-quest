@@ -1,0 +1,70 @@
+{
+  "character": "春",
+  "grade": 2,
+  "strokeCount": 9,
+  "readings": {
+    "onyomi": ["シュン"],
+    "kunyomi": ["はる"]
+  },
+  "meanings": ["spring"],
+  "radicals": ["日"],
+  "examples": [
+    {
+      "word": "翌春",
+      "reading": "よくしゅん",
+      "meaning": "the following spring"
+    },
+    {
+      "word": "青春",
+      "reading": "せいしゅん",
+      "meaning": "springtime of life"
+    },
+    {
+      "word": "春分の日",
+      "reading": "しゅんぶんのひ",
+      "meaning": "vernal equinox"
+    },
+    {
+      "word": "立春",
+      "reading": "りっしゅん",
+      "meaning": "1st day of spring"
+    },
+    {
+      "word": "春",
+      "reading": "はる",
+      "meaning": "spring"
+    },
+    {
+      "word": "春風",
+      "reading": "はるかぜ",
+      "meaning": "spring breeze"
+    },
+    {
+      "word": "春雨",
+      "reading": "はるさめ",
+      "meaning": "spring rain"
+    },
+    {
+      "word": "春休み",
+      "reading": "はるやすみ",
+      "meaning": "spring break"
+    },
+    {
+      "word": "春季大会",
+      "reading": "しゅんきたいかい",
+      "meaning": "spring tournament"
+    },
+    {
+      "word": "春一番",
+      "reading": "はるいちばん",
+      "meaning": "first spring storm wind"
+    },
+    {
+      "word": "春分",
+      "reading": "しゅんぶん",
+      "meaning": "vernal equinox"
+    }
+  ],
+  "specialExamples": [],
+  "unicode": "6625"
+}

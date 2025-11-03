@@ -1,0 +1,101 @@
+{
+  "character": "手",
+  "grade": 1,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["シュ"],
+    "kunyomi": ["て", "た"]
+  },
+  "meanings": ["hand"],
+  "radicals": ["手"],
+  "examples": [
+    {
+      "word": "手間賃",
+      "reading": "てまちん",
+      "meaning": "wages for labor, pay"
+    },
+    {
+      "word": "握手する",
+      "reading": "あくしゅする",
+      "meaning": "shake hands"
+    },
+    {
+      "word": "選手",
+      "reading": "せんしゅ",
+      "meaning": "player (in game)"
+    },
+    {
+      "word": "手話",
+      "reading": "しゅわ",
+      "meaning": "sign language"
+    },
+    {
+      "word": "手紙",
+      "reading": "てがみ",
+      "meaning": "letter"
+    },
+    {
+      "word": "手帳",
+      "reading": "てちょう",
+      "meaning": "notebook"
+    },
+    {
+      "word": "手伝う",
+      "reading": "てつだう",
+      "meaning": "help"
+    },
+    {
+      "word": "手前",
+      "reading": "てまえ",
+      "meaning": "in front of oneself, this side"
+    },
+    {
+      "word": "お手洗い",
+      "reading": "おてあらい",
+      "meaning": "toilet"
+    },
+    {
+      "word": "手綱",
+      "reading": "たづな",
+      "meaning": "bridle"
+    },
+    {
+      "word": "下手な",
+      "reading": "へたな",
+      "meaning": "unskillful"
+    },
+    {
+      "word": "手荒な",
+      "reading": "てあらな",
+      "meaning": "violent, rough"
+    },
+    {
+      "word": "手触り",
+      "reading": "てざわり",
+      "meaning": "texture (for hand), feel"
+    },
+    {
+      "word": "隻手",
+      "reading": "せきしゅ",
+      "meaning": "one arm, one hand"
+    },
+    {
+      "word": "手当てする",
+      "reading": "てあてする",
+      "meaning": "provide medical care"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "上手",
+      "reading": "じょうず",
+      "meaning": "skillful"
+    },
+    {
+      "word": "上手な",
+      "reading": "じょうずな",
+      "meaning": "skillful"
+    }
+  ],
+  "unicode": "624b"
+}

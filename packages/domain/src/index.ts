@@ -21,23 +21,22 @@ export const pickOp = (mode: Mode): Question['op'] => {
   return '×';
 };
 
-export const generateQuestion = (config: QuizConfig): Question => {
-  // add-sub-mix モードの場合は、複数ステップの問題を生成
+// Helper function to handle special modes
+const handleSpecialMode = (config: QuizConfig): Question | null => {
   if (config.mode === 'add-sub-mix') {
     return generateGradeOneQuestion(config.max, config.terms);
   }
-
-  // add-inverse モードの場合は、逆算問題を生成
   if (config.mode === 'add-inverse') {
     return generateInverseQuestion(config.max, config.terms);
   }
-
-  // sub-inverse モードの場合は、ひき算の逆算問題を生成
   if (config.mode === 'sub-inverse') {
     return generateSubtractionInverseQuestion(config.max, config.terms);
   }
+  return null;
+};
 
-  // terms が指定されている場合（add, subモードのみ）
+// Helper function to handle terms-based generation
+const handleTermsBasedGeneration = (config: QuizConfig): Question | null => {
   if (config.terms === 2 || config.terms === 3) {
     if (config.mode === 'add' || config.mode === 'sub') {
       return generateSingleOperationQuestion(
@@ -46,36 +45,156 @@ export const generateQuestion = (config: QuizConfig): Question => {
         config.terms
       );
     }
-    // add, sub 以外のモードで terms が指定されている場合は従来通り
     return generateGradeOneQuestion(config.max, config.terms);
   }
+  return null;
+};
 
-  const op = pickOp(config.mode);
-  let a: number;
-  let b: number;
-
+// Helper function to generate operands based on operation
+const generateOperands = (
+  op: Question['op'],
+  max: number
+): { a: number; b: number } => {
   if (op === '+') {
-    // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
     const minA = Math.random() < 0.05 ? 0 : 1;
-    a = randIntInclusive(minA, config.max);
+    const a = randIntInclusive(minA, max);
     const minB = Math.random() < 0.05 ? 0 : 1;
-    const maxB = config.max - a;
-    b = maxB >= minB ? randIntInclusive(minB, maxB) : 0;
+    const maxB = max - a;
+    const b = maxB >= minB ? randIntInclusive(minB, maxB) : 0;
+    return { a, b };
   } else if (op === '-') {
-    a = randInt(config.max);
-    b = randInt(config.max);
+    let a = randInt(max);
+    let b = randInt(max);
     if (b > a) [a, b] = [b, a];
+    return { a, b };
   } else if (op === '×') {
-    const upper = Math.max(10, Math.floor(config.max / 2));
-    a = randInt(upper);
-    b = randInt(upper);
+    const upper = Math.max(10, Math.floor(max / 2));
+    const a = randInt(upper);
+    const b = randInt(upper);
+    return { a, b };
   } else {
-    a = randInt(config.max);
-    b = randInt(config.max);
+    const a = randInt(max);
+    const b = randInt(max);
+    return { a, b };
+  }
+};
+
+export const generateQuestion = (config: QuizConfig): Question => {
+  // Handle special modes
+  const specialResult = handleSpecialMode(config);
+  if (specialResult) {
+    return specialResult;
   }
 
+  // Handle terms-based generation
+  const termsResult = handleTermsBasedGeneration(config);
+  if (termsResult) {
+    return termsResult;
+  }
+
+  // Standard generation
+  const op = pickOp(config.mode);
+  const { a, b } = generateOperands(op, config.max);
   const answer = evaluateQuestion({ a, b, op });
   return { a, b, op, answer };
+};
+
+// Helper function to generate binary operation
+const generateBinaryOperation = (
+  mode: 'add' | 'sub',
+  max: number,
+  op: '+' | '-'
+): Question => {
+  let a: number;
+  let b: number;
+  if (mode === 'add') {
+    const minA = Math.random() < 0.05 ? 0 : 1;
+    a = randIntInclusive(minA, max);
+    const minB = Math.random() < 0.05 ? 0 : 1;
+    const maxB = max - a;
+    b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
+  } else {
+    a = randInt(max);
+    b = clampIntInclusive(0, a);
+  }
+  const answer = evaluateQuestion({ a, b, op });
+  return { a, b, op, answer };
+};
+
+// Helper function to try generating ternary addition
+const tryGenerateTernaryAddition = (max: number): Question | null => {
+  const avgValue = Math.max(1, Math.floor(max / 3));
+  const a = clampIntInclusive(1, avgValue);
+  const b = clampIntInclusive(1, Math.max(1, max - a - 1));
+  const remaining = max - (a + b);
+  if (remaining >= 1) {
+    const c = clampIntInclusive(1, remaining);
+    const extras = [{ op: '+', value: c }] as const;
+    const answer = evaluateQuestion({ a, b, op: '+', extras });
+    if (answer >= 0 && answer <= max) {
+      return { a, b, op: '+', extras, answer };
+    }
+  }
+  return null;
+};
+
+// Helper function to generate fallback ternary addition
+const generateFallbackTernaryAddition = (max: number): Question => {
+  const a = 1;
+  const b = 1;
+  const c = Math.min(1, max - 2);
+  const extras = [{ op: '+', value: c }] as const;
+  const answer = evaluateQuestion({ a, b, op: '+', extras });
+  return { a, b, op: '+', extras, answer };
+};
+
+// Helper function to try generating ternary subtraction
+const tryGenerateTernarySubtraction = (max: number): Question | null => {
+  const a = clampIntInclusive(3, max);
+  const maxB = Math.max(1, Math.floor(a / 2));
+  const b = clampIntInclusive(1, maxB);
+  const afterB = a - b;
+  const c = clampIntInclusive(1, Math.max(1, afterB - 1));
+  const extras = [{ op: '-', value: c }] as const;
+  const answer = evaluateQuestion({ a, b, op: '-', extras });
+  if (answer >= 0 && answer <= max) {
+    return { a, b, op: '-', extras, answer };
+  }
+  return null;
+};
+
+// Helper function to generate fallback ternary subtraction
+const generateFallbackTernarySubtraction = (max: number): Question => {
+  const a = Math.max(3, max);
+  const b = 1;
+  const c = 1;
+  const extras = [{ op: '-', value: c }] as const;
+  const answer = a - b - c;
+  return { a, b, op: '-', extras, answer };
+};
+
+// Helper function to generate ternary operation
+const generateTernaryOperation = (
+  mode: 'add' | 'sub',
+  max: number
+): Question => {
+  if (mode === 'add') {
+    for (let attempt = 0; attempt < 20; attempt++) {
+      const result = tryGenerateTernaryAddition(max);
+      if (result) {
+        return result;
+      }
+    }
+    return generateFallbackTernaryAddition(max);
+  } else {
+    for (let attempt = 0; attempt < 20; attempt++) {
+      const result = tryGenerateTernarySubtraction(max);
+      if (result) {
+        return result;
+      }
+    }
+    return generateFallbackTernarySubtraction(max);
+  }
 };
 
 // たし算またはひき算のみの問題を生成（二項または三項）
@@ -87,71 +206,9 @@ export const generateSingleOperationQuestion = (
   const op = mode === 'add' ? '+' : '-';
 
   if (terms === 2) {
-    // 二項演算
-    let a: number;
-    let b: number;
-    if (mode === 'add') {
-      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
-      const minA = Math.random() < 0.05 ? 0 : 1;
-      a = randIntInclusive(minA, max);
-      const minB = Math.random() < 0.05 ? 0 : 1;
-      const maxB = max - a;
-      b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
-    } else {
-      a = randInt(max);
-      b = clampIntInclusive(0, a);
-    }
-    const answer = evaluateQuestion({ a, b, op });
-    return { a, b, op, answer };
+    return generateBinaryOperation(mode, max, op);
   } else {
-    // 三項演算（terms === 3）- 必ず3つの数を生成
-    if (mode === 'add') {
-      // たし算のみ: a + b + c （必ず3項）
-      for (let attempt = 0; attempt < 20; attempt++) {
-        // maxを3分割することを考慮
-        const avgValue = Math.max(1, Math.floor(max / 3));
-        const a = clampIntInclusive(1, avgValue);
-        const b = clampIntInclusive(1, Math.max(1, max - a - 1));
-        const remaining = max - (a + b);
-        if (remaining >= 1) {
-          const c = clampIntInclusive(1, remaining);
-          const extras = [{ op: '+', value: c }] as const;
-          const answer = evaluateQuestion({ a, b, op: '+', extras });
-          if (answer >= 0 && answer <= max) {
-            return { a, b, op: '+', extras, answer };
-          }
-        }
-      }
-      // フォールバック: 簡単な3項たし算
-      const a = 1;
-      const b = 1;
-      const c = Math.min(1, max - 2);
-      const extras = [{ op: '+', value: c }] as const;
-      const answer = evaluateQuestion({ a, b, op: '+', extras });
-      return { a, b, op: '+', extras, answer };
-    } else {
-      // ひき算のみ: a - b - c （必ず3項）
-      // a >= b + c を保証する必要がある
-      for (let attempt = 0; attempt < 20; attempt++) {
-        const a = clampIntInclusive(3, max); // 最低3以上で2つ引ける
-        const maxB = Math.max(1, Math.floor(a / 2));
-        const b = clampIntInclusive(1, maxB);
-        const afterB = a - b;
-        const c = clampIntInclusive(1, Math.max(1, afterB - 1));
-        const extras = [{ op: '-', value: c }] as const;
-        const answer = evaluateQuestion({ a, b, op: '-', extras });
-        if (answer >= 0 && answer <= max) {
-          return { a, b, op: '-', extras, answer };
-        }
-      }
-      // フォールバック: 簡単な3項ひき算
-      const a = Math.max(3, max);
-      const b = 1;
-      const c = 1;
-      const extras = [{ op: '-', value: c }] as const;
-      const answer = a - b - c;
-      return { a, b, op: '-', extras, answer };
-    }
+    return generateTernaryOperation(mode, max);
   }
 };
 
@@ -189,6 +246,29 @@ const finalizeGradeOneQuestion = (params: {
     extras,
     answer,
   };
+};
+
+// Helper function for complex ternary pattern with two operations
+const generateComplexTernaryPattern = (max: number): Question => {
+  const minA = Math.random() < 0.05 ? 0 : 1;
+  const a = randIntInclusive(minA, max);
+  const minB = Math.random() < 0.05 ? 0 : 1;
+  const maxB = max - a;
+  const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
+  const sum = a + b;
+  const remaining = Math.max(0, max - sum);
+  const c = remaining > 0 ? pickNonZero(0, remaining) : 0;
+  const maxSubtract = sum + (c > 0 ? c : 0);
+  const d = maxSubtract > 0 ? pickNonZero(0, maxSubtract) : 0;
+  const extras: ExtraStep[] = [];
+  if (c > 0) extras.push({ op: '+', value: c });
+  if (d > 0) extras.push({ op: '-', value: d });
+  return finalizeGradeOneQuestion({
+    a,
+    b,
+    op: '+',
+    extras: extras.length > 0 ? extras : undefined,
+  });
 };
 
 export const generateGradeOneQuestion = (
@@ -259,28 +339,7 @@ export const generateGradeOneQuestion = (
         extras: c > 0 ? [{ op: '+', value: c }] : undefined,
       });
     },
-    () => {
-      // 5% probability for 0, 95% probability for 1 or higher (for both a and b)
-      const minA = Math.random() < 0.05 ? 0 : 1;
-      const a = randIntInclusive(minA, max);
-      const minB = Math.random() < 0.05 ? 0 : 1;
-      const maxB = max - a;
-      const b = maxB >= minB ? clampIntInclusive(minB, maxB) : 0;
-      const sum = a + b;
-      const remaining = Math.max(0, max - sum);
-      const c = remaining > 0 ? pickNonZero(0, remaining) : 0;
-      const maxSubtract = sum + (c > 0 ? c : 0);
-      const d = maxSubtract > 0 ? pickNonZero(0, maxSubtract) : 0;
-      const extras: ExtraStep[] = [];
-      if (c > 0) extras.push({ op: '+', value: c });
-      if (d > 0) extras.push({ op: '-', value: d });
-      return finalizeGradeOneQuestion({
-        a,
-        b,
-        op: '+',
-        extras: extras.length > 0 ? extras : undefined,
-      });
-    },
+    () => generateComplexTernaryPattern(max),
   ];
 
   // terms に基づいてパターンを選択
@@ -349,6 +408,71 @@ export const evaluateQuestion = (
   return result;
 };
 
+// Helper function to calculate inverse question result
+const calculateInverseResult = (
+  input: Pick<Question, 'a' | 'b' | 'op' | 'answer'> & {
+    extras?: readonly ExtraStep[];
+    inverseSide: 'left' | 'right';
+  }
+): number => {
+  let result: number;
+  if (input.op === '+') {
+    result =
+      input.inverseSide === 'left'
+        ? input.answer + input.b
+        : input.a + input.answer;
+  } else if (input.op === '-') {
+    result =
+      input.inverseSide === 'left' ? input.answer : input.a - input.answer;
+  } else {
+    result =
+      input.inverseSide === 'left'
+        ? input.answer * input.b
+        : input.a * input.answer;
+  }
+
+  if (input.extras && input.extras.length > 0) {
+    result = input.extras.reduce((acc, step) => {
+      return step.op === '+' ? acc + step.value : acc - step.value;
+    }, result);
+  }
+
+  return result;
+};
+
+// Helper function to add extras to parts array
+const addExtrasToParts = (
+  parts: string[],
+  extras: readonly ExtraStep[] | undefined
+): void => {
+  if (extras && extras.length > 0) {
+    extras.forEach((step) => {
+      parts.push(step.op, String(step.value));
+    });
+  }
+};
+
+// Helper function to format inverse question
+const formatInverseQuestion = (
+  input: Pick<Question, 'a' | 'b' | 'op' | 'answer'> & {
+    extras?: readonly ExtraStep[];
+    inverseSide: 'left' | 'right';
+  }
+): string => {
+  const parts = [];
+  if (input.inverseSide === 'left') {
+    parts.push('?', input.op === '×' ? '×' : input.op, `${input.b}`);
+  } else {
+    parts.push(`${input.a}`, input.op === '×' ? '×' : input.op, '?');
+  }
+
+  addExtrasToParts(parts, input.extras);
+  const result = calculateInverseResult(input);
+  parts.push('=', `${result}`);
+
+  return parts.join(' ');
+};
+
 export const formatQuestion = (
   input: Pick<Question, 'a' | 'b' | 'op' | 'answer'> & {
     extras?: readonly ExtraStep[];
@@ -357,189 +481,259 @@ export const formatQuestion = (
   }
 ) => {
   if (input.isInverse && input.inverseSide) {
-    const parts = [];
-    if (input.inverseSide === 'left') {
-      parts.push('?', input.op === '×' ? '×' : input.op, `${input.b}`);
-    } else {
-      parts.push(`${input.a}`, input.op === '×' ? '×' : input.op, '?');
-    }
-    if (input.extras && input.extras.length > 0) {
-      input.extras.forEach((step) => {
-        parts.push(step.op, String(step.value));
-      });
-    }
-    // 逆算問題では結果も表示
-    // extrasを考慮して正しい結果を計算
-    let result: number;
-    if (input.op === '+') {
-      // たし算の逆算: ? + b = result or a + ? = result
-      result =
-        input.inverseSide === 'left'
-          ? input.answer + input.b
-          : input.a + input.answer;
-    } else if (input.op === '-') {
-      // ひき算の逆算: ? - b = result or a - ? = result
-      result =
-        input.inverseSide === 'left'
-          ? input.answer // answer = result + b なので、result = answer - b
-          : input.a - input.answer; // answer = a - result なので、result = a - answer
-    } else {
-      // 乗算の逆算（未実装だが一応）
-      result =
-        input.inverseSide === 'left'
-          ? input.answer * input.b
-          : input.a * input.answer;
-    }
-
-    // extrasがある場合は、それも計算に含める
-    if (input.extras && input.extras.length > 0) {
-      result = input.extras.reduce((acc, step) => {
-        return step.op === '+' ? acc + step.value : acc - step.value;
-      }, result);
-    }
-
-    parts.push('=', `${result}`);
-    return parts.join(' ');
+    return formatInverseQuestion({ ...input, inverseSide: input.inverseSide });
   }
 
   const parts = [`${input.a}`, input.op === '×' ? '×' : input.op, `${input.b}`];
-  if (input.extras && input.extras.length > 0) {
-    input.extras.forEach((step) => {
-      parts.push(step.op, String(step.value));
-    });
-  }
+  addExtrasToParts(parts, input.extras);
   return parts.join(' ');
 };
 
-export {
-  createDifficultyContextFromQuestion,
-  deriveDifficultyFromQuestion,
-  deriveDifficultyProfile,
-} from './difficulty';
+// ClockQuest exports
+export * from './clock-quest';
 
 export type {
   DifficultyContext,
   DifficultyCreature,
   DifficultyProfile,
 } from './difficulty';
-
-// ClockQuest exports
-export * from './clock-quest';
+export {
+  createDifficultyContextFromQuestion,
+  deriveDifficultyFromQuestion,
+  deriveDifficultyProfile,
+} from './difficulty';
 
 // KanjiQuest exports
 export * from './kanji-quest';
 
-export const generateInverseQuestion = (
-  max: number,
-  terms?: 2 | 3 | null
+// Helper function to generate binary addition inverse question
+const generateBinaryAdditionInverse = (
+  result: number,
+  inverseSide: 'left' | 'right'
 ): Question => {
-  // たし算の逆算問題を生成
-  const result = randIntInclusive(1, max);
-  const inverseSide = pick(['left', 'right'] as const);
-
-  // 二項演算の逆算（デフォルト）
-  if (!terms || terms === 2) {
-    if (inverseSide === 'left') {
-      // ? + b = result → 答えは result - b
-      const b = randIntInclusive(0, result);
-      const answer = result - b;
-      return {
-        a: answer,
-        b: b,
-        op: '+',
-        answer: answer,
-        isInverse: true,
-        inverseSide: 'left',
-      };
-    } else {
-      // a + ? = result → 答えは result - a
-      const a = randIntInclusive(0, result);
-      const answer = result - a;
-      return {
-        a: a,
-        b: answer,
-        op: '+',
-        answer: answer,
-        isInverse: true,
-        inverseSide: 'right',
-      };
-    }
-  }
-
-  // 三項演算の逆算: ? + b + c = result or a + ? + c = result
-  for (let attempt = 0; attempt < 20; attempt++) {
-    const resultValue = randIntInclusive(3, max);
-    if (inverseSide === 'left') {
-      // ? + b + c = result → 答えは result - b - c
-      const b = randIntInclusive(1, Math.max(1, Math.floor(resultValue / 2)));
-      const remaining = resultValue - b;
-      if (remaining >= 2) {
-        const c = randIntInclusive(1, remaining - 1);
-        const answer = resultValue - b - c;
-        if (answer >= 0 && answer <= max) {
-          const extras = [{ op: '+', value: c }] as const;
-          return {
-            a: answer,
-            b: b,
-            op: '+',
-            extras,
-            answer: answer,
-            isInverse: true,
-            inverseSide: 'left',
-          };
-        }
-      }
-    } else {
-      // a + ? + c = result → 答えは result - a - c
-      const a = randIntInclusive(1, Math.max(1, Math.floor(resultValue / 2)));
-      const remaining = resultValue - a;
-      if (remaining >= 2) {
-        const c = randIntInclusive(1, remaining - 1);
-        const answer = resultValue - a - c;
-        if (answer >= 0 && answer <= max) {
-          const extras = [{ op: '+', value: c }] as const;
-          return {
-            a: a,
-            b: answer,
-            op: '+',
-            extras,
-            answer: answer,
-            isInverse: true,
-            inverseSide: 'right',
-          };
-        }
-      }
-    }
-  }
-
-  // フォールバック: 簡単な三項逆算
   if (inverseSide === 'left') {
-    // ? + 1 + 1 = 3 → 答えは 1
-    const b = 1;
-    const c = 1;
-    const answer = 1;
-    const extras = [{ op: '+', value: c }] as const;
+    const b = randIntInclusive(0, result);
+    const answer = result - b;
     return {
       a: answer,
       b: b,
       op: '+',
-      extras,
       answer: answer,
       isInverse: true,
       inverseSide: 'left',
     };
   } else {
-    // 1 + ? + 1 = 3 → 答えは 1
-    const a = 1;
-    const c = 1;
-    const answer = 1;
-    const extras = [{ op: '+', value: c }] as const;
+    const a = randIntInclusive(0, result);
+    const answer = result - a;
     return {
       a: a,
       b: answer,
       op: '+',
-      extras,
       answer: answer,
+      isInverse: true,
+      inverseSide: 'right',
+    };
+  }
+};
+
+// Helper function to try generating ternary addition inverse question
+const tryGenerateTernaryAdditionInverse = (
+  max: number,
+  inverseSide: 'left' | 'right'
+): Question | null => {
+  const resultValue = randIntInclusive(3, max);
+  if (inverseSide === 'left') {
+    const b = randIntInclusive(1, Math.max(1, Math.floor(resultValue / 2)));
+    const remaining = resultValue - b;
+    if (remaining >= 2) {
+      const c = randIntInclusive(1, remaining - 1);
+      const answer = resultValue - b - c;
+      if (answer >= 0 && answer <= max) {
+        const extras = [{ op: '+', value: c }] as const;
+        return {
+          a: answer,
+          b: b,
+          op: '+',
+          extras,
+          answer: answer,
+          isInverse: true,
+          inverseSide: 'left',
+        };
+      }
+    }
+  } else {
+    const a = randIntInclusive(1, Math.max(1, Math.floor(resultValue / 2)));
+    const remaining = resultValue - a;
+    if (remaining >= 2) {
+      const c = randIntInclusive(1, remaining - 1);
+      const answer = resultValue - a - c;
+      if (answer >= 0 && answer <= max) {
+        const extras = [{ op: '+', value: c }] as const;
+        return {
+          a: a,
+          b: answer,
+          op: '+',
+          extras,
+          answer: answer,
+          isInverse: true,
+          inverseSide: 'right',
+        };
+      }
+    }
+  }
+  return null;
+};
+
+// Helper function to generate fallback ternary addition inverse question
+const generateFallbackTernaryAdditionInverse = (
+  inverseSide: 'left' | 'right'
+): Question => {
+  const extras = [{ op: '+', value: 1 }] as const;
+  if (inverseSide === 'left') {
+    return {
+      a: 1,
+      b: 1,
+      op: '+',
+      extras,
+      answer: 1,
+      isInverse: true,
+      inverseSide: 'left',
+    };
+  } else {
+    return {
+      a: 1,
+      b: 1,
+      op: '+',
+      extras,
+      answer: 1,
+      isInverse: true,
+      inverseSide: 'right',
+    };
+  }
+};
+
+export const generateInverseQuestion = (
+  max: number,
+  terms?: 2 | 3 | null
+): Question => {
+  const result = randIntInclusive(1, max);
+  const inverseSide = pick(['left', 'right'] as const);
+
+  if (!terms || terms === 2) {
+    return generateBinaryAdditionInverse(result, inverseSide);
+  }
+
+  // Try to generate ternary addition inverse question
+  for (let attempt = 0; attempt < 20; attempt++) {
+    const question = tryGenerateTernaryAdditionInverse(max, inverseSide);
+    if (question) {
+      return question;
+    }
+  }
+
+  return generateFallbackTernaryAdditionInverse(inverseSide);
+};
+
+// Helper function to generate binary subtraction inverse question
+const generateBinarySubtractionInverse = (
+  max: number,
+  inverseSide: 'left' | 'right'
+): Question => {
+  if (inverseSide === 'left') {
+    const result = randIntInclusive(0, max);
+    const b = randIntInclusive(0, max - result);
+    const answer = result + b;
+    return {
+      a: answer,
+      b: b,
+      op: '-',
+      answer: answer,
+      isInverse: true,
+      inverseSide: 'left',
+    };
+  } else {
+    const a = randIntInclusive(1, max);
+    const result = randIntInclusive(0, a);
+    const answer = a - result;
+    return {
+      a: a,
+      b: answer,
+      op: '-',
+      answer: answer,
+      isInverse: true,
+      inverseSide: 'right',
+    };
+  }
+};
+
+// Helper function to try generating ternary subtraction inverse question
+const tryGenerateTernarySubtractionInverse = (
+  max: number,
+  inverseSide: 'left' | 'right'
+): Question | null => {
+  if (inverseSide === 'left') {
+    const result = randIntInclusive(0, Math.max(0, max - 2));
+    const b = randIntInclusive(1, Math.max(1, Math.floor((max - result) / 2)));
+    const remaining = max - result - b;
+    if (remaining >= 1) {
+      const c = randIntInclusive(1, remaining);
+      const answer = result + b + c;
+      if (answer >= 0 && answer <= max) {
+        const extras = [{ op: '-', value: c }] as const;
+        return {
+          a: answer,
+          b: b,
+          op: '-',
+          extras,
+          answer: answer,
+          isInverse: true,
+          inverseSide: 'left',
+        };
+      }
+    }
+  } else {
+    const a = randIntInclusive(3, max);
+    const result = randIntInclusive(0, Math.max(0, a - 2));
+    const remaining = a - result;
+    if (remaining >= 2) {
+      const c = randIntInclusive(1, remaining - 1);
+      const answer = a - result - c;
+      if (answer >= 0 && answer <= max) {
+        const extras = [{ op: '-', value: c }] as const;
+        return {
+          a: a,
+          b: answer,
+          op: '-',
+          extras,
+          answer: answer,
+          isInverse: true,
+          inverseSide: 'right',
+        };
+      }
+    }
+  }
+  return null;
+};
+
+// Helper function to generate fallback binary subtraction inverse question
+const generateFallbackBinarySubtractionInverse = (
+  inverseSide: 'left' | 'right'
+): Question => {
+  if (inverseSide === 'left') {
+    return {
+      a: 2,
+      b: 1,
+      op: '-',
+      answer: 2,
+      isInverse: true,
+      inverseSide: 'left',
+    };
+  } else {
+    return {
+      a: 3,
+      b: 2,
+      op: '-',
+      answer: 2,
       isInverse: true,
       inverseSide: 'right',
     };
@@ -550,116 +744,19 @@ export const generateSubtractionInverseQuestion = (
   max: number,
   terms?: 2 | 3 | null
 ): Question => {
-  // ひき算の逆算問題を生成
   const inverseSide = pick(['left', 'right'] as const);
 
-  // 二項演算の逆算（デフォルト）
   if (!terms || terms === 2) {
-    if (inverseSide === 'left') {
-      // ? - b = result → 答えは result + b
-      const result = randIntInclusive(0, max);
-      const b = randIntInclusive(0, max - result);
-      const answer = result + b;
-      if (answer >= 0 && answer <= max) {
-        return {
-          a: answer,
-          b: b,
-          op: '-',
-          answer: answer,
-          isInverse: true,
-          inverseSide: 'left',
-        };
-      }
-    } else {
-      // a - ? = result → 答えは a - result
-      const a = randIntInclusive(1, max);
-      const result = randIntInclusive(0, a);
-      const answer = a - result;
-      return {
-        a: a,
-        b: answer,
-        op: '-',
-        answer: answer,
-        isInverse: true,
-        inverseSide: 'right',
-      };
-    }
+    return generateBinarySubtractionInverse(max, inverseSide);
   }
 
-  // 三項演算の逆算: ? - b - c = result or a - ? - c = result
+  // Try to generate ternary subtraction inverse question
   for (let attempt = 0; attempt < 20; attempt++) {
-    if (inverseSide === 'left') {
-      // ? - b - c = result → 答えは result + b + c
-      const result = randIntInclusive(0, Math.max(0, max - 2));
-      const b = randIntInclusive(
-        1,
-        Math.max(1, Math.floor((max - result) / 2))
-      );
-      const remaining = max - result - b;
-      if (remaining >= 1) {
-        const c = randIntInclusive(1, remaining);
-        const answer = result + b + c;
-        if (answer >= 0 && answer <= max) {
-          const extras = [{ op: '-', value: c }] as const;
-          return {
-            a: answer,
-            b: b,
-            op: '-',
-            extras,
-            answer: answer,
-            isInverse: true,
-            inverseSide: 'left',
-          };
-        }
-      }
-    } else {
-      // a - ? - c = result → 答えは a - result - c
-      const a = randIntInclusive(3, max);
-      const result = randIntInclusive(0, Math.max(0, a - 2));
-      const remaining = a - result;
-      if (remaining >= 2) {
-        const c = randIntInclusive(1, remaining - 1);
-        const answer = a - result - c;
-        if (answer >= 0 && answer <= max) {
-          const extras = [{ op: '-', value: c }] as const;
-          return {
-            a: a,
-            b: answer,
-            op: '-',
-            extras,
-            answer: answer,
-            isInverse: true,
-            inverseSide: 'right',
-          };
-        }
-      }
+    const question = tryGenerateTernarySubtractionInverse(max, inverseSide);
+    if (question) {
+      return question;
     }
   }
 
-  // フォールバック: 簡単な二項逆算
-  if (inverseSide === 'left') {
-    // ? - 1 = 1 → 答えは 2
-    const b = 1;
-    const answer = 2;
-    return {
-      a: answer,
-      b: b,
-      op: '-',
-      answer: answer,
-      isInverse: true,
-      inverseSide: 'left',
-    };
-  } else {
-    // 3 - ? = 1 → 答えは 2
-    const a = 3;
-    const answer = 2;
-    return {
-      a: a,
-      b: answer,
-      op: '-',
-      answer: answer,
-      isInverse: true,
-      inverseSide: 'right',
-    };
-  }
+  return generateFallbackBinarySubtractionInverse(inverseSide);
 };

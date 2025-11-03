@@ -1,0 +1,86 @@
+{
+  "character": "朝",
+  "grade": 2,
+  "strokeCount": 12,
+  "readings": {
+    "onyomi": ["チョウ"],
+    "kunyomi": ["あさ"]
+  },
+  "meanings": ["morning"],
+  "radicals": ["月"],
+  "examples": [
+    {
+      "word": "翌朝",
+      "reading": "よくあさ",
+      "meaning": "the next morning"
+    },
+    {
+      "word": "一朝一夕",
+      "reading": "いっちょういっせき",
+      "meaning": "in a brief space of time"
+    },
+    {
+      "word": "朝日",
+      "reading": "あさひ",
+      "meaning": "morning sun"
+    },
+    {
+      "word": "朝御飯",
+      "reading": "あさごはん",
+      "meaning": "breakfast"
+    },
+    {
+      "word": "朝飯前",
+      "reading": "あさめしまえ",
+      "meaning": "simple, a piece of cake"
+    },
+    {
+      "word": "朝型",
+      "reading": "あさがた",
+      "meaning": "morning person"
+    },
+    {
+      "word": "毎朝",
+      "reading": "まいあさ",
+      "meaning": "every morning"
+    },
+    {
+      "word": "朝食",
+      "reading": "ちょうしょく",
+      "meaning": "breakfast"
+    },
+    {
+      "word": "朝刊",
+      "reading": "ちょうかん",
+      "meaning": "morning newspaper"
+    },
+    {
+      "word": "平安朝",
+      "reading": "へいあんちょう",
+      "meaning": "Heian period"
+    },
+    {
+      "word": "朝",
+      "reading": "あさ",
+      "meaning": "morning"
+    },
+    {
+      "word": "朝寝坊",
+      "reading": "あさねぼう",
+      "meaning": "oversleeping"
+    },
+    {
+      "word": "早朝",
+      "reading": "そうちょう",
+      "meaning": "early morning"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "今朝",
+      "reading": "けさ",
+      "meaning": "this morning"
+    }
+  ],
+  "unicode": "671d"
+}

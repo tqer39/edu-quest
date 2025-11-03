@@ -1,0 +1,71 @@
+{
+  "character": "父",
+  "grade": 2,
+  "strokeCount": 4,
+  "readings": {
+    "onyomi": ["フ"],
+    "kunyomi": ["ちち"]
+  },
+  "meanings": ["father"],
+  "radicals": ["父"],
+  "examples": [
+    {
+      "word": "祖父母",
+      "reading": "そふぼ",
+      "meaning": "grandparents"
+    },
+    {
+      "word": "父方",
+      "reading": "ちちかた",
+      "meaning": "father's side of family"
+    },
+    {
+      "word": "義父",
+      "reading": "ぎふ",
+      "meaning": "father-in-law"
+    },
+    {
+      "word": "父母",
+      "reading": "ふぼ",
+      "meaning": "one's own father and mother"
+    },
+    {
+      "word": "祖父",
+      "reading": "そふ",
+      "meaning": "one's own grandfather"
+    },
+    {
+      "word": "父",
+      "reading": "ちち",
+      "meaning": "one's own father"
+    },
+    {
+      "word": "父親",
+      "reading": "ちちおや",
+      "meaning": "father"
+    },
+    {
+      "word": "父兄",
+      "reading": "ふけい",
+      "meaning": "guardians"
+    },
+    {
+      "word": "父性",
+      "reading": "ふせい",
+      "meaning": "paternal nature"
+    },
+    {
+      "word": "父娘",
+      "reading": "ちちむすめ",
+      "meaning": "father and daughter"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "お父さん",
+      "reading": "おとうさん",
+      "meaning": "father [hon.]"
+    }
+  ],
+  "unicode": "7236"
+}

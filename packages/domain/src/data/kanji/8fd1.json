@@ -1,0 +1,111 @@
+{
+  "character": "近",
+  "grade": 2,
+  "strokeCount": 7,
+  "readings": {
+    "onyomi": ["キン"],
+    "kunyomi": ["ちか-い"]
+  },
+  "meanings": ["near", "close"],
+  "radicals": ["辵"],
+  "examples": [
+    {
+      "word": "近郷",
+      "reading": "きんごう",
+      "meaning": "neighboring districts"
+    },
+    {
+      "word": "近視",
+      "reading": "きんし",
+      "meaning": "shortsightedness"
+    },
+    {
+      "word": "近況",
+      "reading": "きんきょう",
+      "meaning": "recent situation"
+    },
+    {
+      "word": "近郊",
+      "reading": "きんこう",
+      "meaning": "suburbs, outskirts, neighboring"
+    },
+    {
+      "word": "最近",
+      "reading": "さいきん",
+      "meaning": "recently"
+    },
+    {
+      "word": "近辺",
+      "reading": "きんぺん",
+      "meaning": "vicinity"
+    },
+    {
+      "word": "近所",
+      "reading": "きんじょ",
+      "meaning": "neighborhood"
+    },
+    {
+      "word": "接近する",
+      "reading": "せっきんする",
+      "meaning": "approach"
+    },
+    {
+      "word": "近代",
+      "reading": "きんだい",
+      "meaning": "modern"
+    },
+    {
+      "word": "近い",
+      "reading": "ちかい",
+      "meaning": "nearby [adj.]"
+    },
+    {
+      "word": "近代化する",
+      "reading": "きんだいかする",
+      "meaning": "modernize"
+    },
+    {
+      "word": "側近",
+      "reading": "そっきん",
+      "meaning": "close advisor"
+    },
+    {
+      "word": "近似値",
+      "reading": "きんじち",
+      "meaning": "approximate value"
+    },
+    {
+      "word": "近隣",
+      "reading": "きんりん",
+      "meaning": "neighborhood, vicinity"
+    },
+    {
+      "word": "隣近所",
+      "reading": "となりきんじょ",
+      "meaning": "neighbors, neighborhood"
+    }
+  ],
+  "specialExamples": [
+    {
+      "word": "近道",
+      "reading": "ちかみち",
+      "meaning": "shortcut"
+    },
+    {
+      "word": "近く",
+      "reading": "ちかく",
+      "meaning": "nearby [n.]"
+    },
+    {
+      "word": "近付く",
+      "reading": "ちかづく",
+      "meaning": "come near, approach"
+    },
+    {
+      "word": "身近な",
+      "reading": "みぢかな",
+      "meaning": "close, familiar"
+    }
+  ],
+  "unicode": "8fd1"
+}
