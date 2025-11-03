@@ -1,7 +1,11 @@
 describe('MathQuest Flow', () => {
   describe('Start Configuration Page', () => {
     beforeEach(() => {
-      cy.visit('/math/start?grade=grade-1&calc=calc-add');
+      // Navigate through the full flow to get to start page with proper cookies
+      cy.visit('/math');
+      cy.contains('a', '小学1年生').click();
+      cy.contains('a', 'クエストに挑戦する').click();
+      cy.contains('a', 'たし算').click();
     });
 
     it('should load the start configuration page', () => {
@@ -26,7 +30,11 @@ describe('MathQuest Flow', () => {
 
   describe('Play Page Navigation', () => {
     it('should navigate to play page after configuration', () => {
-      cy.visit('/math/start?grade=grade-1&calc=calc-add');
+      // Navigate through the full flow
+      cy.visit('/math');
+      cy.contains('a', '小学1年生').click();
+      cy.contains('a', 'クエストに挑戦する').click();
+      cy.contains('a', 'たし算').click();
 
       // Start the quiz
       cy.contains('button', 'はじめる').click();
@@ -36,7 +44,11 @@ describe('MathQuest Flow', () => {
     });
 
     it('should display question on play page', () => {
-      cy.visit('/math/start?grade=grade-1&calc=calc-add');
+      // Navigate through the full flow
+      cy.visit('/math');
+      cy.contains('a', '小学1年生').click();
+      cy.contains('a', 'クエストに挑戦する').click();
+      cy.contains('a', 'たし算').click();
 
       // Quick start with default settings
       cy.contains('button', 'はじめる').click();
