@@ -107,17 +107,55 @@ type GlobalWithProcess = typeof globalThis & {
   };
 };
 
-const FIFTEEN_MINUTES_IN_MS = 15 * 60 * 1000;
-
-const getReleaseCacheTag = (): string => {
-  const currentInterval = Math.floor(Date.now() / FIFTEEN_MINUTES_IN_MS);
-  return currentInterval.toString(16);
+type ReleaseCacheEntry = {
+  value: ReleaseInfo | null;
+  etag?: string;
+  expiresAt: number;
 };
 
-const createReleaseCacheKey = (): string => {
-  const url = new URL(GITHUB_RELEASE_ENDPOINT);
-  url.searchParams.set('deploy', getReleaseCacheTag());
-  return url.toString();
+type GlobalWithReleaseCache = GlobalWithProcess & {
+  __RELEASE_CACHE__?: ReleaseCacheEntry;
+};
+
+const RELEASE_CACHE_TTL_MS = 5 * 60 * 1000;
+const RELEASE_CACHE_ERROR_TTL_MS = 60 * 1000;
+
+const getGlobalWithReleaseCache = (): GlobalWithReleaseCache =>
+  globalThis as GlobalWithReleaseCache;
+
+const getCachedRelease = (): ReleaseCacheEntry | undefined =>
+  getGlobalWithReleaseCache().__RELEASE_CACHE__;
+
+const storeReleaseCache = (entry: ReleaseCacheEntry): void => {
+  getGlobalWithReleaseCache().__RELEASE_CACHE__ = entry;
+};
+
+const extendReleaseCache = (
+  cached: ReleaseCacheEntry | undefined,
+  now: number,
+  ttl: number
+): ReleaseInfo | null => {
+  const entry: ReleaseCacheEntry = cached
+    ? { ...cached, expiresAt: now + ttl }
+    : { value: null, expiresAt: now + ttl };
+
+  storeReleaseCache(entry);
+  return entry.value;
+};
+
+const setFreshReleaseCache = (
+  releaseInfo: ReleaseInfo | null,
+  etag: string | null,
+  now: number,
+  ttl: number
+): ReleaseInfo | null => {
+  storeReleaseCache({
+    value: releaseInfo,
+    etag: etag ?? undefined,
+    expiresAt: now + ttl,
+  });
+
+  return releaseInfo;
 };
 
 const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
@@ -127,35 +165,41 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
       return null;
     }
 
-    const cache = globalThis.caches?.default;
-    const cacheKey = createReleaseCacheKey();
+    const now = Date.now();
+    const cached = getCachedRelease();
 
-    if (cache) {
-      const cached = await cache.match(cacheKey);
-      if (cached) {
-        try {
-          return (await cached.json()) as ReleaseInfo;
-        } catch {
-          await cache.delete(cacheKey);
-        }
-      }
+    if (cached && cached.expiresAt > now) {
+      return cached.value;
     }
 
-    const response = await fetch(cacheKey, {
-      headers: {
-        'User-Agent': 'edu-quest-worker',
-        Accept: 'application/vnd.github+json',
-      },
-    });
+    const headers: Record<string, string> = {
+      'User-Agent': 'edu-quest-worker',
+      Accept: 'application/vnd.github+json',
+    };
+
+    if (cached?.etag) {
+      headers['If-None-Match'] = cached.etag;
+    }
+
+    const response = await fetch(GITHUB_RELEASE_ENDPOINT, { headers });
+
+    if (response.status === 304) {
+      return extendReleaseCache(cached, now, RELEASE_CACHE_TTL_MS);
+    }
 
     if (!response.ok) {
-      return null;
+      return extendReleaseCache(cached, now, RELEASE_CACHE_ERROR_TTL_MS);
     }
 
     const data = (await response.json()) as GitHubReleaseResponse;
 
     if (!data.tag_name || !data.published_at) {
-      return null;
+      return setFreshReleaseCache(
+        null,
+        response.headers.get('etag'),
+        now,
+        RELEASE_CACHE_ERROR_TTL_MS
+      );
     }
 
     const releaseInfo: ReleaseInfo = {
@@ -163,19 +207,18 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
       publishedAt: data.published_at,
     };
 
-    if (cache) {
-      const cacheResponse = new Response(JSON.stringify(releaseInfo), {
-        headers: {
-          'Cache-Control': 'public, max-age=900',
-          'Content-Type': 'application/json',
-        },
-      });
-      await cache.put(cacheKey, cacheResponse);
-    }
-
-    return releaseInfo;
+    return setFreshReleaseCache(
+      releaseInfo,
+      response.headers.get('etag'),
+      now,
+      RELEASE_CACHE_TTL_MS
+    );
   } catch {
-    return null;
+    return extendReleaseCache(
+      getCachedRelease(),
+      Date.now(),
+      RELEASE_CACHE_ERROR_TTL_MS
+    );
   }
 };
 
