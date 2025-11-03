@@ -85,9 +85,13 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
           title="GameQuest でできること"
           items={[
             { description: '学年に合わせた難易度で論理パズルに挑戦できます' },
-            { description: '数独パズルや新作「Stellar Balance」で思考力を磨けます' },
             {
-              description: '太陽・月・星タイルのバランスを考える空間認識トレーニングができます',
+              description:
+                '数独パズルや新作「Stellar Balance」で思考力を磨けます',
+            },
+            {
+              description:
+                '太陽・月・星タイルのバランスを考える空間認識トレーニングができます',
             },
             { description: '4×4 から 9×9 まで段階的にステップアップできます' },
           ]}

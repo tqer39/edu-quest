@@ -405,6 +405,6 @@ const MODULE_SOURCE = `
 
 export const renderStellarBalanceClientScript = () => html`
   <script type="module">
-    ${raw(MODULE_SOURCE)}
+    ${raw(MODULE_SOURCE)};
   </script>
 `;

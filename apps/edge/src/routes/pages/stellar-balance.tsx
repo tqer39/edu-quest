@@ -60,7 +60,11 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
             gap: 6px;
             padding: 1.5rem;
             border-radius: 1.5rem;
-            background: linear-gradient(135deg, rgba(214, 245, 231, 0.8), rgba(168, 235, 208, 0.65));
+            background: linear-gradient(
+              135deg,
+              rgba(214, 245, 231, 0.8),
+              rgba(168, 235, 208, 0.65)
+            );
             border: 1px solid rgba(93, 185, 150, 0.4);
             backdrop-filter: blur(6px);
           }
@@ -79,7 +83,10 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
             color: #0f172a;
             position: relative;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            transition:
+              transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
           }
 
           .stellar-cell:hover {
@@ -106,7 +113,11 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
           }
 
           .stellar-cell[data-state='complete'] {
-            background: linear-gradient(135deg, rgba(167, 243, 208, 0.4), rgba(134, 239, 172, 0.4));
+            background: linear-gradient(
+              135deg,
+              rgba(167, 243, 208, 0.4),
+              rgba(134, 239, 172, 0.4)
+            );
             border-color: rgba(16, 185, 129, 0.85);
           }
 
@@ -128,7 +139,10 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
             font-weight: 700;
             font-size: 1rem;
             padding: 0.65rem 0.5rem;
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            transition:
+              transform 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
           }
 
           .stellar-toolbar button[data-active='true'] {
@@ -199,7 +213,10 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
             gap: 0.5rem;
             border: 2px solid rgba(148, 163, 184, 0.4);
             background: white;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            transition:
+              transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
           }
 
           .stellar-actions button:hover:not(:disabled) {
@@ -236,7 +253,8 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
               Stellar Balance（ステラ・バランス）
             </h1>
             <p class="max-w-3xl text-sm leading-relaxed text-[#475569] sm:text-base">
-              {grade.label}向けのスペースタイルパズルに挑戦しよう。太陽・月・星のタイルをならべて、宇宙観測士のリクエストどおりにグリッドのバランスを整えます。
+              {grade.label}
+              向けのスペースタイルパズルに挑戦しよう。太陽・月・星のタイルをならべて、宇宙観測士のリクエストどおりにグリッドのバランスを整えます。
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-2 text-sm text-[#475569]">
@@ -247,7 +265,12 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
               📏 6×6 グリッド
             </span>
             <span class="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 font-semibold text-[#0f172a]">
-              🧭 難易度: {puzzle.difficulty === 'gentle' ? 'やさしい' : puzzle.difficulty === 'steady' ? 'ふつう' : 'チャレンジ'}
+              🧭 難易度:{' '}
+              {puzzle.difficulty === 'gentle'
+                ? 'やさしい'
+                : puzzle.difficulty === 'steady'
+                  ? 'ふつう'
+                  : 'チャレンジ'}
             </span>
           </div>
         </div>
@@ -258,16 +281,25 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
           <section class="stellar-card p-6 sm:p-8">
             <div class="flex flex-col gap-6">
               <div>
-                <h2 class="text-xl font-bold text-[var(--mq-ink)]">タイルを配置しよう</h2>
+                <h2 class="text-xl font-bold text-[var(--mq-ink)]">
+                  タイルを配置しよう
+                </h2>
                 <p class="mt-2 text-sm text-[#475569]">
-                  マスを選んで、下のツールバーから置きたいタイルをえらびます。各行・各列には太陽・月・星がそれぞれ 2 つずつ入ります。
+                  マスを選んで、下のツールバーから置きたいタイルをえらびます。各行・各列には太陽・月・星がそれぞれ
+                  2 つずつ入ります。
                 </p>
               </div>
 
-              <div class="stellar-grid" id="stellar-grid" role="grid" aria-label="ステラ・バランスのグリッド">
+              <div
+                class="stellar-grid"
+                id="stellar-grid"
+                role="grid"
+                aria-label="ステラ・バランスのグリッド"
+              >
                 {puzzle.puzzle.map((row, rowIndex) =>
                   row.split('').map((cell, columnIndex) => {
-                    const symbolInfo = SYMBOL_MAP[cell as keyof typeof SYMBOL_MAP];
+                    const symbolInfo =
+                      SYMBOL_MAP[cell as keyof typeof SYMBOL_MAP];
                     const isLocked = cell !== '.';
 
                     return (
@@ -288,7 +320,9 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
                         {symbolInfo ? (
                           <span aria-hidden="true">{symbolInfo.icon}</span>
                         ) : (
-                          <span class="text-sm font-semibold text-slate-400">？</span>
+                          <span class="text-sm font-semibold text-slate-400">
+                            ？
+                          </span>
                         )}
                       </button>
                     );
@@ -296,34 +330,73 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
                 )}
               </div>
 
-              <div class="stellar-toolbar" role="group" aria-label="タイルパレット">
-                <button type="button" class="stellar-toolbar__button" data-stellar-symbol="S" data-active="true">
-                  <span class="text-2xl" aria-hidden="true">{SYMBOL_MAP.S.icon}</span>
+              <div
+                class="stellar-toolbar"
+                role="group"
+                aria-label="タイルパレット"
+              >
+                <button
+                  type="button"
+                  class="stellar-toolbar__button"
+                  data-stellar-symbol="S"
+                  data-active="true"
+                >
+                  <span class="text-2xl" aria-hidden="true">
+                    {SYMBOL_MAP.S.icon}
+                  </span>
                   <span class="text-xs font-semibold text-[#475569]">太陽</span>
                 </button>
-                <button type="button" class="stellar-toolbar__button" data-stellar-symbol="M">
-                  <span class="text-2xl" aria-hidden="true">{SYMBOL_MAP.M.icon}</span>
+                <button
+                  type="button"
+                  class="stellar-toolbar__button"
+                  data-stellar-symbol="M"
+                >
+                  <span class="text-2xl" aria-hidden="true">
+                    {SYMBOL_MAP.M.icon}
+                  </span>
                   <span class="text-xs font-semibold text-[#475569]">月</span>
                 </button>
-                <button type="button" class="stellar-toolbar__button" data-stellar-symbol="N">
-                  <span class="text-2xl" aria-hidden="true">{SYMBOL_MAP.N.icon}</span>
+                <button
+                  type="button"
+                  class="stellar-toolbar__button"
+                  data-stellar-symbol="N"
+                >
+                  <span class="text-2xl" aria-hidden="true">
+                    {SYMBOL_MAP.N.icon}
+                  </span>
                   <span class="text-xs font-semibold text-[#475569]">星</span>
                 </button>
-                <button type="button" class="stellar-toolbar__button" data-stellar-symbol=".">
-                  <span class="text-2xl" aria-hidden="true">🧽</span>
-                  <span class="text-xs font-semibold text-[#475569]">消しゴム</span>
+                <button
+                  type="button"
+                  class="stellar-toolbar__button"
+                  data-stellar-symbol="."
+                >
+                  <span class="text-2xl" aria-hidden="true">
+                    🧽
+                  </span>
+                  <span class="text-xs font-semibold text-[#475569]">
+                    消しゴム
+                  </span>
                 </button>
               </div>
 
               <div class="stellar-counts" id="stellar-counts">
                 {Object.entries(SYMBOL_MAP).map(([symbol, info]) => (
-                  <div key={symbol} class="stellar-count-row" data-symbol={symbol}>
+                  <div
+                    key={symbol}
+                    class="stellar-count-row"
+                    data-symbol={symbol}
+                  >
                     <div class="flex items-center gap-2 text-[var(--mq-ink)]">
-                      <span class="text-2xl" aria-hidden="true">{info.icon}</span>
+                      <span class="text-2xl" aria-hidden="true">
+                        {info.icon}
+                      </span>
                       <span class="text-sm font-semibold">{info.label}</span>
                     </div>
                     <div class="text-sm text-[#475569]">
-                      <span class="font-bold" data-role="current">0</span>
+                      <span class="font-bold" data-role="current">
+                        0
+                      </span>
                       <span class="mx-1">/</span>
                       <span data-role="target">12</span>
                     </div>
@@ -338,19 +411,28 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
               <h2 class="text-xl font-bold text-[var(--mq-ink)]">遊び方</h2>
               <div class="mt-4 stellar-instruction-list text-sm text-[#475569]">
                 <div class="stellar-instruction-item">
-                  <span class="text-xl" aria-hidden="true">①</span>
+                  <span class="text-xl" aria-hidden="true">
+                    ①
+                  </span>
                   <p>
-                    3 種類のタイル（{SYMBOL_MAP.S.icon}・{SYMBOL_MAP.M.icon}・{SYMBOL_MAP.N.icon}）でグリッドをうめます。各行と各列には同じタイルが 2 つずつ入ります。
+                    3 種類のタイル（{SYMBOL_MAP.S.icon}・{SYMBOL_MAP.M.icon}・
+                    {SYMBOL_MAP.N.icon}
+                    ）でグリッドをうめます。各行と各列には同じタイルが 2
+                    つずつ入ります。
                   </p>
                 </div>
                 <div class="stellar-instruction-item">
-                  <span class="text-xl" aria-hidden="true">②</span>
+                  <span class="text-xl" aria-hidden="true">
+                    ②
+                  </span>
                   <p>
                     同じタイルがタテ・ヨコでならんでしまわないようにしましょう。隣り合うマスはちがうタイルになるよう調整します。
                   </p>
                 </div>
                 <div class="stellar-instruction-item">
-                  <span class="text-xl" aria-hidden="true">③</span>
+                  <span class="text-xl" aria-hidden="true">
+                    ③
+                  </span>
                   <p>
                     すべての条件をみたすとクリア！観測チームからのレポートに合わせたバランスが整えば成功です。
                   </p>
@@ -359,23 +441,35 @@ export const StellarBalance: FC<StellarBalanceProps> = ({
             </div>
 
             <div class="stellar-feedback" id="stellar-feedback">
-              太陽・月・星のバランスをチェックしながら進めてみましょう。ヒントボタンを押すと 1 マスだけ正解が表示されます。
+              太陽・月・星のバランスをチェックしながら進めてみましょう。ヒントボタンを押すと
+              1 マスだけ正解が表示されます。
             </div>
 
             <div class="stellar-actions">
-              <button type="button" id="stellar-check" class="border-[var(--mq-primary)] bg-[var(--mq-primary-soft)] text-[var(--mq-primary-strong)]">
+              <button
+                type="button"
+                id="stellar-check"
+                class="border-[var(--mq-primary)] bg-[var(--mq-primary-soft)] text-[var(--mq-primary-strong)]"
+              >
                 <span aria-hidden="true">✅</span>
                 バランスを判定
               </button>
-              <button type="button" id="stellar-hint" class="border-amber-200 bg-amber-50 text-amber-700">
-                <span aria-hidden="true">💡</span>
-                1 マスだけヒント
+              <button
+                type="button"
+                id="stellar-hint"
+                class="border-amber-200 bg-amber-50 text-amber-700"
+              >
+                <span aria-hidden="true">💡</span>1 マスだけヒント
               </button>
               <button type="button" id="stellar-reset">
                 <span aria-hidden="true">🔄</span>
                 最初の状態にもどす
               </button>
-              <button type="button" id="stellar-new" class="border-slate-300 bg-white text-[var(--mq-ink)]">
+              <button
+                type="button"
+                id="stellar-new"
+                class="border-slate-300 bg-white text-[var(--mq-ink)]"
+              >
                 <span aria-hidden="true">🎲</span>
                 べつの星図を読み込む
               </button>
