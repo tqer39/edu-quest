@@ -107,24 +107,11 @@ type GlobalWithProcess = typeof globalThis & {
   };
 };
 
-type GlobalWithReleaseCacheTag = GlobalWithProcess & {
-  __RELEASE_CACHE_TAG__?: string;
-};
+const FIFTEEN_MINUTES_IN_MS = 15 * 60 * 1000;
 
 const getReleaseCacheTag = (): string => {
-  const globalWithTag = globalThis as GlobalWithReleaseCacheTag;
-
-  if (!globalWithTag.__RELEASE_CACHE_TAG__) {
-    const randomUUID = globalWithTag.crypto?.randomUUID?.bind(
-      globalWithTag.crypto
-    );
-
-    globalWithTag.__RELEASE_CACHE_TAG__ = randomUUID
-      ? randomUUID()
-      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  }
-
-  return globalWithTag.__RELEASE_CACHE_TAG__;
+  const currentInterval = Math.floor(Date.now() / FIFTEEN_MINUTES_IN_MS);
+  return currentInterval.toString(16);
 };
 
 const createReleaseCacheKey = (): string => {
