@@ -26,6 +26,8 @@ import { Start } from './routes/pages/start';
 import { Play } from './routes/pages/play';
 import { Sudoku } from './routes/pages/sudoku';
 import { SudokuSelect } from './routes/pages/sudoku-select';
+import { Sentinels } from './routes/pages/sentinels';
+import { SentinelSelect } from './routes/pages/sentinels-select';
 import { Login } from './routes/pages/login';
 import { ParentsPage } from './routes/pages/parents';
 import { BetterAuthService } from './application/auth/service';
@@ -57,7 +59,12 @@ import {
   gameGradeLevels,
   getGameGradeById,
   getSudokuPresetsForGrade,
+  getSentinelPresetsForGrade,
 } from './routes/pages/game-presets';
+import {
+  getSentinelPuzzleById,
+  type SentinelPuzzleId,
+} from './routes/pages/sentinels-puzzles';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
@@ -457,7 +464,7 @@ app.get('/game', async (c) => {
     {
       title: 'GameQuest | 学年からゲームを選ぼう',
       description:
-        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、ぴったりの数独プリセットを選択しよう。',
+        '学年に合わせた脳トレゲームに挑戦できます。まずは学年を選んで、数独やセンチネル配置などのステージを選択しよう。',
       favicon: '/favicon-game.svg',
     }
   );
@@ -475,7 +482,7 @@ app.get('/game/select', async (c) => {
     />,
     {
       title: `GameQuest | ${grade.label} - ゲーム選択`,
-      description: `${grade.label}向けの数独パズルに挑戦しよう。${grade.highlight}がおすすめです。`,
+      description: `${grade.label}向けの数独やセンチネル配置のステージから選べます。${grade.highlight}がおすすめです。`,
       favicon: '/favicon-game.svg',
     }
   );
@@ -522,6 +529,50 @@ app.get('/game/sudoku/play', async (c) => {
     {
       title: `GameQuest | 数独 - ${grade.label}`,
       description: `数独パズルで集中力を鍛えよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sentinel preset selection page
+app.get('/game/sentinels', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+
+  return c.render(
+    <SentinelSelect
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      presets={getSentinelPresetsForGrade(gradeId)}
+    />,
+    {
+      title: `GameQuest | センチネル配置（${grade.label}向け）`,
+      description: `${grade.label}向けのセンチネル配置でナイトの守りを完成させよう。`,
+      favicon: '/favicon-game.svg',
+    }
+  );
+});
+
+// Sentinel gameplay page
+app.get('/game/sentinels/play', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const puzzleParam = c.req.query('puzzle');
+
+  const gradeId: GradeId = isGameGradeId(gradeParam) ? gradeParam : 'grade-1';
+  const grade = getGameGradeById(gradeId);
+  const puzzleId = (puzzleParam || 'sentinel-6x6-intro') as SentinelPuzzleId;
+  const puzzle = getSentinelPuzzleById(puzzleId);
+
+  return c.render(
+    <Sentinels
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      puzzle={puzzle}
+    />,
+    {
+      title: `GameQuest | センチネル配置 - ${grade.label}`,
+      description: '色分けされた領域を守るセンチネルの配置に挑戦しよう。',
       favicon: '/favicon-game.svg',
     }
   );

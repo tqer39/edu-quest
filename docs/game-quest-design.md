@@ -66,6 +66,24 @@ GameQuest is a collection of brain-training mini games designed to reinforce fou
 
 ---
 
+### 4. Sentinel Knights
+
+**Objective**: Develop spatial reasoning and forward-planning by placing knight-style guardians on a shared board.
+
+**Gameplay Loop**:
+
+1. Display a 6×6 grid divided into color-coded regions with a handful of blocked cells.
+2. Learners tap cells to cycle between "Guardian", "Note", and "Empty" states while keeping the knight movement constraints in mind.
+3. The round ends when every row, column, and region contains exactly one guardian that cannot reach another via an L-shaped knight move.
+
+**Unique Mechanics**:
+
+- Knight conflict detection highlights invalid placements and explains the violation.
+- Region quotas encourage learners to balance global and local reasoning.
+- A progressive hint system guides students toward rows, columns, or regions that still lack a guardian.
+
+---
+
 ## Progression & Rewards
 
 - **Stage Levels**: Each mode offers Grade 1-6 presets with curated difficulty settings.

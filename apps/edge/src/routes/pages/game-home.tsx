@@ -86,10 +86,11 @@ export const GameHome: FC<GameHomeProps> = ({ currentUser }) => {
           items={[
             { description: '学年に合わせた難易度で論理パズルに挑戦できます' },
             { description: '数独パズルで集中力と推理力を鍛えられます' },
+            { description: 'ナイトの動きで守る「センチネル配置」に挑戦できます' },
             {
               description: '4×4 から 9×9 まで段階的にステップアップできます',
             },
-            { description: '楽しみながら論理的思考力を育てられます' },
+            { description: '色分けされた領域を観察しながら楽しみつつ論理的思考力を育てられます' },
           ]}
         />
       </div>
