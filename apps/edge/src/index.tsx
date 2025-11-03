@@ -93,6 +93,32 @@ type GlobalWithProcess = typeof globalThis & {
   };
 };
 
+type GlobalWithReleaseCacheTag = GlobalWithProcess & {
+  __RELEASE_CACHE_TAG__?: string;
+};
+
+const getReleaseCacheTag = (): string => {
+  const globalWithTag = globalThis as GlobalWithReleaseCacheTag;
+
+  if (!globalWithTag.__RELEASE_CACHE_TAG__) {
+    const randomUUID = globalWithTag.crypto?.randomUUID?.bind(
+      globalWithTag.crypto
+    );
+
+    globalWithTag.__RELEASE_CACHE_TAG__ = randomUUID
+      ? randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  }
+
+  return globalWithTag.__RELEASE_CACHE_TAG__;
+};
+
+const createReleaseCacheKey = (): string => {
+  const url = new URL(GITHUB_RELEASE_ENDPOINT);
+  url.searchParams.set('deploy', getReleaseCacheTag());
+  return url.toString();
+};
+
 const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
   try {
     const maybeProcess = (globalThis as GlobalWithProcess).process;
@@ -101,20 +127,20 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
     }
 
     const cache = globalThis.caches?.default;
-    const createCacheRequest = () => new Request(GITHUB_RELEASE_ENDPOINT);
+    const cacheKey = createReleaseCacheKey();
 
     if (cache) {
-      const cached = await cache.match(createCacheRequest());
+      const cached = await cache.match(cacheKey);
       if (cached) {
         try {
           return (await cached.json()) as ReleaseInfo;
         } catch {
-          await cache.delete(createCacheRequest());
+          await cache.delete(cacheKey);
         }
       }
     }
 
-    const response = await fetch(GITHUB_RELEASE_ENDPOINT, {
+    const response = await fetch(cacheKey, {
       headers: {
         'User-Agent': 'edu-quest-worker',
         Accept: 'application/vnd.github+json',
@@ -143,7 +169,7 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
           'Content-Type': 'application/json',
         },
       });
-      await cache.put(createCacheRequest(), cacheResponse);
+      await cache.put(cacheKey, cacheResponse);
     }
 
     return releaseInfo;
