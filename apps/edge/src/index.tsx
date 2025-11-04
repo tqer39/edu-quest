@@ -697,13 +697,61 @@ app.get('/math/start', async (c) => {
   );
 });
 
-app.get('/math/play', async (c) =>
-  c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 練習セッション',
-    description:
-      '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
-  })
-);
+app.get('/math/play', async (c) => {
+  // URLパラメータを取得
+  const gradeParam = c.req.query('grade');
+  const calcParam = c.req.query('calc');
+  const presetParam = c.req.query('preset');
+  const countParam = c.req.query('count');
+  const soundParam = c.req.query('sound');
+  const countdownParam = c.req.query('countdown');
+  const inverseParam = c.req.query('inverse');
+
+  // URLパラメータが指定されている場合は、プリセット設定を取得
+  let presetConfig = null;
+  if (gradeParam && calcParam && presetParam) {
+    const gradeResult = resolveGradeFromParam(gradeParam);
+    if (gradeResult) {
+      const presets = getMathPresetsForGradeAndCalc(
+        gradeResult.grade.id,
+        calcParam
+      );
+      const preset = presets.find((p) => p.id === presetParam);
+      if (preset) {
+        presetConfig = {
+          gradeId: gradeResult.grade.id,
+          gradeLabel: gradeResult.grade.label,
+          gradeDescription: gradeResult.grade.description,
+          calcId: calcParam,
+          calcLabel:
+            calculationTypes.find((c) => c.id === calcParam)?.label ||
+            'カスタム',
+          presetId: preset.id,
+          presetLabel: preset.label,
+          mode: preset.mode,
+          max: preset.max,
+          terms: preset.terms,
+          questionCount: countParam ? Number(countParam) : 10,
+          soundEnabled: soundParam === 'true',
+          countdownEnabled: countdownParam !== 'false',
+          inverse: inverseParam === 'true',
+        };
+      }
+    }
+  }
+
+  return c.render(
+    <Play
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      urlPresetConfig={presetConfig}
+    />,
+    {
+      title: 'MathQuest | 練習セッション',
+      description:
+        '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
+    }
+  );
+});
 
 // GameQuest routes
 app.get('/game', async (c) => {
