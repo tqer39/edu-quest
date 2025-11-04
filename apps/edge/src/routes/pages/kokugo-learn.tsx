@@ -94,17 +94,9 @@ type DictionaryCardProps = {
   gradeParam: string;
 };
 
-const badgeClasses: Record<KokugoDictionaryResource['type'], string> = {
-  internal:
-    'bg-[var(--mq-primary-soft)] text-[var(--mq-primary-strong)] border-[var(--mq-primary)]',
-  official: 'bg-[#e6f2ff] text-[#1f4b99] border-[#8ab5ff]',
-  private: 'bg-[#fdf0d5] text-[#9c4221] border-[#f0b27a]',
-};
-
-const badgeLabel: Record<KokugoDictionaryResource['type'], string> = {
-  internal: 'EduQuest',
-  official: '公式資料',
-  private: '民間資料',
+const dictionaryIcons: Record<string, string> = {
+  'eduquest-kanji': '📖',
+  'eduquest-vocabulary': '📝',
 };
 
 const DictionaryCard: FC<DictionaryCardProps> = ({
@@ -115,60 +107,27 @@ const DictionaryCard: FC<DictionaryCardProps> = ({
   const href = isExternalLink
     ? dictionary.link
     : `${dictionary.link}?grade=${encodeURIComponent(gradeParam)}`;
+  const icon = dictionaryIcons[dictionary.id] || '📚';
 
   return (
-    <article class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg">
-      <div class="flex items-center justify-between gap-4">
-        <span
-          class={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold ${
-            badgeClasses[dictionary.type]
-          }`}
-        >
-          {badgeLabel[dictionary.type]}
-        </span>
-        <span class="text-xs font-semibold text-[#5e718a]">
-          小学{dictionary.gradeRange.min}～{dictionary.gradeRange.max}年生向け
-        </span>
-      </div>
-      <header class="space-y-2">
-        <h3 class="text-xl font-bold text-[var(--mq-ink)]">
+    <a
+      href={href}
+      target={isExternalLink ? '_blank' : undefined}
+      rel={isExternalLink ? 'noreferrer' : undefined}
+      class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-10 text-center shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+    >
+      <div class="text-6xl">{icon}</div>
+      <div class="space-y-2">
+        <h3 class="text-2xl font-bold text-[var(--mq-ink)]">
           {dictionary.title}
         </h3>
-        <p class="text-xs font-semibold text-[#5e718a]">
-          提供: {dictionary.provider}
-        </p>
-        <p class="text-sm leading-relaxed text-[#4f6076]">
-          {dictionary.description}
-        </p>
-      </header>
-      <ul class="space-y-2 text-sm text-[#4f6076]">
-        {dictionary.features.map((feature) => (
-          <li key={feature} class="flex items-start gap-2">
-            <span aria-hidden="true">✓</span>
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <div class="mt-auto flex flex-col gap-3">
-        <a
-          href={href}
-          target={isExternalLink ? '_blank' : undefined}
-          rel={isExternalLink ? 'noreferrer' : undefined}
-          class="inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--mq-primary)] bg-[var(--mq-primary-soft)] px-4 py-2 text-sm font-semibold text-[var(--mq-primary-strong)] shadow-sm transition hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          {dictionary.cta}
-          <span aria-hidden="true">{isExternalLink ? '↗' : '→'}</span>
-        </a>
-        <a
-          href={dictionary.source.url}
-          target="_blank"
-          rel="noreferrer"
-          class="inline-flex items-center gap-2 text-xs font-semibold text-[#5e718a] underline decoration-dotted underline-offset-2"
-        >
-          出典: {dictionary.source.label}
-        </a>
+        <p class="text-sm text-[#5e718a]">{dictionary.description}</p>
       </div>
-    </article>
+      <div class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-primary)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-primary-strong)] shadow-sm">
+        {dictionary.cta}
+        <span aria-hidden="true">{isExternalLink ? '↗' : '→'}</span>
+      </div>
+    </a>
   );
 };
 
@@ -199,40 +158,28 @@ export const KanjiLearn: FC<KanjiLearnProps> = ({
         stage={gradeStage}
       />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
-        <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-[var(--mq-ink)] shadow-xl">
-          <div class="flex flex-wrap items-start justify-between gap-6">
-            <div class="space-y-4">
-              <span class="inline-flex items-center gap-2 rounded-full border border-[var(--mq-primary)] bg-[var(--mq-primary-soft)] px-4 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
-                学習サポート
-              </span>
-              <div class="space-y-3">
-                <h1 class="text-3xl font-extrabold sm:text-4xl">
-                  {gradeLabel}向け 国語辞典セレクション
-                </h1>
-                <p class="max-w-2xl text-sm sm:text-base text-[#4f6076]">
-                  公的な資料と民間の学習辞典を組み合わせて、語彙の理解を深めましょう。必要に応じて教科書や辞典を開いて予習・復習に活用できます。
-                </p>
-              </div>
-            </div>
-            <div class="rounded-2xl border border-[var(--mq-outline)] bg-white px-4 py-3 text-sm font-semibold text-[var(--mq-primary-strong)] shadow-sm">
-              利用可能: {dictionaries.length}件
-            </div>
+        <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
+          <span class="text-6xl">📚</span>
+          <div class="space-y-4">
+            <h1 class="text-3xl font-extrabold sm:text-4xl">
+              辞書を選んでください
+            </h1>
+            <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
+              {gradeLabel}の漢字や言葉を学習できます。
+              <br />
+              使いたい辞書を選んでください。
+            </p>
           </div>
-          <p class="text-xs text-[#5e718a]">
-            ※ 出典リンクは新しいタブで開きます。
-          </p>
         </header>
 
-        <section class="flex flex-col gap-6">
-          <h2 class="text-xl font-bold text-[var(--mq-ink)]">
-            辞典・資料を選択
-          </h2>
+        <section>
+          <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">辞書</h2>
           {dictionaries.length === 0 ? (
             <p class="rounded-3xl border border-dashed border-[var(--mq-outline)] bg-white/60 p-6 text-sm text-[#5e718a]">
-              この学年向けに登録された資料がまだありません。追加の資料が公開されたら、ここでお知らせします。
+              この学年向けの辞書がまだありません。
             </p>
           ) : (
-            <div class="grid gap-6 lg:grid-cols-2">
+            <div class="grid gap-6 sm:grid-cols-2">
               {dictionaries.map((dictionary) => (
                 <DictionaryCard
                   key={dictionary.id}

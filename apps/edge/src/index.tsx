@@ -4,7 +4,7 @@ import {
   getKanjiDictionaryByGrade,
   getKanjiByUnicode,
   getKanjiIndexByGrade,
-  getKokugoDictionariesByGrade,
+  getEduQuestDictionariesByGrade,
   type KanjiGrade,
   type KokugoQuestType,
 } from '@edu-quest/domain';
@@ -1085,7 +1085,7 @@ app.get('/kokugo/learn', async (c) => {
   const gradeId = createSchoolGradeParam(parsedGrade);
   setSelectedGrade(c, gradeId);
 
-  const dictionaries = getKokugoDictionariesByGrade(grade);
+  const dictionaries = getEduQuestDictionariesByGrade(grade);
 
   return c.render(
     <KanjiLearn
@@ -1095,8 +1095,8 @@ app.get('/kokugo/learn', async (c) => {
       dictionaries={dictionaries}
     />,
     {
-      title: `KokugoQuest - ${gradeLabel}の国語辞典`,
-      description: `${gradeLabel}向けの国語辞典・公式資料を選べます。`,
+      title: `KokugoQuest - ${gradeLabel}の辞書`,
+      description: `${gradeLabel}向けの漢字辞書・用語辞書を選べます。`,
       favicon: '/favicon-kanji.svg',
     }
   );

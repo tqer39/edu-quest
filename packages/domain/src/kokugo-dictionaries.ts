@@ -64,3 +64,20 @@ export const getKokugoDictionariesByGrade = (
     )
     .map((dictionary) => ({ ...dictionary }));
 };
+
+/**
+ * Get only EduQuest internal dictionaries (Kanji and Vocabulary) for the /kokugo/learn page
+ */
+export const getEduQuestDictionariesByGrade = (
+  grade: KanjiGrade
+): KokugoDictionaryResource[] => {
+  const eduquestIds = ['eduquest-kanji', 'eduquest-vocabulary'];
+  return dictionaries
+    .filter(
+      (dictionary) =>
+        eduquestIds.includes(dictionary.id) &&
+        grade >= dictionary.gradeRange.min &&
+        grade <= dictionary.gradeRange.max
+    )
+    .map((dictionary) => ({ ...dictionary }));
+};
