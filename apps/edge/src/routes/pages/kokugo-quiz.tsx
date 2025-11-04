@@ -1,4 +1,4 @@
-import type { KanjiQuestion } from '@edu-quest/domain';
+import type { KanjiQuestion, KanjiQuestType } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { DictionaryLink } from '../components/dictionary-link';
@@ -10,6 +10,7 @@ type KanjiQuizProps = {
   totalQuestions: number;
   score: number;
   grade: number;
+  questType: KanjiQuestType;
 };
 
 export const KanjiQuiz: FC<KanjiQuizProps> = ({
@@ -19,6 +20,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
   totalQuestions,
   score,
   grade,
+  questType,
 }) => {
   return (
     <div

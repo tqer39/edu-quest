@@ -1,5 +1,6 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
+import type { KanjiQuestType } from '@edu-quest/domain';
 import { BackToTopLink } from '../components/back-to-top-link';
 import { DictionaryLink } from '../components/dictionary-link';
 
@@ -9,6 +10,7 @@ type KanjiResultsProps = {
   total: number;
   grade: number;
   message: string;
+  questType: KanjiQuestType;
 };
 
 export const KanjiResults: FC<KanjiResultsProps> = ({
@@ -17,10 +19,17 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
   total,
   grade,
   message,
+  questType,
 }) => {
   const percentage = Math.round((score / total) * 100);
   const isPerfect = score === total;
   const isGood = percentage >= 70;
+  const questTypeLabels: Record<KanjiQuestType, string> = {
+    reading: '読みクエスト',
+    'stroke-count': '画数クエスト',
+    radical: '部首クエスト',
+  };
+  const questTypeLabel = questTypeLabels[questType];
 
   return (
     <div
@@ -35,6 +44,9 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
           </span>
           <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
             KokugoQuest 小学{grade}年生
+          </span>
+          <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
+            {questTypeLabel}
           </span>
         </div>
         <div class="flex items-center gap-2">
@@ -59,6 +71,9 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
             </p>
             <p class="text-xl font-semibold text-[var(--mq-ink)]">
               正解率: {percentage}%
+            </p>
+            <p class="text-sm font-medium text-[var(--mq-ink)]">
+              今回のチャレンジ: {questTypeLabel}
             </p>
           </div>
 

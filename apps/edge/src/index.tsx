@@ -110,30 +110,55 @@ type GlobalWithProcess = typeof globalThis & {
   };
 };
 
-type GlobalWithReleaseCacheTag = GlobalWithProcess & {
-  __RELEASE_CACHE_TAG__?: string;
+type ReleaseCacheEntry = {
+  value: ReleaseInfo | null;
+  etag?: string;
+  expiresAt: number;
 };
 
-const getReleaseCacheTag = (): string => {
-  const globalWithTag = globalThis as GlobalWithReleaseCacheTag;
-
-  if (!globalWithTag.__RELEASE_CACHE_TAG__) {
-    const randomUUID = globalWithTag.crypto?.randomUUID?.bind(
-      globalWithTag.crypto
-    );
-
-    globalWithTag.__RELEASE_CACHE_TAG__ = randomUUID
-      ? randomUUID()
-      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  }
-
-  return globalWithTag.__RELEASE_CACHE_TAG__;
+type GlobalWithReleaseCache = GlobalWithProcess & {
+  __RELEASE_CACHE__?: ReleaseCacheEntry;
 };
 
-const createReleaseCacheKey = (): string => {
-  const url = new URL(GITHUB_RELEASE_ENDPOINT);
-  url.searchParams.set('deploy', getReleaseCacheTag());
-  return url.toString();
+const RELEASE_CACHE_TTL_MS = 5 * 60 * 1000;
+const RELEASE_CACHE_ERROR_TTL_MS = 60 * 1000;
+
+const getGlobalWithReleaseCache = (): GlobalWithReleaseCache =>
+  globalThis as GlobalWithReleaseCache;
+
+const getCachedRelease = (): ReleaseCacheEntry | undefined =>
+  getGlobalWithReleaseCache().__RELEASE_CACHE__;
+
+const storeReleaseCache = (entry: ReleaseCacheEntry): void => {
+  getGlobalWithReleaseCache().__RELEASE_CACHE__ = entry;
+};
+
+const extendReleaseCache = (
+  cached: ReleaseCacheEntry | undefined,
+  now: number,
+  ttl: number
+): ReleaseInfo | null => {
+  const entry: ReleaseCacheEntry = cached
+    ? { ...cached, expiresAt: now + ttl }
+    : { value: null, expiresAt: now + ttl };
+
+  storeReleaseCache(entry);
+  return entry.value;
+};
+
+const setFreshReleaseCache = (
+  releaseInfo: ReleaseInfo | null,
+  etag: string | null,
+  now: number,
+  ttl: number
+): ReleaseInfo | null => {
+  storeReleaseCache({
+    value: releaseInfo,
+    etag: etag ?? undefined,
+    expiresAt: now + ttl,
+  });
+
+  return releaseInfo;
 };
 
 const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
@@ -143,35 +168,41 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
       return null;
     }
 
-    const cache = globalThis.caches?.default;
-    const cacheKey = createReleaseCacheKey();
+    const now = Date.now();
+    const cached = getCachedRelease();
 
-    if (cache) {
-      const cached = await cache.match(cacheKey);
-      if (cached) {
-        try {
-          return (await cached.json()) as ReleaseInfo;
-        } catch {
-          await cache.delete(cacheKey);
-        }
-      }
+    if (cached && cached.expiresAt > now) {
+      return cached.value;
     }
 
-    const response = await fetch(cacheKey, {
-      headers: {
-        'User-Agent': 'edu-quest-worker',
-        Accept: 'application/vnd.github+json',
-      },
-    });
+    const headers: Record<string, string> = {
+      'User-Agent': 'edu-quest-worker',
+      Accept: 'application/vnd.github+json',
+    };
+
+    if (cached?.etag) {
+      headers['If-None-Match'] = cached.etag;
+    }
+
+    const response = await fetch(GITHUB_RELEASE_ENDPOINT, { headers });
+
+    if (response.status === 304) {
+      return extendReleaseCache(cached, now, RELEASE_CACHE_TTL_MS);
+    }
 
     if (!response.ok) {
-      return null;
+      return extendReleaseCache(cached, now, RELEASE_CACHE_ERROR_TTL_MS);
     }
 
     const data = (await response.json()) as GitHubReleaseResponse;
 
     if (!data.tag_name || !data.published_at) {
-      return null;
+      return setFreshReleaseCache(
+        null,
+        response.headers.get('etag'),
+        now,
+        RELEASE_CACHE_ERROR_TTL_MS
+      );
     }
 
     const releaseInfo: ReleaseInfo = {
@@ -179,19 +210,18 @@ const fetchLatestRelease = async (): Promise<ReleaseInfo | null> => {
       publishedAt: data.published_at,
     };
 
-    if (cache) {
-      const cacheResponse = new Response(JSON.stringify(releaseInfo), {
-        headers: {
-          'Cache-Control': 'public, max-age=900',
-          'Content-Type': 'application/json',
-        },
-      });
-      await cache.put(cacheKey, cacheResponse);
-    }
-
-    return releaseInfo;
+    return setFreshReleaseCache(
+      releaseInfo,
+      response.headers.get('etag'),
+      now,
+      RELEASE_CACHE_TTL_MS
+    );
   } catch {
-    return null;
+    return extendReleaseCache(
+      getCachedRelease(),
+      Date.now(),
+      RELEASE_CACHE_ERROR_TTL_MS
+    );
   }
 };
 
@@ -1151,6 +1181,11 @@ app.get('/kokugo/start', async (c) => {
     return c.redirect('/kokugo', 302);
   }
 
+  if (questType === 'radical' && grade !== 1) {
+    const gradeQuery = createSchoolGradeParam({ stage: '小学', grade });
+    return c.redirect(`/kanji/select?grade=${gradeQuery}`, 302);
+  }
+
   // クイズセッションを開始（10問固定）
   const session = startKanjiQuizSession(grade, 10, questType);
 
@@ -1199,6 +1234,8 @@ app.get('/kokugo/quiz', async (c) => {
       return c.redirect('/kokugo', 302);
     }
 
+    const questType = session.quiz.config.questType;
+
     return c.render(
       <KanjiQuiz
         currentUser={await resolveCurrentUser(c.env, c.req.raw)}
@@ -1207,6 +1244,7 @@ app.get('/kokugo/quiz', async (c) => {
         totalQuestions={session.quiz.questions.length}
         score={session.quiz.correct}
         grade={session.quiz.config.grade}
+        questType={questType}
       />,
       {
         title: `KokugoQuest | ${session.quiz.config.grade}年生`,
@@ -1281,12 +1319,17 @@ app.post('/kokugo/quiz', async (c) => {
     // クイズが終了した場合
     if (!result.nextSession) {
       const quizResult = getKanjiSessionResult(session);
+      const resultPayload = {
+        ...quizResult,
+        grade: session.quiz.config.grade,
+        questType: session.quiz.config.questType,
+      };
 
       // 結果用のセッションIDを生成してKVに保存
       const resultId = crypto.randomUUID();
       await c.env.KV_QUIZ_SESSION.put(
         `kanji_result:${resultId}`,
-        JSON.stringify(quizResult),
+        JSON.stringify(resultPayload),
         { expirationTtl: 300 } // 5分
       );
 
@@ -1341,11 +1384,14 @@ app.get('/kokugo/results', async (c) => {
       return c.redirect('/kokugo', 302);
     }
 
-    const result: ReturnType<typeof getKanjiSessionResult> =
-      JSON.parse(resultData);
+    type StoredKanjiResult = ReturnType<typeof getKanjiSessionResult> & {
+      grade: KanjiGrade;
+      questType: KanjiQuestType;
+    };
 
-    // TODO: 結果に学年情報も含めるように改善
-    const grade = 1;
+    const result: StoredKanjiResult = JSON.parse(resultData);
+    const grade = result.grade;
+    const questType = result.questType;
 
     return c.render(
       <KanjiResults
@@ -1354,6 +1400,7 @@ app.get('/kokugo/results', async (c) => {
         total={result.totalQuestions}
         grade={grade}
         message={result.message}
+        questType={questType}
       />,
       {
         title: 'KokugoQuest | 結果',

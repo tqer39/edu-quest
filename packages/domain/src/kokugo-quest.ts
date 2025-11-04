@@ -412,6 +412,9 @@ export function generateKanjiQuestions(
       case 'kanji-stroke-count':
         questions.push(generateStrokeCountQuestion(kanji, kanjiData));
         break;
+      case 'radical':
+        questions.push(generateRadicalQuestion(kanji, kanjiData));
+        break;
       // TODO: Add other quest types (okurigana, puzzle, etc.)
       default:
         throw new Error(`Unsupported quest type: ${config.questType}`);
