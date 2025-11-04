@@ -71,6 +71,7 @@ import { MathHome } from './routes/pages/math-home';
 import { MathPresetSelect } from './routes/pages/math-preset-select';
 import { getMathPresetsForGradeAndCalc } from './routes/pages/math-presets';
 import { MathLearn } from './routes/pages/math-learn';
+import { MathLearnAddition } from './routes/pages/math-learn-addition';
 import { MathQuest } from './routes/pages/math-quest';
 import { MathSelect } from './routes/pages/math-select';
 import { ParentsPage } from './routes/pages/parents';
@@ -496,6 +497,40 @@ app.get('/math/learn', async (c) => {
 
   return c.render(
     <MathLearn
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={selectedGrade.id}
+      gradeStage={parsedGrade.stage}
+    />,
+    {
+      title: `MathQuest - ${gradeLabel}の算数学習`,
+      description: `${gradeLabel}向けの算数の学習内容を選んでください。`,
+    }
+  );
+});
+
+app.get('/math/learn/addition', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeIndex = parsedGrade.grade - 1;
+  const selectedGrade = gradeLevels[gradeIndex];
+
+  if (selectedGrade && !selectedGrade.disabled) {
+    setSelectedGrade(c, selectedGrade.id);
+  }
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  return c.render(
+    <MathLearnAddition
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       gradeId={selectedGrade.id}
       gradeStage={parsedGrade.stage}
