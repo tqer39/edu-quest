@@ -188,7 +188,7 @@ pnpm test:coverage
 
 #### E2E Tests
 
-The project uses **Cypress** for end-to-end testing to verify screen transitions and user flows.
+The project uses **Playwright** for end-to-end testing to verify screen transitions and user flows.
 
 **Local Development:**
 
@@ -199,7 +199,7 @@ pnpm dev:edge
 # 2. Run E2E tests in headless mode
 just e2e
 
-# OR open Cypress test runner (interactive mode)
+# OR open Playwright test runner (UI mode)
 just e2e-open
 ```
 
@@ -229,16 +229,17 @@ The CI workflow (`.github/workflows/e2e.yml`):
 1. Installs dependencies and builds required packages
 2. Starts the dev server in the background
 3. Runs all E2E tests
-4. Uploads screenshots and videos on failure
+4. Uploads Playwright reports, traces, and media on failure
 
 **Viewing Test Results:**
 
-When tests fail in CI, screenshots are uploaded as GitHub Artifacts:
+When tests fail in CI, Playwright artifacts are uploaded to GitHub Actions:
 
 1. Go to the failed workflow run
 2. Scroll to the bottom of the page
-3. Download the `cypress-screenshots` artifact
-4. Review the screenshots to diagnose the issue
+3. Download the `playwright-report` artifact
+4. Download the `playwright-test-results` artifact for traces, screenshots, and videos
+5. Review the HTML report and media to diagnose the issue
 
 **Test Coverage:**
 
@@ -284,7 +285,7 @@ The workflow (`.github/workflows/codecov.yml`):
 - **`codecov.yml`**: Project-level Codecov settings
   - Project coverage target: auto (1% threshold)
   - Patch coverage target: auto (1% threshold)
-  - Ignore paths: tests, node_modules, infra, docs, games, cypress
+  - Ignore paths: tests, node_modules, infra, docs, games
 - **Vitest configs**: Coverage provider (v8), reporters (text, json, html, lcov)
 
 **Important Notes:**

@@ -1,14 +1,9 @@
-# Created by https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform,cypressio
-# Edit at https://www.toptal.com/developers/gitignore?templates=vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform,cypressio
+# Created by https://www.toptal.com/developers/gitignore/api/vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform
+# Edit at https://www.toptal.com/developers/gitignore?templates=vim,linux,macos,python,windows,intellij,visualstudiocode,node,terraform
 
-### CypressIO ###
-# gitignore template for the CypressIO, browser test framework
-# website: https://www.cypress.io/
-
-cypress/results/*
-cypress/reports/*
-cypress/screenshots/*
-cypress/videos/*
+### Playwright ###
+playwright-report/
+playwright/test-results/
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider

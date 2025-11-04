@@ -15,8 +15,8 @@
     "test": "pnpm --filter @edu-quest/domain test && pnpm --filter @edu-quest/edge test",
     "test:watch": "pnpm --filter @edu-quest/domain run test:watch",
     "test:coverage": "pnpm --filter @edu-quest/domain run test:coverage",
-    "test:e2e": "cypress run",
-    "test:e2e:open": "cypress open",
+    "test:e2e": "playwright test",
+    "test:e2e:open": "playwright test --ui",
     "format": "pre-commit run prettier --all-files",
     "format:staged": "pre-commit run prettier",
     "lint": "biome lint .",
@@ -28,7 +28,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.3.3",
     "@types/node": "24.9.2",
-    "cypress": "15.5.0",
+    "@playwright/test": "1.50.1",
     "wrangler": "4.45.4"
   }
 }

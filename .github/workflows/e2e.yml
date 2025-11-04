@@ -39,9 +39,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # Install Cypress binary (cached by Cypress GitHub Action)
-      - name: Install Cypress binary
-        run: pnpm exec cypress install
+      # Install Playwright browsers
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps
 
       # Build required packages (domain and app are required for edge app)
       - name: Build domain and app packages
@@ -53,20 +53,19 @@ jobs:
       - name: Run E2E tests
         run: just e2e-ci
 
-      # Upload screenshots on failure
-      - name: Upload screenshots
+      # Upload Playwright artifacts on failure
+      - name: Upload Playwright report
         if: failure()
         uses: actions/upload-artifact@v5
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+          name: playwright-report
+          path: playwright-report
           if-no-files-found: ignore
 
-      # Upload videos on failure (if enabled)
-      - name: Upload videos
+      - name: Upload Playwright traces and media
         if: failure()
         uses: actions/upload-artifact@v5
         with:
-          name: cypress-videos
-          path: cypress/videos
+          name: playwright-test-results
+          path: playwright/test-results
           if-no-files-found: ignore

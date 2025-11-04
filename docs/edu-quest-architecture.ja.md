@@ -86,9 +86,8 @@ edu-quest/
 │   │       ├── styles/ - 共有のデザイントークン
 │   │       └── views/ - レイアウトとテンプレート
 │   └── web/ - ローカル開発用 Web サーバー
-├── cypress/ - Cypress E2E テスト
-│   ├── e2e/ - Cypress スペックファイル
-│   └── support/ - 共通ヘルパーと初期化コード
+├── tests/
+│   └── e2e/ - Playwright の E2E スペック
 ├── docs/ - ドキュメント群
 ├── infra/ - インフラ構成 (Terraform など)
 │   ├── migrations/ - D1 スキーマ

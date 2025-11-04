@@ -185,7 +185,7 @@ pnpm test:coverage
 
 #### E2E テスト
 
-画面遷移やユーザーフローの検証には **Cypress** を使用します。
+画面遷移やユーザーフローの検証には **Playwright** を使用します。
 
 **ローカル開発:**
 
@@ -196,7 +196,7 @@ pnpm dev:edge
 # 2. ヘッドレスモードで E2E テストを実行
 just e2e
 
-# もしくは Cypress テストランナー (対話モード) を起動
+# もしくは Playwright のテスト UI を起動
 just e2e-open
 ```
 
@@ -226,16 +226,17 @@ CI ワークフロー (`.github/workflows/e2e.yml`) は次の手順を実行す�
 1. 依存関係をインストールし、必要なパッケージをビルドする。
 2. バックグラウンドで開発サーバーを起動する。
 3. すべての E2E テストを実行する。
-4. 失敗時にスクリーンショットと動画をアップロードする。
+4. 失敗時に Playwright レポート・トレース・メディアをアップロードする。
 
 **テスト結果の確認:**
 
-CI でテストが失敗した場合、スクリーンショットが GitHub Artifacts としてアップロードされる。
+CI でテストが失敗した場合、Playwright のアーティファクトが GitHub Artifacts としてアップロードされる。
 
 1. 失敗したワークフロー実行を開く。
 2. ページ下部までスクロールする。
-3. `cypress-screenshots` アーティファクトをダウンロードする。
-4. スクリーンショットを確認し、原因を特定する。
+3. `playwright-report` アーティファクトをダウンロードする。
+4. トレースやメディアを含む `playwright-test-results` アーティファクトをダウンロードする。
+5. HTML レポートやスクリーンショット、動画を確認し、原因を特定する。
 
 **テストカバレッジ:**
 
@@ -281,7 +282,7 @@ open apps/edge/coverage/index.html
 - **`codecov.yml`**: プロジェクトレベルの Codecov 設定。
   - プロジェクトカバレッジ目標: 自動 (許容差 1%)
   - パッチカバレッジ目標: 自動 (許容差 1%)
-  - 除外パス: tests、node_modules、infra、docs、games、cypress
+  - 除外パス: tests、node_modules、infra、docs、games
 - **Vitest 設定**: カバレッジプロバイダー (v8)、レポーター (text、json、html、lcov)
 
 **重要な注意点:**

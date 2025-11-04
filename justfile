@@ -32,8 +32,8 @@ setup:
         echo "→ Installing JS dependencies with pnpm..."; \
         pnpm install; \
     fi
-    @echo "→ Installing Cypress binary..."
-    @pnpm exec cypress install
+    @echo "→ Installing Playwright browsers..."
+    @pnpm exec playwright install --with-deps
     @echo "Setup complete!"
 
 # Run prek hooks on all files
@@ -118,9 +118,9 @@ dev-edge:
     @echo "Starting Edge SSR (Wrangler dev)..."
     pnpm --filter @edu-quest/edge run dev
 
-# Run E2E tests with Cypress (headless)
+# Run E2E tests with Playwright (headless)
 e2e:
-    @echo "Running E2E tests with Cypress..."
+    @echo "Running E2E tests with Playwright..."
     @echo "Checking if dev server is running on http://localhost:8788..."
     @if curl -s http://localhost:8788 > /dev/null 2>&1; then \
         echo "✓ Dev server is running"; \
@@ -135,9 +135,9 @@ e2e:
         exit 1; \
     fi
 
-# Open Cypress test runner (interactive)
+# Open Playwright test runner (UI mode)
 e2e-open:
-    @echo "Opening Cypress test runner..."
+    @echo "Opening Playwright UI..."
     @echo "Checking if dev server is running on http://localhost:8788..."
     @if curl -s http://localhost:8788 > /dev/null 2>&1; then \
         echo "✓ Dev server is running"; \

@@ -13,10 +13,10 @@ const treeConfig = new Map([
   [
     '.',
     {
-      order: ['apps', 'cypress', 'docs', 'infra', 'packages', 'scripts'],
+      order: ['apps', 'tests', 'docs', 'infra', 'packages', 'scripts'],
       labels: {
         apps: 'Application projects',
-        cypress: 'End-to-end tests',
+        tests: 'End-to-end tests',
         docs: 'Documentation',
         infra: 'Infrastructure as code',
         packages: 'Shared libraries',
@@ -37,12 +37,11 @@ const treeConfig = new Map([
     },
   ],
   [
-    'cypress',
+    'tests',
     {
-      order: ['e2e', 'support'],
+      order: ['e2e'],
       labels: {
-        e2e: 'Cypress spec files',
-        support: 'Shared Cypress helpers',
+        e2e: 'Playwright spec files',
       },
       includeUnlisted: true,
     },
@@ -137,9 +136,8 @@ const japaneseLabels = new Map([
   ['apps/edge/src/styles', '共有のデザイントークン'],
   ['apps/edge/src/views', 'レイアウトとテンプレート'],
   ['apps/web', 'ローカル開発用 Web サーバー'],
-  ['cypress', 'Cypress E2E テスト'],
-  ['cypress/e2e', 'Cypress スペックファイル'],
-  ['cypress/support', '共通ヘルパーと初期化コード'],
+  ['tests', 'Playwright E2E テスト'],
+  ['tests/e2e', 'Playwright スペックファイル'],
   ['docs', 'ドキュメント群'],
   ['infra', 'インフラ構成 (Terraform など)'],
   ['infra/migrations', 'D1 スキーマ'],
