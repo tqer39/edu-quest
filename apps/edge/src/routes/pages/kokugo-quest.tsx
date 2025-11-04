@@ -49,6 +49,16 @@ const KanjiNav: FC<{
             ✏️
           </span>
         </a>
+        <span class="text-[var(--mq-outline)]">|</span>
+        <a
+          href={`/kokugo/select?grade=${gradeParam}`}
+          class="transition hover:opacity-80"
+        >
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            🧭
+          </span>
+        </a>
+        <span class="text-[var(--mq-outline)]">|</span>
         <GradeDropdown
           currentGrade={grade}
           currentStage={stage}
