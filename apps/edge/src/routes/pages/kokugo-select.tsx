@@ -49,6 +49,7 @@ const KanjiNav: FC<{
             ✏️
           </span>
         </a>
+        <span class="text-[var(--mq-outline)]">|</span>
         <GradeDropdown
           currentGrade={grade}
           currentStage={stage}

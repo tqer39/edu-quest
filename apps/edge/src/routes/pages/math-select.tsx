@@ -47,6 +47,7 @@ const MathNav: FC<{
             🔢
           </span>
         </a>
+        <span class="text-[var(--mq-outline)]">|</span>
         <GradeDropdown
           currentGrade={gradeNumber}
           currentStage={gradeStage}

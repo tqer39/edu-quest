@@ -44,6 +44,7 @@ const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
             🕐
           </span>
         </a>
+        <span class="text-[var(--mq-outline)]">|</span>
         <GradeDropdown
           currentGrade={grade}
           currentStage="小学"
