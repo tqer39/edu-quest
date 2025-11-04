@@ -1,11 +1,11 @@
-import type { KokugoQuestion } from '@edu-quest/domain';
+import type { KanjiQuestion } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { DictionaryLink } from '../components/dictionary-link';
 
 type KanjiQuizProps = {
   currentUser: CurrentUser | null;
-  question: KokugoQuestion;
+  question: KanjiQuestion;
   questionNumber: number;
   totalQuestions: number;
   score: number;
