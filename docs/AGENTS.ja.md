@@ -11,7 +11,7 @@ EduQuestは小学生向けの算数学習プラットフォームで、Cloudflar
 EduQuest は複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。
 
 - **MathQuest** (`/math`) - 算数練習。学年別プリセットとテーマ練習を提供（利用可能）
-- **KanjiQuest** (`/kanji`) - 学年別に整理された漢字学習（準備中）
+- **KokugoQuest** (`/kokugo`) - 学年別に整理された漢字学習（準備中）
 - **GameQuest** (`/game`) - パターン認識・空間認識・記憶力を鍛える脳トレミニゲーム（数独と Stellar Balance を提供）
 - **ClockQuest** (`/clock`) - アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
@@ -236,7 +236,7 @@ pnpm workspacesによるmonorepo構成：
   - `/math`: MathQuest トップページ
   - `/math/start`: MathQuest 設定ウィザード
   - `/math/play`: MathQuest 練習セッション
-  - `/kanji`: KanjiQuest トップページ（準備中）
+  - `/kokugo`: KokugoQuest トップページ（準備中）
   - `/game`: GameQuest トップページ（数独と Stellar Balance を選択）
   - `/clock`: ClockQuest トップページ（準備中）
 
@@ -751,8 +751,8 @@ EduQuest で使用する KV ネームスペースは以下の通りです：
 
 ```typescript
 // パターン: {quest_type}:{session_id}
-`kanji:${sessionId}` // KanjiQuest アクティブセッション
-`kanji_result:${resultId}` // KanjiQuest 結果（短命）
+`kanji:${sessionId}` // KokugoQuest アクティブセッション
+`kanji_result:${resultId}` // KokugoQuest 結果（短命）
 `math:${sessionId}` // MathQuest アクティブセッション
 `game:${sessionId}` // GameQuest アクティブセッション
 `game_result:${resultId}` // GameQuest 結果（短命）
@@ -777,19 +777,19 @@ EduQuest で使用する KV ネームスペースは以下の通りです：
 
 **例:**
 
-- `kanji_session_id` - KanjiQuest のアクティブセッション
-- `kanji_result_id` - KanjiQuest の結果セッション
+- `kanji_session_id` - KokugoQuest のアクティブセッション
+- `kanji_result_id` - KokugoQuest の結果セッション
 - `math_session_id` - MathQuest のアクティブセッション
 - `game_session_id` - GameQuest のアクティブセッション
 - `game_result_id` - GameQuest の結果セッション
 
 ### 7.7. セッションライフサイクル
 
-**完全な実装例（KanjiQuest を例として）:**
+**完全な実装例（KokugoQuest を例として）:**
 
 ```typescript
-// 1. セッション開始 (/kanji/start)
-app.get('/kanji/start', async (c) => {
+// 1. セッション開始 (/kokugo/start)
+app.get('/kokugo/start', async (c) => {
   const grade = Number(c.req.query('grade'));
 
   // ドメインロジックを使用してセッションを初期化
@@ -806,7 +806,7 @@ app.get('/kanji/start', async (c) => {
   );
 
   // HttpOnly Cookie にセッション ID のみを設定
-  const response = c.redirect('/kanji/quiz', 302);
+  const response = c.redirect('/kokugo/quiz', 302);
   response.headers.append(
     'Set-Cookie',
     `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax`
@@ -815,14 +815,14 @@ app.get('/kanji/start', async (c) => {
   return response;
 });
 
-// 2. セッション取得（/kanji/quiz GET）
-app.get('/kanji/quiz', async (c) => {
+// 2. セッション取得（/kokugo/quiz GET）
+app.get('/kokugo/quiz', async (c) => {
   // Cookie からセッション ID を取得
   const cookies = c.req.header('Cookie') ?? '';
-  const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
+  const sessionMatch = cookies.match(/kokugo_session_id=([^;]+)/);
 
   if (!sessionMatch) {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   const sessionId = sessionMatch[1];
@@ -831,7 +831,7 @@ app.get('/kanji/quiz', async (c) => {
   const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
 
   if (!sessionData) {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   const session: KanjiQuizSession = JSON.parse(sessionData);
@@ -840,8 +840,8 @@ app.get('/kanji/quiz', async (c) => {
   return c.render(<KanjiQuiz session={session} />);
 });
 
-// 3. セッション更新（/kanji/quiz POST）
-app.post('/kanji/quiz', async (c) => {
+// 3. セッション更新（/kokugo/quiz POST）
+app.post('/kokugo/quiz', async (c) => {
   const sessionId = getSessionIdFromCookie(c);
   const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
   const session = JSON.parse(sessionData);
@@ -857,7 +857,7 @@ app.post('/kanji/quiz', async (c) => {
       JSON.stringify(result.nextSession),
       { expirationTtl: 1800 }
     );
-    return c.redirect('/kanji/quiz', 302);
+    return c.redirect('/kokugo/quiz', 302);
   } else {
     // クイズ完了 - 結果を保存してセッションをクリーンアップ
     const resultId = crypto.randomUUID();
@@ -870,7 +870,7 @@ app.post('/kanji/quiz', async (c) => {
     // アクティブセッションを削除
     await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
 
-    const response = c.redirect('/kanji/results', 302);
+    const response = c.redirect('/kokugo/results', 302);
     response.headers.append(
       'Set-Cookie',
       `kanji_result_id=${resultId}; Path=/; Max-Age=300; HttpOnly; SameSite=Lax`
@@ -978,7 +978,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 
 - ✅ **MathQuest**: 数値解答用の数字パッドボタン（0-9）
 - ✅ **ClockQuest**: 時刻選択用の時間ボタン（1-12）
-- ✅ **KanjiQuest**: 文字選択用の選択肢ボタン
+- ✅ **KokugoQuest**: 文字選択用の選択肢ボタン
 - ✅ **GameQuest**: モード別のアクションボタンやカード選択
 - ❌ **絶対に使わない**: `<input type="number">`、`<input type="text">`、その他のテキスト入力フィールド
 
@@ -1026,7 +1026,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 現在サポートおよび今後サポート予定の Quest モジュール：
 
 - **MathQuest** (`/math`) - 学年別プリセットとテーマ練習を提供する算数練習（利用可能）
-- **KanjiQuest** (`/kanji`) - 学年別に整理された漢字学習（準備中）
+- **KokugoQuest** (`/kokugo`) - 学年別に整理された漢字学習（準備中）
 - **ClockQuest** (`/clock`) - アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
 ### URL 構造
@@ -1043,7 +1043,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
   /math                → MathQuest トップページ
   /math/start          → MathQuest 設定ウィザード
   /math/play           → MathQuest 練習セッション
-  /kanji               → KanjiQuest トップページ（準備中）
+  /kokugo               → KokugoQuest トップページ（準備中）
   /clock               → ClockQuest トップページ（準備中）
 ```
 
@@ -1057,7 +1057,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 - **サブディレクトリルーティング**: サブドメイン方式と比較してシンプルなインフラ、統一されたセッション、優れた SEO
 - **テーマカスタマイズ**: 各 Quest モジュールは CSS 変数による独自の配色スキーム
   - MathQuest: 青系テーマ (#6B9BD1)
-  - KanjiQuest: 紫系テーマ (#9B7EC8)
+  - KokugoQuest: 紫系テーマ (#9B7EC8)
   - GameQuest: 緑系テーマ (#5DB996)
   - ClockQuest: オレンジ系テーマ (#F5A85F)
 - **共有ドメインロジック**: すべての Quest モジュールは `@edu-quest/domain` と `@edu-quest/app` パッケージを再利用
@@ -1072,7 +1072,7 @@ preview_id = "kv_quiz_session_preview"  # 開発環境
 ルート:
   - ポータル:  /
  - 算数:      /math, /math/start, /math/play
- - 漢字:      /kanji（準備中）
+ - 漢字:      /kokugo（準備中）
   - ゲーム:    /game（準備中）
   - 時計:      /clock（準備中）
 ```

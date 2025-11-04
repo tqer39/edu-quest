@@ -134,7 +134,7 @@ The project is a monorepo managed with pnpm workspaces.
 
 - ✅ **MathQuest**: Number pad buttons (0-9) for numeric answers
 - ✅ **ClockQuest**: Hour buttons (1-12) for time selection
-- ✅ **KanjiQuest**: Multiple choice buttons for character selection
+- ✅ **KokugoQuest**: Multiple choice buttons for character selection
 - ❌ **DO NOT**: `<input type="number">` or `<input type="text">`
 
 **Implementation Pattern:**
