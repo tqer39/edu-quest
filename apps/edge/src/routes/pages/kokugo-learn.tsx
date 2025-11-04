@@ -97,6 +97,7 @@ type DictionaryCardProps = {
 const dictionaryIcons: Record<string, string> = {
   'eduquest-kanji': '📖',
   'eduquest-vocabulary': '📝',
+  'eduquest-bushu': '🔤',
 };
 
 const DictionaryCard: FC<DictionaryCardProps> = ({
@@ -179,7 +180,7 @@ export const KanjiLearn: FC<KanjiLearnProps> = ({
               この学年向けの辞書がまだありません。
             </p>
           ) : (
-            <div class="grid gap-6 sm:grid-cols-2">
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {dictionaries.map((dictionary) => (
                 <DictionaryCard
                   key={dictionary.id}

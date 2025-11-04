@@ -2,6 +2,7 @@ import type { KanjiGrade } from './kokugo-quest';
 
 import eduquest from './data/kokugo-dictionaries/eduquest-kanji.json';
 import eduquestVocabulary from './data/kokugo-dictionaries/eduquest-vocabulary.json';
+import eduquestBushu from './data/kokugo-dictionaries/eduquest-bushu.json';
 import gakkenRainbow from './data/kokugo-dictionaries/gakken-rainbow.json';
 import mextCourseOfStudy from './data/kokugo-dictionaries/mext-course-of-study.json';
 import mextTextbook from './data/kokugo-dictionaries/mext-textbook.json';
@@ -31,6 +32,7 @@ type RawDictionary = Omit<KokugoDictionaryResource, 'gradeRange'> & {
 const rawDictionaries: RawDictionary[] = [
   eduquest as RawDictionary,
   eduquestVocabulary as RawDictionary,
+  eduquestBushu as RawDictionary,
   mextTextbook as RawDictionary,
   mextCourseOfStudy as RawDictionary,
   gakkenRainbow as RawDictionary,
@@ -66,12 +68,16 @@ export const getKokugoDictionariesByGrade = (
 };
 
 /**
- * Get only EduQuest internal dictionaries (Kanji and Vocabulary) for the /kokugo/learn page
+ * Get only EduQuest internal dictionaries (Kanji, Vocabulary, and Bushu) for the /kokugo/learn page
  */
 export const getEduQuestDictionariesByGrade = (
   grade: KanjiGrade
 ): KokugoDictionaryResource[] => {
-  const eduquestIds = ['eduquest-kanji', 'eduquest-vocabulary'];
+  const eduquestIds = [
+    'eduquest-kanji',
+    'eduquest-vocabulary',
+    'eduquest-bushu',
+  ];
   return dictionaries
     .filter(
       (dictionary) =>

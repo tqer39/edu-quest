@@ -1,7 +1,7 @@
 {
   "id": "eduquest-vocabulary",
   "type": "internal",
-  "title": "EduQuest 用語辞書",
+  "title": "用語辞書",
   "provider": "EduQuest",
   "description": "学年別の重要用語をまとめた辞書です。言葉の意味や使われている漢字を確認できます。",
   "gradeRange": { "min": 1, "max": 2 },
