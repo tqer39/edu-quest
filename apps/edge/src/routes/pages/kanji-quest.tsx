@@ -57,7 +57,7 @@ const KanjiNav: FC<{
         />
       </div>
       <div class="flex flex-wrap gap-2">
-        <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
+        <DictionaryLink gradeParam={gradeParam} />
         {currentUser ? (
           <a
             href="/auth/logout"

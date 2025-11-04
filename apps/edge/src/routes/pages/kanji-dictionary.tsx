@@ -35,7 +35,7 @@ const KanjiDictionaryNav: FC<{
       </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <DictionaryLink current />
+      <DictionaryLink gradeParam={gradeParam} active="kanji" />
       <a
         href={`/kanji/select?grade=${gradeParam}`}
         class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"

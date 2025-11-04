@@ -59,10 +59,15 @@ import {
   createKanjiSearchIndexEntry,
 } from './routes/pages/kanji-dictionary';
 import { KanjiHome } from './routes/pages/kanji-home';
+import { KanjiLearn } from './routes/pages/kanji-learn';
 import { KanjiQuest } from './routes/pages/kanji-quest';
 import { KanjiQuiz } from './routes/pages/kanji-quiz';
 import { KanjiResults } from './routes/pages/kanji-results';
 import { KanjiSelect } from './routes/pages/kanji-select';
+import {
+  KanjiRadicalDictionary,
+  buildKanjiRadicalDictionary,
+} from './routes/pages/kanji-radical-dictionary';
 import { Login } from './routes/pages/login';
 import { MathHome } from './routes/pages/math-home';
 import { MathPresetSelect } from './routes/pages/math-preset-select';
@@ -864,6 +869,39 @@ app.get('/kanji/dictionary', async (c) => {
   );
 });
 
+app.get('/kanji/dictionary/radicals', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
+  const grade = preferredGrade ?? 1;
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  const allKanji = availableGrades.flatMap((g) => getKanjiDictionaryByGrade(g));
+  const { entries, searchIndex } = buildKanjiRadicalDictionary(allKanji);
+
+  return c.render(
+    <KanjiRadicalDictionary
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      entries={entries}
+      searchIndex={searchIndex}
+    />,
+    {
+      title: `KanjiQuest | ${gradeLabel}の部首辞書`,
+      description: `${gradeLabel}で学ぶ漢字の部首を調べられる辞書ページです。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
 app.get('/kanji/dictionary/:id', async (c) => {
   const kanjiId = c.req.param('id');
   const gradeParam = c.req.query('grade');
@@ -932,6 +970,34 @@ app.get('/kanji/select', async (c) => {
     {
       title: `KanjiQuest - ${gradeLabel}`,
       description: `${gradeLabel}向けの学習方法を選んでください。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kanji/learn', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/kanji', 302);
+  }
+
+  const grade = parsedGrade.grade as KanjiGrade;
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
+  return c.render(
+    <KanjiLearn
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      gradeStage={parsedGrade.stage}
+    />,
+    {
+      title: `KanjiQuest - ${gradeLabel}の辞書選択`,
+      description: `${gradeLabel}向けの漢字辞書・部首辞書を選んで学習できます。`,
       favicon: '/favicon-kanji.svg',
     }
   );

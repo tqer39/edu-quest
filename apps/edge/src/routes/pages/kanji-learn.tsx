@@ -17,7 +17,6 @@ const KanjiNav: FC<{
 }> = ({ currentUser, grade, stage }) => {
   const gradeParam = createSchoolGradeParam({ stage, grade });
 
-  // 利用可能な学年リスト（小学1-2年生のみ、KanjiQuestは現在1-2年生のみ対応）
   const availableGrades: readonly {
     stage: SchoolStage;
     grade: number;
@@ -53,7 +52,7 @@ const KanjiNav: FC<{
           currentGrade={grade}
           currentStage={stage}
           availableGrades={availableGrades}
-          baseUrl="/kanji/select"
+          baseUrl="/kanji/learn"
         />
       </div>
       <div class="flex flex-wrap gap-2">
@@ -78,33 +77,33 @@ const KanjiNav: FC<{
   );
 };
 
-type ModeOption = {
-  id: 'learn' | 'quest';
+type LearnOption = {
+  id: 'kanji-dictionary' | 'radical-dictionary';
   title: string;
   icon: string;
   description: string;
   href: string;
 };
 
-const ModeCard: FC<{ mode: ModeOption }> = ({ mode }) => (
+const LearnCard: FC<{ option: LearnOption }> = ({ option }) => (
   <a
-    href={mode.href}
+    href={option.href}
     class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 text-left shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
   >
     <span class="text-5xl" aria-hidden="true">
-      {mode.icon}
+      {option.icon}
     </span>
     <div class="space-y-2">
-      <div class="text-2xl font-bold text-[var(--mq-ink)]">{mode.title}</div>
-      <p class="text-sm leading-relaxed text-[#5e718a]">{mode.description}</p>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">{option.title}</div>
+      <p class="text-sm leading-relaxed text-[#5e718a]">{option.description}</p>
     </div>
     <span class="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-[var(--mq-primary-strong)]">
-      選択する →
+      開く →
     </span>
   </a>
 );
 
-export const KanjiSelect: FC<{
+export const KanjiLearn: FC<{
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
   gradeStage: SchoolStage;
@@ -112,22 +111,22 @@ export const KanjiSelect: FC<{
   const gradeLabel = formatSchoolGradeLabel({ stage: gradeStage, grade });
   const gradeParam = createSchoolGradeParam({ stage: gradeStage, grade });
 
-  const modeOptions: ModeOption[] = [
+  const learnOptions: LearnOption[] = [
     {
-      id: 'learn',
-      title: '学習する',
-      icon: '📚',
+      id: 'kanji-dictionary',
+      title: '漢字辞書',
+      icon: '📖',
       description:
-        '辞書を使って漢字の読み方・部首を調べましょう。学習目的に合わせて辞書を選べます。',
-      href: `/kanji/learn?grade=${encodeURIComponent(gradeParam)}`,
+        '読み方・意味・例文をまとめた漢字辞書です。学習の復習や確認に使いましょう。',
+      href: `/kanji/dictionary?grade=${encodeURIComponent(gradeParam)}`,
     },
     {
-      id: 'quest',
-      title: 'クエストに挑戦する',
-      icon: '🎯',
+      id: 'radical-dictionary',
+      title: '部首辞書',
+      icon: '🧩',
       description:
-        '問題を解いて漢字をマスター！楽しく学習して実力をつけましょう。',
-      href: `/kanji/quest?grade=${encodeURIComponent(gradeParam)}`,
+        '漢字を構成する部首を調べられます。同じ部首を持つ漢字や特徴を確認しましょう。',
+      href: `/kanji/dictionary/radicals?grade=${encodeURIComponent(gradeParam)}`,
     },
   ];
 
@@ -139,28 +138,39 @@ export const KanjiSelect: FC<{
       <KanjiNav currentUser={currentUser} grade={grade} stage={gradeStage} />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">✏️</span>
+          <span class="text-6xl">📚</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
-              学習方法を選んでください
+              {gradeLabel}の学習方法
             </h1>
             <p class="max-w-xl text-sm sm:text-base text-[#4f6076]">
-              {gradeLabel}の漢字学習を始めましょう。
+              調べたい内容に合わせて辞書を選びましょう。
               <br />
-              「学習する」で辞書を活用してから、「クエストに挑戦する」で実践しましょう。
+              漢字辞書では読み方や意味を、部首辞書では漢字の成り立ちを確認できます。
             </p>
           </div>
         </header>
 
         <section>
           <h2 class="mb-6 text-xl font-bold text-[var(--mq-ink)]">
-            学習モードを選択
+            辞書を選択
           </h2>
           <div class="grid gap-6 sm:grid-cols-2">
-            {modeOptions.map((mode) => (
-              <ModeCard key={mode.id} mode={mode} />
+            {learnOptions.map((option) => (
+              <LearnCard key={option.id} option={option} />
             ))}
           </div>
+        </section>
+
+        <section class="rounded-3xl border border-[var(--mq-outline)] bg-white p-6 shadow-sm">
+          <h2 class="mb-4 text-xl font-bold text-[var(--mq-ink)]">
+            使い分けのヒント
+          </h2>
+          <ul class="space-y-2 text-sm text-[#5e718a]">
+            <li>✓ 漢字辞書: 読み方・意味・例文を確認したいときに便利です。</li>
+            <li>✓ 部首辞書: 同じ部首を持つ漢字をまとめて覚えたいときに活用しましょう。</li>
+            <li>✓ クエスト中でも辞書メニューからいつでも開けます。</li>
+          </ul>
         </section>
       </div>
 
