@@ -1,20 +1,20 @@
 import type { KanjiQuiz, KanjiQuizResult } from '@edu-quest/app';
 import {
   createKanjiQuiz,
-  getCurrentKanjiQuestion,
+  getCurrentKokugoQuestion,
   getKanjiQuizResult,
   isKanjiQuizFinished,
   submitKanjiAnswer,
 } from '@edu-quest/app';
 import type {
   KanjiGrade,
-  KanjiQuestion,
-  KanjiQuestType,
+  KokugoQuestion,
+  KokugoQuestType,
 } from '@edu-quest/domain';
 
 export type KanjiQuizSession = {
   quiz: KanjiQuiz;
-  currentQuestion: KanjiQuestion | null;
+  currentQuestion: KokugoQuestion | null;
 };
 
 /**
@@ -23,14 +23,14 @@ export type KanjiQuizSession = {
 export const startKanjiQuizSession = (
   grade: KanjiGrade,
   questionCount: number = 10,
-  questType: KanjiQuestType = 'reading'
+  questType: KokugoQuestType = 'kanji-reading'
 ): KanjiQuizSession => {
   const quiz = createKanjiQuiz({
     grade,
     questType,
     questionCount,
   });
-  const currentQuestion = getCurrentKanjiQuestion(quiz);
+  const currentQuestion = getCurrentKokugoQuestion(quiz);
   return { quiz, currentQuestion };
 };
 
@@ -53,7 +53,7 @@ export const submitKanjiQuizAnswer = (
   }
 
   // 次の質問を取得
-  const nextQuestion = getCurrentKanjiQuestion(session.quiz);
+  const nextQuestion = getCurrentKokugoQuestion(session.quiz);
   return {
     isCorrect,
     nextSession: { quiz: session.quiz, currentQuestion: nextQuestion },

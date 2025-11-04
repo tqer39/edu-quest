@@ -10,10 +10,10 @@
     "音読み・訓読みを横断検索",
     "クエスト画面と連携しやすいUI"
   ],
-  "link": "/kanji/dictionary",
+  "link": "/kokugo/dictionary",
   "cta": "EduQuest辞書を開く",
   "source": {
     "label": "EduQuest 漢字辞書",
-    "url": "/kanji/dictionary"
+    "url": "/kokugo/dictionary"
   }
 }

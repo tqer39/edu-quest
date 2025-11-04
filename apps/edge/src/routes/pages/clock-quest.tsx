@@ -71,14 +71,14 @@ const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
 };
 
 const questOptions: {
-  id: 'reading' | 'conversion' | 'arithmetic' | 'variety';
+  id: 'kanji-reading' | 'conversion' | 'arithmetic' | 'variety';
   title: string;
   description: string;
   icon: string;
   difficulty: ClockDifficulty;
 }[] = [
   {
-    id: 'reading',
+    id: 'kanji-reading',
     title: 'アナログ・デジタル時計の読み問題',
     description:
       '長針・短針やデジタル表示を読み取って、正しい時刻を答えるクエストです。',

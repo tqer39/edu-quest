@@ -40,7 +40,7 @@ const VocabularyNav: FC<{
         />
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
-      <a href="/kanji" class="transition hover:opacity-80">
+      <a href="/kokugo" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
@@ -50,9 +50,9 @@ const VocabularyNav: FC<{
       </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
+      <DictionaryLink href={`/kokugo/dictionary?grade=${gradeParam}`} />
       <a
-        href={`/kanji/select?grade=${gradeParam}`}
+        href={`/kokugo/select?grade=${gradeParam}`}
         class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
       >
         ← クエスト選択へ戻る
@@ -125,7 +125,7 @@ export const VocabularyDetail: FC<VocabularyDetailProps> = ({
               {vocabulary.relatedKanji.map((kanji) => (
                 <a
                   key={kanji.unicode}
-                  href={`/kanji/detail/${kanji.unicode}?grade=${gradeParam}`}
+                  href={`/kokugo/detail/${kanji.unicode}?grade=${gradeParam}`}
                   class="flex items-center gap-4 rounded-2xl border border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition hover:-translate-y-1 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
                 >
                   <div class="text-4xl font-bold text-[var(--mq-ink)]">
@@ -142,7 +142,7 @@ export const VocabularyDetail: FC<VocabularyDetailProps> = ({
 
         <div class="flex justify-center gap-4">
           <a
-            href={`/kanji/dictionary?grade=${gradeParam}`}
+            href={`/kokugo/dictionary?grade=${gradeParam}`}
             class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-6 py-3 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
           >
             ← 漢字辞書に戻る

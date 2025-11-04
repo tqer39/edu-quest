@@ -1,11 +1,11 @@
-import type { KanjiQuestion } from '@edu-quest/domain';
+import type { KokugoQuestion } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { DictionaryLink } from '../components/dictionary-link';
 
 type KanjiQuizProps = {
   currentUser: CurrentUser | null;
-  question: KanjiQuestion;
+  question: KokugoQuestion;
   questionNumber: number;
   totalQuestions: number;
   score: number;
@@ -32,7 +32,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
             ✏️
           </span>
           <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest 小学{grade}年生
+            KokugoQuest 小学{grade}年生
           </span>
         </div>
         <div class="flex flex-wrap items-center gap-2">
@@ -43,7 +43,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
           <span class="text-xs font-semibold text-[var(--mq-primary-strong)]">
             正解数: {score}
           </span>
-          <form method="POST" action="/kanji/quit">
+          <form method="POST" action="/kokugo/quit">
             <input type="hidden" name="grade" value={grade} />
             <button
               type="submit"
@@ -92,7 +92,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
               {question.choices.map((choice, index) => (
                 <form
                   method="POST"
-                  action="/kanji/quiz"
+                  action="/kokugo/quiz"
                   key={`${choice}-${index}`}
                 >
                   <input type="hidden" name="answer" value={choice} />

@@ -25,7 +25,7 @@ const KanjiDetailNav: FC<{
         />
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
-      <a href="/kanji" class="transition hover:opacity-80">
+      <a href="/kokugo" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
@@ -35,9 +35,9 @@ const KanjiDetailNav: FC<{
       </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <DictionaryLink href={`/kanji/dictionary?grade=${gradeParam}`} />
+      <DictionaryLink href={`/kokugo/dictionary?grade=${gradeParam}`} />
       <a
-        href={`/kanji/select?grade=${gradeParam}`}
+        href={`/kokugo/select?grade=${gradeParam}`}
         class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
       >
         ← クエスト選択へ戻る
@@ -192,7 +192,7 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
             {kanji.examples.map((example) => (
               <a
                 key={`${kanji.character}-${example.word}`}
-                href={`/kanji/vocabulary/${encodeURIComponent(
+                href={`/kokugo/vocabulary/${encodeURIComponent(
                   example.word
                 )}?grade=${gradeParam}`}
                 class="example-item block rounded-2xl border border-dashed border-[var(--mq-outline)] bg-[var(--mq-surface)] p-4 transition-all hover:border-[var(--mq-primary)] hover:border-solid hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
@@ -225,7 +225,7 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
               {kanji.specialExamples.map((example) => (
                 <a
                   key={`${kanji.character}-special-${example.word}-${example.reading}`}
-                  href={`/kanji/vocabulary/${encodeURIComponent(
+                  href={`/kokugo/vocabulary/${encodeURIComponent(
                     example.word
                   )}?grade=${gradeParam}`}
                   class="block rounded-2xl border border-dashed border-[var(--mq-primary)] bg-[var(--mq-surface)] p-4 transition hover:border-solid hover:-translate-y-0.5 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
@@ -361,7 +361,7 @@ export const KanjiDetail: FC<KanjiDetailProps> = ({
 
         <div class="flex justify-center">
           <a
-            href={`/kanji/dictionary?grade=${gradeParam}`}
+            href={`/kokugo/dictionary?grade=${gradeParam}`}
             class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-6 py-3 text-sm font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
           >
             ← 辞書一覧に戻る

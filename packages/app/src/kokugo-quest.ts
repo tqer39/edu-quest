@@ -1,8 +1,8 @@
 import type {
   KanjiGrade,
-  KanjiQuestConfig,
+  KokugoQuestConfig,
   KanjiQuestion,
-  KanjiQuestType,
+  KokugoQuestType,
   ReadingType,
 } from '@edu-quest/domain';
 import {
@@ -13,30 +13,30 @@ import {
 } from '@edu-quest/domain';
 
 /**
- * Input for starting a KanjiQuest quiz session
+ * Input for starting a KokugoQuest quiz session
  */
 export type StartKanjiQuizInput = {
   grade: KanjiGrade;
-  questType: KanjiQuestType;
+  questType: KokugoQuestType;
   questionCount: number;
   readingType?: ReadingType;
 };
 
 /**
- * KanjiQuest quiz session state
+ * KokugoQuest quiz session state
  */
 export type KanjiQuiz = {
-  config: KanjiQuestConfig;
+  config: KokugoQuestConfig;
   questions: KanjiQuestion[];
   index: number;
   correct: number;
 };
 
 /**
- * Create a new KanjiQuest quiz session
+ * Create a new KokugoQuest quiz session
  */
 export const createKanjiQuiz = (input: StartKanjiQuizInput): KanjiQuiz => {
-  const config: KanjiQuestConfig = {
+  const config: KokugoQuestConfig = {
     grade: input.grade,
     questType: input.questType,
     questionCount: input.questionCount,

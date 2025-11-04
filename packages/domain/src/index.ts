@@ -503,8 +503,8 @@ export {
   deriveDifficultyProfile,
 } from './difficulty';
 
-// KanjiQuest exports
-export * from './kanji-quest';
+// KokugoQuest exports
+export * from './kokugo-quest';
 export * from './kokugo-dictionaries';
 
 // Helper function to generate binary addition inverse question

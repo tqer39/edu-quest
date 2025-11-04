@@ -49,7 +49,7 @@ const KanjiLearnNav: FC<KanjiLearnNavProps> = ({
           />
         </a>
         <span class="text-[var(--mq-outline)]">|</span>
-        <a href="/kanji" class="transition hover:opacity-80">
+        <a href="/kokugo" class="transition hover:opacity-80">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
             ✏️
           </span>
@@ -62,12 +62,9 @@ const KanjiLearnNav: FC<KanjiLearnNavProps> = ({
         />
       </div>
       <div class="flex flex-wrap gap-2">
-        <DictionaryLink
-          current
-          href={`/kanji/learn?grade=${gradeParam}`}
-        />
+        <DictionaryLink current href={`/kokugo/learn?grade=${gradeParam}`} />
         <a
-          href={`/kanji/quest?grade=${gradeParam}`}
+          href={`/kokugo/quest?grade=${gradeParam}`}
           class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
         >
           クエストに戻る
@@ -100,8 +97,7 @@ type DictionaryCardProps = {
 const badgeClasses: Record<KokugoDictionaryResource['type'], string> = {
   internal:
     'bg-[var(--mq-primary-soft)] text-[var(--mq-primary-strong)] border-[var(--mq-primary)]',
-  official:
-    'bg-[#e6f2ff] text-[#1f4b99] border-[#8ab5ff]',
+  official: 'bg-[#e6f2ff] text-[#1f4b99] border-[#8ab5ff]',
   private: 'bg-[#fdf0d5] text-[#9c4221] border-[#f0b27a]',
 };
 
@@ -111,7 +107,10 @@ const badgeLabel: Record<KokugoDictionaryResource['type'], string> = {
   private: '民間資料',
 };
 
-const DictionaryCard: FC<DictionaryCardProps> = ({ dictionary, gradeParam }) => {
+const DictionaryCard: FC<DictionaryCardProps> = ({
+  dictionary,
+  gradeParam,
+}) => {
   const isExternalLink = dictionary.link.startsWith('http');
   const href = isExternalLink
     ? dictionary.link
@@ -120,7 +119,11 @@ const DictionaryCard: FC<DictionaryCardProps> = ({ dictionary, gradeParam }) => 
   return (
     <article class="flex h-full flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-6 shadow-lg">
       <div class="flex items-center justify-between gap-4">
-        <span class={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold ${badgeClasses[dictionary.type]}`}>
+        <span
+          class={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold ${
+            badgeClasses[dictionary.type]
+          }`}
+        >
           {badgeLabel[dictionary.type]}
         </span>
         <span class="text-xs font-semibold text-[#5e718a]">
@@ -128,9 +131,15 @@ const DictionaryCard: FC<DictionaryCardProps> = ({ dictionary, gradeParam }) => 
         </span>
       </div>
       <header class="space-y-2">
-        <h3 class="text-xl font-bold text-[var(--mq-ink)]">{dictionary.title}</h3>
-        <p class="text-xs font-semibold text-[#5e718a]">提供: {dictionary.provider}</p>
-        <p class="text-sm leading-relaxed text-[#4f6076]">{dictionary.description}</p>
+        <h3 class="text-xl font-bold text-[var(--mq-ink)]">
+          {dictionary.title}
+        </h3>
+        <p class="text-xs font-semibold text-[#5e718a]">
+          提供: {dictionary.provider}
+        </p>
+        <p class="text-sm leading-relaxed text-[#4f6076]">
+          {dictionary.description}
+        </p>
       </header>
       <ul class="space-y-2 text-sm text-[#4f6076]">
         {dictionary.features.map((feature) => (
@@ -184,7 +193,11 @@ export const KanjiLearn: FC<KanjiLearnProps> = ({
       class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45);"
     >
-      <KanjiLearnNav currentUser={currentUser} grade={grade} stage={gradeStage} />
+      <KanjiLearnNav
+        currentUser={currentUser}
+        grade={grade}
+        stage={gradeStage}
+      />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-[var(--mq-ink)] shadow-xl">
           <div class="flex flex-wrap items-start justify-between gap-6">

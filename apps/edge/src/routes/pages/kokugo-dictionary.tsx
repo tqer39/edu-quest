@@ -25,7 +25,7 @@ const KanjiDictionaryNav: FC<{
         />
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
-      <a href="/kanji" class="transition hover:opacity-80">
+      <a href="/kokugo" class="transition hover:opacity-80">
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
@@ -35,9 +35,9 @@ const KanjiDictionaryNav: FC<{
       </span>
     </div>
     <div class="flex flex-wrap items-center gap-2">
-      <DictionaryLink current href={`/kanji/dictionary?grade=${gradeParam}`} />
+      <DictionaryLink current href={`/kokugo/dictionary?grade=${gradeParam}`} />
       <a
-        href={`/kanji/select?grade=${gradeParam}`}
+        href={`/kokugo/select?grade=${gradeParam}`}
         class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
       >
         ← クエスト選択へ戻る
@@ -217,7 +217,7 @@ export const KanjiDictionary: FC<KanjiDictionaryProps> = ({
             return (
               <a
                 key={kanji.character}
-                href={`/kanji/dictionary/${kanjiId}?grade=${gradeParam}`}
+                href={`/kokugo/dictionary/${kanjiId}?grade=${gradeParam}`}
                 class="kanji-item"
                 style="display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border-right: 1px solid var(--mq-outline); border-bottom: 1px solid var(--mq-outline); font-size: 2rem; font-weight: bold; color: var(--mq-ink); transition: all 0.2s; background-color: white; cursor: pointer;"
                 onmouseover="this.style.backgroundColor='var(--mq-primary-soft)'"
