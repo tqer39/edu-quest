@@ -1718,11 +1718,21 @@ app.get('/auth/guest-login', (c) => {
   return response;
 });
 
-app.get('/auth/login', (c) => {
+app.get('/auth/login', async (c) => {
+  const currentUser = await resolveCurrentUser(c.env, c.req.raw);
+  const redirect = c.req.query('redirect') ?? undefined;
+
+  if (currentUser) {
+    const target =
+      redirect && redirect.startsWith('/') && !redirect.startsWith('//')
+        ? redirect
+        : '/';
+    return c.redirect(target, 302);
+  }
+
   const sent = c.req.query('sent');
   const error = c.req.query('error');
   const email = c.req.query('email') ?? undefined;
-  const redirect = c.req.query('redirect') ?? undefined;
 
   const status: 'idle' | 'sent' | 'error' = error
     ? 'error'
