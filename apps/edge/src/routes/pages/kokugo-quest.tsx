@@ -137,7 +137,7 @@ export const KokugoQuest: FC<{
       <KanjiNav currentUser={currentUser} grade={grade} stage={gradeStage} />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">✏️</span>
+          <span class="text-6xl">⚔️</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
               クエストを選んでください

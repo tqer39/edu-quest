@@ -128,7 +128,7 @@ export const MathSelect: FC<{
     {
       id: 'quest',
       title: 'クエストに挑戦する',
-      icon: '🎯',
+      icon: '⚔️',
       description: '問題を解いてスキルアップ！楽しく算数の力を伸ばしましょう。',
       href: `/math/quest?grade=${encodeURIComponent(gradeId)}`,
     },

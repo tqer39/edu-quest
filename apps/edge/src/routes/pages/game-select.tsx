@@ -114,7 +114,7 @@ export const GameSelect: FC<{
     {
       id: 'quest',
       title: 'ゲームで遊ぶ',
-      icon: '🎯',
+      icon: '⚔️',
       description:
         '楽しいゲームで遊びながら学習！集中力と論理的思考を鍛えましょう。',
       href: `/game/quest?grade=${encodeURIComponent(gradeId)}`,

@@ -117,7 +117,7 @@ export const ClockSelect: FC<{
     {
       id: 'quest',
       title: 'クエストに挑戦する',
-      icon: '🎯',
+      icon: '⚔️',
       description:
         '問題を解いて時計をマスター！楽しく学習して時間の感覚を身につけましょう。',
       href: `/clock/quest?grade=${encodeURIComponent(gradeParam)}`,

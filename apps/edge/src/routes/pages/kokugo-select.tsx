@@ -124,7 +124,7 @@ export const KanjiSelect: FC<{
     {
       id: 'quest',
       title: 'クエストに挑戦する',
-      icon: '🧭',
+      icon: '⚔️',
       description:
         '問題を解いて漢字をマスター！楽しく学習して実力をつけましょう。',
       href: `/kokugo/quest?grade=${encodeURIComponent(gradeParam)}`,
