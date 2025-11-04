@@ -97,7 +97,7 @@ type DictionaryCardProps = {
 const dictionaryIcons: Record<string, string> = {
   'eduquest-kanji': '📖',
   'eduquest-vocabulary': '📝',
-  'eduquest-bushu': '🔤',
+  'eduquest-bushu': '🧩',
 };
 
 const DictionaryCard: FC<DictionaryCardProps> = ({
@@ -115,19 +115,13 @@ const DictionaryCard: FC<DictionaryCardProps> = ({
       href={href}
       target={isExternalLink ? '_blank' : undefined}
       rel={isExternalLink ? 'noreferrer' : undefined}
-      class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-10 text-center shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
+      class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
     >
-      <div class="text-6xl">{icon}</div>
-      <div class="space-y-2">
-        <h3 class="text-2xl font-bold text-[var(--mq-ink)]">
-          {dictionary.title}
-        </h3>
-        <p class="text-sm text-[#5e718a]">{dictionary.description}</p>
+      <div class="text-5xl">{icon}</div>
+      <div class="text-2xl font-bold text-[var(--mq-ink)]">
+        {dictionary.title}
       </div>
-      <div class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-primary)] bg-white px-4 py-2 text-sm font-semibold text-[var(--mq-primary-strong)] shadow-sm">
-        {dictionary.cta}
-        <span aria-hidden="true">{isExternalLink ? '↗' : '→'}</span>
-      </div>
+      <div class="text-sm text-[#5e718a]">{dictionary.description}</div>
     </a>
   );
 };
