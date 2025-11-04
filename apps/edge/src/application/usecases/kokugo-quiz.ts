@@ -9,7 +9,7 @@ import {
 import type {
   KanjiGrade,
   KanjiQuestion,
-  KanjiQuestType,
+  KokugoQuestType,
 } from '@edu-quest/domain';
 
 export type KanjiQuizSession = {
@@ -23,7 +23,7 @@ export type KanjiQuizSession = {
 export const startKanjiQuizSession = (
   grade: KanjiGrade,
   questionCount: number = 10,
-  questType: KanjiQuestType = 'reading'
+  questType: KokugoQuestType = 'kanji-reading'
 ): KanjiQuizSession => {
   const quiz = createKanjiQuiz({
     grade,

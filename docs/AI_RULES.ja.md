@@ -25,7 +25,7 @@
 **解答入力インターフェース:**
 
 - クイズの解答送信には標準ブラウザ入力コントロール（`<input type="text">`、`<input type="number">`、`<select>` など）を**使用しない**
-- すべてのクエストタイプ（MathQuest、ClockQuest、KanjiQuest、GameQuest）で**ボタン式の解答入力**を使用する
+- すべてのクエストタイプ（MathQuest、ClockQuest、KokugoQuest、GameQuest）で**ボタン式の解答入力**を使用する
 - **実装方法:** 各解答選択肢は SSR 互換性のため、hidden input を持つ `<form>` 内の独立した `<button>` とする
 - **理由:** 対象ユーザーは小学生であり、ボタン式入力はキーボード/IME の問題を回避し、モバイル/タブレットでの UX を向上させる
 

@@ -4,8 +4,9 @@ import {
   getKanjiDictionaryByGrade,
   getKanjiByUnicode,
   getKanjiIndexByGrade,
+  getEduQuestDictionariesByGrade,
   type KanjiGrade,
-  type KanjiQuestType,
+  type KokugoQuestType,
 } from '@edu-quest/domain';
 import { Hono } from 'hono';
 import { jsxRenderer } from 'hono/jsx-renderer';
@@ -18,12 +19,12 @@ import {
   startClockQuizSession,
   submitClockAnswer,
 } from './application/usecases/clock-quiz';
-import type { KanjiQuizSession } from './application/usecases/kanji-quiz';
+import type { KanjiQuizSession } from './application/usecases/kokugo-quiz';
 import {
   getKanjiSessionResult,
   startKanjiQuizSession,
   submitKanjiQuizAnswer,
-} from './application/usecases/kanji-quiz';
+} from './application/usecases/kokugo-quiz';
 import type { Env } from './env';
 import type { AssetManifest } from './middlewares/asset-manifest';
 import { assetManifest } from './middlewares/asset-manifest';
@@ -53,16 +54,18 @@ import {
   gradeLevels,
 } from './routes/pages/grade-presets';
 import { Home } from './routes/pages/home';
-import { KanjiDetail } from './routes/pages/kanji-detail';
+import { KanjiDetail } from './routes/pages/kokugo-detail';
 import {
   KanjiDictionary,
   createKanjiSearchIndexEntry,
-} from './routes/pages/kanji-dictionary';
-import { KanjiHome } from './routes/pages/kanji-home';
-import { KanjiQuest } from './routes/pages/kanji-quest';
-import { KanjiQuiz } from './routes/pages/kanji-quiz';
-import { KanjiResults } from './routes/pages/kanji-results';
-import { KanjiSelect } from './routes/pages/kanji-select';
+} from './routes/pages/kokugo-dictionary';
+import { VocabularyDetail } from './routes/pages/vocabulary-detail';
+import { KanjiHome } from './routes/pages/kokugo-home';
+import { KanjiLearn } from './routes/pages/kokugo-learn';
+import { KokugoQuest } from './routes/pages/kokugo-quest';
+import { KanjiQuiz } from './routes/pages/kokugo-quiz';
+import { KanjiResults } from './routes/pages/kokugo-results';
+import { KanjiSelect } from './routes/pages/kokugo-select';
 import { Login } from './routes/pages/login';
 import { MathHome } from './routes/pages/math-home';
 import { MathPresetSelect } from './routes/pages/math-preset-select';
@@ -227,22 +230,10 @@ const app = new Hono<{
   Variables: { lang: 'ja' | 'en'; assetManifest: AssetManifest | null };
 }>();
 
-const isKanjiQuestType = (
+const isKokugoQuestType = (
   value: string | null | undefined
-): value is KanjiQuestType =>
-  value === 'reading' || value === 'stroke-count' || value === 'radical';
-
-const kanjiQuestTypeLabels: Record<KanjiQuestType, string> = {
-  reading: '読みクエスト',
-  'stroke-count': '画数クエスト',
-  radical: '部首クエスト',
-};
-
-const kanjiQuestDescriptions: Record<KanjiQuestType, string> = {
-  reading: '漢字の読み方クイズに挑戦中',
-  'stroke-count': '漢字の画数クイズに挑戦中',
-  radical: '漢字の部首クイズに挑戦中',
-};
+): value is KokugoQuestType =>
+  value === 'kanji-reading' || value === 'kanji-stroke-count';
 
 const isGameGradeId = (value: string | null | undefined): value is GradeId =>
   typeof value === 'string' &&
@@ -255,7 +246,7 @@ app.use('*', i18n());
 app.use('*', seoControl());
 app.use('*', assetManifest());
 
-// KanjiQuest favicon
+// KokugoQuest favicon
 app.get('/favicon-kanji.svg', (c) => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <rect width="100" height="100" fill="#9B87D4" rx="15"/>
@@ -844,8 +835,8 @@ app.get('/game/stellar-balance', async (c) => {
   );
 });
 
-// KanjiQuest routes
-app.get('/kanji', async (c) => {
+// KokugoQuest routes
+app.get('/kokugo', async (c) => {
   // Check if grade is saved in cookie
   const savedGradeId = getSelectedGrade(c);
   if (savedGradeId) {
@@ -853,7 +844,7 @@ app.get('/kanji', async (c) => {
     if (parsedGrade && parsedGrade.stage === '小学') {
       const gradeParam = createSchoolGradeParam(parsedGrade);
       return c.redirect(
-        `/kanji/select?grade=${encodeURIComponent(gradeParam)}`,
+        `/kokugo/select?grade=${encodeURIComponent(gradeParam)}`,
         302
       );
     }
@@ -862,15 +853,14 @@ app.get('/kanji', async (c) => {
   return c.render(
     <KanjiHome currentUser={await resolveCurrentUser(c.env, c.req.raw)} />,
     {
-      title: 'KanjiQuest | 漢字を楽しくマスターしよう',
-      description:
-        '小学校で習う漢字の読み方・部首・画数を練習。楽しく漢字を覚えられます。',
+      title: 'KokugoQuest | 漢字の読み方をマスターしよう',
+      description: '小学校で習う漢字の読み方を練習。楽しく漢字を覚えられます。',
       favicon: '/favicon-kanji.svg',
     }
   );
 });
 
-app.get('/kanji/dictionary', async (c) => {
+app.get('/kokugo/dictionary', async (c) => {
   const gradeParam = c.req.query('grade');
   const parsedGrade = parseSchoolGradeParam(gradeParam);
   const candidateGrade =
@@ -901,14 +891,14 @@ app.get('/kanji/dictionary', async (c) => {
       searchIndex={searchIndex}
     />,
     {
-      title: `KanjiQuest | ${gradeLabel}の漢字辞書`,
+      title: `KokugoQuest | ${gradeLabel}の漢字辞書`,
       description: `${gradeLabel}で学ぶ漢字の読み方・意味・例をまとめた辞書ページです。`,
       favicon: '/favicon-kanji.svg',
     }
   );
 });
 
-app.get('/kanji/dictionary/:id', async (c) => {
+app.get('/kokugo/dictionary/:id', async (c) => {
   const kanjiId = c.req.param('id');
   const gradeParam = c.req.query('grade');
   const parsedGrade = parseSchoolGradeParam(gradeParam);
@@ -942,7 +932,7 @@ app.get('/kanji/dictionary/:id', async (c) => {
       kanji={kanji}
     />,
     {
-      title: `${kanji.character} - ${gradeLabel}の漢字 | KanjiQuest`,
+      title: `${kanji.character} - ${gradeLabel}の漢字 | KokugoQuest`,
       description: `${kanji.character}（${kanji.meanings.join(
         '、'
       )}）の読み方・意味・例を確認できます。`,
@@ -951,13 +941,143 @@ app.get('/kanji/dictionary/:id', async (c) => {
   );
 });
 
-// KanjiQuest: クエストタイプ選択画面
-app.get('/kanji/select', async (c) => {
+/**
+ * Extract kanji characters from a vocabulary word
+ */
+function extractRelatedKanji(
+  word: string,
+  kanjiDict: ReturnType<typeof getKanjiDictionaryByGrade>,
+  exampleReading: string
+): Array<{ character: string; unicode: string; reading: string }> {
+  const relatedKanji: Array<{
+    character: string;
+    unicode: string;
+    reading: string;
+  }> = [];
+
+  for (let i = 0; i < word.length; i++) {
+    const char = word[i];
+    const matchingKanji = kanjiDict.find((k) => k.character === char);
+    if (matchingKanji) {
+      const reading =
+        exampleReading.includes('onyomi') ||
+        matchingKanji.readings.onyomi.some((r) => exampleReading.includes(r))
+          ? matchingKanji.readings.onyomi[0] || ''
+          : matchingKanji.readings.kunyomi[0] || '';
+
+      relatedKanji.push({
+        character: matchingKanji.character,
+        unicode: matchingKanji.unicode,
+        reading,
+      });
+    }
+  }
+
+  return relatedKanji;
+}
+
+/**
+ * Find vocabulary entry from kanji dictionary examples
+ */
+function findVocabularyEntry(
+  word: string,
+  kanjiDict: ReturnType<typeof getKanjiDictionaryByGrade>
+): {
+  entry: { word: string; reading: string; meaning: string } | null;
+  relatedKanji: Array<{ character: string; unicode: string; reading: string }>;
+} {
+  // Search in regular examples
+  for (const kanji of kanjiDict) {
+    const example = kanji.examples.find((ex) => ex.word === word);
+    if (example) {
+      const relatedKanji = extractRelatedKanji(
+        word,
+        kanjiDict,
+        example.reading
+      );
+      return { entry: example, relatedKanji };
+    }
+  }
+
+  // Search in special examples
+  for (const kanji of kanjiDict) {
+    const specialExample = kanji.specialExamples?.find(
+      (ex) => ex.word === word
+    );
+    if (specialExample) {
+      const relatedKanji = extractRelatedKanji(
+        word,
+        kanjiDict,
+        specialExample.reading
+      );
+      return { entry: specialExample, relatedKanji };
+    }
+  }
+
+  return { entry: null, relatedKanji: [] };
+}
+
+// Vocabulary Dictionary: 用語辞典の詳細画面
+app.get('/kokugo/vocabulary/:word', async (c) => {
+  const word = decodeURIComponent(c.req.param('word'));
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const grade = availableGrades.includes(candidateGrade) ? candidateGrade : 1;
+
+  // Search in all available grades' data to find the vocabulary entry
+  let vocabularyEntry = null;
+  let relatedKanji: Array<{
+    character: string;
+    unicode: string;
+    reading: string;
+  }> = [];
+
+  for (const searchGrade of availableGrades) {
+    const kanjiDict = getKanjiDictionaryByGrade(searchGrade);
+    const result = findVocabularyEntry(word, kanjiDict);
+    if (result.entry) {
+      vocabularyEntry = result.entry;
+      relatedKanji = result.relatedKanji;
+      break;
+    }
+  }
+
+  if (!vocabularyEntry) {
+    return c.notFound();
+  }
+
+  return c.render(
+    <VocabularyDetail
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      vocabulary={{
+        word,
+        reading: vocabularyEntry.reading,
+        meaning: vocabularyEntry.meaning,
+        relatedKanji,
+      }}
+    />,
+    {
+      title: `${word} - 用語辞典 | KokugoQuest`,
+      description: `${word}（${vocabularyEntry.reading}）の意味・使われている漢字を確認できます。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+// KokugoQuest: クエストタイプ選択画面
+app.get('/kokugo/select', async (c) => {
   const gradeParam = c.req.query('grade');
   const parsedGrade = parseSchoolGradeParam(gradeParam);
 
   if (parsedGrade == null || parsedGrade.stage !== '小学') {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   const grade = parsedGrade.grade as KanjiGrade;
@@ -974,19 +1094,50 @@ app.get('/kanji/select', async (c) => {
       gradeStage={parsedGrade.stage}
     />,
     {
-      title: `KanjiQuest - ${gradeLabel}`,
+      title: `KokugoQuest - ${gradeLabel}`,
       description: `${gradeLabel}向けの学習方法を選んでください。`,
       favicon: '/favicon-kanji.svg',
     }
   );
 });
 
-app.get('/kanji/quest', async (c) => {
+app.get('/kokugo/learn', async (c) => {
   const gradeParam = c.req.query('grade');
   const parsedGrade = parseSchoolGradeParam(gradeParam);
 
   if (parsedGrade == null || parsedGrade.stage !== '小学') {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
+  }
+
+  const grade = parsedGrade.grade as KanjiGrade;
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  const gradeId = createSchoolGradeParam(parsedGrade);
+  setSelectedGrade(c, gradeId);
+
+  const dictionaries = getEduQuestDictionariesByGrade(grade);
+
+  return c.render(
+    <KanjiLearn
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      gradeStage={parsedGrade.stage}
+      dictionaries={dictionaries}
+    />,
+    {
+      title: `KokugoQuest - ${gradeLabel}の辞書`,
+      description: `${gradeLabel}向けの漢字辞書・用語辞書を選べます。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kokugo/quest', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/kokugo', 302);
   }
 
   const grade = parsedGrade.grade as KanjiGrade;
@@ -997,37 +1148,37 @@ app.get('/kanji/quest', async (c) => {
   setSelectedGrade(c, gradeId);
 
   return c.render(
-    <KanjiQuest
+    <KokugoQuest
       currentUser={await resolveCurrentUser(c.env, c.req.raw)}
       grade={grade}
       gradeStage={parsedGrade.stage}
     />,
     {
-      title: `KanjiQuest - ${gradeLabel}`,
+      title: `KokugoQuest - ${gradeLabel}`,
       description: `${gradeLabel}向けのクエストタイプを選んでください。`,
       favicon: '/favicon-kanji.svg',
     }
   );
 });
 
-// KanjiQuest: 学年選択してクイズ開始
-app.get('/kanji/start', async (c) => {
+// KokugoQuest: 学年選択してクイズ開始
+app.get('/kokugo/start', async (c) => {
   const gradeParam = c.req.query('grade');
   const questTypeParam = c.req.query('questType');
   const grade = Number(gradeParam) as KanjiGrade;
 
-  if (questTypeParam && !isKanjiQuestType(questTypeParam)) {
+  if (questTypeParam && !isKokugoQuestType(questTypeParam)) {
     const gradeQuery = createSchoolGradeParam({ stage: '小学', grade });
-    return c.redirect(`/kanji/quest?grade=${gradeQuery}`, 302);
+    return c.redirect(`/kokugo/quest?grade=${gradeQuery}`, 302);
   }
 
-  const questType: KanjiQuestType = isKanjiQuestType(questTypeParam)
+  const questType: KokugoQuestType = isKokugoQuestType(questTypeParam)
     ? questTypeParam
-    : 'reading';
+    : 'kanji-reading';
 
   // 学年のバリデーション
   if (!grade || grade < 1 || grade > 6) {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   if (questType === 'radical' && grade !== 1) {
@@ -1049,7 +1200,7 @@ app.get('/kanji/start', async (c) => {
   );
 
   // セッションIDのみをHttpOnly Cookieに保存
-  const response = c.redirect('/kanji/quiz', 302);
+  const response = c.redirect('/kokugo/quiz', 302);
   response.headers.append(
     'Set-Cookie',
     `kanji_session_id=${sessionId}; Path=/; Max-Age=1800; HttpOnly; SameSite=Lax; Secure`
@@ -1058,13 +1209,13 @@ app.get('/kanji/start', async (c) => {
   return response;
 });
 
-// KanjiQuest: クイズ画面（現在の問題を表示）
-app.get('/kanji/quiz', async (c) => {
+// KokugoQuest: クイズ画面（現在の問題を表示）
+app.get('/kokugo/quiz', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
   const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
 
   if (!sessionMatch) {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   const sessionId = sessionMatch[1];
@@ -1074,13 +1225,13 @@ app.get('/kanji/quiz', async (c) => {
     const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
 
     if (!sessionData) {
-      return c.redirect('/kanji', 302);
+      return c.redirect('/kokugo', 302);
     }
 
     const session: KanjiQuizSession = JSON.parse(sessionData);
 
     if (!session.currentQuestion) {
-      return c.redirect('/kanji', 302);
+      return c.redirect('/kokugo', 302);
     }
 
     const questType = session.quiz.config.questType;
@@ -1096,17 +1247,17 @@ app.get('/kanji/quiz', async (c) => {
         questType={questType}
       />,
       {
-        title: `KanjiQuest | ${session.quiz.config.grade}年生 ${kanjiQuestTypeLabels[questType]}`,
-        description: kanjiQuestDescriptions[questType],
+        title: `KokugoQuest | ${session.quiz.config.grade}年生`,
+        description: '漢字の読み方クイズに挑戦中',
       }
     );
   } catch (error) {
     console.error('Failed to load kanji quiz session:', error);
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 });
 
-app.post('/kanji/quit', async (c) => {
+app.post('/kokugo/quit', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
   const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
 
@@ -1124,7 +1275,7 @@ app.post('/kanji/quit', async (c) => {
   const rawGrade = body.grade;
   const grade = typeof rawGrade === 'string' ? Number(rawGrade) : NaN;
   const isValidGrade = Number.isInteger(grade) && grade >= 1 && grade <= 6;
-  const redirectUrl = isValidGrade ? `/kanji/select?grade=${grade}` : '/kanji';
+  const redirectUrl = isValidGrade ? `/kokugo/select?grade=${grade}` : '/kanji';
 
   const response = c.redirect(redirectUrl, 302);
   response.headers.append(
@@ -1139,13 +1290,13 @@ app.post('/kanji/quit', async (c) => {
   return response;
 });
 
-// KanjiQuest: 回答を送信
-app.post('/kanji/quiz', async (c) => {
+// KokugoQuest: 回答を送信
+app.post('/kokugo/quiz', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
   const sessionMatch = cookies.match(/kanji_session_id=([^;]+)/);
 
   if (!sessionMatch) {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   const sessionId = sessionMatch[1];
@@ -1155,7 +1306,7 @@ app.post('/kanji/quiz', async (c) => {
     const sessionData = await c.env.KV_QUIZ_SESSION.get(`kanji:${sessionId}`);
 
     if (!sessionData) {
-      return c.redirect('/kanji', 302);
+      return c.redirect('/kokugo', 302);
     }
 
     const session: KanjiQuizSession = JSON.parse(sessionData);
@@ -1186,7 +1337,7 @@ app.post('/kanji/quiz', async (c) => {
       await c.env.KV_QUIZ_SESSION.delete(`kanji:${sessionId}`);
 
       // 結果ページにリダイレクト
-      const response = c.redirect('/kanji/results', 302);
+      const response = c.redirect('/kokugo/results', 302);
       response.headers.append(
         'Set-Cookie',
         `kanji_result_id=${resultId}; Path=/; Max-Age=300; HttpOnly; SameSite=Lax; Secure`
@@ -1205,20 +1356,20 @@ app.post('/kanji/quiz', async (c) => {
       { expirationTtl: 1800 }
     );
 
-    return c.redirect('/kanji/quiz', 302);
+    return c.redirect('/kokugo/quiz', 302);
   } catch (error) {
     console.error('Failed to process kanji quiz answer:', error);
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 });
 
-// KanjiQuest: 結果画面
-app.get('/kanji/results', async (c) => {
+// KokugoQuest: 結果画面
+app.get('/kokugo/results', async (c) => {
   const cookies = c.req.header('Cookie') ?? '';
   const resultMatch = cookies.match(/kanji_result_id=([^;]+)/);
 
   if (!resultMatch) {
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 
   const resultId = resultMatch[1];
@@ -1230,7 +1381,7 @@ app.get('/kanji/results', async (c) => {
     );
 
     if (!resultData) {
-      return c.redirect('/kanji', 302);
+      return c.redirect('/kokugo', 302);
     }
 
     type StoredKanjiResult = ReturnType<typeof getKanjiSessionResult> & {
@@ -1252,13 +1403,13 @@ app.get('/kanji/results', async (c) => {
         questType={questType}
       />,
       {
-        title: `KanjiQuest | ${kanjiQuestTypeLabels[questType]} 結果`,
-        description: `${kanjiQuestDescriptions[questType]} - スコア: ${result.score}点`,
+        title: 'KokugoQuest | 結果',
+        description: `漢字クイズの結果: ${result.score}点`,
       }
     );
   } catch (error) {
     console.error('Failed to parse kanji quiz result:', error);
-    return c.redirect('/kanji', 302);
+    return c.redirect('/kokugo', 302);
   }
 });
 
@@ -1343,7 +1494,7 @@ app.get('/clock/quest', async (c) => {
 });
 
 const clockQuestTypeConfig: Record<
-  'reading' | 'conversion' | 'arithmetic' | 'variety',
+  'kanji-reading' | 'conversion' | 'arithmetic' | 'variety',
   { difficulty: ClockDifficulty }
 > = {
   reading: { difficulty: 1 as ClockDifficulty },

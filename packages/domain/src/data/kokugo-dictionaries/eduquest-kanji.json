@@ -1,0 +1,19 @@
+{
+  "id": "eduquest-kanji",
+  "type": "internal",
+  "title": "漢字辞書",
+  "provider": "EduQuest",
+  "description": "学年別の教育漢字データをもとに読み方や意味、例を確認できます。クエスト前の復習に最適です。",
+  "gradeRange": { "min": 1, "max": 2 },
+  "features": [
+    "教育漢字の読み方・意味・例を収録",
+    "音読み・訓読みを横断検索",
+    "クエスト画面と連携しやすいUI"
+  ],
+  "link": "/kokugo/dictionary",
+  "cta": "漢字辞書を開く",
+  "source": {
+    "label": "EduQuest 漢字辞書",
+    "url": "/kokugo/dictionary"
+  }
+}

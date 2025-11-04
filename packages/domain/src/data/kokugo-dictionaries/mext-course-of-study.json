@@ -1,0 +1,19 @@
+{
+  "id": "mext-course-of-study",
+  "type": "official",
+  "title": "小学校学習指導要領 国語",
+  "provider": "文部科学省",
+  "description": "学年ごとの国語学習の目標・配列を定めた公式指針。語彙指導の観点や学習活動例を確認できます。",
+  "gradeRange": { "min": 1, "max": 6 },
+  "features": [
+    "学年ごとの到達目標と指導事項を明示",
+    "語彙・言語活動の学習観点を整理",
+    "授業づくりに役立つ参考資料や付録を掲載"
+  ],
+  "link": "https://www.mext.go.jp/content/20220810-mxt_kyoiku01-000005795_1.pdf",
+  "cta": "学習指導要領を開く",
+  "source": {
+    "label": "文部科学省 小学校学習指導要領 国語",
+    "url": "https://www.mext.go.jp/a_menu/shotou/new-cs/1384661.htm"
+  }
+}

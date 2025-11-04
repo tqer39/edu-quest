@@ -76,7 +76,7 @@ math.edu-quest.app (算数アプリ - Cloudflare Workers)
 ├── /play
 └── /apis/quiz
 
-kanji.edu-quest.app (漢字アプリ - Cloudflare Workers)
+kokugo.edu-quest.app (国語アプリ - Cloudflare Workers)
 ├── /start
 ├── /play
 └── /apis/quiz
@@ -243,7 +243,7 @@ export default function Home() {
           title="漢字クエスト"
           icon="📝"
           description="漢字をマスターしよう"
-          href="https://kanji.edu-quest.app"
+          href="https://kokugo.edu-quest.app"
           comingSoon
         />
 
@@ -302,7 +302,7 @@ packages/
 packages/
 ├── core/          # @eduquest/core（共通ロジック）
 ├── math/          # @eduquest/math（算数ドメイン）
-├── kanji/         # @eduquest/kanji（漢字ドメイン）
+├── kanji/         # @eduquest/kokugo（漢字ドメイン）
 ├── kana/          # @eduquest/kana（かなドメイン）
 ├── ui/            # @eduquest/ui（共通コンポーネント）
 └── auth/          # @eduquest/auth（認証）
@@ -381,8 +381,8 @@ export interface MathQuestion extends BaseQuestion {
   extras?: ExtraStep[];
 }
 
-// packages/kanji/src/types.ts
-export interface KanjiQuestion extends BaseQuestion {
+// packages/kokugo/src/types.ts
+export interface KokugoQuestion extends BaseQuestion {
   subject: 'kanji';
   kanji: string;
   readings: string[];
@@ -412,18 +412,18 @@ export interface KanjiQuestion extends BaseQuestion {
 
 **タスク:**
 
-- [ ] `apps/kanji/` を作成（`apps/edge/` をベースにコピー）
+- [ ] `apps/kokugo/` を作成（`apps/edge/` をベースにコピー）
 - [ ] 漢字問題生成ロジック実装
 - [ ] 漢字練習 UI 設計
-- [ ] `kanji.edu-quest.app` へデプロイ
+- [ ] `kokugo.edu-quest.app` へデプロイ
 - [ ] `apps/kana/` を作成
 - [ ] かな問題生成ロジック実装
 - [ ] `kana.edu-quest.app` へデプロイ
 
-**漢字アプリ構成例:**
+**国語アプリ構成例:**
 
 ```text
-apps/kanji/
+apps/kokugo/
 ├── src/
 │   ├── routes/
 │   │   ├── pages/
@@ -441,7 +441,7 @@ apps/kanji/
 
 **成果物:**
 
-- 稼働する `kanji.edu-quest.app`
+- 稼働する `kokugo.edu-quest.app`
 - 稼働する `kana.edu-quest.app`
 - ポータルからのリンク更新
 
@@ -474,7 +474,7 @@ export default {
       return handleMathApp(request, env);
     }
 
-    if (hostname === 'kanji.edu-quest.app') {
+    if (hostname === 'kokugo.edu-quest.app') {
       return handleKanjiApp(request, env);
     }
 
@@ -740,13 +740,13 @@ AUTH_COOKIE_DOMAIN=.edu-quest.app
 
 ## タイムライン概要
 
-| フェーズ                    | 期間     | 主要成果物                                   |
-| --------------------------- | -------- | -------------------------------------------- |
-| フェーズ1: 基盤整備         | 2 週間   | ドメイン設定、DNS、SSL                       |
-| フェーズ2: MathQuest 移行   | 2 週間   | math.edu-quest.app 稼働、リダイレクト完了    |
-| フェーズ3: ポータル開発     | 4 週間   | edu-quest.app ポータル公開                   |
-| フェーズ4: リファクタリング | 4 週間   | 複数教科対応アーキテクチャ                   |
-| フェーズ5: 新アプリ開発     | 6 週間〜 | kanji.edu-quest.app、kana.edu-quest.app 公開 |
+| フェーズ                    | 期間     | 主要成果物                                    |
+| --------------------------- | -------- | --------------------------------------------- |
+| フェーズ1: 基盤整備         | 2 週間   | ドメイン設定、DNS、SSL                        |
+| フェーズ2: MathQuest 移行   | 2 週間   | math.edu-quest.app 稼働、リダイレクト完了     |
+| フェーズ3: ポータル開発     | 4 週間   | edu-quest.app ポータル公開                    |
+| フェーズ4: リファクタリング | 4 週間   | 複数教科対応アーキテクチャ                    |
+| フェーズ5: 新アプリ開発     | 6 週間〜 | kokugo.edu-quest.app、kana.edu-quest.app 公開 |
 
 **想定総期間:** 18 週間以上（約 4.5 か月）
 

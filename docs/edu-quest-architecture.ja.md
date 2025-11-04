@@ -4,12 +4,12 @@
 
 ## 1. 目的
 
-EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。現在は算数練習の MathQuest を提供しており、将来的に漢字学習の KanjiQuest、脳トレ系ミニゲームの GameQuest、時計の読み方を学ぶ ClockQuest を追加予定です。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
+EduQuest は小学生向けの学習プラットフォームで、複数の「Quest」モジュールを通じて様々な教育コンテンツを提供します。現在は算数練習の MathQuest を提供しており、将来的に漢字学習の KokugoQuest、脳トレ系ミニゲームの GameQuest、時計の読み方を学ぶ ClockQuest を追加予定です。Cloudflare Workers 上で Hono を用いて SSR を行い、学年別プリセットやテーマ練習を提供します。問題生成と採点は共有ドメインロジックに集約し、UI から API まで一貫した仕様で再利用できるように構成されています。
 
 ### Quest モジュール
 
 - **MathQuest** (`/math`): 学年別プリセットとテーマ練習（「たし算 20 まで」「たし算・ひき算ミックス」など）を提供する算数練習
-- **KanjiQuest** (`/kanji`): 学年別に整理された漢字学習（準備中）
+- **KokugoQuest** (`/kokugo`): 学年別に整理された漢字学習（準備中）
 - **GameQuest** (`/game`): パターン認識・空間認識・記憶力を鍛える脳トレミニゲーム（Stellar Balance と数独をプレイ可能）
 - **ClockQuest** (`/clock`): アナログ時計とデジタル時計を使った時刻の読み方練習（準備中）
 
@@ -108,7 +108,7 @@ edu-quest/
 
 1. トップページでは、利用可能な Quest モジュールをテーマカラー付きのカードで表示：
    - **MathQuest**（青系テーマ）: 利用可能
-   - **KanjiQuest**（紫系テーマ）: 準備中
+   - **KokugoQuest**（紫系テーマ）: 準備中
    - **GameQuest**（緑系テーマ）: Stellar Balance と数独を提供
    - **ClockQuest**（オレンジ系テーマ）: 準備中
 2. 「はじめる」ボタンをクリックして、各 Quest に遷移できます。
@@ -192,7 +192,7 @@ type Question = {
 
 ### 基本方針
 
-全ての Quest モジュール（MathQuest、KanjiQuest、GameQuest、ClockQuest）は、クイズセッション管理に **KV + セッション ID パターン** を採用します：
+全ての Quest モジュール（MathQuest、KokugoQuest、GameQuest、ClockQuest）は、クイズセッション管理に **KV + セッション ID パターン** を採用します：
 
 - **セッションデータはサーバーサイドに保存** - Cloudflare KV に自動 TTL（Time To Live）で保存
 - **クライアントサイドにはセッション ID のみを保存** - HttpOnly Cookie に格納
@@ -208,7 +208,7 @@ type Question = {
 | KV_RATE_LIMIT   | API レート制限                | `KV_RATE_LIMIT`   |
 | KV_IDEMPOTENCY  | 冪等性キー管理                | `KV_IDEMPOTENCY`  |
 
-### セッションライフサイクル例（KanjiQuest）
+### セッションライフサイクル例（KokugoQuest）
 
 ```typescript
 // 1. セッション開始 - ID を生成して KV に保存

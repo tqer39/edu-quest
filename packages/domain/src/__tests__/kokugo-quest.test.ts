@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import {
   calculateKanjiScore,
   generateKanjiQuestions,
-  generateRadicalQuestion,
   generateReadingQuestion,
   generateStrokeCountQuestion,
   getKanjiByUnicode,
@@ -11,10 +10,10 @@ import {
   getKanjiPerformanceMessage,
   type Kanji,
   type KanjiGrade,
-  type KanjiQuestConfig,
+  type KokugoQuestConfig,
   type KanjiQuestion,
   verifyKanjiAnswer,
-} from '../kanji-quest';
+} from '../kokugo-quest';
 
 // Sample kanji data for testing
 const sampleKanji: Kanji[] = [
@@ -99,7 +98,7 @@ describe('generateReadingQuestion', () => {
     const question = generateReadingQuestion(kanji, sampleKanji);
 
     expect(question.character).toBe('一');
-    expect(question.questType).toBe('reading');
+    expect(question.questType).toBe('kanji-reading');
     expect(question.grade).toBe(1);
     // Grade 1-2 kanji should have ruby tags
     expect(question.questionText).toMatch(
@@ -184,7 +183,7 @@ describe('generateStrokeCountQuestion', () => {
     const question = generateStrokeCountQuestion(kanji, sampleKanji);
 
     expect(question.character).toBe('一');
-    expect(question.questType).toBe('stroke-count');
+    expect(question.questType).toBe('kanji-stroke-count');
     expect(question.grade).toBe(1);
     expect(question.correctAnswer).toBe('1');
     expect(question.choices).toHaveLength(4);
@@ -236,39 +235,11 @@ describe('generateStrokeCountQuestion', () => {
   });
 });
 
-describe('generateRadicalQuestion', () => {
-  it('generates a radical question with ruby for lower grades', () => {
-    const kanji = sampleKanji[3]; // 四 -> radical 囗
-    const question = generateRadicalQuestion(kanji, sampleKanji);
-
-    expect(question.character).toBe('四');
-    expect(question.questType).toBe('radical');
-    expect(question.grade).toBe(1);
-    expect(question.questionText).toBe(
-      '「四」の<ruby>部首<rt>ぶしゅ</rt></ruby>は？'
-    );
-  });
-
-  it('includes correct radical among the choices', () => {
-    const kanji = sampleKanji[0];
-    const question = generateRadicalQuestion(kanji, sampleKanji);
-
-    expect(question.choices).toHaveLength(4);
-    expect(question.choices).toContain(question.correctAnswer);
-
-    const wrongChoices = question.choices.filter(
-      (choice) => choice !== question.correctAnswer
-    );
-    expect(wrongChoices).toHaveLength(3);
-    expect(wrongChoices).not.toContain(question.correctAnswer);
-  });
-});
-
 describe('generateKanjiQuestions', () => {
   it('generates correct number of questions', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 3,
     };
     const questions = generateKanjiQuestions(config);
@@ -277,9 +248,9 @@ describe('generateKanjiQuestions', () => {
   });
 
   it('generates questions for specified grade', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 5,
     };
     const questions = generateKanjiQuestions(config);
@@ -290,15 +261,15 @@ describe('generateKanjiQuestions', () => {
   });
 
   it('generates reading quest questions', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 3,
     };
     const questions = generateKanjiQuestions(config);
 
     questions.forEach((q) => {
-      expect(q.questType).toBe('reading');
+      expect(q.questType).toBe('kanji-reading');
       // Grade 1-2 kanji should have ruby tags
       expect(q.questionText).toMatch(
         /^「.」の(<ruby>音読<rt>おんよ<\/rt><\/ruby>み|<ruby>訓読<rt>くんよ<\/rt><\/ruby>み)は？$/
@@ -307,9 +278,9 @@ describe('generateKanjiQuestions', () => {
   });
 
   it('uses specified reading type', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 5,
       readingType: 'onyomi',
     };
@@ -322,40 +293,25 @@ describe('generateKanjiQuestions', () => {
   });
 
   it('generates stroke count quest questions', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'stroke-count',
+      questType: 'kanji-stroke-count',
       questionCount: 3,
     };
     const questions = generateKanjiQuestions(config);
 
     questions.forEach((q) => {
-      expect(q.questType).toBe('stroke-count');
+      expect(q.questType).toBe('kanji-stroke-count');
       // Grade 1-2 kanji should have ruby tags for 画数
       expect(q.questionText).toContain('画数');
       expect(q.correctAnswer).toMatch(/^\d+$/); // Should be a number string
     });
   });
 
-  it('generates radical quest questions', () => {
-    const config: KanjiQuestConfig = {
-      grade: 1,
-      questType: 'radical',
-      questionCount: 3,
-    };
-    const questions = generateKanjiQuestions(config);
-
-    questions.forEach((q) => {
-      expect(q.questType).toBe('radical');
-      expect(q.questionText).toContain('部首');
-      expect(q.choices).toHaveLength(4);
-    });
-  });
-
   it('generates different kanji for each question', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 5,
     };
     const questions = generateKanjiQuestions(config);
@@ -368,9 +324,9 @@ describe('generateKanjiQuestions', () => {
   });
 
   it('throws error if grade has no data', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 2, // No data for grade 2 yet
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 3,
     };
 
@@ -388,7 +344,7 @@ describe('verifyKanjiAnswer', () => {
       questionText: '「一」の音読みは？',
       correctAnswer: 'イチ',
       choices: ['イチ', 'ニ', 'サン', 'シ'],
-      questType: 'reading',
+      questType: 'kanji-reading',
       grade: 1,
     };
 
@@ -401,7 +357,7 @@ describe('verifyKanjiAnswer', () => {
       questionText: '「一」の音読みは？',
       correctAnswer: 'イチ',
       choices: ['イチ', 'ニ', 'サン', 'シ'],
-      questType: 'reading',
+      questType: 'kanji-reading',
       grade: 1,
     };
 
@@ -414,7 +370,7 @@ describe('verifyKanjiAnswer', () => {
       questionText: '「一」の訓読みは？',
       correctAnswer: 'ひと',
       choices: ['ひと', 'ふた', 'み', 'よ'],
-      questType: 'reading',
+      questType: 'kanji-reading',
       grade: 1,
     };
 
@@ -428,7 +384,7 @@ describe('verifyKanjiAnswer', () => {
       questionText: '「一」の訓読みは？',
       correctAnswer: 'ひと-つ',
       choices: ['ひと-つ', 'ふた-つ', 'みっ-つ', 'よっ-つ'],
-      questType: 'reading',
+      questType: 'kanji-reading',
       grade: 1,
     };
 
@@ -565,9 +521,9 @@ describe('kanji data access helpers', () => {
 
 describe('Integration: Full KanjiQuest lifecycle', () => {
   it('generates and validates correct answers', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 5,
     };
     const questions = generateKanjiQuestions(config);
@@ -587,9 +543,9 @@ describe('Integration: Full KanjiQuest lifecycle', () => {
   });
 
   it('calculates score and provides appropriate feedback', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 10,
     };
     const questions = generateKanjiQuestions(config);
@@ -620,9 +576,9 @@ describe('Integration: Full KanjiQuest lifecycle', () => {
   });
 
   it('ensures all questions have valid structure', () => {
-    const config: KanjiQuestConfig = {
+    const config: KokugoQuestConfig = {
       grade: 1,
-      questType: 'reading',
+      questType: 'kanji-reading',
       questionCount: 10,
     };
     const questions = generateKanjiQuestions(config);
@@ -633,7 +589,7 @@ describe('Integration: Full KanjiQuest lifecycle', () => {
       expect(q.questionText).toBeTruthy();
       expect(q.correctAnswer).toBeTruthy();
       expect(q.choices).toHaveLength(4);
-      expect(q.questType).toBe('reading');
+      expect(q.questType).toBe('kanji-reading');
       expect(q.grade).toBe(1);
 
       // Correct answer must be in choices

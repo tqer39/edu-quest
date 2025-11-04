@@ -12,7 +12,7 @@ The UI/UX design for "eduquest" is built around the core concept: "Play becomes 
 
 ### 1.1. Answer Input Interface Standard
 
-**EduQuest uses button-based answer input across all quest types (MathQuest, ClockQuest, KanjiQuest, GameQuest).**
+**EduQuest uses button-based answer input across all quest types (MathQuest, ClockQuest, KokugoQuest, GameQuest).**
 
 This is a fundamental UX principle for the entire platform:
 
@@ -33,14 +33,14 @@ This is a fundamental UX principle for the entire platform:
 
 - **MathQuest:** Number pad (0-9) for arithmetic answers
 - **ClockQuest:** Hour buttons (1-12) for time reading
-- **KanjiQuest:** Multiple choice buttons for character selection
+- **KokugoQuest:** Multiple choice buttons for character selection
 - **GameQuest:** Mode-specific action buttons (tile rotation, card flip, pattern selection)
 
 This standard ensures a consistent, frustration-free learning experience for all elementary school students.
 
 ### 1.2. Grade-First Stage Selection Standard
 
-**Every Quest follows the KanjiQuest-style flow where learners choose their grade level before any other stage options.**
+**Every Quest follows the KokugoQuest-style flow where learners choose their grade level before any other stage options.**
 
 This requirement keeps the experience predictable across modules:
 
@@ -49,7 +49,7 @@ This requirement keeps the experience predictable across modules:
 - **Scalable IA:** New Quest types can plug into the same grade-first template without rethinking navigation or progress hand-off.
 - **Progress continuity:** Saving/restoring state uses the selected grade as the primary key, so keeping it upfront avoids mismatches between quests.
 
-KanjiQuest already implements this pattern, and MathQuest / ClockQuest must align with the same grade-first structure to maintain UX consistency.
+KokugoQuest already implements this pattern, and MathQuest / ClockQuest must align with the same grade-first structure to maintain UX consistency.
 
 ## 2. Target Users
 

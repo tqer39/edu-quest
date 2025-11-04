@@ -1,4 +1,4 @@
-import type { Kanji } from '../kanji-quest';
+import type { Kanji } from '../kokugo-quest';
 
 import kanji_4e00 from './kanji/4e00.json';
 import kanji_4e8c from './kanji/4e8c.json';

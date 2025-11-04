@@ -110,10 +110,10 @@ export const Home: FC<{ currentUser: CurrentUser | null }> = ({
           }}
         />
         <QuestCard
-          title="KanjiQuest"
+          title="KokugoQuest"
           description="小学校で習う漢字を学年ごとに学習。読み・書き・意味を楽しく覚えよう。"
           icon="✏️"
-          href="/kanji"
+          href="/kokugo"
           available={true}
           themeColor={{
             primary: '#9B87D4',

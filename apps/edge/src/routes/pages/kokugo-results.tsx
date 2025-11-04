@@ -43,7 +43,7 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
             ✏️
           </span>
           <span class="text-lg font-semibold tracking-tight text-[var(--mq-ink)]">
-            KanjiQuest 小学{grade}年生
+            KokugoQuest 小学{grade}年生
           </span>
           <span class="inline-flex items-center rounded-2xl bg-[var(--mq-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--mq-primary-strong)]">
             {questTypeLabel}
@@ -79,13 +79,13 @@ export const KanjiResults: FC<KanjiResultsProps> = ({
 
           <div class="flex flex-col gap-3">
             <a
-              href={`/kanji/start?grade=${grade}&questType=${questType}`}
+              href={`/kokugo/start?grade=${grade}`}
               class="rounded-2xl bg-gradient-to-r from-[var(--mq-primary)] to-[var(--mq-primary-strong)] px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               もう一度挑戦
             </a>
             <a
-              href="/kanji"
+              href="/kokugo"
               class="rounded-2xl border-2 border-[var(--mq-outline)] bg-white px-8 py-4 text-lg font-bold text-[var(--mq-ink)] shadow transition hover:-translate-y-1 hover:bg-[var(--mq-surface)] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
             >
               学年を選ぶ

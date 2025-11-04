@@ -1,5 +1,5 @@
 /**
- * KanjiQuest - Kanji Learning Quest
+ * KokugoQuest - Japanese Language Learning Quest
  *
  * Educational game for elementary school students to learn kanji characters
  * based on the Japanese Ministry of Education curriculum.
@@ -70,9 +70,9 @@ function loadKanjiByUnicode(unicode: string): Kanji | undefined {
 }
 
 /**
- * Quest types for KanjiQuest
+ * Quest types for KokugoQuest
  */
-export type KanjiQuestType = 'reading' | 'stroke-count' | 'radical';
+export type KokugoQuestType = 'kanji-reading' | 'kanji-stroke-count';
 
 /**
  * Difficulty level based on school grade
@@ -87,7 +87,7 @@ export interface KanjiQuestion {
   questionText: string;
   correctAnswer: string;
   choices: string[];
-  questType: KanjiQuestType;
+  questType: KokugoQuestType;
   grade: KanjiGrade;
 }
 
@@ -97,11 +97,11 @@ export interface KanjiQuestion {
 export type ReadingType = 'onyomi' | 'kunyomi' | 'both';
 
 /**
- * Configuration for KanjiQuest session
+ * Configuration for KokugoQuest session
  */
-export interface KanjiQuestConfig {
+export interface KokugoQuestConfig {
   grade: KanjiGrade;
-  questType: KanjiQuestType;
+  questType: KokugoQuestType;
   questionCount: number;
   readingType?: ReadingType; // For reading quest
 }
@@ -216,46 +216,6 @@ function formatReadingTypeName(
 }
 
 /**
- * Generate wrong answer choices for radical questions
- */
-function generateWrongRadicals(
-  correctRadical: string,
-  allKanji: Kanji[],
-  count: number = 3
-): string[] {
-  const candidates = new Set<string>();
-
-  for (const kanji of allKanji) {
-    for (const radical of kanji.radicals) {
-      if (radical !== correctRadical) {
-        candidates.add(radical);
-      }
-    }
-  }
-
-  const shuffled = shuffleArray(Array.from(candidates));
-  const wrongRadicals: string[] = [];
-
-  for (const radical of shuffled) {
-    if (wrongRadicals.length >= count) {
-      break;
-    }
-    wrongRadicals.push(radical);
-  }
-
-  // If there are not enough unique candidates, reuse from existing pool
-  while (wrongRadicals.length < count && shuffled.length > 0) {
-    const randomRadical =
-      shuffled[Math.floor(Math.random() * shuffled.length)] ?? correctRadical;
-    if (randomRadical !== correctRadical) {
-      wrongRadicals.push(randomRadical);
-    }
-  }
-
-  return wrongRadicals.slice(0, count);
-}
-
-/**
  * Generate a Reading Quest question
  */
 export function generateReadingQuestion(
@@ -313,7 +273,7 @@ export function generateReadingQuestion(
       questionText,
       correctAnswer,
       choices,
-      questType: 'reading',
+      questType: 'kanji-reading',
       grade,
     };
   }
@@ -341,7 +301,7 @@ export function generateReadingQuestion(
     questionText,
     correctAnswer,
     choices,
-    questType: 'reading',
+    questType: 'kanji-reading',
     grade,
   };
 }
@@ -416,46 +376,16 @@ export function generateStrokeCountQuestion(
     questionText,
     correctAnswer,
     choices,
-    questType: 'stroke-count',
+    questType: 'kanji-stroke-count',
     grade,
   };
 }
 
 /**
- * Generate a Radical Quest question
- */
-export function generateRadicalQuestion(
-  kanji: Kanji,
-  allKanji: Kanji[]
-): KanjiQuestion {
-  const [primaryRadical] = kanji.radicals;
-
-  if (!primaryRadical) {
-    throw new Error(`Kanji ${kanji.character} has no radical information.`);
-  }
-
-  const wrongAnswers = generateWrongRadicals(primaryRadical, allKanji, 3);
-  const choices = shuffleArray([primaryRadical, ...wrongAnswers]);
-
-  const grade = kanji.grade as KanjiGrade;
-  const radicalLabel = grade <= 2 ? '<ruby>部首<rt>ぶしゅ</rt></ruby>' : '部首';
-  const questionText = `「${kanji.character}」の${radicalLabel}は？`;
-
-  return {
-    character: kanji.character,
-    questionText,
-    correctAnswer: primaryRadical,
-    choices,
-    questType: 'radical',
-    grade,
-  };
-}
-
-/**
- * Generate multiple questions for a KanjiQuest session
+ * Generate multiple questions for a KokugoQuest session
  */
 export function generateKanjiQuestions(
-  config: KanjiQuestConfig
+  config: KokugoQuestConfig
 ): KanjiQuestion[] {
   const kanjiData = loadKanjiDataByGrade(config.grade);
 
@@ -470,7 +400,7 @@ export function generateKanjiQuestions(
 
   for (const kanji of selectedKanji) {
     switch (config.questType) {
-      case 'reading':
+      case 'kanji-reading':
         questions.push(
           generateReadingQuestion(
             kanji,
@@ -479,11 +409,8 @@ export function generateKanjiQuestions(
           )
         );
         break;
-      case 'stroke-count':
+      case 'kanji-stroke-count':
         questions.push(generateStrokeCountQuestion(kanji, kanjiData));
-        break;
-      case 'radical':
-        questions.push(generateRadicalQuestion(kanji, kanjiData));
         break;
       // TODO: Add other quest types (okurigana, puzzle, etc.)
       default:

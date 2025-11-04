@@ -1,0 +1,19 @@
+{
+  "id": "eduquest-bushu",
+  "type": "internal",
+  "title": "部首辞書",
+  "provider": "EduQuest",
+  "description": "漢字の部首（へん・つくり・かんむりなど）を学習できます。部首から漢字を探せます。",
+  "gradeRange": { "min": 1, "max": 2 },
+  "features": [
+    "主要な部首の意味・名前を収録",
+    "部首から漢字を検索",
+    "漢字辞書と相互連携"
+  ],
+  "link": "/kokugo/bushu",
+  "cta": "部首辞書を開く（準備中）",
+  "source": {
+    "label": "EduQuest 部首辞書",
+    "url": "/kokugo/bushu"
+  }
+}
