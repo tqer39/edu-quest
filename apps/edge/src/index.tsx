@@ -72,6 +72,7 @@ import { MathPresetSelect } from './routes/pages/math-preset-select';
 import { getMathPresetsForGradeAndCalc } from './routes/pages/math-presets';
 import { MathLearn } from './routes/pages/math-learn';
 import { MathLearnAddition } from './routes/pages/math-learn-addition';
+import { MathLearnSubtraction } from './routes/pages/math-learn-subtraction';
 import { MathQuest } from './routes/pages/math-quest';
 import { MathSelect } from './routes/pages/math-select';
 import { ParentsPage } from './routes/pages/parents';
@@ -542,6 +543,40 @@ app.get('/math/learn/addition', async (c) => {
   );
 });
 
+app.get('/math/learn/subtraction', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+
+  if (parsedGrade == null || parsedGrade.stage !== '小学') {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeIndex = parsedGrade.grade - 1;
+  const selectedGrade = gradeLevels[gradeIndex];
+
+  if (selectedGrade && !selectedGrade.disabled) {
+    setSelectedGrade(c, selectedGrade.id);
+  }
+
+  if (!selectedGrade || selectedGrade.disabled) {
+    return c.redirect('/math', 302);
+  }
+
+  const gradeLabel = formatSchoolGradeLabel(parsedGrade);
+
+  return c.render(
+    <MathLearnSubtraction
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      gradeId={selectedGrade.id}
+      gradeStage={parsedGrade.stage}
+    />,
+    {
+      title: `MathQuest - ${gradeLabel}のひき算学習`,
+      description: `${gradeLabel}向けのひき算の考え方と練習方法を紹介します。`,
+    }
+  );
+});
+
 app.get('/math/quest', async (c) => {
   const gradeParam = c.req.query('grade');
   const parsedGrade = parseSchoolGradeParam(gradeParam);
@@ -697,13 +732,61 @@ app.get('/math/start', async (c) => {
   );
 });
 
-app.get('/math/play', async (c) =>
-  c.render(<Play currentUser={await resolveCurrentUser(c.env, c.req.raw)} />, {
-    title: 'MathQuest | 練習セッション',
-    description:
-      '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
-  })
-);
+app.get('/math/play', async (c) => {
+  // URLパラメータを取得
+  const gradeParam = c.req.query('grade');
+  const calcParam = c.req.query('calc');
+  const presetParam = c.req.query('preset');
+  const countParam = c.req.query('count');
+  const soundParam = c.req.query('sound');
+  const countdownParam = c.req.query('countdown');
+  const inverseParam = c.req.query('inverse');
+
+  // URLパラメータが指定されている場合は、プリセット設定を取得
+  let presetConfig = null;
+  if (gradeParam && calcParam && presetParam) {
+    const gradeResult = resolveGradeFromParam(gradeParam);
+    if (gradeResult) {
+      const presets = getMathPresetsForGradeAndCalc(
+        gradeResult.grade.id,
+        calcParam
+      );
+      const preset = presets.find((p) => p.id === presetParam);
+      if (preset) {
+        presetConfig = {
+          gradeId: gradeResult.grade.id,
+          gradeLabel: gradeResult.grade.label,
+          gradeDescription: gradeResult.grade.description,
+          calcId: calcParam,
+          calcLabel:
+            calculationTypes.find((c) => c.id === calcParam)?.label ||
+            'カスタム',
+          presetId: preset.id,
+          presetLabel: preset.label,
+          mode: preset.mode,
+          max: preset.max,
+          terms: preset.terms,
+          questionCount: countParam ? Number(countParam) : 10,
+          soundEnabled: soundParam === 'true',
+          countdownEnabled: countdownParam !== 'false',
+          inverse: inverseParam === 'true',
+        };
+      }
+    }
+  }
+
+  return c.render(
+    <Play
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      urlPresetConfig={presetConfig}
+    />,
+    {
+      title: 'MathQuest | 練習セッション',
+      description:
+        '選択した学年の問題に挑戦します。カウントダウン後にテンキーで解答し、途中式を確認できます。',
+    }
+  );
+});
 
 // GameQuest routes
 app.get('/game', async (c) => {

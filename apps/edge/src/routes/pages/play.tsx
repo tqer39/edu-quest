@@ -4,9 +4,27 @@ import type { CurrentUser } from '../../application/session/current-user';
 import { gradePresets } from './grade-presets';
 import { renderPlayClientScript } from './play.client';
 
-export const Play: FC<{ currentUser: CurrentUser | null }> = ({
-  currentUser,
-}) => (
+type UrlPresetConfig = {
+  gradeId: string;
+  gradeLabel: string;
+  gradeDescription: string;
+  calcId: string;
+  calcLabel: string;
+  presetId: string;
+  presetLabel: string;
+  mode: string;
+  max: number;
+  terms: number;
+  questionCount: number;
+  soundEnabled: boolean;
+  countdownEnabled: boolean;
+  inverse: boolean;
+} | null;
+
+export const Play: FC<{
+  currentUser: CurrentUser | null;
+  urlPresetConfig?: UrlPresetConfig;
+}> = ({ currentUser, urlPresetConfig }) => (
   <div
     id="play-root"
     class="relative flex min-h-screen flex-col bg-[var(--mq-surface-strong)] text-[var(--mq-ink)]"
@@ -280,6 +298,6 @@ export const Play: FC<{ currentUser: CurrentUser | null }> = ({
       </aside>
     </main>
 
-    {renderPlayClientScript()}
+    {renderPlayClientScript(urlPresetConfig)}
   </div>
 );
