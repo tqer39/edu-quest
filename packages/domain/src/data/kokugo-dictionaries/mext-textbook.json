@@ -1,0 +1,19 @@
+{
+  "id": "mext-textbook",
+  "type": "official",
+  "title": "教科書情報データベース（国語）",
+  "provider": "文部科学省",
+  "description": "文部科学省が公開する教科書データベース。国語の教科書本文や語句の使い方を学年別に確認できます。",
+  "gradeRange": { "min": 1, "max": 6 },
+  "features": [
+    "最新の検定教科書情報を掲載",
+    "学年別・単元別に検索可能",
+    "教科書の本文PDFや付録へのリンクを収録"
+  ],
+  "link": "https://textbook.mext.go.jp/elementary/japanese-language/",
+  "cta": "教科書データベースを見る",
+  "source": {
+    "label": "文部科学省 教科書情報データベース",
+    "url": "https://textbook.mext.go.jp/"
+  }
+}

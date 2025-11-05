@@ -1,20 +1,27 @@
-[🇺🇸 English](/docs/kanji-quest-design.md)
+[🇺🇸 English](/docs/kokugo-quest-design.md)
 
-# KanjiQuest 設計ドキュメント
+# KokugoQuest 設計ドキュメント
 
 ## 概要
 
-KanjiQuestは、小学生が漢字を楽しく学べる教育ゲームです。
+KokugoQuestは、小学生向けの包括的な国語学習プラットフォームです。漢字・用語・部首をゲーム形式のクイズと参照用辞書で学習できます。
 
 ## 対象ユーザー
 
 - 小学生（1年生〜6年生）
 - 年齢層：6〜12歳
-- 文部科学省の学習指導要領に沿った漢字学習
+- 文部科学省の学習指導要領に沿った国語学習（漢字・用語・部首）
 
-## コアとなる3つのクエスト
+## コア機能
 
-### 1. 読み方クエスト
+KokugoQuestは2つの主要コンポーネントで構成されています：
+
+1. **クエストモード**: 漢字の読み方と画数を練習する対話型クイズ
+2. **辞書モード**: 漢字・用語・部首の参照資料
+
+## クエストタイプ
+
+### 1. 漢字の読みクエスト
 
 **目的**: 漢字の正しい読み方（音読み/訓読み）を学ぶ
 
@@ -44,7 +51,35 @@ KanjiQuestは、小学生が漢字を楽しく学べる教育ゲームです。
 
 ---
 
-### 2. 送り仮名クエスト
+### 2. 漢字の画数クエスト
+
+**目的**: 漢字の正しい画数を学ぶ
+
+**問題形式**:
+
+```text
+表示: 学
+問題: この漢字の画数は？
+選択肢:
+  A) 6画
+  B) 7画
+  C) 8画 ✓
+  D) 9画
+```
+
+**学習効果**:
+
+- 漢字の書き方スキルを強化
+- 視覚的分析能力を向上
+- 辞書検索スキルの基礎を構築
+
+---
+
+### 3. 今後のクエストタイプ（予定）
+
+以下のクエストタイプは今後のフェーズで検討中です：
+
+#### 送り仮名クエスト
 
 **目的**: 正しい送り仮名の使い方を身につける
 
@@ -60,15 +95,7 @@ KanjiQuestは、小学生が漢字を楽しく学べる教育ゲームです。
   D) 書け
 ```
 
-**学習効果**:
-
-- 動詞の活用パターンを強化
-- よくある間違いを学ぶ
-- 読解力を向上
-
----
-
-### 3. 漢字パズルクエスト
+#### 漢字パズルクエスト
 
 **目的**: 漢字の成り立ちと部首を理解する
 
@@ -101,6 +128,33 @@ KanjiQuestは、小学生が漢字を楽しく学べる教育ゲームです。
 - 部首の意味を表示
 - 漢字の成り立ちアニメーション
 - 語呂合わせヒント
+
+---
+
+## 辞書機能
+
+KokugoQuestは `/kokugo/learn` から3種類の参照辞書を提供しています：
+
+### 1. 漢字辞書
+
+- 学年別に漢字を参照
+- 読み方（音読み/訓読み）、意味、画数を表示
+- その漢字を使った例文を表示
+- 漢字を含む用語エントリへリンク
+
+### 2. 用語辞書
+
+- 学年別に用語を参照
+- 読み方、意味、漢字分解を表示
+- 漢字辞書エントリへの相互参照
+- 準備中
+
+### 3. 部首辞書
+
+- 漢字の構成要素（へん・つくり・かんむり）を学習
+- 部首から漢字を検索
+- 文字構造と語源を理解
+- 準備中
 
 ---
 
@@ -207,15 +261,15 @@ interface Kanji {
 }
 
 // 問題タイプ
-type KanjiQuestionType =
-  | 'reading' // 読み方クエスト
+type KokugoQuestionType =
+  | 'kanji-reading' // 読み方クエスト
   | 'okurigana' // 送り仮名クエスト
   | 'puzzle' // 漢字パズルクエスト
   | 'radical' // 部首クエスト
   | 'compound'; // 熟語クエスト
 
 // 問題生成クラス
-class KanjiQuestionGenerator {
+class KokugoQuestionGenerator {
   generateReadingQuestion(kanji: Kanji, difficulty: Difficulty): Question;
   generateOkuriganaQuestion(verb: Kanji, difficulty: Difficulty): Question;
   generatePuzzleQuestion(kanjis: Kanji[], difficulty: Difficulty): Question;
@@ -228,7 +282,7 @@ class KanjiQuestionGenerator {
 // クイズセッション管理
 class KanjiQuizSession {
   grade: number;
-  questionType: KanjiQuestionType;
+  questionType: KokugoQuestionType;
   questionCount: number;
   currentQuestion: number;
   score: number;
@@ -244,7 +298,7 @@ class KanjiAnswerVerifier {
 
 **セッションストレージ戦略:**
 
-KanjiQuest はサーバーサイドのセッション管理に **Cloudflare KV** を使用します：
+KokugoQuest はサーバーサイドのセッション管理に **Cloudflare KV** を使用します：
 
 - セッションデータは `KV_QUIZ_SESSION` にキーパターン `kanji:{sessionId}` で保存
 - HttpOnly Cookie にはセッション ID のみを保存（`kanji_session_id`）
@@ -258,10 +312,12 @@ KanjiQuest はサーバーサイドのセッション管理に **Cloudflare KV**
 
 ```typescript
 // ルーティング
-GET  /kanji              → トップページ
-GET  /kanji/start        → 設定画面
-GET  /kanji/play         → 練習セッション
-POST /apis/kanji/quiz    → クイズAPI
+GET  /kokugo              → トップページ
+GET  /kokugo/start        → 設定画面（学年とクエストタイプ選択）
+GET  /kokugo/play         → 練習セッション
+GET  /kokugo/learn        → 辞書選択ページ
+GET  /kokugo/dictionary   → 漢字辞書
+POST /apis/kokugo/quiz    → クイズAPI
 ```
 
 ---

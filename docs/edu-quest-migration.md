@@ -76,7 +76,7 @@ math.edu-quest.app (Math App - Cloudflare Workers)
 ├── /play
 └── /apis/quiz
 
-kanji.edu-quest.app (Kanji App - Cloudflare Workers)
+kokugo.edu-quest.app (Kokugo App - Cloudflare Workers)
 ├── /start
 ├── /play
 └── /apis/quiz
@@ -243,7 +243,7 @@ export default function Home() {
           title="漢字クエスト"
           icon="📝"
           description="漢字をマスターしよう"
-          href="https://kanji.edu-quest.app"
+          href="https://kokugo.edu-quest.app"
           comingSoon
         />
 
@@ -302,7 +302,7 @@ packages/
 packages/
 ├── core/          # @eduquest/core (shared logic)
 ├── math/          # @eduquest/math (math-specific domain)
-├── kanji/         # @eduquest/kanji (kanji-specific domain)
+├── kanji/         # @eduquest/kokugo (kanji-specific domain)
 ├── kana/          # @eduquest/kana (kana-specific domain)
 ├── ui/            # @eduquest/ui (shared components)
 └── auth/          # @eduquest/auth (authentication)
@@ -381,8 +381,8 @@ export interface MathQuestion extends BaseQuestion {
   extras?: ExtraStep[];
 }
 
-// packages/kanji/src/types.ts
-export interface KanjiQuestion extends BaseQuestion {
+// packages/kokugo/src/types.ts
+export interface KokugoQuestion extends BaseQuestion {
   subject: 'kanji';
   kanji: string;
   readings: string[];
@@ -412,10 +412,10 @@ export interface KanjiQuestion extends BaseQuestion {
 
 **Tasks:**
 
-- [ ] Create `apps/kanji/` (copy structure from `apps/edge/`)
+- [ ] Create `apps/kokugo/` (copy structure from `apps/edge/`)
 - [ ] Implement kanji question generation
 - [ ] Design kanji practice UI
-- [ ] Deploy to `kanji.edu-quest.app`
+- [ ] Deploy to `kokugo.edu-quest.app`
 - [ ] Create `apps/kana/`
 - [ ] Implement kana question generation
 - [ ] Deploy to `kana.edu-quest.app`
@@ -423,7 +423,7 @@ export interface KanjiQuestion extends BaseQuestion {
 **Kanji App Structure:**
 
 ```text
-apps/kanji/
+apps/kokugo/
 ├── src/
 │   ├── routes/
 │   │   ├── pages/
@@ -441,7 +441,7 @@ apps/kanji/
 
 **Deliverables:**
 
-- Working `kanji.edu-quest.app`
+- Working `kokugo.edu-quest.app`
 - Working `kana.edu-quest.app`
 - Updated portal with live links
 
@@ -474,7 +474,7 @@ export default {
       return handleMathApp(request, env);
     }
 
-    if (hostname === 'kanji.edu-quest.app') {
+    if (hostname === 'kokugo.edu-quest.app') {
       return handleKanjiApp(request, env);
     }
 
@@ -746,7 +746,7 @@ If critical issues are detected after migration:
 | Phase 2: MathQuest Migration | 2 weeks  | math.edu-quest.app live, redirect working |
 | Phase 3: Portal Development  | 4 weeks  | edu-quest.app portal live                 |
 | Phase 4: Refactoring         | 4 weeks  | Multi-subject architecture                |
-| Phase 5: New Apps            | 6+ weeks | kanji.edu-quest.app, kana.edu-quest.app   |
+| Phase 5: New Apps            | 6+ weeks | kokugo.edu-quest.app, kana.edu-quest.app  |
 
 **Total Estimated Time:** 18+ weeks (4.5 months)
 

@@ -71,14 +71,14 @@ const ClockNav: FC<{ currentUser: CurrentUser | null; grade: ClockGrade }> = ({
 };
 
 const questOptions: {
-  id: 'reading' | 'conversion' | 'arithmetic' | 'variety';
+  id: 'kanji-reading' | 'conversion' | 'arithmetic' | 'variety';
   title: string;
   description: string;
   icon: string;
   difficulty: ClockDifficulty;
 }[] = [
   {
-    id: 'reading',
+    id: 'kanji-reading',
     title: 'アナログ・デジタル時計の読み問題',
     description:
       '長針・短針やデジタル表示を読み取って、正しい時刻を答えるクエストです。',
@@ -146,7 +146,7 @@ export const ClockQuest: FC<{
       <ClockNav currentUser={currentUser} grade={grade} />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">🕐</span>
+          <span class="text-6xl">⚔️</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
               クエストを選んでください

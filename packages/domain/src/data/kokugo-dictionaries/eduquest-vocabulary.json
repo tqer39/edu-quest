@@ -1,0 +1,19 @@
+{
+  "id": "eduquest-vocabulary",
+  "type": "internal",
+  "title": "用語辞書",
+  "provider": "EduQuest",
+  "description": "学年別の重要用語をまとめた辞書です。言葉の意味や使われている漢字を確認できます。",
+  "gradeRange": { "min": 1, "max": 2 },
+  "features": [
+    "教育用語の意味・読み方を収録",
+    "用語に含まれる漢字へのリンク",
+    "漢字辞書と相互連携"
+  ],
+  "link": "/kokugo/vocabulary",
+  "cta": "用語辞書を開く（準備中）",
+  "source": {
+    "label": "EduQuest 用語辞書",
+    "url": "/kokugo/vocabulary"
+  }
+}

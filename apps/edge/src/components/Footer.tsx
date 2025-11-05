@@ -56,7 +56,7 @@ export const Footer: FC = () => (
 
       <div class="mt-16 mb-4">
         <p class="text-center text-xs text-[#5e718a]">
-          © 2025 EduQuest. All rights reserved.
+          © 2025 tqer39. All rights reserved.
         </p>
       </div>
     </div>

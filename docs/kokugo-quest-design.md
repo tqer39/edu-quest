@@ -1,20 +1,27 @@
-[🇯🇵 日本語](/docs/kanji-quest-design.ja.md)
+[🇯🇵 日本語](/docs/kokugo-quest-design.ja.md)
 
-# KanjiQuest Design Document
+# KokugoQuest Design Document
 
 ## Overview
 
-KanjiQuest is an educational game for elementary school students to learn kanji (Chinese characters) in a fun and engaging way.
+KokugoQuest is a comprehensive Japanese language learning platform for elementary school students. It provides interactive learning experiences for kanji (Chinese characters), vocabulary, and radicals (bushu) through game-based quizzes and reference dictionaries.
 
 ## Target Users
 
 - Elementary school students (Grades 1-6)
 - Age range: 6-12 years old
-- Learning kanji according to the Japanese Ministry of Education curriculum
+- Learning Japanese language elements (kanji, vocabulary, radicals) according to the Japanese Ministry of Education curriculum
 
-## Core Quest Types
+## Core Features
 
-### 1. Reading Quest (読み方クエスト)
+KokugoQuest consists of two main components:
+
+1. **Quest Mode**: Interactive quizzes for practicing kanji reading and stroke counting
+2. **Dictionary Mode**: Reference materials for kanji, vocabulary, and radicals
+
+## Quest Types
+
+### 1. Kanji Reading Quest (漢字の読みクエスト)
 
 **Objective**: Learn correct kanji readings (音読み/訓読み)
 
@@ -44,7 +51,35 @@ Options:
 
 ---
 
-### 2. Okurigana Quest (送り仮名クエスト)
+### 2. Kanji Stroke Count Quest (漢字の画数クエスト)
+
+**Objective**: Learn the correct number of strokes in kanji characters
+
+**Question Format**:
+
+```text
+Display: 学
+Question: この漢字の画数は？
+Options:
+  A) 6画
+  B) 7画
+  C) 8画 ✓
+  D) 9画
+```
+
+**Educational Value**:
+
+- Reinforces kanji writing skills
+- Develops visual analysis abilities
+- Builds foundation for dictionary lookup skills
+
+---
+
+### 3. Future Quest Types (Planned)
+
+The following quest types are under consideration for future phases:
+
+#### Okurigana Quest (送り仮名クエスト)
 
 **Objective**: Master correct okurigana usage
 
@@ -60,15 +95,7 @@ Options:
   D) 書け
 ```
 
-**Educational Value**:
-
-- Reinforces verb conjugation patterns
-- Teaches common mistakes to avoid
-- Builds reading comprehension skills
-
----
-
-### 3. Kanji Puzzle Quest (漢字パズルクエスト)
+#### Kanji Puzzle Quest (漢字パズルクエスト)
 
 **Objective**: Understand kanji composition and radicals
 
@@ -101,6 +128,33 @@ Options:
 - Show radical meanings
 - Animate kanji formation
 - Provide mnemonic hints
+
+---
+
+## Dictionary Features
+
+KokugoQuest provides three types of reference dictionaries accessible from `/kokugo/learn`:
+
+### 1. Kanji Dictionary (漢字辞書)
+
+- Browse kanji by grade level
+- View readings (音読み/訓読み), meanings, and stroke count
+- See example words using the kanji
+- Link to vocabulary entries containing the kanji
+
+### 2. Vocabulary Dictionary (用語辞書)
+
+- Browse vocabulary words by grade level
+- View readings, meanings, and kanji breakdowns
+- Cross-reference with kanji dictionary entries
+- Coming soon
+
+### 3. Radical Dictionary (部首辞書)
+
+- Learn kanji components (へん・つくり・かんむり)
+- Search kanji by radical
+- Understand character structure and etymology
+- Coming soon
 
 ---
 
@@ -207,15 +261,15 @@ interface Kanji {
 }
 
 // Question types
-type KanjiQuestionType =
-  | 'reading' // 読み方クエスト
+type KokugoQuestionType =
+  | 'kanji-reading' // 読み方クエスト
   | 'okurigana' // 送り仮名クエスト
   | 'puzzle' // 漢字パズルクエスト
   | 'radical' // 部首クエスト
   | 'compound'; // 熟語クエスト
 
 // Question generator
-class KanjiQuestionGenerator {
+class KokugoQuestionGenerator {
   generateReadingQuestion(kanji: Kanji, difficulty: Difficulty): Question;
   generateOkuriganaQuestion(verb: Kanji, difficulty: Difficulty): Question;
   generatePuzzleQuestion(kanjis: Kanji[], difficulty: Difficulty): Question;
@@ -228,7 +282,7 @@ class KanjiQuestionGenerator {
 // Quiz session management
 class KanjiQuizSession {
   grade: number;
-  questionType: KanjiQuestionType;
+  questionType: KokugoQuestionType;
   questionCount: number;
   currentQuestion: number;
   score: number;
@@ -244,7 +298,7 @@ class KanjiAnswerVerifier {
 
 **Session Storage Strategy:**
 
-KanjiQuest uses **Cloudflare KV** for server-side session management:
+KokugoQuest uses **Cloudflare KV** for server-side session management:
 
 - Session data is stored in `KV_QUIZ_SESSION` with key pattern `kanji:{sessionId}`
 - Only session ID is stored in HttpOnly cookie (`kanji_session_id`)
@@ -258,10 +312,12 @@ This approach provides security (XSS/CSRF protection) and scalability (distribut
 
 ```typescript
 // Routes
-GET  /kanji              → Landing page
-GET  /kanji/start        → Configuration wizard
-GET  /kanji/play         → Practice session
-POST /apis/kanji/quiz    → Quiz API
+GET  /kokugo              → Landing page
+GET  /kokugo/start        → Configuration wizard (grade & quest type selection)
+GET  /kokugo/play         → Practice session
+GET  /kokugo/learn        → Dictionary selection page
+GET  /kokugo/dictionary   → Kanji dictionary
+POST /apis/kokugo/quiz    → Quiz API
 ```
 
 ---

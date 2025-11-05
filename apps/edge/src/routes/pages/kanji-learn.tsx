@@ -126,7 +126,9 @@ export const KanjiLearn: FC<{
       icon: '🧩',
       description:
         '漢字を構成する部首を調べられます。同じ部首を持つ漢字や特徴を確認しましょう。',
-      href: `/kanji/dictionary/radicals?grade=${encodeURIComponent(gradeParam)}`,
+      href: `/kanji/dictionary/radicals?grade=${encodeURIComponent(
+        gradeParam
+      )}`,
     },
   ];
 
@@ -168,7 +170,10 @@ export const KanjiLearn: FC<{
           </h2>
           <ul class="space-y-2 text-sm text-[#5e718a]">
             <li>✓ 漢字辞書: 読み方・意味・例文を確認したいときに便利です。</li>
-            <li>✓ 部首辞書: 同じ部首を持つ漢字をまとめて覚えたいときに活用しましょう。</li>
+            <li>
+              ✓ 部首辞書:
+              同じ部首を持つ漢字をまとめて覚えたいときに活用しましょう。
+            </li>
             <li>✓ クエスト中でも辞書メニューからいつでも開けます。</li>
           </ul>
         </section>

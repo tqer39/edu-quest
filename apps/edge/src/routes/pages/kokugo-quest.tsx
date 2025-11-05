@@ -1,4 +1,4 @@
-import type { KanjiGrade, KanjiQuestType } from '@edu-quest/domain';
+import type { KanjiGrade, KokugoQuestType } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
@@ -17,7 +17,7 @@ const KanjiNav: FC<{
 }> = ({ currentUser, grade, stage }) => {
   const gradeParam = createSchoolGradeParam({ stage, grade });
 
-  // 利用可能な学年リスト（小学1-2年生のみ、KanjiQuestは現在1-2年生のみ対応）
+  // 利用可能な学年リスト（小学1-2年生のみ、KokugoQuestは現在1-2年生のみ対応）
   const availableGrades: readonly {
     stage: SchoolStage;
     grade: number;
@@ -44,11 +44,21 @@ const KanjiNav: FC<{
           />
         </a>
         <span class="text-[var(--mq-outline)]">|</span>
-        <a href="/kanji" class="transition hover:opacity-80">
+        <a href="/kokugo" class="transition hover:opacity-80">
           <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
             ✏️
           </span>
         </a>
+        <span class="text-[var(--mq-outline)]">|</span>
+        <a
+          href={`/kokugo/select?grade=${gradeParam}`}
+          class="transition hover:opacity-80"
+        >
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+            🧭
+          </span>
+        </a>
+        <span class="text-[var(--mq-outline)]">|</span>
         <GradeDropdown
           currentGrade={grade}
           currentStage={stage}
@@ -57,7 +67,7 @@ const KanjiNav: FC<{
         />
       </div>
       <div class="flex flex-wrap gap-2">
-        <DictionaryLink gradeParam={gradeParam} />
+        <DictionaryLink href={`/kokugo/dictionary?grade=${gradeParam}`} />
         {currentUser ? (
           <a
             href="/auth/logout"
@@ -79,25 +89,25 @@ const KanjiNav: FC<{
 };
 
 type QuestTypeCardProps = {
-  questType: KanjiQuestType;
+  questType: KokugoQuestType;
   grade: KanjiGrade;
 };
 
 const getQuestTypeInfo = (
-  questType: KanjiQuestType
+  questType: KokugoQuestType
 ): {
   title: string;
   emoji: string;
   description: string;
 } => {
   switch (questType) {
-    case 'reading':
+    case 'kanji-reading':
       return {
         title: '読みクエスト',
         emoji: '📖',
         description: '漢字の音読み・訓読みを答えます',
       };
-    case 'stroke-count':
+    case 'kanji-stroke-count':
       return {
         title: '画数クエスト',
         emoji: '✍️',
@@ -111,7 +121,7 @@ const QuestTypeCard: FC<QuestTypeCardProps> = ({ questType, grade }) => {
 
   return (
     <a
-      href={`/kanji/start?grade=${grade}&questType=${questType}`}
+      href={`/kokugo/start?grade=${grade}&questType=${questType}`}
       class="flex flex-col gap-4 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-br from-white to-[var(--mq-primary-soft)] p-8 shadow-lg transition hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
     >
       <div class="text-5xl">{info.emoji}</div>
@@ -121,12 +131,12 @@ const QuestTypeCard: FC<QuestTypeCardProps> = ({ questType, grade }) => {
   );
 };
 
-export const KanjiQuest: FC<{
+export const KokugoQuest: FC<{
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
   gradeStage: SchoolStage;
 }> = ({ currentUser, grade, gradeStage }) => {
-  const questTypes: KanjiQuestType[] = ['reading', 'stroke-count'];
+  const questTypes: KokugoQuestType[] = ['kanji-reading', 'kanji-stroke-count'];
   const gradeLabel = formatSchoolGradeLabel({ stage: gradeStage, grade });
 
   return (
@@ -137,7 +147,7 @@ export const KanjiQuest: FC<{
       <KanjiNav currentUser={currentUser} grade={grade} stage={gradeStage} />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">✏️</span>
+          <span class="text-6xl">⚔️</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
               クエストを選んでください

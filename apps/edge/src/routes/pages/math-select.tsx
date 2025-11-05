@@ -1,7 +1,7 @@
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
-import { GradeDropdown } from '../../components/GradeDropdown';
+import { QuestNav } from '../../components/QuestNav';
 import type { SchoolStage } from '../utils/school-grade';
 import { formatSchoolGradeLabel } from '../utils/school-grade';
 import { type GradeId, gradeLevels } from './grade-presets';
@@ -30,48 +30,15 @@ const MathNav: FC<{
     });
 
   return (
-    <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
-      <div class="flex items-center gap-2">
-        <a href="/" class="transition hover:opacity-80">
-          <img
-            src="/logo.svg"
-            alt="EduQuest Logo"
-            class="h-7 w-7"
-            width="28"
-            height="28"
-          />
-        </a>
-        <span class="text-[var(--mq-outline)]">|</span>
-        <a href="/math" class="transition hover:opacity-80">
-          <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-            🔢
-          </span>
-        </a>
-        <GradeDropdown
-          currentGrade={gradeNumber}
-          currentStage={gradeStage}
-          availableGrades={availableGrades}
-          baseUrl="/math/select"
-        />
-      </div>
-      <div class="flex flex-wrap gap-2">
-        {currentUser ? (
-          <a
-            href="/auth/logout"
-            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-          >
-            ログアウト
-          </a>
-        ) : (
-          <a
-            href="/auth/login"
-            class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-          >
-            ログイン
-          </a>
-        )}
-      </div>
-    </nav>
+    <QuestNav
+      currentUser={currentUser}
+      questIcon="🔢"
+      questHomeUrl="/math"
+      currentGrade={gradeNumber}
+      currentStage={gradeStage}
+      availableGrades={availableGrades}
+      dropdownBaseUrl="/math/select"
+    />
   );
 };
 
@@ -119,16 +86,16 @@ export const MathSelect: FC<{
   const modeOptions: ModeOption[] = [
     {
       id: 'learn',
-      title: '学ぶ',
+      title: '学習する',
       icon: '📚',
       description:
-        '算数の基本を学びましょう。わかりやすい説明で、しっかり理解できます。',
+        'たし算の考え方や計算のコツを学んで、クエストに挑戦する準備をしましょう。',
       href: `/math/learn?grade=${encodeURIComponent(gradeId)}`,
     },
     {
       id: 'quest',
       title: 'クエストに挑戦する',
-      icon: '🎯',
+      icon: '⚔️',
       description: '問題を解いてスキルアップ！楽しく算数の力を伸ばしましょう。',
       href: `/math/quest?grade=${encodeURIComponent(gradeId)}`,
     },
@@ -147,7 +114,7 @@ export const MathSelect: FC<{
       />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
-          <span class="text-6xl">🔢</span>
+          <span class="text-6xl">🧭</span>
           <div class="space-y-4">
             <h1 class="text-3xl font-extrabold sm:text-4xl">
               学習方法を選んでください

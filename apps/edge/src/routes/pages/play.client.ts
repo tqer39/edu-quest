@@ -22,6 +22,7 @@ const MODULE_SOURCE = `
   };
 
   const gradePresets = getJSON('grade-presets');
+  const urlPresetConfig = getJSON('url-preset-config');
   const root = document.getElementById('play-root');
   if (!root) return;
 
@@ -118,6 +119,39 @@ const MODULE_SOURCE = `
       return null;
     }
   };
+
+  // URLプリセット設定がある場合は、それを優先して使用
+  if (urlPresetConfig && urlPresetConfig.gradeId) {
+    sessionStorage.setItem(
+      SESSION_STORAGE_KEY,
+      JSON.stringify({
+        gradeId: urlPresetConfig.gradeId,
+        gradeLabel: urlPresetConfig.gradeLabel,
+        gradeDescription: urlPresetConfig.gradeDescription,
+        mode: urlPresetConfig.mode,
+        max: urlPresetConfig.max,
+        questionCount: urlPresetConfig.questionCount,
+        soundEnabled: urlPresetConfig.soundEnabled,
+        workingEnabled: loadBoolean(WORKING_STORAGE_KEY, false),
+        countdownEnabled: urlPresetConfig.countdownEnabled,
+        baseGrade: {
+          id: urlPresetConfig.gradeId,
+          label: urlPresetConfig.gradeLabel,
+          description: urlPresetConfig.gradeDescription,
+          mode: urlPresetConfig.mode,
+          max: urlPresetConfig.max,
+        },
+        theme: null,
+        calculationType: {
+          id: urlPresetConfig.calcId,
+          label: urlPresetConfig.calcLabel,
+          description: urlPresetConfig.presetLabel,
+          mode: urlPresetConfig.mode,
+        },
+        createdAt: Date.now(),
+      })
+    );
+  }
 
   const session = loadSession();
   if (!session && gradePresets.length === 0) {
@@ -1396,9 +1430,29 @@ const MODULE_SOURCE = `
 })();
 `;
 
-export const renderPlayClientScript = () => html`
+type UrlPresetConfig = {
+  gradeId: string;
+  gradeLabel: string;
+  gradeDescription: string;
+  calcId: string;
+  calcLabel: string;
+  presetId: string;
+  presetLabel: string;
+  mode: string;
+  max: number;
+  terms: number;
+  questionCount: number;
+  soundEnabled: boolean;
+  countdownEnabled: boolean;
+  inverse: boolean;
+} | null;
+
+export const renderPlayClientScript = (urlPresetConfig?: UrlPresetConfig) => html`
   <script id="grade-presets" type="application/json">
     ${raw(JSON.stringify(gradePresets))}
+  </script>
+  <script id="url-preset-config" type="application/json">
+    ${raw(JSON.stringify(urlPresetConfig || null))}
   </script>
   <script type="module">
     ${raw(MODULE_SOURCE)};

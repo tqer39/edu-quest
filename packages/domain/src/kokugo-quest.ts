@@ -1,5 +1,5 @@
 /**
- * KanjiQuest - Kanji Learning Quest
+ * KokugoQuest - Japanese Language Learning Quest
  *
  * Educational game for elementary school students to learn kanji characters
  * based on the Japanese Ministry of Education curriculum.
@@ -70,9 +70,9 @@ function loadKanjiByUnicode(unicode: string): Kanji | undefined {
 }
 
 /**
- * Quest types for KanjiQuest
+ * Quest types for KokugoQuest
  */
-export type KanjiQuestType = 'reading' | 'stroke-count';
+export type KokugoQuestType = 'kanji-reading' | 'kanji-stroke-count';
 
 /**
  * Difficulty level based on school grade
@@ -87,7 +87,7 @@ export interface KanjiQuestion {
   questionText: string;
   correctAnswer: string;
   choices: string[];
-  questType: KanjiQuestType;
+  questType: KokugoQuestType;
   grade: KanjiGrade;
 }
 
@@ -97,11 +97,11 @@ export interface KanjiQuestion {
 export type ReadingType = 'onyomi' | 'kunyomi' | 'both';
 
 /**
- * Configuration for KanjiQuest session
+ * Configuration for KokugoQuest session
  */
-export interface KanjiQuestConfig {
+export interface KokugoQuestConfig {
   grade: KanjiGrade;
-  questType: KanjiQuestType;
+  questType: KokugoQuestType;
   questionCount: number;
   readingType?: ReadingType; // For reading quest
 }
@@ -273,7 +273,7 @@ export function generateReadingQuestion(
       questionText,
       correctAnswer,
       choices,
-      questType: 'reading',
+      questType: 'kanji-reading',
       grade,
     };
   }
@@ -301,7 +301,7 @@ export function generateReadingQuestion(
     questionText,
     correctAnswer,
     choices,
-    questType: 'reading',
+    questType: 'kanji-reading',
     grade,
   };
 }
@@ -376,16 +376,16 @@ export function generateStrokeCountQuestion(
     questionText,
     correctAnswer,
     choices,
-    questType: 'stroke-count',
+    questType: 'kanji-stroke-count',
     grade,
   };
 }
 
 /**
- * Generate multiple questions for a KanjiQuest session
+ * Generate multiple questions for a KokugoQuest session
  */
 export function generateKanjiQuestions(
-  config: KanjiQuestConfig
+  config: KokugoQuestConfig
 ): KanjiQuestion[] {
   const kanjiData = loadKanjiDataByGrade(config.grade);
 
@@ -400,7 +400,7 @@ export function generateKanjiQuestions(
 
   for (const kanji of selectedKanji) {
     switch (config.questType) {
-      case 'reading':
+      case 'kanji-reading':
         questions.push(
           generateReadingQuestion(
             kanji,
@@ -409,7 +409,7 @@ export function generateKanjiQuestions(
           )
         );
         break;
-      case 'stroke-count':
+      case 'kanji-stroke-count':
         questions.push(generateStrokeCountQuestion(kanji, kanjiData));
         break;
       // TODO: Add other quest types (okurigana, puzzle, etc.)

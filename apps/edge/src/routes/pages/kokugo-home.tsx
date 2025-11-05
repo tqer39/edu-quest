@@ -25,14 +25,14 @@ const KanjiNav: FC<{ currentUser: CurrentUser | null }> = ({ currentUser }) => (
       </a>
       <span class="text-[var(--mq-outline)]">|</span>
       <a
-        href="/kanji"
+        href="/kokugo"
         class="flex items-center gap-2 transition hover:opacity-80"
       >
         <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
           ✏️
         </span>
         <span class="text-sm font-semibold tracking-tight text-[var(--mq-ink)]">
-          KanjiQuest
+          KokugoQuest
         </span>
       </a>
     </div>
@@ -83,7 +83,7 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <QuestHeader
           icon="✏️"
-          title="KanjiQuest"
+          title="KokugoQuest"
           description="漢字の読み方を学ぼう！"
           subtitle="学年を選んで、楽しく漢字を覚えられます。"
         />
@@ -92,7 +92,7 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
           {grades.map((grade) => {
             const description = getGradeDescription(grade);
             const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
-            const href = `/kanji/select?grade=${gradeParam}`;
+            const href = `/kokugo/select?grade=${gradeParam}`;
             const disabled = grade > 2;
 
             return (
@@ -115,12 +115,16 @@ export const KanjiHome: FC<{ currentUser: CurrentUser | null }> = ({
               description: '漢字の音読み・訓読みを答えます',
             },
             {
+              label: '部首クエスト:',
+              description: '小学1年生向けに漢字の部首（ぶしゅ）を覚えます',
+            },
+            {
               label: '学年別:',
               description: '小学1年生から6年生までの教育漢字を収録',
             },
             {
               label: '4択問題:',
-              description: '4つの選択肢から正しい読み方を選びます',
+              description: '4つの選択肢から正しい答えを選びます',
             },
             {
               label: 'スコア表示:',

@@ -35,7 +35,11 @@ export const buildKanjiRadicalDictionary = (
 } => {
   const radicalMap = new Map<
     string,
-    { radical: string; grades: Set<KanjiGrade>; kanji: Map<string, RadicalKanjiSummary> }
+    {
+      radical: string;
+      grades: Set<KanjiGrade>;
+      kanji: Map<string, RadicalKanjiSummary>;
+    }
   >();
 
   for (const kanji of kanjiList) {
@@ -78,18 +82,13 @@ export const buildKanjiRadicalDictionary = (
   const searchIndex: KanjiRadicalSearchIndexEntry[] = entries.map((entry) => {
     const tokens = [
       entry.radical,
-      ...entry.kanji.flatMap((kanji) => [
-        kanji.character,
-        ...kanji.meanings,
-      ]),
+      ...entry.kanji.flatMap((kanji) => [kanji.character, ...kanji.meanings]),
     ];
 
     return {
       radical: entry.radical,
       grades: entry.grades,
-      idx: tokens
-        .join(' ')
-        .toLowerCase(),
+      idx: tokens.join(' ').toLowerCase(),
     };
   });
 
@@ -264,8 +263,7 @@ export const KanjiRadicalDictionary: FC<KanjiRadicalDictionaryProps> = ({
                     <div class="text-sm text-[#5e718a]">
                       <div>掲載漢字: {entry.kanji.length}字</div>
                       <div>
-                        対応学年:{' '}
-                        {entry.grades.map((g) => `小${g}`).join('・')}
+                        対応学年: {entry.grades.map((g) => `小${g}`).join('・')}
                       </div>
                     </div>
                   </div>
