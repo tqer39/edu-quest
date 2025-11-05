@@ -1,10 +1,11 @@
 describe('MathQuest Flow', () => {
-  describe('Theme Selection Page', () => {
+  describe('Quest Start Page (Theme Selection)', () => {
     beforeEach(() => {
       // Navigate through the full flow to get to theme selection page with proper cookies
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
-      cy.contains('a', 'クエストに挑戦する').click();
+      // Select quest mode - use more specific selector to avoid ambiguity
+      cy.contains('.text-2xl', 'クエストに挑戦する').parent().parent().click();
       cy.contains('a', 'たし算').click();
     });
 
@@ -28,12 +29,41 @@ describe('MathQuest Flow', () => {
     });
   });
 
+  describe('Learning Page', () => {
+    it('should load the addition learning page', () => {
+      // Navigate through the full flow to learning page
+      cy.visit('/math');
+      cy.contains('a', '小学1年生').click();
+      // Select learning mode - use specific selector
+      cy.contains('.text-2xl', '学習する').parent().parent().click();
+      cy.contains('a', 'たし算の基礎').click();
+
+      // Should navigate to learning page
+      cy.url().should('include', '/math/learn/addition');
+      cy.contains('h1', 'たし').should('be.visible');
+      cy.contains('h1', 'ぼう').should('be.visible');
+    });
+
+    it('should display learning content sections', () => {
+      cy.visit('/math/learn/addition?grade=elem-1');
+
+      // Should have step cards with headings - check by visible content
+      cy.contains('h2', 'たし').should('be.visible');
+      cy.contains('h2', 'ステップ').should('be.visible');
+      // Check for step indicator circles with numbers
+      cy.get('.rounded-full').contains('1').should('be.visible');
+      cy.get('.rounded-full').contains('2').should('be.visible');
+      cy.get('.rounded-full').contains('3').should('be.visible');
+      cy.get('.rounded-full').contains('4').should('be.visible');
+    });
+  });
+
   describe('Play Page Navigation', () => {
     it('should navigate to play page after selecting theme', () => {
       // Navigate through the full flow
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
-      cy.contains('a', 'クエストに挑戦する').click();
+      cy.contains('.text-2xl', 'クエストに挑戦する').parent().parent().click();
       cy.contains('a', 'たし算').click();
 
       // Select a theme (click on any theme card)
@@ -47,7 +77,7 @@ describe('MathQuest Flow', () => {
       // Navigate through the full flow
       cy.visit('/math');
       cy.contains('a', '小学1年生').click();
-      cy.contains('a', 'クエストに挑戦する').click();
+      cy.contains('.text-2xl', 'クエストに挑戦する').parent().parent().click();
       cy.contains('a', 'たし算').click();
 
       // Select a theme to start
