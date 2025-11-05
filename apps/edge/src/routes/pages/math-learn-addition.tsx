@@ -231,19 +231,8 @@ export const MathLearnAddition: FC<{
         currentStage={gradeStage}
         availableGrades={availableGrades}
         dropdownBaseUrl="/math/learn/addition"
-        rightButtons={
-          <>
-            <a
-              href={`/math/select?grade=${gradeParam}`}
-              class="transition hover:opacity-80"
-            >
-              <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-                🧭
-              </span>
-            </a>
-            <span class="text-[var(--mq-outline)]">|</span>
-          </>
-        }
+        selectUrl={`/math/select?grade=${gradeParam}`}
+        learnUrl={`/math/learn?grade=${gradeParam}`}
       />
       <div class="flex flex-1 flex-col gap-12 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header

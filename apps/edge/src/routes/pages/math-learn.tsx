@@ -97,19 +97,7 @@ export const MathLearn: FC<{
         currentStage={gradeStage}
         availableGrades={availableGrades}
         dropdownBaseUrl="/math/learn"
-        rightButtons={
-          <>
-            <a
-              href={`/math/select?grade=${gradeParam}`}
-              class="transition hover:opacity-80"
-            >
-              <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-                🧭
-              </span>
-            </a>
-            <span class="text-[var(--mq-outline)]">|</span>
-          </>
-        }
+        selectUrl={`/math/select?grade=${gradeParam}`}
       />
       <div class="flex flex-1 flex-col gap-10 px-4 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">
