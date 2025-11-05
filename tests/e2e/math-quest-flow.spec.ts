@@ -11,7 +11,9 @@ test.describe('MathQuest Flow', () => {
 
     test('should load the theme selection page', async ({ page }) => {
       await expect(page).toHaveURL(/\/math\/start/);
-      await expect(page.getByText('たし算のテーマを選んでください')).toBeVisible();
+      await expect(
+        page.getByText('たし算のテーマを選んでください')
+      ).toBeVisible();
     });
 
     test('should display play settings', async ({ page }) => {
@@ -28,7 +30,9 @@ test.describe('MathQuest Flow', () => {
   });
 
   test.describe('Play Page Navigation', () => {
-    test('should navigate to play page after selecting theme', async ({ page }) => {
+    test('should navigate to play page after selecting theme', async ({
+      page,
+    }) => {
       await page.goto('/math');
       await page.getByRole('link', { name: '小学1年生' }).click();
       await page.getByRole('link', { name: 'クエストに挑戦する' }).click();

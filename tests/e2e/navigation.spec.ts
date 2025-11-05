@@ -13,7 +13,10 @@ test.describe('EduQuest Navigation', () => {
   });
 
   test.describe('Home Page', () => {
-    test('should load the home page successfully', async ({ page, baseURL }) => {
+    test('should load the home page successfully', async ({
+      page,
+      baseURL,
+    }) => {
       const resolvedBaseURL = ensureBaseURL(baseURL);
       await expect(page).toHaveURL(new URL('/', resolvedBaseURL).toString());
       await expect(page.getByText('EduQuest')).toBeVisible();
@@ -25,26 +28,34 @@ test.describe('EduQuest Navigation', () => {
   });
 
   test.describe('MathQuest Navigation Flow', () => {
-    test('should navigate from home to math grade selection page', async ({ page }) => {
+    test('should navigate from home to math grade selection page', async ({
+      page,
+    }) => {
       await page.getByRole('link', { name: 'MathQuest' }).click();
       await expect(page).toHaveURL(/\/math/);
       await expect(page.getByText('学年を選んでください')).toBeVisible();
     });
 
-    test('should display grade selection when visiting /math directly', async ({ page }) => {
+    test('should display grade selection when visiting /math directly', async ({
+      page,
+    }) => {
       await page.goto('/math');
       await expect(page).toHaveURL(/\/math/);
       await expect(page.getByText('学年を選んでください')).toBeVisible();
     });
 
-    test('should navigate from grade selection to mode selection page', async ({ page }) => {
+    test('should navigate from grade selection to mode selection page', async ({
+      page,
+    }) => {
       await page.goto('/math');
       await page.getByRole('link', { name: '小学1年生' }).click();
       await expect(page).toHaveURL(/\/math\/select/);
       await expect(page.getByText('学習方法を選んでください')).toBeVisible();
     });
 
-    test('should complete navigation flow: home → math → grade → mode select → quest select → start', async ({ page }) => {
+    test('should complete navigation flow: home → math → grade → mode select → quest select → start', async ({
+      page,
+    }) => {
       await page.goto('/');
 
       await page.getByRole('link', { name: 'MathQuest' }).click();
@@ -61,7 +72,9 @@ test.describe('EduQuest Navigation', () => {
 
       await page.getByRole('link', { name: 'たし算' }).click();
       await expect(page).toHaveURL(/\/math\/start/);
-      await expect(page.getByText('たし算のテーマを選んでください')).toBeVisible();
+      await expect(
+        page.getByText('たし算のテーマを選んでください')
+      ).toBeVisible();
     });
   });
 
@@ -74,13 +87,18 @@ test.describe('EduQuest Navigation', () => {
   });
 
   test.describe('Back Navigation', () => {
-    test('should navigate back from math start to math home', async ({ page }) => {
+    test('should navigate back from math start to math home', async ({
+      page,
+    }) => {
       await page.goto('/math/start?grade=1');
       await page.goBack();
       await expect(page).toHaveURL(/\/math/);
     });
 
-    test('should navigate back from math home to main home', async ({ page, baseURL }) => {
+    test('should navigate back from math home to main home', async ({
+      page,
+      baseURL,
+    }) => {
       await page.goto('/math');
       await page.goBack();
       const resolvedBaseURL = ensureBaseURL(baseURL);
