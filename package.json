@@ -26,9 +26,9 @@
     "docs:update-structure": "node scripts/docs/update-structure.mjs"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.3",
-    "@types/node": "24.9.2",
-    "@playwright/test": "1.50.1",
+    "@biomejs/biome": "2.3.4",
+    "@types/node": "24.10.0",
+    "cypress": "15.6.0",
     "wrangler": "4.45.4"
   }
 }

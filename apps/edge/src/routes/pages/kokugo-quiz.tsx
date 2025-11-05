@@ -2,6 +2,7 @@ import type { KanjiQuestion, KanjiQuestType } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { DictionaryLink } from '../components/dictionary-link';
+import { createSchoolGradeParam } from '../utils/school-grade';
 
 type KanjiQuizProps = {
   currentUser: CurrentUser | null;
@@ -22,6 +23,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
   grade,
   questType,
 }) => {
+  const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
   return (
     <div
       class="flex min-h-screen w-full flex-col gap-10"
@@ -38,7 +40,7 @@ export const KanjiQuiz: FC<KanjiQuizProps> = ({
           </span>
         </div>
         <div class="flex flex-wrap items-center gap-2">
-          <DictionaryLink />
+          <DictionaryLink gradeParam={gradeParam} />
           <span class="text-xs font-semibold text-[var(--mq-ink)]">
             問題 {questionNumber} / {totalQuestions}
           </span>
