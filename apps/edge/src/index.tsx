@@ -66,6 +66,10 @@ import { KokugoQuest } from './routes/pages/kokugo-quest';
 import { KanjiQuiz } from './routes/pages/kokugo-quiz';
 import { KanjiResults } from './routes/pages/kokugo-results';
 import { KanjiSelect } from './routes/pages/kokugo-select';
+import {
+  KanjiRadicalDictionary,
+  buildKanjiRadicalDictionary,
+} from './routes/pages/kanji-radical-dictionary';
 import { Login } from './routes/pages/login';
 import { MathHome } from './routes/pages/math-home';
 import { MathPresetSelect } from './routes/pages/math-preset-select';
@@ -1046,6 +1050,39 @@ app.get('/kokugo/dictionary', async (c) => {
     {
       title: `KokugoQuest | ${gradeLabel}の漢字辞書`,
       description: `${gradeLabel}で学ぶ漢字の読み方・意味・例をまとめた辞書ページです。`,
+      favicon: '/favicon-kanji.svg',
+    }
+  );
+});
+
+app.get('/kokugo/dictionary/radicals', async (c) => {
+  const gradeParam = c.req.query('grade');
+  const parsedGrade = parseSchoolGradeParam(gradeParam);
+  const candidateGrade =
+    parsedGrade && parsedGrade.stage === '小学'
+      ? (parsedGrade.grade as KanjiGrade)
+      : 1;
+
+  const availableGrades: KanjiGrade[] = [1, 2];
+  const preferredGrade = availableGrades.includes(candidateGrade)
+    ? candidateGrade
+    : null;
+  const grade = preferredGrade ?? 1;
+  const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
+
+  const allKanji = availableGrades.flatMap((g) => getKanjiDictionaryByGrade(g));
+  const { entries, searchIndex } = buildKanjiRadicalDictionary(allKanji);
+
+  return c.render(
+    <KanjiRadicalDictionary
+      currentUser={await resolveCurrentUser(c.env, c.req.raw)}
+      grade={grade}
+      entries={entries}
+      searchIndex={searchIndex}
+    />,
+    {
+      title: `KokugoQuest | ${gradeLabel}の部首辞書`,
+      description: `${gradeLabel}で学ぶ漢字の部首を調べられる辞書ページです。`,
       favicon: '/favicon-kanji.svg',
     }
   );
