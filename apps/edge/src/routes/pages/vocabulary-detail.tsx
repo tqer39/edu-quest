@@ -2,11 +2,12 @@ import type { KanjiGrade } from '@edu-quest/domain';
 import type { FC } from 'hono/jsx';
 import type { CurrentUser } from '../../application/session/current-user';
 import { Footer } from '../../components/Footer';
-import { DictionaryLink } from '../components/dictionary-link';
+import { QuestNav } from '../../components/QuestNav';
 import {
   createSchoolGradeParam,
   formatSchoolGradeLabel,
 } from '../utils/school-grade';
+import type { SchoolStage } from '../utils/school-grade';
 
 /**
  * Vocabulary entry structure
@@ -23,59 +24,6 @@ export interface VocabularyEntry {
   }>;
 }
 
-const VocabularyNav: FC<{
-  currentUser: CurrentUser | null;
-  gradeLabel: string;
-  gradeParam: string;
-}> = ({ currentUser, gradeLabel, gradeParam }) => (
-  <nav class="sticky top-0 z-50 flex items-center justify-between gap-2 border-b border-[var(--mq-outline)] bg-[var(--mq-surface)] px-4 py-2 shadow-sm backdrop-blur sm:px-8 lg:px-16 xl:px-24">
-    <div class="flex items-center gap-2">
-      <a href="/" class="transition hover:opacity-80">
-        <img
-          src="/logo.svg"
-          alt="EduQuest Logo"
-          class="h-7 w-7"
-          width="28"
-          height="28"
-        />
-      </a>
-      <span class="text-[var(--mq-outline)]">|</span>
-      <a href="/kokugo" class="transition hover:opacity-80">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
-          ✏️
-        </span>
-      </a>
-      <span class="text-xs font-semibold text-[var(--mq-ink)]">
-        {gradeLabel} 用語辞典
-      </span>
-    </div>
-    <div class="flex flex-wrap items-center gap-2">
-      <DictionaryLink href={`/kokugo/dictionary?grade=${gradeParam}`} />
-      <a
-        href={`/kokugo/select?grade=${gradeParam}`}
-        class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-      >
-        ← クエスト選択へ戻る
-      </a>
-      {currentUser ? (
-        <a
-          href="/auth/logout"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ログアウト
-        </a>
-      ) : (
-        <a
-          href="/auth/login"
-          class="inline-flex items-center gap-2 rounded-2xl border border-[var(--mq-outline)] bg-white px-3 py-2 text-xs font-semibold text-[var(--mq-ink)] shadow-sm transition hover:-translate-y-0.5 hover:bg-[var(--mq-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--mq-primary)]"
-        >
-          ログイン
-        </a>
-      )}
-    </div>
-  </nav>
-);
-
 type VocabularyDetailProps = {
   currentUser: CurrentUser | null;
   grade: KanjiGrade;
@@ -90,15 +38,36 @@ export const VocabularyDetail: FC<VocabularyDetailProps> = ({
   const gradeLabel = formatSchoolGradeLabel({ stage: '小学', grade });
   const gradeParam = createSchoolGradeParam({ stage: '小学', grade });
 
+  const availableGrades: readonly {
+    stage: SchoolStage;
+    grade: number;
+    disabled?: boolean;
+  }[] = [
+    { stage: '小学', grade: 1 },
+    { stage: '小学', grade: 2 },
+    { stage: '小学', grade: 3, disabled: true },
+    { stage: '小学', grade: 4, disabled: true },
+    { stage: '小学', grade: 5, disabled: true },
+    { stage: '小学', grade: 6, disabled: true },
+  ];
+
   return (
     <div
       class="flex flex-1 w-full flex-col gap-10"
       style="--mq-primary: #9B87D4; --mq-primary-strong: #7B5FBD; --mq-primary-soft: #E8E1F5; --mq-accent: #C5B5E8; --mq-outline: rgba(155, 135, 212, 0.45); --mq-ink: #2c3e50; --mq-surface: rgba(255, 255, 255, 0.95);"
     >
-      <VocabularyNav
+      <QuestNav
         currentUser={currentUser}
-        gradeLabel={gradeLabel}
-        gradeParam={gradeParam}
+        questIcon="✏️"
+        questHomeUrl="/kokugo"
+        currentGrade={grade}
+        currentStage="小学"
+        availableGrades={availableGrades}
+        dropdownBaseUrl={`/kokugo/vocabulary/${encodeURIComponent(
+          vocabulary.word
+        )}`}
+        selectUrl={`/kokugo/select?grade=${gradeParam}`}
+        learnUrl={`/kokugo/learn?grade=${gradeParam}`}
       />
       <div class="flex flex-1 flex-col gap-8 px-4 pb-16 sm:px-8 lg:px-16 xl:px-24">
         <header class="flex flex-col items-center gap-6 rounded-3xl border border-[var(--mq-outline)] bg-gradient-to-r from-[var(--mq-primary-soft)] via-white to-[var(--mq-accent)] p-12 text-center text-[var(--mq-ink)] shadow-xl">

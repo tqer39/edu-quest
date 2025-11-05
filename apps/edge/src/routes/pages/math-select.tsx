@@ -86,10 +86,10 @@ export const MathSelect: FC<{
   const modeOptions: ModeOption[] = [
     {
       id: 'learn',
-      title: '学ぶ',
+      title: '学習する',
       icon: '📚',
       description:
-        '算数の基本を学びましょう。わかりやすい説明で、しっかり理解できます。',
+        'たし算の考え方や計算のコツを学んで、クエストに挑戦する準備をしましょう。',
       href: `/math/learn?grade=${encodeURIComponent(gradeId)}`,
     },
     {

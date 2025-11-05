@@ -15,6 +15,8 @@ type QuestNavProps = {
     disabled?: boolean;
   }[];
   dropdownBaseUrl: string;
+  selectUrl?: string;
+  learnUrl?: string;
   rightButtons?: JSX.Element;
 };
 
@@ -26,6 +28,8 @@ export const QuestNav: FC<QuestNavProps> = ({
   currentStage,
   availableGrades,
   dropdownBaseUrl,
+  selectUrl,
+  learnUrl,
   rightButtons,
 }) => {
   return (
@@ -46,6 +50,26 @@ export const QuestNav: FC<QuestNavProps> = ({
             {questIcon}
           </span>
         </a>
+        {selectUrl && (
+          <>
+            <span class="text-[var(--mq-outline)]">|</span>
+            <a href={selectUrl} class="transition hover:opacity-80">
+              <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+                🧭
+              </span>
+            </a>
+          </>
+        )}
+        {learnUrl && (
+          <>
+            <span class="text-[var(--mq-outline)]">|</span>
+            <a href={learnUrl} class="transition hover:opacity-80">
+              <span class="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-[var(--mq-primary-soft)] text-sm">
+                📚
+              </span>
+            </a>
+          </>
+        )}
         <span class="text-[var(--mq-outline)]">|</span>
         <GradeDropdown
           currentGrade={currentGrade}
