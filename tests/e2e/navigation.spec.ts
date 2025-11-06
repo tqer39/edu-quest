@@ -19,7 +19,7 @@ test.describe('EduQuest Navigation', () => {
     }) => {
       const resolvedBaseURL = ensureBaseURL(baseURL);
       await expect(page).toHaveURL(new URL('/', resolvedBaseURL).toString());
-      await expect(page.getByText('EduQuest')).toBeVisible();
+      await expect(page.locator('h1').getByText('EduQuest')).toBeVisible();
     });
 
     test('should display navigation to MathQuest', async ({ page }) => {
@@ -66,7 +66,7 @@ test.describe('EduQuest Navigation', () => {
       await expect(page).toHaveURL(/\/math\/select/);
       await expect(page.getByText('学習方法を選んでください')).toBeVisible();
 
-      await page.getByRole('link', { name: 'クエストに挑戦する' }).click();
+      await page.locator('a[href*="/math/quest"]').click();
       await expect(page).toHaveURL(/\/math\/quest/);
       await expect(page.getByText('クエストを選んでください')).toBeVisible();
 
@@ -90,9 +90,17 @@ test.describe('EduQuest Navigation', () => {
     test('should navigate back from math start to math home', async ({
       page,
     }) => {
-      await page.goto('/math/start?grade=1');
+      // Simulate actual user flow with navigation history
+      await page.goto('/');
+      await page.getByRole('link', { name: 'MathQuest' }).click();
+      await page.getByRole('link', { name: '小学1年生' }).click();
+      await page.locator('a[href*="/math/quest"]').click();
+      await page.getByRole('link', { name: 'たし算' }).click();
+      await expect(page).toHaveURL(/\/math\/start/);
+
+      // Now test back navigation
       await page.goBack();
-      await expect(page).toHaveURL(/\/math/);
+      await expect(page).toHaveURL(/\/math\/quest/);
     });
 
     test('should navigate back from math home to main home', async ({

@@ -5,7 +5,7 @@ test.describe('MathQuest Flow', () => {
     test.beforeEach(async ({ page }) => {
       await page.goto('/math');
       await page.getByRole('link', { name: '小学1年生' }).click();
-      await page.getByRole('link', { name: 'クエストに挑戦する' }).click();
+      await page.locator('a[href*="/math/quest"]').click();
       await page.getByRole('link', { name: 'たし算' }).click();
     });
 
@@ -21,11 +21,11 @@ test.describe('MathQuest Flow', () => {
     });
 
     test('should display question count selection', async ({ page }) => {
-      await expect(page.getByText('問題数')).toBeVisible();
+      await expect(page.getByText('問題数', { exact: true })).toBeVisible();
     });
 
     test('should have theme selection cards', async ({ page }) => {
-      await expect(page.locator('[class*="grid"]').first()).toBeVisible();
+      await expect(page.locator('[class*="grid"]').nth(0)).toBeVisible();
     });
   });
 
@@ -35,10 +35,10 @@ test.describe('MathQuest Flow', () => {
     }) => {
       await page.goto('/math');
       await page.getByRole('link', { name: '小学1年生' }).click();
-      await page.getByRole('link', { name: 'クエストに挑戦する' }).click();
+      await page.locator('a[href*="/math/quest"]').click();
       await page.getByRole('link', { name: 'たし算' }).click();
 
-      await page.locator('a[href*="/math/play"]').first().click();
+      await page.locator('a[href*="/math/play"]').nth(0).click();
 
       await expect(page).toHaveURL(/\/math\/play/);
     });
@@ -46,10 +46,10 @@ test.describe('MathQuest Flow', () => {
     test('should display question on play page', async ({ page }) => {
       await page.goto('/math');
       await page.getByRole('link', { name: '小学1年生' }).click();
-      await page.getByRole('link', { name: 'クエストに挑戦する' }).click();
+      await page.locator('a[href*="/math/quest"]').click();
       await page.getByRole('link', { name: 'たし算' }).click();
 
-      await page.locator('a[href*="/math/play"]').first().click();
+      await page.locator('a[href*="/math/play"]').nth(0).click();
 
       await expect(page).toHaveURL(/\/math\/play/);
       await expect(page.getByText('もんだい')).toBeVisible();
