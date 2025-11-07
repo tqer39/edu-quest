@@ -25,6 +25,13 @@ const mathTopics: readonly MathTopic[] = [
       '数を合わせる考え方を学びます。ブロックやおはじきを使いながら、たし算の意味と計算方法を理解しましょう。',
   },
   {
+    id: 'addition-carry',
+    title: '繰り上がりのあるたし算',
+    icon: '🔟',
+    description:
+      '答えが10より大きくなるたし算を学びます。10のまとまりを作る考え方で、繰り上がりのあるたし算をマスターしましょう。',
+  },
+  {
     id: 'subtraction',
     title: 'ひき算の基礎',
     icon: '➖',
