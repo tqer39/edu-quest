@@ -205,3 +205,41 @@ js-install:
 tf *args:
     @echo "→ make terraform-cf ARGS='{{args}}'"
     @exec make terraform-cf ARGS="{{args}}"
+
+# ============================================================================
+# Git Worktree Management for Parallel Development
+# ============================================================================
+
+# Create a new worktree for parallel feature development
+# Usage: just worktree-create feature-name base-branch
+# Example: just worktree-create add-kanji-quest main
+worktree-create name branch="main":
+    @./scripts/worktree-dev.sh create {{name}} {{branch}}
+
+# List all worktrees
+worktree-list:
+    @./scripts/worktree-dev.sh list
+
+# Remove a worktree
+# Usage: just worktree-remove feature-name
+worktree-remove name:
+    @./scripts/worktree-dev.sh remove {{name}}
+
+# Start dev server for a specific worktree
+# Usage: just worktree-dev feature-name [port]
+# Example: just worktree-dev add-kanji-quest 8788
+worktree-dev name port="":
+    @if [ -z "{{port}}" ]; then \
+        ./scripts/worktree-dev.sh dev {{name}}; \
+    else \
+        ./scripts/worktree-dev.sh dev {{name}} {{port}}; \
+    fi
+
+# Show status of all worktrees
+worktree-status:
+    @./scripts/worktree-dev.sh status
+
+# Launch Claude Code in a specific worktree
+# Usage: just worktree-claude feature-name
+worktree-claude name:
+    @./scripts/claude-worktree.sh {{name}}
