@@ -384,9 +384,9 @@ pnpm test:coverage
 
 #### E2Eテスト
 
-- **Cypress**: E2Eテストフレームワーク
+- **Playwright**: E2Eテストフレームワーク
 
-プロジェクトでは画面遷移とユーザーフローを検証するために Cypress を使用しています。
+プロジェクトでは画面遷移とユーザーフローを検証するために Playwright を使用しています。
 
 **ローカル開発:**
 
@@ -397,7 +397,7 @@ pnpm dev:edge
 # 2. ヘッドレスモードでE2Eテストを実行
 just e2e
 
-# または、Cypressテストランナー（インタラクティブモード）を開く
+# または、Playwright のテスト UI を開く
 just e2e-open
 ```
 
@@ -427,10 +427,10 @@ CI ワークフロー (`.github/workflows/e2e.yml`) の実行内容:
 1. `just` コマンドランナーのインストール
 2. mise のセットアップ (Node.js, pnpm など)
 3. pnpm 依存関係のインストール
-4. Cypress バイナリのインストール
+4. Playwright ブラウザのインストール
 5. 必要なパッケージのビルド (`@edu-quest/domain`, `@edu-quest/app`)
 6. `just e2e-ci` の実行（自動サーバー管理）
-7. 失敗時にスクリーンショットとビデオをアップロード
+7. 失敗時に Playwright レポート・トレース・メディアをアップロード
 
 **テスト失敗時のスクリーンショット確認:**
 
@@ -438,9 +438,9 @@ CI でテストが失敗した場合:
 
 1. GitHub Actions の失敗したワークフロー実行を開く
 2. ページの下部にスクロール
-3. `cypress-screenshots` アーティファクトをダウンロード（利用可能な場合）
-4. `cypress-videos` アーティファクトをダウンロード（ビデオ録画が有効な場合）
-5. スクリーンショット/ビデオを確認して問題を診断
+3. `playwright-report` アーティファクトをダウンロード（利用可能な場合）
+4. トレースやメディアを含む `playwright-test-results` アーティファクトをダウンロード
+5. HTML レポートやスクリーンショット、動画を確認して問題を診断
 
 **テストカバレッジ:**
 
@@ -486,7 +486,7 @@ open apps/edge/coverage/index.html
 - **`codecov.yml`**: プロジェクトレベルの Codecov 設定
   - プロジェクトカバレッジ目標: auto (1% 閾値)
   - パッチカバレッジ目標: auto (1% 閾値)
-  - 無視パス: tests, node_modules, infra, docs, games, cypress
+  - 無視パス: tests, node_modules, infra, docs, games
 - **Vitest 設定**: カバレッジプロバイダー (v8)、レポーター (text, json, html, lcov)
 
 **重要事項:**

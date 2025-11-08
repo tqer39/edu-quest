@@ -42,9 +42,9 @@ EduQuest は小学生向けに各種学習コンテンツを提供するプラ�
       </a>
     </td>
     <td align="center">
-      <a href="https://www.cypress.io/" target="_blank" rel="noopener noreferrer">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cypressio/cypressio-original.svg" alt="Cypress logo" width="60" height="60" />
-        <br /><sub><b>Cypress</b></sub>
+      <a href="https://playwright.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg" alt="Playwright logo" width="60" height="60" />
+        <br /><sub><b>Playwright</b></sub>
       </a>
     </td>
     <td align="center">
@@ -259,7 +259,7 @@ just tf -chdir=dev/bootstrap apply -auto-approve
 make bootstrap
 
 # 2. 依存ツールと npm パッケージをまとめてセットアップ
-# Cypress バイナリも自動的にインストールされます
+# Playwright のブラウザも自動的にインストールされます
 just setup
 ```
 
@@ -270,7 +270,7 @@ just setup
 - mise の各ツール（Node.js、pnpm など）
 - pnpm（未インストールの場合）
 - すべての npm 依存関係
-- E2E テスト用 Cypress バイナリ
+- E2E テスト用 Playwright ブラウザ
 
 ### よく使うコマンド
 
@@ -295,10 +295,10 @@ just update-hooks
 # mise の状態を確認
 just status
 
-# Cypress による E2E テスト（ヘッドレス）
+# Playwright による E2E テスト（ヘッドレス）
 just e2e
 
-# Cypress テストランナーを開く（インタラクティブ）
+# Playwright のテスト UI を開く
 just e2e-open
 ```
 
@@ -321,7 +321,7 @@ pnpm test:coverage
 
 ### E2E テスト
 
-画面遷移やユーザーフローを確認するため、E2E テストには Cypress を使用します。
+画面遷移やユーザーフローを確認するため、E2E テストには Playwright を使用します。
 
 #### E2E テストの実行
 
@@ -335,7 +335,7 @@ pnpm dev:edge
 # 2. ヘッドレスモードで E2E テストを実行
 just e2e
 
-# または Cypress テストランナーを開く（インタラクティブモード）
+# または Playwright のテスト UI を開く
 just e2e-open
 ```
 
@@ -352,6 +352,44 @@ just e2e-ci
 2. サーバーの起動完了を待機（最大 30 秒）
 3. すべての E2E テストを実行
 4. 完了後にサーバーを自動停止
+
+#### CI/CD 連携
+
+E2E テストは次のタイミングで GitHub Actions により自動実行されます。
+
+- `main` ブランチへのプッシュ
+- プルリクエストの作成・更新
+
+CI ワークフロー (`.github/workflows/e2e.yml`) では次を実行します。
+
+1. `just` コマンドランナーのインストール
+2. mise のセットアップ（Node.js, pnpm など）
+3. pnpm 依存関係のインストール
+4. Playwright ブラウザのインストール
+5. 必要なパッケージのビルド（`@edu-quest/domain`, `@edu-quest/app`）
+6. `just e2e-ci` の実行（自動サーバー管理）
+7. 失敗時に Playwright レポート・トレース・メディアをアップロード
+
+**テスト失敗時の確認手順:**
+
+1. GitHub Actions の失敗したワークフロー実行を開く
+2. ページ下部までスクロール
+3. `playwright-report` アーティファクトをダウンロード（利用可能な場合）
+4. トレースやメディアを含む `playwright-test-results` アーティファクトをダウンロード
+5. HTML レポートやスクリーンショット、動画を確認して問題を特定
+
+レポートやメディアは次のように保存されます。
+
+```text
+playwright-report/
+└── index.html
+
+playwright/test-results/
+└── navigation.spec.ts-<hash>/
+    ├── trace.zip
+    ├── video.webm
+    └── screenshot.png
+```
 
 **重要な注意点:**
 

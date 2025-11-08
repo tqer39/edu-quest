@@ -178,7 +178,7 @@ pnpm test:coverage
 
 #### E2E Tests
 
-The project uses **Cypress** for end-to-end testing to verify screen transitions and user flows.
+The project uses **Playwright** for end-to-end testing to verify screen transitions and user flows.
 
 **Local Development:**
 
@@ -189,7 +189,7 @@ pnpm dev:edge
 # 2. Run E2E tests in headless mode
 just e2e
 
-# OR open Cypress test runner (interactive mode)
+# OR open Playwright test runner (UI mode)
 just e2e-open
 ```
 

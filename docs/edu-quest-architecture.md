@@ -86,9 +86,8 @@ edu-quest/
 │   │       ├── styles/ - Shared Tailwind-like tokens
 │   │       └── views/ - Layouts and templates
 │   └── web/ - Local development web server
-├── cypress/ - End-to-end tests
-│   ├── e2e/ - Cypress spec files
-│   └── support/ - Shared Cypress helpers
+├── tests/
+│   └── e2e/ - Playwright spec files
 ├── docs/ - Documentation
 ├── infra/ - Infrastructure as code
 │   ├── migrations/ - D1 schema

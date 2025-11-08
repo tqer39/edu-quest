@@ -27,7 +27,7 @@
 - `apps/api` と `apps/web` はローカル検証用に残っていますが、本番デプロイには使用しません。
 - この最小チュートリアルには含まれていない補助ディレクトリもリポジトリには存在します。
   - `infra/`: Terraform と D1 マイグレーション
-  - `cypress/`: E2E テストのスペックとヘルパー
+  - `tests/e2e/`: Playwright の E2E スペック
   - `scripts/`: ドキュメントツリー生成などのメンテナンス用スクリプト
 - ディレクトリ構成と依存関係の一次情報は [edu-quest-architecture.md](./edu-quest-architecture.ja.md) です。レイアウトが変わった際は `pnpm run docs:update-structure` を実行し、同ドキュメント内の自動生成ツリーを更新してください。
 

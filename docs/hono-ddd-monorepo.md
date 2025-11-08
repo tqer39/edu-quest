@@ -27,7 +27,7 @@
 - `apps/api` / `apps/web` remain for local experiments, but they no longer ship to production.
 - The repository also contains auxiliary directories that are absent from this minimal tutorial:
   - `infra/` for Terraform and D1 migrations
-  - `cypress/` for end-to-end test specs and helpers
+  - `tests/e2e/` for Playwright end-to-end specs
   - `scripts/` for maintenance utilities (for example, the documentation tree generator)
 - The full directory map and dependency rules are maintained in [edu-quest-architecture.md](./edu-quest-architecture.md). Run `pnpm run docs:update-structure` whenever the layout changes to refresh the auto-generated tree in that document.
 
