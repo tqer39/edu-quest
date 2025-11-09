@@ -201,37 +201,148 @@ dev_worktree() {
 
 # Show status of all worktrees
 show_status() {
-    log_info "Checking status of all worktrees..."
+    log_info "Worktree Status Dashboard"
     echo ""
 
-    # Get list of worktrees
-    git worktree list --porcelain | while IFS= read -r line; do
+    # Summary header
+    local total_worktrees=0
+    local running_servers=0
+
+    # Collect worktree information
+    local worktree_info=()
+    while IFS= read -r line; do
         if [[ $line == worktree* ]]; then
             local path="${line#worktree }"
             if [[ -d "$path" ]]; then
-                echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-                log_info "Worktree: $(basename "$path")"
-                echo "  Path: $path"
-
-                # Check if dev server is running
-                local port_found=false
-                for port in {8788..8900}; do
-                    if lsof -i ":$port" -P | grep -q "$(basename "$path")"; then
-                        echo -e "  ${GREEN}Dev Server: Running on port $port${NC}"
-                        port_found=true
-                        break
-                    fi
-                done
-                if [ "$port_found" = false ]; then
-                    echo "  Dev Server: Not running"
-                fi
-
-                # Show git status
-                (cd "$path" && git status -sb 2>/dev/null || echo "  Unable to get git status")
-                echo ""
+                ((total_worktrees++)) || true
+                worktree_info+=("$path")
             fi
         fi
+    done < <(git worktree list --porcelain)
+
+    # Count running servers
+    for port in {8788..8900}; do
+        if lsof -i ":$port" >/dev/null 2>&1; then
+            ((running_servers++)) || true
+        fi
     done
+
+    # Display summary
+    echo "┌─────────────────────────────────────────────────────────────────┐"
+    echo "│                     📊 Worktree Overview                        │"
+    echo "├─────────────────────────────────────────────────────────────────┤"
+    printf "│ %-30s %32s │\\n" "Total Worktrees:" "$total_worktrees"
+    printf "│ %-30s %32s │\\n" "Running Dev Servers:" "$running_servers"
+    echo "└─────────────────────────────────────────────────────────────────┘"
+    echo ""
+
+    # Detailed status for each worktree
+    for path in "${worktree_info[@]}"; do
+        local name
+        name=$(basename "$path")
+
+        echo "┌─────────────────────────────────────────────────────────────────┐"
+        printf "│ 📁 %-60s │\\n" "$name"
+        echo "├─────────────────────────────────────────────────────────────────┤"
+        printf "│ Path: %-58s │\\n" "$path"
+
+        # Get branch name
+        local branch
+        branch=$(cd "$path" && git branch --show-current 2>/dev/null) || branch="unknown"
+        printf "│ Branch: %-56s │\\n" "$branch"
+
+        # Check dev server status
+        local server_status="Not running"
+        local server_port=""
+        for port in {8788..8900}; do
+            if lsof -i ":$port" -P 2>/dev/null | grep -q "workerd\\|node"; then
+                local process_path
+                process_path=$(lsof -i ":$port" -P 2>/dev/null | grep "workerd\\|node" | head -1 | awk '{print $9}') || process_path=""
+                if [[ "$process_path" == *"$name"* ]]; then
+                    server_status="Running"
+                    server_port="port $port"
+                    break
+                fi
+            fi
+        done
+
+        if [[ "$server_status" == "Running" ]]; then
+            echo -e "│ Dev Server: ${GREEN}${server_status} ${server_port}${NC}"
+        else
+            echo -e "│ Dev Server: ${RED}${server_status}${NC}"
+        fi
+
+        # Check if Claude Code might be running
+        local claude_count
+        # shellcheck disable=SC2009
+        claude_count=$(ps aux | grep -i "claude" | grep -v grep | grep -c "$path") || claude_count="0"
+        if [ "$claude_count" -gt 0 ]; then
+            echo -e "│ ${GREEN}✓${NC} Claude Code: Possibly running ($claude_count process(es))"
+        else
+            echo -e "│ ${YELLOW}○${NC} Claude Code: Not detected"
+        fi
+
+        # Git status summary
+        local git_status
+        git_status=$(cd "$path" && git status --short 2>/dev/null) || git_status=""
+        local modified
+        local added
+        local untracked
+        modified=$(echo "$git_status" | grep -c "^ M" 2>/dev/null) || modified="0"
+        added=$(echo "$git_status" | grep -c "^A" 2>/dev/null) || added="0"
+        untracked=$(echo "$git_status" | grep -c "^??" 2>/dev/null) || untracked="0"
+
+        if [ "$modified" -gt 0 ] || [ "$added" -gt 0 ] || [ "$untracked" -gt 0 ]; then
+            echo -e "│ Changes: ${YELLOW}M:$modified A:$added U:$untracked${NC}"
+        else
+            echo -e "│ Changes: ${GREEN}Clean${NC}"
+        fi
+
+        # Last commit info
+        local last_commit
+        last_commit=$(cd "$path" && git log -1 --oneline 2>/dev/null | cut -c1-55) || last_commit="No commits"
+        printf "│ Last commit: %-51s │\\n" "$last_commit"
+
+        # Activity indicator (last modified time)
+        local last_modified=""
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            # macOS - limit find to depth 3 for performance
+            last_modified=$(find "$path" -maxdepth 3 -type f -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/.wrangler/*" -exec stat -f "%m" {} \; 2>/dev/null | sort -rn | head -1) || last_modified=""
+        else
+            # Linux - limit find to depth 3 for performance
+            last_modified=$(find "$path" -maxdepth 3 -type f -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/.wrangler/*" -exec stat -c "%Y" {} \; 2>/dev/null | sort -rn | head -1) || last_modified=""
+        fi
+
+        if [ -n "$last_modified" ] && [ "$last_modified" != "" ]; then
+            local now
+            now=$(date +%s)
+            local diff=$((now - last_modified))
+            local activity=""
+            if [ $diff -lt 300 ]; then
+                activity="${GREEN}🔥 Active (< 5 min)${NC}"
+            elif [ $diff -lt 3600 ]; then
+                activity="${YELLOW}⚡ Recent (< 1 hour)${NC}"
+            elif [ $diff -lt 86400 ]; then
+                activity="📅 Today"
+            else
+                local days=$((diff / 86400))
+                activity="📆 ${days} days ago"
+            fi
+            echo -e "│ Activity: $activity"
+        fi
+
+        echo "└─────────────────────────────────────────────────────────────────┘"
+        echo ""
+    done
+
+    # Quick actions
+    echo "┌─────────────────────────────────────────────────────────────────┐"
+    echo "│                      🚀 Quick Actions                           │"
+    echo "├─────────────────────────────────────────────────────────────────┤"
+    echo "│ just worktree-dev <name>        - Start dev server              │"
+    echo "│ just worktree-claude <name>     - Launch Claude Code            │"
+    echo "│ just worktree-remove <name>     - Remove worktree               │"
+    echo "└─────────────────────────────────────────────────────────────────┘"
 }
 
 # Main command dispatcher
