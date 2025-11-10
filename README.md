@@ -425,3 +425,4 @@ playwright/test-results/
 - `docs/local-dev.md`: Procedures for setting up a local validation environment.
 - `docs/edu-quest-architecture.md`: Detailed architecture design.
 - `docs/math-quiz.md`: Specifications for the old standalone mini-game.
+- `docs/parallel-development.md`: Guide for parallel feature development using git worktree.

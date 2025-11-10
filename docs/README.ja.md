@@ -404,3 +404,10 @@ playwright/test-results/
 - ページ間のナビゲーションフロー（Home → MathQuest → Start → Play → Results）
 - ClockQuest のナビゲーション
 - 戻るボタン（ブラウザバック）の挙動
+
+## 並列開発
+
+Git worktreeを使用して、複数の機能を並列で開発できます。詳細は以下のドキュメントを参照してください:
+
+- **[並列開発ガイド](./parallel-development.ja.md)**: Git worktreeとClaude Codeを使った並列開発の完全ガイド
+- **[クイックリファレンス](./worktree-quick-ref.ja.md)**: よく使うコマンドの1ページチートシート
