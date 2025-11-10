@@ -118,6 +118,10 @@ dev-edge:
     @echo "Starting Edge SSR (Wrangler dev)..."
     pnpm --filter @edu-quest/edge run dev
 
+# Run Edge SSR with auto-assigned port (for worktree development)
+dev-auto:
+    @./scripts/dev-auto-port.sh
+
 # Run E2E tests with Playwright (headless)
 e2e:
     @echo "Running E2E tests with Playwright..."

@@ -168,35 +168,12 @@ dev_worktree() {
 
     log_info "Starting dev server for '${name}' on port ${port}..."
     log_info "Location: ${worktree_path}"
+    log_info "Open this worktree in VS Code with:"
+    echo "  code ${worktree_path}"
     echo ""
 
-    # Create a tmux session or screen session for the dev server
-    if command -v tmux &> /dev/null; then
-        local session_name="eduquest-${name}"
-        if tmux has-session -t "${session_name}" 2>/dev/null; then
-            log_warn "Tmux session '${session_name}' already exists"
-            log_info "Attaching to existing session..."
-            tmux attach-session -t "${session_name}"
-        else
-            log_info "Creating tmux session '${session_name}'..."
-            cd "${worktree_path}"
-            tmux new-session -s "${session_name}" -d
-            tmux send-keys -t "${session_name}" "cd ${worktree_path}" C-m
-            tmux send-keys -t "${session_name}" "export PORT=${port}" C-m
-            tmux send-keys -t "${session_name}" "pnpm dev:edge" C-m
-            log_success "Dev server started in tmux session '${session_name}'"
-            log_info "Attach with: tmux attach-session -t ${session_name}"
-            log_info "Detach with: Ctrl+B then D"
-        fi
-    else
-        log_warn "tmux not found. Starting dev server in current terminal..."
-        log_info "Tip: Install tmux for better session management:"
-        log_info "  macOS: brew install tmux"
-        log_info "  Linux: apt-get install tmux or yum install tmux"
-        echo ""
-        cd "${worktree_path}"
-        PORT="${port}" pnpm dev:edge
-    fi
+    cd "${worktree_path}"
+    PORT="${port}" pnpm dev:edge
 }
 
 # Show status of all worktrees
