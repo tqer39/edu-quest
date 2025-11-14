@@ -20,7 +20,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       # prek の terraform-fmt 用
-      - uses: jdx/mise-action@v3.4.0
+      - uses: jdx/mise-action@v3.4.1
         with:
           version: 2025.9.13
           cache: true
