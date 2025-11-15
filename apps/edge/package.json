@@ -22,7 +22,7 @@
     "@cloudflare/workers-types": "4.20251111.0",
     "wrangler": "4.47.0",
     "typescript": "5.9.3",
-    "vitest": "4.0.8",
+    "vitest": "4.0.9",
     "drizzle-kit": "0.31.7",
     "tailwindcss": "4.1.17"
   }
