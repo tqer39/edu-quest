@@ -4,187 +4,222 @@
 
 ## 1. Overview
 
-This document provides a comprehensive guide for AI assistants (like Gemini, Claude, Copilot) to understand and contribute to the **EduQuest** project.
+This document gives AI assistants (Claude, ChatGPT Codex, Gemini, Copilot, etc.) the **minimum, critical context** needed to work on the **EduQuest** project.
 
-**EduQuest** is an educational platform for elementary school students to practice arithmetic. It's a monorepo project built with a modern web stack, running on the Cloudflare edge network.
+**EduQuest** is an educational platform for elementary school students to practice arithmetic and other subjects.
+It is a monorepo built with a modern web stack, running primarily on the Cloudflare edge network with Hono SSR.
 
 ### Core Mission
 
-- To provide a fun, engaging, and effective learning experience.
-- To build a scalable, maintainable, and high-performance application using a server-side rendering (SSR) architecture with Hono on Cloudflare Workers.
+- Provide a fun, engaging, and effective learning experience for young students.
+- Keep the codebase **simple, maintainable, and high-performance**, using a layered architecture and SSR on Cloudflare Workers.
+- Preserve a consistent UX across all “Quest” modules (Math, Kanji, Game, Clock, etc.).
+
+---
 
 ## 2. Key Documentation
 
-This file is the central hub. For detailed information, please refer to the specific documents below.
+This file is only a hub. For details, always open the dedicated docs first.
 
-- **[Project Overview](./docs/README.md):** Quick start, repository structure, and frequently used commands.
-- **[Architecture Design](./docs/edu-quest-architecture.md):** In-depth explanation of the layered architecture, module configuration, data flow, and technology stack.
-- **[UI/UX Design Concept](./docs/ux-design-concept.md):** The design philosophy, target users, visual theme, color palette, and gamification strategy.
-- **[Wireframes](./docs/edu-quest-wireframe.md):** Structural blueprints for the main application screens (Home, Stage Select, Game, Results, etc.).
-- **[Local Development](./docs/local-dev.md):** Guide for setting up and running the project locally.
-- **[AI Assistant Rules](./docs/AI_RULES.md):** Common rules and guidelines for AI assistants contributing to this repository.
-- **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.
-- **[rulesync Guide](./docs/RULESYNC.md):** How to use the `rulesync` tool to keep configuration files up-to-date.
+- **Project & Architecture**
+  - `docs/README.md` — Project overview, repo structure, and frequently used commands.
+  - `docs/edu-quest-architecture.md` — Layered architecture, modules, data flow, and tech stack.
+  - `docs/local-dev.md` — Local development and environment setup.
 
-## 3. System Architecture
+- **Design & UX**
+  - `docs/ux-design-concept.md` — UX philosophy, target users, visual themes, gamification.
+  - `docs/edu-quest-wireframe.md` — Wireframes for main screens.
 
-### 3.1. High-Level Diagram
+- **AI & Workflow Rules**
+  - `docs/AI_RULES.md` — Shared rules for all AI assistants.
+  - `docs/CLAUDE.ja.md` — Japanese version of these instructions (more verbose, if needed).
 
-```mermaid
-graph TB
-    subgraph "User Interface"
-        Browser
-    end
+- **Quest-specific Design**
+  - `docs/kanji-quest-design.md` / `.ja.md` — KanjiQuest design.
+  - `docs/game-quest-design.md` / `.ja.md` — GameQuest design.
 
-    subgraph "Cloudflare Edge"
-        EdgeApp[Edge App<br/>Hono SSR]
-        KV_Quiz[KV: Quiz Session]
-        KV_Session[KV: Auth Session]
-        KV_Trial[KV: Free Trial]
-        KV_Rate[KV: Rate Limit]
-        KV_Idempotency[KV: Idempotency]
-        D1[D1 Database]
-    end
+When in doubt: **start from `docs/README.md` → `docs/edu-quest-architecture.md` → quest-specific docs.**
 
-    subgraph "Application Layer"
-        UseCases[Application UseCases<br/>quiz.ts]
-        Session[Session Management<br/>current-user.ts]
-    end
+---
 
-    subgraph "Domain Layer"
-        DomainLogic[Domain Logic<br/>@edu-quest/domain]
-        AppLogic[App Logic<br/>@edu-quest/app]
-    end
+## 3. Documentation Localization Policy
 
-    subgraph "Infrastructure"
-        Database[Database Client<br/>Drizzle ORM]
-        Schema[Database Schema]
-    end
+EduQuest maintains documentation in **English + Japanese**.
 
-    subgraph "Routes"
-        Pages[Pages<br/>home, start, play]
-        APIs[APIs<br/>/apis/quiz]
-    end
+### 3.1 File Naming
 
-    Browser --> EdgeApp
-    EdgeApp --> Pages
-    EdgeApp --> APIs
-    EdgeApp --> UseCases
-    UseCases --> AppLogic
-    UseCases --> Session
-    AppLogic --> DomainLogic
-    EdgeApp --> KV_Quiz
-    EdgeApp --> KV_Session
-    EdgeApp --> KV_Trial
-    EdgeApp --> KV_Rate
-    EdgeApp --> KV_Idempotency
-    EdgeApp --> Database
-    Database --> D1
-    Database --> Schema
-```
+- Base English file: `*.md`
+- Matching Japanese translation: `*.ja.md`
+- Both files live in the **same directory**.
 
-### 3.2. Monorepo Structure (pnpm workspaces)
+### 3.2 Synchronization Rules (CRITICAL)
 
-The project is a monorepo managed with pnpm workspaces.
+When you modify any `.md` file, you **MUST** also update the corresponding `.ja.md` file **in the same directory**, if it exists.
 
-- **`apps/`**: Executable applications.
-  - `@edu-quest/edge`: The main application (SSR + BFF API) running on Cloudflare Workers.
-  - `@edu-quest/api`: A Node.js server for local API development.
-  - `@edu-quest/web`: A Hono server for local web development.
-- **`packages/`**: Shared libraries.
-  - `@edu-quest/domain`: The core domain logic (problem generation, calculation rules). This is the heart of the application.
-  - `@edu-quest/app`: Application logic that uses the domain layer (quiz session management, answer verification).
-- **`infra/`**: Infrastructure as Code.
-  - `terraform/`: Terraform configurations for Cloudflare resources.
-  - `migrations/`: Database schemas and migration scripts for D1.
-- **`docs/`**: All project documentation.
+This applies to:
 
-## 4. Development Workflow
+- Project docs: `README.md`, `CONTRIBUTING.md`, etc.
+- Technical docs: `docs/*.md`
+- Design docs: `docs/edu-quest-*.md`, `docs/*-quest-design.md`
+- Workflow docs: `docs/AI_RULES.md`, etc.
 
-### 4.1. Core Principles
+**Workflow:**
 
-- **Convention over Configuration:** Adhere to the established project conventions.
-- **Linting is Law:** All code must pass linting checks (`just lint`) before submission.
-- **Minimal Changes:** Make small, focused commits. Avoid unrelated refactoring.
-- **No Automatic Git Operations:** **NEVER** execute `git add`, `git commit`, or `git push` automatically. Always wait for explicit user approval before making any Git operations.
+1. Check if `{filename}.ja.md` exists.
+2. Update the English `.md` file.
+3. Mirror the change in `{filename}.ja.md` with equivalent meaning.
+4. If `{filename}.ja.md` does not exist, consider creating it (or ask the user).
 
-### 4.2. Key Commands
+**Note to AI Assistants:**
 
-- `just setup`: Installs all dependencies and sets up the environment.
-- `just lint`: Runs all code quality checks.
-- `just fix`: Applies automatic formatting and fixes.
-- `pnpm dev:edge`: Starts the main application for local development.
+- Use `ls` / `find` to check for sibling `*.ja.md` files.
+- If you are not confident about the Japanese translation, ask the user explicitly.
+- **Do not leave English and Japanese versions out of sync.**
 
-### 4.3. UI/UX Guidelines
+---
 
-#### Answer Input Method
+## 4. How Claude Should Work in This Repo
 
-**IMPORTANT: EduQuest uses button-based answer input across all content types (math, time, kanji).**
+### 4.1 General Principles
 
-- **DO NOT use** standard browser input controls (text input, number input, select, etc.) for answer submission
-- **USE** dedicated answer buttons that users can click/tap to submit their answers
-- **Reasons:**
-  - Target users are elementary school students who may struggle with keyboard input
-  - Better mobile/tablet experience with large, tappable buttons
-  - Prevents input validation issues and IME-related problems
-  - Provides immediate visual feedback on user interaction
-  - Consistent UX across all quest types
+When acting inside this repository, Claude should:
 
-**Examples:**
+1. **Read before editing**
+   - Always inspect existing code, docs, and architecture diagrams before proposing changes.
+   - Prefer reading `docs/edu-quest-architecture.md` and quest-specific docs over guessing.
 
-- ✅ **MathQuest**: Number pad buttons (0-9) for numeric answers
-- ✅ **ClockQuest**: Hour buttons (1-12) for time selection
-- ✅ **KokugoQuest**: Multiple choice buttons for character selection
-- ❌ **DO NOT**: `<input type="number">` or `<input type="text">`
+2. **Keep changes small and focused**
+   - One concern per PR / change set.
+   - Avoid unrelated refactors unless explicitly requested.
 
-**Implementation Pattern:**
+3. **Never run Git operations automatically**
+   - **NEVER** auto-execute `git add`, `git commit`, `git push`, or similar.
+   - Always wait for explicit user permission before touching Git.
 
-```tsx
-// Each button is a separate form for SSR compatibility
-<form method="POST">
-  <input type="hidden" name="answer" value={answer} />
-  <button type="submit">答えボタン</button>
-</form>
-```
+4. **Follow existing conventions**
+   - Match the existing TypeScript style, directory structure, and naming patterns.
+   - Reuse existing utilities (e.g., `formatSchoolGradeLabelShort`, session helpers) instead of reinventing.
 
-This approach maintains SSR compatibility while providing an optimal user experience for young learners.
+5. **Ask when requirements are unclear**
+   - If there is ambiguity in UX, edge cases, or architecture, ask the user instead of guessing.
 
-#### Navigation Design Philosophy
+---
 
-**IMPORTANT: EduQuest follows a minimal navigation design approach to reduce cognitive load for young learners.**
+## 5. Architecture & Repository Overview (High-level)
 
-- **Minimize Text:** Remove redundant text labels in navigation
-- **Icon-First:** Use recognizable icons as primary navigation elements
-- **Short Labels:** Use abbreviated forms (e.g., "小1" instead of "小学1年生")
-- **Visual Hierarchy:** Keep navigation compact to maximize content area
+You do **not** need every detail here; use this to know where to look.
 
-**Navigation Requirements:**
+- **Monorepo with pnpm workspaces**
+  - `apps/`
+    - `@edu-quest/edge` — Main SSR + BFF app on Cloudflare Workers (primary target of most changes).
+    - `@edu-quest/api` — Local API server (primarily for development).
+    - `@edu-quest/web` — Local web server placeholder (not the real app).
+  - `packages/`
+    - `@edu-quest/domain` — Core domain logic (problem generation, rules).
+    - `@edu-quest/app` — Application logic built on top of the domain layer.
+  - `infra/`
+    - `terraform/` — Cloudflare infra (IaC).
+    - `migrations/` — D1 schema and migration scripts.
+  - `docs/`
+    - Documentation for architecture, UX, quests, rules, etc.
 
-```tsx
-// ✅ CORRECT: Minimal navigation
-<nav>
-  <a href="/"><img src="/logo.svg" /></a> {/* Logo only, no "EduQuest" text */}
-  <span>|</span>
-  <a href="/math"><span>🔢</span></a> {/* Icon only, no "MathQuest" text */}
-  <span>小1</span> {/* Short grade label */}
-</nav>
+For detailed diagrams and flows, always refer to `docs/edu-quest-architecture.md`.
 
-// ❌ INCORRECT: Verbose navigation
-<nav>
-  <a href="/"><img src="/logo.svg" /><span>EduQuest</span></a> {/* ❌ Redundant */}
-  <span>|</span>
-  <a href="/math"><span>🔢</span><span>MathQuest - 小学1年生</span></a> {/* ❌ Too verbose */}
-</nav>
-```
+---
 
-Use `formatSchoolGradeLabelShort()` from `apps/edge/src/routes/utils/school-grade.ts` for short grade labels.
+## 6. Critical UX Rules
 
-## 5. How to Contribute
+### 6.1 Answer Input Method (Platform-wide)
 
-1.  **Understand the Goal:** Read the user's request carefully.
-2.  **Consult the Docs:** Refer to the documents linked above to understand the relevant parts of the project. Start with the architecture and domain logic.
-3.  **Locate the Code:** Use `glob` or `search_file_content` to find the relevant files. The directory structure is logical and should be your first guide.
-4.  **Analyze, Don't Assume:** Read the existing code and its context before making changes.
-5.  **Implement Changes:** Modify the code, adhering strictly to the project's style and conventions.
-6.  **Verify:** Run `just lint` and any relevant tests to ensure your changes are correct and don't break anything.
-7.  **Update Documentation:** If you change any behavior, tool, or workflow, update the corresponding documentation.
+**CRITICAL: All Quests (math, clock, kanji, game, etc.) use button-based answer input.**
+
+- **DO NOT** use `<input type="text">`, `<input type="number">`, `<select>`, etc. for quiz answers.
+- **DO** use clickable/tappable `<button>` elements (one button per answer option).
+- Prefer SSR-friendly `<form method="POST">` with hidden inputs + `<button>`.
+
+Rationale:
+
+- Target users are elementary school students with limited typing skills.
+- Better mobile/tablet UX, fewer validation issues, more predictable interactions.
+
+If you propose input changes and they involve text fields for answers, **you are doing it wrong**.
+
+---
+
+### 6.2 Navigation Design
+
+EduQuest uses **minimal navigation** to reduce cognitive load.
+
+- Prefer icons + short labels:
+  - Use Quest icons (e.g., `🔢`) without verbose text labels.
+  - Use short grade labels like `小1`, `小2` instead of full phrases.
+- Keep navigation compact; maximize the area for learning content.
+- Use helpers like `formatSchoolGradeLabelShort()` instead of hardcoding grade strings.
+
+If you modify navigation:
+
+- Check `docs/ux-design-concept.md` for detailed rules.
+- Preserve minimal, icon-first design.
+
+---
+
+## 7. Session & Data Policies (High-level)
+
+### 7.1 Session Management
+
+**CRITICAL: Session data for Quests lives in Cloudflare KV, not in cookies or client storage.**
+
+- Store session state in `KV_QUIZ_SESSION` (and related KV namespaces).
+- Cookies hold only opaque session IDs (HttpOnly, Secure, SameSite).
+- Never put quiz questions, answers, or sensitive state into localStorage or plain cookies.
+
+When you add or change session logic:
+
+- Follow existing patterns in `apps/edge` routes.
+- Keep key naming consistent (e.g., `{quest_type}:{session_id}`).
+
+### 7.2 Static Master Data (Kanji, etc.)
+
+- Educational master data (e.g., Kanji lists) are stored as JSON under `packages/domain/src/data/`.
+- This content is:
+  - Versioned in Git.
+  - Read-only at runtime.
+- User-specific progress or analytics should **not** be stored in these JSON files (use DB when implemented).
+
+Details live in dedicated docs; here you only need to remember the policy.
+
+---
+
+## 8. Development & Testing Workflow (Summary)
+
+For concrete commands, see `docs/README.md` / `docs/local-dev.md`.
+Claude should only remember the **important constraints**:
+
+- Run lint/tests before proposing the final patch:
+  - `just lint`
+  - `pnpm test` / `pnpm test:coverage`
+  - `just e2e` or `just e2e-ci` when working on flows/routes.
+- Do **not** change CI workflows (GitHub Actions) unless the user asks.
+- When changing test behavior, update tests and docs together.
+
+---
+
+## 9. Contribution Checklist for AI Assistants
+
+Before you say “done” for any change:
+
+1. **Read the relevant docs** (architecture, quest design, UX, rules).
+2. **Locate the right code** in `apps/` / `packages/` instead of creating new random files.
+3. **Propose a small, scoped change** with clear reasoning.
+4. **Respect UX rules**:
+   - Button-based answers.
+   - Minimal navigation.
+   - Quest-specific theming where applicable.
+5. **Respect architecture rules**:
+   - Keep domain logic in `@edu-quest/domain`.
+   - Keep app orchestration in `@edu-quest/app` / `apps/edge`.
+   - Use KV for sessions; no client-side session state.
+6. **Update documentation** (and `.ja.md` siblings) when behavior changes.
+7. **Never run Git commands automatically**; wait for user confirmation.
+
+If any of these steps are unclear, **ask the user first** instead of guessing.
