@@ -22,15 +22,18 @@ It is a monorepo built with a modern web stack, running primarily on the Cloudfl
 This file is only a hub. For details, always open the dedicated docs first.
 
 - **Project & Architecture**
+
   - `docs/README.md` — Project overview, repo structure, and frequently used commands.
   - `docs/edu-quest-architecture.md` — Layered architecture, modules, data flow, and tech stack.
   - `docs/local-dev.md` — Local development and environment setup.
 
 - **Design & UX**
+
   - `docs/ux-design-concept.md` — UX philosophy, target users, visual themes, gamification.
   - `docs/edu-quest-wireframe.md` — Wireframes for main screens.
 
 - **AI & Workflow Rules**
+
   - `docs/AI_RULES.md` — Shared rules for all AI assistants.
   - `docs/CLAUDE.ja.md` — Japanese version of these instructions (more verbose, if needed).
 
@@ -85,18 +88,22 @@ This applies to:
 When acting inside this repository, Claude should:
 
 1. **Read before editing**
+
    - Always inspect existing code, docs, and architecture diagrams before proposing changes.
    - Prefer reading `docs/edu-quest-architecture.md` and quest-specific docs over guessing.
 
 2. **Keep changes small and focused**
+
    - One concern per PR / change set.
    - Avoid unrelated refactors unless explicitly requested.
 
 3. **Never run Git operations automatically**
+
    - **NEVER** auto-execute `git add`, `git commit`, `git push`, or similar.
    - Always wait for explicit user permission before touching Git.
 
 4. **Follow existing conventions**
+
    - Match the existing TypeScript style, directory structure, and naming patterns.
    - Reuse existing utilities (e.g., `formatSchoolGradeLabelShort`, session helpers) instead of reinventing.
 

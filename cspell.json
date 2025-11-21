@@ -53,6 +53,7 @@
     "esac",
     "fastapi",
     "FASTMCP",
+    "frontmatter",
     "furigana",
     "gakken",
     "getline",
