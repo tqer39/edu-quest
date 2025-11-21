@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/parents-page-screen-design.ja.md)
+
 # EduQuest /parents Page Screen Design Specification
 
 ## 1. Page Overview

@@ -1,3 +1,5 @@
+[🇯🇵 日本語](/docs/game-quest-design.ja.md)
+
 # GameQuest Design Document
 
 ## Overview

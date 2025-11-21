@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/parents-page-screen-design.md)
+
 # EduQuest /parents ページ画面設計書
 
 ## 1. ページ概要
