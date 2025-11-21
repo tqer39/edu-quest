@@ -1,3 +1,7 @@
+---
+description: ''
+---
+
 [🇯🇵 日本語](/docs/AGENTS.ja.md)
 
 ## 1. Overview
@@ -22,7 +26,6 @@ This file is the central hub. For detailed information, please refer to the spec
 - **[Local Development](./docs/local-dev.md):** Guide for setting up and running the project locally.
 - **[AI Assistant Rules](./docs/AI_RULES.md):** Common rules and guidelines for AI assistants contributing to this repository.
 - **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.
-- **[rulesync Guide](./docs/RULESYNC.md):** How to use the `rulesync` tool to keep configuration files up-to-date.
 
 ### 2.1. Quest-Specific Design Documents
 
@@ -44,7 +47,7 @@ This file is the central hub. For detailed information, please refer to the spec
   - Project documentation (AGENTS.md, README.md, CONTRIBUTING.md, etc.)
   - Technical documentation (docs/\*.md)
   - Design documents (docs/edu-quest-\*.md, docs/\*-quest-design.md)
-  - Workflow documentation (docs/RULESYNC.md, docs/AI_RULES.md, etc.)
+  - Workflow documentation (docs/AI_RULES.md, etc.)
 
 **Workflow:**
 

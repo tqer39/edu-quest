@@ -10,6 +10,5 @@ Recommended defaults:
 - Keep diffs minimal and follow the existing style.
 - Ensure all changes pass `just lint`.
 - Primary commands: `brew bundle install` → `just setup` / `just lint` / `just fix`.
-- Optional rule sync: `just rulesync -- --check` / `just rulesync -- apply`.
 
-Refer to `docs/AI_RULES.md` and `AGENTS.md` for more details.
+Refer to `docs/AI_RULES.md` for more details.
