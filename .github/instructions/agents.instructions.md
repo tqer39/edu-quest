@@ -1,6 +1,8 @@
-# Additional Conventions Beyond the Built-in Functions
+---
+description: ''
+---
 
-As this project's AI coding tool, you must follow the additional conventions below, in addition to the built-in functions.
+[🇯🇵 日本語](/docs/AGENTS.ja.md)
 
 ## 1. Overview
 
@@ -24,11 +26,11 @@ This file is the central hub. For detailed information, please refer to the spec
 - **[Local Development](./docs/local-dev.md):** Guide for setting up and running the project locally.
 - **[AI Assistant Rules](./docs/AI_RULES.md):** Common rules and guidelines for AI assistants contributing to this repository.
 - **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.
-- **[rulesync Guide](./docs/RULESYNC.md):** How to use the `rulesync` tool to keep configuration files up-to-date.
 
 ### 2.1. Quest-Specific Design Documents
 
 - **[KanjiQuest Design](./docs/kanji-quest-design.md):** Comprehensive design document for the Kanji learning quest ([日本語版](./docs/kanji-quest-design.ja.md))
+- **[GameQuest Design](./docs/game-quest-design.md):** Design blueprint for the GameQuest brain-training mini games ([日本語版](./docs/game-quest-design.ja.md))
 
 ### 2.2. Documentation Localization Policy
 
@@ -45,7 +47,7 @@ This file is the central hub. For detailed information, please refer to the spec
   - Project documentation (AGENTS.md, README.md, CONTRIBUTING.md, etc.)
   - Technical documentation (docs/\*.md)
   - Design documents (docs/edu-quest-\*.md, docs/\*-quest-design.md)
-  - Workflow documentation (docs/RULESYNC.md, docs/AI_RULES.md, etc.)
+  - Workflow documentation (docs/AI_RULES.md, etc.)
 
 **Workflow:**
 
@@ -68,6 +70,17 @@ This file is the central hub. For detailed information, please refer to the spec
 - Use `ls` or `find` to verify localized versions exist.
 - If you're unsure about the translation, ask the user for guidance.
 - Maintaining documentation parity is critical for our bilingual user base.
+
+### 2.3. ChatGPT Codex Connector Comment Localization
+
+To keep the ChatGPT Codex Connector guidance understandable for both English- and Japanese-speaking contributors, always pair explanations in both languages when editing this file.
+
+- Provide the English guidance first, followed immediately by its Japanese translation so the intent stays synchronized.
+  - 英語での説明を書いた直後に、意図が変わらないよう同内容の日本語訳を必ず追記してください。
+- Use full sentences for the Japanese explanation instead of short phrases or machine-generated fragments.
+  - 日本語訳は断片的な語句ではなく、意味が伝わる完結した文章で記述してください。
+- When updating existing text, confirm that both language versions are updated together to avoid mismatched instructions.
+  - 既存の文章を更新するときは、英語と日本語の両方を同時にメンテナンスし、内容の食い違いが生じないようにしてください。
 
 ## 3. System Architecture
 
@@ -227,14 +240,15 @@ When tests fail in CI, screenshots are uploaded as GitHub Artifacts:
 
 1. Go to the failed workflow run
 2. Scroll to the bottom of the page
-3. Download the `cypress-screenshots` artifact
-4. Review the screenshots to diagnose the issue
+3. Download the `playwright-report` artifact
+4. Download the `playwright-test-results` artifact for traces, screenshots, and videos
+5. Review the HTML report and media to diagnose the issue
 
 **Test Coverage:**
 
 Current E2E test coverage (16 tests):
 
-- Navigation flows (home → MathQuest → ClockQuest)
+- Navigation flows (home → MathQuest → GameQuest → ClockQuest)
 - MathQuest configuration wizard
 - Page transitions and loading
 - Browser back button navigation
@@ -274,7 +288,7 @@ The workflow (`.github/workflows/codecov.yml`):
 - **`codecov.yml`**: Project-level Codecov settings
   - Project coverage target: auto (1% threshold)
   - Patch coverage target: auto (1% threshold)
-  - Ignore paths: tests, node_modules, infra, docs, games, cypress
+  - Ignore paths: tests, node_modules, infra, docs, games
 - **Vitest configs**: Coverage provider (v8), reporters (text, json, html, lcov)
 
 **Important Notes:**
@@ -340,7 +354,7 @@ pre-commit run trivy-terraform --all-files
 
 #### Answer Input Method
 
-**CRITICAL: EduQuest uses button-based answer input across all content types (math, time, kanji).**
+**CRITICAL: EduQuest uses button-based answer input across all content types (math, time, kanji, game).**
 
 This is a fundamental platform-wide design decision that MUST be followed for all Quest implementations:
 
@@ -365,6 +379,7 @@ This is a fundamental platform-wide design decision that MUST be followed for al
 - ✅ **MathQuest**: Number pad buttons (0-9) for numeric answers
 - ✅ **ClockQuest**: Hour buttons (1-12) for time selection
 - ✅ **KanjiQuest**: Multiple choice buttons for character selection
+- ✅ **GameQuest**: Mode-specific action buttons and card selections
 - ❌ **NEVER**: `<input type="number">`, `<input type="text">`, or other text input fields
 
 **Implementation Pattern:**
@@ -403,6 +418,7 @@ The platform currently supports and plans to support the following Quest modules
 
 - **MathQuest** (`/math`) - Arithmetic practice with grade-level presets and themed exercises (Available)
 - **KanjiQuest** (`/kanji`) - Kanji learning organized by grade level (Coming Soon)
+- **GameQuest** (`/game`) - Brain-training mini games for pattern recognition, spatial reasoning, and memory (Sudoku + Stellar Balance tile puzzle)
 - **ClockQuest** (`/clock`) - Time-reading practice with analog and digital clocks (Coming Soon)
 
 ### 6.2. URL Structure
@@ -420,6 +436,7 @@ Route Structure:
   /math/start          → MathQuest configuration wizard
   /math/play           → MathQuest practice session
   /kanji               → KanjiQuest landing page (Coming Soon)
+  /game                → GameQuest landing page (Sudoku + Stellar Balance selector)
   /clock               → ClockQuest landing page (Coming Soon)
 ```
 
@@ -434,6 +451,7 @@ Route Structure:
 - **Theme Customization:** Each Quest module has its own color scheme applied via CSS variables
   - MathQuest: Blue theme (#6B9BD1)
   - KanjiQuest: Purple theme (#9B7EC8)
+  - GameQuest: Green theme (#5DB996)
   - ClockQuest: Orange theme (#F5A85F)
 - **Shared Domain Logic:** All Quest modules reuse `@edu-quest/domain` and `@edu-quest/app` packages
 - **Consistent UX:** Unified navigation and authentication across all Quest modules
@@ -448,6 +466,7 @@ Routes:
   - Portal:  /
   - Math:    /math, /math/start, /math/play
   - Kanji:   /kanji (Coming Soon)
+  - Game:    /game (Coming Soon)
   - Clock:   /clock (Coming Soon)
 ```
 
@@ -553,6 +572,8 @@ preview_id = "kv_idempotency_preview"
 - `kanji:550e8400-e29b-41d4-a716-446655440000` - KanjiQuest session
 - `kanji_result:550e8400-e29b-41d4-a716-446655440001` - KanjiQuest result
 - `math:550e8400-e29b-41d4-a716-446655440002` - MathQuest session (future)
+- `game:550e8400-e29b-41d4-a716-446655440010` - GameQuest session (future)
+- `game_result:550e8400-e29b-41d4-a716-446655440011` - GameQuest result (future)
 - `clock:550e8400-e29b-41d4-a716-446655440003` - ClockQuest session (future)
 
 ### 7.6. Cookie Naming Convention
@@ -564,6 +585,8 @@ preview_id = "kv_idempotency_preview"
 - `kanji_session_id` - KanjiQuest active session
 - `kanji_result_id` - KanjiQuest completed result
 - `math_session_id` - MathQuest active session (future)
+- `game_session_id` - GameQuest active session (future)
+- `game_result_id` - GameQuest completed result (future)
 
 ### 7.7. Session Lifecycle
 
@@ -824,3 +847,168 @@ const personalizedKanji = kanji.map((k) => ({
 ```
 
 **Note to AI Assistants:** When implementing new Quest modules with educational content (vocabulary, grammar rules, etc.), ALWAYS start with JSON files for master data. Only consider database migration when implementing user-specific features like progress tracking or adaptive learning. This separation of concerns maintains simplicity while allowing future scalability.
+
+## 9. Favicon Management Policy
+
+### 9.1. Quest-Specific Favicons
+
+**EduQuest uses dynamic favicon switching based on the Quest type to provide visual context for users.**
+
+This is a platform-wide design pattern that MUST be followed for all Quest modules to maintain consistent branding and user experience.
+
+### 9.2. Implementation Pattern
+
+**CRITICAL: Each Quest module MUST have its own favicon served via a dedicated endpoint and applied through the `Document` component.**
+
+**Architecture:**
+
+```typescript
+// 1. Define favicon endpoint in apps/edge/src/index.tsx
+app.get('/favicon-{quest}.svg', (c) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="{color}" rx="15"/>
+  <text x="50" y="70" font-size="60" text-anchor="middle" fill="white" font-family="sans-serif" font-weight="bold">{character}</text>
+</svg>`;
+  return c.body(svg, 200, {
+    'Content-Type': 'image/svg+xml',
+    'Cache-Control': 'public, max-age=86400',
+  });
+});
+
+// 2. Apply favicon in route handler
+app.get('/{quest}', async (c) =>
+  c.render(<QuestHome />, {
+    title: 'Quest Title',
+    description: 'Quest Description',
+    favicon: '/favicon-{quest}.svg', // Pass favicon prop
+  })
+);
+
+// 3. Document component uses favicon prop
+export const Document: FC<DocumentProps> = ({
+  favicon,
+  // ...
+}) => {
+  const defaultFavicon = "data:image/svg+xml,..."; // Default MQ favicon
+
+  return html`
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="${favicon || defaultFavicon}"
+    />
+  `;
+};
+```
+
+### 9.3. Quest Favicon Specifications
+
+**Design Requirements:**
+
+- **Format:** SVG (inline, served via dedicated endpoint)
+- **Size:** 100x100 viewBox for optimal rendering
+- **Border Radius:** 15px rounded corners
+- **Colors:** Match Quest theme color palette
+- **Character:** Representative Japanese character or English abbreviation
+- **Font:** Bold sans-serif, 60px, white color
+- **Cache:** 24 hours (`max-age=86400`)
+
+**Current Favicon Mapping:**
+
+| Quest Type | Endpoint             | Background Color   | Character | Theme     |
+| ---------- | -------------------- | ------------------ | --------- | --------- |
+| MathQuest  | (default)            | `#78c2c3` (Teal)   | `MQ`      | Blue/Teal |
+| KanjiQuest | `/favicon-kanji.svg` | `#9B87D4` (Purple) | `漢`      | Purple    |
+| GameQuest  | `/favicon-game.svg`  | `#5DB996` (Green)  | `遊`      | Green     |
+| ClockQuest | `/favicon-clock.svg` | `#F5A85F` (Orange) | `時`      | Orange    |
+
+### 9.4. Implementation Checklist
+
+When implementing a new Quest module:
+
+- [ ] Create favicon endpoint `/favicon-{quest}.svg` in `apps/edge/src/index.tsx`
+- [ ] Use Quest theme color as background (`fill` attribute)
+- [ ] Select representative character (Japanese kanji or English abbreviation)
+- [ ] Set `Cache-Control: public, max-age=86400` for CDN caching
+- [ ] Add `favicon` prop to all Quest route handlers (`c.render()` calls)
+- [ ] Test favicon appears correctly in browser tab
+- [ ] Verify favicon switches when navigating between Quest types
+- [ ] Ensure default MathQuest favicon displays on non-Quest pages (`/`)
+
+### 9.5. Routes Requiring Favicon Prop
+
+**For each Quest module, apply the favicon to ALL routes:**
+
+```typescript
+// Example: KanjiQuest routes
+app.get('/kanji', async (c) => c.render(<KanjiHome />, { favicon: '/favicon-kanji.svg' }));
+app.get('/kanji/select', async (c) => c.render(<KanjiGradeSelect />, { favicon: '/favicon-kanji.svg' }));
+app.get('/kanji/quiz', async (c) => c.render(<KanjiQuiz />, { favicon: '/favicon-kanji.svg' }));
+app.get('/kanji/results', async (c) => c.render(<KanjiResults />, { favicon: '/favicon-kanji.svg' }));
+```
+
+### 9.6. Default Favicon (MathQuest)
+
+**The default favicon is embedded as a data URI in the `Document` component:**
+
+```typescript
+const defaultFavicon =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2378c2c3'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' fill='%231f2a4a' font-family='Zen Kaku Gothic New, sans-serif' font-size='28' font-weight='700'%3EMQ%3C/text%3E%3C/svg%3E";
+```
+
+**This default applies to:**
+
+- `/` (EduQuest hub)
+- `/math` routes (if not explicitly overridden)
+- Any other non-Quest pages
+
+### 9.7. TypeScript Type Definitions
+
+**Update `DocumentProps` type in `apps/edge/src/views/layouts/document.tsx`:**
+
+```typescript
+export type DocumentProps = {
+  lang: 'ja' | 'en';
+  title?: string;
+  description?: string;
+  environment?: string;
+  favicon?: string; // Optional favicon path
+  children?: JSX.Element | JSX.Element[];
+};
+```
+
+**Update `jsxRenderer` type in `apps/edge/src/index.tsx`:**
+
+```typescript
+app.use(
+  '*',
+  jsxRenderer<{ title?: string; description?: string; favicon?: string }>(
+    (props, c) => {
+      return (
+        <Document
+          lang={lang}
+          title={props.title}
+          description={props.description}
+          favicon={props.favicon}
+          environment={environment}
+        >
+          {props.children}
+        </Document>
+      );
+    }
+  )
+);
+```
+
+### 9.8. Rationale
+
+**Benefits:**
+
+- ✅ **Visual Context:** Users immediately recognize which Quest they're in
+- ✅ **Branding Consistency:** Each Quest has distinct visual identity
+- ✅ **User Experience:** Browser tab shows relevant icon when multiple tabs open
+- ✅ **Scalability:** Easy to add new Quest favicons following the same pattern
+- ✅ **Performance:** SVG favicons are small, cacheable, and scale perfectly
+- ✅ **Maintainability:** Single source of truth in routing layer
+
+**Note to AI Assistants:** When implementing new Quest modules, ALWAYS create a dedicated favicon endpoint and apply it to all Quest routes. This is a non-negotiable UX requirement that maintains visual consistency across the platform.

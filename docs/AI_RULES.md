@@ -36,17 +36,6 @@ This document outlines project-specific instructions to ensure consistent behavi
   - Setup: `brew bundle install` → `just setup`
   - Run all linting: `just lint`
   - Auto-fix: `just fix`
-  - Rule synchronization (optional): `just rulesync -- --check` / `just rulesync -- apply`
-
-## Configuration File Generation with rulesync
-
-- You can generate configuration files for AI assistants with `just rulesync -- generate`.
-- Generation targets (initial):
-  - `.cursorrules` (Cursor)
-  - `.github/copilot-instructions.md` (GitHub Copilot Chat)
-  - `CLAUDE.md` (Claude Code/Dev)
-  - `docs/AI_RULES.ja.md` (this file: single source)
-- The generated files are based on the content of this file, with a header added for each specific tool.
 
 ## Reference: Guideline Highlights (Excerpt)
 

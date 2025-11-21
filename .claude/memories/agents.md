@@ -22,7 +22,6 @@ This file is the central hub. For detailed information, please refer to the spec
 - **[Local Development](./docs/local-dev.md):** Guide for setting up and running the project locally.
 - **[AI Assistant Rules](./docs/AI_RULES.md):** Common rules and guidelines for AI assistants contributing to this repository.
 - **[Claude-specific Instructions](./docs/CLAUDE.md):** Specific guidance for the Claude Code assistant.
-- **[rulesync Guide](./docs/RULESYNC.md):** How to use the `rulesync` tool to keep configuration files up-to-date.
 
 ### 2.1. Quest-Specific Design Documents
 
@@ -44,7 +43,7 @@ This file is the central hub. For detailed information, please refer to the spec
   - Project documentation (AGENTS.md, README.md, CONTRIBUTING.md, etc.)
   - Technical documentation (docs/\*.md)
   - Design documents (docs/edu-quest-\*.md, docs/\*-quest-design.md)
-  - Workflow documentation (docs/RULESYNC.md, docs/AI_RULES.md, etc.)
+  - Workflow documentation (docs/AI_RULES.md, etc.)
 
 **Workflow:**
 
@@ -188,7 +187,7 @@ pnpm test:coverage
 
 #### E2E Tests
 
-The project uses **Playwright** for end-to-end testing to verify screen transitions and user flows.
+The project uses **Cypress** for end-to-end testing to verify screen transitions and user flows.
 
 **Local Development:**
 
@@ -199,7 +198,7 @@ pnpm dev:edge
 # 2. Run E2E tests in headless mode
 just e2e
 
-# OR open Playwright test runner (UI mode)
+# OR open Cypress test runner (interactive mode)
 just e2e-open
 ```
 
@@ -229,17 +228,16 @@ The CI workflow (`.github/workflows/e2e.yml`):
 1. Installs dependencies and builds required packages
 2. Starts the dev server in the background
 3. Runs all E2E tests
-4. Uploads Playwright reports, traces, and media on failure
+4. Uploads screenshots and videos on failure
 
 **Viewing Test Results:**
 
-When tests fail in CI, Playwright artifacts are uploaded to GitHub Actions:
+When tests fail in CI, screenshots are uploaded as GitHub Artifacts:
 
 1. Go to the failed workflow run
 2. Scroll to the bottom of the page
-3. Download the `playwright-report` artifact
-4. Download the `playwright-test-results` artifact for traces, screenshots, and videos
-5. Review the HTML report and media to diagnose the issue
+3. Download the `cypress-screenshots` artifact
+4. Review the screenshots to diagnose the issue
 
 **Test Coverage:**
 
@@ -285,7 +283,7 @@ The workflow (`.github/workflows/codecov.yml`):
 - **`codecov.yml`**: Project-level Codecov settings
   - Project coverage target: auto (1% threshold)
   - Patch coverage target: auto (1% threshold)
-  - Ignore paths: tests, node_modules, infra, docs, games
+  - Ignore paths: tests, node_modules, infra, docs, games, cypress
 - **Vitest configs**: Coverage provider (v8), reporters (text, json, html, lcov)
 
 **Important Notes:**
@@ -394,77 +392,6 @@ This is a fundamental platform-wide design decision that MUST be followed for al
 ```
 
 This approach maintains SSR compatibility while providing an optimal user experience for young learners.
-
-#### Navigation Design Philosophy
-
-**CRITICAL: EduQuest follows a minimal navigation design approach to reduce cognitive load for young learners.**
-
-This is a platform-wide design pattern that MUST be followed for all Quest modules to maintain consistent, clean, and age-appropriate navigation.
-
-**Design Principles:**
-
-- **Minimize Text:** Remove redundant text labels in navigation that don't add value
-- **Icon-First:** Use recognizable icons (emoji or symbols) as primary navigation elements
-- **Short Labels:** Use abbreviated forms for contextual information (e.g., "小1" instead of "小学1年生")
-- **Visual Hierarchy:** Keep navigation compact to maximize content area
-- **Progressive Disclosure:** Show only essential information at each navigation level
-
-**Navigation Requirements:**
-
-```tsx
-// ✅ CORRECT: Minimal navigation with icon + short label
-<nav>
-  <a href="/">
-    <img src="/logo.svg" alt="EduQuest Logo" /> {/* EQ logo only, no "EduQuest" text */}
-  </a>
-  <span>|</span>
-  <a href="/math">
-    <span>🔢</span> {/* Quest icon only, no "MathQuest" text */}
-  </a>
-  <span>小1</span> {/* Short grade label (not "小学1年生") */}
-</nav>
-
-// ❌ INCORRECT: Verbose navigation with redundant text
-<nav>
-  <a href="/">
-    <img src="/logo.svg" alt="EduQuest Logo" />
-    <span>EduQuest</span> {/* ❌ Redundant text */}
-  </a>
-  <span>|</span>
-  <a href="/math">
-    <span>🔢</span>
-    <span>MathQuest - 小学1年生</span> {/* ❌ Too verbose */}
-  </a>
-</nav>
-```
-
-**Grade Label Format:**
-
-| Full Label (Long) | Short Label (Correct) | Context                                |
-| ----------------- | --------------------- | -------------------------------------- |
-| 小学1年生         | 小1                   | MathQuest, KanjiQuest, GameQuest, etc. |
-| 小学2年生         | 小2                   |                                        |
-| 小学3年生         | 小3                   |                                        |
-| 中学1年生         | 中1                   | (Future content)                       |
-
-**Implementation Utilities:**
-
-```typescript
-// apps/edge/src/routes/utils/school-grade.ts
-export const formatSchoolGradeLabelShort = ({ stage, grade }: SchoolGrade) =>
-  `${stage}${grade}`; // "小1", "中2", etc.
-```
-
-**Rationale:**
-
-- ✅ **Reduced Cognitive Load:** Less text = less distraction for young learners
-- ✅ **Improved Readability:** Cleaner visual hierarchy makes navigation intuitive
-- ✅ **Mobile-Friendly:** Compact navigation works better on small screens
-- ✅ **Accessibility:** Icons with proper alt text maintain screen reader compatibility
-- ✅ **Scalability:** Pattern scales well as more Quest modules are added
-- ✅ **Consistency:** Uniform appearance across all Quest types
-
-**Note to AI Assistants:** When implementing or modifying navigation components, ALWAYS follow the minimal design philosophy. Use `formatSchoolGradeLabelShort()` for grade labels, display Quest icons without text labels, and show the EQ logo without "EduQuest" text. This is a critical UX requirement for the target age group.
 
 ## 5. How to Contribute
 

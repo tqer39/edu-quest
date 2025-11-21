@@ -91,19 +91,6 @@ update-brew:
     brew bundle install
     brew upgrade
 
-# Run rulesync with passthrough args
-rulesync args='':
-    @if [[ "{{args}}" =~ ^generate(\s|$) ]]; then \
-        echo "Generating AI assistant configs from .rulesync/rules/agents.md"; \
-        bash scripts/rulesync-generate.sh; \
-    elif command -v rulesync >/dev/null 2>&1; then \
-        echo "Running: rulesync {{args}}"; \
-        rulesync {{args}}; \
-    else \
-        echo "⚠ rulesync が見つかりません。docs/RULESYNC.ja.md を参照してインストールしてください。"; \
-        exit 1; \
-    fi
-
 # Run API and Web dev servers together (Node local)
 dev-node:
     @echo "Starting API (8787) and Web (8788)..."

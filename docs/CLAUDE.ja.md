@@ -1,159 +1,232 @@
-[🇺🇸 English](/docs/CLAUDE.md)
+[🇺🇸 English](/CLAUDE.md)
 
-# CLAUDE.md
+# Claude プロジェクト指示
 
-このファイルは、このリポジトリでコードを扱う際にClaude Code (claude.ai/code) にガイダンスを提供します。
+## 1. 概要
 
-## リポジトリ概要
+このドキュメントは、AI アシスタント（Claude、ChatGPT Codex、Gemini、Copilot など）が **EduQuest** プロジェクトで作業するために必要な**最小限かつ重要なコンテキスト**を提供します。
 
-これは、基盤となるプロジェクト構造と設定ファイルを提供することを目的とした、ベースボイラープレートテンプレートリポジトリです。このリポジトリは、事前設定された開発ツールとワークフローを備えた新しいプロジェクトの出発点として機能します。
+**EduQuest** は、小学生が算数やその他の教科を練習するための教育プラットフォームです。
+pnpm ワークスペースによるモノレポ構成で、Cloudflare エッジネットワーク上で Hono SSR を使用して動作します。
 
-## セットアップと開発環境
+### コアミッション
 
-### 初期セットアップ
+- 楽しく、魅力的で、効果的な学習体験を若い学習者に提供する。
+- レイヤードアーキテクチャと Cloudflare Workers 上の SSR を使用して、**シンプルで保守性が高く、高性能**なコードベースを維持する。
+- すべての「Quest」モジュール（Math、Kanji、Game、Clock など）で一貫した UX を保つ。
 
-このリポジトリでは、パッケージ管理にHomebrew、ツールバージョン管理にmise、タスク自動化にjustを使用します：
+---
 
-```bash
-# ステップ1: Homebrew をインストール（まだインストールされていない場合）
-make bootstrap
+## 2. 主要ドキュメント
 
-# ステップ2: すべての開発ツールをインストール
-brew bundle install
+このファイルはハブです。詳細は、以下の専用ドキュメントを参照してください。
 
-# ステップ3: 開発環境をセットアップ
-just setup
-```
+- **プロジェクト & アーキテクチャ**
 
-**代替ワンコマンドセットアップ**（Homebrewが既にインストールされている場合）:
+  - `docs/README.md` — プロジェクト概要、リポジトリ構成、よく使うコマンド。
+  - `docs/edu-quest-architecture.md` — レイヤードアーキテクチャ、モジュール、データフロー、技術スタック。
+  - `docs/local-dev.md` — ローカル開発と環境セットアップ。
 
-```bash
-just setup
-```
+- **デザイン & UX**
 
-### mise によるツール管理
+  - `docs/ux-design-concept.md` — UX 哲学、ターゲットユーザー、ビジュアルテーマ、ゲーミフィケーション。
+  - `docs/edu-quest-wireframe.md` — メイン画面のワイヤーフレーム。
 
-```bash
-# .tool-versionsで定義されたすべてのツールをインストール
-mise install
+- **AI & ワークフロールール**
 
-# インストールされたバージョンを確認
-mise list
+  - `docs/AI_RULES.md` — すべての AI アシスタント向けの共通ルール。
+  - `docs/CLAUDE.ja.md` — この指示の日本語版（より詳細）。
 
-# ツールを最新バージョンに更新
-mise upgrade
-```
+- **Quest 固有の設計**
+  - `docs/kanji-quest-design.md` / `.ja.md` — KanjiQuest 設計。
+  - `docs/game-quest-design.md` / `.ja.md` — GameQuest 設計。
 
-### just によるタスク管理
+迷ったら: **`docs/README.md` → `docs/edu-quest-architecture.md` → Quest 固有ドキュメントの順に参照。**
 
-```bash
-# すべての利用可能なタスクを表示
-just help
+---
 
-# 開発環境をセットアップ（brew bundle + mise install + Claude/Gemini CLI + pre-commit install）
-just setup
+## 3. ドキュメントローカライズポリシー
 
-# すべてのリンティングチェックを実行
-just lint
+EduQuest は**英語 + 日本語**でドキュメントを管理しています。
 
-# 特定のpre-commitフックを実行
-just lint-hook <hook-name>
+### 3.1 ファイル命名
 
-# よくあるフォーマット問題を修正
-just fix
+- 英語ベースファイル: `*.md`
+- 対応する日本語訳: `*.ja.md`
+- 両ファイルは**同じディレクトリ**に配置。
 
-# pre-commitキャッシュをクリア（強制クリーンアップ）
-just clean
+### 3.2 同期ルール（重要）
 
-# pre-commitフックを更新
-just update-hooks
+`.md` ファイルを変更する場合、同じディレクトリにある対応する `.ja.md` ファイルも**必ず**更新してください。
 
-# Homebrewパッケージを更新
-just update-brew
+対象:
 
-# mise管理のツールを更新
-just update
+- プロジェクトドキュメント: `README.md`、`CONTRIBUTING.md` など。
+- 技術ドキュメント: `docs/*.md`
+- 設計ドキュメント: `docs/edu-quest-*.md`、`docs/*-quest-design.md`
+- ワークフロードキュメント: `docs/AI_RULES.md` など。
 
-# miseの状態を表示
-just status
-```
+**ワークフロー:**
 
-## コード品質とリンティング
+1. `{filename}.ja.md` が存在するか確認。
+2. 英語版 `.md` ファイルを更新。
+3. `{filename}.ja.md` に同等の内容を反映。
+4. `{filename}.ja.md` が存在しない場合は、作成を検討（またはユーザーに確認）。
 
-このリポジトリでは、コード品質の強制にpre-commitフックを使用しています。直接実行するかjustコマンドを使用できます：
+**AI アシスタントへの注意:**
 
-```bash
-# justを使用（推奨）
-just lint
+- `ls` / `find` を使用して `.ja.md` ファイルの存在を確認。
+- 日本語訳に自信がない場合は、ユーザーに明示的に確認。
+- **英語版と日本語版を同期されていない状態で放置しない。**
 
-# または直接pre-commitを実行
-pre-commit run --all-files
-```
+---
 
-### 利用可能なpre-commitフック
+## 4. このリポジトリでの Claude の動作方法
 
-- **ファイル検証**: check-json、check-yaml、check-added-large-files
-- **セキュリティ**: detect-aws-credentials、detect-private-key
-- **フォーマット**: end-of-file-fixer、trailing-whitespace、mixed-line-ending
-- **YAMLリンティング**: yamllint
-- **スペルチェック**: cspell（cspell.json設定を使用）
-- **Markdownリンティング**: markdownlint-cli2（自動修正付き）
-- **日本語テキストリンティング**: 日本語固有のルールを持つtextlint
-- **シークレット検知**: secretlint（推奨プリセットでハードコードされた資格情報を検出）
-- **シェルスクリプトリンティング**: shellcheck
-- **GitHub Actions**: actionlint、ワークフローファイル用prettier
-- **Terraform**: terraform_fmt
-- **Renovate**: renovate-config-validator
+### 4.1 基本原則
 
-## スペルチェック
+このリポジトリで作業する際、Claude は以下を守る:
 
-リポジトリでは、`cspell.json`にカスタム辞書を持つcspellをスペルチェックに使用しています。辞書には、プロジェクト固有の用語、ツール、開発で一般的に使用される固有名詞が含まれています。
+1. **編集前に読む**
 
-## ツールアーキテクチャと依存関係
+   - 変更を提案する前に、既存のコード、ドキュメント、アーキテクチャ図を必ず確認。
+   - 推測よりも `docs/edu-quest-architecture.md` や Quest 固有ドキュメントを読むことを優先。
 
-### ツールの責任範囲
+2. **変更は小さく、焦点を絞る**
 
-このセットアップでは責任範囲を明確に分離しています：
+   - PR / 変更セットごとに 1 つの関心事。
+   - 明示的に要求されない限り、無関係なリファクタリングを避ける。
 
-- **brew**: システムレベルの開発ツール（git、pre-commit、mise、just、uv）
-- **mise**: Node.jsのバージョン管理のみ
-- **uv**: Pythonパッケージ・プロジェクト管理
-- **pre-commit**: すべてのリンティングツールを自動処理（個別インストール不要）
+3. **Git 操作を自動実行しない**
 
-### 依存関係管理
+   - `git add`、`git commit`、`git push` などを**絶対に**自動実行しない。
+   - Git を操作する前に、必ずユーザーの明示的な許可を待つ。
 
-- **Renovate**: 依存関係の自動更新は`renovate.json5`を通じて設定され、`github>tqer39/renovate-config`から拡張されています
+4. **既存の規約に従う**
 
-## GitHub ワークフローと自動化
+   - 既存の TypeScript スタイル、ディレクトリ構造、命名パターンに合わせる。
+   - 新しく作るのではなく、既存のユーティリティ（例: `formatSchoolGradeLabelShort`、セッションヘルパー）を再利用。
 
-リポジトリには以下のGitHub Actionsワークフローが含まれています：
+5. **要件が不明確な場合は質問する**
+   - UX、エッジケース、アーキテクチャに曖昧さがある場合は、推測せずにユーザーに確認。
 
-- **Pre-commit**: mainブランチへのプッシュとプルリクエストで実行
-- **Auto-assign**: kentaro-m/auto-assign-actionを使用してPR作成者を自動割り当て
-- **Labeler**: ファイルパターンに基づいてPRを自動ラベル付け（editorconfig、document、terraform、textlint、yamllint、markdownlint、asdf、actionlint、CODEOWNERSをサポート）
-- **ライセンス年更新**: 自動化されたライセンス年のメンテナンス
+---
 
-## プロジェクト構造
+## 5. アーキテクチャ & リポジトリ概要（ハイレベル）
 
-- `.github/`: GitHub固有の設定（ワークフロー、CODEOWNERS、テンプレート）
-- `.editorconfig`: 一貫したコードフォーマットのためのエディタ設定
-- `.pre-commit-config.yaml`: pre-commitフック設定
-- `.tool-versions`: mise用のツールバージョン定義
-- `Brewfile`: brew bundle用のHomebrewパッケージ定義
-- `cspell.json`: スペルチェッカー設定とカスタム辞書
-- `docs/`: ドキュメントファイル
-- `justfile`: タスク自動化定義
-- `Makefile`: Homebrewブートストラップセットアップ
-- `renovate.json5`: 依存関係更新自動化設定
+すべての詳細は不要です。どこを見るべきかを把握するために使用してください。
 
-## コード所有権
+- **pnpm ワークスペースによるモノレポ**
+  - `apps/`
+    - `@edu-quest/edge` — Cloudflare Workers 上のメイン SSR + BFF アプリ（ほとんどの変更対象）。
+    - `@edu-quest/api` — ローカル API サーバー（主に開発用）。
+    - `@edu-quest/web` — ローカル Web サーバープレースホルダー（実際のアプリではない）。
+  - `packages/`
+    - `@edu-quest/domain` — コアドメインロジック（問題生成、ルール）。
+    - `@edu-quest/app` — ドメイン層上に構築されたアプリケーションロジック。
+  - `infra/`
+    - `terraform/` — Cloudflare インフラ（IaC）。
+    - `migrations/` — D1 スキーマとマイグレーションスクリプト。
+  - `docs/`
+    - アーキテクチャ、UX、Quest、ルールなどのドキュメント。
 
-- グローバルコードオーナー: @tqer39（CODEOWNERSで定義）
+詳細な図とフローは、常に `docs/edu-quest-architecture.md` を参照。
 
-## 開発ワークフロー
+---
 
-1. pre-commitフックはコミット時に自動実行されます
-2. プルリクエストは作成者に自動割り当てされます
-3. PRは変更されたファイルに基づいて自動ラベル付けされます
-4. マージ前にすべてのpre-commitチェックが通過する必要があります
-5. Renovateが依存関係更新のPRを自動作成します
+## 6. 重要な UX ルール
+
+### 6.1 解答入力方式（プラットフォーム全体）
+
+**重要: すべての Quest（算数、時計、漢字、ゲームなど）はボタン式の解答入力を使用。**
+
+- クイズの解答に `<input type="text">`、`<input type="number">`、`<select>` などを**使用しない**。
+- クリック/タップ可能な `<button>` 要素（解答選択肢ごとに 1 つのボタン）を**使用する**。
+- SSR フレンドリーな `<form method="POST">` と hidden input + `<button>` を優先。
+
+理由:
+
+- ターゲットユーザーはタイピングスキルが限られた小学生。
+- モバイル/タブレットでより良い UX、検証問題が少ない、より予測可能なインタラクション。
+
+入力変更を提案し、それが解答用のテキストフィールドを含む場合、**それは間違っています**。
+
+---
+
+### 6.2 ナビゲーション設計
+
+EduQuest は認知負荷を減らすために**最小限のナビゲーション**を使用。
+
+- アイコン + 短いラベルを優先:
+  - 冗長なテキストラベルなしで Quest アイコン（例: `🔢`）を使用。
+  - 完全なフレーズの代わりに `小1`、`小2` のような短い学年ラベルを使用。
+- ナビゲーションをコンパクトに保ち、学習コンテンツのエリアを最大化。
+- 学年文字列をハードコードする代わりに `formatSchoolGradeLabelShort()` などのヘルパーを使用。
+
+ナビゲーションを変更する場合:
+
+- 詳細なルールは `docs/ux-design-concept.md` を確認。
+- 最小限のアイコンファーストデザインを維持。
+
+---
+
+## 7. セッション & データポリシー（ハイレベル）
+
+### 7.1 セッション管理
+
+**重要: Quest のセッションデータは、Cookie やクライアントストレージではなく、Cloudflare KV に保存。**
+
+- セッション状態を `KV_QUIZ_SESSION`（および関連する KV ネームスペース）に保存。
+- Cookie には不透明なセッション ID のみを保持（HttpOnly、Secure、SameSite）。
+- クイズの問題、解答、機密状態を localStorage やプレーン Cookie に入れない。
+
+セッションロジックを追加または変更する場合:
+
+- `apps/edge` ルートの既存パターンに従う。
+- キー命名を一貫させる（例: `{quest_type}:{session_id}`）。
+
+### 7.2 静的マスターデータ（漢字など）
+
+- 教育マスターデータ（例: 漢字リスト）は `packages/domain/src/data/` 配下に JSON として保存。
+- このコンテンツは:
+  - Git でバージョン管理。
+  - ランタイムでは読み取り専用。
+- ユーザー固有の進捗や分析は、これらの JSON ファイルに保存**しない**（実装時は DB を使用）。
+
+詳細は専用ドキュメントにあります。ここではポリシーだけを覚えてください。
+
+---
+
+## 8. 開発 & テストワークフロー（概要）
+
+具体的なコマンドは `docs/README.md` / `docs/local-dev.md` を参照。
+Claude は**重要な制約**のみを覚える:
+
+- 最終パッチを提案する前に lint/テストを実行:
+  - `just lint`
+  - `pnpm test` / `pnpm test:coverage`
+  - フロー/ルートで作業する場合は `just e2e` または `just e2e-ci`。
+- ユーザーが要求しない限り、CI ワークフロー（GitHub Actions）を変更**しない**。
+- テスト動作を変更する場合は、テストとドキュメントを一緒に更新。
+
+---
+
+## 9. AI アシスタント向け貢献チェックリスト
+
+変更が「完了」と言う前に:
+
+1. **関連ドキュメントを読む**（アーキテクチャ、Quest 設計、UX、ルール）。
+2. **適切なコードを見つける** — 新しいランダムなファイルを作成するのではなく、`apps/` / `packages/` 内で。
+3. **小さくスコープされた変更を提案** — 明確な理由とともに。
+4. **UX ルールを尊重**:
+   - ボタン式の解答。
+   - 最小限のナビゲーション。
+   - 該当する場合は Quest 固有のテーマ。
+5. **アーキテクチャルールを尊重**:
+   - ドメインロジックは `@edu-quest/domain` に保持。
+   - アプリオーケストレーションは `@edu-quest/app` / `apps/edge` に保持。
+   - セッションには KV を使用。クライアントサイドのセッション状態は使用しない。
+6. **ドキュメントを更新**（動作が変更された場合は `.ja.md` も一緒に）。
+7. **Git コマンドを自動実行しない** — ユーザーの確認を待つ。
+
+これらのステップが不明確な場合は、推測せずに**まずユーザーに確認**。

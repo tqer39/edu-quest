@@ -1,6 +1,6 @@
 ---
-description: 'Review a pull request'
-targets: ['*']
+mode: agent
+description: Review a pull request
 ---
 
 target_pr = $ARGUMENTS

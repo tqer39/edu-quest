@@ -8,6 +8,5 @@
 - 最小差分・既存スタイル順守
 - `just lint` 準拠
 - 主要コマンド: `brew bundle install` → `just setup` / `just lint` / `just fix`
-- ルール同期（任意）: `just rulesync -- --check` / `just rulesync -- apply`
 
-詳細: `docs/AI_RULES.ja.md` / `AGENTS.md`
+詳細: `docs/AI_RULES.ja.md`

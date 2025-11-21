@@ -1,3 +1,7 @@
+---
+description: ''
+---
+
 ## 1. 概要
 
 このドキュメントは、Gemini、Claude、Copilot などの AI アシスタントが **EduQuest** プロジェクトを理解し、貢献するための包括的なガイドです。
@@ -20,7 +24,6 @@
 - **[Local Development](./docs/local-dev.md)**: ローカル環境のセットアップとアプリケーションの起動方法。
 - **[AI Assistant Rules](./docs/AI_RULES.md)**: 本リポジトリに貢献する AI アシスタント向けの共通ルールとガイドライン。
 - **[Claude-specific Instructions](./docs/CLAUDE.md)**: Claude Code アシスタント向けの特有ガイダンス。
-- **[rulesync Guide](./docs/RULESYNC.md)**: `rulesync` ツールで設定ファイルを最新に保つ方法。
 
 ### 2.1. クエスト固有の設計ドキュメント
 
@@ -41,7 +44,7 @@
   - プロジェクトドキュメント (AGENTS.md、README.md、CONTRIBUTING.md など)
   - 技術ドキュメント (docs/\*.md)
   - 設計ドキュメント (docs/edu-quest-_.md、docs/_-quest-design.md)
-  - ワークフロードキュメント (docs/RULESYNC.md、docs/AI_RULES.md など)
+  - ワークフロードキュメント (docs/AI_RULES.md など)
 
 **ワークフロー:**
 

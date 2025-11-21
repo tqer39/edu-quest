@@ -1,3 +1,5 @@
+[🇺🇸 English](/docs/game-quest-design.md)
+
 # GameQuest 設計ドキュメント
 
 ## 概要
