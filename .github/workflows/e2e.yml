@@ -28,7 +28,7 @@ jobs:
       - uses: extractions/setup-just@v3
 
       # Setup mise for Node.js and pnpm
-      - uses: jdx/mise-action@v3.4.1
+      - uses: jdx/mise-action@v3.5.0
         with:
           version: 2025.9.13
           cache: true
