@@ -12,7 +12,7 @@
     "@edu-quest/app": "workspace:*",
     "@edu-quest/domain": "workspace:*",
     "@hono/node-server": "1.19.6",
-    "hono": "4.10.6"
+    "hono": "4.10.7"
   },
   "devDependencies": {
     "typescript": "5.9.3"
