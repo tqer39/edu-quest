@@ -51,7 +51,7 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/set-matrix
         id: set-matrix
         with:
@@ -72,7 +72,7 @@ jobs:
       matrix:
         directory: ${{ fromJson(needs.set-matrix.outputs.matrix) }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/aws-credential
         with:
           oidc-iam-role: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/${{ env.OIDC_IAM_ROLE }}
@@ -126,7 +126,7 @@ jobs:
       pull-requests: write
       issues: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/cleanup-terraform-pr
         with:
           environment: ${{ env.AWS_ENV_NAME }}
