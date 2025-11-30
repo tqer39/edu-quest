@@ -27,7 +27,7 @@ jobs:
       pull-requests: write # For PR comments
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # Setup mise for Trivy
       - uses: jdx/mise-action@v3.5.1
