@@ -24,6 +24,6 @@
     "typescript": "5.9.3",
     "vitest": "4.0.15",
     "drizzle-kit": "0.31.8",
-    "tailwindcss": "4.1.17"
+    "tailwindcss": "4.1.18"
   }
 }
