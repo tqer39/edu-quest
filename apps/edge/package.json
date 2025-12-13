@@ -16,7 +16,7 @@
     "hono": "4.10.7",
     "@edu-quest/domain": "workspace:*",
     "@edu-quest/app": "workspace:*",
-    "drizzle-orm": "0.45.0"
+    "drizzle-orm": "0.45.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20251205.0",
