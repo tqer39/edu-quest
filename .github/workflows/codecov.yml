@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v6
 
       # Setup mise for Node.js and pnpm
-      - uses: jdx/mise-action@v3.5.1
+      - uses: jdx/mise-action@v3.6.1
         with:
           version: 2025.9.13
           cache: true
