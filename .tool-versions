@@ -1,5 +1,5 @@
 nodejs 24.13.0
 pnpm 10.28.2
 terraform 1.14.4
-trivy 0.68.2
+trivy 0.69.0
 npm:wrangler 4.40.3
