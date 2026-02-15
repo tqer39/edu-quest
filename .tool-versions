@@ -1,4 +1,4 @@
-nodejs 24.13.0
+nodejs 24.13.1
 pnpm 10.29.3
 terraform 1.14.5
 trivy 0.69.1
