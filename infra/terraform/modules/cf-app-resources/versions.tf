@@ -3,7 +3,7 @@ terraform {
     # Terraform が誤って hashicorp/cloudflare を参照しなくなるようにするため、source を明示的に指定
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "5.16.0"
+      version = "5.17.0"
     }
   }
 }
