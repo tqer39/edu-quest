@@ -13,7 +13,7 @@
     "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./public/styles/tailwind.min.css --minify"
   },
   "dependencies": {
-    "hono": "4.12.1",
+    "hono": "4.12.2",
     "@edu-quest/domain": "workspace:*",
     "@edu-quest/app": "workspace:*",
     "drizzle-orm": "0.45.1"
