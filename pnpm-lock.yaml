@@ -34,10 +34,10 @@ importers:
         version: link:../../packages/domain
       '@hono/node-server':
         specifier: 1.19.9
-        version: 1.19.9(hono@4.12.2)
+        version: 1.19.9(hono@4.12.3)
       hono:
-        specifier: 4.12.2
-        version: 4.12.2
+        specifier: 4.12.3
+        version: 4.12.3
     devDependencies:
       typescript:
         specifier: 5.9.3
@@ -55,8 +55,8 @@ importers:
         specifier: 0.45.1
         version: 0.45.1(@cloudflare/workers-types@4.20260228.1)
       hono:
-        specifier: 4.12.2
-        version: 4.12.2
+        specifier: 4.12.3
+        version: 4.12.3
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 4.20260228.1
@@ -81,10 +81,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: 1.19.9
-        version: 1.19.9(hono@4.12.2)
+        version: 1.19.9(hono@4.12.3)
       hono:
-        specifier: 4.12.2
-        version: 4.12.2
+        specifier: 4.12.3
+        version: 4.12.3
     devDependencies:
       '@types/node':
         specifier: 24.10.13
@@ -1558,8 +1558,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.12.2:
-    resolution: {integrity: sha512-gJnaDHXKDayjt8ue0n8Gs0A007yKXj4Xzb8+cNjZeYsSzzwKc0Lr+OZgYwVfB0pHfUs17EPoLvrOsEaJ9mj+Tg==}
+  hono@4.12.3:
+    resolution: {integrity: sha512-SFsVSjp8sj5UumXOOFlkZOG6XS9SJDKw0TbwFeV+AJ8xlST8kxK5Z/5EYa111UY8732lK2S/xB653ceuaoGwpg==}
     engines: {node: '>=16.9.0'}
 
   html-escaper@2.0.2:
@@ -2505,9 +2505,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.3':
     optional: true
 
-  '@hono/node-server@1.19.9(hono@4.12.2)':
+  '@hono/node-server@1.19.9(hono@4.12.3)':
     dependencies:
-      hono: 4.12.2
+      hono: 4.12.3
 
   '@img/colour@1.0.0': {}
 
@@ -3257,7 +3257,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.12.2: {}
+  hono@4.12.3: {}
 
   html-escaper@2.0.2: {}
 
