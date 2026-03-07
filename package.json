@@ -30,6 +30,6 @@
     "@playwright/test": "^1.56.1",
     "@types/node": "24.11.0",
     "cypress": "15.11.0",
-    "wrangler": "4.69.0"
+    "wrangler": "4.71.0"
   }
 }
