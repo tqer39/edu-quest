@@ -23,7 +23,7 @@
     "wrangler": "4.73.0",
     "typescript": "5.9.3",
     "vitest": "4.1.0",
-    "drizzle-kit": "0.31.9",
+    "drizzle-kit": "0.31.10",
     "tailwindcss": "4.2.2"
   }
 }
