@@ -32,6 +32,6 @@ jobs:
         run: pnpm install
 
       # Run prek with official action
-      - uses: j178/prek-action@v1
+      - uses: j178/prek-action@v2
         with:
           extra_args: --all-files
