@@ -27,10 +27,10 @@ jobs:
       pull-requests: write # For PR comments
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       # Setup mise for Trivy
-      - uses: jdx/mise-action@v4.0.1
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
         with:
           version: 2025.9.13
           cache: true
@@ -54,7 +54,7 @@ jobs:
             --exit-code 0
 
       - name: Upload Trivy results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v4
+        uses: github/codeql-action/upload-sarif@c10b8064de6f491fea524254123dbe5e09572f13 # v4
         if: always()
         with:
           sarif_file: trivy-results.sarif
@@ -62,7 +62,7 @@ jobs:
 
       - name: Comment on PR with Trivy results
         if: github.event_name == 'pull_request'
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           script: |
             const fs = require('fs');
