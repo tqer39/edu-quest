@@ -32,7 +32,7 @@ runs:
   steps:
     - name: Authenticate to Google Cloud (for domain directory)
       if: inputs.gcp-workload-identity-provider != '' && inputs.gcp-service-account != ''
-      uses: google-github-actions/auth@v3
+      uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3
       with:
         workload_identity_provider: ${{ inputs.gcp-workload-identity-provider }}
         service_account: ${{ inputs.gcp-service-account }}
@@ -50,7 +50,7 @@ runs:
 
     - name: Cache tfcmt
       id: cache-tfcmt
-      uses: actions/cache@v5
+      uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
       with:
         path: ~/bin/tfcmt
         key: tfcmt-${{ runner.os }}-v4.14.12
@@ -136,7 +136,7 @@ runs:
     - name: Slack Notification (failure)
       continue-on-error: true
       if: steps.terraform-plan.outputs.exitcode == '1' || (env.TF_PLAN_STATUS == 'has-diff' && inputs.CHECK_DIFF == '_true')
-      uses: rtCamp/action-slack-notify@v2
+      uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2
       env:
         SLACK_CHANNEL: '#ntf_gh_private-lab'
         SLACK_COLOR: danger
