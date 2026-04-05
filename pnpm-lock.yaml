@@ -40,8 +40,8 @@ importers:
         version: 4.12.10
     devDependencies:
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
 
   apps/edge:
     dependencies:
@@ -68,8 +68,8 @@ importers:
         specifier: 4.2.2
         version: 4.2.2
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
       vitest:
         specifier: 4.1.2
         version: 4.1.2(@types/node@24.12.2)(vite@7.1.12(@types/node@24.12.2)(jiti@1.21.7)(tsx@4.21.0)(yaml@2.8.1))
@@ -90,8 +90,8 @@ importers:
         specifier: 24.12.2
         version: 24.12.2
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
 
   packages/app:
     dependencies:
@@ -100,8 +100,8 @@ importers:
         version: link:../domain
     devDependencies:
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
 
   packages/domain:
     devDependencies:
@@ -109,8 +109,8 @@ importers:
         specifier: 4.1.2
         version: 4.1.2(vitest@4.1.2(@types/node@24.12.2)(vite@7.1.12(@types/node@24.12.2)(jiti@1.21.7)(tsx@4.21.0)(yaml@2.8.1)))
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
       vitest:
         specifier: 4.1.2
         version: 4.1.2(@types/node@24.12.2)(vite@7.1.12(@types/node@24.12.2)(jiti@1.21.7)(tsx@4.21.0)(yaml@2.8.1))
@@ -2178,8 +2178,8 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -4016,7 +4016,7 @@ snapshots:
 
   type-fest@0.8.1: {}
 
-  typescript@5.9.3: {}
+  typescript@6.0.2: {}
 
   undici-types@7.16.0: {}
 
