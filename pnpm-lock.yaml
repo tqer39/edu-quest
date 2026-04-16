@@ -34,10 +34,10 @@ importers:
         version: link:../../packages/domain
       '@hono/node-server':
         specifier: 1.19.13
-        version: 1.19.13(hono@4.12.12)
+        version: 1.19.13(hono@4.12.14)
       hono:
-        specifier: 4.12.12
-        version: 4.12.12
+        specifier: 4.12.14
+        version: 4.12.14
     devDependencies:
       typescript:
         specifier: 6.0.2
@@ -55,8 +55,8 @@ importers:
         specifier: 0.45.2
         version: 0.45.2(@cloudflare/workers-types@4.20260411.1)
       hono:
-        specifier: 4.12.12
-        version: 4.12.12
+        specifier: 4.12.14
+        version: 4.12.14
     devDependencies:
       '@cloudflare/workers-types':
         specifier: 4.20260411.1
@@ -81,10 +81,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: 1.19.13
-        version: 1.19.13(hono@4.12.12)
+        version: 1.19.13(hono@4.12.14)
       hono:
-        specifier: 4.12.12
-        version: 4.12.12
+        specifier: 4.12.14
+        version: 4.12.14
     devDependencies:
       '@types/node':
         specifier: 24.12.2
@@ -1734,8 +1734,8 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
-  hono@4.12.12:
-    resolution: {integrity: sha512-p1JfQMKaceuCbpJKAPKVqyqviZdS0eUxH9v82oWo1kb9xjQ5wA6iP3FNVAPDFlz5/p7d45lO+BpSk1tuSZMF4Q==}
+  hono@4.12.14:
+    resolution: {integrity: sha512-am5zfg3yu6sqn5yjKBNqhnTX7Cv+m00ox+7jbaKkrLMRJ4rAdldd1xPd/JzbBWspqaQv6RSTrgFN95EsfhC+7w==}
     engines: {node: '>=16.9.0'}
 
   html-escaper@2.0.2:
@@ -2774,9 +2774,9 @@ snapshots:
   '@esbuild/win32-x64@0.27.3':
     optional: true
 
-  '@hono/node-server@1.19.13(hono@4.12.12)':
+  '@hono/node-server@1.19.13(hono@4.12.14)':
     dependencies:
-      hono: 4.12.12
+      hono: 4.12.14
 
   '@img/colour@1.0.0': {}
 
@@ -3560,7 +3560,7 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
-  hono@4.12.12: {}
+  hono@4.12.14: {}
 
   html-escaper@2.0.2: {}
 
