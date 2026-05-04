@@ -22,7 +22,7 @@ importers:
         version: 15.13.1
       wrangler:
         specifier: 4.81.1
-        version: 4.81.1(@cloudflare/workers-types@4.20260411.1)
+        version: 4.81.1(@cloudflare/workers-types@4.20260420.1)
 
   apps/api:
     dependencies:
@@ -53,14 +53,14 @@ importers:
         version: link:../../packages/domain
       drizzle-orm:
         specifier: 0.45.2
-        version: 0.45.2(@cloudflare/workers-types@4.20260411.1)
+        version: 0.45.2(@cloudflare/workers-types@4.20260420.1)
       hono:
         specifier: 4.12.14
         version: 4.12.14
     devDependencies:
       '@cloudflare/workers-types':
-        specifier: 4.20260411.1
-        version: 4.20260411.1
+        specifier: 4.20260420.1
+        version: 4.20260420.1
       drizzle-kit:
         specifier: 0.31.10
         version: 0.31.10
@@ -75,7 +75,7 @@ importers:
         version: 4.1.4(@types/node@24.12.2)(@vitest/coverage-v8@4.1.4)(vite@7.1.12(@types/node@24.12.2)(jiti@1.21.7)(tsx@4.21.0)(yaml@2.8.1))
       wrangler:
         specifier: 4.81.1
-        version: 4.81.1(@cloudflare/workers-types@4.20260411.1)
+        version: 4.81.1(@cloudflare/workers-types@4.20260420.1)
 
   apps/web:
     dependencies:
@@ -238,8 +238,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@cloudflare/workers-types@4.20260411.1':
-    resolution: {integrity: sha512-SsntcTanLz+LmgJC8yB7sGCtpC8HxboVDmwrOH1hp1SHZwuKnhfmhUfeiwy7O/cE3iVN1cxe1E17stxP5DJXDw==}
+  '@cloudflare/workers-types@4.20260420.1':
+    resolution: {integrity: sha512-DHT9JnSn9cIiCSdL76OxW+Xvc1+ml1CWzWvgVwreoHQ+E604aeFxPPHp9X7nE+XRWm2NH4l0OgtxUI5T/nuI3g==}
 
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
@@ -2199,6 +2199,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   verror@1.10.0:
@@ -2423,7 +2424,7 @@ snapshots:
   '@cloudflare/workerd-windows-64@1.20260409.1':
     optional: true
 
-  '@cloudflare/workers-types@4.20260411.1': {}
+  '@cloudflare/workers-types@4.20260420.1': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -3271,9 +3272,9 @@ snapshots:
       esbuild: 0.25.11
       tsx: 4.21.0
 
-  drizzle-orm@0.45.2(@cloudflare/workers-types@4.20260411.1):
+  drizzle-orm@0.45.2(@cloudflare/workers-types@4.20260420.1):
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20260411.1
+      '@cloudflare/workers-types': 4.20260420.1
 
   dunder-proto@1.0.1:
     dependencies:
@@ -4094,7 +4095,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260409.1
       '@cloudflare/workerd-windows-64': 1.20260409.1
 
-  wrangler@4.81.1(@cloudflare/workers-types@4.20260411.1):
+  wrangler@4.81.1(@cloudflare/workers-types@4.20260420.1):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.2
       '@cloudflare/unenv-preset': 2.16.0(unenv@2.0.0-rc.24)(workerd@1.20260409.1)
@@ -4105,7 +4106,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       workerd: 1.20260409.1
     optionalDependencies:
-      '@cloudflare/workers-types': 4.20260411.1
+      '@cloudflare/workers-types': 4.20260420.1
       fsevents: 2.3.3
     transitivePeerDependencies:
       - bufferutil
