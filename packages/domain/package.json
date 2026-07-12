@@ -19,7 +19,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "typescript": "6.0.2",
+    "typescript": "6.0.3",
     "vitest": "4.1.4",
     "@vitest/coverage-v8": "4.1.4"
   }
